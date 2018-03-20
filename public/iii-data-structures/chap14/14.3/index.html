@@ -12,19 +12,19 @@
     <title>14.3 Interval trees :: Solutions</title>
     
     
-    <link href="/CLRS/css/nucleus.css?1521555766" rel="stylesheet">
-    <link href="/CLRS/css/font-awesome.min.css?1521555766" rel="stylesheet">
-    <link href="/CLRS/css/hybrid.css?1521555766" rel="stylesheet">
-    <link href="/CLRS/css/featherlight.min.css?1521555766" rel="stylesheet">
-    <link href="/CLRS/css/perfect-scrollbar.min.css?1521555766" rel="stylesheet">
-    <link href="/CLRS/css/auto-complete.css?1521555766" rel="stylesheet">
-    <link href="/CLRS/css/theme.css?1521555766" rel="stylesheet">
-    <link href="/CLRS/css/hugo-theme.css?1521555766" rel="stylesheet">
+    <link href="/CLRS/css/nucleus.css?1521557863" rel="stylesheet">
+    <link href="/CLRS/css/font-awesome.min.css?1521557863" rel="stylesheet">
+    <link href="/CLRS/css/hybrid.css?1521557863" rel="stylesheet">
+    <link href="/CLRS/css/featherlight.min.css?1521557863" rel="stylesheet">
+    <link href="/CLRS/css/perfect-scrollbar.min.css?1521557863" rel="stylesheet">
+    <link href="/CLRS/css/auto-complete.css?1521557863" rel="stylesheet">
+    <link href="/CLRS/css/theme.css?1521557863" rel="stylesheet">
+    <link href="/CLRS/css/hugo-theme.css?1521557863" rel="stylesheet">
     
-      <link href="/CLRS/css/theme-nippon2.css?1521555766" rel="stylesheet">
+      <link href="/CLRS/css/theme-nippon2.css?1521557863" rel="stylesheet">
     
 
-    <script src="/CLRS/js/jquery-2.x.min.js?1521555766"></script>
+    <script src="/CLRS/js/jquery-2.x.min.js?1521557863"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/CLRS/js/lunr.min.js?1521555766"></script>
-<script type="text/javascript" src="/CLRS/js/auto-complete.js?1521555766"></script>
+<script type="text/javascript" src="/CLRS/js/lunr.min.js?1521557863"></script>
+<script type="text/javascript" src="/CLRS/js/auto-complete.js?1521557863"></script>
 <script type="text/javascript">
     
         var baseurl = '\/CLRS';
     
 </script>
-<script type="text/javascript" src="/CLRS/js/search.js?1521555766"></script>
+<script type="text/javascript" src="/CLRS/js/search.js?1521557863"></script>
 
     
   </div>
@@ -8618,7 +8618,7 @@ Note that in addition (not asked for in the exercise), it is possible to find th
 <h2 id="14-3-7-star">14.3-7 $\star$</h2>
 
 <blockquote>
-<p>VLSI databases commonly represent an integrated circuit as a list of rectangles. Assume that each rectangle is rectilinearly oriented (sides parallel to the $x$- and $y$-axes), so that we represent a rectangle by its minimum and maximum $x$ and $y$-coordinates. Give an $O(n\lg n)$-time algorithm to decide whether or not a set of $n$ rectangles so represented contains two rectangles that overlap. Your algorithm need not report all intersecting pairs, but it must report that an overlap exists if one rectangle entirely covers another, even if the boundary lines do not intersect. ($\textit{Hint:}$ Move a &laquo;sweep&raquo; line across the set of rectangles.)</p>
+<p>VLSI databases commonly represent an integrated circuit as a list of rectangles. Assume that each rectangle is rectilinearly oriented (sides parallel to the $x$- and $y$-axes), so that we represent a rectangle by its minimum and maximum $x$ and $y$-coordinates. Give an $O(n\lg n)$-time algorithm to decide whether or not a set of $n$ rectangles so represented contains two rectangles that overlap. Your algorithm need not report all intersecting pairs, but it must report that an overlap exists if one rectangle entirely covers another, even if the boundary lines do not intersect. ($\textit{Hint:}$ Move a &ldquo;sweep&rdquo; line across the set of rectangles.)</p>
 </blockquote>
 
 <p>General idea: Move a sweep line from left to right, while maintaining the set of rectangles currently intersected by the line in an interval tree. The interval tree will organize all rectangles whose $x$ interval includes the current position of the sweep line, and it will be based on the $y$ intervals of the rectangles, so that any overlapping $y$ intervals in the interval tree correspond to overlapping rectangles. Details:</p>
@@ -8634,7 +8634,7 @@ Note that in addition (not asked for in the exercise), it is possible to find th
 </ul></li>
 </ol>
 
-<p>The interval tree always contains the set of &laquo;open&raquo; rectangles intersected by the sweep line. If an overlap is ever found in the interval tree, there are overlapping rectangles.</p>
+<p>The interval tree always contains the set of &ldquo;open&rdquo; rectangles intersected by the sweep line. If an overlap is ever found in the interval tree, there are overlapping rectangles.</p>
 
 <p>Time: $O(n\lg n)$.</p>
 
@@ -14713,20 +14713,20 @@ Note that in addition (not asked for in the exercise), it is possible to find th
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/CLRS/js/clipboard.min.js?1521555766"></script>
-    <script src="/CLRS/js/perfect-scrollbar.min.js?1521555766"></script>
-    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1521555766"></script>
-    <script src="/CLRS/js/jquery.sticky.js?1521555766"></script>
-    <script src="/CLRS/js/featherlight.min.js?1521555766"></script>
-    <script src="/CLRS/js/html5shiv-printshiv.min.js?1521555766"></script>
-    <script src="/CLRS/js/highlight.pack.js?1521555766"></script>
+    <script src="/CLRS/js/clipboard.min.js?1521557863"></script>
+    <script src="/CLRS/js/perfect-scrollbar.min.js?1521557863"></script>
+    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1521557863"></script>
+    <script src="/CLRS/js/jquery.sticky.js?1521557863"></script>
+    <script src="/CLRS/js/featherlight.min.js?1521557863"></script>
+    <script src="/CLRS/js/html5shiv-printshiv.min.js?1521557863"></script>
+    <script src="/CLRS/js/highlight.pack.js?1521557863"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/CLRS/js/modernizr.custom.71422.js?1521555766"></script>
-    <script src="/CLRS/js/learn.js?1521555766"></script>
-    <script src="/CLRS/js/hugo-learn.js?1521555766"></script>
+    <script src="/CLRS/js/modernizr.custom.71422.js?1521557863"></script>
+    <script src="/CLRS/js/learn.js?1521557863"></script>
+    <script src="/CLRS/js/hugo-learn.js?1521557863"></script>
 
-    <link href="/CLRS/mermaid/mermaid.css?1521555766" type="text/css" rel="stylesheet" />
-    <script src="/CLRS/mermaid/mermaid.js?1521555766"></script>
+    <link href="/CLRS/mermaid/mermaid.css?1521557863" type="text/css" rel="stylesheet" />
+    <script src="/CLRS/mermaid/mermaid.js?1521557863"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

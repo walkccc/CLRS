@@ -12,19 +12,19 @@
     <title>13-1 Persistent dynamic sets :: Solutions</title>
     
     
-    <link href="/CLRS/css/nucleus.css?1521555766" rel="stylesheet">
-    <link href="/CLRS/css/font-awesome.min.css?1521555766" rel="stylesheet">
-    <link href="/CLRS/css/hybrid.css?1521555766" rel="stylesheet">
-    <link href="/CLRS/css/featherlight.min.css?1521555766" rel="stylesheet">
-    <link href="/CLRS/css/perfect-scrollbar.min.css?1521555766" rel="stylesheet">
-    <link href="/CLRS/css/auto-complete.css?1521555766" rel="stylesheet">
-    <link href="/CLRS/css/theme.css?1521555766" rel="stylesheet">
-    <link href="/CLRS/css/hugo-theme.css?1521555766" rel="stylesheet">
+    <link href="/CLRS/css/nucleus.css?1521557862" rel="stylesheet">
+    <link href="/CLRS/css/font-awesome.min.css?1521557862" rel="stylesheet">
+    <link href="/CLRS/css/hybrid.css?1521557862" rel="stylesheet">
+    <link href="/CLRS/css/featherlight.min.css?1521557862" rel="stylesheet">
+    <link href="/CLRS/css/perfect-scrollbar.min.css?1521557862" rel="stylesheet">
+    <link href="/CLRS/css/auto-complete.css?1521557862" rel="stylesheet">
+    <link href="/CLRS/css/theme.css?1521557862" rel="stylesheet">
+    <link href="/CLRS/css/hugo-theme.css?1521557862" rel="stylesheet">
     
-      <link href="/CLRS/css/theme-nippon2.css?1521555766" rel="stylesheet">
+      <link href="/CLRS/css/theme-nippon2.css?1521557862" rel="stylesheet">
     
 
-    <script src="/CLRS/js/jquery-2.x.min.js?1521555766"></script>
+    <script src="/CLRS/js/jquery-2.x.min.js?1521557862"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/CLRS/js/lunr.min.js?1521555766"></script>
-<script type="text/javascript" src="/CLRS/js/auto-complete.js?1521555766"></script>
+<script type="text/javascript" src="/CLRS/js/lunr.min.js?1521557862"></script>
+<script type="text/javascript" src="/CLRS/js/auto-complete.js?1521557862"></script>
 <script type="text/javascript">
     
         var baseurl = '\/CLRS';
     
 </script>
-<script type="text/javascript" src="/CLRS/js/search.js?1521555766"></script>
+<script type="text/javascript" src="/CLRS/js/search.js?1521557862"></script>
 
     
   </div>
@@ -8543,7 +8543,7 @@
 
 <ul>
 <li>$\text{RB-INSERT-FIXUP}$ performs at most $2$ rotations, and each rotation changes the child pointers in $3$ nodes (the node around which we rotate, that node&rsquo;s parent, and one of the children of the node around which we rotate). Thus, at most 6 nodes are directly modified by rotation during $\text{RB-INSERT-FIXUP}$. In a persistent tree, all ancestors of a changed node are copied, so $\text{RB-INSERT-FIXUP}$&rsquo;s rotations take $O(\lg n)$ time to change nodes due to rotation. (Actually, the changed nodes in this case share a single $O(\lg n)$-length path of ancestors.)</li>
-<li>$\text{RB-INSERT-FIXUP}$ recolors some of the inserted node&rsquo;s ancestors, which are being changed anyway in persistent insertion, and some children of ancestors (the &laquo;uncles&raquo; referred to in the algorithm description). There are at most $O(\lg n)$ ancestors, hence at most $O(\lg n)$ color changes of uncles. Recoloring uncles doesn&rsquo;t cause any additional node changes due to persistence, because the ancestors of the uncles are the same nodes (ancestors of the inserted node) that are being changed anyway due to persistence. Thus, recoloring does not affect the $O(\lg n)$ running time, even with persistence.</li>
+<li>$\text{RB-INSERT-FIXUP}$ recolors some of the inserted node&rsquo;s ancestors, which are being changed anyway in persistent insertion, and some children of ancestors (the &ldquo;uncles&rdquo; referred to in the algorithm description). There are at most $O(\lg n)$ ancestors, hence at most $O(\lg n)$ color changes of uncles. Recoloring uncles doesn&rsquo;t cause any additional node changes due to persistence, because the ancestors of the uncles are the same nodes (ancestors of the inserted node) that are being changed anyway due to persistence. Thus, recoloring does not affect the $O(\lg n)$ running time, even with persistence.</li>
 </ul>
 
 <p>We could show similarly that deletion in a persistent tree also takes worst-case time $O(h)$.</p>
@@ -14631,20 +14631,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/CLRS/js/clipboard.min.js?1521555766"></script>
-    <script src="/CLRS/js/perfect-scrollbar.min.js?1521555766"></script>
-    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1521555766"></script>
-    <script src="/CLRS/js/jquery.sticky.js?1521555766"></script>
-    <script src="/CLRS/js/featherlight.min.js?1521555766"></script>
-    <script src="/CLRS/js/html5shiv-printshiv.min.js?1521555766"></script>
-    <script src="/CLRS/js/highlight.pack.js?1521555766"></script>
+    <script src="/CLRS/js/clipboard.min.js?1521557862"></script>
+    <script src="/CLRS/js/perfect-scrollbar.min.js?1521557862"></script>
+    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1521557862"></script>
+    <script src="/CLRS/js/jquery.sticky.js?1521557862"></script>
+    <script src="/CLRS/js/featherlight.min.js?1521557862"></script>
+    <script src="/CLRS/js/html5shiv-printshiv.min.js?1521557862"></script>
+    <script src="/CLRS/js/highlight.pack.js?1521557862"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/CLRS/js/modernizr.custom.71422.js?1521555766"></script>
-    <script src="/CLRS/js/learn.js?1521555766"></script>
-    <script src="/CLRS/js/hugo-learn.js?1521555766"></script>
+    <script src="/CLRS/js/modernizr.custom.71422.js?1521557862"></script>
+    <script src="/CLRS/js/learn.js?1521557862"></script>
+    <script src="/CLRS/js/hugo-learn.js?1521557862"></script>
 
-    <link href="/CLRS/mermaid/mermaid.css?1521555766" type="text/css" rel="stylesheet" />
-    <script src="/CLRS/mermaid/mermaid.js?1521555766"></script>
+    <link href="/CLRS/mermaid/mermaid.css?1521557862" type="text/css" rel="stylesheet" />
+    <script src="/CLRS/mermaid/mermaid.js?1521557862"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

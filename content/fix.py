@@ -15,13 +15,15 @@ for _ in subdir:
 
             with open(filedir, 'r') as readfile:
                 data = readfile.read()
-                data = data.replace('&lt;', '<')
+                if '\\tag' in data:
+                    print(file)
+                # data = data.replace('&lt;', '<')
 
                 # soup = BeautifulSoup(data)
 
                 # for a in soup.find_all('div'):
                 #     a.string = a.string.replace('\\_', '_')
 
-            with open(filedir, 'w') as writefile:
+            # with open(filedir, 'w') as writefile:
                 # writefile.write(str(soup))
-                writefile.write(data)
+                # writefile.write(data)

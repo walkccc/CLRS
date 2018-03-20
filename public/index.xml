@@ -46,7 +46,7 @@ J. L. Bentley has suggested that we simplify the problem by restricting our atte
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://walkccc.github.io/CLRS/iv-advanced-design-and-analysis-techniques/chap15/problems/15-4/</guid>
-      <description>Consider the problem of neatly printing a paragraph with a monospaced font (all characters having the same width) on a printer. The input text is a sequence of $n$ words of lengths $l_1, l_2, \ldots, l_n$, measured in characters. We want to print this paragraph neatly on a number of lines that hold a maximum of $M$ characters each. Our criterion of &amp;laquo;neatness&amp;raquo; is as follows. If a given line contains words $i$ through $j$, where $i \le j$ , and we leave exactly one space between words, the number of extra space characters at the end of the line is $M - j + i - \sum_{k = i}^j l_k$, which must be nonnegative so that the words fit on the line.</description>
+      <description>Consider the problem of neatly printing a paragraph with a monospaced font (all characters having the same width) on a printer. The input text is a sequence of $n$ words of lengths $l_1, l_2, \ldots, l_n$, measured in characters. We want to print this paragraph neatly on a number of lines that hold a maximum of $M$ characters each. Our criterion of &amp;ldquo;neatness&amp;rdquo; is as follows. If a given line contains words $i$ through $j$, where $i \le j$ , and we leave exactly one space between words, the number of extra space characters at the end of the line is $M - j + i - \sum_{k = i}^j l_k$, which must be nonnegative so that the words fit on the line.</description>
     </item>
     
     <item>
@@ -796,7 +796,7 @@ A simple, but inefficient, stack implementation keeps the entire stack on disk.<
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://walkccc.github.io/CLRS/v-advanced-data-structures/chap18/problems/18-2/</guid>
-      <description>The join operation takes two dynamic sets $S^\prime$ and $S^{\prime\prime}$ and an element $x$ such that for any $x^\prime \in S^\prime$ and $x^{\prime\prime} \in S^{\prime\prime}$, we have $x^\prime.key &amp;lt; x.key &amp;lt; x^{\prime\prime}.key$. It returns a set $S = S^\prime \cup \{x\} \cup S^{\prime\prime}$. The split operation is like an &amp;laquo;inverse&amp;raquo; join: given a dynamic set $S$ and an element $x \in S$, it creates a set $S^\prime$ that consists of all elements in set $S$ and an element $x \in S$, it creates a set $S^\prime$ that consists of all elements in $S - \{x\}$ whose keys are less than $x.</description>
+      <description>The join operation takes two dynamic sets $S^\prime$ and $S^{\prime\prime}$ and an element $x$ such that for any $x^\prime \in S^\prime$ and $x^{\prime\prime} \in S^{\prime\prime}$, we have $x^\prime.key &amp;lt; x.key &amp;lt; x^{\prime\prime}.key$. It returns a set $S = S^\prime \cup \{x\} \cup S^{\prime\prime}$. The split operation is like an &amp;ldquo;inverse&amp;rdquo; join: given a dynamic set $S$ and an element $x \in S$, it creates a set $S^\prime$ that consists of all elements in set $S$ and an element $x \in S$, it creates a set $S^\prime$ that consists of all elements in $S - \{x\}$ whose keys are less than $x.</description>
     </item>
     
     <item>
@@ -1003,7 +1003,7 @@ a. Explain why the following recurrence characterizes the space requirement $P(u
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://walkccc.github.io/CLRS/v-advanced-data-structures/chap20/problems/20-2/</guid>
-      <description>This problem investigates D. Willard&amp;rsquo;s &amp;laquo;$y$-fast tries&amp;raquo; which, like van Emde Boas trees, perform each of the operations $\text{MEMBER}$, $\text{MINIMUM}$, $\text{MAXIMUM}$, $\text{PREDECESSOR}$, and $\text{SUCCESSOR}$ on elements drawn from a universe with size $u$ in $O(\lg\lg u)$ worst-case time. The $\text{INSERT}$ and $\text{DELETE}$ operations take $O(\lg\lg u)$ amortized time. Like reduced-space van Emde Boas trees (see Problem 20-1), yfast tries use only $O(n)$ space to store $n$ elements. The design of $y$-fast tries relies on perfect hashing (see Section 11.</description>
+      <description>This problem investigates D. Willard&amp;rsquo;s &amp;ldquo;$y$-fast tries&amp;rdquo; which, like van Emde Boas trees, perform each of the operations $\text{MEMBER}$, $\text{MINIMUM}$, $\text{MAXIMUM}$, $\text{PREDECESSOR}$, and $\text{SUCCESSOR}$ on elements drawn from a universe with size $u$ in $O(\lg\lg u)$ worst-case time. The $\text{INSERT}$ and $\text{DELETE}$ operations take $O(\lg\lg u)$ amortized time. Like reduced-space van Emde Boas trees (see Problem 20-1), yfast tries use only $O(n)$ space to store $n$ elements. The design of $y$-fast tries relies on perfect hashing (see Section 11.</description>
     </item>
     
     <item>
@@ -1784,7 +1784,7 @@ b. Solve the equation $Ax = \begin{pmatrix} 1 &amp;amp; 1 &amp;amp; 1 &amp;amp; 
       
       <guid>http://walkccc.github.io/CLRS/vii-selected-topics/chap29/29.5/</guid>
       <description>29.5-1  Give detailed pseudocode to implement lines 5 and 14 of $\text{INITIALIZE-SIMPLEX}$.
- 29.5-2  Show that when the main loop of $\text{SIMPLEX}$ is run by $\text{INITIALIZE-SIMPLEX}$, it can never return &amp;laquo;unbounded.&amp;raquo;
+ 29.5-2  Show that when the main loop of $\text{SIMPLEX}$ is run by $\text{INITIALIZE-SIMPLEX}$, it can never return &amp;ldquo;unbounded.&amp;rdquo;
  29.5-3  Suppose that we are given a linear program $L$ in standard form, and suppose that for both $L$ and the dual of $L$, the basic solutions associated with the initial slack forms are feasible.</description>
     </item>
     
@@ -1975,7 +1975,7 @@ b. Prove that if $a$ is odd and $b$ is even, then $\text{gcd}(a, b) = \text{gcd}
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://walkccc.github.io/CLRS/vii-selected-topics/chap31/problems/31-2/</guid>
-      <description>a. Consider the ordinary &amp;laquo;paper and pencil&amp;raquo; algorithm for long division: dividing $a$ by $b$, which yields a quotient $q$ and remainder $r$. Show that this method requires $O((1 + \lg q) \lg b)$ bit operations.
+      <description>a. Consider the ordinary &amp;ldquo;paper and pencil&amp;rdquo; algorithm for long division: dividing $a$ by $b$, which yields a quotient $q$ and remainder $r$. Show that this method requires $O((1 + \lg q) \lg b)$ bit operations.
 b. Define $\mu(a, b) = (1 + \lg a)(1 + \lg b)$. Show that the number of bit operations performed by EUCLID in reducing the problem of computing $\text{gcd}(a, b)$ to that of computing $\text{gcd}(b, a~\text{mod}~b)$ is at most $c(\mu(a, b) - \mu(b, a~\text{mod}~b))$ for some sufficiently large constant $c &amp;gt; 0$.</description>
     </item>
     

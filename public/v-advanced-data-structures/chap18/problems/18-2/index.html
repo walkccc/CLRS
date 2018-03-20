@@ -12,19 +12,19 @@
     <title>18-2 Joining and splitting 2-3-4 trees :: Solutions</title>
     
     
-    <link href="/CLRS/css/nucleus.css?1521555766" rel="stylesheet">
-    <link href="/CLRS/css/font-awesome.min.css?1521555766" rel="stylesheet">
-    <link href="/CLRS/css/hybrid.css?1521555766" rel="stylesheet">
-    <link href="/CLRS/css/featherlight.min.css?1521555766" rel="stylesheet">
-    <link href="/CLRS/css/perfect-scrollbar.min.css?1521555766" rel="stylesheet">
-    <link href="/CLRS/css/auto-complete.css?1521555766" rel="stylesheet">
-    <link href="/CLRS/css/theme.css?1521555766" rel="stylesheet">
-    <link href="/CLRS/css/hugo-theme.css?1521555766" rel="stylesheet">
+    <link href="/CLRS/css/nucleus.css?1521557863" rel="stylesheet">
+    <link href="/CLRS/css/font-awesome.min.css?1521557863" rel="stylesheet">
+    <link href="/CLRS/css/hybrid.css?1521557863" rel="stylesheet">
+    <link href="/CLRS/css/featherlight.min.css?1521557863" rel="stylesheet">
+    <link href="/CLRS/css/perfect-scrollbar.min.css?1521557863" rel="stylesheet">
+    <link href="/CLRS/css/auto-complete.css?1521557863" rel="stylesheet">
+    <link href="/CLRS/css/theme.css?1521557863" rel="stylesheet">
+    <link href="/CLRS/css/hugo-theme.css?1521557863" rel="stylesheet">
     
-      <link href="/CLRS/css/theme-nippon2.css?1521555766" rel="stylesheet">
+      <link href="/CLRS/css/theme-nippon2.css?1521557863" rel="stylesheet">
     
 
-    <script src="/CLRS/js/jquery-2.x.min.js?1521555766"></script>
+    <script src="/CLRS/js/jquery-2.x.min.js?1521557863"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/CLRS/js/lunr.min.js?1521555766"></script>
-<script type="text/javascript" src="/CLRS/js/auto-complete.js?1521555766"></script>
+<script type="text/javascript" src="/CLRS/js/lunr.min.js?1521557863"></script>
+<script type="text/javascript" src="/CLRS/js/auto-complete.js?1521557863"></script>
 <script type="text/javascript">
     
         var baseurl = '\/CLRS';
     
 </script>
-<script type="text/javascript" src="/CLRS/js/search.js?1521555766"></script>
+<script type="text/javascript" src="/CLRS/js/search.js?1521557863"></script>
 
     
   </div>
@@ -8453,7 +8453,7 @@
 
 
 <blockquote>
-<p>The <strong><em>join</em></strong> operation takes two dynamic sets $S^\prime$ and $S^{\prime\prime}$ and an element $x$ such that for any $x^\prime \in S^\prime$ and $x^{\prime\prime} \in S^{\prime\prime}$, we have $x^\prime.key &lt; x.key &lt; x^{\prime\prime}.key$. It returns a set $S = S^\prime \cup \{x\} \cup S^{\prime\prime}$. The <strong><em>split</em></strong> operation is like an &laquo;inverse&raquo; join: given a dynamic set $S$ and an element $x \in S$, it creates a set $S^\prime$ that consists of all elements in set $S$ and an element $x \in S$, it creates a set $S^\prime$ that consists of all elements in $S - \{x\}$ whose keys are less than $x.key$ and a set $S^{\prime\prime}$ that consists of all elements in $S - \{x\}$ whose keys are greater than $x.key$. In this problem, we investigate how to implement these operations on 2-3-4 trees. We assume for convenience that elements consist only of keys and that all key values are distinct.</p>
+<p>The <strong><em>join</em></strong> operation takes two dynamic sets $S^\prime$ and $S^{\prime\prime}$ and an element $x$ such that for any $x^\prime \in S^\prime$ and $x^{\prime\prime} \in S^{\prime\prime}$, we have $x^\prime.key &lt; x.key &lt; x^{\prime\prime}.key$. It returns a set $S = S^\prime \cup \{x\} \cup S^{\prime\prime}$. The <strong><em>split</em></strong> operation is like an &ldquo;inverse&rdquo; join: given a dynamic set $S$ and an element $x \in S$, it creates a set $S^\prime$ that consists of all elements in set $S$ and an element $x \in S$, it creates a set $S^\prime$ that consists of all elements in $S - \{x\}$ whose keys are less than $x.key$ and a set $S^{\prime\prime}$ that consists of all elements in $S - \{x\}$ whose keys are greater than $x.key$. In this problem, we investigate how to implement these operations on 2-3-4 trees. We assume for convenience that elements consist only of keys and that all key values are distinct.</p>
 
 <p><strong>a.</strong> Show how to maintain, for every node $x$ of a 2-3-4 tree, the height of the subtree rooted at $x$ as an attribute $x.height$. Make sure that your implementation does not affect the asymptotic running times of searching, insertion, and deletion.</p>
 
@@ -14579,20 +14579,20 @@ $$
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/CLRS/js/clipboard.min.js?1521555766"></script>
-    <script src="/CLRS/js/perfect-scrollbar.min.js?1521555766"></script>
-    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1521555766"></script>
-    <script src="/CLRS/js/jquery.sticky.js?1521555766"></script>
-    <script src="/CLRS/js/featherlight.min.js?1521555766"></script>
-    <script src="/CLRS/js/html5shiv-printshiv.min.js?1521555766"></script>
-    <script src="/CLRS/js/highlight.pack.js?1521555766"></script>
+    <script src="/CLRS/js/clipboard.min.js?1521557863"></script>
+    <script src="/CLRS/js/perfect-scrollbar.min.js?1521557863"></script>
+    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1521557863"></script>
+    <script src="/CLRS/js/jquery.sticky.js?1521557863"></script>
+    <script src="/CLRS/js/featherlight.min.js?1521557863"></script>
+    <script src="/CLRS/js/html5shiv-printshiv.min.js?1521557863"></script>
+    <script src="/CLRS/js/highlight.pack.js?1521557863"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/CLRS/js/modernizr.custom.71422.js?1521555766"></script>
-    <script src="/CLRS/js/learn.js?1521555766"></script>
-    <script src="/CLRS/js/hugo-learn.js?1521555766"></script>
+    <script src="/CLRS/js/modernizr.custom.71422.js?1521557863"></script>
+    <script src="/CLRS/js/learn.js?1521557863"></script>
+    <script src="/CLRS/js/hugo-learn.js?1521557863"></script>
 
-    <link href="/CLRS/mermaid/mermaid.css?1521555766" type="text/css" rel="stylesheet" />
-    <script src="/CLRS/mermaid/mermaid.js?1521555766"></script>
+    <link href="/CLRS/mermaid/mermaid.css?1521557863" type="text/css" rel="stylesheet" />
+    <script src="/CLRS/mermaid/mermaid.js?1521557863"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

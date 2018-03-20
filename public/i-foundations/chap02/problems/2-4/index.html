@@ -12,19 +12,19 @@
     <title>2-4 Inversions :: Solutions</title>
     
     
-    <link href="/CLRS/css/nucleus.css?1521555767" rel="stylesheet">
-    <link href="/CLRS/css/font-awesome.min.css?1521555767" rel="stylesheet">
-    <link href="/CLRS/css/hybrid.css?1521555767" rel="stylesheet">
-    <link href="/CLRS/css/featherlight.min.css?1521555767" rel="stylesheet">
-    <link href="/CLRS/css/perfect-scrollbar.min.css?1521555767" rel="stylesheet">
-    <link href="/CLRS/css/auto-complete.css?1521555767" rel="stylesheet">
-    <link href="/CLRS/css/theme.css?1521555767" rel="stylesheet">
-    <link href="/CLRS/css/hugo-theme.css?1521555767" rel="stylesheet">
+    <link href="/CLRS/css/nucleus.css?1521557863" rel="stylesheet">
+    <link href="/CLRS/css/font-awesome.min.css?1521557863" rel="stylesheet">
+    <link href="/CLRS/css/hybrid.css?1521557863" rel="stylesheet">
+    <link href="/CLRS/css/featherlight.min.css?1521557863" rel="stylesheet">
+    <link href="/CLRS/css/perfect-scrollbar.min.css?1521557863" rel="stylesheet">
+    <link href="/CLRS/css/auto-complete.css?1521557863" rel="stylesheet">
+    <link href="/CLRS/css/theme.css?1521557863" rel="stylesheet">
+    <link href="/CLRS/css/hugo-theme.css?1521557863" rel="stylesheet">
     
-      <link href="/CLRS/css/theme-nippon2.css?1521555767" rel="stylesheet">
+      <link href="/CLRS/css/theme-nippon2.css?1521557863" rel="stylesheet">
     
 
-    <script src="/CLRS/js/jquery-2.x.min.js?1521555767"></script>
+    <script src="/CLRS/js/jquery-2.x.min.js?1521557863"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/CLRS/js/lunr.min.js?1521555767"></script>
-<script type="text/javascript" src="/CLRS/js/auto-complete.js?1521555767"></script>
+<script type="text/javascript" src="/CLRS/js/lunr.min.js?1521557863"></script>
+<script type="text/javascript" src="/CLRS/js/auto-complete.js?1521557863"></script>
 <script type="text/javascript">
     
         var baseurl = '\/CLRS';
     
 </script>
-<script type="text/javascript" src="/CLRS/js/search.js?1521555767"></script>
+<script type="text/javascript" src="/CLRS/js/search.js?1521557863"></script>
 
     
   </div>
@@ -8478,7 +8478,7 @@
 
 <p>Having shown a one-to-one correspondence between inversions and mergeinversions, it suffices for us to count merge-inversions.</p>
 
-<p>Consider a merge-inversion involving $y$ in $R$. Let $z$ be the smallest value in $L$ that is greater than $y$. At some point during the merging process, $z$ and $y$ will be the &laquo;exposed&raquo; values in $L$ and $R$, i.e., we will have $z = L[i]$ and $y = R[j]$ in line 13 of $\text{MERGE}$. At that time, there will be merge-inversions involving $y$ and $L[i], L[i + 1], L[i + 2], \ldots, L[n_1]$, and these $n_1 - i + 1$ merge-inversions will be the only ones involving $y$. Therefore, we need to detect the first time that $z$ and $y$ become exposed during the $\text{MERGE}$ procedure and add the value of $n_1 - i + 1$ at that time to our total count of merge-inversions.</p>
+<p>Consider a merge-inversion involving $y$ in $R$. Let $z$ be the smallest value in $L$ that is greater than $y$. At some point during the merging process, $z$ and $y$ will be the &ldquo;exposed&rdquo; values in $L$ and $R$, i.e., we will have $z = L[i]$ and $y = R[j]$ in line 13 of $\text{MERGE}$. At that time, there will be merge-inversions involving $y$ and $L[i], L[i + 1], L[i + 2], \ldots, L[n_1]$, and these $n_1 - i + 1$ merge-inversions will be the only ones involving $y$. Therefore, we need to detect the first time that $z$ and $y$ become exposed during the $\text{MERGE}$ procedure and add the value of $n_1 - i + 1$ at that time to our total count of merge-inversions.</p>
 
 <p>The following pseudocode, modeled on merge sort, works as we have just described. It also sorts the array $A$.</p>
 
@@ -14592,20 +14592,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/CLRS/js/clipboard.min.js?1521555767"></script>
-    <script src="/CLRS/js/perfect-scrollbar.min.js?1521555767"></script>
-    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1521555767"></script>
-    <script src="/CLRS/js/jquery.sticky.js?1521555767"></script>
-    <script src="/CLRS/js/featherlight.min.js?1521555767"></script>
-    <script src="/CLRS/js/html5shiv-printshiv.min.js?1521555767"></script>
-    <script src="/CLRS/js/highlight.pack.js?1521555767"></script>
+    <script src="/CLRS/js/clipboard.min.js?1521557863"></script>
+    <script src="/CLRS/js/perfect-scrollbar.min.js?1521557863"></script>
+    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1521557863"></script>
+    <script src="/CLRS/js/jquery.sticky.js?1521557863"></script>
+    <script src="/CLRS/js/featherlight.min.js?1521557863"></script>
+    <script src="/CLRS/js/html5shiv-printshiv.min.js?1521557863"></script>
+    <script src="/CLRS/js/highlight.pack.js?1521557863"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/CLRS/js/modernizr.custom.71422.js?1521555767"></script>
-    <script src="/CLRS/js/learn.js?1521555767"></script>
-    <script src="/CLRS/js/hugo-learn.js?1521555767"></script>
+    <script src="/CLRS/js/modernizr.custom.71422.js?1521557863"></script>
+    <script src="/CLRS/js/learn.js?1521557863"></script>
+    <script src="/CLRS/js/hugo-learn.js?1521557863"></script>
 
-    <link href="/CLRS/mermaid/mermaid.css?1521555767" type="text/css" rel="stylesheet" />
-    <script src="/CLRS/mermaid/mermaid.js?1521555767"></script>
+    <link href="/CLRS/mermaid/mermaid.css?1521557863" type="text/css" rel="stylesheet" />
+    <script src="/CLRS/mermaid/mermaid.js?1521557863"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

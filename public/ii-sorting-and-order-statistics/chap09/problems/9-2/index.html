@@ -12,19 +12,19 @@
     <title>9-2 Weighted median :: Solutions</title>
     
     
-    <link href="/CLRS/css/nucleus.css?1521555769" rel="stylesheet">
-    <link href="/CLRS/css/font-awesome.min.css?1521555769" rel="stylesheet">
-    <link href="/CLRS/css/hybrid.css?1521555769" rel="stylesheet">
-    <link href="/CLRS/css/featherlight.min.css?1521555769" rel="stylesheet">
-    <link href="/CLRS/css/perfect-scrollbar.min.css?1521555769" rel="stylesheet">
-    <link href="/CLRS/css/auto-complete.css?1521555769" rel="stylesheet">
-    <link href="/CLRS/css/theme.css?1521555769" rel="stylesheet">
-    <link href="/CLRS/css/hugo-theme.css?1521555769" rel="stylesheet">
+    <link href="/CLRS/css/nucleus.css?1521557865" rel="stylesheet">
+    <link href="/CLRS/css/font-awesome.min.css?1521557865" rel="stylesheet">
+    <link href="/CLRS/css/hybrid.css?1521557865" rel="stylesheet">
+    <link href="/CLRS/css/featherlight.min.css?1521557865" rel="stylesheet">
+    <link href="/CLRS/css/perfect-scrollbar.min.css?1521557865" rel="stylesheet">
+    <link href="/CLRS/css/auto-complete.css?1521557865" rel="stylesheet">
+    <link href="/CLRS/css/theme.css?1521557865" rel="stylesheet">
+    <link href="/CLRS/css/hugo-theme.css?1521557865" rel="stylesheet">
     
-      <link href="/CLRS/css/theme-nippon2.css?1521555769" rel="stylesheet">
+      <link href="/CLRS/css/theme-nippon2.css?1521557865" rel="stylesheet">
     
 
-    <script src="/CLRS/js/jquery-2.x.min.js?1521555769"></script>
+    <script src="/CLRS/js/jquery-2.x.min.js?1521557865"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/CLRS/js/lunr.min.js?1521555769"></script>
-<script type="text/javascript" src="/CLRS/js/auto-complete.js?1521555769"></script>
+<script type="text/javascript" src="/CLRS/js/lunr.min.js?1521557865"></script>
+<script type="text/javascript" src="/CLRS/js/auto-complete.js?1521557865"></script>
 <script type="text/javascript">
     
         var baseurl = '\/CLRS';
     
 </script>
-<script type="text/javascript" src="/CLRS/js/search.js?1521555769"></script>
+<script type="text/javascript" src="/CLRS/js/search.js?1521557865"></script>
 
     
   </div>
@@ -8522,7 +8522,7 @@ $$
 
 <p><strong>c.</strong> We find the weighted median in $\Theta(n)$ worst-case time using the $\Theta(n)$ worst-case median algorithm in Section 9.3. (Although the first paragraph of the section only claims an $O(n)$ upper bound, it is easy to see that the more precise running time of $\Theta(n)$ applies as well, since steps 1, 2, and 4 of $\text{SELECT}$ actually take $\Theta(n)$ time.)</p>
 
-<p>The weighted-median algorithm works as follows. If $n \le 2$, we just return the brute-force solution. Otherwise, we proceed as follows. We find the actual median $x_k$ of the $n$ elements and then partition around it. We then compute the total weights of the two halves. If the weights of the two halves are each strictly less than $1 / 2$, then the weighted median is $x_k$ . Otherwise, the weighted median should be in the half with total weight exceeding $1 / 2$. The total weight of the &laquo;light&raquo; half is lumped into the weight of $x_k$ , and the search continues within the half that weighs more than $1 / 2$. Here&rsquo;s pseudocode, which takes as input a set $X = {x_1, x_2, \ldots, x_n}$:</p>
+<p>The weighted-median algorithm works as follows. If $n \le 2$, we just return the brute-force solution. Otherwise, we proceed as follows. We find the actual median $x_k$ of the $n$ elements and then partition around it. We then compute the total weights of the two halves. If the weights of the two halves are each strictly less than $1 / 2$, then the weighted median is $x_k$ . Otherwise, the weighted median should be in the half with total weight exceeding $1 / 2$. The total weight of the &ldquo;light&rdquo; half is lumped into the weight of $x_k$ , and the search continues within the half that weighs more than $1 / 2$. Here&rsquo;s pseudocode, which takes as input a set $X = {x_1, x_2, \ldots, x_n}$:</p>
 
 <pre><code class="language-cpp">WEIGHTED-MEDIAN(X)
     if n == 1
@@ -14700,20 +14700,20 @@ $$
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/CLRS/js/clipboard.min.js?1521555769"></script>
-    <script src="/CLRS/js/perfect-scrollbar.min.js?1521555769"></script>
-    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1521555769"></script>
-    <script src="/CLRS/js/jquery.sticky.js?1521555769"></script>
-    <script src="/CLRS/js/featherlight.min.js?1521555769"></script>
-    <script src="/CLRS/js/html5shiv-printshiv.min.js?1521555769"></script>
-    <script src="/CLRS/js/highlight.pack.js?1521555769"></script>
+    <script src="/CLRS/js/clipboard.min.js?1521557865"></script>
+    <script src="/CLRS/js/perfect-scrollbar.min.js?1521557865"></script>
+    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1521557865"></script>
+    <script src="/CLRS/js/jquery.sticky.js?1521557865"></script>
+    <script src="/CLRS/js/featherlight.min.js?1521557865"></script>
+    <script src="/CLRS/js/html5shiv-printshiv.min.js?1521557865"></script>
+    <script src="/CLRS/js/highlight.pack.js?1521557865"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/CLRS/js/modernizr.custom.71422.js?1521555769"></script>
-    <script src="/CLRS/js/learn.js?1521555769"></script>
-    <script src="/CLRS/js/hugo-learn.js?1521555769"></script>
+    <script src="/CLRS/js/modernizr.custom.71422.js?1521557865"></script>
+    <script src="/CLRS/js/learn.js?1521557865"></script>
+    <script src="/CLRS/js/hugo-learn.js?1521557865"></script>
 
-    <link href="/CLRS/mermaid/mermaid.css?1521555769" type="text/css" rel="stylesheet" />
-    <script src="/CLRS/mermaid/mermaid.js?1521555769"></script>
+    <link href="/CLRS/mermaid/mermaid.css?1521557865" type="text/css" rel="stylesheet" />
+    <script src="/CLRS/mermaid/mermaid.js?1521557865"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

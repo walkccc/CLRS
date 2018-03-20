@@ -12,19 +12,19 @@
     <title>15-2 Longest palindrome subsequence :: Solutions</title>
     
     
-    <link href="/CLRS/css/nucleus.css?1521555765" rel="stylesheet">
-    <link href="/CLRS/css/font-awesome.min.css?1521555765" rel="stylesheet">
-    <link href="/CLRS/css/hybrid.css?1521555765" rel="stylesheet">
-    <link href="/CLRS/css/featherlight.min.css?1521555765" rel="stylesheet">
-    <link href="/CLRS/css/perfect-scrollbar.min.css?1521555765" rel="stylesheet">
-    <link href="/CLRS/css/auto-complete.css?1521555765" rel="stylesheet">
-    <link href="/CLRS/css/theme.css?1521555765" rel="stylesheet">
-    <link href="/CLRS/css/hugo-theme.css?1521555765" rel="stylesheet">
+    <link href="/CLRS/css/nucleus.css?1521557862" rel="stylesheet">
+    <link href="/CLRS/css/font-awesome.min.css?1521557862" rel="stylesheet">
+    <link href="/CLRS/css/hybrid.css?1521557862" rel="stylesheet">
+    <link href="/CLRS/css/featherlight.min.css?1521557862" rel="stylesheet">
+    <link href="/CLRS/css/perfect-scrollbar.min.css?1521557862" rel="stylesheet">
+    <link href="/CLRS/css/auto-complete.css?1521557862" rel="stylesheet">
+    <link href="/CLRS/css/theme.css?1521557862" rel="stylesheet">
+    <link href="/CLRS/css/hugo-theme.css?1521557862" rel="stylesheet">
     
-      <link href="/CLRS/css/theme-nippon2.css?1521555765" rel="stylesheet">
+      <link href="/CLRS/css/theme-nippon2.css?1521557862" rel="stylesheet">
     
 
-    <script src="/CLRS/js/jquery-2.x.min.js?1521555765"></script>
+    <script src="/CLRS/js/jquery-2.x.min.js?1521557862"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/CLRS/js/lunr.min.js?1521555765"></script>
-<script type="text/javascript" src="/CLRS/js/auto-complete.js?1521555765"></script>
+<script type="text/javascript" src="/CLRS/js/lunr.min.js?1521557862"></script>
+<script type="text/javascript" src="/CLRS/js/auto-complete.js?1521557862"></script>
 <script type="text/javascript">
     
         var baseurl = '\/CLRS';
     
 </script>
-<script type="text/javascript" src="/CLRS/js/search.js?1521555765"></script>
+<script type="text/javascript" src="/CLRS/js/search.js?1521557862"></script>
 
     
   </div>
@@ -8541,7 +8541,7 @@ $$
 
 <p><strong>Step 4: Constructing an LPS</strong></p>
 
-<p>The $b$ table returned by $\text{LONGEST-PALINDROME}$ enables us to quickly construct an $\text{LPS}$ of $X = \langle x_1, x_2, \ldots, x_m\rangle$. We simply begin at $b[1, n]$ and trace through the table by following the arrows. Whenever we encounter a &laquo;$\swarrow$&raquo; in entry $b[i, j]$, it implies that $x_i = y_j$ are the first and last elements of the $\text{LPS}$ that $\text{LONGEST-PALINDROME}$ found. The following recursive procedure returns a sequence $S$ that contains an $\text{LPS}$ of $X$. The initial call is $\text{GENERATE-LPS}(b, X, 1, X.length, \langle \rangle)$, where $\langle\rangle$ denotes an empty sequence. Within the procedure, the symbol $||$ denotes concatenation of a symbol and a sequence.</p>
+<p>The $b$ table returned by $\text{LONGEST-PALINDROME}$ enables us to quickly construct an $\text{LPS}$ of $X = \langle x_1, x_2, \ldots, x_m\rangle$. We simply begin at $b[1, n]$ and trace through the table by following the arrows. Whenever we encounter a &ldquo;$\swarrow$&rdquo; in entry $b[i, j]$, it implies that $x_i = y_j$ are the first and last elements of the $\text{LPS}$ that $\text{LONGEST-PALINDROME}$ found. The following recursive procedure returns a sequence $S$ that contains an $\text{LPS}$ of $X$. The initial call is $\text{GENERATE-LPS}(b, X, 1, X.length, \langle \rangle)$, where $\langle\rangle$ denotes an empty sequence. Within the procedure, the symbol $||$ denotes concatenation of a symbol and a sequence.</p>
 
 <pre><code class="language-cpp">GENERATE-LPS(b, X, i, j, S)
     if i &gt; j
@@ -14626,20 +14626,20 @@ $$
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/CLRS/js/clipboard.min.js?1521555765"></script>
-    <script src="/CLRS/js/perfect-scrollbar.min.js?1521555765"></script>
-    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1521555765"></script>
-    <script src="/CLRS/js/jquery.sticky.js?1521555765"></script>
-    <script src="/CLRS/js/featherlight.min.js?1521555765"></script>
-    <script src="/CLRS/js/html5shiv-printshiv.min.js?1521555765"></script>
-    <script src="/CLRS/js/highlight.pack.js?1521555765"></script>
+    <script src="/CLRS/js/clipboard.min.js?1521557862"></script>
+    <script src="/CLRS/js/perfect-scrollbar.min.js?1521557862"></script>
+    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1521557862"></script>
+    <script src="/CLRS/js/jquery.sticky.js?1521557862"></script>
+    <script src="/CLRS/js/featherlight.min.js?1521557862"></script>
+    <script src="/CLRS/js/html5shiv-printshiv.min.js?1521557862"></script>
+    <script src="/CLRS/js/highlight.pack.js?1521557862"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/CLRS/js/modernizr.custom.71422.js?1521555765"></script>
-    <script src="/CLRS/js/learn.js?1521555765"></script>
-    <script src="/CLRS/js/hugo-learn.js?1521555765"></script>
+    <script src="/CLRS/js/modernizr.custom.71422.js?1521557862"></script>
+    <script src="/CLRS/js/learn.js?1521557862"></script>
+    <script src="/CLRS/js/hugo-learn.js?1521557862"></script>
 
-    <link href="/CLRS/mermaid/mermaid.css?1521555765" type="text/css" rel="stylesheet" />
-    <script src="/CLRS/mermaid/mermaid.js?1521555765"></script>
+    <link href="/CLRS/mermaid/mermaid.css?1521557862" type="text/css" rel="stylesheet" />
+    <script src="/CLRS/mermaid/mermaid.js?1521557862"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -12,19 +12,19 @@
     <title>20-2 $y$-fast tries :: Solutions</title>
     
     
-    <link href="/CLRS/css/nucleus.css?1521555767" rel="stylesheet">
-    <link href="/CLRS/css/font-awesome.min.css?1521555767" rel="stylesheet">
-    <link href="/CLRS/css/hybrid.css?1521555767" rel="stylesheet">
-    <link href="/CLRS/css/featherlight.min.css?1521555767" rel="stylesheet">
-    <link href="/CLRS/css/perfect-scrollbar.min.css?1521555767" rel="stylesheet">
-    <link href="/CLRS/css/auto-complete.css?1521555767" rel="stylesheet">
-    <link href="/CLRS/css/theme.css?1521555767" rel="stylesheet">
-    <link href="/CLRS/css/hugo-theme.css?1521555767" rel="stylesheet">
+    <link href="/CLRS/css/nucleus.css?1521557863" rel="stylesheet">
+    <link href="/CLRS/css/font-awesome.min.css?1521557863" rel="stylesheet">
+    <link href="/CLRS/css/hybrid.css?1521557863" rel="stylesheet">
+    <link href="/CLRS/css/featherlight.min.css?1521557863" rel="stylesheet">
+    <link href="/CLRS/css/perfect-scrollbar.min.css?1521557863" rel="stylesheet">
+    <link href="/CLRS/css/auto-complete.css?1521557863" rel="stylesheet">
+    <link href="/CLRS/css/theme.css?1521557863" rel="stylesheet">
+    <link href="/CLRS/css/hugo-theme.css?1521557863" rel="stylesheet">
     
-      <link href="/CLRS/css/theme-nippon2.css?1521555767" rel="stylesheet">
+      <link href="/CLRS/css/theme-nippon2.css?1521557863" rel="stylesheet">
     
 
-    <script src="/CLRS/js/jquery-2.x.min.js?1521555767"></script>
+    <script src="/CLRS/js/jquery-2.x.min.js?1521557863"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/CLRS/js/lunr.min.js?1521555767"></script>
-<script type="text/javascript" src="/CLRS/js/auto-complete.js?1521555767"></script>
+<script type="text/javascript" src="/CLRS/js/lunr.min.js?1521557863"></script>
+<script type="text/javascript" src="/CLRS/js/auto-complete.js?1521557863"></script>
 <script type="text/javascript">
     
         var baseurl = '\/CLRS';
     
 </script>
-<script type="text/javascript" src="/CLRS/js/search.js?1521555767"></script>
+<script type="text/javascript" src="/CLRS/js/search.js?1521557863"></script>
 
     
   </div>
@@ -8453,7 +8453,7 @@
 
 
 <blockquote>
-<p>This problem investigates D. Willard&rsquo;s &laquo;$y$-fast tries&raquo; which, like van Emde Boas trees, perform each of the operations $\text{MEMBER}$, $\text{MINIMUM}$, $\text{MAXIMUM}$, $\text{PREDECESSOR}$, and $\text{SUCCESSOR}$ on elements drawn from a universe with size $u$ in $O(\lg\lg u)$ worst-case time. The $\text{INSERT}$ and $\text{DELETE}$ operations take $O(\lg\lg u)$ amortized time. Like reduced-space van Emde Boas trees (see Problem 20-1), yfast tries use only $O(n)$ space to store $n$ elements. The design of $y$-fast tries relies on perfect hashing (see Section 11.5).</p>
+<p>This problem investigates D. Willard&rsquo;s &ldquo;$y$-fast tries&rdquo; which, like van Emde Boas trees, perform each of the operations $\text{MEMBER}$, $\text{MINIMUM}$, $\text{MAXIMUM}$, $\text{PREDECESSOR}$, and $\text{SUCCESSOR}$ on elements drawn from a universe with size $u$ in $O(\lg\lg u)$ worst-case time. The $\text{INSERT}$ and $\text{DELETE}$ operations take $O(\lg\lg u)$ amortized time. Like reduced-space van Emde Boas trees (see Problem 20-1), yfast tries use only $O(n)$ space to store $n$ elements. The design of $y$-fast tries relies on perfect hashing (see Section 11.5).</p>
 
 <p>As a preliminary structure, suppose that we create a perfect hash table containing not only every element in the dynamic set, but every prefix of the binary representation of every element in the set. For example, if $u = 16$, so that $\lg u = 4$, and $x = 13$ is in the set, then because the binary representation of $13$ is $1101$, the perfect hash table would contain the strings $1$, $11$, $110$, and $1101$. In addition to the hash table, we create a doubly linked list of the elements currently in the set, in increasing order.</p>
 
@@ -8465,7 +8465,7 @@
 
 <ul>
 <li>We cluster the $n$ elements into $n / \lg u$ groups of size $\lg u$. (Assume for now that $\lg u$ divides $n$.) The first group consists of the $\lg u$ smallest elements in the set, the second group consists of the next $\lg u$ smallest elements, and so on.</li>
-<li>We designate a &laquo;representative&raquo; value for each group. The representative of the $i$th group is at least as large as the largest element in the $i$th group, and it is smaller than every element of the $(i + 1)$st group. (The representative of the last group can be the maximum possible element $u - 1$.) Note that a representative might be a value not currently in the set.</li>
+<li>We designate a &ldquo;representative&rdquo; value for each group. The representative of the $i$th group is at least as large as the largest element in the $i$th group, and it is smaller than every element of the $(i + 1)$st group. (The representative of the last group can be the maximum possible element $u - 1$.) Note that a representative might be a value not currently in the set.</li>
 <li>We store the $\lg u$ elements of each group in a balanced binary search tree, such as a red-black tree. Each representative points to the balanced binary search tree for its group, and each balanced binary search tree points to its group&rsquo;s representative.</li>
 </ul>
 
@@ -14592,20 +14592,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/CLRS/js/clipboard.min.js?1521555767"></script>
-    <script src="/CLRS/js/perfect-scrollbar.min.js?1521555767"></script>
-    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1521555767"></script>
-    <script src="/CLRS/js/jquery.sticky.js?1521555767"></script>
-    <script src="/CLRS/js/featherlight.min.js?1521555767"></script>
-    <script src="/CLRS/js/html5shiv-printshiv.min.js?1521555767"></script>
-    <script src="/CLRS/js/highlight.pack.js?1521555767"></script>
+    <script src="/CLRS/js/clipboard.min.js?1521557863"></script>
+    <script src="/CLRS/js/perfect-scrollbar.min.js?1521557863"></script>
+    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1521557863"></script>
+    <script src="/CLRS/js/jquery.sticky.js?1521557863"></script>
+    <script src="/CLRS/js/featherlight.min.js?1521557863"></script>
+    <script src="/CLRS/js/html5shiv-printshiv.min.js?1521557863"></script>
+    <script src="/CLRS/js/highlight.pack.js?1521557863"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/CLRS/js/modernizr.custom.71422.js?1521555767"></script>
-    <script src="/CLRS/js/learn.js?1521555767"></script>
-    <script src="/CLRS/js/hugo-learn.js?1521555767"></script>
+    <script src="/CLRS/js/modernizr.custom.71422.js?1521557863"></script>
+    <script src="/CLRS/js/learn.js?1521557863"></script>
+    <script src="/CLRS/js/hugo-learn.js?1521557863"></script>
 
-    <link href="/CLRS/mermaid/mermaid.css?1521555767" type="text/css" rel="stylesheet" />
-    <script src="/CLRS/mermaid/mermaid.js?1521555767"></script>
+    <link href="/CLRS/mermaid/mermaid.css?1521557863" type="text/css" rel="stylesheet" />
+    <script src="/CLRS/mermaid/mermaid.js?1521557863"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

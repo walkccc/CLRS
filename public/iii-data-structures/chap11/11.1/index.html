@@ -12,19 +12,19 @@
     <title>11.1 Direct-address tables :: Solutions</title>
     
     
-    <link href="/CLRS/css/nucleus.css?1521555766" rel="stylesheet">
-    <link href="/CLRS/css/font-awesome.min.css?1521555766" rel="stylesheet">
-    <link href="/CLRS/css/hybrid.css?1521555766" rel="stylesheet">
-    <link href="/CLRS/css/featherlight.min.css?1521555766" rel="stylesheet">
-    <link href="/CLRS/css/perfect-scrollbar.min.css?1521555766" rel="stylesheet">
-    <link href="/CLRS/css/auto-complete.css?1521555766" rel="stylesheet">
-    <link href="/CLRS/css/theme.css?1521555766" rel="stylesheet">
-    <link href="/CLRS/css/hugo-theme.css?1521555766" rel="stylesheet">
+    <link href="/CLRS/css/nucleus.css?1521557862" rel="stylesheet">
+    <link href="/CLRS/css/font-awesome.min.css?1521557862" rel="stylesheet">
+    <link href="/CLRS/css/hybrid.css?1521557862" rel="stylesheet">
+    <link href="/CLRS/css/featherlight.min.css?1521557862" rel="stylesheet">
+    <link href="/CLRS/css/perfect-scrollbar.min.css?1521557862" rel="stylesheet">
+    <link href="/CLRS/css/auto-complete.css?1521557862" rel="stylesheet">
+    <link href="/CLRS/css/theme.css?1521557862" rel="stylesheet">
+    <link href="/CLRS/css/hugo-theme.css?1521557862" rel="stylesheet">
     
-      <link href="/CLRS/css/theme-nippon2.css?1521555766" rel="stylesheet">
+      <link href="/CLRS/css/theme-nippon2.css?1521557862" rel="stylesheet">
     
 
-    <script src="/CLRS/js/jquery-2.x.min.js?1521555766"></script>
+    <script src="/CLRS/js/jquery-2.x.min.js?1521557862"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/CLRS/js/lunr.min.js?1521555766"></script>
-<script type="text/javascript" src="/CLRS/js/auto-complete.js?1521555766"></script>
+<script type="text/javascript" src="/CLRS/js/lunr.min.js?1521557862"></script>
+<script type="text/javascript" src="/CLRS/js/auto-complete.js?1521557862"></script>
 <script type="text/javascript">
     
         var baseurl = '\/CLRS';
     
 </script>
-<script type="text/javascript" src="/CLRS/js/search.js?1521555766"></script>
+<script type="text/javascript" src="/CLRS/js/search.js?1521557862"></script>
 
     
   </div>
@@ -8545,7 +8545,7 @@ $S[j]$ contains the value $k$. Let us call this situation, in which $1 \le T[k] 
 <li><strong>Initialization:</strong> Simply set $S.top = 0$, so that there are no valid entries in the stack.<br /></li>
 <li><strong>SEARCH:</strong> Given key $k$, we check whether we have a validating cycle, i.e., whether $1 \le T [k] \le S.top$ and $S[T[k]] = k$. If so, we return $S^\prime[T[k]]$, and otherwise we return $\text{NIL}$.<br /></li>
 <li><strong>INSERT:</strong> To insert object $x$ with key $k$, assuming that this object is not already in the dictionary, we increment $S.top$, set $S[S.top] = k$, set $S^\prime[S.top] = x$, and set $T[k] = S.top$.<br /></li>
-<li><strong>DELETE:</strong> To delete object $x$ with key $k$, assuming that this object is in the dictionary, we need to break the validating cycle. The trick is to also ensure that we don&rsquo;t leave a &laquo;hole&raquo; in the stack, and we solve this problem by moving the top entry of the stack into the position that we are vacating-and then fixing up <em>that</em> entry&rsquo;s validating cycle. That is, we execute the following sequence of assignments:<br /></li>
+<li><strong>DELETE:</strong> To delete object $x$ with key $k$, assuming that this object is in the dictionary, we need to break the validating cycle. The trick is to also ensure that we don&rsquo;t leave a &ldquo;hole&rdquo; in the stack, and we solve this problem by moving the top entry of the stack into the position that we are vacating-and then fixing up <em>that</em> entry&rsquo;s validating cycle. That is, we execute the following sequence of assignments:<br /></li>
 </ul>
 
 <div>
@@ -14629,20 +14629,20 @@ $$
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/CLRS/js/clipboard.min.js?1521555766"></script>
-    <script src="/CLRS/js/perfect-scrollbar.min.js?1521555766"></script>
-    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1521555766"></script>
-    <script src="/CLRS/js/jquery.sticky.js?1521555766"></script>
-    <script src="/CLRS/js/featherlight.min.js?1521555766"></script>
-    <script src="/CLRS/js/html5shiv-printshiv.min.js?1521555766"></script>
-    <script src="/CLRS/js/highlight.pack.js?1521555766"></script>
+    <script src="/CLRS/js/clipboard.min.js?1521557862"></script>
+    <script src="/CLRS/js/perfect-scrollbar.min.js?1521557862"></script>
+    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1521557862"></script>
+    <script src="/CLRS/js/jquery.sticky.js?1521557862"></script>
+    <script src="/CLRS/js/featherlight.min.js?1521557862"></script>
+    <script src="/CLRS/js/html5shiv-printshiv.min.js?1521557862"></script>
+    <script src="/CLRS/js/highlight.pack.js?1521557862"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/CLRS/js/modernizr.custom.71422.js?1521555766"></script>
-    <script src="/CLRS/js/learn.js?1521555766"></script>
-    <script src="/CLRS/js/hugo-learn.js?1521555766"></script>
+    <script src="/CLRS/js/modernizr.custom.71422.js?1521557862"></script>
+    <script src="/CLRS/js/learn.js?1521557862"></script>
+    <script src="/CLRS/js/hugo-learn.js?1521557862"></script>
 
-    <link href="/CLRS/mermaid/mermaid.css?1521555766" type="text/css" rel="stylesheet" />
-    <script src="/CLRS/mermaid/mermaid.js?1521555766"></script>
+    <link href="/CLRS/mermaid/mermaid.css?1521557862" type="text/css" rel="stylesheet" />
+    <script src="/CLRS/mermaid/mermaid.js?1521557862"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

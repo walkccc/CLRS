@@ -12,19 +12,19 @@
     <title>9.3 Selection in worst-case linear time :: Solutions</title>
     
     
-    <link href="/CLRS/css/nucleus.css?1521555769" rel="stylesheet">
-    <link href="/CLRS/css/font-awesome.min.css?1521555769" rel="stylesheet">
-    <link href="/CLRS/css/hybrid.css?1521555769" rel="stylesheet">
-    <link href="/CLRS/css/featherlight.min.css?1521555769" rel="stylesheet">
-    <link href="/CLRS/css/perfect-scrollbar.min.css?1521555769" rel="stylesheet">
-    <link href="/CLRS/css/auto-complete.css?1521555769" rel="stylesheet">
-    <link href="/CLRS/css/theme.css?1521555769" rel="stylesheet">
-    <link href="/CLRS/css/hugo-theme.css?1521555769" rel="stylesheet">
+    <link href="/CLRS/css/nucleus.css?1521557865" rel="stylesheet">
+    <link href="/CLRS/css/font-awesome.min.css?1521557865" rel="stylesheet">
+    <link href="/CLRS/css/hybrid.css?1521557865" rel="stylesheet">
+    <link href="/CLRS/css/featherlight.min.css?1521557865" rel="stylesheet">
+    <link href="/CLRS/css/perfect-scrollbar.min.css?1521557865" rel="stylesheet">
+    <link href="/CLRS/css/auto-complete.css?1521557865" rel="stylesheet">
+    <link href="/CLRS/css/theme.css?1521557865" rel="stylesheet">
+    <link href="/CLRS/css/hugo-theme.css?1521557865" rel="stylesheet">
     
-      <link href="/CLRS/css/theme-nippon2.css?1521555769" rel="stylesheet">
+      <link href="/CLRS/css/theme-nippon2.css?1521557865" rel="stylesheet">
     
 
-    <script src="/CLRS/js/jquery-2.x.min.js?1521555769"></script>
+    <script src="/CLRS/js/jquery-2.x.min.js?1521557865"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/CLRS/js/lunr.min.js?1521555769"></script>
-<script type="text/javascript" src="/CLRS/js/auto-complete.js?1521555769"></script>
+<script type="text/javascript" src="/CLRS/js/lunr.min.js?1521557865"></script>
+<script type="text/javascript" src="/CLRS/js/auto-complete.js?1521557865"></script>
 <script type="text/javascript">
     
         var baseurl = '\/CLRS';
     
 </script>
-<script type="text/javascript" src="/CLRS/js/search.js?1521555769"></script>
+<script type="text/javascript" src="/CLRS/js/search.js?1521557865"></script>
 
     
   </div>
@@ -8507,7 +8507,7 @@ $$
 
 <p>We can prove that the worst-case time for groups of $3$ is $\Omega(n\lg n)$. We do so by deriving a recurrence for a particular case that takes $\Omega(n\lg n)$ time.</p>
 
-<p>In counting up the number of elements greater than $x$ (and similarly, the number less than $x$), consider the particular case in which there are exactly $\Big\lceil \frac{1}{2} \Big\lceil \frac{n}{3} \Big\rceil\Big\rceil$ groups with medians $\ge x$ and in which the &laquo;leftover&raquo; group does contribute 2 elements greater than $x$. Then the number of elements greater than $x$ is exactly $2\Big(\Big\lceil \frac{1}{2} \Big\lceil \frac{n}{3} \Big\rceil\Big\rceil - 1\Big) + 1$ (the $-1$ discounts $x$&rsquo;s group, as usual, and the $+1$ is contributed by $x$&rsquo;s group) $= 2\lceil n / 6 \rceil - 1$, and the recursive step for elements $\le x$ has $n - (2 \lceil n / 6 \rceil - 1) \ge n - (2(n / 6 + 1) - 1) = 2n / 3 - 1$ elements. Observe also that the $O(n)$ term in the recurrence is really $\Theta(n)$, since the partitioning in step 4 takes $\Theta(n)$ (not just $O(n)$) time. Thus, we get the recurrence</p>
+<p>In counting up the number of elements greater than $x$ (and similarly, the number less than $x$), consider the particular case in which there are exactly $\Big\lceil \frac{1}{2} \Big\lceil \frac{n}{3} \Big\rceil\Big\rceil$ groups with medians $\ge x$ and in which the &ldquo;leftover&rdquo; group does contribute 2 elements greater than $x$. Then the number of elements greater than $x$ is exactly $2\Big(\Big\lceil \frac{1}{2} \Big\lceil \frac{n}{3} \Big\rceil\Big\rceil - 1\Big) + 1$ (the $-1$ discounts $x$&rsquo;s group, as usual, and the $+1$ is contributed by $x$&rsquo;s group) $= 2\lceil n / 6 \rceil - 1$, and the recursive step for elements $\le x$ has $n - (2 \lceil n / 6 \rceil - 1) \ge n - (2(n / 6 + 1) - 1) = 2n / 3 - 1$ elements. Observe also that the $O(n)$ term in the recurrence is really $\Theta(n)$, since the partitioning in step 4 takes $\Theta(n)$ (not just $O(n)$) time. Thus, we get the recurrence</p>
 
 <div>
 $$
@@ -8573,7 +8573,7 @@ $$
 <h2 id="9-3-5">9.3-5</h2>
 
 <blockquote>
-<p>Suppose that you have a &laquo;black-box&raquo; worst-case linear-time median subroutine. Give a simple, linear-time algorithm that solves the selection problem for an arbitrary order statistic.</p>
+<p>Suppose that you have a &ldquo;black-box&rdquo; worst-case linear-time median subroutine. Give a simple, linear-time algorithm that solves the selection problem for an arbitrary order statistic.</p>
 </blockquote>
 
 <p>We assume that are given a procedure $\text{MEDIAN}$ that takes as parameters an array $A$ and subarray indices $p$ and $r$, and returns the value of the median element of $A[p..r]$ in $O(n)$ time in the worst case.</p>
@@ -14807,20 +14807,20 @@ $$
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/CLRS/js/clipboard.min.js?1521555769"></script>
-    <script src="/CLRS/js/perfect-scrollbar.min.js?1521555769"></script>
-    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1521555769"></script>
-    <script src="/CLRS/js/jquery.sticky.js?1521555769"></script>
-    <script src="/CLRS/js/featherlight.min.js?1521555769"></script>
-    <script src="/CLRS/js/html5shiv-printshiv.min.js?1521555769"></script>
-    <script src="/CLRS/js/highlight.pack.js?1521555769"></script>
+    <script src="/CLRS/js/clipboard.min.js?1521557865"></script>
+    <script src="/CLRS/js/perfect-scrollbar.min.js?1521557865"></script>
+    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1521557865"></script>
+    <script src="/CLRS/js/jquery.sticky.js?1521557865"></script>
+    <script src="/CLRS/js/featherlight.min.js?1521557865"></script>
+    <script src="/CLRS/js/html5shiv-printshiv.min.js?1521557865"></script>
+    <script src="/CLRS/js/highlight.pack.js?1521557865"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/CLRS/js/modernizr.custom.71422.js?1521555769"></script>
-    <script src="/CLRS/js/learn.js?1521555769"></script>
-    <script src="/CLRS/js/hugo-learn.js?1521555769"></script>
+    <script src="/CLRS/js/modernizr.custom.71422.js?1521557865"></script>
+    <script src="/CLRS/js/learn.js?1521557865"></script>
+    <script src="/CLRS/js/hugo-learn.js?1521557865"></script>
 
-    <link href="/CLRS/mermaid/mermaid.css?1521555769" type="text/css" rel="stylesheet" />
-    <script src="/CLRS/mermaid/mermaid.js?1521555769"></script>
+    <link href="/CLRS/mermaid/mermaid.css?1521557865" type="text/css" rel="stylesheet" />
+    <script src="/CLRS/mermaid/mermaid.js?1521557865"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

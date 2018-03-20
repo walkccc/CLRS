@@ -6,12 +6,6 @@ theme = "hugo-theme-learn"
 metaDataFormat = "yaml"
 defaultContentLanguageInSubdir= false
 
-[blackfriday]
-  angledQuotes = true
-  fractions = false
-  plainIDAnchors = true
-  extensions = ["noIntraEmphasis"]
-
 [params]
     editURL = "https://github.com/walkccc/CLRS/edit/master/content/"
     description = "solutions"

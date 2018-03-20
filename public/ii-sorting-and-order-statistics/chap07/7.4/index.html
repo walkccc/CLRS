@@ -12,19 +12,19 @@
     <title>7.4 Analysis of quicksort :: Solutions</title>
     
     
-    <link href="/CLRS/css/nucleus.css?1521555769" rel="stylesheet">
-    <link href="/CLRS/css/font-awesome.min.css?1521555769" rel="stylesheet">
-    <link href="/CLRS/css/hybrid.css?1521555769" rel="stylesheet">
-    <link href="/CLRS/css/featherlight.min.css?1521555769" rel="stylesheet">
-    <link href="/CLRS/css/perfect-scrollbar.min.css?1521555769" rel="stylesheet">
-    <link href="/CLRS/css/auto-complete.css?1521555769" rel="stylesheet">
-    <link href="/CLRS/css/theme.css?1521555769" rel="stylesheet">
-    <link href="/CLRS/css/hugo-theme.css?1521555769" rel="stylesheet">
+    <link href="/CLRS/css/nucleus.css?1521557865" rel="stylesheet">
+    <link href="/CLRS/css/font-awesome.min.css?1521557865" rel="stylesheet">
+    <link href="/CLRS/css/hybrid.css?1521557865" rel="stylesheet">
+    <link href="/CLRS/css/featherlight.min.css?1521557865" rel="stylesheet">
+    <link href="/CLRS/css/perfect-scrollbar.min.css?1521557865" rel="stylesheet">
+    <link href="/CLRS/css/auto-complete.css?1521557865" rel="stylesheet">
+    <link href="/CLRS/css/theme.css?1521557865" rel="stylesheet">
+    <link href="/CLRS/css/hugo-theme.css?1521557865" rel="stylesheet">
     
-      <link href="/CLRS/css/theme-nippon2.css?1521555769" rel="stylesheet">
+      <link href="/CLRS/css/theme-nippon2.css?1521557865" rel="stylesheet">
     
 
-    <script src="/CLRS/js/jquery-2.x.min.js?1521555769"></script>
+    <script src="/CLRS/js/jquery-2.x.min.js?1521557865"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/CLRS/js/lunr.min.js?1521555769"></script>
-<script type="text/javascript" src="/CLRS/js/auto-complete.js?1521555769"></script>
+<script type="text/javascript" src="/CLRS/js/lunr.min.js?1521557865"></script>
+<script type="text/javascript" src="/CLRS/js/auto-complete.js?1521557865"></script>
 <script type="text/javascript">
     
         var baseurl = '\/CLRS';
     
 </script>
-<script type="text/javascript" src="/CLRS/js/search.js?1521555769"></script>
+<script type="text/javascript" src="/CLRS/js/search.js?1521557865"></script>
 
     
   </div>
@@ -8633,7 +8633,7 @@ $$
 <h2 id="7-4-5">7.4-5</h2>
 
 <blockquote>
-<p>We can improve the running time of quicksort in practice by taking advantage of the fast running time of insertion sort when its input is &laquo;nearly&raquo; sorted. Upon calling quicksort on a subarray with fewer than $k$ elements, let it simply return without sorting the subarray. After the top-level call to quicksort returns, run insertion sort on the entire array to finish the sorting process. Argue that this sorting algorithm runs in $O(nk + n\lg(n / k))$ expected time. How should we pick $k$, both in theory and practice?</p>
+<p>We can improve the running time of quicksort in practice by taking advantage of the fast running time of insertion sort when its input is &ldquo;nearly&rdquo; sorted. Upon calling quicksort on a subarray with fewer than $k$ elements, let it simply return without sorting the subarray. After the top-level call to quicksort returns, run insertion sort on the entire array to finish the sorting process. Argue that this sorting algorithm runs in $O(nk + n\lg(n / k))$ expected time. How should we pick $k$, both in theory and practice?</p>
 </blockquote>
 
 <p>In the quicksort part of the proposed algorithm, the recursion stops at level $\lg(n / k)$, which makes the expected running time $O(n\lg(n / k))$. However, this leaves $n / k$ non-sorted, non - intersecting subarrays of (maximum) length $k$.</p>
@@ -14755,20 +14755,20 @@ $$
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/CLRS/js/clipboard.min.js?1521555769"></script>
-    <script src="/CLRS/js/perfect-scrollbar.min.js?1521555769"></script>
-    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1521555769"></script>
-    <script src="/CLRS/js/jquery.sticky.js?1521555769"></script>
-    <script src="/CLRS/js/featherlight.min.js?1521555769"></script>
-    <script src="/CLRS/js/html5shiv-printshiv.min.js?1521555769"></script>
-    <script src="/CLRS/js/highlight.pack.js?1521555769"></script>
+    <script src="/CLRS/js/clipboard.min.js?1521557865"></script>
+    <script src="/CLRS/js/perfect-scrollbar.min.js?1521557865"></script>
+    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1521557865"></script>
+    <script src="/CLRS/js/jquery.sticky.js?1521557865"></script>
+    <script src="/CLRS/js/featherlight.min.js?1521557865"></script>
+    <script src="/CLRS/js/html5shiv-printshiv.min.js?1521557865"></script>
+    <script src="/CLRS/js/highlight.pack.js?1521557865"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/CLRS/js/modernizr.custom.71422.js?1521555769"></script>
-    <script src="/CLRS/js/learn.js?1521555769"></script>
-    <script src="/CLRS/js/hugo-learn.js?1521555769"></script>
+    <script src="/CLRS/js/modernizr.custom.71422.js?1521557865"></script>
+    <script src="/CLRS/js/learn.js?1521557865"></script>
+    <script src="/CLRS/js/hugo-learn.js?1521557865"></script>
 
-    <link href="/CLRS/mermaid/mermaid.css?1521555769" type="text/css" rel="stylesheet" />
-    <script src="/CLRS/mermaid/mermaid.js?1521555769"></script>
+    <link href="/CLRS/mermaid/mermaid.css?1521557865" type="text/css" rel="stylesheet" />
+    <script src="/CLRS/mermaid/mermaid.js?1521557865"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
