@@ -1,0 +1,432 @@
+# Project information
+site_name: 'CLRS Solutions'
+site_description: 'Solutions to Introduction to Algorithms Third Edition. CLRS Solutions. The textbook that a Computer Science (CS) student must read.'
+site_author: 'Jay Chen'
+site_url: 'https://walkccc.github.io/CLRS'
+
+# Repository
+repo_name: 'walkccc/CLRS'
+repo_url: 'https://github.com/walkccc/CLRS'
+
+# Copyright
+copyright: 'Built by <a href="http://github.com/walkccc">Jay Chen</a> &copy; 2017 - 2019'
+
+# Configuration
+theme:
+  name: 'material'
+  language: 'en'
+  favicon: 'assets/favicon.png'
+  palette:
+    primary: 'Teal'
+    accent: 'Blue'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+  logo:
+    icon: 'import_contacts'
+
+# Customization
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/walkccc'
+    - type: 'quote-left'
+      link: 'https://walkccc.github.io/blog'
+    - type: 'linkedin'
+      link: 'https://www.linkedin.com/in/peng-yu-jay-chen-57852313a/'
+
+extra_css:
+  - 'css/katex.css'
+  - 'https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css'
+
+extra_javascript:
+  - 'js/katex.js'
+  - 'https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js'
+  - 'https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js'
+
+# Google Analytics
+google_analytics:
+  - 'UA-117404761-1'
+  - 'auto'
+
+# Extensions
+markdown_extensions:
+  - codehilite:
+      linenums: true
+  - toc:
+      permalink: false
+  - pymdownx.superfences
+
+nav:
+  - Preface: index.md
+  - Color: color.md
+  - I Foundations:
+      - 1 The Role of Algorithms in Computing:
+          - 1.1 Algorithms: Chap01/1.1.md
+          - 1.2 Algorithms as a technology: Chap01/1.2.md
+          - Chap 1 Problems:
+              - Problem 1-1: Chap01/Problems/1-1.md
+      - 2 Getting Started:
+          - 2.1 Insertion sort: Chap02/2.1.md
+          - 2.2 Analyzing algorithms: Chap02/2.2.md
+          - 2.3 Designing algorithms: Chap02/2.3.md
+          - Chap 2 Problems:
+              - 2-1 Insertion sort on small arrays in merge sort: Chap02/Problems/2-1.md
+              - 2-2 Correctness of bubblesort: Chap02/Problems/2-2.md
+              - 2-3 Correctness of Horner's rule: Chap02/Problems/2-3.md
+              - 2-4 Inversions: Chap02/Problems/2-4.md
+      - 3 Growth of Functions:
+          - 3.1 Asymptotic notation: Chap03/3.1.md
+          - 3.2 Standard notations and common functions: Chap03/3.2.md
+          - Chap 3 Problems:
+              - 3-1 Asymptotic behavior of polynomials: Chap03/Problems/3-1.md
+              - 3-2 Relative asymptotic growths: Chap03/Problems/3-2.md
+              - 3-3 Ordering by asymptotic growth rates: Chap03/Problems/3-3.md
+              - 3-4 Asymptotic notation properties: Chap03/Problems/3-4.md
+              - 3-5 Variations on $O$ and $\Omega$: Chap03/Problems/3-5.md
+              - 3-6 Iterated functions: Chap03/Problems/3-6.md
+      - 4 Divide-and-Conquer:
+          - 4.1 The maximum-subarray problem: Chap04/4.1.md
+          - 4.2 Strassen's algorithm for matrix multiplication: Chap04/4.2.md
+          - 4.3 The substitution method for solving recurrences: Chap04/4.3.md
+          - 4.4 The recursion-tree method for solving recurrences: Chap04/4.4.md
+          - 4.5 The master method for solving recurrences: Chap04/4.5.md
+          - 4.6 Proof of the master theorem: Chap04/4.6.md
+          - Chap 4 Problems:
+              - 4-1 Recurrence examples: Chap04/Problems/4-1.md
+              - 4-2 Parameter-passing costs: Chap04/Problems/4-2.md
+              - 4-3 More recurrence examples: Chap04/Problems/4-3.md
+              - 4-4 Fibonacci numbers: Chap04/Problems/4-4.md
+              - 4-5 Chip testing: Chap04/Problems/4-5.md
+              - 4-6 Monge arrays: Chap04/Problems/4-6.md
+      - 5 Probabilistic Analysis and Randomized Algorithms:
+          - 5.1 The hiring problem: Chap05/5.1.md
+          - 5.2 Indicator random variables: Chap05/5.2.md
+          - 5.3 Randomized algorithms: Chap05/5.3.md
+          - 5.4 Probabilistic analysis and further uses of indicator random variables: Chap05/5.4.md
+          - Chap 5 Problems:
+              - 5-1 Probabilstic counting: Chap05/Problems/5-1.md
+              - 5-2 Searching an unsorted array: Chap05/Problems/5-2.md
+  - II Sorting and Order Statistics:
+      - 6 Heapsort:
+          - 6.1 Heaps: Chap06/6.1.md
+          - 6.2 Maintaining the heap property: Chap06/6.2.md
+          - 6.3 Building a heap: Chap06/6.3.md
+          - 6.4 The heapsort algorithm: Chap06/6.4.md
+          - 6.5 Priority queues: Chap06/6.5.md
+          - Chap 6 Problems:
+              - 6-1 Building a heap using insertion: Chap06/Problems/6-1.md
+              - 6-2 Analysis of $d$-ary heaps: Chap06/Problems/6-2.md
+              - 6-3 Young tableaus: Chap06/Problems/6-3.md
+      - 7 Quicksort:
+          - 7.1 Description of quicksort: Chap07/7.1.md
+          - 7.2 Performance of quicksort: Chap07/7.2.md
+          - 7.3 A randomized version of quicksort: Chap07/7.3.md
+          - 7.4 Analysis of quicksort: Chap07/7.4.md
+          - Chap 7 Problems:
+              - 7-1 Hoare partition correctness: Chap07/Problems/7-1.md
+              - 7-2 Quicksort with equal element values: Chap07/Problems/7-2.md
+              - 7-3 Alternative quicksort analysis: Chap07/Problems/7-3.md
+              - 7-4 Stack depth for quicksort: Chap07/Problems/7-4.md
+              - 7-5 Median-of-3 partition: Chap07/Problems/7-5.md
+              - 7-6 Fuzzy sorting of intervals: Chap07/Problems/7-6.md
+      - 8 Sorting in Linear Time:
+          - 8.1 Lower bounds for sorting: Chap08/8.1.md
+          - 8.2 Counting sort: Chap08/8.2.md
+          - 8.3 Radix sort: Chap08/8.3.md
+          - 8.4 Bucket sort: Chap08/8.4.md
+          - Chap 8 Problems:
+              - 8-1 Probabilistic lower bounds on comparison sorting: Chap08/Problems/8-1.md
+              - 8-2 Sorting in place in linear time: Chap08/Problems/8-2.md
+              - 8-3 Sorting variable-length items: Chap08/Problems/8-3.md
+              - 8-4 Water jugs: Chap08/Problems/8-4.md
+              - 8-5 Average sorting: Chap08/Problems/8-5.md
+              - 8-6 Lower bound on merging sorted lists: Chap08/Problems/8-6.md
+              - 8-7 The $0$-$1$ sorting lemma and columnsort: Chap08/Problems/8-7.md
+      - 9 Medians and Order Statistics:
+          - 9.1 Minimum and maximum: Chap09/9.1.md
+          - 9.2 Selection in expected linear time: Chap09/9.2.md
+          - 9.3 Selection in worst-case linear time: Chap09/9.3.md
+          - Chap 9 Problems:
+              - 9-1 Largest $i$ numbers in sorted order: Chap09/Problems/9-1.md
+              - 9-2 Weighted median: Chap09/Problems/9-2.md
+              - 9-3 Small order statistics: Chap09/Problems/9-3.md
+              - 9-4 Alternative analysis of randomized selection: Chap09/Problems/9-4.md
+  - III Data Structures:
+      - 10 Elementary Data Structures:
+          - 10.1 Stacks and queues: Chap10/10.1.md
+          - 10.2 Linked lists: Chap10/10.2.md
+          - 10.3 Implementing pointers and objects: Chap10/10.3.md
+          - 10.4 Representing rooted trees: Chap10/10.4.md
+          - Chap 10 Problems:
+              - 10-1 Comparisons among lists: Chap10/Problems/10-1.md
+              - 10-2 Mergeable heaps using linked lists: Chap10/Problems/10-2.md
+              - 10-3 Searching a sorted compact list: Chap10/Problems/10-3.md
+      - 11 Hash Tables:
+          - 11.1 Direct-address tables: Chap11/11.1.md
+          - 11.2 Hash tables: Chap11/11.2.md
+          - 11.3 Hash functions: Chap11/11.3.md
+          - 11.4 Open addressing: Chap11/11.4.md
+          - 11.5 Perfect hashing: Chap11/11.5.md
+          - Chap 11 Problems:
+              - 11-1 Longest-probe bound for hashing: Chap11/Problems/11-1.md
+              - 11-2 Slot-size bound for chaining: Chap11/Problems/11-2.md
+              - 11-3 Quadratic probing: Chap11/Problems/11-3.md
+              - 11-4 Hashing and authentication: Chap11/Problems/11-4.md
+      - 12 Binary Search Trees:
+          - 12.1 What is a binary search tree?: Chap12/12.1.md
+          - 12.2 Querying a binary search tree: Chap12/12.2.md
+          - 12.3 Insertion and deletion: Chap12/12.3.md
+          - 12.4 Randomly built binary search trees: Chap12/12.4.md
+          - Chap 12 Problems:
+              - 12-1 Binary search trees with equal keys: Chap12/Problems/12-1.md
+              - 12-2 Radix trees: Chap12/Problems/12-2.md
+              - 12-3 Average node depth in a randomly built binary search tree: Chap12/Problems/12-3.md
+              - 12-4 Number of different binary trees: Chap12/Problems/12-4.md
+      - 13 Red-Black Trees:
+          - 13.1 Properties of red-black trees: Chap13/13.1.md
+          - 13.2 Rotations: Chap13/13.2.md
+          - 13.3 Insertion: Chap13/13.3.md
+          - 13.4 Deletion: Chap13/13.4.md
+          - Chap 13 Problems:
+              - 13-1 Persistent dynamic sets: Chap13/Problems/13-1.md
+              - 13-2 Join operation on red-black trees: Chap13/Problems/13-2.md
+              - 13-3 AVL trees: Chap13/Problems/13-3.md
+              - 13-4 Treaps: Chap13/Problems/13-4.md
+      - 14 Augmenting Data Structures:
+          - 14.1 Dynamic order statistics: Chap14/14.1.md
+          - 14.2 How to augment a data structure: Chap14/14.2.md
+          - 14.3 Interval trees: Chap14/14.3.md
+          - Chap 14 Problems:
+              - 14-1 Point of maximum overlap: Chap14/Problems/14-1.md
+              - 14-2 Josephus permutation: Chap14/Problems/14-2.md
+  - IV Advanced Design and Analysis Techniques:
+      - 15 Dynamic Programming:
+          - 15.1 Rod cutting: Chap15/15.1.md
+          - 15.2 Matrix-chain multiplication: Chap15/15.2.md
+          - 15.3 Elements of dynamic programming: Chap15/15.3.md
+          - 15.4 Longest common subsequence: Chap15/15.4.md
+          - 15.5 Optimal binary search trees: Chap15/15.5.md
+          - Chap 15 Problems:
+              - 15-1 Longest simple path in a directed acyclic graph: Chap15/Problems/15-1.md
+              - 15-2 Longest palindrome subsequence: Chap15/Problems/15-2.md
+              - 15-3 Bitonic euclidean: Chap15/Problems/15-3.md
+              - 15-4 Printing neatly: Chap15/Problems/15-4.md
+              - 15-5 Edit distance: Chap15/Problems/15-5.md
+              - 15-6 Planning a company party: Chap15/Problems/15-6.md
+              - 15-7 Viterbi algorithm: Chap15/Problems/15-7.md
+              - 15-8 Image compression by seam carving: Chap15/Problems/15-8.md
+              - 15-9 Breaking a string: Chap15/Problems/15-9.md
+              - 15-10 Planning an investment strategy: Chap15/Problems/15-10.md
+              - 15-11 Inventory planning: Chap15/Problems/15-11.md
+              - 15-12 Signing free-agent baseball players: Chap15/Problems/15-12.md
+      - 16 Greedy Algorithms:
+          - 16.1 An activity-selection problem: Chap16/16.1.md
+          - 16.2 Elements of the greedy strategy: Chap16/16.2.md
+          - 16.3 Huffman codes: Chap16/16.3.md
+          - 16.4 Matroids and greedy methods: Chap16/16.4.md
+          - 16.5 A task-scheduling problem as a matroid: Chap16/16.5.md
+          - Chap 16 Problems:
+              - 16-1 Coin changing: Chap16/Problems/16-1.md
+              - 16-2 Scheduling to minimize average completion time: Chap16/Problems/16-2.md
+              - 16-3 Acyclic subgraphs: Chap16/Problems/16-3.md
+              - 16-4 Scheduling variations: Chap16/Problems/16-4.md
+              - 16-5 Off-line caching: Chap16/Problems/16-5.md
+      - 17 Amortized Analysis:
+          - 17.1 Aggregate analysis: Chap17/17.1.md
+          - 17.2 The accounting method: Chap17/17.2.md
+          - 17.3 The potential method: Chap17/17.3.md
+          - 17.4 Dynamic tables: Chap17/17.4.md
+          - Chap 17 Problems:
+              - 17-1 Bit-reversed binary counter: Chap17/Problems/17-1.md
+              - 17-2 Making binary search dynamic: Chap17/Problems/17-2.md
+              - 17-3 Amortized weight-balanced trees: Chap17/Problems/17-3.md
+              - 17-4 The cost of restructuring red-black trees: Chap17/Problems/17-4.md
+              - 17-5 Competitive analysis of self-organizing lists with move-to-front: Chap17/Problems/17-5.md
+  - V Advanced Data Structures:
+      - 18 B-Trees:
+          - 18.1 Definition of B-trees: Chap18/18.1.md
+          - 18.2 Basic operations on B-trees: Chap18/18.2.md
+          - 18.3 Deleting a key from a B-tree: Chap18/18.3.md
+          - Chap 18 Problems:
+              - 18-1 Stacks on secondary storage: Chap18/Problems/18-1.md
+              - 18-2 Joining and splitting 2-3-4 trees: Chap18/Problems/18-2.md
+      - 19 Fibonacci Heaps:
+          - 19.1 Structure of Fibonacci heaps: Chap19/19.1.md
+          - 19.2 Mergeable-heap operations: Chap19/19.2.md
+          - 19.3 Decreasing a key and deleting a node: Chap19/19.3.md
+          - 19.4 Bounding the maximum degree: Chap19/19.4.md
+          - Chap 19 Problems:
+              - 19-1 Alternative implementation of deletion: Chap19/Problems/19-1.md
+              - 19-2 Binomial trees and binomial heaps: Chap19/Problems/19-2.md
+              - 19-3 More Fibonacci-heap operations: Chap19/Problems/19-3.md
+              - 19-4 2-3-4 heaps: Chap19/Problems/19-4.md
+      - 20 van Emde Boas Trees:
+          - 20.1 Preliminary approaches: Chap20/20.1.md
+          - 20.2 A recursive structure: Chap20/20.2.md
+          - 20.3 The van Emde Boas tree: Chap20/20.3.md
+          - Chap 20 Problems:
+              - 20-1 Space requirements for van Emde Boas trees: Chap20/Problems/20-1.md
+              - 20-2 $y$-fast tries: Chap20/Problems/20-2.md
+      - 21 Data Structures for Disjoint Sets:
+          - 21.1 Disjoint-set operations: Chap21/21.1.md
+          - 21.2 Linked-list representation of disjoint sets: Chap21/21.2.md
+          - 21.3 Disjoint-set forests: Chap21/21.3.md
+          - 21.4 Analysis of union by rank with path compression: Chap21/21.4.md
+          - Chap 21 Problems:
+              - 21-1 Off-line minimum: Chap21/Problems/21-1.md
+              - 21-2 Depth determination: Chap21/Problems/21-2.md
+              - 21-3 Tarjan's off-line least-common-ancestors algorithm: Chap21/Problems/21-3.md
+  - VI Graph Algorithms:
+      - 22 Elementary Graph Algorithms:
+          - 22.1 Representations of graphs: Chap22/22.1.md
+          - 22.2 Breadth-first search: Chap22/22.2.md
+          - 22.3 Depth-first search: Chap22/22.3.md
+          - 22.4 Topological sort: Chap22/22.4.md
+          - 22.5 Strongly connected components: Chap22/22.5.md
+          - Chap 22 Problems:
+              - 22-1 Classifying edges by breadth-first search: Chap22/Problems/22-1.md
+              - 22-2 Articulation points, bridges, and biconnected components: Chap22/Problems/22-2.md
+              - 22-3 Euler tour: Chap22/Problems/22-3.md
+              - 22-4 Reachability: Chap22/Problems/22-4.md
+      - 23 Minimum Spanning Trees:
+          - 23.1 Growing a minimum spanning tree: Chap23/23.1.md
+          - 23.2 The algorithms of Kruskal and Prim: Chap23/23.2.md
+          - Chap 23 Problems:
+              - 23-1 Second-best minimum spanning tree: Chap23/Problems/23-1.md
+              - 23-2 Minimum spanning tree in sparse graphs: Chap23/Problems/23-2.md
+              - 23-3 Bottleneck spanning tree: Chap23/Problems/23-3.md
+              - 23-4 Alternative minimum-spanning-tree algorithms: Chap23/Problems/23-4.md
+      - 24 Single-Source Shortest Paths:
+          - 24.1 The Bellman-Ford algorithm: Chap24/24.1.md
+          - 24.2 Single-source shortest paths in directed acyclic graphs: Chap24/24.2.md
+          - 24.3 Dijkstra's algorithm: Chap24/24.3.md
+          - 24.4 Difference constraints and shortest paths: Chap24/24.4.md
+          - 24.5 Proofs of shortest-paths properties: Chap24/24.5.md
+          - Chap 24 Problems:
+              - 24-1 Yen's improvement to Bellman-Ford: Chap24/Problems/24-1.md
+              - 24-2 Nesting boxes: Chap24/Problems/24-2.md
+              - 24-3 Arbitrage: Chap24/Problems/24-3.md
+              - 24-4 Gabow's scaling algorithm for single-source shortest paths: Chap24/Problems/24-4.md
+              - 24-5 Karp's minimum mean-weight cycle algorithm: Chap24/Problems/24-5.md
+              - 24-6 Bitonic shortest paths: Chap24/Problems/24-6.md
+      - 25 All-Pairs Shortest Paths:
+          - 25.1 Shortest paths and matrix multiplication: Chap25/25.1.md
+          - 25.2 The Floyd-Warshall algorithm: Chap25/25.2.md
+          - 25.3 Johnson's algorithm for sparse graphs: Chap25/25.3.md
+          - Chap 25 Problems:
+              - 25-1 Transitive closure of a dynamic graph: Chap25/Problems/25-1.md
+              - 25-2 Shortest paths in epsilon-dense graphs: Chap25/Problems/25-2.md
+      - 26 Maximum Flow:
+          - 26.1 Flow networks: Chap26/26.1.md
+          - 26.2 The Ford-Fulkerson method: Chap26/26.2.md
+          - 26.3 Maximum bipartite matching: Chap26/26.3.md
+          - 26.4 Push-relabel algorithms: Chap26/26.4.md
+          - 26.5 The relabel-to-front algorithm: Chap26/26.5.md
+          - Chap 26 Problems:
+              - 26-1 Escape problem: Chap26/Problems/26-1.md
+              - 26-2 Minimum path cover: Chap26/Problems/26-2.md
+              - 26-3 Algorithmic consulting: Chap26/Problems/26-3.md
+              - 26-4 Updating maximum flow: Chap26/Problems/26-4.md
+              - 26-5 Maximum flow by scaling: Chap26/Problems/26-5.md
+              - 26-6 The Hopcroft-Karp bipartite matching algorithm: Chap26/Problems/26-6.md
+  - VII Selected Topics:
+      - 27 Multithreaded Algorithms:
+          - 27.1 The basics of dynamic multithreading: Chap27/27.1.md
+          - 27.2 Multithreaded matrix multiplication: Chap27/27.2.md
+          - 27.3 Multithreaded merge sort: Chap27/27.3.md
+          - Chap 27 Problems:
+              - 27-1 Implementing parallel loops using nested parallelism: Chap27/Problems/27-1.md
+              - 27-2 Saving temporary space in matrix multiplication: Chap27/Problems/27-2.md
+              - 27-3 Multithreaded matrix algorithms: Chap27/Problems/27-3.md
+              - 27-4 Multithreading reductions and prefix computations: Chap27/Problems/27-4.md
+              - 27-5 Multithreading a simple stencil calculation: Chap27/Problems/27-5.md
+              - 27-6 Randomized multithreaded algorithms: Chap27/Problems/27-6.md
+      - 28 Matrix Operations:
+          - 28.1 Solving systems of linear equations: Chap28/28.1.md
+          - 28.2 Inverting matrices: Chap28/28.2.md
+          - 28.3 Symmetric positive-definite matrices and least-squares approximation: Chap28/28.3.md
+          - Chap 28 Problems:
+              - 28-1 Tridiagonal systems of linear equations: Chap28/Problems/28-1.md
+              - 28-2 Splines: Chap28/Problems/28-2.md
+      - 29 Linear Programming:
+          - 29.1 Standard and slack forms: Chap29/29.1.md
+          - 29.2 Formulating problems as linear programs: Chap29/29.2.md
+          - 29.3 The simplex algorithm: Chap29/29.3.md
+          - 29.4 Duality: Chap29/29.4.md
+          - 29.5 The initial basic feasible solution: Chap29/29.5.md
+          - Chap 29 Problems:
+              - 29-1 Linear-inequality feasibility: Chap29/Problems/29-1.md
+              - 29-2 Complementary slackness: Chap29/Problems/29-2.md
+              - 29-3 Integer linear programming: Chap29/Problems/29-3.md
+              - 29-4 Farkas'ss lemma: Chap29/Problems/29-4.md
+              - 29-5 Minimum-cost circulation: Chap29/Problems/29-5.md
+      - 30 Polynomials and the FFT:
+          - 30.1 Representing polynomials: Chap30/30.1.md
+          - 30.2 The DFT and FFT: Chap30/30.2.md
+          - 30.3 Efficient FFT implementations: Chap30/30.3.md
+          - Chap 30 Problems:
+              - 30-1 Divide-and-conquer multiplication: Chap30/Problems/30-1.md
+              - 30-2 Toeplitz matrices: Chap30/Problems/30-2.md
+              - 30-3 Multidimensional fast Fourier transform: Chap30/Problems/30-3.md
+              - 30-4 Evaluating all derivatives of a polynomial at a point: Chap30/Problems/30-4.md
+              - 30-5 Polynomial evaluation at multiple points: Chap30/Problems/30-5.md
+              - 30-6 FFT using modular arithmetic: Chap30/Problems/30-6.md
+      - 31 Number-Theoretic Algorithms:
+          - 31.1 Elementary number-theoretic notions: Chap31/31.1.md
+          - 31.2 Greatest common divisor: Chap31/31.2.md
+          - 31.3 Modular arithmetic: Chap31/31.3.md
+          - 31.4 Solving modular linear equations: Chap31/31.4.md
+          - 31.5 The Chinese remainder theorem: Chap31/31.5.md
+          - 31.6 Powers of an element: Chap31/31.6.md
+          - 31.7 The RSA public-key cryptosystem: Chap31/31.7.md
+          - 31.8 Primality testing: Chap31/31.8.md
+          - 31.9 Integer factorization: Chap31/31.9.md
+          - Chap 31 Problems:
+              - 31-1 Binary gcd algorithm: Chap31/Problems/31-1.md
+              - 31-2 Analysis of bit operations in Euclid's algorithm: Chap31/Problems/31-2.md
+              - 31-3 Three algorithms for Fibonacci numbers: Chap31/Problems/31-3.md
+              - 31-4 Quadratic residues: Chap31/Problems/31-4.md
+      - 32 String Matching:
+          - 32.1 The naive string-matching algorithm: Chap32/32.1.md
+          - 32.2 The Rabin-Karp algorithm: Chap32/32.2.md
+          - 32.3 String matching with finite automata: Chap32/32.3.md
+          - 32.4 The Knuth-Morris-Pratt algorithm: Chap32/32.4.md
+          - Chap 32 Problems:
+              - 32-1 String matching based on repetition factors: Chap32/Problems/32-1.md
+      - 33 Computational Geometry:
+          - 33.1 Line-segment properties: Chap33/33.1.md
+          - 33.2 Determining whether any pair of segments intersects: Chap33/33.2.md
+          - 33.3 Finding the convex hull: Chap33/33.3.md
+          - 33.4 Finding the closest pair of points: Chap33/33.4.md
+          - Chap 33 Problems:
+              - 33-1 Convex layers: Chap33/Problems/33-1.md
+              - 33-2 Maximal layers: Chap33/Problems/33-2.md
+              - 33-3 Ghostbusters and ghosts: Chap33/Problems/33-3.md
+              - 33-4 Picking up sticks: Chap33/Problems/33-4.md
+              - 33-5 Sparse-hulled distributions: Chap33/Problems/33-5.md
+      - 34 NP-Completeness:
+          - 34.1 Polynomial time: Chap34/34.1.md
+          - 34.2 Polynomial-time verification: Chap34/34.2.md
+          - 34.3 NP-completeness and reducibility: Chap34/34.3.md
+          - 34.4 NP-completeness proofs: Chap34/34.4.md
+          - 34.5 NP-complete problems: Chap34/34.5.md
+          - Chap 34 Problems:
+              - 34-1 Independent set: Chap34/Problems/34-1.md
+              - 34-2 Bonnie and Clyde: Chap34/Problems/34-2.md
+              - 34-3 Graph coloring: Chap34/Problems/34-3.md
+              - 34-4 Scheduling with profits and deadlines: Chap34/Problems/34-4.md
+      - 35 Approximation Algorithms:
+          - 35.1 The vertex-cover problem: Chap35/35.1.md
+          - 35.2 The traveling-salesman problem: Chap35/35.2.md
+          - 35.3 The set-covering problem: Chap35/35.3.md
+          - 35.4 Randomization and linear programming: Chap35/35.4.md
+          - 35.5 The subset-sum problem: Chap35/35.5.md
+          - Chap 35 Problems:
+              - 35-1 Bin packing: Chap35/Problems/35-1.md
+              - 35-2 Approximating the size of a maximum clique: Chap35/Problems/35-2.md
+              - 35-3 Weighted set-covering problem: Chap35/Problems/35-3.md
+              - 35-4 Maximum matching: Chap35/Problems/35-4.md
+              - 35-5 Parallel machine scheduling: Chap35/Problems/35-5.md
+              - 35-6 Approximating a maximum spanning tree: Chap35/Problems/35-6.md
+              - 35-7 An approximation algorithm for the 0-1 knapsack problem: Chap35/Problems/35-7.md
