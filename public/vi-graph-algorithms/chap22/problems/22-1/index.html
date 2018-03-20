@@ -12,19 +12,19 @@
     <title>22-1 Classifying edges by breadth-first search :: Solutions</title>
     
     
-    <link href="/CLRS/css/nucleus.css?1521555174" rel="stylesheet">
-    <link href="/CLRS/css/font-awesome.min.css?1521555174" rel="stylesheet">
-    <link href="/CLRS/css/hybrid.css?1521555174" rel="stylesheet">
-    <link href="/CLRS/css/featherlight.min.css?1521555174" rel="stylesheet">
-    <link href="/CLRS/css/perfect-scrollbar.min.css?1521555174" rel="stylesheet">
-    <link href="/CLRS/css/auto-complete.css?1521555174" rel="stylesheet">
-    <link href="/CLRS/css/theme.css?1521555174" rel="stylesheet">
-    <link href="/CLRS/css/hugo-theme.css?1521555174" rel="stylesheet">
+    <link href="/CLRS/css/nucleus.css?1521555767" rel="stylesheet">
+    <link href="/CLRS/css/font-awesome.min.css?1521555767" rel="stylesheet">
+    <link href="/CLRS/css/hybrid.css?1521555767" rel="stylesheet">
+    <link href="/CLRS/css/featherlight.min.css?1521555767" rel="stylesheet">
+    <link href="/CLRS/css/perfect-scrollbar.min.css?1521555767" rel="stylesheet">
+    <link href="/CLRS/css/auto-complete.css?1521555767" rel="stylesheet">
+    <link href="/CLRS/css/theme.css?1521555767" rel="stylesheet">
+    <link href="/CLRS/css/hugo-theme.css?1521555767" rel="stylesheet">
     
-      <link href="/CLRS/css/theme-nippon2.css?1521555174" rel="stylesheet">
+      <link href="/CLRS/css/theme-nippon2.css?1521555767" rel="stylesheet">
     
 
-    <script src="/CLRS/js/jquery-2.x.min.js?1521555174"></script>
+    <script src="/CLRS/js/jquery-2.x.min.js?1521555767"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/CLRS/js/lunr.min.js?1521555174"></script>
-<script type="text/javascript" src="/CLRS/js/auto-complete.js?1521555174"></script>
+<script type="text/javascript" src="/CLRS/js/lunr.min.js?1521555767"></script>
+<script type="text/javascript" src="/CLRS/js/auto-complete.js?1521555767"></script>
 <script type="text/javascript">
     
         var baseurl = '\/CLRS';
     
 </script>
-<script type="text/javascript" src="/CLRS/js/search.js?1521555174"></script>
+<script type="text/javascript" src="/CLRS/js/search.js?1521555767"></script>
 
     
   </div>
@@ -14558,53 +14558,50 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/CLRS/js/clipboard.min.js?1521555174"></script>
-    <script src="/CLRS/js/perfect-scrollbar.min.js?1521555174"></script>
-    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1521555174"></script>
-    <script src="/CLRS/js/jquery.sticky.js?1521555174"></script>
-    <script src="/CLRS/js/featherlight.min.js?1521555174"></script>
-    <script src="/CLRS/js/html5shiv-printshiv.min.js?1521555174"></script>
-    <script src="/CLRS/js/highlight.pack.js?1521555174"></script>
+    <script src="/CLRS/js/clipboard.min.js?1521555767"></script>
+    <script src="/CLRS/js/perfect-scrollbar.min.js?1521555767"></script>
+    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1521555767"></script>
+    <script src="/CLRS/js/jquery.sticky.js?1521555767"></script>
+    <script src="/CLRS/js/featherlight.min.js?1521555767"></script>
+    <script src="/CLRS/js/html5shiv-printshiv.min.js?1521555767"></script>
+    <script src="/CLRS/js/highlight.pack.js?1521555767"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/CLRS/js/modernizr.custom.71422.js?1521555174"></script>
-    <script src="/CLRS/js/learn.js?1521555174"></script>
-    <script src="/CLRS/js/hugo-learn.js?1521555174"></script>
+    <script src="/CLRS/js/modernizr.custom.71422.js?1521555767"></script>
+    <script src="/CLRS/js/learn.js?1521555767"></script>
+    <script src="/CLRS/js/hugo-learn.js?1521555767"></script>
 
-    <link href="/CLRS/mermaid/mermaid.css?1521555174" type="text/css" rel="stylesheet" />
-    <script src="/CLRS/mermaid/mermaid.js?1521555174"></script>
+    <link href="/CLRS/mermaid/mermaid.css?1521555767" type="text/css" rel="stylesheet" />
+    <script src="/CLRS/mermaid/mermaid.js?1521555767"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.js" integrity="sha256-34ADEQM6cIZ7chSRA07lN4aD5JM9IQoeIr2VamKDcT0=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/contrib/auto-render.min.js" integrity="sha256-HkMrKMLKQk4t1R2ofMAcLz72fWM2sshnx6215U+LgU0=" crossorigin="anonymous"></script>
 <script>
-  renderMathInElement(document.body,
-    {
+    renderMathInElement(document.body,{
         delimiters: [
             {left: "$$", right: "$$", display: true},
             {left: "$", right: "$", display: false},
-            {left: "\\(", right: "\\)", display: false},
         ]
+    });
+
+    var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+    for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
     }
-  );
 
-  var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
-  for (var i = 0; i < inlineMathArray.length; i++) {
-    var inlineMath = inlineMathArray[i];
-    var tex = inlineMath.innerText || inlineMath.textContent;
-    var replaced = document.createElement("span");
-    replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
-    inlineMath.parentNode.replaceChild(replaced, inlineMath);
-  }
-
-  var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
-  for (var i = 0; i < displayMathArray.length; i++) {
-    var displayMath = displayMathArray[i];
-    var tex = displayMath.innerHTML;
-    var replaced = document.createElement("span");
-    replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
-    displayMath.parentNode.replaceChild(replaced, displayMath);
-  }
+    var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+    for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+    }
 </script>
   </body>
 </html>
