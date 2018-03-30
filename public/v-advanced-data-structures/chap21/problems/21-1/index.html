@@ -12,19 +12,19 @@
     <title>21-1 Off-line minimum :: Solutions</title>
     
     
-    <link href="/CLRS/css/nucleus.css?1521557863" rel="stylesheet">
-    <link href="/CLRS/css/font-awesome.min.css?1521557863" rel="stylesheet">
-    <link href="/CLRS/css/hybrid.css?1521557863" rel="stylesheet">
-    <link href="/CLRS/css/featherlight.min.css?1521557863" rel="stylesheet">
-    <link href="/CLRS/css/perfect-scrollbar.min.css?1521557863" rel="stylesheet">
-    <link href="/CLRS/css/auto-complete.css?1521557863" rel="stylesheet">
-    <link href="/CLRS/css/theme.css?1521557863" rel="stylesheet">
-    <link href="/CLRS/css/hugo-theme.css?1521557863" rel="stylesheet">
+    <link href="/CLRS/css/nucleus.css?1522426744" rel="stylesheet">
+    <link href="/CLRS/css/font-awesome.min.css?1522426744" rel="stylesheet">
+    <link href="/CLRS/css/hybrid.css?1522426744" rel="stylesheet">
+    <link href="/CLRS/css/featherlight.min.css?1522426744" rel="stylesheet">
+    <link href="/CLRS/css/perfect-scrollbar.min.css?1522426744" rel="stylesheet">
+    <link href="/CLRS/css/auto-complete.css?1522426744" rel="stylesheet">
+    <link href="/CLRS/css/theme.css?1522426744" rel="stylesheet">
+    <link href="/CLRS/css/hugo-theme.css?1522426744" rel="stylesheet">
     
-      <link href="/CLRS/css/theme-nippon2.css?1521557863" rel="stylesheet">
+      <link href="/CLRS/css/theme-nippon2.css?1522426744" rel="stylesheet">
     
 
-    <script src="/CLRS/js/jquery-2.x.min.js?1521557863"></script>
+    <script src="/CLRS/js/jquery-2.x.min.js?1522426744"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/CLRS/js/lunr.min.js?1521557863"></script>
-<script type="text/javascript" src="/CLRS/js/auto-complete.js?1521557863"></script>
+<script type="text/javascript" src="/CLRS/js/lunr.min.js?1522426744"></script>
+<script type="text/javascript" src="/CLRS/js/auto-complete.js?1522426744"></script>
 <script type="text/javascript">
     
         var baseurl = '\/CLRS';
     
 </script>
-<script type="text/javascript" src="/CLRS/js/search.js?1521557863"></script>
+<script type="text/javascript" src="/CLRS/js/search.js?1522426744"></script>
 
     
   </div>
@@ -8463,7 +8463,7 @@ $$
 $$
 </div>
 
-<p>Fill in the correct values in the _extracted_ array.</p>
+<p>Fill in the correct values in the <em>extracted</em> array.</p>
 
 <p>To develop an algorithm for this problem, we break the sequence $S$ into homogeneous subsequences. That is, we represent $S$ by</p>
 
@@ -8498,25 +8498,29 @@ $$
 $$
 </div>
 
-<p>the values in the $extracted$ array would be $4, 3, 2, 6, 8, 1$.</p>
+<p>the values in the $extracted$ array would be $[4, 3, 2, 6, 8, 1]$.</p>
 
-<p>The following table shows the situation after the $i$th iteration of the <strong>for</strong> loop when we use $\text{OFF-LINE-MINIMUM}$ on the same input. (For this input, $n = 9$ and $m$—the number of extractions—is $6$).</p>
+<p><strong>b.</strong> As we run the for loop, we are picking off the smallest of the possible elements to be removed, knowing for sure that it will be removed by the next unused $\text{EXTRACT-MIN}$ operation. Then, since that $\text{EXTRACT-MIN}$ operation is used up, we can pretend that it no longer exists, and combine the set of things that were inserted by that segment with those inserted by the next, since we know that the $\text{EXTRACT-MIN}$ operation that had separated the two is now used up. Since we proceed to figure out what the various extract operations do one at a time, by the time we are done, we have figured them all out.</p>
+
+<p>The following table shows the situation after the $i$th iteration of the <strong>for</strong> loop when we use $\text{OFF-LINE-MINIMUM}(6, 9)$ on the same input. ($i = 0$ denotes the initial state). Here we use $\phi$ to represent the destroyed arrays and initialize $extracted$ with $0$s for easy reading. (Note that when $i = 5$ and $i = 7$ the state doesn&rsquo;t change since both $5$ and $7$ $\in K_7$ and $7 = m + 1$)</p>
 
 <div>
-$$\begin{array}{c|ccccccc}
-i & K_1 & K_2 & K_3 & K_4 & K_5 & K_6 & K_7 \\
-0 & \{4, 8\} & \{3\} & \{\}                 & \{\}                 & \{1, 7\} & \{5\}                         \\
-1 & \{4, 8\} & \{3\} & \{\}                 & \{\}                 &          & \{5, 1, 7\}                   \\
-2 & \{4, 8\} & \{3\} & \{9, 2, 6\}          & \{\}                 &          & \{5, 1, 7\}                   \\
-3 & \{4, 8\} &       & \{9, 2, 6, 3\}       & \{\}                 &          & \{5, 1, 7\}                   \\
-4 &          &       & \{9, 2, 6, 3, 4, 8\} & \{\}                 &          & \{5, 1, 7\}                   \\
-5 &          &       & \{9, 2, 6, 3, 4, 8\} & \{\}                 &          & \{5, 1, 7\}                   \\
-6 &          &       &                      & \{9, 2, 6, 3, 4, 8\} &          & \{5, 1, 7\}                   \\
-7 &          &       &                      & \{9, 2, 6, 3, 4, 8\} &          & \{5, 1, 7\}                   \\
-8 &          &       &                      &                      &          & \{5, 1, 7, 9, 2, 6, 3, 4, 8\}
+$$\begin{array}{c|cccccccc}
+i & K_1 & K_2 & K_3 & K_4 & K_5 & K_6 & K_7 & extracted \\
+0 & \{4, 8\} & \{3\} & \{9, 2, 6\} & \{\}                 & \{\}                 & \{1, 7\} & \{5\}                         & [0, 0, 0, 0, 0, 0] \\
+1 & \{4, 8\} & \{3\} & \{9, 2, 6\} & \{\}                 & \{\}                 & \phi     & \{1, 7, 5\}                   & [0, 0, 0, 0, 0, 1] \\
+2 & \{4, 8\} & \{3\} & \phi        & \{9, 2, 6\}          & \{\}                 & \phi     & \{1, 7, 5\}                   & [0, 0, 2, 0, 0, 1] \\
+3 & \{4, 8\} & \phi  & \phi        & \{3, 9, 2, 6\}       & \{\}                 & \phi     & \{1, 7, 5\}                   & [0, 3, 2, 0, 0, 1] \\
+4 & \phi     & \phi  & \phi        & \{4, 8, 3, 9, 2, 6\} & \{\}                 & \phi     & \{1, 7, 5\}                   & [4, 3, 2, 0, 0, 1] \\
+5 & \phi     & \phi  & \phi        & \{4, 8, 3, 9, 2, 6\} & \{\}                 & \phi     & \{1, 7, 5\}                   & [4, 3, 2, 0, 0, 1] \\
+6 & \phi     & \phi  & \phi        & \phi                 & \{4, 8, 3, 9, 2, 6\} & \phi     & \{1, 7, 5\}                   & [4, 3, 2, 6, 0, 1] \\
+7 & \phi     & \phi  & \phi        & \phi                 & \{4, 8, 3, 9, 2, 6\} & \phi     & \{1, 7, 5\}                   & [4, 3, 2, 6, 0, 1] \\
+8 & \phi     & \phi  & \phi        & \phi                 & \phi                 & \phi     & \{4, 8, 3, 9, 2, 6, 1, 7, 5\} & [4, 3, 2, 6, 8, 1]
 \end{array}
 $$
 </div>
+
+<p><strong>c.</strong> We let each of the sets be represented by a disjoint set structure. To union them (as on line 6) just call $\text{UNION}$. Checking that they exist is just a matter of keeping track of a linked list of which ones exist(needed for line 5), initially containing all of them, but then, when deleting the set on line 6, we delete it from the linked list that we were maintaining. The only other interaction with the sets that we have to worry about is on line 2, which just amounts to a call of $\text{FIND-SET}(j)$. Since line 2 takes amortized time $\alpha(n)$ and we call it exactly $n$ times, then, since the rest of the for loop only takes constant time, the total runtime is $O(n\alpha(n))$.</p>
 
 
 <footer class=" footline" >
@@ -14589,20 +14593,20 @@ $$
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/CLRS/js/clipboard.min.js?1521557863"></script>
-    <script src="/CLRS/js/perfect-scrollbar.min.js?1521557863"></script>
-    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1521557863"></script>
-    <script src="/CLRS/js/jquery.sticky.js?1521557863"></script>
-    <script src="/CLRS/js/featherlight.min.js?1521557863"></script>
-    <script src="/CLRS/js/html5shiv-printshiv.min.js?1521557863"></script>
-    <script src="/CLRS/js/highlight.pack.js?1521557863"></script>
+    <script src="/CLRS/js/clipboard.min.js?1522426744"></script>
+    <script src="/CLRS/js/perfect-scrollbar.min.js?1522426744"></script>
+    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1522426744"></script>
+    <script src="/CLRS/js/jquery.sticky.js?1522426744"></script>
+    <script src="/CLRS/js/featherlight.min.js?1522426744"></script>
+    <script src="/CLRS/js/html5shiv-printshiv.min.js?1522426744"></script>
+    <script src="/CLRS/js/highlight.pack.js?1522426744"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/CLRS/js/modernizr.custom.71422.js?1521557863"></script>
-    <script src="/CLRS/js/learn.js?1521557863"></script>
-    <script src="/CLRS/js/hugo-learn.js?1521557863"></script>
+    <script src="/CLRS/js/modernizr.custom.71422.js?1522426744"></script>
+    <script src="/CLRS/js/learn.js?1522426744"></script>
+    <script src="/CLRS/js/hugo-learn.js?1522426744"></script>
 
-    <link href="/CLRS/mermaid/mermaid.css?1521557863" type="text/css" rel="stylesheet" />
-    <script src="/CLRS/mermaid/mermaid.js?1521557863"></script>
+    <link href="/CLRS/mermaid/mermaid.css?1522426744" type="text/css" rel="stylesheet" />
+    <script src="/CLRS/mermaid/mermaid.js?1522426744"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
