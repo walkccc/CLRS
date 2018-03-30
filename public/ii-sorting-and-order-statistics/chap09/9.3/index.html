@@ -12,19 +12,19 @@
     <title>9.3 Selection in worst-case linear time :: Solutions</title>
     
     
-    <link href="/CLRS/css/nucleus.css?1522426746" rel="stylesheet">
-    <link href="/CLRS/css/font-awesome.min.css?1522426746" rel="stylesheet">
-    <link href="/CLRS/css/hybrid.css?1522426746" rel="stylesheet">
-    <link href="/CLRS/css/featherlight.min.css?1522426746" rel="stylesheet">
-    <link href="/CLRS/css/perfect-scrollbar.min.css?1522426746" rel="stylesheet">
-    <link href="/CLRS/css/auto-complete.css?1522426746" rel="stylesheet">
-    <link href="/CLRS/css/theme.css?1522426746" rel="stylesheet">
-    <link href="/CLRS/css/hugo-theme.css?1522426746" rel="stylesheet">
+    <link href="/CLRS/css/nucleus.css?1522427559" rel="stylesheet">
+    <link href="/CLRS/css/font-awesome.min.css?1522427559" rel="stylesheet">
+    <link href="/CLRS/css/hybrid.css?1522427559" rel="stylesheet">
+    <link href="/CLRS/css/featherlight.min.css?1522427559" rel="stylesheet">
+    <link href="/CLRS/css/perfect-scrollbar.min.css?1522427559" rel="stylesheet">
+    <link href="/CLRS/css/auto-complete.css?1522427559" rel="stylesheet">
+    <link href="/CLRS/css/theme.css?1522427559" rel="stylesheet">
+    <link href="/CLRS/css/hugo-theme.css?1522427559" rel="stylesheet">
     
-      <link href="/CLRS/css/theme-nippon2.css?1522426746" rel="stylesheet">
+      <link href="/CLRS/css/theme-nippon2.css?1522427559" rel="stylesheet">
     
 
-    <script src="/CLRS/js/jquery-2.x.min.js?1522426746"></script>
+    <script src="/CLRS/js/jquery-2.x.min.js?1522427559"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/CLRS/js/lunr.min.js?1522426746"></script>
-<script type="text/javascript" src="/CLRS/js/auto-complete.js?1522426746"></script>
+<script type="text/javascript" src="/CLRS/js/lunr.min.js?1522427559"></script>
+<script type="text/javascript" src="/CLRS/js/auto-complete.js?1522427559"></script>
 <script type="text/javascript">
     
         var baseurl = '\/CLRS';
     
 </script>
-<script type="text/javascript" src="/CLRS/js/search.js?1522426746"></script>
+<script type="text/javascript" src="/CLRS/js/search.js?1522427559"></script>
 
     
   </div>
@@ -8568,7 +8568,7 @@ $$
 <p>Suppose that an algorithm uses only comparisons to find the $i$th smallest element in a set of $n$ elements. Show that it can also find the $i - 1$ smaller elements and $n - i$ larger elements without performing additional comparisons.</p>
 </blockquote>
 
-<p>(Omit!)</p>
+<p>Create a graph with $n$ vertices and draw a directed edge from vertex $i$ to vertex $j$ if the $i$th and $j$th elements of the array are compared in the algorithm and we discover that $A[i] \ge A[j]$. Observe that $A[i]$ is one of the $i - 1$ smaller elements if there exists a path from $x$ to $i$ in the graph, and $A[i]$ is one of the $n - i$ larger elements if there exists a path from $i$ to $x$ in the graph. Every vertex $i$ must either lie on a path to or from $x$ because otherwise the algorithm can&rsquo;t distinguish between $i \le x$ and $i \ge x$. Moreover, if a vertex $i$ lies on both a path to $x$ and a path from $x$, then it must be such that $x \le A[i] \le x$,so $x = A[i]$. In this case, we can break ties arbitrarily.</p>
 
 <h2 id="9-3-5">9.3-5</h2>
 
@@ -14807,20 +14807,20 @@ $$
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/CLRS/js/clipboard.min.js?1522426746"></script>
-    <script src="/CLRS/js/perfect-scrollbar.min.js?1522426746"></script>
-    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1522426746"></script>
-    <script src="/CLRS/js/jquery.sticky.js?1522426746"></script>
-    <script src="/CLRS/js/featherlight.min.js?1522426746"></script>
-    <script src="/CLRS/js/html5shiv-printshiv.min.js?1522426746"></script>
-    <script src="/CLRS/js/highlight.pack.js?1522426746"></script>
+    <script src="/CLRS/js/clipboard.min.js?1522427559"></script>
+    <script src="/CLRS/js/perfect-scrollbar.min.js?1522427559"></script>
+    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1522427559"></script>
+    <script src="/CLRS/js/jquery.sticky.js?1522427559"></script>
+    <script src="/CLRS/js/featherlight.min.js?1522427559"></script>
+    <script src="/CLRS/js/html5shiv-printshiv.min.js?1522427559"></script>
+    <script src="/CLRS/js/highlight.pack.js?1522427559"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/CLRS/js/modernizr.custom.71422.js?1522426746"></script>
-    <script src="/CLRS/js/learn.js?1522426746"></script>
-    <script src="/CLRS/js/hugo-learn.js?1522426746"></script>
+    <script src="/CLRS/js/modernizr.custom.71422.js?1522427559"></script>
+    <script src="/CLRS/js/learn.js?1522427559"></script>
+    <script src="/CLRS/js/hugo-learn.js?1522427559"></script>
 
-    <link href="/CLRS/mermaid/mermaid.css?1522426746" type="text/css" rel="stylesheet" />
-    <script src="/CLRS/mermaid/mermaid.js?1522426746"></script>
+    <link href="/CLRS/mermaid/mermaid.css?1522427559" type="text/css" rel="stylesheet" />
+    <script src="/CLRS/mermaid/mermaid.js?1522427559"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

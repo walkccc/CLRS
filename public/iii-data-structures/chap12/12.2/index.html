@@ -12,19 +12,19 @@
     <title>12.2 Querying a binary search tree :: Solutions</title>
     
     
-    <link href="/CLRS/css/nucleus.css?1522426743" rel="stylesheet">
-    <link href="/CLRS/css/font-awesome.min.css?1522426743" rel="stylesheet">
-    <link href="/CLRS/css/hybrid.css?1522426743" rel="stylesheet">
-    <link href="/CLRS/css/featherlight.min.css?1522426743" rel="stylesheet">
-    <link href="/CLRS/css/perfect-scrollbar.min.css?1522426743" rel="stylesheet">
-    <link href="/CLRS/css/auto-complete.css?1522426743" rel="stylesheet">
-    <link href="/CLRS/css/theme.css?1522426743" rel="stylesheet">
-    <link href="/CLRS/css/hugo-theme.css?1522426743" rel="stylesheet">
+    <link href="/CLRS/css/nucleus.css?1522427555" rel="stylesheet">
+    <link href="/CLRS/css/font-awesome.min.css?1522427555" rel="stylesheet">
+    <link href="/CLRS/css/hybrid.css?1522427555" rel="stylesheet">
+    <link href="/CLRS/css/featherlight.min.css?1522427555" rel="stylesheet">
+    <link href="/CLRS/css/perfect-scrollbar.min.css?1522427555" rel="stylesheet">
+    <link href="/CLRS/css/auto-complete.css?1522427555" rel="stylesheet">
+    <link href="/CLRS/css/theme.css?1522427555" rel="stylesheet">
+    <link href="/CLRS/css/hugo-theme.css?1522427555" rel="stylesheet">
     
-      <link href="/CLRS/css/theme-nippon2.css?1522426743" rel="stylesheet">
+      <link href="/CLRS/css/theme-nippon2.css?1522427555" rel="stylesheet">
     
 
-    <script src="/CLRS/js/jquery-2.x.min.js?1522426743"></script>
+    <script src="/CLRS/js/jquery-2.x.min.js?1522427555"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/CLRS/js/lunr.min.js?1522426743"></script>
-<script type="text/javascript" src="/CLRS/js/auto-complete.js?1522426743"></script>
+<script type="text/javascript" src="/CLRS/js/lunr.min.js?1522427555"></script>
+<script type="text/javascript" src="/CLRS/js/auto-complete.js?1522427555"></script>
 <script type="text/javascript">
     
         var baseurl = '\/CLRS';
     
 </script>
-<script type="text/javascript" src="/CLRS/js/search.js?1522426743"></script>
+<script type="text/javascript" src="/CLRS/js/search.js?1522427555"></script>
 
     
   </div>
@@ -8544,7 +8544,9 @@
 <p>Consider a binary search tree $T$ whose keys are distinct. Show that if the right subtree of a node $x$ in $T$ is empty and $x$ has a successor $y$, then $y$ is the lowest ancestor of $x$ whose left child is also an ancestor of $x$. (Recall that every node is its own ancestor.)</p>
 </blockquote>
 
-<p>$\text{TREE-SUCCESSOR}$.</p>
+<p>First we establish that $y$ must be an ancestor of $x$. If $y$ weren&rsquo;t an ancestor of $x$, then let $z$ denote the first common ancestor of $x$ and $y$. By the binary-search-tree property, $x &lt; z &lt; y$, so $y$ cannot be the successor of $x$.</p>
+
+<p>Next observe that $y.left$ must be an ancestor of $x$ because if it weren&rsquo;t, then $y.right$ would be an ancestor of $x$, implying that $x &gt; y$. Finally, suppose that $y$ is not the lowest ancestor of $x$ whose left child is also an ancestor of $x$. Let $z$ denote this lowest ancestor. Then $z$ must be in the left subtree of $y$, which implies $z &lt; y$, contradicting the fact that $y$ is the successor if $x$.</p>
 
 <h2 id="12-2-7">12.2-7</h2>
 
@@ -14672,20 +14674,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/CLRS/js/clipboard.min.js?1522426743"></script>
-    <script src="/CLRS/js/perfect-scrollbar.min.js?1522426743"></script>
-    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1522426743"></script>
-    <script src="/CLRS/js/jquery.sticky.js?1522426743"></script>
-    <script src="/CLRS/js/featherlight.min.js?1522426743"></script>
-    <script src="/CLRS/js/html5shiv-printshiv.min.js?1522426743"></script>
-    <script src="/CLRS/js/highlight.pack.js?1522426743"></script>
+    <script src="/CLRS/js/clipboard.min.js?1522427555"></script>
+    <script src="/CLRS/js/perfect-scrollbar.min.js?1522427555"></script>
+    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1522427555"></script>
+    <script src="/CLRS/js/jquery.sticky.js?1522427555"></script>
+    <script src="/CLRS/js/featherlight.min.js?1522427555"></script>
+    <script src="/CLRS/js/html5shiv-printshiv.min.js?1522427555"></script>
+    <script src="/CLRS/js/highlight.pack.js?1522427555"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/CLRS/js/modernizr.custom.71422.js?1522426743"></script>
-    <script src="/CLRS/js/learn.js?1522426743"></script>
-    <script src="/CLRS/js/hugo-learn.js?1522426743"></script>
+    <script src="/CLRS/js/modernizr.custom.71422.js?1522427555"></script>
+    <script src="/CLRS/js/learn.js?1522427555"></script>
+    <script src="/CLRS/js/hugo-learn.js?1522427555"></script>
 
-    <link href="/CLRS/mermaid/mermaid.css?1522426743" type="text/css" rel="stylesheet" />
-    <script src="/CLRS/mermaid/mermaid.js?1522426743"></script>
+    <link href="/CLRS/mermaid/mermaid.css?1522427555" type="text/css" rel="stylesheet" />
+    <script src="/CLRS/mermaid/mermaid.js?1522427555"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
