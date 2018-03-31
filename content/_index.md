@@ -15,7 +15,7 @@ Please don't hesitate to give me your feedback if any adjustment is needed with 
 
 # Working on following exercises:
 
-13.4-3, 18.2-1, 18.3-1, 19.2-1, 27.2-1, 27.3-4, 27-3.
+18.2-1, 19.2-1, 27.2-1, 27.3-4, 27-3.
 
 # Getting Started
 
