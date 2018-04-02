@@ -1,109 +1,70 @@
 <!DOCTYPE html>
 <html lang="en-US">
-<head>
-    <%- include('../partials/head') %>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>CLRS</title>
-</head>
-<!-- <body> -->
-<body class="" data-url="/CLRS/">
+
+<%- include('../partials/head') %>
+
+<body>
 <div class="wrapper">
+
     <!-- Sidebar Holder -->
     <nav id="sidebar">
-        <div class="sidebar-header">
-            <h2>CLRS</h2>
-        </div>
+        
+    <!-- Sidebar Header -->
+    <div class="sidebar-header">
+        <h2>CLRS</h2>
+    </div>
 
-        <ul class="list-unstyled components">
-            <p>I Foundations</p>
-            <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">1 The Role of Algorithms in Computing</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li><a href="<%= site.basePath %>/Chap01/1.1.html">1.1 Algorithms</a></li>
-                    <li><a href="<%= site.basePath %>/Chap01/1.2.html">1.2 Algorithms as a technology</a></li>
-                    <li><a href="<%= site.basePath %>/Chap01/1-0">Chap 1 Problems</a></li>
-                </ul>
-            </li>
-            <p>I Foundations</p>
-            <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">1 The Role of Algorithms in Computing</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li><a href="<%= site.basePath %>/Chap01/1.1.html">1.1 Algorithms</a></li>
-                    <li><a href="<%= site.basePath %>/Chap01/1.2.html">1.2 Algorithms as a technology</a></li>
-                    <li><a href="<%= site.basePath %>/Chap01/1-0">Chap 1 Problems</a>
-                    
-                    
-                    </li>
-                </ul>
-            </li>
-            <p>I Foundations</p>
-            <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">1 The Role of Algorithms in Computing</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li><a href="<%= site.basePath %>/Chap01/1.1.html">1.1 Algorithms</a></li>
-                    <li><a href="<%= site.basePath %>/Chap01/1.2.html">1.2 Algorithms as a technology</a></li>
-                    <li><a href="<%= site.basePath %>/Chap01/1-0">Chap 1 Problems</a>
-                    
-                    
-                    </li>
-                </ul>
-            </li>
-            <p>I Foundations</p>
-            <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">1 The Role of Algorithms in Computing</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li><a href="<%= site.basePath %>/Chap01/1.1.html">1.1 Algorithms</a></li>
-                    <li><a href="<%= site.basePath %>/Chap01/1.2.html">1.2 Algorithms as a technology</a></li>
-                    <li><a href="<%= site.basePath %>/Chap01/1-0">Chap 1 Problems</a>
-                    
-                    
-                    </li>
-                </ul>
-            </li>
-            <p>I Foundations</p>
-            <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">1 The Role of Algorithms in Computing</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li><a href="<%= site.basePath %>/Chap01/1.1.html">1.1 Algorithms</a></li>
-                    <li><a href="<%= site.basePath %>/Chap01/1.2.html">1.2 Algorithms as a technology</a></li>
-                    <li><a href="<%= site.basePath %>/Chap01/1-0">Chap 1 Problems</a>
-                    
-                    
-                    </li>
-                </ul>
-            </li>
-            <p>I Foundations</p>
-            <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">1 The Role of Algorithms in Computing</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li><a href="<%= site.basePath %>/Chap01/1.1.html">1.1 Algorithms</a></li>
-                    <li><a href="<%= site.basePath %>/Chap01/1.2.html">1.2 Algorithms as a technology</a></li>
-                    <li><a href="<%= site.basePath %>/Chap01/1-0">Chap 1 Problems</a>
-                    
-                    
-                    </li>
-                </ul>
-            </li>
-            <p>I Foundations</p>
-            <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">1 The Role of Algorithms in Computing</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li><a href="<%= site.basePath %>/Chap01/1.1.html">1.1 Algorithms</a></li>
-                    <li><a href="<%= site.basePath %>/Chap01/1.2.html">1.2 Algorithms as a technology</a></li>
-                    <li><a href="<%= site.basePath %>/Chap01/1-0">Chap 1 Problems</a>
-                    
-                    
-                    </li>
-                </ul>
-            </li>
-        </ul>
+    <ul class="list-unstyled components">
+        <p>I Foundations</p>
+        <li class="active">
+            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">1 The Role of Algorithms in Computing</a>
+            <ul class="collapse list-unstyled" id="homeSubmenu">
+                <li><a href="CLRS/Chap01/1.1.html">1.1 Algorithms</a></li>
+                <li><a href="CLRS/Chap01/1.2.html">1.2 Algorithms as a technology</a></li>
+                <li><a href="CLRS/Chap01/1-0">Chap 1 Problems</a></li>
+            </ul>
+        </li>
 
-        <!-- <ul class="list-unstyled CTAs">
-            <li><a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a></li>
-            <li><a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a></li>
-        </ul> -->
+        <li class="active">
+            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">1 The Role of Algorithms in Computing</a>
+            <ul class="collapse list-unstyled" id="homeSubmenu">
+                <li><a href="CLRS/Chap01/1.1.html">1.1 Algorithms</a></li>
+                <li><a href="CLRS/Chap01/1.2.html">1.2 Algorithms as a technology</a></li>
+                <li><a href="CLRS/Chap01/1-0">Chap 1 Problems</a></li>
+            </ul>
+        </li>
+
+        <p>I Foundations</p>
+        <li class="active">
+            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">1 The Role of Algorithms in Computing</a>
+            <ul class="collapse list-unstyled" id="homeSubmenu">
+                <li><a href="CLRS/Chap01/1.1.html">1.1 Algorithms</a></li>
+                <li><a href="CLRS/Chap01/1.2.html">1.2 Algorithms as a technology</a></li>
+                <li><a href="CLRS/Chap01/1-0">Chap 1 Problems</a></li>
+            </ul>
+        </li>
+
+        <p>I Foundations</p>
+        <li class="active">
+            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">1 The Role of Algorithms in Computing</a>
+            <ul class="collapse list-unstyled" id="homeSubmenu">
+                <li><a href="CLRS/Chap01/1.1.html">1.1 Algorithms</a></li>
+                <li><a href="CLRS/Chap01/1.2.html">1.2 Algorithms as a technology</a></li>
+                <li><a href="CLRS/Chap01/1-0">Chap 1 Problems</a></li>
+            </ul>
+        </li>
+
+        <p>I Foundations</p>
+        <li class="active">
+            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">1 The Role of Algorithms in Computing</a>
+            <ul class="collapse list-unstyled" id="homeSubmenu">
+                <li><a href="CLRS/Chap01/1.1.html">1.1 Algorithms</a></li>
+                <li><a href="CLRS/Chap01/1.2.html">1.2 Algorithms as a technology</a></li>
+                <li><a href="CLRS/Chap01/1-0">Chap 1 Problems</a></li>
+            </ul>
+        </li>
+    </ul>
+
     </nav>
 
     <!-- Page Content Holder -->
@@ -113,7 +74,7 @@
                 <div class="navbar-header">
                     <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
                         <i class="glyphicon glyphicon-align-left"></i>
-                        <span>Toggle Sidebar</span>
+                        <span>T</span>
                     </button>
                 </div>
 
@@ -132,27 +93,7 @@
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#sidebarCollapse').on('click', function () {
-            $('#sidebar').toggleClass('active');
-        });
-    });
-</script>
 <%- include('../partials/foot') %>
-
-    <!-- jQuery CDN -->
-        
-<!-- <section class="page-header">
-    <h1 class="project-name"><%= site.title %></h1>
-    <h2 class="project-tagline"><%= site.description %></h2>
-    <a href="<%= site.basePath %>/" class="btn">Home</a>
-    <a href="<%= site.basePath %>/another-page" class="btn">Another Page</a>
-    <a href="https://github.com/doug2k1/nanogen" class="btn">GitHub</a>
-</section> -->
-
 
 </body>
 </html>
