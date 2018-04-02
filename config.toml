@@ -2,7 +2,6 @@ baseURL = "http://walkccc.github.io/CLRS"
 languageCode = "en-US"
 
 title = "Solutions"
-theme = "hugo-theme-learn"
 metaDataFormat = "yaml"
 defaultContentLanguageInSubdir= false
 
