@@ -1,0 +1,12 @@
+machine:
+  environment:
+    NODE_ENV: test
+  node:
+    version: v7
+
+test:
+  override:
+    - npm run test-cov
+    - nvm use 4 && npm run test-cov
+    - nvm use 5 && npm run test-cov
+    - nvm use 6 && npm run test-cov

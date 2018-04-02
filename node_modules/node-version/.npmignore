@@ -1,0 +1,5 @@
+.DS_Store
+.idea
+._*
+node_modules
+__tests__

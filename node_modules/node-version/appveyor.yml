@@ -1,0 +1,26 @@
+init:
+  - git config --global core.autocrlf input
+
+environment:
+  matrix:
+  - nodejs_version: "4"
+  - nodejs_version: "5"
+  - nodejs_version: "6"
+  - nodejs_version: "7"
+
+skip_tags: true
+
+version: "{build}"
+
+build: off
+
+install:
+  - ps: Install-Product node $env:nodejs_version
+  - IF %nodejs_version% EQU 7 npm -g install npm@4
+  - set PATH=%APPDATA%\npm;%PATH%
+  - node --version
+  - npm --version
+  - appveyor-retry npm install
+
+test_script:
+  - cmd: npm run test
