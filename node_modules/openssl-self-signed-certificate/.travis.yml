@@ -1,9 +1,0 @@
-language: node_js
-deploy:
-  provider: npm
-  email: mark.tse@neverendingqs.com
-  api_key:
-    secure: XTfXMSJ+lH1leyyHTaIaZg1wyG0S2vGiWFcOT9UVowENkVupJ9vonuXuiX9Oc2WF/I+gPsxWFVv61Lw+ec/ca+twn7wROft7hFGvmzTcG5qRbuKbVJviYuXZ95IbO9ttcmOHEuu8DxFTzjzm19rm4+Miq1V8BGcQwhCyf/NRiPcZeiPCJdxLzv8eS7hVwB/+Edebz4dXnc5lDey3xFHTzbKG3e6XXnOwDdtCPvDBQz5jV97HaKUF9frtRgutynt1tlT//mGt0mmN8kgvjTOFaKMMK0e56oChW0mMdcrQCGvv4Hfe5IH3muGEVoZ1WzldzdHcyfieISXZ74nCJx7DueXVMV4ZLcYGgj1iTYopb7CiArTKqAhnPBSl7znQkO+zA1Oppsyeu0I8iG9XWxaruD2GUS9TRoVMAp4azNH9HmtxwdBisOjloQFVNp2HltJlmiX6izzYfXd02CCHqRqd2cqv2+cUtLWwBM7s1N/GjJcXQFEqUdiwOtu4SIo7jsoq6iINcfQcutYtwI7+9k3mArYYwWLqyHHagwjLlg6lW5TzO4Lx4XW+mbjYe5fd8NhuMx7JKbUQw44ObHTwwinSsGoPvUuGanYAXVxi2OWXEmDXZOtQ0wiQE0dlgtoZnUwbfCl8HstGMXGDCbCXBW04RwKGaZJcxfIAlKJurMcw8co=
-  on:
-    tags: true
-    repo: neverendingqs/openssl-self-signed-certificate
