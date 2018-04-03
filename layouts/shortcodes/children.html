@@ -4,6 +4,7 @@
 {{ $withDescription :=  .Get "description" | default false }}
 {{ $sortTerm :=  .Get "sort" | default "Weight" }}
 
+
 <ul class="children children-{{$style}}">
 	{{ .Scratch.Set "pages" .Page.Pages }}
     {{ if .Page.Sections}}
