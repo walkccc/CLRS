@@ -10,13 +10,16 @@ defaultContentLanguageInSubdir= false
     description = "solutions"
     author = "Jay"
     showVisitedLinks = false
-    themeVariant = "nippon2"
+    themeVariant = "nippon"
   
 [outputs]
     home = ["HTML", "RSS", "JSON"]
 
 [Languages]
     [Languages.en]
+
+[permalinks]
+    I = "/:filename/"
 
 weight = 1
 languageName = "English"

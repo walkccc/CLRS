@@ -343,6 +343,11 @@ input[type="text"]:focus {
     padding: 4px 0;
 }
 
+#sidebar ul li > a:hover {
+    background: rgb(85, 179, 237)!important;
+    padding: 0;
+}
+
 #sidebar ul li li {
     padding-left: 1rem;
     text-indent: 0.2rem;
