@@ -18,9 +18,6 @@ defaultContentLanguageInSubdir= false
 [Languages]
     [Languages.en]
 
-[permalinks]
-    I = "/:filename/"
-
 weight = 1
 languageName = "English"
 

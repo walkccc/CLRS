@@ -278,7 +278,9 @@ input[type="text"]:focus {
 }
 
 #sidebar a:hover {
-    color: #e6e6e6;
+    background: rgb(33, 167, 105)!important;
+    /* color: #e6e6e6; */
+    color: black!important;
 }
 
 #sidebar a.padding {
@@ -292,7 +294,7 @@ input[type="text"]:focus {
 }
 
 #sidebar ul.topics {
-    margin: 0 1rem;
+    /* margin: 0 1rem; */
 }
 
 #sidebar ul.topics ul {
@@ -311,23 +313,28 @@ input[type="text"]:focus {
 #sidebar ul.topics > li > a {
     line-height: 2rem;
     font-size: 1.1rem;
+    padding-left: 1rem;
 }
 
 #sidebar ul.topics > li.parent {
     background: #251f29;
-    margin-left: -1rem;
-    margin-right: -1rem;
+    /* margin-left: -1rem;
+    margin-right: -1rem; */
     padding-left: 1rem;
     padding-right: 1rem;
 }
 
 #sidebar ul li.active > a {
     background: #fff;
-    color: #777 !important;
+    color: #777;
     margin-left: -1rem;
     margin-right: -1rem;
     padding-left: 1rem;
     padding-right: 1rem;
+}
+
+#sidebar ul li.active > a:hover {
+    color: black!important;
 }
 
 #sidebar ul li {
@@ -341,11 +348,6 @@ input[type="text"]:focus {
 
 #sidebar ul li > a {
     padding: 4px 0;
-}
-
-#sidebar ul li > a:hover {
-    background: rgb(85, 179, 237)!important;
-    padding: 0;
 }
 
 #sidebar ul li li {
@@ -624,4 +626,12 @@ blockquote p {
     overflow-x: auto;
     overflow-y: hidden;
     box-sizing: border-box;
+}
+
+/*****************/
+/* logo: nohover */
+/*****************/
+
+#logo:not(.nohover):hover {
+    border: 1px solid red;
 }

@@ -12,19 +12,19 @@
     <title>18.2 Basic operations on B-trees :: Solutions</title>
     
     
-    <link href="/CLRS/css/nucleus.css?1522765906" rel="stylesheet">
-    <link href="/CLRS/css/font-awesome.min.css?1522765906" rel="stylesheet">
-    <link href="/CLRS/css/hybrid.css?1522765906" rel="stylesheet">
-    <link href="/CLRS/css/featherlight.min.css?1522765906" rel="stylesheet">
-    <link href="/CLRS/css/perfect-scrollbar.min.css?1522765906" rel="stylesheet">
-    <link href="/CLRS/css/auto-complete.css?1522765906" rel="stylesheet">
-    <link href="/CLRS/css/theme.css?1522765906" rel="stylesheet">
-    <link href="/CLRS/css/hugo-theme.css?1522765906" rel="stylesheet">
+    <link href="/CLRS/css/nucleus.css?1522768155" rel="stylesheet">
+    <link href="/CLRS/css/font-awesome.min.css?1522768155" rel="stylesheet">
+    <link href="/CLRS/css/hybrid.css?1522768155" rel="stylesheet">
+    <link href="/CLRS/css/featherlight.min.css?1522768155" rel="stylesheet">
+    <link href="/CLRS/css/perfect-scrollbar.min.css?1522768155" rel="stylesheet">
+    <link href="/CLRS/css/auto-complete.css?1522768155" rel="stylesheet">
+    <link href="/CLRS/css/theme.css?1522768155" rel="stylesheet">
+    <link href="/CLRS/css/hugo-theme.css?1522768155" rel="stylesheet">
     
-      <link href="/CLRS/css/theme-nippon.css?1522765906" rel="stylesheet">
+      <link href="/CLRS/css/theme-nippon.css?1522768155" rel="stylesheet">
     
 
-    <script src="/CLRS/js/jquery-2.x.min.js?1522765906"></script>
+    <script src="/CLRS/js/jquery-2.x.min.js?1522768155"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -41,7 +41,7 @@
 
   <div id="header-wrapper">
     <div id="header">
-      <a id="logo" href="/CLRS">
+      <a id="logo" class="nohover" href="/CLRS">
 <svg width=130 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1747.06 595.28"><defs><style>.cls-1{fill:#292f33;}.cls-2{fill:#e1e8ed;}.cls-3{fill:#ffcc4d;}.cls-4{fill:#fff;}.cls-5{fill:none;stroke:#fff;stroke-miterlimit:10;stroke-width:45px;}</style></defs><title>favicon</title><path class="cls-1" d="M119.32,458.68H446.68S431.78,350.76,398,353l-74.5-59.16-135.42,6.13L153.5,356.45S133.78,358,119.32,458.68Z"/><path class="cls-2" d="M163.3,374s40.16-60.25,50.45-60.74c0,0,15.19,72.5,18.62,72,0,0,53.88-58.29,59.27-57.8,0,0,34.29,36.25,38.21,36.25L346.5,326,380.79,378s13.23-7.83,20.09-36.74c0,0,1.35-1.68-2.05-11.89,0,0-20.52-68.67-21.52-108.09,0,0,1-84.65-43.25-102.37,0,0-63.94-24.64-114.32,10,0,0-28.89,23.7-41.21,86.6,0,0-15.81,67.65-22.76,79.66,0,0-12.33,24.34-9.49,35.72C146.28,330.81,149.33,355.62,163.3,374Z"/><path class="cls-3" d="M286.67,215.8s-5.49,13,98.16,5.4c0,0,38.11-1.08,43.5,7.91,0,0,4.68-.36,6.47,24.81,0,0,21.22-34.16,14.39-59.69,0,0-5.4-23.37-20.14-28,0,0-59.33-16.18-76.94-33.79,0,0,21.93,28.4,6.83,51.05,0,0-8.27,14.75-54.65,21.94C304.29,205.38,284.76,209.35,286.67,215.8Z"/><path class="cls-1" d="M299.08,153.23h30s3.85,18-15,20.46C314.09,173.69,295.15,172.91,299.08,153.23Z"/><path class="cls-4" d="M1331.26,438.34,1208.49,332.93l45.06-9.58c35.39-7.53,50.21-20.62,56.41-30.27a29.36,29.36,0,0,0,4.78-12.65l-.16-1.81.14-1.81c1.06-14.51-2.65-25.3-11.68-34-23.48-22.51-76.84-25.94-109.77-25V437.8h-45.59V176.27l20.17-2.34a370.18,370.18,0,0,1,62-.91c47.42,3.31,82.67,15.74,104.76,36.92,18.49,17.73,27.36,41.52,25.69,68.88.11,6.18-.89,21.69-12,38.92-9.89,15.37-24.78,27.73-44.48,37L1361,403.75Z"/><path class="cls-4" d="M1541.77,297.86l-.26,0-.21.21,38.8,38c10.94,10.88,23.14,26.72,19.35,40.49-2.49,9-11.08,15.32-20.9,15.32H1442.14v45h136.41c30,0,56.43-19.89,64.28-48.36,9.52-34.53-11.35-64.71-30.71-84.07C1588.78,301.45,1565.15,300.32,1541.77,297.86Z"/><path class="cls-4" d="M1518.17,180.81c-30,0-56.44,19.89-64.29,48.37-9.57,34.74,11.61,65.08,31.07,84.42l39,38.15,8.39,8.09c7.1,7.54,14.72,16.91,17.19,21.07l.36,1.24H1583c3.9-1.41,7.53-4.47,8.5-8.28,1.44-5.61-.62-11-3.19-15.85a118.81,118.81,0,0,0-10.1-14c-6.53-8.07-13.23-15.16-13.52-15.46l-9.29-9-38.74-37.91c-10.94-10.89-23.14-26.72-19.34-40.48,2.48-9,11.08-15.33,20.9-15.33h136.4v-45Z"/><path class="cls-5" d="M702.54,194.06H613.37s-33.19,6.21-31.77,49.63l-1,112.09s-1.4,54.11,29.7,57.83H770.17"/><path class="cls-5" d="M876,172V353.47s1.15,61.46,46.05,60.12h143"/></svg>
 </a>
     </div>
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/CLRS/js/lunr.min.js?1522765906"></script>
-<script type="text/javascript" src="/CLRS/js/auto-complete.js?1522765906"></script>
+<script type="text/javascript" src="/CLRS/js/lunr.min.js?1522768155"></script>
+<script type="text/javascript" src="/CLRS/js/auto-complete.js?1522768155"></script>
 <script type="text/javascript">
     
         var baseurl = '\/CLRS';
     
 </script>
-<script type="text/javascript" src="/CLRS/js/search.js?1522765906"></script>
+<script type="text/javascript" src="/CLRS/js/search.js?1522768155"></script>
 
     
   </div>
@@ -14692,17 +14692,17 @@ $$
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/CLRS/js/clipboard.min.js?1522765906"></script>
-    <script src="/CLRS/js/perfect-scrollbar.min.js?1522765906"></script>
-    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1522765906"></script>
-    <script src="/CLRS/js/jquery.sticky.js?1522765906"></script>
-    <script src="/CLRS/js/featherlight.min.js?1522765906"></script>
-    <script src="/CLRS/js/html5shiv-printshiv.min.js?1522765906"></script>
-    <script src="/CLRS/js/highlight.pack.js?1522765906"></script>
+    <script src="/CLRS/js/clipboard.min.js?1522768155"></script>
+    <script src="/CLRS/js/perfect-scrollbar.min.js?1522768155"></script>
+    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1522768155"></script>
+    <script src="/CLRS/js/jquery.sticky.js?1522768155"></script>
+    <script src="/CLRS/js/featherlight.min.js?1522768155"></script>
+    <script src="/CLRS/js/html5shiv-printshiv.min.js?1522768155"></script>
+    <script src="/CLRS/js/highlight.pack.js?1522768155"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/CLRS/js/modernizr.custom.71422.js?1522765906"></script>
-    <script src="/CLRS/js/learn.js?1522765906"></script>
-    <script src="/CLRS/js/hugo-learn.js?1522765906"></script>
+    <script src="/CLRS/js/modernizr.custom.71422.js?1522768155"></script>
+    <script src="/CLRS/js/learn.js?1522768155"></script>
+    <script src="/CLRS/js/hugo-learn.js?1522768155"></script>
 
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.js" integrity="sha256-34ADEQM6cIZ7chSRA07lN4aD5JM9IQoeIr2VamKDcT0=" crossorigin="anonymous"></script>
