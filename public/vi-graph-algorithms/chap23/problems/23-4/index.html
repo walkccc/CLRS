@@ -12,19 +12,19 @@
     <title>23-4 Alternative minimum-spanning-tree algorithms :: Solutions</title>
     
     
-    <link href="/CLRS/css/nucleus.css?1522784462" rel="stylesheet">
-    <link href="/CLRS/css/font-awesome.min.css?1522784462" rel="stylesheet">
-    <link href="/CLRS/css/hybrid.css?1522784462" rel="stylesheet">
-    <link href="/CLRS/css/featherlight.min.css?1522784462" rel="stylesheet">
-    <link href="/CLRS/css/perfect-scrollbar.min.css?1522784462" rel="stylesheet">
-    <link href="/CLRS/css/auto-complete.css?1522784462" rel="stylesheet">
-    <link href="/CLRS/css/theme.css?1522784462" rel="stylesheet">
-    <link href="/CLRS/css/hugo-theme.css?1522784462" rel="stylesheet">
+    <link href="/CLRS/css/nucleus.css?1522784823" rel="stylesheet">
+    <link href="/CLRS/css/font-awesome.min.css?1522784823" rel="stylesheet">
+    <link href="/CLRS/css/hybrid.css?1522784823" rel="stylesheet">
+    <link href="/CLRS/css/featherlight.min.css?1522784823" rel="stylesheet">
+    <link href="/CLRS/css/perfect-scrollbar.min.css?1522784823" rel="stylesheet">
+    <link href="/CLRS/css/auto-complete.css?1522784823" rel="stylesheet">
+    <link href="/CLRS/css/theme.css?1522784823" rel="stylesheet">
+    <link href="/CLRS/css/hugo-theme.css?1522784823" rel="stylesheet">
     
-      <link href="/CLRS/css/theme-nippon2.css?1522784462" rel="stylesheet">
+      <link href="/CLRS/css/theme-nippon2.css?1522784823" rel="stylesheet">
     
 
-    <script src="/CLRS/js/jquery-2.x.min.js?1522784462"></script>
+    <script src="/CLRS/js/jquery-2.x.min.js?1522784823"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/CLRS/js/lunr.min.js?1522784462"></script>
-<script type="text/javascript" src="/CLRS/js/auto-complete.js?1522784462"></script>
+<script type="text/javascript" src="/CLRS/js/lunr.min.js?1522784823"></script>
+<script type="text/javascript" src="/CLRS/js/auto-complete.js?1522784823"></script>
 <script type="text/javascript">
     
         var baseurl = '\/CLRS';
     
 </script>
-<script type="text/javascript" src="/CLRS/js/search.js?1522784462"></script>
+<script type="text/javascript" src="/CLRS/js/search.js?1522784823"></script>
 
     
   </div>
@@ -8491,7 +8491,7 @@
 
 <p><strong>a.</strong> This does return an $\text{MST}$. To see this, we&rsquo;ll show that we never remove an edge which must be part of a minimum spanning tree. If we remove $e$, then $e$ cannot be a bridge, which means that e lies on a simple cycle of the graph. Since we remove edges in nonincreasing order, the weight of every edge on the cycle must be less than or equal to that of $e$. By exercise 23.1-5, there is a minimum spanning tree on $G$ with edge $e$ removed.</p>
 
-<p>To implement this, we begin by sorting the edges in $O(E \lg E)$ time. For each edge we need to check whether or not $T - {e}$ is connected, so we&rsquo;ll need to run a $\text{DFS}$. Each one takes $O(V + E)$, so doing this for all edges takes $O(E(V + E)$. This dominates the running time, so the total time is $O(E^2)$.</p>
+<p>To implement this, we begin by sorting the edges in $O(E \lg E)$ time. For each edge we need to check whether or not $T - {e}$ is connected, so we&rsquo;ll need to run a $\text{DFS}$. Each one takes $O(V + E)$, so doing this for all edges takes $O(E(V + E))$. This dominates the running time, so the total time is $O(E^2)$.</p>
 
 <p><strong>b.</strong> This doesn&rsquo;t return an $\text{MST}$. To see this, let $G$ be the graph on 3 vertices $a$, $b$, and $c$. Let the eges be $(a, b)$, $(b, c)$, and $(c, a)$ with weights $3, 2$, and $1$ respectively. If the algorithm examines the edges in their order listed, it will take the two heaviest edges instead of the two lightest.</p>
 
@@ -14574,17 +14574,17 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/CLRS/js/clipboard.min.js?1522784462"></script>
-    <script src="/CLRS/js/perfect-scrollbar.min.js?1522784462"></script>
-    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1522784462"></script>
-    <script src="/CLRS/js/jquery.sticky.js?1522784462"></script>
-    <script src="/CLRS/js/featherlight.min.js?1522784462"></script>
-    <script src="/CLRS/js/html5shiv-printshiv.min.js?1522784462"></script>
-    <script src="/CLRS/js/highlight.pack.js?1522784462"></script>
+    <script src="/CLRS/js/clipboard.min.js?1522784823"></script>
+    <script src="/CLRS/js/perfect-scrollbar.min.js?1522784823"></script>
+    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1522784823"></script>
+    <script src="/CLRS/js/jquery.sticky.js?1522784823"></script>
+    <script src="/CLRS/js/featherlight.min.js?1522784823"></script>
+    <script src="/CLRS/js/html5shiv-printshiv.min.js?1522784823"></script>
+    <script src="/CLRS/js/highlight.pack.js?1522784823"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/CLRS/js/modernizr.custom.71422.js?1522784462"></script>
-    <script src="/CLRS/js/learn.js?1522784462"></script>
-    <script src="/CLRS/js/hugo-learn.js?1522784462"></script>
+    <script src="/CLRS/js/modernizr.custom.71422.js?1522784823"></script>
+    <script src="/CLRS/js/learn.js?1522784823"></script>
+    <script src="/CLRS/js/hugo-learn.js?1522784823"></script>
 
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.js" integrity="sha256-34ADEQM6cIZ7chSRA07lN4aD5JM9IQoeIr2VamKDcT0=" crossorigin="anonymous"></script>
