@@ -10,7 +10,7 @@ defaultContentLanguageInSubdir= false
     description = "solutions"
     author = "Jay"
     showVisitedLinks = false
-    themeVariant = "nippon"
+    themeVariant = "nippon2"
   
 [outputs]
     home = ["HTML", "RSS", "JSON"]
