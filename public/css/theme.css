@@ -277,8 +277,10 @@ input[type="text"]:focus {
     color: #ccc;
 }
 
+/* sidebar-hover */
 #sidebar a:hover {
-    background: rgb(33, 167, 105)!important;
+    background: #5DAC81!important;
+    /* background: rgb(33, 167, 105)!important; */
     /* color: #e6e6e6; */
     color: black!important;
 }
@@ -325,7 +327,8 @@ input[type="text"]:focus {
 }
 
 #sidebar ul li.active > a {
-    background: #fff;
+    background: #5DAC81;
+    /* background: #fff; */
     color: #777;
     margin-left: -1rem;
     margin-right: -1rem;
