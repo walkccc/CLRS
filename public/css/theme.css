@@ -627,11 +627,3 @@ blockquote p {
     overflow-y: hidden;
     box-sizing: border-box;
 }
-
-/*****************/
-/* logo: nohover */
-/*****************/
-
-#logo:not(.nohover):hover {
-    border: 1px solid red;
-}
