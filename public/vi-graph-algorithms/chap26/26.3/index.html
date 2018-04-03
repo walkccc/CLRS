@@ -12,19 +12,19 @@
     <title>26.3 Maximum bipartite matching :: Solutions</title>
     
     
-    <link href="/CLRS/css/nucleus.css?1522784823" rel="stylesheet">
-    <link href="/CLRS/css/font-awesome.min.css?1522784823" rel="stylesheet">
-    <link href="/CLRS/css/hybrid.css?1522784823" rel="stylesheet">
-    <link href="/CLRS/css/featherlight.min.css?1522784823" rel="stylesheet">
-    <link href="/CLRS/css/perfect-scrollbar.min.css?1522784823" rel="stylesheet">
-    <link href="/CLRS/css/auto-complete.css?1522784823" rel="stylesheet">
-    <link href="/CLRS/css/theme.css?1522784823" rel="stylesheet">
-    <link href="/CLRS/css/hugo-theme.css?1522784823" rel="stylesheet">
+    <link href="/CLRS/css/nucleus.css?1522785077" rel="stylesheet">
+    <link href="/CLRS/css/font-awesome.min.css?1522785077" rel="stylesheet">
+    <link href="/CLRS/css/hybrid.css?1522785077" rel="stylesheet">
+    <link href="/CLRS/css/featherlight.min.css?1522785077" rel="stylesheet">
+    <link href="/CLRS/css/perfect-scrollbar.min.css?1522785077" rel="stylesheet">
+    <link href="/CLRS/css/auto-complete.css?1522785077" rel="stylesheet">
+    <link href="/CLRS/css/theme.css?1522785077" rel="stylesheet">
+    <link href="/CLRS/css/hugo-theme.css?1522785077" rel="stylesheet">
     
-      <link href="/CLRS/css/theme-nippon2.css?1522784823" rel="stylesheet">
+      <link href="/CLRS/css/theme-nippon2.css?1522785077" rel="stylesheet">
     
 
-    <script src="/CLRS/js/jquery-2.x.min.js?1522784823"></script>
+    <script src="/CLRS/js/jquery-2.x.min.js?1522785077"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/CLRS/js/lunr.min.js?1522784823"></script>
-<script type="text/javascript" src="/CLRS/js/auto-complete.js?1522784823"></script>
+<script type="text/javascript" src="/CLRS/js/lunr.min.js?1522785077"></script>
+<script type="text/javascript" src="/CLRS/js/auto-complete.js?1522785077"></script>
 <script type="text/javascript">
     
         var baseurl = '\/CLRS';
     
 </script>
-<script type="text/javascript" src="/CLRS/js/search.js?1522784823"></script>
+<script type="text/javascript" src="/CLRS/js/search.js?1522785077"></script>
 
     
   </div>
@@ -8509,7 +8509,7 @@ $$
 
 <p>Let $v_1 \in L$ be such that no edge from $v_1$ to a vertex in $R$ has nonzero flow. By assumption, $v_1$ has at least one neighbor $v_1^\prime \in R$. If any of $v_1$&rsquo;s neighbors are connected to $t$ in $G_f$ then there is a path, so assume this is not the case. Thus, there must be some edge $(v_2, v_1)$ with flow $1$. By assumption, $N(\{v_1, v_2\}) \ge 2$, so there must exist $v_2^\prime \ne v_1^\prime$ such that $v_2^\prime\in N(\{v_1, v_2 \})$. If $(v_2^\prime, t)$ is an edge in the residual network we&rsquo;re done since $v_2^\prime$ must be a neighbor of $v_2$, so $s$, $v_1$, $v_1^\prime$, $v_2$, $v_2^\prime$, and $t$ is a path in $G_f$. Otherwise $v_2^\prime$ must have a neighbor $v_3 \in L$ such that $(v_3, v_2^\prime)$ is in $G_f$. Specifically, $v_3 \ne v_1$ since $(v_3, v_2^\prime)$ has flow $1$, and $v_3 \ne v_2$ since $(v_2, v_1^\prime)$ has flow $1$, so no more flow can leave $v_2$ without violating conservation of flow. Again by our hypothesis, $N(\{v_1, v_2, v_3\}) \ge 3$, so there is another neighbor $v_3^\prime \in R$.</p>
 
-<p>Continuing in this fashion, we keep building up the neighborhood $v_i′$, expanding each time we find that $(v_i′, t)$ is not an edge in $G_f$. This cannot happen $L$ times, since we have run the Ford-Fulkerson while-loop fewer than $|L|$ times, so there still exist edges into $t$ in $G_f$. Thus, the process must stop at some vertex $v_k′$, and we obtain an augmenting path</p>
+<p>Continuing in this fashion, we keep building up the neighborhood $v_i^\prime$, expanding each time we find that $(v_i′, t)$ is not an edge in $G_f$. This cannot happen $L$ times, since we have run the Ford-Fulkerson while-loop fewer than $|L|$ times, so there still exist edges into $t$ in $G_f$. Thus, the process must stop at some vertex $v_k′$, and we obtain an augmenting path</p>
 
 <div>
 $$
@@ -14606,17 +14606,17 @@ $$
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/CLRS/js/clipboard.min.js?1522784824"></script>
-    <script src="/CLRS/js/perfect-scrollbar.min.js?1522784824"></script>
-    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1522784824"></script>
-    <script src="/CLRS/js/jquery.sticky.js?1522784824"></script>
-    <script src="/CLRS/js/featherlight.min.js?1522784824"></script>
-    <script src="/CLRS/js/html5shiv-printshiv.min.js?1522784824"></script>
-    <script src="/CLRS/js/highlight.pack.js?1522784824"></script>
+    <script src="/CLRS/js/clipboard.min.js?1522785077"></script>
+    <script src="/CLRS/js/perfect-scrollbar.min.js?1522785077"></script>
+    <script src="/CLRS/js/perfect-scrollbar.jquery.min.js?1522785077"></script>
+    <script src="/CLRS/js/jquery.sticky.js?1522785077"></script>
+    <script src="/CLRS/js/featherlight.min.js?1522785077"></script>
+    <script src="/CLRS/js/html5shiv-printshiv.min.js?1522785077"></script>
+    <script src="/CLRS/js/highlight.pack.js?1522785077"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/CLRS/js/modernizr.custom.71422.js?1522784824"></script>
-    <script src="/CLRS/js/learn.js?1522784824"></script>
-    <script src="/CLRS/js/hugo-learn.js?1522784824"></script>
+    <script src="/CLRS/js/modernizr.custom.71422.js?1522785077"></script>
+    <script src="/CLRS/js/learn.js?1522785077"></script>
+    <script src="/CLRS/js/hugo-learn.js?1522785077"></script>
 
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.js" integrity="sha256-34ADEQM6cIZ7chSRA07lN4aD5JM9IQoeIr2VamKDcT0=" crossorigin="anonymous"></script>
