@@ -1,7 +1,3 @@
----
-title: "CLRS"
----
-
 # Solutions to Introduction to Algorithms 3rd
 
 Hope to _re-sort_ solutions to help more people and myself study algorithms.
