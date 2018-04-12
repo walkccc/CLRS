@@ -29,7 +29,7 @@ extra:
     - type: 'github'
       link: 'https://github.com/walkccc'
     - type: 'globe'
-      line: 'https://walkccc.github.io'
+      line: 'https://walkccc.github.io/'
     - type: 'linkedin'
       link: 'https://www.linkedin.com/in/jay-chen-57852313a'
     - type: 'instagram'
@@ -55,6 +55,7 @@ markdown_extensions:
 
 pages:
   - Preface: index.md
+  - Color: color.md
   - I Foundations:
     - 1 The Role of Algorithms in Computing:
       - 1.1 Algorithms: Chap01/1.1.md
