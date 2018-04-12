@@ -4403,9 +4403,9 @@ A &amp; = F \cap (E_1 \cup E_2 \cup \cdots \cup E_{n - 1}) \\
 </blockquote>
 <p>Let $X_{ij}$ be an indicator random variable for the event where the pair $A[i]$, $A[j]$ for $i &lt; j$ is inverted, i.e., $A[i] &gt; A[j]$. More precisely, we define $X_{ij} = I\{A[i] &gt; A[j]\}$ for $1 \le i &lt; j \le n$. We have $\Pr\{X_{ij} = 1\} = 1 / 2$, because given two distinct random numbers, the probability that the first is bigger than the second is $1 / 2$. By Lemma 5.1, $E[X_{ij}] = 1 / 2$.</p>
 <p>Let $X$ be the the random variable denoting the total number of inverted pairs in the array, so that</p>
-<p>X = \sum_{i = 1}^{n - 1} \sum_{j = i + 1}^n X_{ij}.</p>
-<p>We want the expected number of inverted pairs, so we take the expectation of both sides of the above equation to obtain
-\text E[X] = \text E \Bigg[\sum_{i = 1}^{n - 1} \sum_{j = i + 1}^n X_{ij} \Bigg].</p>
+<p>$$X = \sum_{i = 1}^{n - 1} \sum_{j = i + 1}^n X_{ij}.$$</p>
+<p>We want the expected number of inverted pairs, so we take the expectation of both sides of the above equation to obtain</p>
+<p>$$\text E[X] = \text E \Bigg[\sum_{i = 1}^{n - 1} \sum_{j = i + 1}^n X_{ij} \Bigg].$$</p>
 <p>We use linearity of expectation to get</p>
 <p>\begin{align}
 \text E[X] &amp; = \text E \Bigg[\sum_{i = 1}^{n - 1}\sum_{j = i + 1}^n X_{ij} \Bigg] \\
