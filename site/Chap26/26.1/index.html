@@ -1,0 +1,1437 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.3, mkdocs-material-2.7.2">
+    
+    
+      
+        <title>26.1 Flow networks - CLRS Solutions</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.8d40d89b.css">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="github">
+  <path fill="currentColor" d="M409.132,114.573c-19.608-33.596-46.205-60.194-79.798-79.8C295.736,15.166,259.057,5.365,219.271,5.365
+		c-39.781,0-76.472,9.804-110.063,29.408c-33.596,19.605-60.192,46.204-79.8,79.8C9.803,148.168,0,184.854,0,224.63
+		c0,47.78,13.94,90.745,41.827,128.906c27.884,38.164,63.906,64.572,108.063,79.227c5.14,0.954,8.945,0.283,11.419-1.996
+		c2.475-2.282,3.711-5.14,3.711-8.562c0-0.571-0.049-5.708-0.144-15.417c-0.098-9.709-0.144-18.179-0.144-25.406l-6.567,1.136
+		c-4.187,0.767-9.469,1.092-15.846,1c-6.374-0.089-12.991-0.757-19.842-1.999c-6.854-1.231-13.229-4.086-19.13-8.559
+		c-5.898-4.473-10.085-10.328-12.56-17.556l-2.855-6.57c-1.903-4.374-4.899-9.233-8.992-14.559
+		c-4.093-5.331-8.232-8.945-12.419-10.848l-1.999-1.431c-1.332-0.951-2.568-2.098-3.711-3.429c-1.142-1.331-1.997-2.663-2.568-3.997
+		c-0.572-1.335-0.098-2.43,1.427-3.289c1.525-0.859,4.281-1.276,8.28-1.276l5.708,0.853c3.807,0.763,8.516,3.042,14.133,6.851
+		c5.614,3.806,10.229,8.754,13.846,14.842c4.38,7.806,9.657,13.754,15.846,17.847c6.184,4.093,12.419,6.136,18.699,6.136
+		c6.28,0,11.704-0.476,16.274-1.423c4.565-0.952,8.848-2.383,12.847-4.285c1.713-12.758,6.377-22.559,13.988-29.41
+		c-10.848-1.14-20.601-2.857-29.264-5.14c-8.658-2.286-17.605-5.996-26.835-11.14c-9.235-5.137-16.896-11.516-22.985-19.126
+		c-6.09-7.614-11.088-17.61-14.987-29.979c-3.901-12.374-5.852-26.648-5.852-42.826c0-23.035,7.52-42.637,22.557-58.817
+		c-7.044-17.318-6.379-36.732,1.997-58.24c5.52-1.715,13.706-0.428,24.554,3.853c10.85,4.283,18.794,7.952,23.84,10.994
+		c5.046,3.041,9.089,5.618,12.135,7.708c17.705-4.947,35.976-7.421,54.818-7.421s37.117,2.474,54.823,7.421l10.849-6.849
+		c7.419-4.57,16.18-8.758,26.262-12.565c10.088-3.805,17.802-4.853,23.134-3.138c8.562,21.509,9.325,40.922,2.279,58.24
+		c15.036,16.18,22.559,35.787,22.559,58.817c0,16.178-1.958,30.497-5.853,42.966c-3.9,12.471-8.941,22.457-15.125,29.979
+		c-6.191,7.521-13.901,13.85-23.131,18.986c-9.232,5.14-18.182,8.85-26.84,11.136c-8.662,2.286-18.415,4.004-29.263,5.146
+		c9.894,8.562,14.842,22.077,14.842,40.539v60.237c0,3.422,1.19,6.279,3.572,8.562c2.379,2.279,6.136,2.95,11.276,1.995
+		c44.163-14.653,80.185-41.062,108.068-79.226c27.88-38.161,41.825-81.126,41.825-128.906
+		C438.536,184.851,428.728,148.168,409.132,114.573z"/>
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <a href="#261-1" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../Chap22/22.1/" title="CLRS Solutions" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                CLRS Solutions
+              </span>
+              <span class="md-header-nav__topic">
+                26.1 Flow networks
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/walkccc/CLRS/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      walkccc/CLRS
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </span>
+    CLRS Solutions
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/walkccc/CLRS/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      walkccc/CLRS
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+    
+    <label class="md-nav__link" for="nav-1">
+      VI Graph Algorithms
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        VI Graph Algorithms
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1" type="checkbox" id="nav-1-1">
+    
+    <label class="md-nav__link" for="nav-1-1">
+      22 Elementary Graph Algorithms
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-1">
+        22 Elementary Graph Algorithms
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/22.1/" title="22.1 Representations of graphs" class="md-nav__link">
+      22.1 Representations of graphs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/22.2/" title="22.2 Breadth-first search" class="md-nav__link">
+      22.2 Breadth-first search
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/22.3/" title="22.3 Depth-first search" class="md-nav__link">
+      22.3 Depth-first search
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/22.4/" title="22.4 Topological sort" class="md-nav__link">
+      22.4 Topological sort
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/22.5/" title="22.5 Strongly connected components" class="md-nav__link">
+      22.5 Strongly connected components
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-6" type="checkbox" id="nav-1-1-6">
+    
+    <label class="md-nav__link" for="nav-1-1-6">
+      Chap 22 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-1-6">
+        Chap 22 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/Problems/22-1/" title="22-1 Classifying edges by breadth-first search" class="md-nav__link">
+      22-1 Classifying edges by breadth-first search
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/Problems/22-2/" title="22-2 Articulation points, bridges, and biconnected components" class="md-nav__link">
+      22-2 Articulation points, bridges, and biconnected components
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/Problems/22-3/" title="22-3 Euler tour" class="md-nav__link">
+      22-3 Euler tour
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/Problems/22-4/" title="22-4 Reachability" class="md-nav__link">
+      22-4 Reachability
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-2" type="checkbox" id="nav-1-2">
+    
+    <label class="md-nav__link" for="nav-1-2">
+      23 Minimum Spanning Trees
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-2">
+        23 Minimum Spanning Trees
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap23/23.1/" title="23.1 Growing a minimum spanning tree" class="md-nav__link">
+      23.1 Growing a minimum spanning tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap23/23.2/" title="23.2 The algorithms of Kruskal and Prim" class="md-nav__link">
+      23.2 The algorithms of Kruskal and Prim
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-2-3" type="checkbox" id="nav-1-2-3">
+    
+    <label class="md-nav__link" for="nav-1-2-3">
+      Chap 23 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-2-3">
+        Chap 23 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap23/Problems/23-1/" title="23-1 Second-best minimum spanning tree" class="md-nav__link">
+      23-1 Second-best minimum spanning tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap23/Problems/23-2/" title="23-2 Minimum spanning tree in sparse graphs" class="md-nav__link">
+      23-2 Minimum spanning tree in sparse graphs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap23/Problems/23-3/" title="23-3 Bottleneck spanning tree" class="md-nav__link">
+      23-3 Bottleneck spanning tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap23/Problems/23-4/" title="23-4 Alternative minimum-spanning-tree algorithms" class="md-nav__link">
+      23-4 Alternative minimum-spanning-tree algorithms
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-3" type="checkbox" id="nav-1-3">
+    
+    <label class="md-nav__link" for="nav-1-3">
+      24 Single-Source Shortest Paths
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-3">
+        24 Single-Source Shortest Paths
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap24/24.1/" title="24.1 The Bellman-Ford algorithm" class="md-nav__link">
+      24.1 The Bellman-Ford algorithm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap24/24.2/" title="24.2 Single-source shortest paths in directed acyclic graphs" class="md-nav__link">
+      24.2 Single-source shortest paths in directed acyclic graphs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap24/24.3/" title="24.3 Dijkstra's algorithm" class="md-nav__link">
+      24.3 Dijkstra's algorithm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap24/24.4/" title="24.4 Difference constraints and shortest paths" class="md-nav__link">
+      24.4 Difference constraints and shortest paths
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap24/24.5/" title="24.5 Proofs of shortest-paths properties" class="md-nav__link">
+      24.5 Proofs of shortest-paths properties
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-3-6" type="checkbox" id="nav-1-3-6">
+    
+    <label class="md-nav__link" for="nav-1-3-6">
+      Chap 24 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-3-6">
+        Chap 24 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap24/Problems/24-1/" title="24-1 Yen's improvement to Bellman-Ford" class="md-nav__link">
+      24-1 Yen's improvement to Bellman-Ford
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap24/Problems/24-2/" title="24-2 Nesting boxes" class="md-nav__link">
+      24-2 Nesting boxes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap24/Problems/24-3/" title="24-3 Arbitrage" class="md-nav__link">
+      24-3 Arbitrage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap24/Problems/24-4/" title="24-4 Gabow's scaling algorithm for single-source shortest paths" class="md-nav__link">
+      24-4 Gabow's scaling algorithm for single-source shortest paths
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap24/Problems/24-5/" title="24-5 Karp's minimum mean-weight cycle algorithm" class="md-nav__link">
+      24-5 Karp's minimum mean-weight cycle algorithm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap24/Problems/24-6/" title="24-6 Bitonic shortest paths" class="md-nav__link">
+      24-6 Bitonic shortest paths
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-4" type="checkbox" id="nav-1-4">
+    
+    <label class="md-nav__link" for="nav-1-4">
+      25 All-Pairs Shortest Paths
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-4">
+        25 All-Pairs Shortest Paths
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap25/25.1/" title="25.1 Shortest paths and matrix multiplication" class="md-nav__link">
+      25.1 Shortest paths and matrix multiplication
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap25/25.2/" title="25.2 The Floyd-Warshall algorithm" class="md-nav__link">
+      25.2 The Floyd-Warshall algorithm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap25/25.3/" title="25.3 Johnson's algorithm for sparse graphs" class="md-nav__link">
+      25.3 Johnson's algorithm for sparse graphs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-4-4" type="checkbox" id="nav-1-4-4">
+    
+    <label class="md-nav__link" for="nav-1-4-4">
+      Chap 25 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-4-4">
+        Chap 25 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap25/Problems/25-1/" title="25-1 Transitive closure of a dynamic graph" class="md-nav__link">
+      25-1 Transitive closure of a dynamic graph
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap25/Problems/25-2/" title="25-2 Shortest paths in epsilon-dense graphs" class="md-nav__link">
+      25-2 Shortest paths in epsilon-dense graphs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-5" type="checkbox" id="nav-1-5" checked>
+    
+    <label class="md-nav__link" for="nav-1-5">
+      26 Maximum Flow
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-5">
+        26 Maximum Flow
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        26.1 Flow networks
+      </label>
+    
+    <a href="./" title="26.1 Flow networks" class="md-nav__link md-nav__link--active">
+      26.1 Flow networks
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#261-1" title="26.1-1" class="md-nav__link">
+    26.1-1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#261-2" title="26.1-2" class="md-nav__link">
+    26.1-2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#261-3" title="26.1-3" class="md-nav__link">
+    26.1-3
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#261-4" title="26.1-4" class="md-nav__link">
+    26.1-4
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#261-5" title="26.1-5" class="md-nav__link">
+    26.1-5
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#261-6" title="26.1-6" class="md-nav__link">
+    26.1-6
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#261-7" title="26.1-7" class="md-nav__link">
+    26.1-7
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../26.2/" title="26.2 The Ford-Fulkerson method" class="md-nav__link">
+      26.2 The Ford-Fulkerson method
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../26.3/" title="26.3 Maximum bipartite matching" class="md-nav__link">
+      26.3 Maximum bipartite matching
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../26.4/" title="26.4 Push-relabel algorithms" class="md-nav__link">
+      26.4 Push-relabel algorithms
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../26.5/" title="26.5 The relabel-to-front algorithm" class="md-nav__link">
+      26.5 The relabel-to-front algorithm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-5-6" type="checkbox" id="nav-1-5-6">
+    
+    <label class="md-nav__link" for="nav-1-5-6">
+      Chap 26 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-5-6">
+        Chap 26 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Problems/26-1/" title="26-1 Escape problem" class="md-nav__link">
+      26-1 Escape problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Problems/26-2/" title="26-2 Minimum path cover" class="md-nav__link">
+      26-2 Minimum path cover
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Problems/26-3/" title="26-3 Algorithmic consulting" class="md-nav__link">
+      26-3 Algorithmic consulting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Problems/26-4/" title="26-4 Updating maximum flow" class="md-nav__link">
+      26-4 Updating maximum flow
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Problems/26-5/" title="26-5 Maximum flow by scaling" class="md-nav__link">
+      26-5 Maximum flow by scaling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Problems/26-6/" title="26-6 The Hopcroft-Karp bipartite matching algorithm" class="md-nav__link">
+      26-6 The Hopcroft-Karp bipartite matching algorithm
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#261-1" title="26.1-1" class="md-nav__link">
+    26.1-1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#261-2" title="26.1-2" class="md-nav__link">
+    26.1-2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#261-3" title="26.1-3" class="md-nav__link">
+    26.1-3
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#261-4" title="26.1-4" class="md-nav__link">
+    26.1-4
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#261-5" title="26.1-5" class="md-nav__link">
+    26.1-5
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#261-6" title="26.1-6" class="md-nav__link">
+    26.1-6
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#261-7" title="26.1-7" class="md-nav__link">
+    26.1-7
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/walkccc/CLRS/edit/master/docs/Chap26/26.1.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>26.1 Flow networks</h1>
+                
+                <h2 id="261-1">26.1-1</h2>
+<blockquote>
+<p>Show that splitting an edge in a flow network yields an equivalent network. More formally, suppose that flow network $G$ contains edge $(u, v)$, and we create a new flow network $G'$ by creating a new vertex $x$ and replacing $(u, v)$ by new edges $(u, x)$ and $(x, v)$ with $c(u, x) = c(x, v) = c(u, v)$. Show that a maximum flow in $G'$ has the same value as a maximum flow in $G$.</p>
+</blockquote>
+<p>We will prove that for every flow in $G = (V, E)$, we can construct a flow in $G' = (V', E')$ that has the same value as that of the flow in $G$. The required result follows since a maximum flow in $G$ is also a flow. Let $f$ be a flow in $G$. By construction, $V' = V \cup \{x\}$ and $E' = (E - \{(u, v)\}) \cup \{(u, x), (x, v)\}$. Construct $f'$ in $G'$ as follows:</p>
+<p>$$
+f'(y, z) =
+\begin{cases}
+f(y, z) &amp; \text{if $(y, z) \ne (u, x)$ and $(y, z) \ne (x, v)$}, \\
+f(u, z) &amp; \text{if $(y, z) =   (u, x)$ or  $(y, z) =   (x, v)$}.
+\end{cases}
+$$</p>
+<p>Informally, $f'$ is the same as $f$, except that the flow $f(u, v)$ now passes through an intermediate vertex $x$. The vertex $x$ has incoming flow (if any) only from $u$, and has outgoing flow (if any) only to vertex $v$.</p>
+<p>We first prove that $f'$ satisfies the required properties of a flow. It is obvious that the capacity constraint is satisfied for every edge in $E'$ and that every vertex in $V' - \{u, v, x\}$ obeys flow conservation.</p>
+<p>To show that edges $(u, x)$ and $(x, v)$ obey the capacity constraint, we have</p>
+<p>\begin{align}
+f(u, x) = f(u, v) &amp; \le c(u, v) = c(u, x), \\
+f(x, v) = f(u, v) &amp; \le c(u, v) = c(x, v). 
+\end{align}</p>
+<p>We now prove flow conservation for $u$. Assuming that $u \ne \{s, t\}$, we have</p>
+<p>\begin{align}
+\sum_{y \in V'} f'(u, y)
+    &amp; = \sum_{y \in V' -{x}} f'(u, y) + f'(u, x) \\
+    &amp; = \sum_{y \in V- {v}} f(u, y) + f(u, v) \\
+    &amp; = \sum_{y \in V} f(u, y) \\
+    &amp; = \sum_{y \in V} f(y, u) \quad \text{(because $f$ obeys flow conservation)} \\
+    &amp; = \sum_{y \in V'} f'(y, u).
+\end{align}</p>
+<p>For vertex $v$, a symmetric argument proves flow conservation.</p>
+<p>For vertex $x$, we have</p>
+<p>\begin{align}
+\sum_{y \in V'} f'(y, x)
+    &amp; = f'(u, x) \\
+    &amp; = f'(x, v) \\
+    &amp; = \sum_{y \in V'} f'(x, y).
+\end{align}</p>
+<p>Thus, $f'$ is a valid flow in $G'$.</p>
+<p>We now prove that the values of the flow in both cases are equal. If the source $s$ is not in $\{u, v\}$, the proof is trivial, since our construction assigns the same flows to incoming and outgoing edges of $s$. If $s = u$, then</p>
+<p>\begin{align}
+|f'| &amp; = \sum_{y \in V'} f'(u, y) - \sum_{y \in V'} f'(y, u) \\
+     &amp; = \sum_{y \in V' - {x}} f'(u, y) - \sum_{y \in V'} f'(y, u) + f'(u, x) \\
+     &amp; = \sum_{y \in V - {v}} f(u, y) - \sum_{y \in V} f(y, u) + f(u, v) \\
+     &amp; = \sum_{y \in V} f(u, y) - \sum_{y \in V} f(y, u) \\
+     &amp; = |f|.
+\end{align}</p>
+<p>The case when $s = v$ is symmetric. We conclude that $f'$ is a valid flow in $G'$ with $|f'| = |f|$.</p>
+<h2 id="261-2">26.1-2</h2>
+<blockquote>
+<p>Extend the flow properties and definitions to the multiple-source, multiple-sink problem. Show that any flow in a multiple-source, multiple-sink flow network corresponds to a flow of identical value in the single-source, single-sink network obtained by adding a supersource and a supersink, and vice versa.</p>
+</blockquote>
+<p>Capacity constraint: for all $u, v \in V$, we require $0 \le f(u, v) \le c(u, v)$.</p>
+<p>Flow conservation: for all $u \in V - S - T$, we require $\sum_{v \in V} f(v, u) = \sum_{v \in V} f(u, v)$.</p>
+<h2 id="261-3">26.1-3</h2>
+<blockquote>
+<p>Suppose that a flow network $G = (V, E)$ violates the assumption that the network contains a path $s \leadsto v \leadsto t$ for all vertices $v \in V$. Let $u$ be a vertex for which there is no path $s \leadsto u \leadsto t$. Show that there must exist a maximum flow $f$ in $G$ such that $f(u, v) = f(v, u) = 0$ for all vertices $v \in V$.</p>
+</blockquote>
+<p>We show that, given any flow $f'$ in the flow network $G = (V, E)$, we can construct a flow $f$ as stated in the exercise. The result will follow when $f'$ is a maximum flow. The idea is that even if there is a path from $s$ to the connected component of $u$, no flow can enter the component, since the flow has no path to reach $t$. Thus, all the flow inside the component must be cyclic, which can be made zero without affecting the net value of the flow.</p>
+<p>Two cases are possible: where $u$ is not connected to $t$, and where $u$ is not connected to $s$. We only analyze the former case. The analysis for the latter case is similar.</p>
+<p>Let $Y$ be the set of all vertices that have no path to $t$. Our roadmap will be to first prove that no flow can leave $Y$. We use this result and flow conservation to prove that no flow can enter $Y$. We shall then constuct the flow $f$, which has the required properties, and prove that $|f| = |f'|$.</p>
+<p>The first step is to prove that there can be no flow from a vertex $y \in Y$ to a vertex $v \in V - Y$. That is, $f'(y, v) = 0$. This is so, because there are no edges $(y, v)$ in $E$. If there were an edge $(y, v) \in E$, then there would be a path from $y$ to $t$, which contradicts how we defined the set $Y$.</p>
+<p>We will now prove that $f'(v, y) = 0$, too. We will do so by applying flow conservation to each vertex in $Y$ and taking the sum over $Y$. By flow conservation, we have</p>
+<p>$$\sum_{y \in Y} \sum_{v \in V} f'(y, v) = \sum_{y \in Y} \sum_{v \in V} f'(v, y).$$</p>
+<p>Partitioning $V$ into $Y$ and $V - Y$ gives</p>
+<p>$$\sum_{y \in Y} \sum_{v \in V - Y} f'(y, v) + \sum_{y \in Y} \sum_{v \in V} f'(y, v) = \sum_{y \in Y} \sum_{v \in V - Y} f'(v, y) + \sum_{y \in Y} \sum_{v \in Y} f'(v, y). \tag{*}$$</p>
+<p>But we also have</p>
+<p>$$\sum_{y \in Y} \sum_{v \in Y} f'(y, v) = \sum_{y \in Y} \sum_{v \in Y} f'(v, y),$$</p>
+<p>since the left-hand side is the same as the right-hand side, except for a change of variable names $v$ and $y$. We also have</p>
+<p>$$\sum_{y \in Y} \sum_{v \in V - Y} f'(y, v) = 0,$$</p>
+<p>since $f'(y, v) = 0$ for each $y \in Y$ and $v \in V - Y$. Thus, equation $(*)$ simplifies to</p>
+<p>$$\sum_{y \in Y} \sum_{v \in V - Y} f'(v, y) = 0.$$</p>
+<p>Because the flow function is nonnegative, $f(v, y) = 0$ for each $v \in V$ and $y \in Y$. We conclude that there can be no flow between any vertex in $Y$ and any vertex in $V - Y$.</p>
+<p>The same technique can show that if there is a path from $u$ to $t$ but not from $s$ to $u$, and we define $Z$ as the set of vertices that do not have have a path from $s$ to $u$, then there can be no flow between any vertex in $Z$ and any vertex in $V - Z$. Let $X = Y \cup Z$. We thus have $f'(v, x) = f'(x, v) = 0$ if $x \in X$ and $v \ne X$.</p>
+<p>We are now ready to construct flow $f$:</p>
+<p>$$
+f(u, v) =
+\begin{cases}
+f'(u, v) &amp; \text{if $u, v \ne X$}, \\
+0        &amp; \text{otherwise}.
+\end{cases}
+$$</p>
+<p>We note that $f$ satisfies the requirements of the exercise. We now prove that $f$ also satisfies the requirements of a flow function.</p>
+<p>The capacity constraint is satisfied, since whenever $f(u, v) = f'(u, v)$, we have $f(u, v) = f'(u, v) \le c(u, v)$ and whenever $f(u, v) = 0$, we have $f(u, v) = 0 \le c(u, v)$.</p>
+<p>For flow conservation, let $x$ be some vertex other than $s$ or $t$. If $x \in X$, then from the construction of $f$, we have</p>
+<p>$$\sum_{v \in V} f(x, v) = \sum_{v \in V} f(v, x) = 0.$$</p>
+<p>Otherwise, if $x \ne X$, note that $f(x, v) = f'(x, v)$ and $f(v, x) = f'(v, x)$ for all vertices $v \in V$. Thus,</p>
+<p>\begin{align}
+\sum_{v \in V} f(x, v)
+    &amp; = \sum_{v \in V} f'(x, v) \\
+    &amp; = \sum_{v \in V} f'(v, x) \quad \text{(because $f'$ obeys flow conservation)} \\
+    &amp; = \sum_{v \in V} f(v, x).
+\end{align}</p>
+<p>Finally, we prove that the value of the flow remains the same. Since $s \ne X$, we have $f(s, v) = f'(s, v)$ and $f(v, x) = f'(v, x)$ for all vertices $v \in V$, and so</p>
+<p>\begin{align}
+|f| &amp; = \sum_{v \in V} f(s, v) - \sum_{v \in V} f(v, s) \\
+    &amp; = \sum_{v \in V} f'(s, v) - \sum_{v \in V} f'(v, s) \\
+    &amp; = |f'|.
+\end{align}</p>
+<h2 id="261-4">26.1-4</h2>
+<blockquote>
+<p>Let $f$ be a flow in a network, and let $\alpha$ be a real number. The <strong><em>scalar flow product</em></strong>, denoted $\alpha f$, is a function from $V \times V$ to $\mathbb{R}$ defined by</p>
+<p>$(\alpha f)(u, v) = \alpha \cdot f(u, v)$.</p>
+<p>Prove that the flows in a network form a <strong><em>convex set</em></strong>. That is, show that if $f_1$ and $f_2$ are flows, then so is $\alpha f_1 + (1 - \alpha) f_2$ for all $\alpha$ in the range $0 \le \alpha \le 1$.</p>
+</blockquote>
+<p>To see that the flows form a convex set, we show that if $f_1$ and $f_2$ are flows, then so is $\alpha f_1 + (1 - \alpha) f_2$ for all $\alpha$ such that $0 \le \alpha \le 1$.</p>
+<p>For the capacity constraint, first observe that $\alpha \le 1$ implies that $1 - \alpha \ge 0$. Thus, for any $u, v \in V$, we have</p>
+<p>\begin{align}
+\alpha f_1(u, v) + (1 - \alpha) f_2(u, v)
+    &amp; \ge 0 \cdot f_1(u, v) + 0 \cdot (1 - \alpha) f_2(u, v) \\
+    &amp; =   0.
+\end{align}</p>
+<p>Since $f_1(u, v) \le c(u, v)$ and $f_2(u, v) \le c(u, v)$, we also have</p>
+<p>\begin{align}
+\alpha f_1(u, v) + (1 - \alpha) f_2(u, v)
+    &amp; \le \alpha c(u, v) + (1 - \alpha) c(u, v) \\
+    &amp; =   (\alpha + (1 - \alpha))c(u, v) \\
+    &amp; =   c(u, v).
+\end{align}</p>
+<p>For flow conservation, observe that since $f_1$ and $f_2$ obey flow conservation, we have $\sum_{v \in V} f_1(v, u) = \sum_{v \in V} f_1(u, v)$ and $\sum_{v \in V} f_1(v, u) = \sum_{v \in V} f_1(u, v)$ for any $u \in V - \{s, t\}$. We need to show that</p>
+<p>$$\sum_{v \in V} (\alpha f_1(v, u) + (1 - \alpha) f_2(v, u)) = \sum_{v \in V} (\alpha f_1(u, v) + (1 - \alpha) f_2(u, v))$$</p>
+<p>for any $u \in V - \{s, t\}$. We multiply both sides of the equality for $f_1$ by $\alpha$, multiply both sides of the equality for $f_2$ by $1 - \alpha$, and add the left-hand and right-hand sides of the resulting equalities to get</p>
+<p>$$\alpha \sum_{v \in V} f_1(v, u) + (1 - \alpha) \sum_{v \in V} f_2(v, u) = \alpha \sum_{v \in V} f_1(u, v) + (1 - \alpha) \sum_{v \in V} f_2(u, v).$$</p>
+<p>Observing that</p>
+<p>\begin{align}
+\alpha \sum_{v \in V} f_1(v, u) + (1 - \alpha) \sum_{v \in V} f_2(v, u)<br />
+    &amp; = \sum_{v \in V} \alpha f_1(v, u) + \sum_{v \in V} (1 - \alpha) f_2(v, u) \\
+    &amp; = \sum_{v \in V} (\alpha f_1(v, u) + (1 - \alpha) f_2(v, u))
+\end{align}</p>
+<p>and, likewise, that</p>
+<p>$$\alpha \sum_{v \in V} f_1(u, v) + (1 - \alpha) \sum_{v \in V} f_2(u, v) = \sum_{v \in V} (\alpha f_1(u, v) + (1 - \alpha)f_2(u, v))$$</p>
+<p>completes the proof that flow conservation holds, and thus that flows form a convex set.</p>
+<h2 id="261-5">26.1-5</h2>
+<blockquote>
+<p>State the maximum-flow problem as a linear-programming problem.</p>
+</blockquote>
+<p>\begin{array}{ll}
+\max &amp; \sum\limits_{v \in V} f(s, v) - \sum\limits_{v \in V} f(v, s) \\
+s.t. &amp; 0 \le f(u, v) \le c(u, v) \\
+     &amp; \sum\limits_{v \in V} f(v, u) - \sum\limits_{v \in V} f(u, v) = 0
+\end{array}</p>
+<h2 id="261-6">26.1-6</h2>
+<blockquote>
+<p>Professor Adam has two children who, unfortunately, dislike each other. The problem is so severe that not only do they refuse to walk to school together, but in fact each one refuses to walk on any block that the other child has stepped on that day. The children have no problem with their paths crossing at a corner. Fortunately both the professor's house and the school are on corners, but beyond that he is not sure if it is going to be possible to send both of his children to the same school. The professor has a map of his town. Show how to formulate the problem of determining whether both his children can go to the same school as a maximum-flow problem.</p>
+</blockquote>
+<p>Create a vertex for each corner, and if there is a street between corners $u$ and $v$, create directed edges $(u, v)$ and $(v, u)$. Set the capacity of each edge to $1$. Let the source be corner on which the professor's house sits, and let the sink be the corner on which the school is located. We wish to find a flow of value $2$ that also has the property that $f(u, v)$ is an integer for all vertices $u$ and $v$. Such a flow represents two edge-disjoint paths from the house to the school.</p>
+<h2 id="261-7">26.1-7</h2>
+<blockquote>
+<p>Suppose that, in addition to edge capacities, a flow network has <strong><em>vertex capacities</em></strong>. That is each vertex $v$ has a limit $l(v)$ on how much flow can pass though $v$. Show how to transform a flow network $G = (V, E)$ with vertex capacities into an equivalent flow network $G' = (V', E')$ without vertex capacities, such that a maximum flow in $G'$ has the same value as a maximum flow in $G$. How many vertices and edges does $G'$ have?</p>
+</blockquote>
+<p>We will construct $G'$ by splitting each vertex $v$ of $G$ into two vertices $v_1$, $v_2$, joined by an edge of capacity $l(v)$. All incoming edges of $v$ are now incoming edges to $v_1$. All outgoing edges from $v$ are now outgoing edges from $v_2$.</p>
+<p>More formally, construct $G' = (V', E')$ with capacity function $c'$ as follows. For every $v \in V$, create two vertices $v_1$, $v_2$ in $V'$. Add an edge $(v_1, v_2)$ in $E'$ with $c'(v_1, v_2) = l(v)$. For every edge $(u, v) \in E$, create an edge $(u_2, v_1)$ in $E'$ with capacity $c'(u_2, v_1) = c(u, v)$. Make $s_1$ and $t_2$ as the new source and target vertices in $G'$. Clearly, $|V'| = 2|V|$ and $|E'| = |E| + |V|$.</p>
+<p>Let $f$ be a flow in $G$ that respects vertex capacities. Create a flow function $f'$ in $G'$ as follows. For each edge $(u, v) \in G$, let $f'(u_2, v_1) = f(u, v)$. For each vertex $u \in V - \{t\}$, let $f'(u_1, u_2) = \sum_{v \in V} f(u, v)$. Let $f'(t_1, t_2) = \sum_{v \in V} f(v, t)$.</p>
+<p>We readily see that there is a one-to-one correspondence between flows that respect vertex capacities in $G$ and flows in $G'$. For the capacity constraint, every edge in $G'$ of the form $(u_2, v_1)$ has a corresponding edge in $G$ with a corresponding capacity and flow and thus satisfies the capacity constraint. For edges in $E'$ of the form $(u_1, u_2)$, the capacities reflect the vertex capacities in $G$. Therefore, for $u \in V - \{s, t\}$, we have $f'(u_1, u_2) = \sum_{v \in V} f(u, v) \le l(u) = c'(u_1, u_2)$. We also have $f'(t_1, t_2) = \sum_{v \in V} f(v, t) \le l(t) = c'(t_1, t_2)$. Note that this constraint also enforces the vertex capacities in $G$.</p>
+<p>Now, we prove flow conservation. By construction, every vertex of the form $u_1$ in $G'$ has exactly one outgoing edge $(u_1, u_2)$, and every incoming edge to $u_1$ corresponds to an incoming edge of $u \in G$. Thus, for all vertices $u \in V - \{s, t\}$, we have</p>
+<p>\begin{align}
+\text{incoming flow to $u_1$}
+    &amp; = \sum_{v \in V'} f'(v, u_1) \\
+    &amp; = \sum_{v \in V} f(v, u) \\
+    &amp; = \sum_{v \in V} f(u, v) \qquad \text{(because $f$ obeys flow conservation)} \\
+    &amp; = f'(u_1, u_2) \\
+    &amp; = \text{outgoing flow from $u_1$}.
+\end{align}</p>
+<p>For $t_1$, we have</p>
+<p>\begin{align}
+\text{incoming flow}
+    &amp; = \sum_{v \in V'} f'(v, t_1) \\
+    &amp; = \sum_{v \in V} f(v, u) \\
+    &amp; = f'(t_1, t_2) \\
+    &amp; = \text{outgoing flow}.
+\end{align}</p>
+<p>Vertices of the form $u_2$ have exactly one incoming edge $(u_1, u_2)$, and every outgoing edge of $u_2$ corresponds to an outgoing edge of $u \in G$. Thus, for $u_2 \ne t_2$,</p>
+<p>\begin{align}
+\text{incoming flow}
+    &amp; = f'(u_1, u_2) \\
+    &amp; = \sum_{v \in V} f(u, v) \\
+    &amp; = \sum_{v \in V'} f'(u_2, v) \\  <br />
+    &amp; = \text{outgoing flow}.
+\end{align}</p>
+<p>Finally, we prove that $|f'| = |f|$:</p>
+<p>\begin{align}
+|f'| &amp; = \sum_{v \in V'} f'(s_1, v) \\
+     &amp; = f'(s_1, s_2) \qquad \text{(because there are no other outgoing edges from $s_1$)} \\
+     &amp; = \sum_{v \in V} f(s, v) \\
+     &amp; = |f|.
+\end{align}</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../Chap25/Problems/25-2/" title="25-2 Shortest paths in epsilon-dense graphs" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                25-2 Shortest paths in epsilon-dense graphs
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../26.2/" title="26.2 The Ford-Fulkerson method" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                26.2 The Ford-Fulkerson method
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Built by
+        <a href="http://walkccc.github.io/">Jay Chen</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.b438e6c5.js"></script>
+      
+      <script>app.initialize({version:"0.17.3",url:{base:"../.."}})</script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>

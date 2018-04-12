@@ -1,0 +1,1162 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.3, mkdocs-material-2.7.2">
+    
+    
+      
+        <title>22-3 Euler tour - CLRS Solutions</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.8d40d89b.css">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+      <link rel="stylesheet" href="../../../css/extra.css">
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="github">
+  <path fill="currentColor" d="M409.132,114.573c-19.608-33.596-46.205-60.194-79.798-79.8C295.736,15.166,259.057,5.365,219.271,5.365
+		c-39.781,0-76.472,9.804-110.063,29.408c-33.596,19.605-60.192,46.204-79.8,79.8C9.803,148.168,0,184.854,0,224.63
+		c0,47.78,13.94,90.745,41.827,128.906c27.884,38.164,63.906,64.572,108.063,79.227c5.14,0.954,8.945,0.283,11.419-1.996
+		c2.475-2.282,3.711-5.14,3.711-8.562c0-0.571-0.049-5.708-0.144-15.417c-0.098-9.709-0.144-18.179-0.144-25.406l-6.567,1.136
+		c-4.187,0.767-9.469,1.092-15.846,1c-6.374-0.089-12.991-0.757-19.842-1.999c-6.854-1.231-13.229-4.086-19.13-8.559
+		c-5.898-4.473-10.085-10.328-12.56-17.556l-2.855-6.57c-1.903-4.374-4.899-9.233-8.992-14.559
+		c-4.093-5.331-8.232-8.945-12.419-10.848l-1.999-1.431c-1.332-0.951-2.568-2.098-3.711-3.429c-1.142-1.331-1.997-2.663-2.568-3.997
+		c-0.572-1.335-0.098-2.43,1.427-3.289c1.525-0.859,4.281-1.276,8.28-1.276l5.708,0.853c3.807,0.763,8.516,3.042,14.133,6.851
+		c5.614,3.806,10.229,8.754,13.846,14.842c4.38,7.806,9.657,13.754,15.846,17.847c6.184,4.093,12.419,6.136,18.699,6.136
+		c6.28,0,11.704-0.476,16.274-1.423c4.565-0.952,8.848-2.383,12.847-4.285c1.713-12.758,6.377-22.559,13.988-29.41
+		c-10.848-1.14-20.601-2.857-29.264-5.14c-8.658-2.286-17.605-5.996-26.835-11.14c-9.235-5.137-16.896-11.516-22.985-19.126
+		c-6.09-7.614-11.088-17.61-14.987-29.979c-3.901-12.374-5.852-26.648-5.852-42.826c0-23.035,7.52-42.637,22.557-58.817
+		c-7.044-17.318-6.379-36.732,1.997-58.24c5.52-1.715,13.706-0.428,24.554,3.853c10.85,4.283,18.794,7.952,23.84,10.994
+		c5.046,3.041,9.089,5.618,12.135,7.708c17.705-4.947,35.976-7.421,54.818-7.421s37.117,2.474,54.823,7.421l10.849-6.849
+		c7.419-4.57,16.18-8.758,26.262-12.565c10.088-3.805,17.802-4.853,23.134-3.138c8.562,21.509,9.325,40.922,2.279,58.24
+		c15.036,16.18,22.559,35.787,22.559,58.817c0,16.178-1.958,30.497-5.853,42.966c-3.9,12.471-8.941,22.457-15.125,29.979
+		c-6.191,7.521-13.901,13.85-23.131,18.986c-9.232,5.14-18.182,8.85-26.84,11.136c-8.662,2.286-18.415,4.004-29.263,5.146
+		c9.894,8.562,14.842,22.077,14.842,40.539v60.237c0,3.422,1.19,6.279,3.572,8.562c2.379,2.279,6.136,2.95,11.276,1.995
+		c44.163-14.653,80.185-41.062,108.068-79.226c27.88-38.161,41.825-81.126,41.825-128.906
+		C438.536,184.851,428.728,148.168,409.132,114.573z"/>
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../22.1/" title="CLRS Solutions" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                CLRS Solutions
+              </span>
+              <span class="md-header-nav__topic">
+                22-3 Euler tour
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/walkccc/CLRS/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      walkccc/CLRS
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </span>
+    CLRS Solutions
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/walkccc/CLRS/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      walkccc/CLRS
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+    
+    <label class="md-nav__link" for="nav-1">
+      VI Graph Algorithms
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        VI Graph Algorithms
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1" type="checkbox" id="nav-1-1" checked>
+    
+    <label class="md-nav__link" for="nav-1-1">
+      22 Elementary Graph Algorithms
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-1">
+        22 Elementary Graph Algorithms
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../22.1/" title="22.1 Representations of graphs" class="md-nav__link">
+      22.1 Representations of graphs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../22.2/" title="22.2 Breadth-first search" class="md-nav__link">
+      22.2 Breadth-first search
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../22.3/" title="22.3 Depth-first search" class="md-nav__link">
+      22.3 Depth-first search
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../22.4/" title="22.4 Topological sort" class="md-nav__link">
+      22.4 Topological sort
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../22.5/" title="22.5 Strongly connected components" class="md-nav__link">
+      22.5 Strongly connected components
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-6" type="checkbox" id="nav-1-1-6" checked>
+    
+    <label class="md-nav__link" for="nav-1-1-6">
+      Chap 22 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-1-6">
+        Chap 22 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../22-1/" title="22-1 Classifying edges by breadth-first search" class="md-nav__link">
+      22-1 Classifying edges by breadth-first search
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../22-2/" title="22-2 Articulation points, bridges, and biconnected components" class="md-nav__link">
+      22-2 Articulation points, bridges, and biconnected components
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+    <a href="./" title="22-3 Euler tour" class="md-nav__link md-nav__link--active">
+      22-3 Euler tour
+    </a>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../22-4/" title="22-4 Reachability" class="md-nav__link">
+      22-4 Reachability
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-2" type="checkbox" id="nav-1-2">
+    
+    <label class="md-nav__link" for="nav-1-2">
+      23 Minimum Spanning Trees
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-2">
+        23 Minimum Spanning Trees
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Chap23/23.1/" title="23.1 Growing a minimum spanning tree" class="md-nav__link">
+      23.1 Growing a minimum spanning tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Chap23/23.2/" title="23.2 The algorithms of Kruskal and Prim" class="md-nav__link">
+      23.2 The algorithms of Kruskal and Prim
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-2-3" type="checkbox" id="nav-1-2-3">
+    
+    <label class="md-nav__link" for="nav-1-2-3">
+      Chap 23 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-2-3">
+        Chap 23 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Chap23/Problems/23-1/" title="23-1 Second-best minimum spanning tree" class="md-nav__link">
+      23-1 Second-best minimum spanning tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Chap23/Problems/23-2/" title="23-2 Minimum spanning tree in sparse graphs" class="md-nav__link">
+      23-2 Minimum spanning tree in sparse graphs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Chap23/Problems/23-3/" title="23-3 Bottleneck spanning tree" class="md-nav__link">
+      23-3 Bottleneck spanning tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Chap23/Problems/23-4/" title="23-4 Alternative minimum-spanning-tree algorithms" class="md-nav__link">
+      23-4 Alternative minimum-spanning-tree algorithms
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-3" type="checkbox" id="nav-1-3">
+    
+    <label class="md-nav__link" for="nav-1-3">
+      24 Single-Source Shortest Paths
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-3">
+        24 Single-Source Shortest Paths
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Chap24/24.1/" title="24.1 The Bellman-Ford algorithm" class="md-nav__link">
+      24.1 The Bellman-Ford algorithm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Chap24/24.2/" title="24.2 Single-source shortest paths in directed acyclic graphs" class="md-nav__link">
+      24.2 Single-source shortest paths in directed acyclic graphs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Chap24/24.3/" title="24.3 Dijkstra's algorithm" class="md-nav__link">
+      24.3 Dijkstra's algorithm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Chap24/24.4/" title="24.4 Difference constraints and shortest paths" class="md-nav__link">
+      24.4 Difference constraints and shortest paths
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Chap24/24.5/" title="24.5 Proofs of shortest-paths properties" class="md-nav__link">
+      24.5 Proofs of shortest-paths properties
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-3-6" type="checkbox" id="nav-1-3-6">
+    
+    <label class="md-nav__link" for="nav-1-3-6">
+      Chap 24 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-3-6">
+        Chap 24 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Chap24/Problems/24-1/" title="24-1 Yen's improvement to Bellman-Ford" class="md-nav__link">
+      24-1 Yen's improvement to Bellman-Ford
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Chap24/Problems/24-2/" title="24-2 Nesting boxes" class="md-nav__link">
+      24-2 Nesting boxes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Chap24/Problems/24-3/" title="24-3 Arbitrage" class="md-nav__link">
+      24-3 Arbitrage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Chap24/Problems/24-4/" title="24-4 Gabow's scaling algorithm for single-source shortest paths" class="md-nav__link">
+      24-4 Gabow's scaling algorithm for single-source shortest paths
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Chap24/Problems/24-5/" title="24-5 Karp's minimum mean-weight cycle algorithm" class="md-nav__link">
+      24-5 Karp's minimum mean-weight cycle algorithm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Chap24/Problems/24-6/" title="24-6 Bitonic shortest paths" class="md-nav__link">
+      24-6 Bitonic shortest paths
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-4" type="checkbox" id="nav-1-4">
+    
+    <label class="md-nav__link" for="nav-1-4">
+      25 All-Pairs Shortest Paths
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-4">
+        25 All-Pairs Shortest Paths
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Chap25/25.1/" title="25.1 Shortest paths and matrix multiplication" class="md-nav__link">
+      25.1 Shortest paths and matrix multiplication
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Chap25/25.2/" title="25.2 The Floyd-Warshall algorithm" class="md-nav__link">
+      25.2 The Floyd-Warshall algorithm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Chap25/25.3/" title="25.3 Johnson's algorithm for sparse graphs" class="md-nav__link">
+      25.3 Johnson's algorithm for sparse graphs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-4-4" type="checkbox" id="nav-1-4-4">
+    
+    <label class="md-nav__link" for="nav-1-4-4">
+      Chap 25 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-4-4">
+        Chap 25 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Chap25/Problems/25-1/" title="25-1 Transitive closure of a dynamic graph" class="md-nav__link">
+      25-1 Transitive closure of a dynamic graph
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Chap25/Problems/25-2/" title="25-2 Shortest paths in epsilon-dense graphs" class="md-nav__link">
+      25-2 Shortest paths in epsilon-dense graphs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-5" type="checkbox" id="nav-1-5">
+    
+    <label class="md-nav__link" for="nav-1-5">
+      26 Maximum Flow
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-5">
+        26 Maximum Flow
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Chap26/26.1/" title="26.1 Flow networks" class="md-nav__link">
+      26.1 Flow networks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Chap26/26.2/" title="26.2 The Ford-Fulkerson method" class="md-nav__link">
+      26.2 The Ford-Fulkerson method
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Chap26/26.3/" title="26.3 Maximum bipartite matching" class="md-nav__link">
+      26.3 Maximum bipartite matching
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Chap26/26.4/" title="26.4 Push-relabel algorithms" class="md-nav__link">
+      26.4 Push-relabel algorithms
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Chap26/26.5/" title="26.5 The relabel-to-front algorithm" class="md-nav__link">
+      26.5 The relabel-to-front algorithm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-5-6" type="checkbox" id="nav-1-5-6">
+    
+    <label class="md-nav__link" for="nav-1-5-6">
+      Chap 26 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-5-6">
+        Chap 26 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Chap26/Problems/26-1/" title="26-1 Escape problem" class="md-nav__link">
+      26-1 Escape problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Chap26/Problems/26-2/" title="26-2 Minimum path cover" class="md-nav__link">
+      26-2 Minimum path cover
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Chap26/Problems/26-3/" title="26-3 Algorithmic consulting" class="md-nav__link">
+      26-3 Algorithmic consulting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Chap26/Problems/26-4/" title="26-4 Updating maximum flow" class="md-nav__link">
+      26-4 Updating maximum flow
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Chap26/Problems/26-5/" title="26-5 Maximum flow by scaling" class="md-nav__link">
+      26-5 Maximum flow by scaling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Chap26/Problems/26-6/" title="26-6 The Hopcroft-Karp bipartite matching algorithm" class="md-nav__link">
+      26-6 The Hopcroft-Karp bipartite matching algorithm
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/walkccc/CLRS/edit/master/docs/Chap22/Problems/22-3.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>22-3 Euler tour</h1>
+                
+                <blockquote>
+<p>An <strong><em>Euler tour</em></strong> of a strongly connected, directed graph $G = (V, E)$ is a cycle that traverses each edge of $G$ exactly once, although it may visit a vertex more than once.</p>
+<p><strong>a.</strong> Show that $G$ has an Euler tour if and only if $in\text-degree(v) = out\text-degree(v)$ for each vertex $v \in V$.</p>
+<p><strong>b.</strong> Describe an $O(E)$-time algorithm to find an Euler tour of $G$ if one exists. ($\textit{Hint:}$ Merge edge-disjoint cycles.)</p>
+</blockquote>
+<p><strong>a.</strong> An Euler tour is a single cycle that traverses each edge of $G$ exactly once, but it might not be a simple cycle. An Euler tour can be decomposed into a set of edge-disjoint simple cycles, however.</p>
+<p>If $G$ has an Euler tour, therefore, we can look at the simple cycles that, together, form the tour. In each simple cycle, each vertex in the cycle has one entering edge and one leaving edge. In each simple cycle, therefore, each vertex $v$ has $in\text-degree(v) = out\text-degree(v)$, where the degrees are either $1$ (if $v$ is on the simple cycle) or $0$ (if $v$ is not on the simple cycle). Adding the in- and out- degrees over all edges proves that if $G$ has an Euler tour, then $in\text-degree(v) = out\text-degree(v)$ for all vertices $v$.</p>
+<p>We prove the converse—that if $in\text-degree(v) = out\text-degree(v)$ for all vertices $v$, then $G$ has an Euler tour—in two different ways. One proof is nonconstructive, and the other proof will help us design the algorithm for part (b).</p>
+<p>First, we claim that if $in\text-degree(v) = out\text-degree(v)$ for all vertices $v$, then we can pick any vertex $u$ for which $in\text-degree(u) = out\text-degree(u) \ge 1$ and create a cycle (not necessarily simple) that contains $u$. To prove this claim, let us start by placing vertex $u$ on the cycle, and choose any leaving edge of $u$, say ($u, v$). Now we put $v$ on the cycle. Since $in\text-degree(v) = out\text-degree(v) \ge 1$, we can pick some leaving edge of $v$ and continue visiting edges and vertices. Each time we pick an edge, we can remove it from further consideration. At each vertex other than $u$, at the time we visit an entering edge, there must be an unvisited leaving edge, since $in\text-degree(v) = out\text-degree(v)$ for all vertices $v$. The only vertex for which there might not be an unvisited leaving edge is $u$, since we started the cycle by visiting one of $u$'s leaving edges. Since there's always a leaving edge we can visit from all vertices other than $u$, eventually the cycle must return to $u$, thus proving the claim.</p>
+<p>The nonconstructive proof proves the contrapositive—that if $G$ does not have an Euler tour, then $in\text-degree(v) \ne out\text-degree(v)$ for some vertex $v$—by contradiction. Choose a graph $G = (V, E)$ that does not have an Euler tour but has at least one edge and for which $in\text-degree(v) = out\text-degree(v)$ for all vertices $v$, and let $G$ have the fewest edges of any such graph. By the above claim, $G$ contains a cycle. Let $C$ be a cycle of $G$ with the greatest number of edges, and let $V_C$ be the set of vertices visited by cycle $C$. By our assumption, $C$ is not an Euler tour, and so the set of edges $E' = E - C$ is nonempty. If we use the set $V$ of vertices and the set $E'$ of edges, we get the graph $G' = (V, E')$; this graph has $in\text-degree(v) = out\text-degree(v)$ for all vertices $v$, since we have removed one entering edge and one leaving edge for each vertex on cycle $C$. Consider any component $G'' = (V'' , E'')$ of $G'$, and observe that $G''$ also has $in\text-degree(v) = out\text-degree(v)$ for all vertices $v$. Since $E'' \subseteq E' \subsetneq E$, it follows from how we chose $G$ that $G''$  must have an Euler tour, say $C'$. Because the original graph G is connected, there must be some vertex $x \in V'' \cup V_C$ and, without loss of generality, consider $x$ to be the first and last vertex on both $C$ and $C'$. But then the cycle $C''$ formed by first traversing $C$ and then traversing $C'$ is a cycle of $G$ with more edges than $C$, contradicting our choice of $C$. We conclude that $C$ must have been an Euler tour.</p>
+<p>The constructive proof uses the same ideas. Let us start at a vertex $u$ and, via random traversal of edges, create a cycle. We know that once we take any edge entering a vertex $v \ne u$, we can find an edge leaving $v$ that we have not yet taken. Eventually, we get back to vertex $u$, and if there are still edges leaving $u$ that we have not taken, we can continue the cycle. Eventually, we get back to vertex $u$ and there are no untaken edges leaving $u$. If we have visited every edge in the graph $G$, we are done. Otherwise, since $G$ is connected, there must be some unvisited edge leaving a vertex, say $v$, on the cycle. We can traverse a new cycle starting at $v$, visiting only previously unvisited edges, and we can splice this cycle into the cycle we already know. That is, if the original cycle is $\langle u, \ldots, v, w, \ldots, u \rangle$, and the new cycle is $\langle v, x, \ldots, v\rangle$, then we can create the cycle $\langle u, \ldots, v, x, \ldots, v, w, \ldots, u \rangle$. We continue this process of finding a vertex with an unvisited leaving edge on a visited cycle, visiting a cycle starting and ending at this vertex, and splicing in the newly visited cycle, until we have visited every edge.</p>
+<p><strong>b.</strong> The algorithm is based on the idea in the constructive proof above.</p>
+<p>We assume that $G$ is represented by adjacency lists, and we work with a copy of the adjacency lists, so that as we visit each edge, we can remove it from its adjacency list. The singly linked form of adjacency list will suffice. The output of this algorithm is a doubly linked list $T$ of vertices which, read in list order, will give an Euler tour. The algorithm constructs $T$ by finding cycles (also represented by doubly linked lists) and splicing them into $T$. By using doubly linked lists for cycles and the Euler tour, splicing a cycle into the Euler tour takes constant time.</p>
+<p>We also maintain a singly linked list $L$, in which each list element consists of two parts:</p>
+<ol>
+<li>a vertex $v$, and</li>
+<li>a pointer to some appearance of $v$ in $T$.</li>
+</ol>
+<p>Initially, $L$ contains one vertex, which may be any vertex of $G$.</p>
+<p>Here is the algorithm.</p>
+<div class="highlight"><pre><span></span><span class="n">EULER</span><span class="o">-</span><span class="n">TOUR</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">empty</span> <span class="n">list</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="p">(</span><span class="n">any</span> <span class="n">vertex</span> <span class="n">v</span> <span class="err">∈</span> <span class="n">G</span><span class="p">.</span><span class="n">V</span><span class="p">,</span> <span class="n">NIL</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">L</span> <span class="n">is</span> <span class="n">not</span> <span class="n">empty</span>
+        <span class="n">remore</span> <span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">location</span> <span class="o">-</span> <span class="n">in</span><span class="o">-</span><span class="n">T</span><span class="p">)</span> <span class="n">from</span> <span class="n">L</span>
+        <span class="n">C</span> <span class="o">=</span> <span class="n">VISIT</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">location</span> <span class="o">-</span> <span class="n">in</span><span class="o">-</span><span class="n">T</span> <span class="o">==</span> <span class="n">NIL</span>
+            <span class="n">T</span> <span class="o">=</span> <span class="n">C</span>
+        <span class="k">else</span> <span class="n">splice</span> <span class="n">C</span> <span class="n">into</span> <span class="n">T</span> <span class="n">just</span> <span class="n">before</span> <span class="n">location</span> <span class="o">-</span> <span class="n">in</span><span class="o">-</span><span class="n">T</span>
+    <span class="k">return</span> <span class="n">T</span>
+</pre></div>
+
+<div class="highlight"><pre><span></span><span class="n">VISIT</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">empty</span> <span class="n">sequence</span> <span class="n">of</span> <span class="n">vertices</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">v</span>
+    <span class="k">while</span> <span class="n">out</span><span class="o">-</span><span class="n">degree</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="n">let</span> <span class="n">w</span> <span class="n">be</span> <span class="n">the</span> <span class="n">first</span> <span class="n">vertex</span> <span class="n">in</span> <span class="n">G</span><span class="p">.</span><span class="n">Adj</span><span class="p">[</span><span class="n">u</span><span class="p">]</span>
+        <span class="n">remove</span> <span class="n">w</span> <span class="n">from</span> <span class="n">G</span><span class="p">.</span><span class="n">Adj</span><span class="p">[</span><span class="n">u</span><span class="p">],</span> <span class="n">decrementing</span> <span class="n">out</span><span class="o">-</span><span class="n">degree</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+        <span class="n">add</span> <span class="n">u</span> <span class="n">onto</span> <span class="n">the</span> <span class="n">end</span> <span class="n">of</span> <span class="n">C</span>
+        <span class="k">if</span> <span class="n">out</span><span class="o">-</span><span class="n">degree</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+            <span class="n">add</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">u</span><span class="err">&#39;</span><span class="n">s</span> <span class="n">location</span> <span class="n">in</span> <span class="n">C</span><span class="p">)</span> <span class="n">to</span> <span class="n">L</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="n">w</span>
+    <span class="k">return</span> <span class="n">C</span>
+</pre></div>
+
+<p>The use of $\text{NIL}$ in the initial assignment to $L$ ensures that the first cycle $C$ returned by $\text{VISIT}$ becomes the current version of the Euler tour $T$. All cycles returned by $\text{VISIT}$ thereafter are spliced into $T$. We assume that whenever an empty cycle is returned by $\text{VISIT}$, splicing it into $T$ leaves $T$ unchanged.</p>
+<p>Each time that $\text{EULER-TOUR}$ removes a vertex $v$ from the list $L$, it calls $\text{VISIT}(G, L, v)$ to find a cycle $C$, possibly empty and possibly not simple, that starts and ends at $v$; the cycle $C$ is represented by a list that starts with $v$ and ends with the last vertex on the cycle before the cycle ends at $v$. $\text{EULER-TOUR}$ then splices this cycle $C$ into the Euler tour $T$ just before some appearance of $v$ in $T$.</p>
+<p>When $\text{VISIT}$ is at a vertex $u$, it looks for some vertex $w$ such that the edge $(u, w)$ has not yet been visited. Removing $w$ from $Adj[u]$ ensures that we will never visit $(u, w)$ again. $\text{VISIT}$ adds $u$ onto the cycle $C$ that it constructs. If, after removing edge $(u, w)$, vertex $u$ still has any leaving edges, then $u$, along with its location in $C$, is added to $L$. The cycle construction continues from $w$, and it ceases once a vertex with no unvisited leaving edges is found. Using the argument from part (a), at that point, this vertex must close up a cycle. At that point, therefore, the cycle $C$ is returned.</p>
+<p>It is possible that a vertex $u$ has unvisited leaving edges at the time it is added to list $L$ in $\text{VISIT}$, but that by the time that $u$ is removed from $L$ in $\text{EULER-TOUR}$, all of its leaving edges have been visited. In this case, the <strong>while</strong> loop of $\text{VISIT}$ executes $0$ iterations, and $\text{VISIT}$ returns an empty cycle.</p>
+<p>Once the list $L$ is empty, every edge has been visited. The resulting cycle $T$ is then an Euler tour.</p>
+<p>To see that $\text{EULER-TOUR}$ takes $O(E)$ time, observe that because we remove each edge from its adjacency list as it is visited, no edge is visited more than once. Since each edge is visited at some time, the number of times that a vertex is added to $L$, and thus removed from $L$, is at most $|E|$. Thus, the <strong>while</strong> loop in $\text{EULER-TOUR}$ executes at most $E$ iterations. The <strong>while</strong> loop in $\text{VISIT}$ executes one iteration per edge in the graph, and so it executes at most $E$ iterations as well. Since adding vertex $u$ to the doubly linked list $C$ takes constant time and splicing $C$ into $T$ takes constant time, the entire algorithm takes $O(E)$ time.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../22-2/" title="22-2 Articulation points, bridges, and biconnected components" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                22-2 Articulation points, bridges, and biconnected components
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../22-4/" title="22-4 Reachability" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                22-4 Reachability
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Built by
+        <a href="http://walkccc.github.io/">Jay Chen</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.b438e6c5.js"></script>
+      
+      <script>app.initialize({version:"0.17.3",url:{base:"../../.."}})</script>
+      
+        <script src="../../../javascripts/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>

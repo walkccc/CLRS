@@ -1,0 +1,1439 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.3, mkdocs-material-2.7.2">
+    
+    
+      
+        <title>24.3 Dijkstra's algorithm - CLRS Solutions</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.8d40d89b.css">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="github">
+  <path fill="currentColor" d="M409.132,114.573c-19.608-33.596-46.205-60.194-79.798-79.8C295.736,15.166,259.057,5.365,219.271,5.365
+		c-39.781,0-76.472,9.804-110.063,29.408c-33.596,19.605-60.192,46.204-79.8,79.8C9.803,148.168,0,184.854,0,224.63
+		c0,47.78,13.94,90.745,41.827,128.906c27.884,38.164,63.906,64.572,108.063,79.227c5.14,0.954,8.945,0.283,11.419-1.996
+		c2.475-2.282,3.711-5.14,3.711-8.562c0-0.571-0.049-5.708-0.144-15.417c-0.098-9.709-0.144-18.179-0.144-25.406l-6.567,1.136
+		c-4.187,0.767-9.469,1.092-15.846,1c-6.374-0.089-12.991-0.757-19.842-1.999c-6.854-1.231-13.229-4.086-19.13-8.559
+		c-5.898-4.473-10.085-10.328-12.56-17.556l-2.855-6.57c-1.903-4.374-4.899-9.233-8.992-14.559
+		c-4.093-5.331-8.232-8.945-12.419-10.848l-1.999-1.431c-1.332-0.951-2.568-2.098-3.711-3.429c-1.142-1.331-1.997-2.663-2.568-3.997
+		c-0.572-1.335-0.098-2.43,1.427-3.289c1.525-0.859,4.281-1.276,8.28-1.276l5.708,0.853c3.807,0.763,8.516,3.042,14.133,6.851
+		c5.614,3.806,10.229,8.754,13.846,14.842c4.38,7.806,9.657,13.754,15.846,17.847c6.184,4.093,12.419,6.136,18.699,6.136
+		c6.28,0,11.704-0.476,16.274-1.423c4.565-0.952,8.848-2.383,12.847-4.285c1.713-12.758,6.377-22.559,13.988-29.41
+		c-10.848-1.14-20.601-2.857-29.264-5.14c-8.658-2.286-17.605-5.996-26.835-11.14c-9.235-5.137-16.896-11.516-22.985-19.126
+		c-6.09-7.614-11.088-17.61-14.987-29.979c-3.901-12.374-5.852-26.648-5.852-42.826c0-23.035,7.52-42.637,22.557-58.817
+		c-7.044-17.318-6.379-36.732,1.997-58.24c5.52-1.715,13.706-0.428,24.554,3.853c10.85,4.283,18.794,7.952,23.84,10.994
+		c5.046,3.041,9.089,5.618,12.135,7.708c17.705-4.947,35.976-7.421,54.818-7.421s37.117,2.474,54.823,7.421l10.849-6.849
+		c7.419-4.57,16.18-8.758,26.262-12.565c10.088-3.805,17.802-4.853,23.134-3.138c8.562,21.509,9.325,40.922,2.279,58.24
+		c15.036,16.18,22.559,35.787,22.559,58.817c0,16.178-1.958,30.497-5.853,42.966c-3.9,12.471-8.941,22.457-15.125,29.979
+		c-6.191,7.521-13.901,13.85-23.131,18.986c-9.232,5.14-18.182,8.85-26.84,11.136c-8.662,2.286-18.415,4.004-29.263,5.146
+		c9.894,8.562,14.842,22.077,14.842,40.539v60.237c0,3.422,1.19,6.279,3.572,8.562c2.379,2.279,6.136,2.95,11.276,1.995
+		c44.163-14.653,80.185-41.062,108.068-79.226c27.88-38.161,41.825-81.126,41.825-128.906
+		C438.536,184.851,428.728,148.168,409.132,114.573z"/>
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <a href="#243-1" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../Chap22/22.1/" title="CLRS Solutions" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                CLRS Solutions
+              </span>
+              <span class="md-header-nav__topic">
+                24.3 Dijkstra's algorithm
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/walkccc/CLRS/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      walkccc/CLRS
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </span>
+    CLRS Solutions
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/walkccc/CLRS/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      walkccc/CLRS
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+    
+    <label class="md-nav__link" for="nav-1">
+      VI Graph Algorithms
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        VI Graph Algorithms
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1" type="checkbox" id="nav-1-1">
+    
+    <label class="md-nav__link" for="nav-1-1">
+      22 Elementary Graph Algorithms
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-1">
+        22 Elementary Graph Algorithms
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/22.1/" title="22.1 Representations of graphs" class="md-nav__link">
+      22.1 Representations of graphs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/22.2/" title="22.2 Breadth-first search" class="md-nav__link">
+      22.2 Breadth-first search
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/22.3/" title="22.3 Depth-first search" class="md-nav__link">
+      22.3 Depth-first search
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/22.4/" title="22.4 Topological sort" class="md-nav__link">
+      22.4 Topological sort
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/22.5/" title="22.5 Strongly connected components" class="md-nav__link">
+      22.5 Strongly connected components
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-6" type="checkbox" id="nav-1-1-6">
+    
+    <label class="md-nav__link" for="nav-1-1-6">
+      Chap 22 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-1-6">
+        Chap 22 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/Problems/22-1/" title="22-1 Classifying edges by breadth-first search" class="md-nav__link">
+      22-1 Classifying edges by breadth-first search
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/Problems/22-2/" title="22-2 Articulation points, bridges, and biconnected components" class="md-nav__link">
+      22-2 Articulation points, bridges, and biconnected components
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/Problems/22-3/" title="22-3 Euler tour" class="md-nav__link">
+      22-3 Euler tour
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/Problems/22-4/" title="22-4 Reachability" class="md-nav__link">
+      22-4 Reachability
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-2" type="checkbox" id="nav-1-2">
+    
+    <label class="md-nav__link" for="nav-1-2">
+      23 Minimum Spanning Trees
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-2">
+        23 Minimum Spanning Trees
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap23/23.1/" title="23.1 Growing a minimum spanning tree" class="md-nav__link">
+      23.1 Growing a minimum spanning tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap23/23.2/" title="23.2 The algorithms of Kruskal and Prim" class="md-nav__link">
+      23.2 The algorithms of Kruskal and Prim
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-2-3" type="checkbox" id="nav-1-2-3">
+    
+    <label class="md-nav__link" for="nav-1-2-3">
+      Chap 23 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-2-3">
+        Chap 23 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap23/Problems/23-1/" title="23-1 Second-best minimum spanning tree" class="md-nav__link">
+      23-1 Second-best minimum spanning tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap23/Problems/23-2/" title="23-2 Minimum spanning tree in sparse graphs" class="md-nav__link">
+      23-2 Minimum spanning tree in sparse graphs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap23/Problems/23-3/" title="23-3 Bottleneck spanning tree" class="md-nav__link">
+      23-3 Bottleneck spanning tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap23/Problems/23-4/" title="23-4 Alternative minimum-spanning-tree algorithms" class="md-nav__link">
+      23-4 Alternative minimum-spanning-tree algorithms
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-3" type="checkbox" id="nav-1-3" checked>
+    
+    <label class="md-nav__link" for="nav-1-3">
+      24 Single-Source Shortest Paths
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-3">
+        24 Single-Source Shortest Paths
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../24.1/" title="24.1 The Bellman-Ford algorithm" class="md-nav__link">
+      24.1 The Bellman-Ford algorithm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../24.2/" title="24.2 Single-source shortest paths in directed acyclic graphs" class="md-nav__link">
+      24.2 Single-source shortest paths in directed acyclic graphs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        24.3 Dijkstra's algorithm
+      </label>
+    
+    <a href="./" title="24.3 Dijkstra's algorithm" class="md-nav__link md-nav__link--active">
+      24.3 Dijkstra's algorithm
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#243-1" title="24.3-1" class="md-nav__link">
+    24.3-1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#243-2" title="24.3-2" class="md-nav__link">
+    24.3-2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#243-3" title="24.3-3" class="md-nav__link">
+    24.3-3
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#243-4" title="24.3-4" class="md-nav__link">
+    24.3-4
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#243-5" title="24.3-5" class="md-nav__link">
+    24.3-5
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#243-6" title="24.3-6" class="md-nav__link">
+    24.3-6
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#243-7" title="24.3-7" class="md-nav__link">
+    24.3-7
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#243-8" title="24.3-8" class="md-nav__link">
+    24.3-8
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#243-9" title="24.3-9" class="md-nav__link">
+    24.3-9
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#243-10" title="24.3-10" class="md-nav__link">
+    24.3-10
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../24.4/" title="24.4 Difference constraints and shortest paths" class="md-nav__link">
+      24.4 Difference constraints and shortest paths
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../24.5/" title="24.5 Proofs of shortest-paths properties" class="md-nav__link">
+      24.5 Proofs of shortest-paths properties
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-3-6" type="checkbox" id="nav-1-3-6">
+    
+    <label class="md-nav__link" for="nav-1-3-6">
+      Chap 24 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-3-6">
+        Chap 24 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Problems/24-1/" title="24-1 Yen's improvement to Bellman-Ford" class="md-nav__link">
+      24-1 Yen's improvement to Bellman-Ford
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Problems/24-2/" title="24-2 Nesting boxes" class="md-nav__link">
+      24-2 Nesting boxes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Problems/24-3/" title="24-3 Arbitrage" class="md-nav__link">
+      24-3 Arbitrage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Problems/24-4/" title="24-4 Gabow's scaling algorithm for single-source shortest paths" class="md-nav__link">
+      24-4 Gabow's scaling algorithm for single-source shortest paths
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Problems/24-5/" title="24-5 Karp's minimum mean-weight cycle algorithm" class="md-nav__link">
+      24-5 Karp's minimum mean-weight cycle algorithm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Problems/24-6/" title="24-6 Bitonic shortest paths" class="md-nav__link">
+      24-6 Bitonic shortest paths
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-4" type="checkbox" id="nav-1-4">
+    
+    <label class="md-nav__link" for="nav-1-4">
+      25 All-Pairs Shortest Paths
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-4">
+        25 All-Pairs Shortest Paths
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap25/25.1/" title="25.1 Shortest paths and matrix multiplication" class="md-nav__link">
+      25.1 Shortest paths and matrix multiplication
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap25/25.2/" title="25.2 The Floyd-Warshall algorithm" class="md-nav__link">
+      25.2 The Floyd-Warshall algorithm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap25/25.3/" title="25.3 Johnson's algorithm for sparse graphs" class="md-nav__link">
+      25.3 Johnson's algorithm for sparse graphs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-4-4" type="checkbox" id="nav-1-4-4">
+    
+    <label class="md-nav__link" for="nav-1-4-4">
+      Chap 25 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-4-4">
+        Chap 25 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap25/Problems/25-1/" title="25-1 Transitive closure of a dynamic graph" class="md-nav__link">
+      25-1 Transitive closure of a dynamic graph
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap25/Problems/25-2/" title="25-2 Shortest paths in epsilon-dense graphs" class="md-nav__link">
+      25-2 Shortest paths in epsilon-dense graphs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-5" type="checkbox" id="nav-1-5">
+    
+    <label class="md-nav__link" for="nav-1-5">
+      26 Maximum Flow
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-5">
+        26 Maximum Flow
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap26/26.1/" title="26.1 Flow networks" class="md-nav__link">
+      26.1 Flow networks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap26/26.2/" title="26.2 The Ford-Fulkerson method" class="md-nav__link">
+      26.2 The Ford-Fulkerson method
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap26/26.3/" title="26.3 Maximum bipartite matching" class="md-nav__link">
+      26.3 Maximum bipartite matching
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap26/26.4/" title="26.4 Push-relabel algorithms" class="md-nav__link">
+      26.4 Push-relabel algorithms
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap26/26.5/" title="26.5 The relabel-to-front algorithm" class="md-nav__link">
+      26.5 The relabel-to-front algorithm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-5-6" type="checkbox" id="nav-1-5-6">
+    
+    <label class="md-nav__link" for="nav-1-5-6">
+      Chap 26 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-5-6">
+        Chap 26 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap26/Problems/26-1/" title="26-1 Escape problem" class="md-nav__link">
+      26-1 Escape problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap26/Problems/26-2/" title="26-2 Minimum path cover" class="md-nav__link">
+      26-2 Minimum path cover
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap26/Problems/26-3/" title="26-3 Algorithmic consulting" class="md-nav__link">
+      26-3 Algorithmic consulting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap26/Problems/26-4/" title="26-4 Updating maximum flow" class="md-nav__link">
+      26-4 Updating maximum flow
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap26/Problems/26-5/" title="26-5 Maximum flow by scaling" class="md-nav__link">
+      26-5 Maximum flow by scaling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap26/Problems/26-6/" title="26-6 The Hopcroft-Karp bipartite matching algorithm" class="md-nav__link">
+      26-6 The Hopcroft-Karp bipartite matching algorithm
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#243-1" title="24.3-1" class="md-nav__link">
+    24.3-1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#243-2" title="24.3-2" class="md-nav__link">
+    24.3-2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#243-3" title="24.3-3" class="md-nav__link">
+    24.3-3
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#243-4" title="24.3-4" class="md-nav__link">
+    24.3-4
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#243-5" title="24.3-5" class="md-nav__link">
+    24.3-5
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#243-6" title="24.3-6" class="md-nav__link">
+    24.3-6
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#243-7" title="24.3-7" class="md-nav__link">
+    24.3-7
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#243-8" title="24.3-8" class="md-nav__link">
+    24.3-8
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#243-9" title="24.3-9" class="md-nav__link">
+    24.3-9
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#243-10" title="24.3-10" class="md-nav__link">
+    24.3-10
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/walkccc/CLRS/edit/master/docs/Chap24/24.3.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>24.3 Dijkstra's algorithm</h1>
+                
+                <h2 id="243-1">24.3-1</h2>
+<blockquote>
+<p>Run Dijkstra's algorithm on the directed graph of Figure 24.2, first using vertex $s$ as the source and then using vertex $z$ as the source. In the style of Figure 24.6, show the $d$ and $\pi$ values and the vertices in set $S$ after each iteration of the <strong>while</strong> loop.</p>
+</blockquote>
+<ul>
+<li>
+<p>$s$ as the source:</p>
+<ul>
+<li>$d$ values:</li>
+</ul>
+<p>\begin{array}{ccccc}
+s &amp; t &amp; x &amp; y &amp; z \\
+\hline
+0 &amp; 3 &amp; \infty &amp; 5 &amp; \infty \\
+0 &amp; 3 &amp; 9 &amp; 5 &amp; \infty \\
+0 &amp; 3 &amp; 9 &amp; 5 &amp; 11 \\
+0 &amp; 3 &amp; 9 &amp; 5 &amp; 11 \\
+0 &amp; 3 &amp; 9 &amp; 5 &amp; 11
+\end{array}</p>
+<ul>
+<li>$\pi$ values:</li>
+</ul>
+<p>\begin{array}{ccccc}
+s &amp; t &amp; x &amp; y &amp; z \\
+\hline
+\text{NIL} &amp; s &amp; \text{NIL} &amp; \text{NIL} &amp; \text{NIL} \\
+\text{NIL} &amp; s &amp; t &amp; s &amp; \text{NIL} \\
+\text{NIL} &amp; s &amp; t &amp; s &amp; y \\
+\text{NIL} &amp; s &amp; t &amp; s &amp; y \\
+\text{NIL} &amp; s &amp; t &amp; s &amp; y
+\end{array}</p>
+</li>
+<li>
+<p>$z$ as the source:</p>
+<ul>
+<li>$d$ values:</li>
+</ul>
+<p>\begin{array}{ccccc}
+s &amp; t &amp; x &amp; y &amp; z \\
+\hline
+3 &amp; \infty &amp; 7 &amp; \infty &amp; 0 \\
+3 &amp; 6 &amp; 7 &amp; 8 &amp; 0           \\
+3 &amp; 6 &amp; 7 &amp; 8 &amp; 0           \\
+3 &amp; 6 &amp; 7 &amp; 8 &amp; 0           \\
+3 &amp; 6 &amp; 7 &amp; 8 &amp; 0
+\end{array}</p>
+<ul>
+<li>$\pi$ values:</li>
+</ul>
+<p>\begin{array}{ccccc}
+s &amp; t &amp; x &amp; y &amp; z \\
+\hline
+z &amp; \text{NIL} &amp; z &amp; \text{NIL} &amp; \text{NIL} \\
+z &amp; s &amp; z &amp; s &amp; \text{NIL}     \\
+z &amp; s &amp; z &amp; s &amp; \text{NIL}     \\
+z &amp; s &amp; z &amp; s &amp; \text{NIL}     \\
+z &amp; s &amp; z &amp; s &amp; \text{NIL}
+\end{array}</p>
+</li>
+</ul>
+<h2 id="243-2">24.3-2</h2>
+<blockquote>
+<p>Give a simple example of a directed graph with negative-weight edges for which Dijkstra's algorithm produces incorrect answers. Why doesn't the proof of Theorem 24.6 go through when negative-weight edges are allowed?</p>
+</blockquote>
+<p>Consider any graph with a negative cycle. $\text{RELAX}$ is called a finite number of times but the distance to any vertex on the cycle is $-\infty$, so Dijkstra's algorithm cannot possibly be correct here. The proof of theorem 24.6 doesn't go through because we can no longer guarantee that</p>
+<p>$$\delta(s, y) \le \delta(s, u).$$</p>
+<h2 id="243-3">24.3-3</h2>
+<blockquote>
+<p>Suppose we change line 4 of Dijkstra's algorithm to the following. </p>
+<div class="highlight"><pre><span></span> <span class="mi">4</span>  <span class="k">while</span> <span class="o">|</span><span class="n">Q</span><span class="o">|</span> <span class="o">&gt;</span> <span class="mi">1</span>
+</pre></div>
+
+<p>This change causes the <strong>while</strong> loop to execute $|V| - 1$ times instead of $|V|$ times. Is this proposed algorithm correct?</p>
+</blockquote>
+<p>Yes, the algorithm still works. Let $u$ be the leftover vertex that does not get extracted from the priority queue $Q$. If $u$ is not reachable from $s$, then $u.d = \delta(s, u) = \infty$. If $u$ is reachable from $s$, then there is a shortest path $p = s \leadsto x \to u$. When the vertex $x$ was extracted, $x.d = \delta(s, x)$ and then the edge $(x, u)$ was relaxed; thus, $u.d = \delta(s, u)$.</p>
+<h2 id="243-4">24.3-4</h2>
+<blockquote>
+<p>Professor Gaedel has written a program that he claims implements Dijkstra's algorithm. The program produces $v.d$ and $v.\pi$ for each vertex $v \in V$. Give an $O(V + E)$-time algorithm to check the output of the professor's program. It should determine whether the $d$ and $\pi$ attributes match those of some shortest-paths tree. You may assume that all edge weights are nonnegative.</p>
+</blockquote>
+<ol>
+<li>Verify that $s.d = 0$ and $s.\pi = \text{NIL}$</li>
+<li>Verify that $v.d = v.\pi + w(v.\pi, v)$ for all $v \in s$.</li>
+<li>Verify that $v.d = \infty$ if and only if $v.\beta = \text{NIL}$ for all $v \in s$.</li>
+<li>If any of the above verification tests fail, declare the output to be incorrect. Otherwise, run one pass of Bellman-Ford, i.e., relax each edge $(u, v) \in E$ one time. If any values of $v.d$ change, then declare the output to be incorrect; otherwise, declare the output to be correct.</li>
+</ol>
+<h2 id="243-5">24.3-5</h2>
+<blockquote>
+<p>Professor Newman thinks that he has worked out a simpler proof of correctness for Dijkstra's algorithm. He claims that Dijkstra's algorithm relaxes the edges of every shortest path in the graph in the order in which they appear on the path, and therefore the path-relaxation property applies to every vertex reachable from the source. Show that the professor is mistaken by constructing a directed graph for which Dijkstra's algorithm could relax the edges of a shortest path out of order.</p>
+</blockquote>
+<p>Let the graph have vertices $s$, $x$, $y$, $z$ and edges $(s, x)$, $(x, y)$, $(y, z)$, $(s, y)$, and let every edge have weight $0$. Dijkstra's algorithm could relax edges in the order $(s, y)$, $(s, x)$, $(y, z)$, $(x, y)$. The graph has two shortest paths from $s$ to $z: \langle s, x, y, z \rangle$ and $\langle s, y, z \rangle$, both with weight $0$. The edges on the shortest path $\langle s, x, y, z \rangle$ are relaxed out of order, because $(x, y)$ is relaxed after $(y, z)$.</p>
+<h2 id="243-6">24.3-6</h2>
+<blockquote>
+<p>We are given a directed graph $G = (V, E)$ on which each edge $(u, v) \in E$ has an associated value $r(u, v)$, which is a real number in the range $0 \le r(u, v) \le 1$ that represents the reliability of a communication channel from vertex $u$ to vertex $v$. We interpret $r(u, v)$ as the probability that the channel from $u$ to $v$ will not fail, and we assume that these probabilities are independent. Give an efficient algorithm to find the most reliable path between two given vertices.</p>
+</blockquote>
+<p>To find the most reliable path between $s$ and $t$, run Dijkstra's algorithm with edge weights $w(u, v) = -\lg r(u, v)$ to find shortest paths from $s$ in $O(E + V\lg V)$ time. The most reliable path is the shortest path from $s$ to $t$, and that path's reliability is the product of the reliabilities of its edges.</p>
+<p>Here's why this method works. Because the probabilities are independent, the probability that a path will not fail is the product of the probabilities that its edges will not fail. We want to find a path $s \overset{p}{\leadsto} t$ such that $\prod_{(u, v) \in p} r(u, v)$ is maximized. This is equivalent to maximizing $\lg(\prod_{(u, v) \in p} r(u, v)) = \sum_{(u, v) \in p} \lg r(u, v)$, which is in turn equivalent to minimizing $\sum_{(u, v) \in p} -\lg r(u, v)$. (Note: $r(u, v)$ can be $0$, and $\lg 0$ is undefined. So in this algorithm, define $\lg 0 = -\infty$.) Thus if we assign weights $w(u, v) = -\lg r(u, v)$, we have a shortest-path problem.</p>
+<p>Since $\lg 1 = 0$, $\lg x &lt; 0$ for $0 &lt; x &lt; 1$, and we have defined $\lg 0 = -\infty$, all the weights $w$ are nonnegative, and we can use Dijkstra's algorithm to find the shortest paths from $s$ in $O(E + V\lg V)$ time.</p>
+<p><strong>Alternative solution</strong></p>
+<p>You can also work with the original probabilities by running a modified version of Dijkstra's algorithm that maximizes the product of reliabilities along a path instead of minimizing the sum of weights along a path.</p>
+<p>In Dijkstra's algorithm, use the reliabilities as edge weights and substitute</p>
+<ul>
+<li>max (and $\text{EXTRACT-MAX}$) for min (and $\text{EXTRACT-MIN}$) in relaxation and the queue,</li>
+<li>$\cdot$ for $+$ in relaxation, </li>
+<li>$1$ (identity for $\cdot$) for $0$ (identity for $+$) and $-\infty$ (identity for min) for $\infty$ (identity for max).</li>
+</ul>
+<p>For example, we would use the following instead of the usual $\text{RELAX}$ procedure:</p>
+<div class="highlight"><pre><span></span><span class="n">RELAX</span><span class="o">-</span><span class="n">RELIABILITY</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">v</span><span class="p">.</span><span class="n">d</span> <span class="o">&lt;</span> <span class="n">u</span><span class="p">.</span><span class="n">d</span><span class="err">．</span><span class="n">r</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+        <span class="n">v</span><span class="p">.</span><span class="n">d</span> <span class="o">=</span> <span class="n">u</span><span class="p">.</span><span class="n">d</span><span class="err">．</span><span class="n">r</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+        <span class="n">v</span><span class="p">.</span><span class="n">PI</span> <span class="o">=</span> <span class="n">u</span>
+</pre></div>
+
+<p>This algorithm is isomorphic to the one above: it performs the same operations except that it is working with the original probabilities instead of the transformed ones.</p>
+<h2 id="243-7">24.3-7</h2>
+<blockquote>
+<p>Let $G = (V, E)$ be a weighted, directed graph with positive weight function $w: E \rightarrow \{1, 2, \ldots, W\}$ for some positive integer $W$, and assume that no two vertices have the same shortest-path weights from source vertex $s$. Now suppose that we define an unweighted, directed graph $G' = (V \cup V', E')$ by replacing each edge $(u, v) \in E$ with $w(u, v)$ unit-weight edges in series. How many vertices does $G'$ have? Now suppose that we run a breadth-first search on $G'$. Show that the order in which the breadth-first search of $G'$ colors vertices in $V$ black is the same as the order in which Dijkstra's algorithm extracts the vertices of $V$ from the priority queue when it runs on $G$.</p>
+</blockquote>
+<p>$V + \sum_{(u, v) \in E} w(u, v) - E$.</p>
+<h2 id="243-8">24.3-8</h2>
+<blockquote>
+<p>Let $G = (V, E)$ be a weighted, directed graph with nonnegative weight function $w: E \rightarrow \{0, 1, \ldots, W\}$ for some nonnegative integer $W$. Modify Dijkstra's algorithm to compute the shortest paths from a given source vertex s in $O(WV + E)$ time.</p>
+</blockquote>
+<p>Observe that if a shortest-path estimate is not $\infty$, then it's at most $(|V| - 1)W$. Why? In order to have $v.d &lt; 1$, we must have relaxed an edge $(u, v)$ with $u.d &lt; \infty$. By induction, we can show that if we relax $(u, v)$, then $v.d$ is at most the number of edges on a path from $s$ to $v$ times the maximum edge weight. Since any acyclic path has at most $|V| - 1$ edges and the maximum edge weight is $W$, we see that $v.d \le (|V| - 1)W$. Note also that $v.d$ must also be an integer, unless it is $\infty$.</p>
+<p>We also observe that in Dijkstra's algorithm, the values returned by the $\text{EXTRACT-MIN}$ calls are monotonically increasing over time. Why? After we do our initial $|V|$ $\text{INSERT}$ operations, we never do another. The only other way that a key value can change is by a $\text{DECREASE-KEY}$ operation. Since edge weights are nonnegative, when we relax an edge $(u, v)$, we have that $u.d \le v.d$. Since $u$ is the minimum vertex that we just extracted, we know that any other vertex we extract later has a key value that is at least $u.d$.</p>
+<p>When keys are known to be integers in the range $0$ to $k$ and the key values extracted are monotonically increasing over time, we can implement a min-priority queue so that any sequence of $m$ $\text{INSERT}$, $\text{EXTRACT-MIN}$, and $\text{DECREASE-KEY}$ operations takes $O(m + k)$ time. Here's how. We use an array, say $A[0..k]$, where $A[j]$ is a linked list of each element whose key is $j$. Think of $A[j]$ as a bucket for all elements with key $j$. We implement each bucket by a circular, doubly linked list with a sentinel, so that we can insert into or delete from each bucket in $O(1)$ time. We perform the min-priority queue operations as follows:</p>
+<ul>
+<li>$\text{INSERT}$: To insert an element with key $j$, just insert it into the linked list in $A[j]$. Time: $O(1)$ per $\text{INSERT}$.</li>
+<li>$\text{EXTRACT-MIN}$: We maintain an index $min$ of the value of the smallest key extracted. Initially, $min$ is $0$. To find the smallest key, look in $A[min]$ and, if this list is nonempty, use any element in it, removing the element from the list and returning it to the caller. Otherwise, we rely on the monotonicity property and increment $min$ until we either find a list $A[min]$ that is nonempty (using any element in $A[min]$ as before) or we run off the end of the array $A$ (in which case the min-priority queue is empty).<br />
+    Since there are at most $m$ $\text{INSERT}$ operations, there are at most $m$ elements in the min-priority queue. We increment $min$ at most $k$ times, and we remove and return some element at most $m$ times. Thus, the total time over all $\text{EXTRACT-MIN}$ operations is $O(m + k)$.  </li>
+<li>$\text{DECREASE-KEY}$: To decrease the key of an element from $j$ to $i$, first check whether $i \le j$, ﬂagging an error if not. Otherwise, we remove the element from its list $A[j]$ in $O(1)$ time and insert it into the list $A[i]$ in $O(1)$ time. Time: $O(1)$ per $\text{DECREASE-KEY}$.<br />
+    To apply this kind of min-priority queue to Dijkstra's algorithm, we need to let $k = (|V| - 1)W$, and we also need a separate list for keys with value $\infty$. The number of operations $m$ is $O(V + E)$ (since there are $|V|$ $\text{INSERT}$ and $|V|$ $\text{EXTRACT-MIN}$ operations and at most $|E|$ $\text{DECREASE-KEY}$ operations), and so the total time is $O(V + E + VW) = O(VW + E)$.</li>
+</ul>
+<h2 id="243-9">24.3-9</h2>
+<blockquote>
+<p>Modify your algorithm from Exercise 24.3-8 to run in $O((V + E) \lg W)$ time. ($\textit{Hint:}$ How many distinct shortest-path estimates can there be in $V - S$ at any point in time?)</p>
+</blockquote>
+<p>First, observe that at any time, there are at most $W + 2$ distinct key values in the priority queue. Why? A key value is either $1$ or it is not. Consider what happens whenever a key value $v.d$ becomes finite. It must have occurred due to the relaxation of an edge $(u, v)$. At that time, $u$ was being placed into $S$, and $u.d \le y.d$ for all vertices $y \in V - S$. After relaxing edge $(u, v)$, we have $v.d \le u.d + W$. Since any other vertex $y \in V - S$ with $y.d &lt; \infty$ also had its estimate changed by a relaxation of some edge $x$ with $x.d \le u.d$, we must have $y.d \le x.d + W \le u.d + W$. Thus, at the time that we are relaxing edges from a vertex $u$, we must have, for all vertices $v \in V - S$, that $u.d \le v.d \le u.d + W$ or $v.d = \infty$. Since shortest-path estimates are integer values (except for $\infty$), at any given moment we have at most $W + 2$ different ones: $u.d$, $u.d + 1$, $u.d + 2$, $\ldots$, $u.d + W$ and $\infty$.</p>
+<p>Therefore, we can maintain the min-priorty queue as a binary min-heap in which each node points to a doubly linked list of all vertices with a given key value. There are at most $W + 2$ nodes in the heap, and so $\text{EXTRACT-MIN}$ runs in $O(\lg W)$ time. To perform $\text{DECREASE-KEY}$, we need to be able to find the heap node corresponding to a given key in $O(\lg W)$ time. We can do so in $O(1)$ time as follows. First, keep a pointer $inf$ to the node containing all the $\infty$ keys. Second, maintain an array $loc[0..W]$, where $loc[i]$ points to the unique heap entry whose key value is congruent to $i(\mod(W + 1))$. As keys move around in the heap, we can update this array in $O(1)$ time per movement.</p>
+<p>Alternatively, instead of using a binary min-heap, we could use a red-black tree. Now $\text{INSERT}$, $\text{DELETE}$, $\text{MINIMUM}$, and $\text{SEARCH}$—from which we can construct the priority-queue operations—each run in $O(\lg W)$ time.</p>
+<h2 id="243-10">24.3-10</h2>
+<blockquote>
+<p>Suppose that we are given a weighted, directed graph $G = (V, E)$ in which edges that leave the source vertex $s$ may have negative weights, all other edge weights are nonnegative, and there are no negative-weight cycles. Argue that Dijkstra's algorithm correctly finds shortest paths from $s$ in this graph.</p>
+</blockquote>
+<p>The proof of correctness, Theorem 24.6, goes through exactly as stated in the text. The key fact was that $\delta(s, y) \le \delta(s, u)$. It is claimed that this holds because there are no negative edge weights, but in fact that is stronger than is needed. This always holds if $y$ occurs on a shortest path from $s$ to $u$ and $y \ne s$ because all edges on the path from $y$ to $u$ have nonnegative weight. If any had negative weight, this would imply that we had ''gone back'' to an edge incident with $s$, which implies that a cycle is involved in the path, which would only be the case if it were a negative-weight cycle. However, these are still forbidden.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../24.2/" title="24.2 Single-source shortest paths in directed acyclic graphs" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                24.2 Single-source shortest paths in directed acyclic graphs
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../24.4/" title="24.4 Difference constraints and shortest paths" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                24.4 Difference constraints and shortest paths
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Built by
+        <a href="http://walkccc.github.io/">Jay Chen</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.b438e6c5.js"></script>
+      
+      <script>app.initialize({version:"0.17.3",url:{base:"../.."}})</script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>

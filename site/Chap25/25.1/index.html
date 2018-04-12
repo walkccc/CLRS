@@ -1,0 +1,1556 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.3, mkdocs-material-2.7.2">
+    
+    
+      
+        <title>25.1 Shortest paths and matrix multiplication - CLRS Solutions</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.8d40d89b.css">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="github">
+  <path fill="currentColor" d="M409.132,114.573c-19.608-33.596-46.205-60.194-79.798-79.8C295.736,15.166,259.057,5.365,219.271,5.365
+		c-39.781,0-76.472,9.804-110.063,29.408c-33.596,19.605-60.192,46.204-79.8,79.8C9.803,148.168,0,184.854,0,224.63
+		c0,47.78,13.94,90.745,41.827,128.906c27.884,38.164,63.906,64.572,108.063,79.227c5.14,0.954,8.945,0.283,11.419-1.996
+		c2.475-2.282,3.711-5.14,3.711-8.562c0-0.571-0.049-5.708-0.144-15.417c-0.098-9.709-0.144-18.179-0.144-25.406l-6.567,1.136
+		c-4.187,0.767-9.469,1.092-15.846,1c-6.374-0.089-12.991-0.757-19.842-1.999c-6.854-1.231-13.229-4.086-19.13-8.559
+		c-5.898-4.473-10.085-10.328-12.56-17.556l-2.855-6.57c-1.903-4.374-4.899-9.233-8.992-14.559
+		c-4.093-5.331-8.232-8.945-12.419-10.848l-1.999-1.431c-1.332-0.951-2.568-2.098-3.711-3.429c-1.142-1.331-1.997-2.663-2.568-3.997
+		c-0.572-1.335-0.098-2.43,1.427-3.289c1.525-0.859,4.281-1.276,8.28-1.276l5.708,0.853c3.807,0.763,8.516,3.042,14.133,6.851
+		c5.614,3.806,10.229,8.754,13.846,14.842c4.38,7.806,9.657,13.754,15.846,17.847c6.184,4.093,12.419,6.136,18.699,6.136
+		c6.28,0,11.704-0.476,16.274-1.423c4.565-0.952,8.848-2.383,12.847-4.285c1.713-12.758,6.377-22.559,13.988-29.41
+		c-10.848-1.14-20.601-2.857-29.264-5.14c-8.658-2.286-17.605-5.996-26.835-11.14c-9.235-5.137-16.896-11.516-22.985-19.126
+		c-6.09-7.614-11.088-17.61-14.987-29.979c-3.901-12.374-5.852-26.648-5.852-42.826c0-23.035,7.52-42.637,22.557-58.817
+		c-7.044-17.318-6.379-36.732,1.997-58.24c5.52-1.715,13.706-0.428,24.554,3.853c10.85,4.283,18.794,7.952,23.84,10.994
+		c5.046,3.041,9.089,5.618,12.135,7.708c17.705-4.947,35.976-7.421,54.818-7.421s37.117,2.474,54.823,7.421l10.849-6.849
+		c7.419-4.57,16.18-8.758,26.262-12.565c10.088-3.805,17.802-4.853,23.134-3.138c8.562,21.509,9.325,40.922,2.279,58.24
+		c15.036,16.18,22.559,35.787,22.559,58.817c0,16.178-1.958,30.497-5.853,42.966c-3.9,12.471-8.941,22.457-15.125,29.979
+		c-6.191,7.521-13.901,13.85-23.131,18.986c-9.232,5.14-18.182,8.85-26.84,11.136c-8.662,2.286-18.415,4.004-29.263,5.146
+		c9.894,8.562,14.842,22.077,14.842,40.539v60.237c0,3.422,1.19,6.279,3.572,8.562c2.379,2.279,6.136,2.95,11.276,1.995
+		c44.163-14.653,80.185-41.062,108.068-79.226c27.88-38.161,41.825-81.126,41.825-128.906
+		C438.536,184.851,428.728,148.168,409.132,114.573z"/>
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <a href="#251-1" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../Chap22/22.1/" title="CLRS Solutions" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                CLRS Solutions
+              </span>
+              <span class="md-header-nav__topic">
+                25.1 Shortest paths and matrix multiplication
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/walkccc/CLRS/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      walkccc/CLRS
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </span>
+    CLRS Solutions
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/walkccc/CLRS/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      walkccc/CLRS
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+    
+    <label class="md-nav__link" for="nav-1">
+      VI Graph Algorithms
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        VI Graph Algorithms
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1" type="checkbox" id="nav-1-1">
+    
+    <label class="md-nav__link" for="nav-1-1">
+      22 Elementary Graph Algorithms
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-1">
+        22 Elementary Graph Algorithms
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/22.1/" title="22.1 Representations of graphs" class="md-nav__link">
+      22.1 Representations of graphs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/22.2/" title="22.2 Breadth-first search" class="md-nav__link">
+      22.2 Breadth-first search
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/22.3/" title="22.3 Depth-first search" class="md-nav__link">
+      22.3 Depth-first search
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/22.4/" title="22.4 Topological sort" class="md-nav__link">
+      22.4 Topological sort
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/22.5/" title="22.5 Strongly connected components" class="md-nav__link">
+      22.5 Strongly connected components
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-6" type="checkbox" id="nav-1-1-6">
+    
+    <label class="md-nav__link" for="nav-1-1-6">
+      Chap 22 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-1-6">
+        Chap 22 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/Problems/22-1/" title="22-1 Classifying edges by breadth-first search" class="md-nav__link">
+      22-1 Classifying edges by breadth-first search
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/Problems/22-2/" title="22-2 Articulation points, bridges, and biconnected components" class="md-nav__link">
+      22-2 Articulation points, bridges, and biconnected components
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/Problems/22-3/" title="22-3 Euler tour" class="md-nav__link">
+      22-3 Euler tour
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/Problems/22-4/" title="22-4 Reachability" class="md-nav__link">
+      22-4 Reachability
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-2" type="checkbox" id="nav-1-2">
+    
+    <label class="md-nav__link" for="nav-1-2">
+      23 Minimum Spanning Trees
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-2">
+        23 Minimum Spanning Trees
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap23/23.1/" title="23.1 Growing a minimum spanning tree" class="md-nav__link">
+      23.1 Growing a minimum spanning tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap23/23.2/" title="23.2 The algorithms of Kruskal and Prim" class="md-nav__link">
+      23.2 The algorithms of Kruskal and Prim
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-2-3" type="checkbox" id="nav-1-2-3">
+    
+    <label class="md-nav__link" for="nav-1-2-3">
+      Chap 23 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-2-3">
+        Chap 23 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap23/Problems/23-1/" title="23-1 Second-best minimum spanning tree" class="md-nav__link">
+      23-1 Second-best minimum spanning tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap23/Problems/23-2/" title="23-2 Minimum spanning tree in sparse graphs" class="md-nav__link">
+      23-2 Minimum spanning tree in sparse graphs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap23/Problems/23-3/" title="23-3 Bottleneck spanning tree" class="md-nav__link">
+      23-3 Bottleneck spanning tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap23/Problems/23-4/" title="23-4 Alternative minimum-spanning-tree algorithms" class="md-nav__link">
+      23-4 Alternative minimum-spanning-tree algorithms
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-3" type="checkbox" id="nav-1-3">
+    
+    <label class="md-nav__link" for="nav-1-3">
+      24 Single-Source Shortest Paths
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-3">
+        24 Single-Source Shortest Paths
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap24/24.1/" title="24.1 The Bellman-Ford algorithm" class="md-nav__link">
+      24.1 The Bellman-Ford algorithm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap24/24.2/" title="24.2 Single-source shortest paths in directed acyclic graphs" class="md-nav__link">
+      24.2 Single-source shortest paths in directed acyclic graphs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap24/24.3/" title="24.3 Dijkstra's algorithm" class="md-nav__link">
+      24.3 Dijkstra's algorithm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap24/24.4/" title="24.4 Difference constraints and shortest paths" class="md-nav__link">
+      24.4 Difference constraints and shortest paths
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap24/24.5/" title="24.5 Proofs of shortest-paths properties" class="md-nav__link">
+      24.5 Proofs of shortest-paths properties
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-3-6" type="checkbox" id="nav-1-3-6">
+    
+    <label class="md-nav__link" for="nav-1-3-6">
+      Chap 24 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-3-6">
+        Chap 24 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap24/Problems/24-1/" title="24-1 Yen's improvement to Bellman-Ford" class="md-nav__link">
+      24-1 Yen's improvement to Bellman-Ford
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap24/Problems/24-2/" title="24-2 Nesting boxes" class="md-nav__link">
+      24-2 Nesting boxes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap24/Problems/24-3/" title="24-3 Arbitrage" class="md-nav__link">
+      24-3 Arbitrage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap24/Problems/24-4/" title="24-4 Gabow's scaling algorithm for single-source shortest paths" class="md-nav__link">
+      24-4 Gabow's scaling algorithm for single-source shortest paths
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap24/Problems/24-5/" title="24-5 Karp's minimum mean-weight cycle algorithm" class="md-nav__link">
+      24-5 Karp's minimum mean-weight cycle algorithm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap24/Problems/24-6/" title="24-6 Bitonic shortest paths" class="md-nav__link">
+      24-6 Bitonic shortest paths
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-4" type="checkbox" id="nav-1-4" checked>
+    
+    <label class="md-nav__link" for="nav-1-4">
+      25 All-Pairs Shortest Paths
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-4">
+        25 All-Pairs Shortest Paths
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        25.1 Shortest paths and matrix multiplication
+      </label>
+    
+    <a href="./" title="25.1 Shortest paths and matrix multiplication" class="md-nav__link md-nav__link--active">
+      25.1 Shortest paths and matrix multiplication
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#251-1" title="25.1-1" class="md-nav__link">
+    25.1-1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#251-2" title="25.1-2" class="md-nav__link">
+    25.1-2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#251-3" title="25.1-3" class="md-nav__link">
+    25.1-3
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#251-4" title="25.1-4" class="md-nav__link">
+    25.1-4
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#251-5" title="25.1-5" class="md-nav__link">
+    25.1-5
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#251-6" title="25.1-6" class="md-nav__link">
+    25.1-6
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#251-7" title="25.1-7" class="md-nav__link">
+    25.1-7
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#251-8" title="25.1-8" class="md-nav__link">
+    25.1-8
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#251-9" title="25.1-9" class="md-nav__link">
+    25.1-9
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#251-10" title="25.1-10" class="md-nav__link">
+    25.1-10
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../25.2/" title="25.2 The Floyd-Warshall algorithm" class="md-nav__link">
+      25.2 The Floyd-Warshall algorithm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../25.3/" title="25.3 Johnson's algorithm for sparse graphs" class="md-nav__link">
+      25.3 Johnson's algorithm for sparse graphs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-4-4" type="checkbox" id="nav-1-4-4">
+    
+    <label class="md-nav__link" for="nav-1-4-4">
+      Chap 25 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-4-4">
+        Chap 25 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Problems/25-1/" title="25-1 Transitive closure of a dynamic graph" class="md-nav__link">
+      25-1 Transitive closure of a dynamic graph
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Problems/25-2/" title="25-2 Shortest paths in epsilon-dense graphs" class="md-nav__link">
+      25-2 Shortest paths in epsilon-dense graphs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-5" type="checkbox" id="nav-1-5">
+    
+    <label class="md-nav__link" for="nav-1-5">
+      26 Maximum Flow
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-5">
+        26 Maximum Flow
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap26/26.1/" title="26.1 Flow networks" class="md-nav__link">
+      26.1 Flow networks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap26/26.2/" title="26.2 The Ford-Fulkerson method" class="md-nav__link">
+      26.2 The Ford-Fulkerson method
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap26/26.3/" title="26.3 Maximum bipartite matching" class="md-nav__link">
+      26.3 Maximum bipartite matching
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap26/26.4/" title="26.4 Push-relabel algorithms" class="md-nav__link">
+      26.4 Push-relabel algorithms
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap26/26.5/" title="26.5 The relabel-to-front algorithm" class="md-nav__link">
+      26.5 The relabel-to-front algorithm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-5-6" type="checkbox" id="nav-1-5-6">
+    
+    <label class="md-nav__link" for="nav-1-5-6">
+      Chap 26 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-5-6">
+        Chap 26 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap26/Problems/26-1/" title="26-1 Escape problem" class="md-nav__link">
+      26-1 Escape problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap26/Problems/26-2/" title="26-2 Minimum path cover" class="md-nav__link">
+      26-2 Minimum path cover
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap26/Problems/26-3/" title="26-3 Algorithmic consulting" class="md-nav__link">
+      26-3 Algorithmic consulting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap26/Problems/26-4/" title="26-4 Updating maximum flow" class="md-nav__link">
+      26-4 Updating maximum flow
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap26/Problems/26-5/" title="26-5 Maximum flow by scaling" class="md-nav__link">
+      26-5 Maximum flow by scaling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap26/Problems/26-6/" title="26-6 The Hopcroft-Karp bipartite matching algorithm" class="md-nav__link">
+      26-6 The Hopcroft-Karp bipartite matching algorithm
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#251-1" title="25.1-1" class="md-nav__link">
+    25.1-1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#251-2" title="25.1-2" class="md-nav__link">
+    25.1-2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#251-3" title="25.1-3" class="md-nav__link">
+    25.1-3
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#251-4" title="25.1-4" class="md-nav__link">
+    25.1-4
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#251-5" title="25.1-5" class="md-nav__link">
+    25.1-5
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#251-6" title="25.1-6" class="md-nav__link">
+    25.1-6
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#251-7" title="25.1-7" class="md-nav__link">
+    25.1-7
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#251-8" title="25.1-8" class="md-nav__link">
+    25.1-8
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#251-9" title="25.1-9" class="md-nav__link">
+    25.1-9
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#251-10" title="25.1-10" class="md-nav__link">
+    25.1-10
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/walkccc/CLRS/edit/master/docs/Chap25/25.1.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>25.1 Shortest paths and matrix multiplication</h1>
+                
+                <h2 id="251-1">25.1-1</h2>
+<blockquote>
+<p>Run $\text{SLOW-ALL-PAIRS-SHORTEST-PATHS}$ on the weighted, directed graph of Figure 25.2, showing the matrices that result for each iteration of the loop. Then do the same for $\text{FASTER-ALL-PAIRS-SHORTEST-PATHS}$.</p>
+</blockquote>
+<ul>
+<li>
+<p>Initial:</p>
+<p>\begin{pmatrix}
+     0 &amp; \infty &amp; \infty &amp; \infty &amp;     -1 &amp; \infty \\
+     1 &amp;      0 &amp; \infty &amp;      2 &amp; \infty &amp; \infty \\
+\infty &amp;      2 &amp;      0 &amp; \infty &amp; \infty &amp;     -8 \\
+    -4 &amp; \infty &amp; \infty &amp;      0 &amp;      3 &amp; \infty \\
+\infty &amp;      7 &amp; \infty &amp; \infty &amp;      0 &amp; \infty \\
+\infty &amp;      5 &amp;     10 &amp; \infty &amp; \infty &amp; 0
+\end{pmatrix}</p>
+</li>
+<li>
+<p>Slow:</p>
+<p>$m = 2$:</p>
+<p>\begin{pmatrix}
+ 0 &amp;  6 &amp; \infty &amp; \infty &amp;     -1 &amp; \infty \\
+-2 &amp;  0 &amp; \infty &amp;      2 &amp;      0 &amp; \infty \\
+ 3 &amp; -3 &amp;      0 &amp;      4 &amp; \infty &amp;     -8 \\
+-4 &amp; 10 &amp; \infty &amp;      0 &amp;     -5 &amp; \infty \\
+ 8 &amp;  7 &amp; \infty &amp;      9 &amp;      0 &amp; \infty \\
+ 6 &amp;  5 &amp;     10 &amp;      7 &amp; \infty &amp; 0
+\end{pmatrix}</p>
+<p>$m = 3$:</p>
+<p>\begin{pmatrix}
+ 0 &amp;  6 &amp; \infty &amp;  8 &amp; -1 &amp; \infty \\
+-2 &amp;  0 &amp; \infty &amp;  2 &amp; -3 &amp; \infty \\
+-2 &amp; -3 &amp;      0 &amp; -1 &amp;  2 &amp;     -8 \\
+-4 &amp;  2 &amp; \infty &amp;  0 &amp; -5 &amp; \infty \\
+ 5 &amp;  7 &amp; \infty &amp;  9 &amp;  0 &amp; \infty \\
+ 3 &amp;  5 &amp;     10 &amp;  7 &amp;  5 &amp; 0
+\end{pmatrix}</p>
+<p>$m = 4$:</p>
+<p>\begin{pmatrix}
+ 0 &amp;  6 &amp; \infty &amp;  8 &amp; -1 &amp; \infty \\
+-2 &amp;  0 &amp; \infty &amp;  2 &amp; -3 &amp; \infty \\
+-5 &amp; -3 &amp;      0 &amp; -1 &amp; -3 &amp;     -8 \\
+-4 &amp;  2 &amp; \infty &amp;  0 &amp; -5 &amp; \infty \\
+ 5 &amp;  7 &amp; \infty &amp;  9 &amp;  0 &amp; \infty \\
+ 3 &amp;  5 &amp;     10 &amp;  7 &amp;  2 &amp; 0
+\end{pmatrix}</p>
+<p>$m = 5$:</p>
+<p>\begin{pmatrix}
+ 0 &amp;  6 &amp; \infty &amp;  8 &amp; -1 &amp; \infty \\
+-2 &amp;  0 &amp; \infty &amp;  2 &amp; -3 &amp; \infty \\
+-5 &amp; -3 &amp;      0 &amp; -1 &amp; -6 &amp;     -8 \\
+-4 &amp;  2 &amp; \infty &amp;  0 &amp; -5 &amp; \infty \\
+ 5 &amp;  7 &amp; \infty &amp;  9 &amp; 0  &amp; \infty \\
+ 3 &amp;  5 &amp;     10 &amp;  7 &amp; 2  &amp; 0
+\end{pmatrix}</p>
+</li>
+<li>
+<p>Fast:</p>
+<p>$m = 2$:</p>
+<p>\begin{pmatrix}
+ 0 &amp;  6 &amp; \infty &amp; \infty &amp;     -1 &amp; \infty \\
+-2 &amp;  0 &amp; \infty &amp;      2 &amp;      0 &amp; \infty \\
+ 3 &amp; -3 &amp;      0 &amp;      4 &amp; \infty &amp;     -8 \\
+-4 &amp; 10 &amp; \infty &amp;      0 &amp;     -5 &amp; \infty \\
+ 8 &amp;  7 &amp; \infty &amp;      9 &amp;      0 &amp; \infty \\
+ 6 &amp;  5 &amp;     10 &amp;      7 &amp; \infty &amp; 0
+\end{pmatrix}</p>
+<p>$m = 4$:</p>
+<p>\begin{pmatrix}
+ 0 &amp;  6 &amp; \infty &amp;  8 &amp; -1 &amp; \infty \\
+-2 &amp;  0 &amp; \infty &amp;  2 &amp; -3 &amp; \infty \\
+-5 &amp; -3 &amp;      0 &amp; -1 &amp; -3 &amp;     -8 \\
+-4 &amp;  2 &amp; \infty &amp;  0 &amp; -5 &amp; \infty \\
+ 5 &amp;  7 &amp; \infty &amp;  9 &amp;  0 &amp; \infty \\
+ 3 &amp;  5 &amp;     10 &amp;  7 &amp;  2 &amp; 0
+\end{pmatrix}</p>
+<p>$m = 8$:</p>
+<p>\begin{pmatrix}
+ 0 &amp;  6 &amp; \infty &amp;  8 &amp; -1 &amp; \infty \\
+-2 &amp;  0 &amp; \infty &amp;  2 &amp; -3 &amp; \infty \\
+-5 &amp; -3 &amp;      0 &amp; -1 &amp; -6 &amp;     -8 \\
+-4 &amp;  2 &amp; \infty &amp;  0 &amp; -5 &amp; \infty \\
+ 5 &amp;  7 &amp; \infty &amp;  9 &amp;  0 &amp; \infty \\
+ 3 &amp;  5 &amp;     10 &amp;  7 &amp;  2 &amp; 0
+\end{pmatrix}</p>
+</li>
+</ul>
+<h2 id="251-2">25.1-2</h2>
+<blockquote>
+<p>Why do we require that $w_{ii} = 0$ for all $1 \le i \le n$?</p>
+</blockquote>
+<p>This is consistent with the fact that the shortest path from a vertex to itself is the empty path of weight $0$. If there were another path of weight less than $0$ then it must be a negative-weight cycle, since it starts and ends at $v_i$.</p>
+<h2 id="251-3">25.1-3</h2>
+<blockquote>
+<p>What does the matrix</p>
+<p>$$
+L^{(0)} = 
+\begin{pmatrix}
+     0 &amp; \infty &amp; \infty &amp; \cdots &amp; \infty \\
+\infty &amp;      0 &amp; \infty &amp; \cdots &amp; \infty \\
+\infty &amp; \infty &amp;      0 &amp; \cdots &amp; \infty \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+\infty &amp; \infty &amp; \infty &amp; \cdots &amp; 0
+\end{pmatrix}
+$$</p>
+<p>used in the shortest-paths algorithms correspond to in regular matrix multiplication?</p>
+</blockquote>
+<p>The matrix $L^{(0)}$ corresponds to the identity matrix</p>
+<p>$$
+I =
+\begin{pmatrix}
+1 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; \cdots &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; 0 &amp; 0 &amp; \cdots &amp; 1
+\end{pmatrix}
+$$</p>
+<p>of regular matrix multiplication. Substitute $0$ (the identity for $+$) for $\infty$ (the identity for $\min$), and $1$ (the identity for $\cdot$) for $0$ (the identity for $+$).</p>
+<h2 id="251-4">25.1-4</h2>
+<blockquote>
+<p>Show that matrix multiplication defined by $\text{EXTEND-SHORTEST-PATHS}$ is associative.</p>
+</blockquote>
+<p>To verify associativity, we need to check that $(W^iW^j)W^p = W^i(W^jW^p)$ for all $i$, $j$ and $p$, where we use the matrix multiplication defined by the $\text{EXTEND-SHORTEST-PATHS}$ procedure. Consider entry $(a, b)$ of the left hand side. This is:</p>
+<p>\begin{align}
+\min_{1 \le k \le n} [W^iW^j]_{a, k} + W_{k, b}^p
+    &amp; = \min_{1 \le k \le n} \min_{1 \le q \le n} W_{a, q}^i + W_{q, k}^j + W_{k, b}^p \\
+    &amp; = \min_{1 \le q \le n} W_{a, q}^i + \min_{1 \le k \le n} W_{q, k}^j + W_{k, b}^p \\
+    &amp; = \min_{1 \le q \le n} W_{a, q}^i + [W^jW^p]_{q, b},
+\end{align}</p>
+<p>which is precisely entry $(a, b)$ of the right hand side.</p>
+<h2 id="251-5">25.1-5</h2>
+<blockquote>
+<p>Show how to express the single-source shortest-paths problem as a product of matrices and a vector. Describe how evaluating this product corresponds to a Bellman-Ford-like algorithm (see Section 24.1).</p>
+</blockquote>
+<p>The all-pairs shortest-paths algorithm in Section 25.1 computes</p>
+<p>$$L^{(n - 1)} = W^{n - 1} = L^{(0)} \cdot W^{n - 1},$$</p>
+<p>where $l_{ij}^{(n - 1)} = \delta(i, j)$ and $L^{(0)}$ is the identity matrix. That is, the entry in the $i$th row and $j$th column of the matrix ''product'' is the shortest-path distance from vertex $i$ to vertex $j$, and row $i$ of the product is the solution to the single-source shortest-paths problem for vertex $i$.</p>
+<p>Notice that in a matrix ''product'' $C = A \cdot B$, the $i$th row of $C$ is the $i$th row of $A$ ''multiplied'' by $B$. Since all we want is the $i$th row of $C$, we never need more than the $i$th row of $A$.</p>
+<p>Thus the solution to the single-source shortest-paths from vertex $i$ is $L_i^{(0)} \cdot W^{n - 1}$, where $L_i^{(0)}$ is the $i$th row of $L^{(0)}$—a vector whose $i$th entry is $0$ and whose other entries are $\infty$.</p>
+<p>Doing the above ''multiplications'' starting from the left is essentially the same as the $\text{BELLMAN-FORD}$ algorithm. The vector corresponds to the $d$ values in $\text{BELLMAN-FORD}$—the shortest-path estimates from the source to each vertex.</p>
+<ul>
+<li>The vector is initially $0$ for the source and $\infty$ for all other vertices, the same as the values set up for $d$ by $\text{INITIALIZE-SINGLE-SOURCE}$.</li>
+<li>Each ''multiplication'' of the current vector by $W$ relaxes all edges just as $\text{BELLMAN-FORD}$ does. That is, a distance estimate in the row, say the distance to $v$, is updated to a smaller estimate, if any, formed by adding some $w(u, v)$ to the current estimate of the distance to $u$.</li>
+<li>The relaxation/multiplication is done $n - 1$ times.</li>
+</ul>
+<h2 id="251-6">25.1-6</h2>
+<blockquote>
+<p>Suppose we also wish to compute the vertices on shortest paths in the algorithms of this section. Show how to compute the predecessor matrix $\prod$ from the completed matrix $L$ of shortest-path weights in $O(n^3)$ time.</p>
+</blockquote>
+<p>For each source vertex $v_i$ we need to compute the shortest-paths tree for $v_i$. To do this, we need to compute the predecessor for each $j \ne i$. For fixed $i$ and $j$, this is the value of $k$ such that $L_{i, k} + w(k, j) = L_{i, j}$. Since there are $n$ vertices whose trees need computing, $n$ vertices for each such tree whose predecessors need computing, and it takes $O(n)$ to compute this for each one (checking each possible $k$), the total time is $O(n^3)$.</p>
+<h2 id="251-7">25.1-7</h2>
+<blockquote>
+<p>We can also compute the vertices on shortest paths as we compute the shortestpath weights. Define $\pi_{ij}^{(m)}$ as the predecessor of vertex $j$ on any minimum-weight path from $i$ to $j$ that contains at most $m$ edges. Modify the $\text{EXTEND-SHORTESTPATHS}$ and $\text{SLOW-ALL-PAIRS-SHORTEST-PATHS}$ procedures to compute the matrices$\prod^{(1)}, \prod^{(2)}, \ldots, \prod^{(n - 1)}$ as the matrices $L^{(1)}, L^{(2)}, \ldots, L^{(n - 1)}$ are computed.</p>
+</blockquote>
+<p>To have the procedure compute the predecessor along the shortest path, see the modified procedures, $\text{EXTEND-SHORTEST-PATH-MOD}$ and $\text{SLOW-ALL-PAIRS-SHORTEST-PATHS-MOD}$</p>
+<div class="highlight"><pre><span></span><span class="n">EXTEND</span><span class="o">-</span><span class="n">SHORTEST</span><span class="o">-</span><span class="n">PATH</span><span class="o">-</span><span class="n">MOD</span><span class="p">(</span><span class="err">∏</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">L</span><span class="p">.</span><span class="n">row</span>
+    <span class="n">Let</span> <span class="n">L</span><span class="err">&#39;</span> <span class="o">=</span> <span class="p">(</span><span class="n">l</span><span class="err">&#39;</span><span class="n">_</span><span class="p">{</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">})</span> <span class="n">be</span> <span class="n">a</span> <span class="k">new</span> <span class="n">n</span> <span class="err">×</span> <span class="n">n</span> <span class="n">matirx</span>
+    <span class="err">∏&#39;</span> <span class="o">=</span> <span class="p">(</span><span class="n">PI</span><span class="err">&#39;</span><span class="n">_</span><span class="p">{</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">})</span> <span class="n">is</span> <span class="n">a</span> <span class="k">new</span> <span class="n">n</span> <span class="err">×</span> <span class="n">n</span> <span class="n">matrix</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">n</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">n</span>
+            <span class="n">l</span><span class="err">&#39;</span><span class="n">_</span><span class="p">{</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">}</span> <span class="o">=</span> <span class="err">∞</span>
+            <span class="n">PI_</span><span class="p">{</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">}</span> <span class="o">=</span> <span class="n">NIL</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">n</span>
+                <span class="k">if</span> <span class="n">l_</span><span class="p">{</span><span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">}</span> <span class="o">+</span> <span class="n">l_</span><span class="p">{</span><span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">}</span> <span class="o">&lt;</span> <span class="n">l_</span><span class="p">{</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">}</span>
+                    <span class="n">l_</span><span class="p">{</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">}</span> <span class="o">=</span> <span class="n">l_</span><span class="p">{</span><span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">}</span> <span class="o">+</span> <span class="n">l_</span><span class="p">{</span><span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">}</span>
+                    <span class="n">PI</span><span class="err">&#39;</span><span class="n">_</span><span class="p">{</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">}</span> <span class="o">=</span> <span class="n">PI_</span><span class="p">{</span><span class="n">k</span><span class="p">,</span> <span class="n">j</span><span class="p">}</span>
+    <span class="k">return</span> <span class="err">∏&#39;</span><span class="p">,</span> <span class="n">L</span><span class="err">&#39;</span>
+</pre></div>
+
+<div class="highlight"><pre><span></span>SLOW-ALL-PAIRS-SHORTEST-PATHS-MOD(W)
+    n = W.rows
+    L^{(1)} = W
+    ∏^{(1)} = (PI_{i, j}^{(1)}) where PI_{i, j}^{(1)} = i if there is an edge from i to j, and NIL otherwise.
+    for m = 2 to n - 1
+        ∏^{(m)}, L^{(m)} = EXTEND-SHORTEST-PATH-MOD(∏^{(m - 1)}, L^{(m - 1)}, W)
+    return ∏^{(n - 1)}, L^{(n - 1)}
+</pre></div>
+
+<h2 id="251-8">25.1-8</h2>
+<blockquote>
+<p>The $\text{FASTER-ALL-PAIRS-SHORTEST-PATHS}$ procedure, as written, requires us to store $\lceil \lg(n - 1) \rceil$ matrices, each with $n^2$ elements, for a total space requirement of $\Theta(n^2\lg n)$. Modify the procedure to require only $\Theta(n^2)$ space by using only two $n \times n$ matrices.</p>
+</blockquote>
+<p>We can overwrite matrices as we go. Let $A \star B$ denote multiplication defined by the $\text{EXTEND-SHORTEST-PATHS}$ procedure. Then we modify $\text{FASTER-ALL-EXTEND-SHORTEST-PATHS}(W)$. We initially create an $n$ by $n$ matrix $L$. Delete line 5 of the algorithm, and change line 6 to $L = W \star W$, followed by $W = L$.</p>
+<h2 id="251-9">25.1-9</h2>
+<blockquote>
+<p>Modify $\text{FASTER-ALL-PAIRS-SHORTEST-PATHS}$ so that it can determine whether the graph contains a negative-weight cycle.</p>
+</blockquote>
+<p>For the modification, keep computing for one step more than the original, that is, we compute all the way up to $L^{(2k + 1)}$ where $2^k &gt; n - 1$. Then, if there aren't any negative weight cycles, then, we will have that the two matrices should be equal since having no negative weight cycles means that between any two vertices, there is a path that is tied for shortest and contains at most $n - 1$ edges. </p>
+<p>However, if there is a cycle of negative total weight, we know that it's length is at most $n$, so, since we are allowing paths to be larger by $2k \ge n$ between these two matrices, we have that we would need to have all of the vertices on the cycle have their distance reduce by at least the negative weight of the cycle. Since we can detect exactly when there is a negative cycle, based on when these two matrices are different. This algorithm works. It also only takes time equal to a single matrix multiplication which is littlee oh of the unmodified algorithm.</p>
+<h2 id="251-10">25.1-10</h2>
+<blockquote>
+<p>Give an efficient algorithm to find the length (number of edges) of a minimum-length negative-weight cycle in a graph.</p>
+</blockquote>
+<p>Run $\text{SLOW-ALL-PAIRS-SHORTEST-PATHS}$ on the graph. Look at the diagonal elements of $L^{(m)}$. Return the first value of $m$ for which one (or more) of the diagonal elements ($l_{ii}^{(m)}$) is negative. If $m$ reaches $n + 1$, then stop and declare that there are no negative-weight cycles.</p>
+<p>Let the number of edges in a minimum-length negative-weight cycle be $m^*$, where $m^* = \infty$ if the graph has no negative-weight cycles.</p>
+<p><strong><em>Correctness</em></strong></p>
+<p>Let's assume that for some value $m^* \le n$ and some value of $i$, we find that $l_{ii}^{m^*} &lt; 0$. Then the graph has a cycle with $m^*$ edges that goes from vertex $i$ to itself, and this cycle has negative weight (stored in $l_{ii}^{m^*}$). This is the minimum-length negative-weight cycle because $\text{SLOW-ALL-PAIRS-SHORTEST-PATHS}$ computes all paths of $1$ edge, then all paths of $2$ edges, and so on, and all cycles shorter than $m^*$ edges were checked before and did not have negative weight. Now assume that for all $m \le n$, there is no negative $l_{ii}^{(m)}$ element. Then, there is no negativeweight cycle in the graph, because all cycles have length at most $n$.</p>
+<p><strong><em>Time</em></strong></p>
+<p>$O(n^4)$. More precisely, $\Theta(n^3 \cdot \min(n, m^*))$.</p>
+<p><strong>Faster solution</strong></p>
+<p>Run $\text{FASTER-ALL-PAIRS-SHORTEST-PATHS}$ on the graph until the first time that the matrix $L^{(m)}$ has one or more negative values on the diagonal, or until we have computed $L^{(m)}$ for some $m &gt; n$. If we find any negative entries on the diagonal, we know that the minimum-length negative-weight cycle has more than $m / 2$ edges and at most $m$ edges. We just need to binary search for the value of $m^*$ in the range $m / 2 &lt; m^* \le m$. The key observation is that on our way to computing $L^{(m)}$ , we computed $L^{(1)}, L^{(2)}, L^{(4)}, L^{(8)}, \ldots, L^{(m / 2)}$, and these matrices suffice to compute every matrix we'll need. Here's pseudocode:</p>
+<div class="highlight"><pre><span></span><span class="n">FIND</span><span class="o">-</span><span class="n">MIN</span><span class="o">-</span><span class="n">LENGTH</span><span class="o">-</span><span class="n">NEG</span><span class="o">-</span><span class="n">WEIGHT</span><span class="o">-</span><span class="n">CYCLE</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">W</span><span class="p">.</span><span class="n">rows</span>
+    <span class="n">L</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">W</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">whiel</span> <span class="n">m</span> <span class="err">≤</span> <span class="n">n</span> <span class="n">and</span> <span class="n">no</span> <span class="n">diagonal</span> <span class="n">entries</span> <span class="n">of</span> <span class="n">L</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="n">are</span> <span class="n">negative</span>
+        <span class="n">L</span><span class="p">(</span><span class="mi">2</span><span class="n">m</span><span class="p">)</span> <span class="o">=</span> <span class="n">EXTEND</span><span class="o">-</span><span class="n">SHORTEST</span><span class="o">-</span><span class="n">PATHS</span><span class="p">(</span><span class="n">L</span><span class="p">(</span><span class="n">m</span><span class="p">),</span> <span class="n">L</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="mi">2</span><span class="n">m</span>
+    <span class="k">if</span> <span class="n">m</span> <span class="o">&gt;</span> <span class="n">n</span> <span class="n">and</span> <span class="n">no</span> <span class="n">diagonal</span> <span class="n">entries</span> <span class="n">of</span> <span class="n">L</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="n">are</span> <span class="n">negative</span>
+        <span class="k">return</span> <span class="s">&quot;no negative-weight cycles&quot;</span>
+    <span class="n">eles</span> <span class="k">if</span> <span class="n">m</span> <span class="err">≤</span> <span class="mi">2</span>
+        <span class="k">return</span> <span class="n">m</span>
+    <span class="k">else</span>
+        <span class="n">low</span> <span class="o">=</span> <span class="n">m</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="n">high</span> <span class="o">=</span> <span class="n">m</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">m</span> <span class="o">/</span> <span class="mi">4</span>
+        <span class="k">while</span> <span class="n">d</span> <span class="err">≥</span> <span class="mi">1</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">low</span> <span class="o">+</span> <span class="n">d</span>
+            <span class="n">L</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">=</span> <span class="n">EXTEND</span><span class="o">-</span><span class="n">SHORTEST</span><span class="o">-</span><span class="n">PATHS</span><span class="p">(</span><span class="n">L</span><span class="p">(</span><span class="n">low</span><span class="p">),</span> <span class="n">L</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">L</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="n">has</span> <span class="n">any</span> <span class="n">negative</span> <span class="n">entries</span> <span class="n">on</span> <span class="n">the</span> <span class="n">diagonal</span>
+                <span class="n">high</span> <span class="o">=</span> <span class="n">s</span>
+            <span class="k">else</span> <span class="n">low</span> <span class="o">=</span> <span class="n">s</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="n">d</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="k">return</span> <span class="n">high</span>
+</pre></div>
+
+<p><strong><em>Correctness</em></strong> </p>
+<p>If, after the first <strong>while</strong> loop, $m &gt; n$ and no diagonal entries of $L^{(m)}$ are negative, then there is no negative-weight cycle. Otherwise, if $m \le 2$, then either $m = 1$ or $m = 2$, and $L^{(m)}$ is the first matrix with a negative entry on the diagonal. Thus, the correct value to return is $m$.</p>
+<p>If $m &gt; 2$, then we maintain an interval bracketed by the values $low$ and $high$, such that the correct value $m^*$ is in the range $low &lt; m^* \le high$. We use the following loop invariant:</p>
+<p><strong>Loop invariant:</strong> At the start of each iteration of the ''<strong>while</strong> $d \ge 1$'' loop,</p>
+<ol>
+<li>$d = 2^p$ for some integer $p \ge -1$,</li>
+<li>$d = (high - low) / 2$,</li>
+<li>$low &lt; m^* \le high$.</li>
+</ol>
+<p><strong>Initialization:</strong> Initially, $m$ is an integer power of $2$ and $m &gt; 2$. Since $d = m / 4$, we have that $d$ is an integer power of $2$ and $d &gt; 1 / 2$, so that $d = 2^p$ for some integer $p \ge 0$. We also have </p>
+<p>(high - low) / 2 = (m - (m / 2)) / 2 = m / 4 = d.</p>
+<p>Finally, $L^{(m)}$ has a negative entry on the diagonal and $L^{(m / 2)}$ does not. Since $low = m / 2$ and $high = m$, we have that $low &lt; m^* \le high$.</p>
+<p><strong>Maintenance:</strong> We use $high$, $low$, and $d$ to denote variable values in a given iteration, and $high'$, $low'$, and $d'$ to denote the same variable values in the next iteration. Thus, we wish to show that $d = 2^p$ for some integer $p \ge -1$ implies $d' = 2^p$ for some integer $p' \ge -1$, that $d = (high - low) / 2$ implies $d' = (high' - low') / 2$, and that $low &lt; m^* \le high$ implies $low' &lt; m^* \le high'$.</p>
+<p>To see that $d' = 2^{p'}$, note that $d' = d / 2$, and so $d = 2^{p - 1}$. The condition that $d \ge 1$ implies that $p \ge 0$, and so $p' \ge -1$.</p>
+<p>Within each iteration, $s$ is set to $low + d$, and one of the following actions occurs:</p>
+<ul>
+<li>
+<p>If $L^{(s)}$ has any negative entries on the diagonal, then $high'$ is set to s and $d'$ is set to $d / 2$. Upon entering the next iteration, </p>
+<p>$$(high' - low') / 2 = (s - low') / 2 = ((low + d) - low) / 2 = d / 2 = d'.$$</p>
+<p>Since $L^{(s)}$ has a negative diagonal entry, we know that $m^* \le s$. Because $high' = s$ and $low'= low$, we have that $low' &lt; m^* \le high'$.</p>
+</li>
+<li>
+<p>If $L^{(s)}$ has no negative entries on the diagonal, then $low'$ is set to $s$, and $d'$ is set to $d / 2$. Upon entering the next iteration, </p>
+<p>$$(high' - low') / 2 = (high' - s) / 2 = (high - (low + d)) / 2 = (high - low) / 2 - d / 2 = d - d / 2 = d / 2 = d'.$$</p>
+<p>Since $L^{(s)}$ has no negative diagonal entries, we know that $m^* &gt; s$. Because $low' = s$ and $high' = high$, we have that $low' &lt; m^* \le high'$.</p>
+</li>
+</ul>
+<p><strong>Termination:</strong> At termination, $d &lt; 1$. Since $d = 2^p$ for some integer $p \ge -1$, we must have $p = -1$, so that $d = 1 / 2$. By the second part of the loop invariant, if we multiply both sides by $2$, we get that $high - low = 2d = 1$. By the third part of the loop invariant, we know that $low &lt; m^* \le high$. Since $high - low = 2d = 1$ and $m^* &gt; low$, the only possible value for $m^*$ is high, which the procedure returns.</p>
+<p><strong><em>Time</em></strong></p>
+<p>If there is no negative-weight cycle, the first <strong>while</strong> loop iterates $\Theta(\lg n)$ times, and the total time is $\Theta(n^3\lg n)$.</p>
+<p>Now suppose that there is a negative-weight cycle. We claim that each time we call $\text{EXTEND-SHORTEST-PATHS}(L^{(low)}, L^{(d)})$, we have already computed $L^{(low)}$ and $L^{(d)}$. Initially, since $low = m / 2$, we had already computed $L^{(low)}$ in the first <strong>while</strong> loop. In succeeding iterations of the second <strong>while</strong> loop, the only way that low changes is when it gets the value of $s$, and we have just computed $L^{(s)}$. As for $L^{(d)}$, observe that $d$ takes on the values $m / 4$, $m / 8$, $m / 16$, $\ldots$, $1$, and again, we computed all of these $L$ matrices in the first <strong>while</strong> loop. Thus, the claim is proven. Each of the two <strong>while</strong> loops iterates $\Theta(\lg m^*)$ times. Since we have already computed the parameters to each call of $\text{EXTEND-SHORTEST-PATHS}$, each iteration is dominated by the $\Theta(n^3)$-time call to $\text{EXTEND-SHORTEST-PATHS}$. Thus, the total time is $\Theta(n^3\lg m^*)$.</p>
+<p>In general, therefore, the running time is $\Theta(n^3\lg\min(n, m^*))$.</p>
+<p><strong><em>Space</em></strong></p>
+<p>The slower algorithm needs to keep only three matrices at any time, and so its space requirement is $\Theta(n^3)$. This faster algorithm needs to maintain $\Theta(\lg\min(n, m^*))$ matrices, and so the space requirement increases to $\Theta(n^3\lg\min(n, m^*))$.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../Chap24/Problems/24-6/" title="24-6 Bitonic shortest paths" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                24-6 Bitonic shortest paths
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../25.2/" title="25.2 The Floyd-Warshall algorithm" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                25.2 The Floyd-Warshall algorithm
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Built by
+        <a href="http://walkccc.github.io/">Jay Chen</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.b438e6c5.js"></script>
+      
+      <script>app.initialize({version:"0.17.3",url:{base:"../.."}})</script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>
