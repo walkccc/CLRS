@@ -4234,21 +4234,23 @@ D(T) &amp; = \sum_{x \in T} d_T(x) \\
 \text{and } &amp; d(k) \ge \min_{1\le i\le k - 1}{d(i) + d(k - i) + k}.
 \end{align}</p>
 <ul>
-<li>To show that $d(k) \le \min_{1\le i\le k - 1}{d(i) + d(k - i) + k}$, we need only show that $d(k) \le d(i) + d(k - i) + k$, for $i = 1, 2, \ldots, k - 1$. For any $i$ from $1$ to $k - 1$ we can find trees $RT$ with $i$ leaves and $LT$ with $k - i$ leaves such that $D(RT) = d(i)$ and $D(LT) = d(k - i)$. Construct $T$ such that $RT$ and $LT$ are the right and left subtrees of $T$'s root respectively. Then</li>
-</ul>
+<li>
+<p>To show that $d(k) \le \min_{1\le i\le k - 1}{d(i) + d(k - i) + k}$, we need only show that $d(k) \le d(i) + d(k - i) + k$, for $i = 1, 2, \ldots, k - 1$. For any $i$ from $1$ to $k - 1$ we can find trees $RT$ with $i$ leaves and $LT$ with $k - i$ leaves such that $D(RT) = d(i)$ and $D(LT) = d(k - i)$. Construct $T$ such that $RT$ and $LT$ are the right and left subtrees of $T$'s root respectively. Then</p>
 <p>\begin{align}
 d(k) &amp; \le D(T)                 &amp; \text{(by definition of $d$ as min $D(T)$ value)} \\
      &amp; =   D(RT) + D(LT) + k    &amp; \text{(by part (b))} \\
      &amp; =   d(i) + d(k - i) + k. &amp; \text{(by choice of $RT$ and $LT$)}
 \end{align}</p>
-<ul>
-<li>To show that $d(k) \ge \min_{1\le i\le k - 1}{d(i) + d(k - i) + d}$, we need only show that $d(k) \ge d(i) + d(k - i) + k$, for some $i$ in ${1, 2, \ldots, k - 1}$. Take the tree $T$ with $k$ leaves such that $D(T) = d(k)$, let $RT$ and $LT$ be $T$'s right and left subtree, respectively, and let $i$ be the number of leaves in $RT$. Then $k - i$ is the number of leaves in $LT$ and</li>
-</ul>
+</li>
+<li>
+<p>To show that $d(k) \ge \min_{1\le i\le k - 1}{d(i) + d(k - i) + d}$, we need only show that $d(k) \ge d(i) + d(k - i) + k$, for some $i$ in ${1, 2, \ldots, k - 1}$. Take the tree $T$ with $k$ leaves such that $D(T) = d(k)$, let $RT$ and $LT$ be $T$'s right and left subtree, respectively, and let $i$ be the number of leaves in $RT$. Then $k - i$ is the number of leaves in $LT$ and</p>
 <p>\begin{align}
 d(k) &amp; =   D(T)                 &amp; \text{(by choice of $T$)} \\
      &amp; =   D(RT) + D(LT) + k    &amp; \text{(by part (b))} \\
      &amp; \ge d(i) + d(k - i) + k. &amp; \text{(by definition of $d$ as min $D(T)$ value)}
 \end{align}</p>
+</li>
+</ul>
 <p>Neither $i$ nor $k - i$ can be $0$ (and hence $1 \le i \le k - 1$), since if one of these were $0$, either $RT$ or $LT$ would contain all $k$ leaves of $T$, and that $k$-leaf subtree would have a $D$ equal to $D(T) - k$ (by part (b)), contradicting the choice of $T$ as the $k$-leaf tree with the minimum $D$.</p>
 <p><strong>d.</strong> Let $f_k(i) = i\lg i + (k - i)\lg(k - i)$. To find the value of $i$ that minimizes $f_k$, find the $i$ for which the derivative of $f_k$ with respect to $i$ is $0$:</p>
 <p>\begin{align}
