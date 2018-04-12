@@ -234,7 +234,7 @@ pages:
         - 21-1 Off-line minimum: Chap21/Problems/21-1.md
         - 21-2 Depth determination: Chap21/Problems/21-2.md
         - 21-3 Tarjan's off-line least-common-ancestors algorithm: Chap21/Problems/21-3.md
-      - VI Graph Algorithms:
+  - VI Graph Algorithms:
     - 22 Elementary Graph Algorithms:
       - 22.1 Representations of graphs: Chap22/22.1.md
       - 22.2 Breadth-first search: Chap22/22.2.md
