@@ -1,6 +1,9 @@
 site_name: CLRS Solutions
 theme:
   name: 'material'
+  palette:
+    primary: 'Teal'
+    accent: 'Blue'
 
 repo_name: walkccc/CLRS
 repo_url: https://github.com/walkccc/CLRS
