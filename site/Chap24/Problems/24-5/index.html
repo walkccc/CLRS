@@ -4226,7 +4226,7 @@
 <p>$$\mu^* = \min_{v \in V} \max_{0 \le k \le n - 1} \frac{\delta_n(s, v) - \delta_k(s, v)}{n - k}.$$</p>
 <p><strong>g.</strong> Give an $O(VE)$-time algorithm to compute $\mu^*$.</p>
 </blockquote>
-<p><strong>a.</strong> If $\mu^* = 0$, then we have that the lowest that $\frac{1}{k}<em>{i = 1}^k w(e_i)$ can be zero. This means that the lowest $\sum</em>{i = 1}^k w(e_i)$ can be $0$. This means that no cycle can have negative weight. Also, we know that for any path from $s$ to $v$, we can make it simple by removing any cycles that occur. This means that it had a weight equal to some path that has at most $n - 1$ edges in it. Since we take the minimum over all possible number of edges, we have the minimum over all paths.</p>
+<p><strong>a.</strong> If $\mu^* = 0$, then we have that the lowest that $\frac{1}{k}_{i = 1}^k w(e_i)$ can be zero. This means that the lowest $\sum_{i = 1}^k w(e_i)$ can be $0$. This means that no cycle can have negative weight. Also, we know that for any path from $s$ to $v$, we can make it simple by removing any cycles that occur. This means that it had a weight equal to some path that has at most $n - 1$ edges in it. Since we take the minimum over all possible number of edges, we have the minimum over all paths.</p>
 <p><strong>b.</strong> To show that</p>
 <p>$$\max_{0 \le k \le n - 1} \frac{\delta_n(s, v) - \delta_k(s, v)}{n - k} \ge 0,$$</p>
 <p>we need to show that</p>
