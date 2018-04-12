@@ -4493,11 +4493,11 @@ F_i &amp; = F_{i - 1} + F_{i - 2} &amp; \text{(equation (3.22)} \\
 <p>Show that $k\ln k = \Theta(n)$ implies $k = \Theta(n / \ln n)$.</p>
 </blockquote>
 <p>From the symmetry of $\Theta$,</p>
-<p>k\ln k = \Theta(n) \Rightarrow n = \Theta(k\ln k).</p>
+<p>$$k\ln k = \Theta(n) \Rightarrow n = \Theta(k\ln k).$$</p>
 <p>Let's find $\ln n$,</p>
-<p>\ln n = \Theta(\ln(k\ln k)) = \Theta(\ln k + \ln\ln k) = \Theta(\ln k).</p>
+<p>$$\ln n = \Theta(\ln(k\ln k)) = \Theta(\ln k + \ln\ln k) = \Theta(\ln k).$$</p>
 <p>Let's divide the two,</p>
-<p>\frac{n}{\ln n} = \frac{\Theta(k\ln k)}{\Theta(\ln k)} = \Theta({\frac{k\ln k}{\ln k}}) = \Theta(k).</p>
+<p>$$\frac{n}{\ln n} = \frac{\Theta(k\ln k)}{\Theta(\ln k)} = \Theta({\frac{k\ln k}{\ln k}}) = \Theta(k).$$</p>
 <p>The last step above follows from the property that any polylogarithmic function grows more slowly than any positive polynomial function, i.e., that for constants $a, b &gt; 0$, we have $\lg^b = o(n^a)$. Substitute $\lg n$ for $n$, $2$ for $b$, and $1$ for $a$, giving $\lg^2(\lg n) = o(\lg n)$.</p>
 <p>Therefore, $\lg(\lceil \lg\lg n \rceil!) = O(\lg n)$, and so $\lceil \lg\lg n \rceil!$ is polynomially bounded.</p>
                 
