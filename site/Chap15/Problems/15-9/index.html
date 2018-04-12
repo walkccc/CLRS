@@ -4227,11 +4227,13 @@
 <p>The overall cost can be expressed as the sum of the length of the substring, the prefix cost, and the suffix cost.</p>
 <p>We show optimal substructure by claiming that the sequence of breaks in  for the prefix subproblem $(i, k)$ must be an optimal one. Why? If there were a less costly way to break the substring $S[L[i] + 1..L[k]]$ represented by the subproblem $(i, k)$, then substituting that sequence of breaks in $\sigma$ would produce another sequence of breaks whose cost is lower than that of $\sigma$, which would be a contradiction. A similar observation holds for the sequence of breaks for the suffix subproblem $(k, j)$: it must be an optimal sequence of breaks.</p>
 <p>Let $cost[i, j]$ denote the cost of the cheapest solution to subproblem $(i, j)$. We write the recurrence relation for cost as</p>
-<p>cost[i, j] =
+<p>$$
+cost[i, j] =
 \begin{cases}
 0                                                                 &amp; \text{if $j - i \le 1$}, \\
 \min\limits_{i &lt; k &lt; j} {cost[i, k] + cost[k, j] + (L[j] - L[i])} &amp; \text{if $j - i &gt; 1$}.
-\end{cases}</p>
+\end{cases}
+$$</p>
 <p>Thus, our approach to solving the subproblem $(i, j)$ will be to try to split the respective substring at all possible values of $k$ and then choosing a break that results in the minimum cost. We need to be careful to solve smaller subproblems before we solve larger subproblems. In particular, we solve subproblems in increasing order of the length $j - 1$.</p>
 <div class="highlight"><pre><span></span><span class="n">BREAK</span><span class="o">-</span><span class="n">STRING</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>
     <span class="n">prepend</span> <span class="mi">0</span> <span class="n">to</span> <span class="n">the</span> <span class="n">start</span> <span class="n">of</span> <span class="n">L</span> <span class="n">and</span> <span class="n">append</span> <span class="n">n</span> <span class="n">to</span> <span class="n">the</span> <span class="n">end</span> <span class="n">of</span> <span class="n">L</span>
