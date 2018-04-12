@@ -7,7 +7,7 @@ Many a little makes a mickle.
 
 Thanks to: the Instructor's Manual by Thomas H. Cormen, @skanev, @cyberzhg, @yinyanghu, @irobot0, @ajl213, etc.
 
-Please don't hesitate to give me your feedback if any adjustment is needed with the sorted-solutions. You can simply press the "Edit this page" button in the upper right corner to edit the contents.
+Please don't hesitate to give me your feedback if any adjustment is needed with the sorted-solutions. You can simply press the "Pencil icon" in the upper right corner to edit the contents.
 
 # Working on following exercises:
 
