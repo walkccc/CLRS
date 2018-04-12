@@ -4345,7 +4345,7 @@
                 
                   <h1>7.4 Analysis of quicksort</h1>
                 
-                <h2 id="74-1">7.4-1</h2>
+                <h2 id="74-1">7.4-1<a class="headerlink" href="#74-1" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Show that in the recurrence</p>
 <p>$$T(n) = \max\limits_{0 \le q \le n - 1} (T(q) + T(n - q - 1)) + \Theta(n), T(n) = \Omega(n^2).$$</p>
@@ -4359,7 +4359,7 @@ T(n) &amp; =   \max_{0 \le q \le n - 1} (T(q) + T(n - q - 1)) + \Theta(n) \\
      &amp; \ge cn^2 - 2cn + 2c &amp; (c \le 1) \\
      &amp; \ge cn^2 - 2n.
 \end{align}</p>
-<h2 id="74-2">7.4-2</h2>
+<h2 id="74-2">7.4-2<a class="headerlink" href="#74-2" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Show that quicksort's best-case running time is $\Omega(n\lg n)$.</p>
 </blockquote>
@@ -4405,7 +4405,7 @@ f''\Big(\frac{n - 1}{2}\Big) &amp; = \frac{1}{\ln 2}\Big(\frac{2}{n - 1} + \frac
                              &amp; = \frac{1}{\ln 2} \cdot \frac{4}{n - 1} \\
                              &amp; &gt; 0. &amp; \text{(since $n \ge 2$)}
 \end{align}</p>
-<h2 id="74-3">7.4-3</h2>
+<h2 id="74-3">7.4-3<a class="headerlink" href="#74-3" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Show that the expression $q^2 + (n - q - 1)^2$ achieves a maximum over $q = 0, 1, \ldots, n - 1$ when $q = 0$ and $q = n - 1$.</p>
 </blockquote>
@@ -4419,7 +4419,7 @@ f''(q) &amp; = 4. \\
     f(0) &amp; = (n - 1)^2 \\
 f(n - 1) &amp; = (n - 1)^2 + 0^2.
 \end{align}</p>
-<h2 id="74-4">7.4-4</h2>
+<h2 id="74-4">7.4-4<a class="headerlink" href="#74-4" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Show that $\text{RANDOMIZED-QUICKSORT}$'s expected running time is $\Omega(n\lg n)$.</p>
 </blockquote>
@@ -4433,7 +4433,7 @@ f(n - 1) &amp; = (n - 1)^2 + 0^2.
     &amp; =   \Omega(n\lg n).
 \end{align}</p>
 <p>Using the master method, we get the solution $\Theta(n\lg n)$.</p>
-<h2 id="74-5">7.4-5</h2>
+<h2 id="74-5">7.4-5<a class="headerlink" href="#74-5" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>We can improve the running time of quicksort in practice by taking advantage of the fast running time of insertion sort when its input is "nearly" sorted. Upon calling quicksort on a subarray with fewer than $k$ elements, let it simply return without sorting the subarray. After the top-level call to quicksort returns, run insertion sort on the entire array to finish the sorting process. Argue that this sorting algorithm runs in $O(nk + n\lg(n / k))$ expected time. How should we pick $k$, both in theory and practice?</p>
 </blockquote>
@@ -4454,7 +4454,7 @@ In theory, if we ignore the constant factors, we need to solve</p>
 \end{align}</p>
 <p>Which indicates that there might be a good candidate. Furthermore, the lower-order terms should be taken into consideration too.</p>
 <p>In practice, $k$ should be chosed by experiment.</p>
-<h2 id="74-6-star">7.4-6 $\star$</h2>
+<h2 id="74-6-star">7.4-6 $\star$<a class="headerlink" href="#74-6-star" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Consider modifying the $\text{PARTITION}$ procedure by randomly picking three elements from array $A$ and partitioning about their median (the middle value of the three elements). Approximate the probability of getting at worst an $\alpha$-to-$(1 - \alpha)$ split, as a function of $\alpha$ in the range $0 &lt; \alpha &lt; 1$.</p>
 </blockquote>

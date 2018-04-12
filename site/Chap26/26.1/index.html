@@ -4359,7 +4359,7 @@
                 
                   <h1>26.1 Flow networks</h1>
                 
-                <h2 id="261-1">26.1-1</h2>
+                <h2 id="261-1">26.1-1<a class="headerlink" href="#261-1" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Show that splitting an edge in a flow network yields an equivalent network. More formally, suppose that flow network $G$ contains edge $(u, v)$, and we create a new flow network $G'$ by creating a new vertex $x$ and replacing $(u, v)$ by new edges $(u, x)$ and $(x, v)$ with $c(u, x) = c(x, v) = c(u, v)$. Show that a maximum flow in $G'$ has the same value as a maximum flow in $G$.</p>
 </blockquote>
@@ -4405,13 +4405,13 @@ f(x, v) = f(u, v) &amp; \le c(u, v) = c(x, v).
      &amp; = |f|.
 \end{align}</p>
 <p>The case when $s = v$ is symmetric. We conclude that $f'$ is a valid flow in $G'$ with $|f'| = |f|$.</p>
-<h2 id="261-2">26.1-2</h2>
+<h2 id="261-2">26.1-2<a class="headerlink" href="#261-2" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Extend the flow properties and definitions to the multiple-source, multiple-sink problem. Show that any flow in a multiple-source, multiple-sink flow network corresponds to a flow of identical value in the single-source, single-sink network obtained by adding a supersource and a supersink, and vice versa.</p>
 </blockquote>
 <p>Capacity constraint: for all $u, v \in V$, we require $0 \le f(u, v) \le c(u, v)$.</p>
 <p>Flow conservation: for all $u \in V - S - T$, we require $\sum_{v \in V} f(v, u) = \sum_{v \in V} f(u, v)$.</p>
-<h2 id="261-3">26.1-3</h2>
+<h2 id="261-3">26.1-3<a class="headerlink" href="#261-3" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Suppose that a flow network $G = (V, E)$ violates the assumption that the network contains a path $s \leadsto v \leadsto t$ for all vertices $v \in V$. Let $u$ be a vertex for which there is no path $s \leadsto u \leadsto t$. Show that there must exist a maximum flow $f$ in $G$ such that $f(u, v) = f(v, u) = 0$ for all vertices $v \in V$.</p>
 </blockquote>
@@ -4456,7 +4456,7 @@ $$</p>
     &amp; = \sum_{v \in V} f'(s, v) - \sum_{v \in V} f'(v, s) \\
     &amp; = |f'|.
 \end{align}</p>
-<h2 id="261-4">26.1-4</h2>
+<h2 id="261-4">26.1-4<a class="headerlink" href="#261-4" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Let $f$ be a flow in a network, and let $\alpha$ be a real number. The <strong><em>scalar flow product</em></strong>, denoted $\alpha f$, is a function from $V \times V$ to $\mathbb{R}$ defined by</p>
 <p>$(\alpha f)(u, v) = \alpha \cdot f(u, v)$.</p>
@@ -4489,7 +4489,7 @@ $$</p>
 <p>and, likewise, that</p>
 <p>$$\alpha \sum_{v \in V} f_1(u, v) + (1 - \alpha) \sum_{v \in V} f_2(u, v) = \sum_{v \in V} (\alpha f_1(u, v) + (1 - \alpha)f_2(u, v))$$</p>
 <p>completes the proof that flow conservation holds, and thus that flows form a convex set.</p>
-<h2 id="261-5">26.1-5</h2>
+<h2 id="261-5">26.1-5<a class="headerlink" href="#261-5" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>State the maximum-flow problem as a linear-programming problem.</p>
 </blockquote>
@@ -4498,12 +4498,12 @@ $$</p>
 s.t. &amp; 0 \le f(u, v) \le c(u, v) \\
      &amp; \sum\limits_{v \in V} f(v, u) - \sum\limits_{v \in V} f(u, v) = 0
 \end{array}</p>
-<h2 id="261-6">26.1-6</h2>
+<h2 id="261-6">26.1-6<a class="headerlink" href="#261-6" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Professor Adam has two children who, unfortunately, dislike each other. The problem is so severe that not only do they refuse to walk to school together, but in fact each one refuses to walk on any block that the other child has stepped on that day. The children have no problem with their paths crossing at a corner. Fortunately both the professor's house and the school are on corners, but beyond that he is not sure if it is going to be possible to send both of his children to the same school. The professor has a map of his town. Show how to formulate the problem of determining whether both his children can go to the same school as a maximum-flow problem.</p>
 </blockquote>
 <p>Create a vertex for each corner, and if there is a street between corners $u$ and $v$, create directed edges $(u, v)$ and $(v, u)$. Set the capacity of each edge to $1$. Let the source be corner on which the professor's house sits, and let the sink be the corner on which the school is located. We wish to find a flow of value $2$ that also has the property that $f(u, v)$ is an integer for all vertices $u$ and $v$. Such a flow represents two edge-disjoint paths from the house to the school.</p>
-<h2 id="261-7">26.1-7</h2>
+<h2 id="261-7">26.1-7<a class="headerlink" href="#261-7" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Suppose that, in addition to edge capacities, a flow network has <strong><em>vertex capacities</em></strong>. That is each vertex $v$ has a limit $l(v)$ on how much flow can pass though $v$. Show how to transform a flow network $G = (V, E)$ with vertex capacities into an equivalent flow network $G' = (V', E')$ without vertex capacities, such that a maximum flow in $G'$ has the same value as a maximum flow in $G$. How many vertices and edges does $G'$ have?</p>
 </blockquote>

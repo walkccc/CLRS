@@ -4373,7 +4373,7 @@
                 
                   <h1>22.1 Representations of graphs</h1>
                 
-                <h2 id="221-1">22.1-1</h2>
+                <h2 id="221-1">22.1-1<a class="headerlink" href="#221-1" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Given an adjacency-list representation of a directed graph, how long does it take to compute the $out\text-degree$ of every vertex? How long does it take to compute the $in\text-degrees$?</p>
 </blockquote>
@@ -4381,7 +4381,7 @@
 <p>$$\sum_{v \in V}O(out\text-degree(v)) = O(|E| + |V|).$$</p>
 <p>Note that the $|V|$ showing up in the asymptotics is necessary, because it still takes a constant amount of time to know that a list is empty. This time could be reduced to $O(|V|)$ if for each list in the adjacency list representation, we just also stored its length.</p>
 <p>To compute the in degree of each vertex, we will have to scan through all of the adjacency lists and keep counters for how many times each vertex has appeared. As in the previous case, the time to scan through all of the adjacency lists takes time $O(|E| + |V|)$.</p>
-<h2 id="221-2">22.1-2</h2>
+<h2 id="221-2">22.1-2<a class="headerlink" href="#221-2" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Give an adjacency-list representation for a complete binary tree on 7 vertices. Give an equivalent adjacency-matrix representation. Assume that vertices are numbered from 1 to 7 as in a binary heap.</p>
 </blockquote>
@@ -4413,7 +4413,7 @@
 $$</p>
 </li>
 </ul>
-<h2 id="221-3">22.1-3</h2>
+<h2 id="221-3">22.1-3<a class="headerlink" href="#221-3" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>The <strong><em>transpose</em></strong> of a directed graph $G = (V, E)$ is the graph $G^\text T = (V, E^\text T)$, where $E^\text T = {(v, u) \in V \times V: (u, v) \in E}$. Thus, $G^\text T$ is $G$ with all its edges reversed. Describe efficient algorithms for computing $G^\text T$ from $G$, for both the adjacency-list and adjacency-matrix representations of $G$. Analyze the running times of your algorithms.</p>
 </blockquote>
@@ -4421,12 +4421,12 @@ $$</p>
 <li><strong>Adjacency-list representation:</strong>  For the adjacency list representation, we will maintain an initially empty adjacency list representation of the transpose. Then, we scan through every list in the original graph. If we are in the list corresponding to vertex $v$ and see $u$ as an entry in the list, then we add an entry of $v$ to the list in the transpose graph corresponding to vertex $u$. Since this only requires a scan through all of the lists, it only takes time $O(|E| + |V|)$.</li>
 <li><strong>Adjacency-matrix representation:</strong> to compute the graph transpose, we just take the matrix transpose. This means looking along every entry above the diagonal, and swapping it with the entry that occurs below the diagonal. This takes time $O(|V|^2)$.</li>
 </ul>
-<h2 id="221-4">22.1-4</h2>
+<h2 id="221-4">22.1-4<a class="headerlink" href="#221-4" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Given an adjacency-list representation of a multigraph $G = (V, E)$, describe an $O(V + E)$-time algorithm to compute the adjacency-list representation of the ''equivalent'' undirected graph $G' = (V, E')$, where $E'$ consists of the edges in $E$ with all multiple edges between two vertices replaced by a single edge and with all self-loops removed.</p>
 </blockquote>
 <p>Create an array $A$ of size $|V|$. For a list in the adjacency list corresponding to vertex $v$, examine items on the list one by one. If any item is equal to $v$, remove it. If vertex $u$ appears on the list, examine $A[u]$. If it's not equal to $v$, set it equal to $v$. If it's equal to $v$, remove $u$ from the list. Since we have constant time lookup in the array, the total runtime is $O(V + E)$.</p>
-<h2 id="221-5">22.1-5</h2>
+<h2 id="221-5">22.1-5<a class="headerlink" href="#221-5" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>The <strong><em>square</em></strong> of a directed graph $G = (V, E)$ is the graph $G^2 = (V, E^2)$ such that $(u, v) \in E$ if and only $G$ contains a path with at most two edges between $u$ and $v$. Describe efficient algorithms for computing $G^2$ from $G$ for both the adjacency-list and adjacency-matrix representations of $G$. Analyze the running times of your algorithms.</p>
 </blockquote>
@@ -4444,7 +4444,7 @@ $$</p>
 <ul>
 <li><strong>Adjacency-matrix representation:</strong> Let $A$ denote the adjacency-matrix representation of $G$. The adjacency-matrix representation of $G^2$ is the square of $A$. Computing $A^2$ can be done in time $O(V^3)$ (and even faster, theoretically; Strassen's algorithm for example will compute $A^2$ in $O(V^{\lg 7})$).</li>
 </ul>
-<h2 id="221-6">22.1-6</h2>
+<h2 id="221-6">22.1-6<a class="headerlink" href="#221-6" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Most graph algorithms that take an adjacency-matrix representation as input require time $\Omega(V^2)$, but there are some exceptions. Show how to determine whether a directed graph $G$ contains a <strong><em>universal sink</em></strong> $-$ a vertex with $in\text-degree$ $|V| - 1$ and $out\text-degree$ $0$ $-$ in time $O(V)$, given an adjacency matrix for $G$.</p>
 </blockquote>
@@ -4485,7 +4485,7 @@ $$</p>
 <p>If $i &gt; |V|$ at loop termination, then we have eliminated all vertices from consid- eration, and so there is no universal sink. If, on the other hand, $i \le |V|$ at loop termination, we need to show that every vertex $k$ such that $i &lt; k \le |V|$ cannot be a universal sink. If $i \le |V|$ at loop termination, then the <strong>while</strong> loop terminated because $j &gt; |V|$. That means that we found a $0$ in every column. Recall our earlier observation that if column $k$ contains a $0$ in an off-diagonal position, then vertex $k$ cannot be a universal sink. Since we found a $0$ in every column, we found a $0$ in every column $k$ such that $i &lt; k \le |V|$. Moreover, we never examined any matrix entries in rows greater than $i$, and so we never examined the diagonal entry in any column $k$ such that $i &lt; k \le |V|$. Therefore, all the $0$s that we found in columns $k$ such that $i &lt; k \le |V|$ were off-diagonal. We conclude that every vertex $k$ such that $i &lt; k \le |V|$ cannot be a universal sink.</p>
 <p>Thus, we have shown that every vertex less than $i$ and every vertex greater than $i$ cannot be a universal sink. The only remaining possibility is that vertex $i$ might be a universal sink, and the call to $\text{IS-SINK}$ checks whether it is.</p>
 <p>To see that $\text{UNIVERSAL-SINK}$ runs in $O(V)$ time, observe that either $i$ or $j$ is incremented in each iteration of the <strong>while</strong> loop. Thus, the <strong>while</strong> loop makes at most $2|V| - 1$ iterations. Each iteration takes $O(1)$ time, for a total <strong>while</strong> loop time of $O(V)$ and, combined with the $O(V)$-time call to $\text{IS-SINK}$, we get a total running time of $O(V)$.</p>
-<h2 id="221-7">22.1-7</h2>
+<h2 id="221-7">22.1-7<a class="headerlink" href="#221-7" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>The <strong><em>incidence matrix</em></strong> of a directed graph $G = (V, E)$ with no self-loops is a $|V| \times |E|$ matrix $B = (b_{ij})$ such that
 $$
@@ -4511,7 +4511,7 @@ BB^\text T(i, j) =
 \text{$-$(# of edges connecting $i$ and $j$)}  &amp; \text{if $i \ne j$}.
 \end{cases}
 $$</p>
-<h2 id="221-8">22.1-8</h2>
+<h2 id="221-8">22.1-8<a class="headerlink" href="#221-8" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Suppose that instead of a linked list, each array entry $Adj[u]$ is a hash table containing the vertices $v$ for which $(u, v) \in E$. If all edge lookups are equally likely, what is the expected time to determine whether an edge is in the graph? What disadvantages does this scheme have? Suggest an alternate data structure for each edge list that solves these problems. Does your alternative have disadvantages compared to the hash table?</p>
 </blockquote>

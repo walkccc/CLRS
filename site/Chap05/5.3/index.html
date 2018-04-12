@@ -4359,7 +4359,7 @@
                 
                   <h1>5.3 Randomized algorithms</h1>
                 
-                <h2 id="531">5.3.1</h2>
+                <h2 id="531">5.3.1<a class="headerlink" href="#531" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Professor Marceau objects to the loop invariant used in the proof of Lemma 5.5. He questions whether it is true prior to the first iteration. He reasons that we could just as easily declare that an empty subarray contains no $0$-permutations. Therefore, the probability that an empty subarray contains a $0$-permutation should be $0$, thus invalidating the loop invariant prior to the first iteration. Rewrite the procedure $\text{RANDOMIZE-IN-PLACE}$ so that its associated loop invariant applies to a nonempty subarray prior to the first iteration, and modify the proof of Lemma 5.5 for your procedure.</p>
 </blockquote>
@@ -4374,7 +4374,7 @@
 <p>The loop invariant becomes</p>
 <p><strong>Loop invariant:</strong> Just prior to the iteration of the <strong>for</strong> loop for each value of $i = 2, \ldots, n$, for each possible $(i - 1)$-permutation, the subarray $A[1..i - 1]$ contains this $(i - 1)$-permutation with probability $(n - i + 1)! / n!$.</p>
 <p>The maintenance and termination parts remain the same. The initialization part is for the subarray $A[1..1]$, which contains any $1$-permutation with probability $(n - 1)! / n \ne 1 / n$.</p>
-<h2 id="53-2">5.3-2</h2>
+<h2 id="53-2">5.3-2<a class="headerlink" href="#53-2" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Professor Kelp decides to write a procedure that produces at random any permutation besides the identity permutation. He proposes the following procedure:</p>
 <div class="highlight"><pre><span></span><span class="n">PERMUTE</span><span class="o">-</span><span class="n">WITHOUT</span><span class="o">-</span><span class="n">IDENTITY</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
@@ -4386,7 +4386,7 @@
 <p>Does this code do what Professor Kelp intends?</p>
 </blockquote>
 <p>Although $\text{PERMUTE-WITHOUT-IDENTITY}$ will not produce the identity permutation, there are other permutations that it fails to produce. For example, consider its operation when $n = 3$, when it should be able to produce the $n! - 1 = 5$ nonidentity permutations. The <strong>for</strong> loop iterates for $i = 1$ and $i = 2$. When $i = 1$, the call to $\text{RANDOM}$ returns one of two possible values (either $2$ or $3$), and when $i = 2$, the call to $\text{RANDOM}$ returns just one value $(3)$. Thus, $\text{PERMUTE-WITHOUT-IDENTITY}$ can produce only $2 \cdot 1 = 2$ possible permutations, rather than the $5$ that are required.</p>
-<h2 id="53-3">5.3-3</h2>
+<h2 id="53-3">5.3-3<a class="headerlink" href="#53-3" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Suppose that instead of swapping element $A[i]$ with a random element from the subarray $A[i..n]$, we swapped it with a random element from anywhere in the array:</p>
 <div class="highlight"><pre><span></span><span class="n">PERMUTE</span><span class="o">-</span><span class="n">WITH</span><span class="o">-</span><span class="n">ALL</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
@@ -4410,7 +4410,7 @@
 \langle 3, 2, 1 \rangle &amp; 4 / 27 
 \end{array}</p>
 <p>Although these probabilities sum to $1$, none are equal to $1 / 6$.</p>
-<h2 id="53-4">5.3-4</h2>
+<h2 id="53-4">5.3-4<a class="headerlink" href="#53-4" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Professor Armstrong suggests the following procedure for generating a uniform random permutation:</p>
 <div class="highlight"><pre><span></span><span class="n">PERMUTE</span><span class="o">-</span><span class="n">BY</span><span class="o">-</span><span class="n">CYCLE</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
@@ -4430,7 +4430,7 @@
 <p>$\text{PERMUTE-BY-CYCLE}$ chooses offset as a random integer in the range $1 \le offset \le n$, and then it performs a cyclic rotation of the array. That is, $B[((i + offset - 1)\mod n) + 1] = A[i]$. (The subtraction and addition of $1$ in the index calculation is due to the $1$-origin indexing. If we had used $0$-origin indexing instead, the index calculation would have simplied to $B[(i + offset)\mod n] = A[i]$ for $i = 0, 1, \ldots, n - 1$.)</p>
 <p>Thus, once offset is determined, so is the entire permutation. Since each value of offset occurs with probability $1 / n$, each element $A[i]$ has a probability of ending up in position $B[j]$ with probability $1 / n$.</p>
 <p>This procedure does not produce a uniform random permutation, however, since it can produce only $n$ different permutations. Thus, $n$ permutations occur with probability $1 / n$, and the remaining $n! - n$ permutations occur with probability $0$.</p>
-<h2 id="53-5-star">5.3-5 $\star$</h2>
+<h2 id="53-5-star">5.3-5 $\star$<a class="headerlink" href="#53-5-star" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Prove that in the array $P$ in procedure $\text{PERMUTE-BY-SORTING}$, the probability that all elements are unique is at least $1 - 1 / n$.</p>
 </blockquote>
@@ -4444,7 +4444,7 @@
     &amp; \ge 1 - \frac{1}{n}, \\
 \end{align}</p>
 <p>where the last step holds for $(1 - x)^n \ge 1 - nx$.</p>
-<h2 id="53-6">5.3-6</h2>
+<h2 id="53-6">5.3-6<a class="headerlink" href="#53-6" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Explain how to implement the algorithm $\text{PERMUTE-BY-SORTING}$ to handle the case in which two or more priorities are identical. That is, your algorithm should produce a uniform random permutation, even if two or more priorities are identical.</p>
 </blockquote>
@@ -4454,7 +4454,7 @@
         <span class="n">swap</span> <span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="n">with</span> <span class="n">P</span><span class="p">[</span><span class="n">RANDOM</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="p">)]</span>
 </pre></div>
 
-<h2 id="53-7">5.3-7</h2>
+<h2 id="53-7">5.3-7<a class="headerlink" href="#53-7" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Suppose we want to create a <strong><em>random sample</em></strong> of the set $\{1, 2, 3, \ldots, n\}$, that is, an $m$-element subset $S$, where $0 \le m \le n$, such that each $m$-subset is equally likely to be created. One way would be to set $A[i] = i$ for $i = 1, 2, 3, \ldots, n$, call $\text{RANDOMIZE-IN-PLACE}(A)$, and then take just the first $m$ array elements. This method would make $n$ calls to the $\text{RANDOM}$ procedure. If $n$ is much larger than $m$, we can create a random sample with fewer calls to $\text{RANDOM}$. Show that the following recursive procedure returns a random $m$-subset $S$ of $\{1, 2, 3, \ldots, n\}$, in which each $m$-subset is equally likely, while making only $m$ calls to $\text{RANDOM}$:</p>
 <div class="highlight"><pre><span></span><span class="n">RANDOM</span><span class="o">-</span><span class="n">SAMPLE</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>

@@ -4359,7 +4359,7 @@
                 
                   <h1>5.4 Probabilistic analysis and further uses of indicator random variables</h1>
                 
-                <h2 id="54-1">5.4-1</h2>
+                <h2 id="54-1">5.4-1<a class="headerlink" href="#54-1" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>How many people must there be in a room before the probability that someone has the same birthday as you do is at least $1 / 2$? How many people must there be before the probability that at least two people have a birthday on July 4 is greater than $1 / 2$?</p>
 </blockquote>
@@ -4378,17 +4378,17 @@ k = \frac{\log(1 / 2)}{\log(364 / 365)} &amp; \approx 263.
     &amp; = 1 - \big(\frac{n - 1}{n}\big)^{k - 1}\big(\frac{n + k - 1}{n}\big). 
 \end{align}</p>
 <p>Writing a Ruby programme to find the closest integer, we get $115$.</p>
-<h2 id="54-2">5.4-2</h2>
+<h2 id="54-2">5.4-2<a class="headerlink" href="#54-2" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Suppose that we toss balls into $b$ bins until some bin contains two balls. Each toss is independent, and each ball is equally likely to end up in any bin. What is the expected number of ball tosses?</p>
 </blockquote>
 <p>This is just a restatement of the birthday problem. I consider this all that needs to be said on this subject.</p>
-<h2 id="54-3-star">5.4-3 $\star$</h2>
+<h2 id="54-3-star">5.4-3 $\star$<a class="headerlink" href="#54-3-star" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>For the analysis of the birthday paradox, is it important that the birthdays be mutually independent, or is pairwise independence sufficient? Justify your answer.</p>
 </blockquote>
 <p>Pairwise independence is enough. It's sufficient for the derivation after $\text{(5.6)}$.</p>
-<h2 id="54-4-star">5.4-4 $\star$</h2>
+<h2 id="54-4-star">5.4-4 $\star$<a class="headerlink" href="#54-4-star" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>How many people should be invited to a party in order to make it likely that there are $three$ people with the same birthday?</p>
 </blockquote>
@@ -4403,7 +4403,7 @@ k = \frac{\log(1 / 2)}{\log(364 / 365)} &amp; \approx 263.
 \end{align}</p>
 <p>Solving this yields $94$. It's a bit more, but again, indicator random variables are approximate.</p>
 <p>Finding more commentary online is tricky.</p>
-<h2 id="54-5-star">5.4-5 $\star$</h2>
+<h2 id="54-5-star">5.4-5 $\star$<a class="headerlink" href="#54-5-star" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>What is the probability that a $k$-string over a set of size $n$ forms a $k$-permutation? How does this question relate to the birthday paradox?</p>
 </blockquote>
@@ -4413,7 +4413,7 @@ k = \frac{\log(1 / 2)}{\log(364 / 365)} &amp; \approx 263.
     &amp; = \frac{(n - 1)!}{(n - k)!n^k}.
 \end{align}</p>
 <p>This is the complementary event to the birthday problem, that is, the chance of $k$ people have distinct birthdays.</p>
-<h2 id="54-6-star">5.4-6 $\star$</h2>
+<h2 id="54-6-star">5.4-6 $\star$<a class="headerlink" href="#54-6-star" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Suppose that $n$ balls are tossed into $n$ bins, where each toss is independent and the ball is equally likely to end up in any bin. What is the expected number of empty bins? What is the expected number of bins with exactly one ball?</p>
 </blockquote>
@@ -4455,7 +4455,7 @@ k = \frac{\log(1 / 2)}{\log(364 / 365)} &amp; \approx 263.
 <p>$$n\Big(1 - \frac{1}{n}\Big)^{n - 1} = \frac{n(1 - \frac{1}{n})^n}{1 - \frac{1}{n}},$$</p>
 <p>as $n$ approaches $\infty$, we find that $\text E[X]$ approaches</p>
 <p>$$\frac{n / e}{1 - 1 / n} = \frac{n^2}{e(n - 1)}.$$</p>
-<h2 id="54-7-star">5.4-7 $\star$</h2>
+<h2 id="54-7-star">5.4-7 $\star$<a class="headerlink" href="#54-7-star" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Sharpen the lower bound on streak length by showing that in $n$ flips of a fair coin, the probability is less than $1 / n$ that no streak longer than $\lg n - 2\lg\lg n$ consecutive heads occurs.</p>
 </blockquote>

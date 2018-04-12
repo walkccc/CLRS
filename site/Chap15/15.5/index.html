@@ -4317,7 +4317,7 @@
                 
                   <h1>15.5 Optimal binary search trees</h1>
                 
-                <h2 id="155-1">15.5-1</h2>
+                <h2 id="155-1">15.5-1<a class="headerlink" href="#155-1" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Write pseudocode for the procedure $\text{CONSTRUCT-OPTIMAL-BST}(root)$ which, given the table root, outputs the structure of an optimal binary search tree. For the example in Figure 15.10, your procedure should print out the structure </p>
 <p>\begin{align}
@@ -4348,7 +4348,7 @@
     <span class="n">CONSTRUCT</span><span class="o">-</span><span class="n">OPTIMAL</span><span class="o">-</span><span class="n">BST</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">root</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">root</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
 </pre></div>
 
-<h2 id="155-2">15.5-2</h2>
+<h2 id="155-2">15.5-2<a class="headerlink" href="#155-2" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Determine the cost and structure of an optimal binary search tree for a set of $n = 7$ keys with the following probabilities</p>
 <p>\begin{array}{c|cccccccc}
@@ -4358,12 +4358,12 @@ p_i &amp;      &amp; 0.04 &amp; 0.06 &amp; 0.08 &amp; 0.02 &amp; 0.10 &amp; 0.12
 q_i &amp; 0.06 &amp; 0.06 &amp; 0.06 &amp; 0.06 &amp; 0.05 &amp; 0.05 &amp; 0.05 &amp; 0.05
 \end{array}</p>
 </blockquote>
-<h2 id="155-3">15.5-3</h2>
+<h2 id="155-3">15.5-3<a class="headerlink" href="#155-3" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Suppose that instead of maintaining the table $w[i, j]$, we computed the value of $w(i, j)$ directly from equation $\text{(15.12)}$ in line 9 of $\text{OPTIMAL-BST}$ and used this computed value in line 11. How would this change affect the asymptotic running time of $\text{OPTIMAL-BST}$?</p>
 </blockquote>
 <p>Each of the $\Theta(n^2)$ values of $w[i, j]$ would require computing those two sums, both of which can be of size $O(n)$, so, the asymptotic runtime would increase to $O(n^3)$.</p>
-<h2 id="155-4-star">15.5-4 $\star$</h2>
+<h2 id="155-4-star">15.5-4 $\star$<a class="headerlink" href="#155-4-star" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Knuth [212] has shown that there are always roots of optimal subtrees such that $root[i, j - 1] \le root[i, j] \le root[i + 1, j]$ for all $1 \le i &lt; j \le n$. Use this fact to modify the $\text{OPTIMAL-BST}$ procedure to run in $\Theta(n^2)$ time.</p>
 </blockquote>

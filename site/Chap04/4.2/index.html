@@ -4359,7 +4359,7 @@
                 
                   <h1>4.2 Strassen's algorithm for matrix multiplication</h1>
                 
-                <h2 id="42-1">4.2-1</h2>
+                <h2 id="42-1">4.2-1<a class="headerlink" href="#42-1" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Use Strassen's algorithm to compute the matrix product</p>
 <p>\begin{pmatrix}
@@ -4404,7 +4404,7 @@ C_{22} &amp; = 48 + 6 - 72 - (-84) = 66.
 62 &amp; 66
 \end{pmatrix}.
 $$</p>
-<h2 id="42-2">4.2-2</h2>
+<h2 id="42-2">4.2-2<a class="headerlink" href="#42-2" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Write pseudocode for Strassen's algorithm</p>
 </blockquote>
@@ -4441,12 +4441,12 @@ $$</p>
     <span class="k">return</span> <span class="n">C</span>
 </pre></div>
 
-<h2 id="42-3">4.2-3</h2>
+<h2 id="42-3">4.2-3<a class="headerlink" href="#42-3" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>How would you modify Strassen's algorithm to multiply $n \times n$ matrices in which $n$ is not an exact power of $2$? Show that the resulting algorithm runs in time $\Theta(n^{\lg7})$.</p>
 </blockquote>
 <p>We can just extend it to an $n \times n$ matrix and pad it with zeroes. It's obviously $\Theta(n^{\lg7})$.</p>
-<h2 id="42-4">4.2-4</h2>
+<h2 id="42-4">4.2-4<a class="headerlink" href="#42-4" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>What is the largest $k$ such that if you can multiply $3 \times 3$ matrices using $k$ multiplications (not assuming commutativity of multiplication), then you can multiply $n \times n$ matrices is time $o(n^{\lg 7})$? What would the running time of this algorithm be?</p>
 </blockquote>
@@ -4458,7 +4458,7 @@ $$</p>
 <li>If $\log_3 k &gt; 2$, case 1 applies and $T(n) = \Theta(n^{\log_3 k})$. In this case, $k &gt; 9$. $T(n) = o(n^{\lg 7})$ when $\log_3 k &lt; \lg 7$, i.e., when $k &lt; 3^{\lg 7} \approx 21.85$. The largest such integer $k$ is $21$.</li>
 </ul>
 <p>Thus, $k = 21$ and the running time is $\Theta(n^{\log_3 k}) = \Theta(n^{\log_3 21} = O(n^{2.80})$ (since $\log_3 21 \approx 2.77$).</p>
-<h2 id="42-5">4.2-5</h2>
+<h2 id="42-5">4.2-5<a class="headerlink" href="#42-5" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>V. Pan has discovered a way of multiplying $68 \times 68$ matrices using $132464$ multiplications, a way of multiplying $70 \times 70$ matrices using $143640$ multiplications, and a way of multiplying $72 \times 72$ matrices using $155424$ multiplications. Which method yields the best asymptotic running time when used in a divide-and-conquer matrix-multiplication algorithm? How does it compare to Strassen's algorithm?</p>
 </blockquote>
@@ -4469,7 +4469,7 @@ $$</p>
 \log_{72} 155424 &amp; \approx 2.795147.
 \end{align}</p>
 <p>The fastest one asymptotically is $70 \times 70$ using $143640$.</p>
-<h2 id="42-6">4.2-6</h2>
+<h2 id="42-6">4.2-6<a class="headerlink" href="#42-6" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>How quickly can you multiply a $kn \times n$ matrix by an $n \times kn$ matrix, using Strassen's algorithm as a subroutine? Answer the same question with the order of the input matrices reversed.</p>
 </blockquote>
@@ -4477,7 +4477,7 @@ $$</p>
 <li>$(kn \times n)(n \times kn)$ produces a $kn \times kn$ matrix. This produces $k^2$ multiplications of $n \times n$ matrices.</li>
 <li>$(n \times kn)(kn \times n)$ produces an $n \times n$ matrix. This produces $k$ multiplications and $k - 1$ additions.</li>
 </ul>
-<h2 id="42-7">4.2-7</h2>
+<h2 id="42-7">4.2-7<a class="headerlink" href="#42-7" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Show how to multiply the complex numbers $a + bi$ and $c + di$ using only three multiplications of real numbers. The algorithm should take $a$, $b$, $c$ and $d$ as input and produce the real component $ac - bd$ and the imaginary component $ad + bc$ separately.</p>
 </blockquote>

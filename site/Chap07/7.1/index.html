@@ -4317,7 +4317,7 @@
                 
                   <h1>7.1 Description of quicksort</h1>
                 
-                <h2 id="71-1">7.1-1</h2>
+                <h2 id="71-1">7.1-1<a class="headerlink" href="#71-1" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Using figure 7.1 as a model, illustrate the operation of $\text{PARTITION}$ on the array $A = \langle 13, 19, 9, 5, 12, 8, 7, 4, 21, 2, 6, 11 \rangle$.</p>
 </blockquote>
@@ -4336,18 +4336,18 @@
 \langle 9, 5, 8, 7, 4, 2, 6, 12, 21, 13, 19, 11 \rangle \\
 \langle 9, 5, 8, 7, 4, 2, 6, 11, 21, 13, 19, 12 \rangle
 \end{align}</p>
-<h2 id="71-2">7.1-2</h2>
+<h2 id="71-2">7.1-2<a class="headerlink" href="#71-2" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>What value of $q$ does $\text{PARTITION}$ return when all elements in the array $A[p..r]$ have the same value? Modify $\text{PARTITION}$ so that $q = \lfloor (p + r) / 2 \rfloor$ when all elements in the array $A[p..r]$ have the same value.</p>
 </blockquote>
 <p>It returns $r$.</p>
 <p>We can modify $\text{PARTITION}$ by counting the number of comparisons in which $A[j] = A[r]$ and then subtracting half that number from the pivot index.</p>
-<h2 id="71-3">7.1-3</h2>
+<h2 id="71-3">7.1-3<a class="headerlink" href="#71-3" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Give a brief argument that the running time of $\text{PARTITION}$ on a subarray of size $n$ is $\Theta(n)$.</p>
 </blockquote>
 <p>There is a for statement whose body executes $r - 1 - p = \Theta(n)$ times. In the worst case every time the body of the if is executed, but it takes constant time and so does the code outside of the loop. Thus the running time is $\Theta(n)$.</p>
-<h2 id="71-4">7.1-4</h2>
+<h2 id="71-4">7.1-4<a class="headerlink" href="#71-4" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>How would you modify $\text{QUICKSORT}$ to sort into nonincreasing order?</p>
 </blockquote>

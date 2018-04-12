@@ -4331,13 +4331,13 @@
                 
                   <h1>5.2 Indicator random variables</h1>
                 
-                <h2 id="521">5.2.1</h2>
+                <h2 id="521">5.2.1<a class="headerlink" href="#521" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>In $\text{HIRE-ASSISTANT}$, assuming that the candidates are presented in a random order, what is the probability that you hire exactly one time? What is the probability you hire exactly $n$ times?</p>
 </blockquote>
 <p>Since $\text{HIRE-ASSISTANT}$ always hires candidate 1, it hires exactly once if and only if no candidates other than candidate 1 are hired. This event occurs when candidate 1 is the best candidate of the $n$, which occurs with probability $1 / n$.</p>
 <p>$\text{HIRE-ASSISTANT}$ hires $n$ times if each candidate is better than all those who were interviewed (and hired) before. This event occurs precisely when the list of ranks given to the algorithm is $\langle 1, 2, \ldots, n \rangle$, which occurs with probability $1 / n!$.</p>
-<h2 id="52-2">5.2-2</h2>
+<h2 id="52-2">5.2-2<a class="headerlink" href="#52-2" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>In $\text{HIRE-ASSISTANT}$, assuming that the candidates are presented in a random order, what is the probability that you hire exactly twice?</p>
 </blockquote>
@@ -4370,7 +4370,7 @@ A &amp; = F \cap (E_1 \cup E_2 \cup \cdots \cup E_{n - 1}) \\
          &amp; = \frac{1}{n} \cdot H_{n - 1},
 \end{align}</p>
 <p>where $H_{n - 1}$ is the $n$th harmonic number.</p>
-<h2 id="52-3">5.2-3</h2>
+<h2 id="52-3">5.2-3<a class="headerlink" href="#52-3" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Use indicator random variables to compute the expected value of the sum of $n$ dice.</p>
 </blockquote>
@@ -4388,7 +4388,7 @@ A &amp; = F \cap (E_1 \cup E_2 \cup \cdots \cup E_{n - 1}) \\
            &amp; = \sum_{i = 1}^n 3.5 \\
            &amp; = 3.5 \cdot n.
 \end{align}</p>
-<h2 id="52-4">5.2-4</h2>
+<h2 id="52-4">5.2-4<a class="headerlink" href="#52-4" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Use indicator random variables to solve the following problem, which is known as the <strong><em>hat-check problem</em></strong>. Each of $n$ customer gives a hat to a hat-check person at a restaurant. The hat-check person gives the hats back to the customers in a random order. What is the expected number of customers who get back their hat?</p>
 </blockquote>
@@ -4407,7 +4407,7 @@ A &amp; = F \cap (E_1 \cup E_2 \cup \cdots \cup E_{n - 1}) \\
 \end{align}</p>
 <p>and so we expect that exactly 1 customer gets back his own hat.</p>
 <p>Note that this is a situation in which the indicator random variables are not independent. For example, if $n = 2$ and $X_1 = 1$, then $X_2$ must also equal $1$. Conversely, if $n = 2$ and $X_1 = 0$, then $X_2$ must also equal $0$. Despite the dependence, $\Pr\{X_i = 1\} = 1 / n$ for all $i$, and linearity of expectation holds. Thus, we can use the technique of indicator random variables even in the presence of dependence.</p>
-<h2 id="52-5">5.2-5</h2>
+<h2 id="52-5">5.2-5<a class="headerlink" href="#52-5" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Let $A[1..n]$ be an array of $n$ distinct numbers. If $i &lt; j$ and $A[i] &gt; A[j]$, then the pair $(i, j)$ is called an <strong><em>inversion</em></strong> of $A$. (See Problem 2-4 for more on inversions.) Suppose that the elements of $A$ form a uniform random permutation of $\langle 1, 2, \ldots, n \rangle$. Use indicator random variables to compute the expected number of inversions.</p>
 </blockquote>

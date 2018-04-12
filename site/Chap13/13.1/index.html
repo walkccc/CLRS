@@ -4359,7 +4359,7 @@
                 
                   <h1>13.1 Properties of red-black trees</h1>
                 
-                <h2 id="131-1">13.1-1</h2>
+                <h2 id="131-1">13.1-1<a class="headerlink" href="#131-1" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>In the style of Figure 13.1(a), draw the complete binary search tree of height $3$ on the keys $\{1, 2, \ldots, 15\}$. Add the $\text{NIL}$ leaves and color the nodes in three different ways such that the black-heights of the resulting red-black trees are $2$, $3$, and $4$.</p>
 </blockquote>
@@ -4381,7 +4381,7 @@
 <p><img alt="" src="https://i.imgur.com/n91lrJL.png?width=40rem" /></p>
 </li>
 </ul>
-<h2 id="131-2">13.1-2</h2>
+<h2 id="131-2">13.1-2<a class="headerlink" href="#131-2" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Draw the red-black tree that results after $\text{TREE-INSERT}$ is called on the tree in Figure 13.1 with key $36$. If the inserted node is colored red, is the resulting tree a red-black tree? What if it is colored black?</p>
 </blockquote>
@@ -4391,12 +4391,12 @@
 </ul>
 <p>We don't draw the <em>wrong</em> red-black tree; however, we draw the adjusted correct tree:</p>
 <p><img alt="" src="https://i.imgur.com/CvRfxxE.png?width=40rem" /></p>
-<h2 id="131-3">13.1-3</h2>
+<h2 id="131-3">13.1-3<a class="headerlink" href="#131-3" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Let us define a <strong><em>relaxed red-black tree</em></strong> as a binary search tree that satisfies red-black properties 1, 3, 4, and 5. In other words, the root may be either red or black. Consider a relaxed red-black tree $T$ whose root is red. If we color the root of $T$ black but make no other changes to $T$, is the resulting tree a red-black tree?</p>
 </blockquote>
 <p>If we color the root of a relaxed red-black tree black but make no other changes, the resulting tree is a red-black tree. Not even any black-heights change.</p>
-<h2 id="131-4">13.1-4</h2>
+<h2 id="131-4">13.1-4<a class="headerlink" href="#131-4" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Suppose that we "absorb" every red node in a red-black tree into its black parent, so that the children of the red node become children of the black parent. (Ignore what happens to the keys.) What are the possible degrees of a black node after all its red children are absorbed? What can you say about the depths of the leaves of the resulting tree?</p>
 </blockquote>
@@ -4407,7 +4407,7 @@
 <li>$4$, if both children were red.</li>
 </ul>
 <p>All leaves of the resulting tree have the same depth.</p>
-<h2 id="131-5">13.1-5</h2>
+<h2 id="131-5">13.1-5<a class="headerlink" href="#131-5" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Show that the longest simple path from a node $x$ in a red-black tree to a descendant leaf has length at most twice that of the shortest simple path from node $x$ to a descendant leaf.</p>
 </blockquote>
@@ -4415,7 +4415,7 @@
 <p>We can say this more precisely, as follows:</p>
 <p>Since every path contains $\text{bh}(x)$ black nodes, even the shortest path from $x$ to a descendant leaf has length at least $\text{bh}(x)$. By definition, the longest path from $x$ to a descendant leaf has length $\text{height}(x)$. Since the longest path has $\text{bh}(x)$ black nodes and at least half the nodes on the longest path are black (by property 4), $\text{bh}(x) \ge \text{height}(x) / 2$, so</p>
 <p>length of longest path $= \text{height}(x) \le 2 \cdot \text{bh}(x) \le$ twice length of shortest path.</p>
-<h2 id="131-6">13.1-6</h2>
+<h2 id="131-6">13.1-6<a class="headerlink" href="#131-6" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>What is the largest possible number of internal nodes in a red-black tree with black-height $k$? What is the smallest possible number?</p>
 </blockquote>
@@ -4423,7 +4423,7 @@
 <li>The largest is the complete binary tree with height $2k$, which has $2^{2k} - 1$ internal nodes.</li>
 <li>The smallest is a black chain with length $k$, which has $k$ internal nodes.</li>
 </ul>
-<h2 id="131-7">13.1-7</h2>
+<h2 id="131-7">13.1-7<a class="headerlink" href="#131-7" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Describe a red-black tree on $n$ keys that realizes the largest possible ratio of red internal nodes to black internal nodes. What is this ratio? What tree has the smallest possible ratio, and what is the ratio?</p>
 </blockquote>

@@ -4387,7 +4387,7 @@
                 
                   <h1>9.3 Selection in worst-case linear time</h1>
                 
-                <h2 id="93-1">9.3-1</h2>
+                <h2 id="93-1">9.3-1<a class="headerlink" href="#93-1" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>In the algorithm $\text{SELECT}$, the input elements are divided into groups of $5$. Will the algorithm work in linear time if they are divided into groups of $7$? Argue that $\text{SELECT}$ does not run in linear time if groups of $3$ are used.</p>
 </blockquote>
@@ -4409,7 +4409,7 @@ T(n) &amp; \ge T(\lceil n / 3 \rceil) + T(2n / 3 - 1) + \Theta(n) \\
 \end{align}</p>
 <p>from which you can show that $T(n) \ge cn\lg n$ by substitution. You can also see that $T(n)$ is nonlinear by noticing that each level of the recursion tree sums to $n$.</p>
 <p><em>[In fact, any odd group size $\ge 5$ works in linear time.]</em></p>
-<h2 id="93-2">9.3-2</h2>
+<h2 id="93-2">9.3-2<a class="headerlink" href="#93-2" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Analyze $\text{SELECT}$ to show that if $n \ge 140$, then at least $\lceil n / 4 \rceil$ elements are greater than the median-of-medians $x$ and at least $\lceil n / 4 \rceil$ elements are less than $x$.</p>
 </blockquote>
@@ -4419,7 +4419,7 @@ T(n) &amp; \ge T(\lceil n / 3 \rceil) + T(2n / 3 - 1) + \Theta(n) \\
         12n - 240 &amp; \ge 10n + 40 \\
                 n &amp; \ge 140.
 \end{align}</p>
-<h2 id="93-3">9.3-3</h2>
+<h2 id="93-3">9.3-3<a class="headerlink" href="#93-3" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Show how quicksort can be made to run in $O(n\lg n)$ time in the worst case, assuming that all elements are distinct.</p>
 </blockquote>
@@ -4436,12 +4436,12 @@ T(n) &amp; \ge T(\lceil n / 3 \rceil) + T(2n / 3 - 1) + \Theta(n) \\
 
 <p>For an $n$-element array, the largest subarray that $\text{BEST-CASE-QUICKSORT}$ recurses on has $n / 2$ elements. This situation occurs when $n = r - p + 1$ is even; then the subarray $A[q + 1..r]$ has $n / 2$ elements, and the subarray $A[p..q - 1]$ has $n / 2 - 1$ elements.</p>
 <p>Because $\text{BEST-CASE-QUICKSORT}$ always recurses on subarrays that are at most half the size of the original array, the recurrence for the worst-case running time is $T(n) \le 2T(n / 2) + \Theta(n) = O(n\lg n)$.</p>
-<h2 id="93-4-star">9.3-4 $\star$</h2>
+<h2 id="93-4-star">9.3-4 $\star$<a class="headerlink" href="#93-4-star" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Suppose that an algorithm uses only comparisons to find the $i$th smallest element in a set of $n$ elements. Show that it can also find the $i - 1$ smaller elements and $n - i$ larger elements without performing additional comparisons.</p>
 </blockquote>
 <p>Create a graph with $n$ vertices and draw a directed edge from vertex $i$ to vertex $j$ if the $i$th and $j$th elements of the array are compared in the algorithm and we discover that $A[i] \ge A[j]$. Observe that $A[i]$ is one of the $i - 1$ smaller elements if there exists a path from $x$ to $i$ in the graph, and $A[i]$ is one of the $n - i$ larger elements if there exists a path from $i$ to $x$ in the graph. Every vertex $i$ must either lie on a path to or from $x$ because otherwise the algorithm can't distinguish between $i \le x$ and $i \ge x$. Moreover, if a vertex $i$ lies on both a path to $x$ and a path from $x$, then it must be such that $x \le A[i] \le x$,so $x = A[i]$. In this case, we can break ties arbitrarily.</p>
-<h2 id="93-5">9.3-5</h2>
+<h2 id="93-5">9.3-5<a class="headerlink" href="#93-5" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Suppose that you have a "black-box" worst-case linear-time median subroutine. Give a simple, linear-time algorithm that solves the selection problem for an arbitrary order statistic.</p>
 </blockquote>
@@ -4461,7 +4461,7 @@ T(n) &amp; \ge T(\lceil n / 3 \rceil) + T(2n / 3 - 1) + \Theta(n) \\
 </pre></div>
 
 <p>Because $x$ is the median of $A[p..r]$, each of the subarrays $A[p..q - 1]$ and $A[q + 1..r]$ has at most half the number of elements of $A[p..r]$. The recurrence for the worst-case running time of $\text{SELECT}'$ is $T(n) \le T(n / 2) + O(n) = O(n)$.</p>
-<h2 id="93-6">9.3-6</h2>
+<h2 id="93-6">9.3-6<a class="headerlink" href="#93-6" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>The $k$th <strong><em>quantiles</em></strong> of an $n$-element set are the $k - 1$ order statistics that divide the sorted set into $k$ equal-sized sets (to within $1$). Give an $O(n\lg k)$-time algorithm to list the $k$th quantiles of a set.</p>
 </blockquote>
@@ -4524,12 +4524,12 @@ T(n) &amp; \ge T(\lceil n / 3 \rceil) + T(2n / 3 - 1) + \Theta(n) \\
     <span class="k">return</span> <span class="n">quantiles</span>
 </pre></div>
 
-<h2 id="93-7">9.3-7</h2>
+<h2 id="93-7">9.3-7<a class="headerlink" href="#93-7" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Describe an $O(n)$-time algorithm that, given a set $S$ of $n$ distinct numbers and a positive integer $k \le n$, determines the $k$ numbers in $S$ that are closest to the median of $S$.</p>
 </blockquote>
 <p>Find the median in $O(n)$; create a new array, each element is the absolute value of the original value subtract the median; find the $k$th smallest number in $O(n)$,  then the desired values are the elements whose absolute difference with the median is less than or equal to the $k$th smallest number in the new array.</p>
-<h2 id="93-8">9.3-8</h2>
+<h2 id="93-8">9.3-8<a class="headerlink" href="#93-8" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Let $X[1..n]$ and $Y[1..n]$ be two arrays, each containing $n$ numbers already in sorted order. Give an $O(\lg n)$-time algorithm to find the median of all $2n$ elements in arrays $X$ and $Y$.</p>
 </blockquote>
@@ -4559,7 +4559,7 @@ T(n) &amp; \ge T(\lceil n / 3 \rceil) + T(2n / 3 - 1) + \Theta(n) \\
         <span class="k">else</span> <span class="k">return</span> <span class="n">FIND</span><span class="o">-</span><span class="n">MEDIAN</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="p">)</span>
 </pre></div>
 
-<h2 id="93-9">9.3-9</h2>
+<h2 id="93-9">9.3-9<a class="headerlink" href="#93-9" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Professor Olay is consulting for an oil company, which is planning a large pipeline running east to west through an oil field of $n$ wells. The company wants to connect a spur pipeline from each well directly to the main pipeline along a shortest route (either north or south), as shown in Figure 9.2. Given the $x$- and $y$-coordinates of the wells, how should the professor pick the optimal location of the main pipeline, which would be the one that minimizes the total length of the spurs? Show how to determine the optimal location in linear time.</p>
 </blockquote>

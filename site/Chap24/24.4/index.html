@@ -4429,7 +4429,7 @@
                 
                   <h1>24.4 Difference constraints and shortest paths</h1>
                 
-                <h2 id="244-1">24.4-1</h2>
+                <h2 id="244-1">24.4-1<a class="headerlink" href="#244-1" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Find a feasible solution or determine that no feasible solution exists for the following system of difference constraints:</p>
 <p>\begin{align}
@@ -4456,7 +4456,7 @@ x_6 - x_3 &amp; \le &amp; 8
 <p>we get </p>
 <p>$$(-5, -3, 0, -1, -6, -8),$$</p>
 <p>which is a feasible solution by Theorem 24.9.</p>
-<h2 id="244-2">24.4-2</h2>
+<h2 id="244-2">24.4-2<a class="headerlink" href="#244-2" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Find a feasible solution or determine that no feasible solution exists for the following system of difference constraints:</p>
 <p>\begin{align}
@@ -4472,12 +4472,12 @@ x_5 - x_4 &amp; \le &amp;-8.
 \end{align}</p>
 </blockquote>
 <p>There is no feasible solution because the constraint graph contains a negative-weight cycle: $(v_1, v_4, v_2, v_3, v_5, v_1)$ has weight $-1$.</p>
-<h2 id="244-3">24.4-3</h2>
+<h2 id="244-3">24.4-3<a class="headerlink" href="#244-3" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Can any shortest-path weight from the new vertex $v_0$ in a constraint graph be positive? Explain.</p>
 </blockquote>
 <p>No, it cannot be positive. This is because for every vertex $v \ne v_0$, there is an edge $(v_0, v)$ with weight zero. So, there is some path from the new vertex to every other of weight zero. Since $\delta(v_0, v)$ is a minimum weight of all paths, it cannot be greater than the weight of this weight zero path that consists of a single edge.</p>
-<h2 id="244-4">24.4-4</h2>
+<h2 id="244-4">24.4-4<a class="headerlink" href="#244-4" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Express the single-pair shortest-path problem as a linear program.</p>
 </blockquote>
@@ -4512,35 +4512,35 @@ x_v - x_u &amp; \le w(u, v),
 </li>
 </ul>
 <p>Note: Maximizing $x_t$ subject to the above inequalities solves the single-pair shortest-path problem when $t$ is reachable from $s$ and there are no negative-weight cycles. But if there's a negative-weight cycle, the inequalities have no feasible solution (as demonstrated in the proof of Theorem 24.9); and if $t$ is not reachable from $s$, then $x_t$ is unbounded.</p>
-<h2 id="244-5">24.4-5</h2>
+<h2 id="244-5">24.4-5<a class="headerlink" href="#244-5" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Show how to modify the Bellman-Ford algorithm slightly so that when we use it to solve a system of difference constraints with $m$ inequalities on $n$ unknowns, the running time is $O(nm)$.</p>
 </blockquote>
 <p>We can follow the advice of problem 14.4-7 and solve the system of constraints on a modified constraint graph in which there is no new vertex $v_0$. This is simply done by initializing all of the vertices to have a $d$ value of $0$ before running the iterated relaxations of Bellman Ford. Since we don't add a new vertex and the $n$ edges going from it to to vertex corresponding to each variable, we are just running Bellman Ford on a graph with $n$ vertices and $m$ edges, and so it will have a runtime of $O(mn)$.</p>
-<h2 id="244-6">24.4-6</h2>
+<h2 id="244-6">24.4-6<a class="headerlink" href="#244-6" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Suppose that in addition to a system of difference constraints, we want to handle <strong><em>equality constraints</em></strong> of the form $x_i = x_j + b_k$. Show how to adapt the Bellman-Ford algorithm to solve this variety of constraint system.</p>
 </blockquote>
 <p>To obtain the equality constraint $x_i = x_j + b_k$ we simply use the inequalities $x_i - x_j \le b_k$ and $x_j - x_i \le -bk$, then solve the problem as usual.</p>
-<h2 id="244-7">24.4-7</h2>
+<h2 id="244-7">24.4-7<a class="headerlink" href="#244-7" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Show how to solve a system of difference constraints by a Bellman-Ford-like algorithm that runs on a constraint graph without the extra vertex $v_0$.</p>
 </blockquote>
 <p>Observe that after the first pass, all $d$ values are at most $0$, and that relaxing edges $(v_0, v_i)$ will never again change a $d$ value. Therefore, we can eliminate $v_0$ by running the Bellman-Ford algorithm on the constraint graph without the $v_0$ vertex but initializing all shortest path estimates to $0$ instead of $\infty$.</p>
-<h2 id="244-8-star">24.4-8 $\star$</h2>
+<h2 id="244-8-star">24.4-8 $\star$<a class="headerlink" href="#244-8-star" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Let $Ax \le b$ be a system of $m$ difference constraints in $n$ unknowns. Show that the Bellman-Ford algorithm, when run on the corresponding constraint graph, maximizes $\sum_{i = 1}^n x_i$ subject to $Ax \le b$ and $x_i \le 0$ for all $x_i$.</p>
 </blockquote>
 <p>Bellman-Ford correctly solves the system of difference constraints so $Ax \le b$ is always satisfied. We also have that $x_i = \delta(v_0, v_i) \le w(v_0, v_i) = 0$ so $x_i \le 0$ for all $i$. To show that $\sum x_i$ is maximized, we'll show that for any feasible solution $(y_1, y_2, \ldots, y_n)$ which satisfies the constraints we have $yi \le \delta(v_0, v_i) = x_i$. Let $v_0, v_{i_1}, \ldots, v_{i_k}$ be a shortest path from $v_0$ to $v_i$ in the constraint graph. Then we must have the constraints $y_{i_2} - y_{i_1} \le w(v_{i_1}, v_{i_2}), \ldots, y_{i_k} - y_{i_{k - 1}} \le w(v_{i_{k - 1}},v_{i_k})$. Summing these up we have</p>
 <p>$$y_i \le y_i - y_1 \le \sum_{m = 2}^k w(v_{i_m}, v_{i_{m - 1}}) = \delta(v_0, v_i) = x_i.$$</p>
-<h2 id="244-9-star">24.4-9 $\star$</h2>
+<h2 id="244-9-star">24.4-9 $\star$<a class="headerlink" href="#244-9-star" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Show that the Bellman-Ford algorithm, when run on the constraint graph for a system $Ax \le b$ of difference constraints, minimizes the quantity $(\max{x_i} - \min{x_i})$ subject to $Ax \le b$. Explain how this fact might come in handy if the algorithm is used to schedule construction jobs.</p>
 </blockquote>
 <p>We can see that the Bellman-Ford algorithm run on the graph whose construction is described in this section causes the quantity $\max{x_i} - \min{x_i}$ to be minimized. We know that the largest value assigned to any of the vertices in the constraint graph is a $0$. It is clear that it won't be greater than zero, since just the single edge path to each of the vertices has cost zero. We also know that we cannot have every vertex having a shortest path with negative weight. To see this, notice that this would mean that the pointer for each vertex has it's $p$ value going to some other vertex that is not the source. This means that if we follow the procedure for reconstructing the shortest path for any of the vertices, we have that it can never get back to the source, a contradiction to the fact that it is a shortest path from the source to that vertex.</p>
 <p>Next, we note that when we run Bellman-Ford, we are maximizing $\min{x_i}$. The shortest distance in the constraint graphs is the bare minimum of what is required in order to have all the constraints satisfied, if we were to increase any of the values we would be violating a constraint.</p>
 <p>This could be in handy when scheduling construction jobs because the quantity $\max{x_i} - \min{x_i}$ is equal to the difference in time between the last task and the first task. Therefore, it means that minimizing it would mean that the total time that all the jobs takes is also minimized. And, most people want the entire process of construction to take as short of a time as possible.</p>
-<h2 id="244-10">24.4-10</h2>
+<h2 id="244-10">24.4-10<a class="headerlink" href="#244-10" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Suppose that every row in the matrix $A$ of a linear program $Ax \le b$ corresponds to a difference constraint, a single-variable constraint of the form $x_i \le b_k$, or a singlevariable constraint of the form $-x_i \le b_k$. Show how to adapt the Bellman-Ford algorithm to solve this variety of constraint system.</p>
 </blockquote>
@@ -4549,12 +4549,12 @@ x_v - x_u &amp; \le w(u, v),
 <p>Once we find shortest-path weights from $v_0$, we set $x_i = \delta(v_0, v_i)$ for all $i = 0, 1, \ldots, n$; that is, we do as before but also include $x_0$ as one of the variables that we set to a shortest-path weight. Since $v_0$ is the source vertex, either $x_0 = 0$ or $x_0 &lt; 0$.</p>
 <p>If $\delta(v_0, v_0) = 0$, so that $x_0 = 0$, then setting $x_i = \delta(v_0, v_i)$ for all $i = 0, 1, \ldots, n$ gives a feasible solution for the system. The only new constraints beyond those in the text are those involving $x_0$. For constraints $x_i \le b_k$, we use $x_i - x_0 \le b_k$. By the triangle inequality, $\delta(v_0, v_i) \le \delta(v_0, v_0) + w(v_0, v_i) = b_k$, and so $x_i \le b_k$. For constraints $x_i \le b_k$, we use $x_0 - x_i \le b_k$. By the triangle inequality, $0 = \delta(v_0, v_0) \le \delta(v_0, v_i) + w(v_i, v_0)$; thus, $0 \le x_i + b_k$ or, equivalently, $-x_i \le b_k$.</p>
 <p>If $\delta(v_0, v_0) &lt; 0$, so that $x_0 &lt; 0$, then there is a negative-weight cycle containing $v_0$. The portion of the proof of Theorem 24.9 that deals with negative-weight cycles carries through but with $v_0$ on the negative-weight cycle, and we see that there is no feasible solution.</p>
-<h2 id="244-11">24.4-11</h2>
+<h2 id="244-11">24.4-11<a class="headerlink" href="#244-11" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Give an efficient algorithm to solve a system $Ax \le b$ of difference constraints when all of the elements of $b$ are real-valued and all of the unknowns $x_i$ must be integers.</p>
 </blockquote>
 <p>To do this, just take the floor of (largest integer that is less than or equal to) each of the $b$ values and solve the resulting integer difference problem. These modified constraints will be admitting exactly the same set of assignments since we required that the solution have integer values assigned to the variables. This is because since the variables are integers, all of their differences will also be integers. For an integer to be less than or equal to a real number, it is necessary and sufficient for it to be less than or equal to the floor of that real number.</p>
-<h2 id="244-12-star">24.4-12 $\star$</h2>
+<h2 id="244-12-star">24.4-12 $\star$<a class="headerlink" href="#244-12-star" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Give an efficient algorithm to solve a system $Ax \le b$ of difference constraints when all of the elements of $b$ are real-valued and a specified subset of some, but not necessarily all, of the unknowns $x_i$ must be integers.</p>
 </blockquote>

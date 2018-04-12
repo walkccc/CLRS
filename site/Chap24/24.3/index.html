@@ -4401,7 +4401,7 @@
                 
                   <h1>24.3 Dijkstra's algorithm</h1>
                 
-                <h2 id="243-1">24.3-1</h2>
+                <h2 id="243-1">24.3-1<a class="headerlink" href="#243-1" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Run Dijkstra's algorithm on the directed graph of Figure 24.2, first using vertex $s$ as the source and then using vertex $z$ as the source. In the style of Figure 24.6, show the $d$ and $\pi$ values and the vertices in set $S$ after each iteration of the <strong>while</strong> loop.</p>
 </blockquote>
@@ -4461,13 +4461,13 @@ z &amp; s &amp; z &amp; s &amp; \text{NIL}
 \end{array}</p>
 </li>
 </ul>
-<h2 id="243-2">24.3-2</h2>
+<h2 id="243-2">24.3-2<a class="headerlink" href="#243-2" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Give a simple example of a directed graph with negative-weight edges for which Dijkstra's algorithm produces incorrect answers. Why doesn't the proof of Theorem 24.6 go through when negative-weight edges are allowed?</p>
 </blockquote>
 <p>Consider any graph with a negative cycle. $\text{RELAX}$ is called a finite number of times but the distance to any vertex on the cycle is $-\infty$, so Dijkstra's algorithm cannot possibly be correct here. The proof of theorem 24.6 doesn't go through because we can no longer guarantee that</p>
 <p>$$\delta(s, y) \le \delta(s, u).$$</p>
-<h2 id="243-3">24.3-3</h2>
+<h2 id="243-3">24.3-3<a class="headerlink" href="#243-3" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Suppose we change line 4 of Dijkstra's algorithm to the following. </p>
 <div class="highlight"><pre><span></span> <span class="mi">4</span>  <span class="k">while</span> <span class="o">|</span><span class="n">Q</span><span class="o">|</span> <span class="o">&gt;</span> <span class="mi">1</span>
@@ -4476,7 +4476,7 @@ z &amp; s &amp; z &amp; s &amp; \text{NIL}
 <p>This change causes the <strong>while</strong> loop to execute $|V| - 1$ times instead of $|V|$ times. Is this proposed algorithm correct?</p>
 </blockquote>
 <p>Yes, the algorithm still works. Let $u$ be the leftover vertex that does not get extracted from the priority queue $Q$. If $u$ is not reachable from $s$, then $u.d = \delta(s, u) = \infty$. If $u$ is reachable from $s$, then there is a shortest path $p = s \leadsto x \to u$. When the vertex $x$ was extracted, $x.d = \delta(s, x)$ and then the edge $(x, u)$ was relaxed; thus, $u.d = \delta(s, u)$.</p>
-<h2 id="243-4">24.3-4</h2>
+<h2 id="243-4">24.3-4<a class="headerlink" href="#243-4" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Professor Gaedel has written a program that he claims implements Dijkstra's algorithm. The program produces $v.d$ and $v.\pi$ for each vertex $v \in V$. Give an $O(V + E)$-time algorithm to check the output of the professor's program. It should determine whether the $d$ and $\pi$ attributes match those of some shortest-paths tree. You may assume that all edge weights are nonnegative.</p>
 </blockquote>
@@ -4486,12 +4486,12 @@ z &amp; s &amp; z &amp; s &amp; \text{NIL}
 <li>Verify that $v.d = \infty$ if and only if $v.\beta = \text{NIL}$ for all $v \in s$.</li>
 <li>If any of the above verification tests fail, declare the output to be incorrect. Otherwise, run one pass of Bellman-Ford, i.e., relax each edge $(u, v) \in E$ one time. If any values of $v.d$ change, then declare the output to be incorrect; otherwise, declare the output to be correct.</li>
 </ol>
-<h2 id="243-5">24.3-5</h2>
+<h2 id="243-5">24.3-5<a class="headerlink" href="#243-5" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Professor Newman thinks that he has worked out a simpler proof of correctness for Dijkstra's algorithm. He claims that Dijkstra's algorithm relaxes the edges of every shortest path in the graph in the order in which they appear on the path, and therefore the path-relaxation property applies to every vertex reachable from the source. Show that the professor is mistaken by constructing a directed graph for which Dijkstra's algorithm could relax the edges of a shortest path out of order.</p>
 </blockquote>
 <p>Let the graph have vertices $s$, $x$, $y$, $z$ and edges $(s, x)$, $(x, y)$, $(y, z)$, $(s, y)$, and let every edge have weight $0$. Dijkstra's algorithm could relax edges in the order $(s, y)$, $(s, x)$, $(y, z)$, $(x, y)$. The graph has two shortest paths from $s$ to $z: \langle s, x, y, z \rangle$ and $\langle s, y, z \rangle$, both with weight $0$. The edges on the shortest path $\langle s, x, y, z \rangle$ are relaxed out of order, because $(x, y)$ is relaxed after $(y, z)$.</p>
-<h2 id="243-6">24.3-6</h2>
+<h2 id="243-6">24.3-6<a class="headerlink" href="#243-6" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>We are given a directed graph $G = (V, E)$ on which each edge $(u, v) \in E$ has an associated value $r(u, v)$, which is a real number in the range $0 \le r(u, v) \le 1$ that represents the reliability of a communication channel from vertex $u$ to vertex $v$. We interpret $r(u, v)$ as the probability that the channel from $u$ to $v$ will not fail, and we assume that these probabilities are independent. Give an efficient algorithm to find the most reliable path between two given vertices.</p>
 </blockquote>
@@ -4514,12 +4514,12 @@ z &amp; s &amp; z &amp; s &amp; \text{NIL}
 </pre></div>
 
 <p>This algorithm is isomorphic to the one above: it performs the same operations except that it is working with the original probabilities instead of the transformed ones.</p>
-<h2 id="243-7">24.3-7</h2>
+<h2 id="243-7">24.3-7<a class="headerlink" href="#243-7" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Let $G = (V, E)$ be a weighted, directed graph with positive weight function $w: E \rightarrow \{1, 2, \ldots, W\}$ for some positive integer $W$, and assume that no two vertices have the same shortest-path weights from source vertex $s$. Now suppose that we define an unweighted, directed graph $G' = (V \cup V', E')$ by replacing each edge $(u, v) \in E$ with $w(u, v)$ unit-weight edges in series. How many vertices does $G'$ have? Now suppose that we run a breadth-first search on $G'$. Show that the order in which the breadth-first search of $G'$ colors vertices in $V$ black is the same as the order in which Dijkstra's algorithm extracts the vertices of $V$ from the priority queue when it runs on $G$.</p>
 </blockquote>
 <p>$V + \sum_{(u, v) \in E} w(u, v) - E$.</p>
-<h2 id="243-8">24.3-8</h2>
+<h2 id="243-8">24.3-8<a class="headerlink" href="#243-8" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Let $G = (V, E)$ be a weighted, directed graph with nonnegative weight function $w: E \rightarrow \{0, 1, \ldots, W\}$ for some nonnegative integer $W$. Modify Dijkstra's algorithm to compute the shortest paths from a given source vertex s in $O(WV + E)$ time.</p>
 </blockquote>
@@ -4533,14 +4533,14 @@ z &amp; s &amp; z &amp; s &amp; \text{NIL}
 <li>$\text{DECREASE-KEY}$: To decrease the key of an element from $j$ to $i$, first check whether $i \le j$, ﬂagging an error if not. Otherwise, we remove the element from its list $A[j]$ in $O(1)$ time and insert it into the list $A[i]$ in $O(1)$ time. Time: $O(1)$ per $\text{DECREASE-KEY}$.<br />
     To apply this kind of min-priority queue to Dijkstra's algorithm, we need to let $k = (|V| - 1)W$, and we also need a separate list for keys with value $\infty$. The number of operations $m$ is $O(V + E)$ (since there are $|V|$ $\text{INSERT}$ and $|V|$ $\text{EXTRACT-MIN}$ operations and at most $|E|$ $\text{DECREASE-KEY}$ operations), and so the total time is $O(V + E + VW) = O(VW + E)$.</li>
 </ul>
-<h2 id="243-9">24.3-9</h2>
+<h2 id="243-9">24.3-9<a class="headerlink" href="#243-9" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Modify your algorithm from Exercise 24.3-8 to run in $O((V + E) \lg W)$ time. ($\textit{Hint:}$ How many distinct shortest-path estimates can there be in $V - S$ at any point in time?)</p>
 </blockquote>
 <p>First, observe that at any time, there are at most $W + 2$ distinct key values in the priority queue. Why? A key value is either $1$ or it is not. Consider what happens whenever a key value $v.d$ becomes finite. It must have occurred due to the relaxation of an edge $(u, v)$. At that time, $u$ was being placed into $S$, and $u.d \le y.d$ for all vertices $y \in V - S$. After relaxing edge $(u, v)$, we have $v.d \le u.d + W$. Since any other vertex $y \in V - S$ with $y.d &lt; \infty$ also had its estimate changed by a relaxation of some edge $x$ with $x.d \le u.d$, we must have $y.d \le x.d + W \le u.d + W$. Thus, at the time that we are relaxing edges from a vertex $u$, we must have, for all vertices $v \in V - S$, that $u.d \le v.d \le u.d + W$ or $v.d = \infty$. Since shortest-path estimates are integer values (except for $\infty$), at any given moment we have at most $W + 2$ different ones: $u.d$, $u.d + 1$, $u.d + 2$, $\ldots$, $u.d + W$ and $\infty$.</p>
 <p>Therefore, we can maintain the min-priorty queue as a binary min-heap in which each node points to a doubly linked list of all vertices with a given key value. There are at most $W + 2$ nodes in the heap, and so $\text{EXTRACT-MIN}$ runs in $O(\lg W)$ time. To perform $\text{DECREASE-KEY}$, we need to be able to find the heap node corresponding to a given key in $O(\lg W)$ time. We can do so in $O(1)$ time as follows. First, keep a pointer $inf$ to the node containing all the $\infty$ keys. Second, maintain an array $loc[0..W]$, where $loc[i]$ points to the unique heap entry whose key value is congruent to $i(\mod(W + 1))$. As keys move around in the heap, we can update this array in $O(1)$ time per movement.</p>
 <p>Alternatively, instead of using a binary min-heap, we could use a red-black tree. Now $\text{INSERT}$, $\text{DELETE}$, $\text{MINIMUM}$, and $\text{SEARCH}$—from which we can construct the priority-queue operations—each run in $O(\lg W)$ time.</p>
-<h2 id="243-10">24.3-10</h2>
+<h2 id="243-10">24.3-10<a class="headerlink" href="#243-10" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Suppose that we are given a weighted, directed graph $G = (V, E)$ in which edges that leave the source vertex $s$ may have negative weights, all other edge weights are nonnegative, and there are no negative-weight cycles. Argue that Dijkstra's algorithm correctly finds shortest paths from $s$ in this graph.</p>
 </blockquote>

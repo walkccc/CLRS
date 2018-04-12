@@ -4345,7 +4345,7 @@
                 
                   <h1>10.4 Representing rooted trees</h1>
                 
-                <h2 id="104-1">10.4-1</h2>
+                <h2 id="104-1">10.4-1<a class="headerlink" href="#104-1" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Draw the binary tree rooted at index 6 that is represented by the following attributes:</p>
 <p>\begin{array}{cccc}
@@ -4364,7 +4364,7 @@
 \end{array}</p>
 </blockquote>
 <p><img alt="" src="https://i.imgur.com/rTJMXRF.png?width=30rem" /></p>
-<h2 id="104-2">10.4-2</h2>
+<h2 id="104-2">10.4-2<a class="headerlink" href="#104-2" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Write an $O(n)$-time recursive procedure that, given an $n$-node binary tree, prints out the key of each node in the tree.</p>
 </blockquote>
@@ -4376,7 +4376,7 @@
         <span class="n">PRINT</span><span class="o">-</span><span class="n">BINARY</span><span class="o">-</span><span class="n">TREE</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">right</span><span class="p">)</span>
 </pre></div>
 
-<h2 id="104-3">10.4-3</h2>
+<h2 id="104-3">10.4-3<a class="headerlink" href="#104-3" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Write an O$(n)$-time nonrecursive procedure that, given an $n$-node binary tree, prints out the key of each node in the tree. Use a stack as an auxiliary data structure.</p>
 </blockquote>
@@ -4394,7 +4394,7 @@
             <span class="n">PUSH</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">x</span><span class="p">.</span><span class="n">right</span><span class="p">)</span>
 </pre></div>
 
-<h2 id="104-4">10.4-4</h2>
+<h2 id="104-4">10.4-4<a class="headerlink" href="#104-4" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Write an $O(n)$-time procedure that prints all the keys of an arbitrary rooted tree with $n$ nodes, where the tree is stored using the left-child, right-sibling representation.</p>
 </blockquote>
@@ -4411,7 +4411,7 @@
                 <span class="n">rs</span> <span class="o">=</span> <span class="n">rs</span><span class="p">.</span><span class="n">right</span><span class="o">-</span><span class="n">sibling</span>
 </pre></div>
 
-<h2 id="104-5-star">10.4-5 $\star$</h2>
+<h2 id="104-5-star">10.4-5 $\star$<a class="headerlink" href="#104-5-star" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Write an $O(n)$-time nonrecursive procedure that, given an $n$-node binary tree, prints out the key of each node. Use no more than constant extra space outside of the tree itself and do not modify the tree, even temporarily, during the procedure.</p>
 </blockquote>
@@ -4435,7 +4435,7 @@
                 <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">parent</span>
 </pre></div>
 
-<h2 id="104-6-star">10.4-6 $\star$</h2>
+<h2 id="104-6-star">10.4-6 $\star$<a class="headerlink" href="#104-6-star" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>The left-child, right-sibling representation of an arbitrary rooted tree uses three pointers in each node: <em>left-child</em>, <em>right-sibling</em>, and <em>parent</em>. From any node, its parent can be reached and identified in constant time and all its children can be reached and identified in time linear in the number of children. Show how to use only two pointers and one boolean value in each node so that the parent of a node or all of its children can be reached and identified in time linear in the number of children.</p>
 </blockquote>

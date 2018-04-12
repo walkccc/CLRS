@@ -4359,7 +4359,7 @@
                 
                   <h1>14.3 Interval trees</h1>
                 
-                <h2 id="143-1">14.3-1</h2>
+                <h2 id="143-1">14.3-1<a class="headerlink" href="#143-1" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Write pseudocode for $\text{LEFT-ROTATE}$ that operates on nodes in an interval tree and updates the $max$ attributes in $O(1)$ time.</p>
 </blockquote>
@@ -4368,7 +4368,7 @@
     <span class="n">max</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">high</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="n">max</span><span class="p">(</span><span class="n">left</span><span class="p">[</span><span class="n">x</span><span class="p">]),</span> <span class="n">max</span><span class="p">(</span><span class="n">right</span><span class="p">[</span><span class="n">x</span><span class="p">]))</span>
 </pre></div>
 
-<h2 id="143-2">14.3-2</h2>
+<h2 id="143-2">14.3-2<a class="headerlink" href="#143-2" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Rewrite the code for $\text{INTERVAL-SEARCH}$ so that it works properly when all intervals are open.</p>
 </blockquote>
@@ -4381,7 +4381,7 @@
     <span class="k">return</span> <span class="n">x</span>
 </pre></div>
 
-<h2 id="143-3">14.3-3</h2>
+<h2 id="143-3">14.3-3<a class="headerlink" href="#143-3" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Describe an efficient algorithm that, given an interval $i$ , returns an interval overlapping $i$ that has the minimum low endpoint, or $T.nil$ if no such interval exists.</p>
 </blockquote>
@@ -4405,7 +4405,7 @@
 </pre></div>
 
 <p>The call $\text{MIN-INTERVAL-SEARCH}(T, i)$ takes $O\lg n)$ time, since each recursive call of $\text{MIN-INTERVAL-SEARCH-FROM}$ goes one node lower in the tree, and the height of the tree is $O(\lg n)$.</p>
-<h2 id="143-4">14.3-4</h2>
+<h2 id="143-4">14.3-4<a class="headerlink" href="#143-4" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Given an interval tree $T$ and an interval $i$, describe how to list all intervals in $T$ that overlap $i$ in $O(\min(n, k \lg n))$ time, where $k$ is the number of intervals in the output list. ($\textit{Hint:}$ One simple method makes several queries, modifying the tree between queries. A slightly more complicated method does not modify the tree.)</p>
 </blockquote>
@@ -4420,7 +4420,7 @@
     <span class="k">return</span> <span class="n">list</span>
 </pre></div>
 
-<h2 id="143-5">14.3-5</h2>
+<h2 id="143-5">14.3-5<a class="headerlink" href="#143-5" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Suggest modifications to the interval-tree procedures to support the new operation $\text{INTERVAL-SEARCH-EXACTLY}(T, i)$, where $T$ is an interval tree and $i$ is an interval. The operation should return a pointer to a node $x$ in $T$ such that $x.int.low = i.low$ and $x.int.high = i.high$, or $T.nil$ if $T$ contains no such node. All operations, including $\text{INTERVAL-SEARCH-EXACTLY}$, should run in $O(\lg n)$ time on an $n$-node interval tree.</p>
 </blockquote>
@@ -4438,7 +4438,7 @@
     <span class="k">return</span> <span class="n">x</span>
 </pre></div>
 
-<h2 id="143-6">14.3-6</h2>
+<h2 id="143-6">14.3-6<a class="headerlink" href="#143-6" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Show how to maintain a dynamic set $Q$ of numbers that supports the operation $\text{MIN-GAP}$, which gives the magnitude of the difference of the two closest numbers in $Q$. For example, if $Q = {1, 5, 9, 15, 18, 22}$, then $\text{MIN-GAP}(Q)$ returns $18 - 15 = 3$, since $15$ and $18$ are the two closest numbers in $Q$. Make the operations $\text{INSERT}$, $\text{DELETE}$, $\text{SEARCH}$, and $\text{MIN-GAP}$ as efficient as possible, and analyze their running times.</p>
 </blockquote>
@@ -4491,7 +4491,7 @@ $$</p>
     Note that in addition (not asked for in the exercise), it is possible to find the two closest numbers in $O(\lg n)$ time. Starting from the root, look for where the minimum gap (the one stored at the root) came from. At each node $x$, simulate the computation of $x.min\text-gap$ to figure out where $x.min\text-gap$ came from. If it came from a subtree's $min\text-gap$ attribute, continue the search in that subtree. If it came from a computation with $x$'s key, then $x$ and that other number are the closest numbers.</p>
 </li>
 </ol>
-<h2 id="143-7-star">14.3-7 $\star$</h2>
+<h2 id="143-7-star">14.3-7 $\star$<a class="headerlink" href="#143-7-star" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>VLSI databases commonly represent an integrated circuit as a list of rectangles. Assume that each rectangle is rectilinearly oriented (sides parallel to the $x$- and $y$-axes), so that we represent a rectangle by its minimum and maximum $x$ and $y$-coordinates. Give an $O(n\lg n)$-time algorithm to decide whether or not a set of $n$ rectangles so represented contains two rectangles that overlap. Your algorithm need not report all intersecting pairs, but it must report that an overlap exists if one rectangle entirely covers another, even if the boundary lines do not intersect. ($\textit{Hint:}$ Move a "sweep" line across the set of rectangles.)</p>
 </blockquote>

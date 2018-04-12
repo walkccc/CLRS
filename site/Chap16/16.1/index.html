@@ -4331,7 +4331,7 @@
                 
                   <h1>16.1 An activity-selection problem</h1>
                 
-                <h2 id="161-1">16.1-1</h2>
+                <h2 id="161-1">16.1-1<a class="headerlink" href="#161-1" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Give a dynamic-programming algorithm for the activity-selection problem, based on recurrence $\text{(16.2)}$. Have your algorithm compute the sizes $c[i, j]$ as defined above and also produce the maximum-size subset of mutually compatible activities.</p>
 <p>Assume that the inputs have been sorted as in equation $\text{(16.1)}$. Compare the running time of your solution to the running time of $\text{GREEDY-ACTIVITY-SELECTOR}$.</p>
@@ -4370,14 +4370,14 @@
 
 <p>The $\text{PRINT-ACTIVITIES}$ procedure recursively prints the set of activities placed into the optimal solution $A_{ij}$. It first prints the activity $k$ that achieved the maximum value of $c[i, j]$, and then it recurses to print the activities in $A_{ik}$ and $A_{kj}$. The recursion bottoms out when $c[i, j] = 0$, so that $A_{ij} = \emptyset$.</p>
 <p>Whereas $\text{GREEDY-ACTIVITY-SELECTOR}$ runs in $\Theta(n)$ time, the $\text{DYNAMIC-ACTIVITY-SELECTOR}$ procedure runs in $O(n^3)$ time.</p>
-<h2 id="161-2">16.1-2</h2>
+<h2 id="161-2">16.1-2<a class="headerlink" href="#161-2" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Suppose that instead of always selecting the first activity to finish, we instead select the last activity to start that is compatible with all previously selected activities. Describe how this approach is a greedy algorithm, and prove that it yields an optimal solution.</p>
 </blockquote>
 <p>The proposed approach—selecting the last activity to start that is compatible with all previously selected activities—is really the greedy algorithm but starting from the end rather than the beginning.</p>
 <p>Another way to look at it is as follows. We are given a set $S = \{a_1, a_2, \ldots, a_n\}$ of activities, where $a_i = [s_i, f_i)$, and we propose to find an optimal solution by selecting the last activity to start that is compatible with all previously selected activities. Instead, let us create a set $S = \{a_1', a_2', \ldots, a_n'\}$, where $a_i' = [f_i, s_i)$. That is, $a_i'$ is $a_i$ in reverse. Clearly, a subset of $\{a_{i_1}, a_{i_2}, \ldots, a_{i_k}\} \subseteq S$ is mutually compatible if and only if the corresponding subset $\{a_{i_1}', a_{i_2}', \ldots, a_{i_k}'\} \subseteq S'$  is also mutually compatible. Thus, an optimal solution for $S$ maps directly to an optimal solution for $S'$ and vice versa.</p>
 <p>The proposed approach of selecting the last activity to start that is compatible with all previously selected activities, when run on $S$, gives the same answer as the greedy algorithm from the text—selecting the first activity to finish that is compatible with all previously selected activities—when run on $S'$. The solution that the proposed approach finds for $S$ corresponds to the solution that the text's greedy algorithm finds for $S'$, and so it is optimal.</p>
-<h2 id="161-3">16.1-3</h2>
+<h2 id="161-3">16.1-3<a class="headerlink" href="#161-3" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Not just any greedy approach to the activity-selection problem produces a maximum-size set of mutually compatible activities. Give an example to show that the approach of selecting the activity of least duration from among those that are compatible with previously selected activities does not work. Do the same for the approaches of always selecting the compatible activity that overlaps the fewest other remaining activities and always selecting the compatible remaining activity with the earliest start time.</p>
 </blockquote>
@@ -4408,7 +4408,7 @@ f_i             &amp; 2 &amp; 3 &amp; 3 &amp; 3 &amp; 4 &amp; 5 &amp; 6 &amp; 7 
 <p>For the approach of always selecting the compatible remaining activity with the earliest start time, just add one more activity with the interval $[0, 14)$ to the example in Section 16.1. It will be the first activity selected, and no other activities are compatible with it.</p>
 </li>
 </ul>
-<h2 id="161-4">16.1-4</h2>
+<h2 id="161-4">16.1-4<a class="headerlink" href="#161-4" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Suppose that we have a set of activities to schedule among a large number of lecture halls, where any activity can take place in any lecture hall. We wish to schedule all the activities using as few lecture halls as possible. Give an efficient greedy algorithm to determine which activity should use which lecture hall.</p>
 <p>(This problem is also known as the <strong><em>interval-graph coloring problem</em></strong>. We can create an interval graph whose vertices are the given activities and whose edges connect incompatible activities. The smallest number of colors required to color every vertex so that no two adjacent vertices have the same color corresponds to finding the fewest lecture halls needed to schedule all of the given activities.)</p>
@@ -4426,7 +4426,7 @@ f_i             &amp; 2 &amp; 3 &amp; 3 &amp; 3 &amp; 4 &amp; 5 &amp; 6 &amp; 7 
 </ul>
 <p>Total: $O(n + \text{time to sort)}$
 <em>[The idea of this algorithm is related to the rectangle-overlap algorithm in Exercise 14.3-7.]</em></p>
-<h2 id="161-5">16.1-5</h2>
+<h2 id="161-5">16.1-5<a class="headerlink" href="#161-5" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Consider a modification to the activity-selection problem in which each activity $a_i$ has, in addition to a start and finish time, a value $v_i$. The objective is no longer to maximize the number of activities scheduled, but instead to maximize the total value of the activities scheduled. That is, we wish to choose a set $A$ of compatible activities such that $\sum_{a_k \in A} v_k$ is maximized. Give a polynomial-time algorithm for this problem.</p>
 </blockquote>

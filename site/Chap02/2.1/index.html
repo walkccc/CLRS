@@ -4317,7 +4317,7 @@
                 
                   <h1>2.1 Insertion sort</h1>
                 
-                <h2 id="21-1">2.1-1</h2>
+                <h2 id="21-1">2.1-1<a class="headerlink" href="#21-1" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Using Figure 2.2 as a model, illustrate the operation of $\text{INSERTION-SORT}$ on the array $A = \langle 31, 41, 59, 26, 41, 58 \rangle$.</p>
 </blockquote>
@@ -4329,7 +4329,7 @@ A &amp; = \langle 26, 31, 41, 59, 41, 58 \rangle \\
 A &amp; = \langle 26, 31, 41, 41, 59, 58 \rangle \\
 A &amp; = \langle 26, 31, 41, 41, 58, 59 \rangle
 \end{align}</p>
-<h2 id="21-2">2.1-2</h2>
+<h2 id="21-2">2.1-2<a class="headerlink" href="#21-2" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Rewrite the $\text{INSERTION-SORT}$ procedure to sort into nonincreasing instead of nondecreasing order.</p>
 </blockquote>
@@ -4343,7 +4343,7 @@ A &amp; = \langle 26, 31, 41, 41, 58, 59 \rangle
         <span class="n">A</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
 </pre></div>
 
-<h2 id="21-3">2.1-3</h2>
+<h2 id="21-3">2.1-3<a class="headerlink" href="#21-3" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Consider the <strong><em>searching problem</em></strong>:</p>
 <p><strong>Input</strong>: A sequence of $n$ numbers $A = \langle a_1, a_2, \ldots, a_n \rangle$ and a value $v$.</p>
@@ -4361,7 +4361,7 @@ A &amp; = \langle 26, 31, 41, 41, 58, 59 \rangle
 <p><strong>Initialization:</strong> Initially the subarray is the empty array, so the prove is trivial.</p>
 <p><strong>Maintenance:</strong> On each step, we know that $A[1..i - 1]$ does not contain $v$. We compare it with $A[i]$. If they are the same, we return $i$, which is a correct result. Otherwise, we continue to the next step. We have already insured that $A[1..i - 1]$ does not contain $v$ and that $A[i]$ is different from $v$, so this step preserves the invariant.</p>
 <p><strong>Termination:</strong> The loop terminates when $i &gt; A.length$. Since $i$ increases by $1$ and $i &gt; A.length$, we know that all the elements in $A$ have been checked and it has been found that $v$ is not among them. Thus, we return $\text{NIL}$.</p>
-<h2 id="21-4">2.1-4</h2>
+<h2 id="21-4">2.1-4<a class="headerlink" href="#21-4" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Consider the problem of adding two $n$-bit binary integers, stored in two $n$-element arrays $A$ and $B$. The sum of the two integers should be stored in binary form in an $(n + 1)$-element array $C$. State the problem formally and write pseudocode for adding the two integers.</p>
 <p><strong>Input:</strong> An array of booleans $A = \langle a_1, a_2, \ldots, a_n \rangle$ and an array of booleans $B = \langle b_1, b_2, \ldots, b_n \rangle$, each representing an integer stored in binary format (each digit is a number, either $0$ or $1$, least-significant digit first) and each of length $n$.</p>

@@ -4331,7 +4331,7 @@
                 
                   <h1>4.5 The master method for solving recurrences</h1>
                 
-                <h2 id="45-1">4.5-1</h2>
+                <h2 id="45-1">4.5-1<a class="headerlink" href="#45-1" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Use the master method to give tight asymptotic bounds for the following recurrences:</p>
 <p><strong>a.</strong> $T(n) = 2T(n / 4) + 1$.</p>
@@ -4343,12 +4343,12 @@
 <p><strong>b.</strong> $\Theta(n^{\log_4 2}\lg n) = \Theta(\sqrt n\lg n)$.</p>
 <p><strong>c.</strong> $\Theta(n)$.</p>
 <p><strong>d.</strong> $\Theta(n^2)$.</p>
-<h2 id="45-2">4.5-2</h2>
+<h2 id="45-2">4.5-2<a class="headerlink" href="#45-2" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Professor Caesar wishes to develop a matrix-multiplication algorithm that is asymptotically faster than Strassen's algorithm. His algorithm will use the divide-and-conquer method, dividing each matrix into pieces of size $n / 4 \times n / 4$, and the divide and combine steps together will take $\Theta(n^2)$ time. He needs to determine how many subproblems his algorithm has to create in order to beat Strassen's algorithm. If his algorithm creates $a$ subproblems, then the recurrence for the running time $T(n)$ becomes $T(n) = aT(n / 4) + \Theta(n^2)$. What is the largest integer value of $a$ for which Professor Caesar's algorithm would be asymptotically faster than Strassen's algorithm?</p>
 </blockquote>
 <p>We need to find the largest integer $a$ such that $\log_4 a &lt; \lg 7$. The answer is $a = 48$.</p>
-<h2 id="453">4.5.3</h2>
+<h2 id="453">4.5.3<a class="headerlink" href="#453" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Use the master method to show that the solution to the binary-search recurrence $T(n) = T(n / 2) + \Theta(1)$ is $T(n) = \Theta(\lg n)$. (See exercise 2.3-5 for a description of binary search.)</p>
 </blockquote>
@@ -4357,7 +4357,7 @@
 f(n) &amp; = \Theta(n^{\log_2 1}) = \Theta(1), \\
 T(n) &amp; = \Theta(\lg n).
 \end{align}</p>
-<h2 id="45-4">4.5-4</h2>
+<h2 id="45-4">4.5-4<a class="headerlink" href="#45-4" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Can the master method be applied to the recurrence $T(n) = 4T(n / 2) + n^2\lg n$? Why or why not? Give an asymptotic upper bound for this recurrence.</p>
 </blockquote>
@@ -4373,7 +4373,7 @@ T(n) &amp; \le 4T(n / 2) + n^2\lg n \\
      &amp; \le cn^2\lg^2 n.
 \end{align}</p>
 <p>Exercise 4.6-2 is the general case for this.</p>
-<h2 id="45-5-star">4.5-5 $\star$</h2>
+<h2 id="45-5-star">4.5-5 $\star$<a class="headerlink" href="#45-5-star" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Consider the regularity condition $af(n / b) \ge cf(n)$ for some constant $c &lt; 1$, which is part of case 3 of the master theorem. Give an example of constants $a \ge 1$ and $b &gt; 1$ and a function $f(n)$ that satisfies all the conditions in case 3 of the master theorem, except the regularity condition.</p>
 </blockquote>

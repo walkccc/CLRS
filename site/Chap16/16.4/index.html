@@ -4331,7 +4331,7 @@
                 
                   <h1>16.4 Matroids and greedy methods</h1>
                 
-                <h2 id="164-1">16.4-1</h2>
+                <h2 id="164-1">16.4-1<a class="headerlink" href="#164-1" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Show that $(S, I_k)$ is a matroid, where $S$ is any finite set and $I_k$ is the set of all subsets of $S$ of size at most $k$, where $k \le |S|$.</p>
 </blockquote>
@@ -4339,7 +4339,7 @@
 Then, if $B \subseteq A$, this means that $|B| \le |A| \le k$, so $B \in \mathcal I_k$. Lastly, we prove the exchange property by letting $A, B \in \mathcal I_k$ be such that $|A| &lt; |B|$. Then, we can pick any element $x \in B \backslash A$, then,</p>
 <p>$$|A \cup {x}| = |A| + 1 \le |B| \le k,$$</p>
 <p>so, we can extend $A$ to $A \cup \{x\} \in \mathcal I_k$.</p>
-<h2 id="164-2-star">16.4-2 $\star$</h2>
+<h2 id="164-2-star">16.4-2 $\star$<a class="headerlink" href="#164-2-star" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Given an $m \times n$ matrix $T$ over some field (such as the reals), show that $(S, \mathcal I)$ is a matroid, where $S$ is the set of columns of $T$ and $A \in \mathcal I$ if and only if the columns in $A$ are linearly independent.</p>
 </blockquote>
@@ -4358,7 +4358,7 @@ Then, if $B \subseteq A$, this means that $|B| \le |A| \le k$, so $B \in \mathca
 <p>We shall show that there is some column $b \in B$ that is not a linear combination of the columns in $A$, and so $A \cup \{b\}$ is linearly independent. The proof proceeds by contradiction. Assume that each column in $B$ is a linear combination of the columns of $A$. That means that any vector that is a linear combination of the columns of $B$ is also a linear combination of the columns of $A$, and so, treating the columns of $A$ and $B$ as matrices, the column space of $B$ is a subspace of the column space of $A$. By the second property above, we have $\text{rank}(B) \le \text{rank}(A)$. But we have already shown that $\text{rank}(A) &lt; \text{rank}(B)$ a contradiction. Therefore, some column in $B$ is not a linear combination of the columns of $A$, and $(S, \mathcal I)$ satisfies the exchange property.</p>
 </li>
 </ol>
-<h2 id="164-3-star">16.4-3 $\star$</h2>
+<h2 id="164-3-star">16.4-3 $\star$<a class="headerlink" href="#164-3-star" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Show that if $(S, \mathcal I)$ is a matroid, then $(S, \mathcal I')$ is a matroid, where</p>
 <p>$I' = \{A': S - A'$ contains some maximal $A \in \mathcal I\}$.</p>
@@ -4396,7 +4396,7 @@ Now, we have</p>
 <p>Now we know there is an element $y \in B - A'$ such that $(A - B') \cup \{y\} \in \mathcal I$. Moreover, we claim that $y \notin A$. To see why, we know that by the exchange property, $y \notin A - B'$. In order for $y$ to be in $A$, it would have to be in $A \cap B'$. But $y \in B$, which means that $y \notin B'$, and hence $y \notin A \cap B'$. Therefore $y \notin A$.</p>
 <p>Applying the exchange property, we add elements in $B - A'$ to $A - B'$, maintaining that the set we get, say $C$, is in $\mathcal I$. Then we keep applying the exchange property, adding a new element in $A - C$ to $C$, maintaining that $C$ is in $\mathcal I$, until $|C| = |A|$. Once $|C| = |A|$, there must exist some element $x \in A$ that we have not added into $C$. We know that such an element exists because the element $y$ that we first added into $C$ was not in $A$, and so some element $x$ in $A$ must be left over. Also, we must have $x \in B'$ because all the elements in $A - B'$ are initially in $C$. Therefore, we have $x \in B' - A'$.</p>
 <p>The set $C$ so constructed is maximal, because it has the same cardinality as $A$, which is maximal, and $C \in \mathcal I$. All the elements but one in $C$ are also in $A$; the one exceptions is in $B - A'$, and so $C$ contains no elements in $A'$. Because we never added $x$ to $C$, we have that $C \subseteq S - A' - \{x\} = S - (A' \cup \{x\})$. Therefore, $A' \cup \{x\} \in \mathcal I'$, as we needed to show.</p>
-<h2 id="164-4-star">16.4-4 $\star$</h2>
+<h2 id="164-4-star">16.4-4 $\star$<a class="headerlink" href="#164-4-star" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Let $S$ be a finite set and let $S_1, S_2, \ldots, S_k$ be a partition of $S$ into nonempty disjoint subsets. Define the structure $(S, I)$ by the condition that $\mathcal I = \{A: \mid A \cap S_i \mid \le 1$ for $i = 1, 2, \ldots, k\}$. Show that $(S, \mathcal I)$ is a matroid. That is, the set of all sets $A$ that contain at most one member of each subset in the partition determines the independent sets of a matroid.</p>
 </blockquote>
@@ -4406,7 +4406,7 @@ Now, we have</p>
 <p>Now Let $A, B \in \mathcal I$ with $|A| = |B| + 1$. Then there must exist some $j$ such that $|A \cap S_j| = 1$ but $|B \cap S_j| = 0$. Let $a = A \cap S_j$. Then $a \ne B$ and $|(B \cup \{a\}) \cap S_j| = 1$. Since</p>
 <p>$$|(B \cup {a}) \cap S_i| = |B \cap S_i|$$</p>
 <p>for all $i \ne j$, we must have $B \cup \{a\} \in \mathcal I$. Therefore $\mathcal M$ is a matroid.</p>
-<h2 id="164-5">16.4-5</h2>
+<h2 id="164-5">16.4-5<a class="headerlink" href="#164-5" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Show how to transform the weight function of a weighted matroid problem, where the desired optimal solution is a <em>minimum-weight</em> maximal independent subset, to make it a standard weighted-matroid problem. Argue carefully that your transformation is correct.</p>
 </blockquote>

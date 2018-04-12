@@ -4387,7 +4387,7 @@
                 
                   <h1>16.3 Huffman codes</h1>
                 
-                <h2 id="163-1">16.3-1</h2>
+                <h2 id="163-1">16.3-1<a class="headerlink" href="#163-1" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Explain why, in the proof of Lemma 16.2, if $x.freq = b.freq$, then we must have $a.freq = b.freq = x.freq = y.freq$.</p>
 </blockquote>
@@ -4405,14 +4405,14 @@
 \end{array}</p>
 <p>Thus, if we assume that $x.freq = b.freq$, then we have that each of $a.freq$, $b.freq$, and $y.freq$ equals $x.freq$, and so </p>
 <p>$$a.freq = b.freq = x.freq = y.freq.$$</p>
-<h2 id="163-2">16.3-2</h2>
+<h2 id="163-2">16.3-2<a class="headerlink" href="#163-2" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Prove that a binary tree that is not full cannot correspond to an optimal prefix code.</p>
 </blockquote>
 <p>Let $T$ be a binary tree that is not full. $T$ represents a binary prefix code for a file composed of characters from alphabet $C$, where $c \in C$, $f(c)$ is th number of occurrences of $c$ in the file. The cost of tree $T$, or the number of bits in the encoding, is  $\sum_{c \in C} d_T(c) \cdot f(c)$, where $d_T(c)$ is the depth of character $c$ in tree $T$.</p>
 <p>Let $N$ be a node of greatest depth that has exactly one child. If $N$ is the root of $T$, $N$ can be removed and the deepth of each node reduced by one, yielding a tree representing the same alphabet with a lower cost. This mean the original code was not optimal.</p>
 <p>Otherwise, let $M$ be the parent of $N$, let $T_1$ be the (possibly non-existent) sibling of $N$, and let $T_2$ be the subtree rooted at the child of $N$. Replace $M$ by $N$, making the children of $N$ the roots of subtrees $T_1$ and $T_2$. If $T_1$ is empty, repeat the process. We have a new prefix code of lower cost, so the original was not optimal.</p>
-<h2 id="163-3">16.3-3</h2>
+<h2 id="163-3">16.3-3<a class="headerlink" href="#163-3" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>What is an optimal Huffman code for the following set of frequencies, based on<br />
 the first 8 Fibonacci numbers?</p>
@@ -4429,7 +4429,7 @@ f &amp; 110 \\
 g &amp; 10 \\
 h &amp; 0
 \end{array}</p>
-<h2 id="163-4">16.3-4</h2>
+<h2 id="163-4">16.3-4<a class="headerlink" href="#163-4" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Prove that we can also express the total cost of a tree for a code as the sum, over all internal nodes, of the combined frequencies of the two children of the node.</p>
 </blockquote>
@@ -4453,7 +4453,7 @@ B(T) &amp; = \sum_{\text{leaves }l \in T} f(l)d_T(l) \\
      &amp; = \sum_{\text{internal nodes }i\in T} f(\text{child}_1\text{ of }i) + f(\text{child}_1\text{ of }i).
 \end{align}</p>
 <p>Thus the statement is true.</p>
-<h2 id="163-5">16.3-5</h2>
+<h2 id="163-5">16.3-5<a class="headerlink" href="#163-5" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Prove that if we order the characters in an alphabet so that their frequencies are monotonically decreasing, then there exists an optimal code whose codeword lengths are monotonically increasing.</p>
 </blockquote>
@@ -4471,24 +4471,24 @@ respectively; and $c_i = d_T(x_i) - d_T(x_{n - i + 1})$:</p>
 <p>\begin{align}
 f(x_i) &amp; &gt; f(x_{n - i + 1}) &amp; 1 \le i \le \Big\lfloor \frac{n}{2} \Big\rfloor.
 \end{align}</p>
-<h2 id="163-6">16.3-6</h2>
+<h2 id="163-6">16.3-6<a class="headerlink" href="#163-6" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Suppose we have an optimal prefix code on a set $C = {0, 1, \ldots, n - 1}$ of characters and we wish to transmit this code using as few bits as possible. Show how to represent any optimal prefix code on $C$ using only $2n - 1 + n \lceil \lg n \rceil$ bits. ($\textit{Hint:}$ Use $2n - 1$ bits to specify the structure of the tree, as discovered by a walk of the tree.)</p>
 </blockquote>
 <p>First observe that any full binary tree has exactly $2n - 1$ nodes. We can encode the structure of our full binary tree by performing a preorder traversal of $T$. 
 For each node that we record in the traversal, write a $0$ if it is an internal node and a $1$ if it is a leaf node. Since we know the tree to be full, this uniquely determines its structure. </p>
 <p>Next, note that we can encode any character of $C$ in $\lceil \lg n \rceil$ bits. Since there are $n$ characters, we can encode them in order of appearance in our preorder traversal using ndlg ne bits.</p>
-<h2 id="163-7">16.3-7</h2>
+<h2 id="163-7">16.3-7<a class="headerlink" href="#163-7" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Generalize Huffman's algorithm to ternary codewords (i.e., codewords using the symbols $0$, $1$, and $2$), and prove that it yields optimal ternary codes.</p>
 </blockquote>
 <p>Instead of grouping together the two with lowest frequency into pairs that have the smallest total frequency, we will group together the three with lowest frequency in order to have a final result that is a ternary tree. The analysis of optimality is almost identical to the binary case. We are placing the symbols of lowest frequency lower down in the final tree and so they will have longer codewords than the more frequently occurring symbols.</p>
-<h2 id="163-8">16.3-8</h2>
+<h2 id="163-8">16.3-8<a class="headerlink" href="#163-8" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Suppose that a data file contains a sequence of $8$-bit characters such that all $256$ characters are about equally common: the maximum character frequency is less than twice the minimum character frequency. Prove that Huffman coding in this case is no more efficient than using an ordinary $8$-bit fixed-length code.</p>
 </blockquote>
 <p>For any $2$ characters, the sum of their frequencies exceeds the frequency of any other character, so initially Huffman coding makes $128$ small trees with $2$ leaves each. At the next stage, no internal node has a label which is more than twice that of any other, so we are in the same setup as before. Continuing in this fashion, Huffman coding builds a complete binary tree of height $\lg 256 = 8$, which is no more efficient than ordinary $8$-bit length codes.</p>
-<h2 id="163-9">16.3-9</h2>
+<h2 id="163-9">16.3-9<a class="headerlink" href="#163-9" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Show that no compression scheme can expect to compress a file of randomly chosen 8-bit characters by even a single bit. ($\textit{Hint:}$ Compare the number of possible files with the number of possible encoded files.)</p>
 </blockquote>

@@ -4387,7 +4387,7 @@
                 
                   <h1>4.4 The recursion-tree method for solving recurrences</h1>
                 
-                <h2 id="44-1">4.4-1</h2>
+                <h2 id="44-1">4.4-1<a class="headerlink" href="#44-1" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Use a recursion tree to determine a good asymptotic upper bound on the recurrence $T(n) = 3T(\lfloor n / 2 \rfloor) + n$. Use the substitution method to verify your answer.</p>
 </blockquote>
@@ -4416,7 +4416,7 @@ T(n) &amp; \le 3 T(n / 2) + n \\
      &amp; \le cn^2 - dn,
 \end{align}</p>
 <p>where the last step holds for $d &gt; -2$.</p>
-<h2 id="44-2">4.4-2</h2>
+<h2 id="44-2">4.4-2<a class="headerlink" href="#44-2" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Use a reccursion tree to determine a good asymptotic upper bound on the recurrence $T(n) = T(n / 2) + n^2$. Use the substitution method to verify your answer.</p>
 </blockquote>
@@ -4440,7 +4440,7 @@ T(n) &amp; \le c(n / 2)^2 + n^2 \\
      &amp; \le cn^2, 
 \end{align}</p>
 <p>where the last step holds for $c \ge 4 / 3$.</p>
-<h2 id="44-3">4.4-3</h2>
+<h2 id="44-3">4.4-3<a class="headerlink" href="#44-3" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Use a reccursion tree to determine a good asymptotic upper bound on the recurrence $T(n) = 4T(n / 2 + 2) + n$. Use the substitution method to verify your answer.</p>
 </blockquote>
@@ -4458,7 +4458,7 @@ T(n) &amp; =   4T(n / 2 + 2) + n \\
      &amp; \le cn^2 - 6,
 \end{align}</p>
 <p>where the last step holds for $c \ge 0$.</p>
-<h2 id="44-4">4.4-4</h2>
+<h2 id="44-4">4.4-4<a class="headerlink" href="#44-4" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Use a reccursion tree to determine a good asymptotic upper bound on the recurrence $T(n) = 2T(n - 1) + 1$. Use the substitution method to verify your answer.</p>
 </blockquote>
@@ -4480,7 +4480,7 @@ T(n) &amp; \le 2\cdot c2^{n - 1} + (n - 1) + 1 \\
      &amp; =   c2^n + n \\
      &amp; =   O(2^n).
 \end{align}</p>
-<h2 id="44-5">4.4-5</h2>
+<h2 id="44-5">4.4-5<a class="headerlink" href="#44-5" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Use a reccursion tree to determine a good asymptotic upper bound on the recurrence $T(n) = T(n - 1) + T(n / 2) + n$. Use the substitution method to verify your answer.</p>
 </blockquote>
@@ -4506,12 +4506,12 @@ T(n) &amp; \ge c(n - 1)^2 + c(n / 2)^2 + n \\
      &amp; \ge cn^2 \\
      &amp; =   O(n^2).
 \end{align}</p>
-<h2 id="44-6">4.4-6</h2>
+<h2 id="44-6">4.4-6<a class="headerlink" href="#44-6" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Argue that the solution to the recurrence $T(n) = T(n / 3) + T(2n / 3) + cn$, where $c$ is a constant, is $\Omega(n\lg n)$ by appealing to the recurrsion tree.</p>
 </blockquote>
 <p>The shortest path from the root to a leaf in the recursion tree is $n \to (1 / 3)n \to (1 / 3)^2 n \to \cdots \to 1$. Since $(1 / 3)^k n = 1$ when $k = \log_3 n$, the height of the part of the tree in which every node has two children is $log_3 n$. Since the values at each of these levels of the tree add up to $n$, the solution to the recurrence is at least $n \log_3 n$ = $\Omega(n\lg n)$.</p>
-<h2 id="44-7">4.4-7</h2>
+<h2 id="44-7">4.4-7<a class="headerlink" href="#44-7" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Draw the recursion tree for $T(n) = 4T(\lfloor n / 2 \rfloor) + cn$, where $c$ is a constant, and provide a tight asymptotic bound on its solution. Verify your answer with the substitution method.</p>
 </blockquote>
@@ -4538,7 +4538,7 @@ T(n) &amp; \le 4c(n / 2)^2 + 2c(n / 2) + cn \\
 T(n) &amp; \ge 4c(n / 2)^2 + 2c(n / 2) + cn \\
      &amp; =   cn^2 + 2cn.
 \end{align}</p>
-<h2 id="44-8">4.4-8</h2>
+<h2 id="44-8">4.4-8<a class="headerlink" href="#44-8" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Use a recursion tree to give an asymptotically tight solution to the recurrence $T(n) = T(n - a) + T(a) + cn$, where $a \ge 1$ and $c &gt; 0$ are constants.</p>
 </blockquote>
@@ -4574,7 +4574,7 @@ T(n) &amp; \ge c(n - a)^2 + ca + cn \\
      &amp; \ge cn^2 \\
      &amp; =   \Theta(n^2).
 \end{align}</p>
-<h2 id="44-9">4.4-9</h2>
+<h2 id="44-9">4.4-9<a class="headerlink" href="#44-9" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Use a recursion tree to give an asymptotically tight solution to the recurrence $T(n) = T(\alpha n) + T((1 - \alpha)n) + cn$, where $\alpha$ is a constant in the range $0 &lt; \alpha &lt; 1$, and $c &gt; 0$ is also a constant.</p>
 </blockquote>

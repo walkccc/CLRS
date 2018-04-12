@@ -4331,17 +4331,17 @@
                 
                   <h1>26.3 Maximum bipartite matching</h1>
                 
-                <h2 id="263-1">26.3-1</h2>
+                <h2 id="263-1">26.3-1<a class="headerlink" href="#263-1" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Run the Ford-Fulkerson algorithm on the flow network in Figure 26.8(c) and show the residual network after each flow augmentation. Number the vertices in $L$ top to bottom from 1 to 5 and in $R$ top to bottom from 6 to 9. For each iteration, pick the augmenting path that is lexicographically smallest.</p>
 </blockquote>
 <p>First, we pick an augmenting path that passes through vertices 1 and 6. Then, we pick the path going through 2 and 8. Then, we pick the path going through 3 and 7. Then, the resulting residual graph has no path from $s$ to $t$. So, we know that we are done, and that we are pairing up vertices $(1, 6)$, $(2, 8)$, and $(3, 7)$. This number of unit augmenting paths agrees with the value of the cut where you cut the edges $(s, 3)$, $(6, t)$, and $(7, t)$.</p>
-<h2 id="263-2">26.3-2</h2>
+<h2 id="263-2">26.3-2<a class="headerlink" href="#263-2" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Prove Theorem 26.10.</p>
 </blockquote>
 <p>We proceed by induction on the number of iterations of the while loop of Ford-Fulkerson. After the first iteration, since $c$ only takes on integer values and $(u, v).f$ is set to $0$, $c_f$ only takes on integer values. Thus, lines 7 and 8 of Ford-Fulkerson only assign integer values to $(u, v).f$. Assume that $(u, v).f \in \mathbb Z$ for all $(u, v)$ after the $n$th iteration. On the $(n + 1)$th iteration $c_f(p)$ is set to the minimum of $c_f(u, v)$ which is an integer by the induction hypothesis. Lines 7 and 8 compute $(u, v).f$ or $(v, u).f$. Either way, these the the sum or difference of integers by assumption, so after the $(n + 1)$th iteration we have that $(u, v).f$ is an integer for all $(u, v) \in E$. Since the value of the flow is a sum of flows of edges, we must have $|f| \in \mathbb Z$ as well.</p>
-<h2 id="263-3">26.3-3</h2>
+<h2 id="263-3">26.3-3<a class="headerlink" href="#263-3" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Let $G = (V, E)$ be a bipartite graph with vertex partition $V = L \cup R$, and let $G'$ be its corresponding flow network. Give a good upper bound on the length of any augmenting path found in $G'$ during the execution of $\text{FORD-FULKERSON}$.</p>
 </blockquote>
@@ -4349,7 +4349,7 @@
 <p>Thus any augmenting path must go</p>
 <p>$$s \to L \to R \to \cdots \to L \to R \to t,$$</p>
 <p>crossing back and forth between $L$ and $R$ at most as many times as it can do so without using a vertex twice. It contains $s$, $t$, and equal numbers of distinct vertices from $L$ and $R$—at most $2 + 2 \cdot \min(|L|, |R|)$ vertices in all. The length of an augmenting path (i.e., its number of edges) is thus bounded above by $2 \cdot \min(|L|, |R|) + 1$.</p>
-<h2 id="263-4-star">26.3-4 $\star$</h2>
+<h2 id="263-4-star">26.3-4 $\star$<a class="headerlink" href="#263-4-star" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>A <strong><em>perfect matching</em></strong> is a matching in which every vertex is matched. Let $G = (V, E)$ be an undirected bipartite graph with vertex partition $V = L \cup R$, where $|L| = |R|$. For any $X \subseteq V$, define the <strong><em>neighborhood</em></strong> of $X$ as</p>
 <p>$N(X) = \{y \in V: (x, y) \in E \text{ for some } x \in X\}$,</p>
@@ -4361,7 +4361,7 @@
 <p>Continuing in this fashion, we keep building up the neighborhood $v_i'$, expanding each time we find that $(v_i', t)$ is not an edge in $G_f$. This cannot happen $L$ times, since we have run the Ford-Fulkerson while-loop fewer than $|L|$ times, so there still exist edges into $t$ in $G_f$. Thus, the process must stop at some vertex $v_k'$, and we obtain an augmenting path </p>
 <p>$$s, v_1, v_1', v_2, v_2', v_3, \ldots, v_k, v_k', t,$$</p>
 <p>contradicting our assumption that there was no such path. Therefore the while loop runs at least $|L|$ times. By Corollary 26.3 the flow strictly increases each time by $f_p$. By Theorem 26.10 $f_p$ is an integer. In particular, it is equal to $1$. This implies that $|f| \ge |L|$. It is clear that $|f| \le |L|$, so we must have $|f| = |L|$. By Corollary 26.11 this is the cardinality of a maximum matching. Since $|L| = |R|$, any maximum matching must be a perfect matching.</p>
-<h2 id="263-5-star">26.3-5 $\star$</h2>
+<h2 id="263-5-star">26.3-5 $\star$<a class="headerlink" href="#263-5-star" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>We say that a bipartite graph $G = (V, E)$, where $V = L \cup R$, is <strong><em>$d$-regular</em></strong> if every vertex $v \in V$ has degree exactly $d$. Every $d$-regular bipartite graph has $|L| = |R|$. Prove that every $d$-regular bipartite graph has a matching of cardinality $|L|$ by arguing that a minimum cut of the corresponding flow network has capacity $|L|$.</p>
 </blockquote>

@@ -4359,7 +4359,7 @@
                 
                   <h1>17.3 The potential method</h1>
                 
-                <h2 id="173-1">17.3-1</h2>
+                <h2 id="173-1">17.3-1<a class="headerlink" href="#173-1" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Suppose we have a potential function $\Phi$ such that $\Phi(D_i) \ge \Phi(D_0)$ for all $i$, but $\Phi(D_0) \ne 0$. Show that there exists a potential fuction $\Phi'$ such that $\Phi'(D_0) = 0$, $\Phi'(D_i) \ge 0$ for all $i \ge 1$, and the amortized costs using $\Phi'$ are the same as the amortized costs using $\Phi$.</p>
 </blockquote>
@@ -4375,7 +4375,7 @@
           &amp; = c_i + \Phi(D_i) - \Phi(D_{i - 1}) \\
           &amp; = \hat c_i.
 \end{align}</p>
-<h2 id="173-2">17.3-2</h2>
+<h2 id="173-2">17.3-2<a class="headerlink" href="#173-2" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Redo Exercise 17.1-3 using a potential method of analysis.</p>
 </blockquote>
@@ -4386,7 +4386,7 @@
 <p>If $i = 2^j$ for some $j \in \mathbb N$, then</p>
 <p>$$\hat c_i = c_i + \Phi(D_i) - \Phi(D_{i - 1}) = i + 2i - 2^{1 + j}-(2(i - 1) - 2^{1 + j - 1}) = i + 2i - 2i - 2i + 2 + i = 2.$$</p>
 <p>Thus, the amortized cost is $3$ per operation.</p>
-<h2 id="173-3">17.3-3</h2>
+<h2 id="173-3">17.3-3<a class="headerlink" href="#173-3" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Consider an ordinary binary min-heap data structure with $n$ elements supporting the instructions $\text{INSERT}$ and $\text{EXTRACT-MIN}$ in $O(\lg n)$ worst-case time. Give a potential function $\Phi$ such that the amortized cost of $\text{INSERT}$ is $O(\lg n)$ and the amortized cost of $\text{EXTRACT-MIN}$ is $O(1)$, and show that it works.</p>
 </blockquote>
@@ -4453,7 +4453,7 @@ n \ln\frac{n}{n - 1}
 <p>Initially, the heap has no items, which means that the sum is over an empty set, and so $\Phi(D_0) = 0$. We always have $\Phi(D_i) \ge 0$, as required.</p>
 <p>Observe that after an $\text{INSERT}$, the sum changes only by an amount equal to the depth of the new last node of the heap, which is $\lfloor \lg n_i \rfloor$. Thus, the change in potential due to an $\text{INSERT}$ is $k(1 + \lfloor \lg n_i \rfloor)$, and so the amortized cost is $O(\lg n_i) + O(\lg n_i) = O(\lg n_i) = O(\lg n)$.</p>
 <p>After an $\text{EXTRACT-MIN}$, the sum changes by the negative of the depth of the old last node in the heap, and so the potential <em>decreases</em> by $k(1 + \lfloor \lg n_{i - 1} \rfloor)$. The amortized cost is at most $k\lg n_{i - 1} - k(1 + \lfloor \lg n_{i - 1} \rfloor) = O(1)$.</p>
-<h2 id="173-4">17.3-4</h2>
+<h2 id="173-4">17.3-4<a class="headerlink" href="#173-4" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>What is the total cost of executing $n$ of the stack operations $\text{PUSH}$, $\text{POP}$, and $\text{MULTIPOP}$, assuming that the stack begins with $s_0$ objects and finishes with $s_n$ objects?</p>
 </blockquote>
@@ -4469,7 +4469,7 @@ n \ln\frac{n}{n - 1}
 \end{align}</p>
 <p>which gives us the total cost of $O(n + (s_0 - s_n))$. If $s_n \ge s_0$, then this equals to $O(n)$, that is, if the stack grows, then the work done is limited by the number of operations.</p>
 <p>(Note that it does not matter here that the potential may go below the starting potential. The condition $\Phi(D_n) \ge \Phi(D_0)$ for all $n$ is only required to have $\sum_{i = 1}^n \hat c_i \ge \sum_{i = 1}^n c_i$, but we do not need for that to hold in this application.)</p>
-<h2 id="173-5">17.3-5</h2>
+<h2 id="173-5">17.3-5<a class="headerlink" href="#173-5" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Suppose that a counter begins at a number with $b$ $1$s in its binary representation, rather than at 0. Show that the cost of performing $n$ $\text{INCREMENT}$ operations is $O(n)$ if $n = \Omega(b)$. (Do not assume that $b$ is constant.)</p>
 </blockquote>
@@ -4480,13 +4480,13 @@ n \ln\frac{n}{n - 1}
     &amp; \le n - x + n \\
     &amp; =   O(n).
 \end{align}</p>
-<h2 id="173-6">17.3-6</h2>
+<h2 id="173-6">17.3-6<a class="headerlink" href="#173-6" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Show how to implement a queue with two ordinary stacks (Exercise 10.1-6) so that the amortized cost of each $\text{ENQUEUE}$ and each $\text{DEQUEUE}$ operation is $O(1)$.</p>
 </blockquote>
 <p>We'll use the accounting method for the analysis. Assign cost $3$ to the $\text{ENQUEUE}$ operation and $0$ to the $\text{DEQUEUE}$ operation. Recall the implementation of 10.1-6 where we enqueue by pushing on to the top of stack 1, and dequeue by popping from stack 2.</p>
 <p>If stack 2 is empty, then we must pop every element from stack 1 and push it onto stack 2 before popping the top element from stack 2. For each item that we enqueue we accumulate 2 credits. Before we can dequeue an element, it must be moved to stack 2. Note: this might happen prior to the time at which we wish to dequeue it, but it will happen only once overall. One of the 2 credits will be used for  this move. Once an item is on stack 2 its pop only costs $1$ credit, which is exactly the remaining credit associated to the element. Since each operation's cost is $O(1)$, the amortized cost per operation is $O(1)$.</p>
-<h2 id="173-7">17.3-7</h2>
+<h2 id="173-7">17.3-7<a class="headerlink" href="#173-7" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Design a data structure to support the following two operations for a dynamic multiset $S$ of integers, which allows duplicate values:</p>
 <p>$\text{INSERT}(S, x)$ inserts $x$ into $S$.</p>

@@ -4373,7 +4373,7 @@
                 
                   <h1>3.2 Standard notations and common functions</h1>
                 
-                <h2 id="32-1">3.2-1</h2>
+                <h2 id="32-1">3.2-1<a class="headerlink" href="#32-1" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Show that if $f(n)$ and $g(n)$ are monotonically increasing functions, then so are the functions $f(n) + g(n)$ and $f(g(n))$, and if $f(n)$ and $g(n)$ are in addition nonnegative, then $f(n) \cdot g(n)$ is monotonically increasing.</p>
 </blockquote>
@@ -4388,13 +4388,13 @@ g(m) \le g(n) \quad \text{ for } m \le n, \\
 <p>This is true, since $g(m) &gt; g(n)$ and $f(n)$ is monotonically increasing.</p>
 <p>If both functions are nonnegative, then we can multiply the two equalities and we get</p>
 <p>$$f(m) \cdot g(m) \le f(n) \cdot g(n).$$</p>
-<h2 id="32-2">3.2-2</h2>
+<h2 id="32-2">3.2-2<a class="headerlink" href="#32-2" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Prove equation $\text{(3.16)}$.</p>
 <p>$$a^{\log_b c} = c^{\log_b a} \tag{3.16}
 a^{\log_b c} = a^\frac{\log_a c}{log_a b} = (a^{\log_a c})^{\frac{1}{\log_a b}} = c^{\log_b a}.$$</p>
 </blockquote>
-<h2 id="32-3">3.2-3</h2>
+<h2 id="32-3">3.2-3<a class="headerlink" href="#32-3" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Prove equation $\text{(3.19)}$. Also prove that $n \ne \omega(2^n)$ and $n \ne o(n^n)$.</p>
 <p>$$\lg(n!) = \Theta(n\lg n) \tag{3.19}$$</p>
@@ -4412,7 +4412,7 @@ a^{\log_b c} = a^\frac{\log_a c}{log_a b} = (a^{\log_a c})^{\frac{1}{\log_a b}} 
 <p>$$\forall n &gt; 3: 2^n = \underbrace{2 \cdot 2 \cdot \cdots \cdot 2}_\text{n times} &lt; 1 \cdot 2 \cdot \cdots \cdot n = n! \quad \Rightarrow \quad n! = \omega(2^n).$$</p>
 <p>and</p>
 <p>$$\forall n &gt; 1 : n! = 1 \cdot 2 \cdot \cdots n &lt; \underbrace{n \cdot n \cdot \cdots \cdot n}_\text{n times} = n^n \quad \Rightarrow \quad n! = o(n^n).$$</p>
-<h2 id="32-4-star">3.2-4 $\star$</h2>
+<h2 id="32-4-star">3.2-4 $\star$<a class="headerlink" href="#32-4-star" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Is the function $\lceil \lg n \rceil!$ polynomially bounded? Is the function $\lceil \lg\lg n \rceil!$ polynomially bounded?</p>
 </blockquote>
@@ -4444,12 +4444,12 @@ a^{\log_b c} = a^\frac{\log_a c}{log_a b} = (a^{\log_a c})^{\frac{1}{\log_a b}} 
                              &amp; = o(\lg^2(\lg n)) \\
                              &amp; = o(\lg n).
 \end{align}</p>
-<h2 id="32-5-star">3.2-5 $\star$</h2>
+<h2 id="32-5-star">3.2-5 $\star$<a class="headerlink" href="#32-5-star" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Which is asymptotically larger: $\lg(\lg^*n)$ or $\lg^*(\lg n)$?</p>
 </blockquote>
 <p>$\lg^*(\lg n)$ is asymptotically larger because $\lg^*(\lg n) = \lg^*n - 1$.</p>
-<h2 id="32-6">3.2-6</h2>
+<h2 id="32-6">3.2-6<a class="headerlink" href="#32-6" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Show that the golden ratio $\phi$ and its conjugate $\hat \phi$ both satisfy the equation $x^2 = x + 1$.</p>
 </blockquote>
@@ -4465,7 +4465,7 @@ a^{\log_b c} = a^\frac{\log_a c}{log_a b} = (a^{\log_a c})^{\frac{1}{\log_a b}} 
   &amp; = \frac{1 - 2\sqrt 5 + 5 - 2 + 2\sqrt 5 - 4}{4} \\
   &amp; = 0.
 \end{align}</p>
-<h2 id="32-7">3.2-7</h2>
+<h2 id="32-7">3.2-7<a class="headerlink" href="#32-7" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Prove by induction that the $i$th Fibonacci number satisfies the equality  </p>
 <p>$$F_i = \frac{\phi^i - \hat\phi^i}{\sqrt 5},$$</p>
@@ -4494,7 +4494,7 @@ F_i &amp; = F_{i - 1} + F_{i - 2} &amp; \text{(equation (3.22)} \\
     &amp; = \frac{\phi^{i - 2}\phi^2 - \hat\phi^{i - 2}\hat\phi^2}{\sqrt 5} &amp; \text{(Exercise 3.2-6)} \\
     &amp; = \frac{\phi^i - \hat\phi^i}{\sqrt 5}. 
 \end{align}</p>
-<h2 id="32-8">3.2-8</h2>
+<h2 id="32-8">3.2-8<a class="headerlink" href="#32-8" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Show that $k\ln k = \Theta(n)$ implies $k = \Theta(n / \ln n)$.</p>
 </blockquote>

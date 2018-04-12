@@ -4289,12 +4289,12 @@
                 
                   <h1>19.3 Decreasing a key and deleting a node</h1>
                 
-                <h2 id="193-1">19.3-1</h2>
+                <h2 id="193-1">19.3-1<a class="headerlink" href="#193-1" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Suppose that a root $x$ in a Fibonacci heap is marked. Explain how $x$ came to be a marked root. Argue that it doesn't matter to the analysis that $x$ is marked, even though it is not a root that was first linked to another node and then lost one child.</p>
 </blockquote>
 <p>A root in the heap became marked because it at some point had a child whose key was decreased. It doesn't add the potential for having to do any more actual work for it to be marked. This is because the only time that markedness is checked is in line 3 of cascading cut. This however is only ever run on nodes whose parent is non $\text{NIL}$. Since every root has $\text{NIL}$ as it parent, line 3 of cascading cut will never be run on this marked root. It will still cause the potential function to be larger than needed, but that extra computation that was paid in to get the potential function higher will never be used up later.</p>
-<h2 id="193-2">19.3-2</h2>
+<h2 id="193-2">19.3-2<a class="headerlink" href="#193-2" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Justify the $O(1)$ amortized time of $\text{FIB-HEAP-DECREASE-KEY}$ as an average cost per operation by using aggregate analysis.</p>
 </blockquote>

@@ -4387,7 +4387,7 @@
                 
                   <h1>6.5 Priority queues</h1>
                 
-                <h2 id="65-1">6.5-1</h2>
+                <h2 id="65-1">6.5-1<a class="headerlink" href="#65-1" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Illustrate the operation $\text{HEAP-EXTRACT-MAX}$ on the heap $A = \langle 15, 13, 9, 5, 12, 8, 7, 4, 0, 6, 2, 1 \rangle$.</p>
 </blockquote>
@@ -4413,7 +4413,7 @@
 <p><img alt="" src="https://i.imgur.com/6YvV19t.png?width=30rem" /></p>
 </li>
 </ol>
-<h2 id="65-2">6.5-2</h2>
+<h2 id="65-2">6.5-2<a class="headerlink" href="#65-2" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Illustrate the operation of $\text{MAX-HEAP-INSERT}(A, 10)$ on the heap $A = \langle 15, 13, 9, 5, 12, 8, 7, 4, 0, 6, 2, 1 \rangle$.</p>
 </blockquote>
@@ -4439,7 +4439,7 @@
 <p><img alt="" src="https://i.imgur.com/2ssLghN.png?width=30rem" /></p>
 </li>
 </ol>
-<h2 id="65-3">6.5-3</h2>
+<h2 id="65-3">6.5-3<a class="headerlink" href="#65-3" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Write pseudocode for the procedures $\text{HEAP-MINIMUM}$, $\text{HEAP-EXTRACT-MIN}$, $\text{HEAP-DECREASE-KEY}$, and $\text{MIN-HEAP-INSERT}$ that implement a min-priority queue with a min-heap.</p>
 </blockquote>
@@ -4472,12 +4472,12 @@
     <span class="n">HEAP</span><span class="o">-</span><span class="n">DECREASE</span><span class="o">-</span><span class="n">KEY</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">size</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
 </pre></div>
 
-<h2 id="65-4">6.5-4</h2>
+<h2 id="65-4">6.5-4<a class="headerlink" href="#65-4" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Why do we bother setting the key of the inserted node to $-\infty$ in line 2 of $\text{MAX-HEAP-INSERT}$ when the next thing we do is increase its key to the desired value?</p>
 </blockquote>
 <p>In order to pass the guard clause. Otherwise we have to drop the check if $key &lt; A[i]$.</p>
-<h2 id="65-5">6.5-5</h2>
+<h2 id="65-5">6.5-5<a class="headerlink" href="#65-5" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Argue the correctness of $\text{HEAP-INCREASE-KEY}$ using the following loop invariant:</p>
 <p>At the start of each iteration of the <strong>while</strong> loop of lines 4-6, the subarray $A[1 ..A.heap\text-size]$ satisfies the max-heap property, except that there may be one violation: $A[i]$ may be larger than $A[\text{PARENT}(i)]$.</p>
@@ -4486,7 +4486,7 @@
 <p><strong>Initialization:</strong> $A$ is a heap except that $A[i]$ might be larger that it's parent, because it has been modified. $A[i]$ is larger than its children, because otherwise the guard clause would fail and the loop will not be entered (the new value is larger than the old value and the old value is larger than the children).</p>
 <p><strong>Maintenance:</strong> When we exchange $A[i]$ with its parent, the max-heap property is satisfied except that now $A[\text{PARENT}(i)]$ might be larger than its parent. Changing $i$ to its parent maintains the invariant.</p>
 <p><strong>Termination:</strong> The loop terminates whenever the heap is exhausted or the max-heap property for $A[i]$ and its parent is preserved. At the loop termination, $A$ is a max-heap.</p>
-<h2 id="65-6">6.5-6</h2>
+<h2 id="65-6">6.5-6<a class="headerlink" href="#65-6" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Each exchange operation on line 5 of $\text{HEAP-INCREASE-KEY}$ typically requires three assignments. Show how to use the idea of the inner loop of $\text{INSERTION-SORT}$ to reduce the three assignments down to just one assignment.</p>
 </blockquote>
@@ -4501,13 +4501,13 @@
     <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
 </pre></div>
 
-<h2 id="65-7">6.5-7</h2>
+<h2 id="65-7">6.5-7<a class="headerlink" href="#65-7" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Show how to implement a first-in, first-out queue with a priority queue. Show how to implement a stack with a priority queue. (Queues and stacks are defined in section 10.1).</p>
 </blockquote>
 <p>Both are simple. For a stack we keep adding elements in increasing priority, while in a queue we add them in decreasing priority. For the stack we can set the new priority to $\text{HEAP-MAXIMUM}(A) + 1$. For the queue we need to keep track of it and decrease it on every insertion.</p>
 <p>Both are not very efficient. Furthermore, if the priority can overflow or underflow, so will eventually need to reassign priorities.</p>
-<h2 id="65-8">6.5-8</h2>
+<h2 id="65-8">6.5-8<a class="headerlink" href="#65-8" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>The operation $\text{HEAP-DELETE}(A, i)$ deletes the item in node $i$ from heap $A$. Give an implementation of $\text{HEAP-DELETE}$ that runs in $O(\lg n)$ time for an $n$-element max-heap.</p>
 </blockquote>
@@ -4518,7 +4518,7 @@
 </pre></div>
 
 <p>We just move the last element of the heap to the deleated position and then call $\text{MAX-HEAPIFY}$ on it. This works, because the element is already smaller than its parent (because it was already under it on the heap), but might be larger than its children. $\text{MAX-HEAPIFY}$ restored the heap property.</p>
-<h2 id="65-9">6.5-9</h2>
+<h2 id="65-9">6.5-9<a class="headerlink" href="#65-9" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Give an $O(n\lg k)$-time algorithm to merge $k$ sorted lists into one sorted list, where $n$ is the total number of elements in all the input lists. ($\textit{Hint:}$ Use a min-heap for $k$-way merging.)</p>
 </blockquote>

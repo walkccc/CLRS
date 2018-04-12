@@ -4331,7 +4331,7 @@
                 
                   <h1>8.3 Radix sort</h1>
                 
-                <h2 id="83-1">8.3-1</h2>
+                <h2 id="83-1">8.3-1<a class="headerlink" href="#83-1" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Using Figure 8.3 as a model, illustrate the operation of $\text{RADIX-SORT}$ on the following list of English words: COW, DOG, SEA, RUG, ROW, MOB, BOX, TAB, BAR, EAR, TAR, DIG, BIG, TEA, NOW, FOX.</p>
 </blockquote>
@@ -4355,7 +4355,7 @@
 \text{NOW} &amp; \text{BO$\textbf{X}$} &amp; \text{F$\textbf{O}$X} &amp; \text{$\textbf{T}$AR} \\
 \text{FOX} &amp; \text{FO$\textbf{X}$} &amp; \text{R$\textbf{U}$G} &amp; \text{$\textbf{T}$EA} \\
 \end{array}</p>
-<h2 id="83-2">8.3-2</h2>
+<h2 id="83-2">8.3-2<a class="headerlink" href="#83-2" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Which of the following sorting algorithms are stable: insertion sort, merge sort, heapsort, and quicksort? Give a simple scheme that makes any sorting algorithm stable. How much additional time and space does your scheme entail?</p>
 </blockquote>
@@ -4365,7 +4365,7 @@
 <p>One scheme that makes a sorting algorithm stable is to store the index of each element (the element's place in the original ordering) with the element. When comparing two elements, compare them by their values and break ties by their indices.</p>
 <p>Additional space requirements: For $n$ elements, their indices are $1 \ldots n$. Each can be written in $\lg n$ bits, so together they take $O(n\lg n)$ additional space.</p>
 <p>Additional time requirements: The worst case is when all elements are equal. The asymptotic time does not change because we add a constant amount of work to each comparison.</p>
-<h2 id="83-3">8.3-3</h2>
+<h2 id="83-3">8.3-3<a class="headerlink" href="#83-3" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Use induction to prove that radix sort works. Where does your proof need the assumption that the intermediate sort is stable?</p>
 </blockquote>
@@ -4379,13 +4379,13 @@
 <li>If $a_d = b_d$, the sort will leave $a$ and $b$ in the same order they were in, because it is stable. But that order is already correct, since the correct order of $a$ and $b$ is determined by the low-order $d - 1$ digits when their dth digits are equal, and the elements are already sorted by their low-order $d - 1$ digits.</li>
 </ul>
 <p>If the intermediate sort were not stable, it might rearrange elements whose $d$th digits were equal—elements that <em>were</em> in the right order after the sort on their lower-order digits.</p>
-<h2 id="83-4">8.3-4</h2>
+<h2 id="83-4">8.3-4<a class="headerlink" href="#83-4" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Show how to sort $n$ integers in the range $0$ to $n^3 - 1$ in $O(n)$ time.</p>
 </blockquote>
 <p>Treat the numbers as $3$-digit numbers in radix $n$. Each digit ranges from $0$ to $n - 1$. Sort these $3$-digit numbers with radix sort.</p>
 <p>There are 3 calls to counting sort, each taking $\Theta(n + n) = \Theta(n)$ time, so that the total time is $\Theta(n)$.</p>
-<h2 id="83-5-star">8.3-5 $\star$</h2>
+<h2 id="83-5-star">8.3-5 $\star$<a class="headerlink" href="#83-5-star" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>In the first card-sorting algorithm in this section, exactly how many sorting passes are needed to sort $d$-digit decimal numbers in the worst case? How many piles of cards would an operator need to keep track of in the worst case?</p>
 </blockquote>

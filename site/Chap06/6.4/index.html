@@ -4331,12 +4331,12 @@
                 
                   <h1>6.4 The heapsort algorithm</h1>
                 
-                <h2 id="64-1">6.4-1</h2>
+                <h2 id="64-1">6.4-1<a class="headerlink" href="#64-1" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Using figure 6.4 as a model, illustrate the operation of $\text{HEAPSORT}$ on the array $A = \langle 5, 13, 2, 25, 7, 17, 20, 8, 4 \rangle$.</p>
 </blockquote>
 <p><img alt="" src="https://i.imgur.com/6VA3Y9F.png?width=40rem" /></p>
-<h2 id="64-2">6.4-2</h2>
+<h2 id="64-2">6.4-2<a class="headerlink" href="#64-2" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Argue the correctness of $\text{HEAPSORT}$ using the following loop invariant:</p>
 <p>At the start of each iteration of the <strong>for</strong> loop of lines 2-5, the subarray $A[1..i]$ is a max-heap containing the $i$ smallest elements of $A[1..n]$, and the subarray $A[i + 1..n]$ contains the $n - i$ largest elements of $A[1..n]$, sorted.</p>
@@ -4344,7 +4344,7 @@
 <p><strong>Initialization:</strong> The subarray $A[i + 1..n]$ is empty, thus the invariant holds.</p>
 <p><strong>Maintenance:</strong> $A[1]$ is the largest element in $A[1..i]$ and it is smaller than the elements in $A[i + 1..n]$. When we put it in the $i$th position, then $A[i..n]$ contains the largest elements, sorted. Decreasing the heap size and calling $\text{MAX-HEAPIFY}$ turns $A[1..i - 1]$ into a max-heap. Decrementing $i$ sets up the invariant for the next iteration.</p>
 <p><strong>Termination:</strong> After the loop $i = 1$. This means that $A[2..n]$ is sorted and $A[1]$ is the smallest element in the array, which makes the array sorted.</p>
-<h2 id="64-3">6.4-3</h2>
+<h2 id="64-3">6.4-3<a class="headerlink" href="#64-3" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>What is the running time of $\text{HEAPSORT}$ on an array $A$ of length $n$ that is already sorted in increasing order? What about decreasing order?</p>
 </blockquote>
@@ -4352,12 +4352,12 @@
 <p>If the array is sorted in increasing order, the algorithm will need to convert it to a heep that will take $O(n)$. Afterwards, however, there are $n - 1$ calls to $\text{MAX-HEAPIFY}$ and each one will perform the full $\lg k$ operations. Since:</p>
 <p>$$\sum_{i = 1}^{n - 1}\lg k = \lg\Big((n - 1)!\Big) = \Theta(n\lg n).$$</p>
 <p>Same goes for decreasing order. $\text{BUILD-MAX-HEAP}$ will be faster (by a constant factor), but the computation time will be dominated by the loop in $\text{HEAPSORT}$, which is $\Theta(n\lg n)$.</p>
-<h2 id="64-4">6.4-4</h2>
+<h2 id="64-4">6.4-4<a class="headerlink" href="#64-4" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Show that the worst-case running time of $\text{HEAPSORT}$ is $\Omega(n\lg n)$.</p>
 </blockquote>
 <p>This is essentially the first part of exercise 6.4-3. Whenever we have an array that is already sorted, we take linear time to convert it to a max-heap and then $n\lg n$ time to sort it.</p>
-<h2 id="64-5-star">6.4-5 $\star$</h2>
+<h2 id="64-5-star">6.4-5 $\star$<a class="headerlink" href="#64-5-star" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Show that when all elements are distinct, the best-case running time of $\text{HEAPSORT}$ is $\Omega(n\lg n)$.</p>
 </blockquote>

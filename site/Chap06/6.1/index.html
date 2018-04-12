@@ -4359,39 +4359,39 @@
                 
                   <h1>6.1 Heaps</h1>
                 
-                <h2 id="61-1">6.1-1</h2>
+                <h2 id="61-1">6.1-1<a class="headerlink" href="#61-1" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>What are the minimum and maximum numbers of elements in a heap of height $h$?</p>
 </blockquote>
 <p>Since a heap is an almost-complete binary tree (complete at all levels except possibly the lowest), it has at most $2^{h + 1} - 1$ elements (if it is complete) and at least $2^h - 1 + 1 = 2^h$ elements (if the lowest level has just $1$ element and the other levels are complete).</p>
-<h2 id="61-2">6.1-2</h2>
+<h2 id="61-2">6.1-2<a class="headerlink" href="#61-2" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Show that an $n$-element heap has height $\lfloor \lg n \rfloor$.</p>
 </blockquote>
 <p>Given an $n$-element heap of height $h$, we know from Exercise 6.1-1 that</p>
 <p>$$2^h \le n \le 2^{h + 1} - 1 &lt; 2^{h + 1}.$$</p>
 <p>Thus, $h \le \lg n &lt; h + 1$. Since $h$ is an integer, $h = \lfloor \lg n \rfloor$ (by definition of $\lfloor \rfloor$).</p>
-<h2 id="61-3">6.1-3</h2>
+<h2 id="61-3">6.1-3<a class="headerlink" href="#61-3" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Show that in any subtree of a max-heap, the root of the subtree contains the largest value occuring anywhere in the subtree.</p>
 </blockquote>
 <p>Assume the claim is false—i.e., that there is a subtree whose root is not the largest element in the subtree. Then the maximum element is somewhere else in the subtree, possibly even at more than one location. Let $m$ be the index at which the maximum appears (the lowest such index if the maximum appears more than once). Since the maximum is not at the root of the subtree, node $m$ has a parent. Since the parent of a node has a lower index than the node, and $m$ was chosen to be the smallest index of the maximum value, $A[\text{PARENT}(m)] &lt; A[m]$. But by the maxheap property, we must have $A[\text{PARENT}(m)] \ge A[m]$. So our assumption is false, and the claim is true.</p>
-<h2 id="61-4">6.1-4</h2>
+<h2 id="61-4">6.1-4<a class="headerlink" href="#61-4" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Where in a max-heap might the smallest element reside, assuming that all elements are distinct?</p>
 </blockquote>
 <p>In any of the leaves, that is, elements with index $\lfloor n / 2 \rfloor + 1$ (see exercise 6.1-7), that is, in the second half of the heap array.</p>
-<h2 id="61-5">6.1-5</h2>
+<h2 id="61-5">6.1-5<a class="headerlink" href="#61-5" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Is an array that is in sorted order a min-heap?</p>
 </blockquote>
 <p>Yes. For any index $i$, both $\text{LEFT}(i)$ and $\text{RIGHT}(i)$ are larger and thus the elements indexed by them are greater or equal to $A[i]$ (because the array is sorted.)</p>
-<h2 id="61-6">6.1-6</h2>
+<h2 id="61-6">6.1-6<a class="headerlink" href="#61-6" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Is the array with values $\langle 23, 17, 14, 6, 13, 10, 1, 5, 7, 12 \rangle$ a max-heap?</p>
 </blockquote>
 <p>No. The property is violated by the next-to-last leaf (illustrated below in red.)</p>
-<h2 id="61-7">6.1-7</h2>
+<h2 id="61-7">6.1-7<a class="headerlink" href="#61-7" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Show that, with the array representation for sorting an $n$-element heap, the leaves are the nodes indexed by $\lfloor n / 2 \rfloor + 1, \lfloor n / 2 \rfloor + 2, \ldots, n$.</p>
 </blockquote>

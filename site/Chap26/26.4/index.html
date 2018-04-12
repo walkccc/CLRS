@@ -4401,7 +4401,7 @@
                 
                   <h1>26.4 Push-relabel algorithms</h1>
                 
-                <h2 id="264-1">26.4-1</h2>
+                <h2 id="264-1">26.4-1<a class="headerlink" href="#264-1" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Prove that, after the procedure $\text{INITIALIZE-PREFLOW}(G, S)$ terminates, we have $s.e \le -|f^*|$, where $f^*$ is a maximum flow for $G$.</p>
 </blockquote>
@@ -4417,19 +4417,19 @@ e(s) &amp; = \sum_{v \in V} f(v, s) - \sum_{v \in V} f(s, v) \\
         &amp; \ge 0 - \sum_{v \in V} c(s, v) \qquad \text{(since $f^*(v, s) \ge 0$ and $f^*(s, v) \le c(s, v)$)} \\
         &amp; = e(s).
 \end{align}</p>
-<h2 id="264-2">26.4-2</h2>
+<h2 id="264-2">26.4-2<a class="headerlink" href="#264-2" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Show how to implement the generic push-relabel algorithm using $O(V)$ time per relabel operation, $O(1)$ time per push, and $O(1)$ time to select an applicable operation, for a total time of $O(V^2E)$.</p>
 </blockquote>
 <p>We must select an appropriate data structure to store all the information which will allow us to select a valid operation in constant time. To do this, we will need to maintain a list of overflowing vertices. By Lemma 26.14, a push or a relabel operation always applies to an overflowing vertex. To determine which operation to perform, we need to determine whether $u.h = v.h + 1$ for some $v \in N(u)$. We'll do this by maintaining a list $u.high$ of all neighbors of $u$ in $G_f$ which have height greater than or equal to $u$. We'll update these attributes in the $\text{PUSH}$ and $\text{RELABEL}$ functions. It is clear from the pseudocode given for $\text{PUSH}$ that we can execute it in constant time, provided we have maintain the attributes $\delta_f(u, v)$, $u.e$, $c_f(u, v)$, $(u, v).f$ and $u.h$. Each time we call $\text{PUSH}(u, v)$ the result is that $u$ is no longer overflowing, so we must remove it from the list.</p>
 <p>Maintain a pointer $u.overflow$ to $u$'s position in the overflow list. If a vertex $u$ is not overflowing, set $u.overflow = \text{NIL}$. Next, check if $v$ became overflowing. If so, set $v.overflow$ equal to the head of the overflow list. Since we can update the pointer in constant time and delete from a linked list given a pointer to the element to be deleted in constant time, we can maintain the list in $O(1)$.</p>
 <p>The $\text{RELABEL}$ operation takes $O(V)$ because we need to compute the minimum $v.h$ from among all $(u, v) \in E_f$, and there could be $|V| - 1$ many such $v$. We will also need to update $u.high$ during $\text{RELABEL}$. When $\text{RELABEL}(u)$ is called, set $u.high$ equal to the empty list and for each vertex $v$ which is adjacent to $u$, if $v.h = u.h + 1$, add $u$ to the list $v.high$. Since this takes constant time per adjacent vertex we can maintain the attribute in $O(V)$ per call to relabel.</p>
-<h2 id="264-3">26.4-3</h2>
+<h2 id="264-3">26.4-3<a class="headerlink" href="#264-3" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Prove that the generic push-relabel algorithm spends a total of only $O(VE)$ time in performing all the $O(V^2)$ relabel operations.</p>
 </blockquote>
 <p>Each time we call $\text{RELABEL}(u)$, we examine all edges $(u, v) \in E_f$. Since the number of relabel operations is at most $2|V| - 1$ per vertex, edge $(u, v)$ will be examined during relabel operations at most $4|V| - 2 = O(V)$ times (at most $2|V| - 1$ times during calls to $\text{RELABEL}(u)$ and at most $2|V| - 1$ times during calls to $\text{RELABEL}(v)$). Summing up over all the possible residual edges, of which there are at most $2|E| = O(E)$, we see that the total time spent relabeling vertices is $O(VE)$.</p>
-<h2 id="264-4">26.4-4</h2>
+<h2 id="264-4">26.4-4<a class="headerlink" href="#264-4" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Suppose that we have found a maximum flow in a flow network $G = (V, E)$ using a push-relabel algorithm. Give a fast algorithm to find a minimum cut in $G$.</p>
 </blockquote>
@@ -4437,18 +4437,18 @@ e(s) &amp; = \sum_{v \in V} f(v, s) - \sum_{v \in V} f(s, v) \\
 <p>Let $S = {u \in V: u.h &gt; \hat h}$ and $T = {v \in V: v.h &lt; \hat h}$. Because we know that $s.h = |V| &gt; \hat h$, we have $s \in S$, and because $t.h = 0 &lt; \hat h$, y we have $t \in T$, as required for a cut.</p>
 <p>We need to show that $f(u, v) = c(u, v)$, i.e., that $(u, v) \notin E_f$, for all $u \in S$ and $v \in T$. Once we do that, we have that $f(S, T) = c(S, T)$, and by Corollary 26.5, $(S, T)$ is a minimum cut.</p>
 <p>Suppose for the purpose of contradiction that there exist vertices $u \in S$ and $v \in T$ such that $(u, v) \in E_f$. Because $h$ is always maintained as a height function (Lemma 26.16), we have that $u.h \le v.h + 1$. But we also have $v.h &lt; \hat h &lt; u.h$, and because all values are integer, $v.h \le u.h - 2$. Thus, we have $u.h \le v.h + 1 \le u.h - 2 + 1 = u.h - 1$, which gives the contradiction that $u.height \le u.height - 1$. Thus, $(S, T)$ is a minimum cut.</p>
-<h2 id="264-5">26.4-5</h2>
+<h2 id="264-5">26.4-5<a class="headerlink" href="#264-5" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Give an efficient push-relabel algorithm to find a maximum matching in a bipartite graph. Analyze your algorithm.</p>
 </blockquote>
 <p>First, construct the flow network for the bipartite graph as in the previous section. Then, we relabel everything in $L$. Then, we push from every vertex in $L$ to a vertex in $R$, so long as it is possible.</p>
 <p>Keeping track of those that vertices of $L$ that are still overflowing can be done by a simple bit vector. Then, we relabel everything in R and push to the last vertex. Once these operations have been done, The only possible valid operations are to relabel the vertices of $L$ that weren't able to find an edge that they could push their flow along, so could possibly have to get a push back from $R$ to $L$. This continues until there are no more operations to do. This takes time of $O(V(E + V))$.</p>
-<h2 id="264-6">26.4-6</h2>
+<h2 id="264-6">26.4-6<a class="headerlink" href="#264-6" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Suppose that all edge capacities in a flow network $G = (V, E)$ are in the set ${1, 2, \ldots, k}$. Analyze the running time of the generic push-relabel algorithm in terms of $|V|$, $|E|$, and $k$. ($\textit{Hint:}$ How many times can each edge support a nonsaturating push before it becomes saturated?)</p>
 </blockquote>
 <p>The number of relabel operations and saturating pushes is the same as before. An edge can handle at most $k$ nonsaturating pushes before it becomes saturated, so the number of nonsaturating pushes is at most $2k|V||E|$. Thus, the total number of basic operations is at most $2|V|^2 + 2|V||E| + 2k|V||E| = O(kVE)$.</p>
-<h2 id="264-7">26.4-7</h2>
+<h2 id="264-7">26.4-7<a class="headerlink" href="#264-7" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Show that we could change line 6 of $\text{INITIALIZE-PREFLOW}$ to </p>
 <div class="highlight"><pre><span></span> <span class="mi">6</span> <span class="n">s</span><span class="p">.</span><span class="n">h</span> <span class="o">=</span> <span class="o">|</span><span class="n">G</span><span class="p">.</span><span class="n">V</span><span class="o">|</span> <span class="o">-</span> <span class="mi">2</span> 
@@ -4459,7 +4459,7 @@ e(s) &amp; = \sum_{v \in V} f(v, s) - \sum_{v \in V} f(s, v) \\
 <p>If we set $s.h = |V| - 2$, we have to change our definition of a height function to allow $s.h = |V| - 2$, rather than $s.h = |V|$. The only change we need to make to the proof of correctness is to update the proof of Lemma 26.17. The original proof derives the contradiction that $s.h \le k &lt; |V|$, which is at odds with $s.h = |V|$. When $s.h = |V| - 2$, there is no contradiction.</p>
 <p>As in the original proof, let us suppose that we have a simple augmenting path $\langle v_0, v_1, \ldots, v_k \rangle$, where $v_0 = s$ and $v_k = t$, so that $k &lt; |V|$. How could $(s, v_1)$ be a residual edge? It had been saturated in $\text{INITIALIZE-PREFLOW}$, which means that we had to have pushed some flow from $v_1$ to $s$. In order for that to have happened, we must have had $v_1.h = s.h + 1$. If we set $s.h = |V| - 2$, then $v_1.h$ was $|V| - 1$ at the time. Since then, $v_1.h$ did not decrease, and so we have $v_1.h \ge |V| - 1$. Working backwards over our augmenting path, we have $v_{k - i}.h \le t.h + i$ for $i = 0, 1, \ldots, k$. As before, because the augmenting path is simple, $k &lt; |V|$. Letting $i = k - 1$, we have $v_1.h \le t.h + k - 1 &lt; 0 + |V| - 1$. We now have the contradiction that $v_1.h \ge |V| - 1$ and $v_1.h &lt; |V| - 1$, which shows that Lemma 26.17 still holds.</p>
 <p>Nothing in the analysis changes asymptotically.</p>
-<h2 id="264-8">26.4-8</h2>
+<h2 id="264-8">26.4-8<a class="headerlink" href="#264-8" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Let $\delta_f(u, v)$ be the distance (number of edges) from $u$ to $v$ in the residual network $G_f$. Show that the $\text{GENERIC-PUSH-RELABEL}$ procedure maintains the properties that $u.h &lt; |V|$ implies $u.h \le \delta_f(u, t)$ and that $u.h \ge |V|$ implies $u.h - |V| \le \delta_f(u, s)$.</p>
 </blockquote>
@@ -4478,12 +4478,12 @@ e(s) &amp; = \sum_{v \in V} f(v, s) - \sum_{v \in V} f(s, v) \\
 </li>
 </ul>
 <p>Therefore, the $\text{GENERIC-PUSH-RELABEL}$ procedure maintains the desired properties.</p>
-<h2 id="264-9-star">26.4-9 $\star$</h2>
+<h2 id="264-9-star">26.4-9 $\star$<a class="headerlink" href="#264-9-star" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>As in the previous exercise, let $\delta_f(u, v)$ be the distance from $u$ to $v$ in the residual network $G_f$. Show how to modify the generic push-relabel algorithm to maintain the property that $u.h &lt; |V|$ implies $u.h = \delta_f(u, t)$ and that $u.h \ge |V|$ implies $u.h - |V| = \delta_f(u, s)$. The total time that your implementation dedicates to maintaining this property should be $O(VE)$.</p>
 </blockquote>
 <p>What we should do is to, for successive backwards neighborhoods of $t$, relabel everything in that neighborhood. This will only take at most $O(VE)$ time (see 26.4-3). This also has the upshot of making it so that once we are done with it, every vertex's height is equal to the quantity $\delta_f(u, t)$. Then, since we begin with equality, after doing this, the inductive step we had in the solution to the previous exercise shows that this equality is preserved.</p>
-<h2 id="264-10">26.4-10</h2>
+<h2 id="264-10">26.4-10<a class="headerlink" href="#264-10" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Show that the number of nonsaturating pushes executed by the $\text{GENERIC-PUSH-RELABEL}$ procedure on a flow network $G = (V, E)$ is at most $4|V|^2|E|$ for $|V| \ge 4$.</p>
 </blockquote>

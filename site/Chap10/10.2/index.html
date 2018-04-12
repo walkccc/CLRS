@@ -4373,7 +4373,7 @@
                 
                   <h1>10.2 Linked lists</h1>
                 
-                <h2 id="102-1">10.2-1</h2>
+                <h2 id="102-1">10.2-1<a class="headerlink" href="#102-1" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Can you implement the dynamic-set operation $\text{INSERT}$ on a singly linked list in $O(1)$ time? How about $\text{DELETE}$?</p>
 </blockquote>
@@ -4390,7 +4390,7 @@
 <p>$\text{DELETE}$: cannot be implemented in constant time, unless you pass to it as an argument the predecessor of the element you are deleting.</p>
 </li>
 </ul>
-<h2 id="102-2">10.2-2</h2>
+<h2 id="102-2">10.2-2<a class="headerlink" href="#102-2" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Implement a stack using a singly linked list $L$. The operations $\text{PUSH}$ and $\text{POP}$ should still take $O(1)$ time.</p>
 </blockquote>
@@ -4418,7 +4418,7 @@
 
 </li>
 </ul>
-<h2 id="102-3">10.2-3</h2>
+<h2 id="102-3">10.2-3<a class="headerlink" href="#102-3" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Implement a queue by a singly linked list $L$. The operations $\text{ENQUEUE}$ and $\text{DEQUEUE}$ should still take $O(1)$ time.</p>
 </blockquote>
@@ -4456,7 +4456,7 @@
 
 </li>
 </ul>
-<h2 id="102-4">10.2-4</h2>
+<h2 id="102-4">10.2-4<a class="headerlink" href="#102-4" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>As written, each loop iteration in the $\text{LIST-SEARCH}'$ procedure requires two tests: one for $x \ne L.nil$ and one for $x.key \ne k$. Show how to eliminate the test for $x \ne L.nil$ in each iteration.</p>
 </blockquote>
@@ -4468,7 +4468,7 @@
     <span class="k">return</span> <span class="n">x</span>
 </pre></div>
 
-<h2 id="102-5">10.2-5</h2>
+<h2 id="102-5">10.2-5<a class="headerlink" href="#102-5" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Implement the dictionary operations $\text{INSERT}$, $\text{DELETE}$, and $\text{SEARCH}$ using singly linked, circular lists. What are the running times of your procedures?</p>
 </blockquote>
@@ -4505,7 +4505,7 @@
 
 </li>
 </ul>
-<h2 id="102-6">10.2-6</h2>
+<h2 id="102-6">10.2-6<a class="headerlink" href="#102-6" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>The dynamic-set operation $\text{UNION}$ takes two disjoint sets $S_1$ and $S_2$ as input, and it returns a set $S = S_1 \cup S_2$ consisting of all the elements of $S_1$ and $S_2$. The sets $S_1$ and $S_2$ are usually destroyed by the operation. Show how to support $\text{UNION}$ in $O(1)$ time using a suitable list data structure.</p>
 </blockquote>
@@ -4517,7 +4517,7 @@
     <span class="n">L1</span><span class="p">.</span><span class="n">nil</span><span class="p">.</span><span class="n">prev</span> <span class="o">=</span> <span class="n">L2</span><span class="p">.</span><span class="n">nil</span><span class="p">.</span><span class="n">prev</span>
 </pre></div>
 
-<h2 id="102-7">10.2-7</h2>
+<h2 id="102-7">10.2-7<a class="headerlink" href="#102-7" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Give a $\Theta(n)$-time nonrecursive procedure that reverses a singly linked list of $n$ elements. The procedure should use no more than constant storage beyond that needed for the list itself.</p>
 </blockquote>
@@ -4539,7 +4539,7 @@
         <span class="n">L</span><span class="p">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">p1</span>
 </pre></div>
 
-<h2 id="102-8-star">10.2-8 $\star$</h2>
+<h2 id="102-8-star">10.2-8 $\star$<a class="headerlink" href="#102-8-star" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Explain how to implement doubly linked lists using only one pointer value $x.np$ per item instead of the usual two ($next$ and $prev$). Assume all pointer values can be interpreted as $k$-bit integers, and define $x.np$ to be $x.np = x.next$ XOR $x.prev$, the $k$-bit "exclusive-or" of $x.next$ and $x.prev$. (The value $\text{NIL}$ is represented by $0$.) Be sure to describe what information you need to access the head of the list. Show how to implement the $\text{SEARCH}$, $\text{INSERT}$, and $\text{DELETE}$ operations on such a list. Also show how to reverse such a list in $O(1)$ time.</p>
 </blockquote>

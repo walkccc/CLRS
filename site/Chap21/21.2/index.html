@@ -4345,7 +4345,7 @@
                 
                   <h1>21.2 Linked-list representation of disjoint sets</h1>
                 
-                <h2 id="212-1">21.2-1</h2>
+                <h2 id="212-1">21.2-1<a class="headerlink" href="#212-1" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Write pseudocode for $\text{MAKE-SET}$, $\text{FIND-SET}$, and $\text{UNION}$ using the linked-list representation and the weighted-union heuristic. Make sure to specify the attributes that you assume for set objects and list objects.</p>
 </blockquote>
@@ -4374,7 +4374,7 @@
     <span class="k">return</span> <span class="n">L1</span>
 </pre></div>
 
-<h2 id="212-2">21.2-2</h2>
+<h2 id="212-2">21.2-2<a class="headerlink" href="#212-2" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Show the data structure that results and the answers returned by the $\text{FIND-SET}$ operations in the following program. Use the linked-list representation with the weighted-union heuristic.</p>
 <div class="highlight"><pre><span></span>    <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="mi">16</span>
@@ -4419,7 +4419,7 @@
     <span class="k">return</span> <span class="n">L</span>
 </pre></div>
 
-<h2 id="212-3">21.2-3</h2>
+<h2 id="212-3">21.2-3<a class="headerlink" href="#212-3" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Adapt the aggregate proof of Theorem 21.1 to obtain amortized time bounds of $O(1)$ for $\text{MAKE-SET}$ and $\text{FIND-SET}$ and $O(\lg n)$ for $\text{UNION}$ using the linked-list representation and the weighted-union heuristic.</p>
 </blockquote>
@@ -4448,17 +4448,17 @@ c'n + c'(m - n - l) + c'(\lg n + 1)l
     &amp; = c'(m + l\lg n) \\
     &amp; &gt; c(m + l\lg l).
 \end{align}</p>
-<h2 id="212-4">21.2-4</h2>
+<h2 id="212-4">21.2-4<a class="headerlink" href="#212-4" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Give a tight asymptotic bound on the running time of the sequence of operations in Figure 21.3 assuming the linked-list representation and the weighted-union heuristic.</p>
 </blockquote>
 <p>We call $\text{MAKE-SET}$ $n$ times, which contributes $\Theta(n)$. In each union, the smaller set is of size $1$, so each of these takes $\Theta(1)$ time. Since we union $n - 1$ times, the runtime is $\Theta(n)$.</p>
-<h2 id="212-5">21.2-5</h2>
+<h2 id="212-5">21.2-5<a class="headerlink" href="#212-5" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Professor Gompers suspects that it might be possible to keep just one pointer in each set object, rather than two (head and tail), while keeping the number of pointers in each list element at two. Show that the professor's suspicion is well founded by describing how to represent each set by a linked list such that each operation has the same running time as the operations described in this section. Describe also how the operations work. Your scheme should allow for the weighted-union heuristic, with the same effect as described in this section. ($\textit{Hint:}$ Use the tail of a linked list as its set's representative.)</p>
 </blockquote>
 <p>As the hint suggests, make the representative of each set be the tail of its linked list. Except for the tail element, each element's representative pointer points to the tail. The tail's representative pointer points to the head. An element is the tail if its next pointer is $\text{NIL}$. Now we can get to the tail in $O(1)$ time: if $x.next == \text{NIL}$, then $tail = x$, else $tail = x.rep$. We can get to the head in $O(1)$ time as well: if $x.next == \text{NIL}$, then $head = x.rep$, else $head = x.rep.rep$. The set object needs only to store a pointer to the tail, though a pointer to any list element would suffice.</p>
-<h2 id="212-6">21.2-6</h2>
+<h2 id="212-6">21.2-6<a class="headerlink" href="#212-6" title="Permanent link">Link</a></h2>
 <blockquote>
 <p>Suggest a simple change to the $\text{UNION}$ procedure for the linked-list representation that removes the need to keep the tail pointer to the last object in each list. Whether or not the weighted-union heuristic is used, your change should not change the asymptotic running time of the $\text{UNION}$ procedure. ($\textit{Hint:}$ Rather than appending one list to another, splice them together.)</p>
 </blockquote>
