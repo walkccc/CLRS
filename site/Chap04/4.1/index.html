@@ -4360,21 +4360,21 @@
 <blockquote>
 <p>Use the following ideas to develop a nonrecursive, linear-time algorithm for the maximum-subarray problem. Start at the left end of the array, and progress toward the right, keeping track of the maximum subarray seen so far. Knowing a maximum subarray $A[1..j]$, extend the answer to find a maximum subarray ending at index $j + 1$ by using the following observation: a maximum subarray $A[i..j + 1]$, for some $1 \le i \le j + 1$. Determine a maximum subarray of the form $A[i..j + 1]$ in constant time based on knowing a maximum subarray ending at index $j$.</p>
 </blockquote>
-<div class="highlight"><pre><span></span>MAX-SUBARRAY-LINEAR(A)
-    n = A.length
-    max-sum = -∞
-    ending-here-sum = -∞
-    for j = 1 to n
-        ending-here-high = j
-        if ending-here-sum &gt; 0
-            ending-here-sum = ending-here-sum + A[j]
-        else ending-here-low = j
-            ending-here-sum = A[j]
-        if ending-here-sum &gt; max-sum
-            max-sum = ending-here-sum
-            low = ending-here-low
-            high = ending-here-high
-    return (low, high, max-sum)
+<div class="highlight"><pre><span></span><span class="n">MAX</span><span class="o">-</span><span class="n">SUBARRAY</span><span class="o">-</span><span class="n">LINEAR</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">length</span>
+    <span class="n">max</span><span class="o">-</span><span class="n">sum</span> <span class="o">=</span> <span class="o">-</span><span class="err">∞</span>
+    <span class="n">ending</span><span class="o">-</span><span class="n">here</span><span class="o">-</span><span class="n">sum</span> <span class="o">=</span> <span class="o">-</span><span class="err">∞</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">n</span>
+        <span class="n">ending</span><span class="o">-</span><span class="n">here</span><span class="o">-</span><span class="n">high</span> <span class="o">=</span> <span class="n">j</span>
+        <span class="k">if</span> <span class="n">ending</span><span class="o">-</span><span class="n">here</span><span class="o">-</span><span class="n">sum</span> <span class="o">&gt;</span> <span class="mi">0</span>
+            <span class="n">ending</span><span class="o">-</span><span class="n">here</span><span class="o">-</span><span class="n">sum</span> <span class="o">=</span> <span class="n">ending</span><span class="o">-</span><span class="n">here</span><span class="o">-</span><span class="n">sum</span> <span class="o">+</span> <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        <span class="k">else</span> <span class="n">ending</span><span class="o">-</span><span class="n">here</span><span class="o">-</span><span class="n">low</span> <span class="o">=</span> <span class="n">j</span>
+            <span class="n">ending</span><span class="o">-</span><span class="n">here</span><span class="o">-</span><span class="n">sum</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">ending</span><span class="o">-</span><span class="n">here</span><span class="o">-</span><span class="n">sum</span> <span class="o">&gt;</span> <span class="n">max</span><span class="o">-</span><span class="n">sum</span>
+            <span class="n">max</span><span class="o">-</span><span class="n">sum</span> <span class="o">=</span> <span class="n">ending</span><span class="o">-</span><span class="n">here</span><span class="o">-</span><span class="n">sum</span>
+            <span class="n">low</span> <span class="o">=</span> <span class="n">ending</span><span class="o">-</span><span class="n">here</span><span class="o">-</span><span class="n">low</span>
+            <span class="n">high</span> <span class="o">=</span> <span class="n">ending</span><span class="o">-</span><span class="n">here</span><span class="o">-</span><span class="n">high</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">max</span><span class="o">-</span><span class="n">sum</span><span class="p">)</span>
 </pre></div>
 
 <p>The variables are intended as follows:</p>
