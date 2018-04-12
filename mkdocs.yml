@@ -28,8 +28,8 @@ extra:
   social:
     - type: 'github'
       link: 'https://github.com/walkccc'
-    - type: 'globe'
-      line: 'https://walkccc.github.io/'
+    - type: 'gamepad'
+      line: 'https://walkccc.github.io/MemoryGame'
     - type: 'linkedin'
       link: 'https://www.linkedin.com/in/jay-chen-57852313a'
     - type: 'instagram'
