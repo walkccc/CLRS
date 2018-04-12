@@ -50,7 +50,7 @@ google_analytics:
 markdown_extensions:
   - pymdownx.superfences
   - toc:
-      permalink: Link
+      permalink: true
 
 pages:
   - Preface: index.md
