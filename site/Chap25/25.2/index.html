@@ -4444,25 +4444,25 @@
 <blockquote>
 <p>Modify the $\text{FLOYD-WARSHALL}$ procedure to compute the $\prod^{(k)}$ matrices according to equations $\text{(25.6)}$ and $\text{(25.7)}$. Prove rigorously that for all $i \in V$, the predecessor subgraph $G_{\pi, i}$ is a shortest-paths tree with root $i$. ($\textit{Hint:}$ To show that $G_{\pi, i}$ is acyclic, first show that $\pi_{ij}^{(k)} = l$ implies $d_{ij}^{(k)} \ge d_{il}^{(k)} + w_{lj}$, according to the definition of $\pi_{ij}^{(k)}$. Then, adapt the proof of Lemma 23.16.)</p>
 </blockquote>
-<div class="highlight"><pre><span></span>MOD-FLOYD-WARSHALL(W)
-    n = W.rows
-    D^0 = W
-    PI^0 is a matrix with NIL in every entry
-    for i = 1 to n
-        for j = 1 to n
-            if i ≠ j and D^0_{i, j} &lt; ∞
-                PI^0_{i, j} = i
-    for k = 1 to n
-        let D^k be a new n × n matrix.
-        let PI^k be a new n × n matrix
-        for i = 1 to n
-            for j = 1 to n
-                if d^{k - 1}_{ij} ≤ d^{k - 1}_{ik} + d^{k - 1}_{kj}
-                    d^k_{ij} = d^{k - 1}_{ij}
-                    PI^k_{ij} = PI^{k - 1}_{ij}
-                else
-                    d^k_{ij} = d^{k - 1}_{ik} + d^{k - 1}_{kj}
-                    PI^k_{ij} = PI^{k - 1}_{kj}
+<div class="highlight"><pre><span></span><span class="n">MOD</span><span class="o">-</span><span class="n">FLOYD</span><span class="o">-</span><span class="n">WARSHALL</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">W</span><span class="p">.</span><span class="n">rows</span>
+    <span class="n">D</span><span class="o">^</span><span class="mi">0</span> <span class="o">=</span> <span class="n">W</span>
+    <span class="n">PI</span><span class="o">^</span><span class="mi">0</span> <span class="n">is</span> <span class="n">a</span> <span class="n">matrix</span> <span class="n">with</span> <span class="n">NIL</span> <span class="n">in</span> <span class="n">every</span> <span class="n">entry</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">n</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">n</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="err">≠</span> <span class="n">j</span> <span class="n">and</span> <span class="n">D</span><span class="o">^</span><span class="mi">0</span><span class="n">_</span><span class="p">{</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">}</span> <span class="o">&lt;</span> <span class="err">∞</span>
+                <span class="n">PI</span><span class="o">^</span><span class="mi">0</span><span class="n">_</span><span class="p">{</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">}</span> <span class="o">=</span> <span class="n">i</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">n</span>
+        <span class="n">let</span> <span class="n">D</span><span class="o">^</span><span class="n">k</span> <span class="n">be</span> <span class="n">a</span> <span class="k">new</span> <span class="n">n</span> <span class="err">×</span> <span class="n">n</span> <span class="n">matrix</span><span class="p">.</span>
+        <span class="n">let</span> <span class="n">PI</span><span class="o">^</span><span class="n">k</span> <span class="n">be</span> <span class="n">a</span> <span class="k">new</span> <span class="n">n</span> <span class="err">×</span> <span class="n">n</span> <span class="n">matrix</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">n</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">n</span>
+                <span class="k">if</span> <span class="n">d</span><span class="o">^</span><span class="p">{</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">}</span><span class="n">_</span><span class="p">{</span><span class="n">ij</span><span class="p">}</span> <span class="err">≤</span> <span class="n">d</span><span class="o">^</span><span class="p">{</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">}</span><span class="n">_</span><span class="p">{</span><span class="n">ik</span><span class="p">}</span> <span class="o">+</span> <span class="n">d</span><span class="o">^</span><span class="p">{</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">}</span><span class="n">_</span><span class="p">{</span><span class="n">kj</span><span class="p">}</span>
+                    <span class="n">d</span><span class="o">^</span><span class="n">k_</span><span class="p">{</span><span class="n">ij</span><span class="p">}</span> <span class="o">=</span> <span class="n">d</span><span class="o">^</span><span class="p">{</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">}</span><span class="n">_</span><span class="p">{</span><span class="n">ij</span><span class="p">}</span>
+                    <span class="n">PI</span><span class="o">^</span><span class="n">k_</span><span class="p">{</span><span class="n">ij</span><span class="p">}</span> <span class="o">=</span> <span class="n">PI</span><span class="o">^</span><span class="p">{</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">}</span><span class="n">_</span><span class="p">{</span><span class="n">ij</span><span class="p">}</span>
+                <span class="k">else</span>
+                    <span class="n">d</span><span class="o">^</span><span class="n">k_</span><span class="p">{</span><span class="n">ij</span><span class="p">}</span> <span class="o">=</span> <span class="n">d</span><span class="o">^</span><span class="p">{</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">}</span><span class="n">_</span><span class="p">{</span><span class="n">ik</span><span class="p">}</span> <span class="o">+</span> <span class="n">d</span><span class="o">^</span><span class="p">{</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">}</span><span class="n">_</span><span class="p">{</span><span class="n">kj</span><span class="p">}</span>
+                    <span class="n">PI</span><span class="o">^</span><span class="n">k_</span><span class="p">{</span><span class="n">ij</span><span class="p">}</span> <span class="o">=</span> <span class="n">PI</span><span class="o">^</span><span class="p">{</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">}</span><span class="n">_</span><span class="p">{</span><span class="n">kj</span><span class="p">}</span>
 </pre></div>
 
 <p>In order to have that $\pi^{(k)}_{ij} = l$, we need that $d^{(k)}_{ij} \ge d^{(k)}_{il} + w_{lj}$. To see this fact, we will note that having $\pi^{(k)}_{ij} = l$ means that a shortest path from $i$ to $j$ last goes through $l$. A path that last goes through $l$ corresponds to taking a chepest path from $i$ to $l$ and then following the single edge from $l$ to $j$. However, This means that $d_{il} \le d_{ij} - w_{ij}$, which we can rearrange to get the desired inequality. We can just continue following this inequality
