@@ -35,11 +35,8 @@ extra:
     - type: 'instagram'
       link: 'https://www.instagram.com/walkccc'
     
-extra_css:
-  - 'css/extra.css'
-
 extra_javascript:
-  - 'javascripts/extra.js'
+  - 'javascripts/mathjax.js'
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML'
 
 # Google Analytics
