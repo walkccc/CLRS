@@ -34,11 +34,6 @@ extra:
     - type: 'facebook'
       link: 'https://www.facebook.com/walkcc'
 
-# Google Analytics
-google_analytics:
-  - 'UA-117404761-1'
-  - 'auto'
-
 extra_css:
   - 'css/extra.css'
 
@@ -46,8 +41,16 @@ extra_javascript:
   - 'javascripts/extra.js'
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML'
 
+# Google Analytics
+google_analytics:
+  - 'UA-117404761-1'
+  - 'auto'
+
+# Extensions
 markdown_extensions:
   - pymdownx.superfences
+  - toc:
+      permalink: Link
 
 pages:
   - Preface: index.md
