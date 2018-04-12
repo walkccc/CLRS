@@ -1,6 +1,5 @@
 run:
-	hugo
-	git add -A
-	git commit -m "update" && git push origin master
-	git subtree push --prefix=public https://github.com/walkccc/CLRS.git gh-pages
-
+	git add .
+	git commit -m 'update master'
+	git push origin master
+	mkdocs gh-deploy
