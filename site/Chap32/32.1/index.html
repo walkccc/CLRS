@@ -5293,7 +5293,7 @@
 <p>Suppose we allow the pattern $P$ to contain occurrences of a <strong><em>gap character</em></strong> $\diamond$ that can match an <em>arbitrary</em> string of characters (even one of zero length). For example, the pattern $ab\diamond ba\diamond c$ occurs in the text $cabccbacbacab$ as</p>
 <p>$$c \underbrace{ab}_{ab} \underbrace{cc}_{\diamond} \underbrace{ba}_{ba} \underbrace{cba}_{\diamond} \underbrace{c}_{c} ab$$</p>
 <p>and as</p>
-<p>$$c \underbrace{ab}_{ab} \underbrace{ccbac}_{\diamond} \underbrace{ba}_{ba} \underbrace{\hphantom}_{\diamond} \underbrace{c}_{c} ab$$</p>
+<p>$$c \underbrace{ab}_{ab} \underbrace{ccbac}_{\diamond} \underbrace{ba}_{ba} \underbrace{\quad}_{\diamond} \underbrace{c}_{c} ab$$</p>
 <p>Note that the gap character may occur an arbitrary number of times in the pattern but not at all in the text. Give a polynomial-time algorithm to determine whether such a pattern $P$ occurs in a given text $T$, and analyze the running time of your algorithm.</p>
 </blockquote>
 <p>Dynamic programming, $\Theta(n^2 m)$.</p>
