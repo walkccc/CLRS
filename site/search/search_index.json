@@ -2072,7 +2072,7 @@
         },
         {
             "location": "/Chap15/15.1/",
-            "text": "15.1-1\n\u00b6\n\n\n\n\nShow that equation $\\text{(15.4)}$ follows from equation $\\text{(15.3)}$ and the initial condition $T(0) = 1$.\n\n\n\n\nWe can verify that $T(n) = 2^n$ is a solution to the given recurrence by the substitution method. We note that for $n = 0$, the formula is true since $2^0 = 1$. For $n > 0$, substituting into the recurrence and using the formula for summing a geometric series yields\n\n\n\\begin{align}\nT(n) & = 1 + \\sum_{j = 0}^{n - 1} 2^j \\\\\n     & = 1 + (2^n - 1) \\\\\n     & = 2^n.\n\\end{align}\n\n\n15.1-2\n\u00b6\n\n\n\n\nShow, by means of a counterexample, that the following ''greedy'' strategy does not always determine an optimal way to cut rods. Define the \ndensity\n of a rod of length $i$ to be $p_i / i$, that is, its value per inch. The greedy strategy for a rod of length $n$ cuts off a first piece of length $i$, where $1 \\le i \\le n$, having maximum density. It then continues by applying the greedy strategy to the remaining piece of length $n - i$.\n\n\n\n\nHere is a counterexample for the ''greedy'' strategy:\n\\begin{array}{c|cccc}\n\\text{length $i$}  &  1 &  2 &  3 &  4 \\\\\n\\text{price $p_i$} &  1 & 20 & 33 & 36 \\\\\np_i / i            &  1 & 10 & 11 &  1 \n\\end{array}\n\n\nLet the given rod length be $4$. According to a greedy strategy, we first cut out a rod of length $3$ for a price of $33$, which leaves us with a rod of length $1$ of price $1$. The total price for the rod is $34$. The optimal way is to cut it into two rods of length $2$ each fetching us $40$ dollars.\n\n\n15.1-3\n\u00b6\n\n\n\n\nConsider a modification of the rod-cutting problem in which, in addition to a price $p_i$ for each rod, each cut incurs a fixed cost of $c$. The revenue associated with a solution is now the sum of the prices of the pieces minus the costs of making the cuts. Give a dynamic-programming algorithm to solve this modified problem.\n\n\n\n\n1\n2\n3\n4\n5\n6\n7\n8\n9\nMODIFIED\n-\nCUT\n-\nROD\n(\np\n,\n \nn\n,\n \nc\n)\n\n    \nlet\n \nr\n[\n0.\n.\nn\n]\n \nbe\n \na\n \nnew\n \narray\n\n    \nr\n[\n0\n]\n \n=\n \n0\n\n    \nfor\n \nj\n \n=\n \n1\n \nto\n \nn\n\n        \nq\n \n=\n \np\n[\nj\n]\n\n        \nfor\n \ni\n \n=\n \n1\n \nto\n \nj\n \n-\n \n1\n\n            \nq\n \n=\n \nmax\n(\nq\n,\n \np\n[\ni\n]\n \n+\n \nr\n[\nj\n \n-\n \ni\n]\n \n-\n \nc\n)\n\n        \nr\n[\nj\n]\n \n=\n \nq\n\n    \nreturn\n \nr\n[\nn\n]\n\n\n\n\n\n\n\nThe major modification required is in the body of the inner \nfor\n loop, which now reads $q = \\max(q, p[i] + r[j - i] - c)$. This change re\ufb02ects the fixed cost of making the cut, which is deducted from the revenue. We also have to handle the case in which we make no cuts (when $i$ equals $j$); the total revenue in this case is simply $p[j]$\u008d. Thus, we modify the inner \nfor\n loop to run from $i$ to $j - 1$ instead of to $j$. The assignment $q = p[j]$\u008d takes care of the case of no cuts. If we did not make these modifications, then even in the case of no cuts, we would be deducting $c$ from the total revenue.\n\n\n15.1-4\n\u00b6\n\n\n\n\nModify $\\text{MEMOIZED-CUT-ROD}$ to return not only the value but the actual solution, too.\n\n\n\n\n 1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\nMEMOIZED\n-\nCUT\n-\nROD\n(\np\n,\n \nn\n)\n\n    \nlet\n \nr\n[\n0.\n.\nn\n]\n \nand\n \ns\n[\n0.\n.\nn\n]\n \nbe\n \nnew\n \narrays\n\n    \nfor\n \ni\n \n=\n \n0\n \nto\n \nn\n\n        \nr\n[\ni\n]\n \n=\n \n-\n\u221e\n\n    \n\uff08\nval\n,\n \ns\n)\n \n=\n \nMEMOIZED\n-\nCUT\n-\nROD\n-\nAUX\n(\np\n,\n \nn\n,\n \nr\n,\n \ns\n)\n\n    \nprint\n \n\"The optimal value is \"\nval\n\" and the cuts are at\"\n\n    \nj\n \n=\n \nn\n\n    \nwhile\n \nj\n \n>\n \n0\n\n        \nprint\n \ns\n[\nj\n]\n\n        \nj\n \n=\n \nj\n \n-\n \ns\n[\nj\n]\n\n\n\n\n\n\n\n 1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n11\n12\n13\nMEMOIZED\n-\nCUT\n-\nROD\n-\nAUX\n(\np\n,\n \nn\n,\n \nr\n,\n \ns\n)\n\n    \nif\n \nr\n[\nn\n]\n \n\u2265\n \n0\n\n        \nreturn\n \nr\n[\nn\n]\n\n    \nif\n \nn\n \n==\n \n0\n\n        \nq\n \n=\n \n0\n\n    \nelse\n \nq\n \n=\n \n-\n\u221e\n\n        \nfor\n \ni\n \n=\n \n1\n \nto\n \nn\n\n            \n(\nval\n,\n \ns\n)\n \n=\n \nMEMOIZED\n-\nCUT\n-\nROD\n-\nAUX\n(\np\n,\n \nn\n \n-\n \ni\n,\n \nr\n,\n \ns\n)\n\n            \nif\n \nq\n \n<\n \np\n[\ni\n]\n \n+\n \nval\n\n                \nq\n \n=\n \np\n[\ni\n]\n \n+\n \nval\n\n                \ns\n[\nn\n]\n \n=\n \ni\n\n    \nr\n[\nn\n]\n \n=\n \nq\n\n    \nreturn\n \n(\nq\n,\n \ns\n)\n\n\n\n\n\n\n\n$\\text{PRINT-CUT-ROD-SOLUTION}$ constructs the actual lengths where a cut should happen. Array entry $s[i]$\u008d contains the value $j$ indicating that an optimal cut for a rod of length $i$ is $j$ inches. The next cut is given by $s[i - j]$, and so on.\n\n\n15.1-5\n\u00b6\n\n\n\n\nThe Fibonacci numbers are defined by recurrence $\\text{(3.22)}$. Give an $O(n)$-time dynamic-programming algorithm to compute the nth Fibonacci number. Draw the subproblem graph. How many vertices and edges are in the graph?\n\n\n\n\n1\n2\n3\n4\n5\n6\nFIBONACCI\n(\nn\n)\n\n    \nlet\n \nfib\n[\n0.\n.\nn\n]\n \nbe\n \na\n \nnew\n \narray\n\n    \nfib\n[\n0\n]\n \n=\n \nfib\n[\n1\n]\n \n=\n \n1\n\n    \nfor\n \ni\n \n=\n \n2\n \nto\n \nn\n\n        \nfib\n[\ni\n]\n \n=\n \nfib\n[\ni\n \n-\n \n1\n]\n \n+\n \nfib\n[\ni\n \n-\n \n2\n]\n\n    \nreturn\n \nfib\n[\nn\n]\n\n\n\n\n\n\n\n$\\text{FIBONACCI}$ directly implements the recurrence relation of the Fibonacci sequence. Each number in the sequence is the sum of the two previous numbers in the sequence. The running time is clearly $O(n)$.\n\n\nThe subproblem graph consists of $n + 1$ vertices, $v_0, v_1, \\ldots, v_n$. For $i = 2, 3, \\ldots, n$, vertex $v_i$ has two leaving edges: to vertex $v_{i - 1}$ and to vertex $v_{i - 2}$. No edges leave vertices $v_0$ or $v_1$. Thus, the subproblem graph has $2n - 2$ edges.",
+            "text": "15.1-1\n\u00b6\n\n\n\n\nShow that equation $\\text{(15.4)}$ follows from equation $\\text{(15.3)}$ and the initial condition $T(0) = 1$.\n\n\n\n\nWe can verify that $T(n) = 2^n$ is a solution to the given recurrence by the substitution method. We note that for $n = 0$, the formula is true since $2^0 = 1$. For $n > 0$, substituting into the recurrence and using the formula for summing a geometric series yields\n\n\n\\begin{align}\nT(n) & = 1 + \\sum_{j = 0}^{n - 1} 2^j \\\\\n     & = 1 + (2^n - 1) \\\\\n     & = 2^n.\n\\end{align}\n\n\n15.1-2\n\u00b6\n\n\n\n\nShow, by means of a counterexample, that the following ''greedy'' strategy does not always determine an optimal way to cut rods. Define the \ndensity\n of a rod of length $i$ to be $p_i / i$, that is, its value per inch. The greedy strategy for a rod of length $n$ cuts off a first piece of length $i$, where $1 \\le i \\le n$, having maximum density. It then continues by applying the greedy strategy to the remaining piece of length $n - i$.\n\n\n\n\nHere is a counterexample for the ''greedy'' strategy:\n\\begin{array}{c|cccc}\n\\text{length $i$}  &  1 &  2 &  3 &  4 \\\\\n\\hline\n\\text{price $p_i$} &  1 & 20 & 33 & 36 \\\\\np_i / i            &  1 & 10 & 11 &  1 \n\\end{array}\n\n\nLet the given rod length be $4$. According to a greedy strategy, we first cut out a rod of length $3$ for a price of $33$, which leaves us with a rod of length $1$ of price $1$. The total price for the rod is $34$. The optimal way is to cut it into two rods of length $2$ each fetching us $40$ dollars.\n\n\n15.1-3\n\u00b6\n\n\n\n\nConsider a modification of the rod-cutting problem in which, in addition to a price $p_i$ for each rod, each cut incurs a fixed cost of $c$. The revenue associated with a solution is now the sum of the prices of the pieces minus the costs of making the cuts. Give a dynamic-programming algorithm to solve this modified problem.\n\n\n\n\n1\n2\n3\n4\n5\n6\n7\n8\n9\nMODIFIED\n-\nCUT\n-\nROD\n(\np\n,\n \nn\n,\n \nc\n)\n\n    \nlet\n \nr\n[\n0.\n.\nn\n]\n \nbe\n \na\n \nnew\n \narray\n\n    \nr\n[\n0\n]\n \n=\n \n0\n\n    \nfor\n \nj\n \n=\n \n1\n \nto\n \nn\n\n        \nq\n \n=\n \np\n[\nj\n]\n\n        \nfor\n \ni\n \n=\n \n1\n \nto\n \nj\n \n-\n \n1\n\n            \nq\n \n=\n \nmax\n(\nq\n,\n \np\n[\ni\n]\n \n+\n \nr\n[\nj\n \n-\n \ni\n]\n \n-\n \nc\n)\n\n        \nr\n[\nj\n]\n \n=\n \nq\n\n    \nreturn\n \nr\n[\nn\n]\n\n\n\n\n\n\n\nThe major modification required is in the body of the inner \nfor\n loop, which now reads $q = \\max(q, p[i] + r[j - i] - c)$. This change re\ufb02ects the fixed cost of making the cut, which is deducted from the revenue. We also have to handle the case in which we make no cuts (when $i$ equals $j$); the total revenue in this case is simply $p[j]$\u008d. Thus, we modify the inner \nfor\n loop to run from $i$ to $j - 1$ instead of to $j$. The assignment $q = p[j]$\u008d takes care of the case of no cuts. If we did not make these modifications, then even in the case of no cuts, we would be deducting $c$ from the total revenue.\n\n\n15.1-4\n\u00b6\n\n\n\n\nModify $\\text{MEMOIZED-CUT-ROD}$ to return not only the value but the actual solution, too.\n\n\n\n\n 1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\nMEMOIZED\n-\nCUT\n-\nROD\n(\np\n,\n \nn\n)\n\n    \nlet\n \nr\n[\n0.\n.\nn\n]\n \nand\n \ns\n[\n0.\n.\nn\n]\n \nbe\n \nnew\n \narrays\n\n    \nfor\n \ni\n \n=\n \n0\n \nto\n \nn\n\n        \nr\n[\ni\n]\n \n=\n \n-\n\u221e\n\n    \n\uff08\nval\n,\n \ns\n)\n \n=\n \nMEMOIZED\n-\nCUT\n-\nROD\n-\nAUX\n(\np\n,\n \nn\n,\n \nr\n,\n \ns\n)\n\n    \nprint\n \n\"The optimal value is \"\nval\n\" and the cuts are at\"\n\n    \nj\n \n=\n \nn\n\n    \nwhile\n \nj\n \n>\n \n0\n\n        \nprint\n \ns\n[\nj\n]\n\n        \nj\n \n=\n \nj\n \n-\n \ns\n[\nj\n]\n\n\n\n\n\n\n\n 1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n11\n12\n13\nMEMOIZED\n-\nCUT\n-\nROD\n-\nAUX\n(\np\n,\n \nn\n,\n \nr\n,\n \ns\n)\n\n    \nif\n \nr\n[\nn\n]\n \n\u2265\n \n0\n\n        \nreturn\n \nr\n[\nn\n]\n\n    \nif\n \nn\n \n==\n \n0\n\n        \nq\n \n=\n \n0\n\n    \nelse\n \nq\n \n=\n \n-\n\u221e\n\n        \nfor\n \ni\n \n=\n \n1\n \nto\n \nn\n\n            \n(\nval\n,\n \ns\n)\n \n=\n \nMEMOIZED\n-\nCUT\n-\nROD\n-\nAUX\n(\np\n,\n \nn\n \n-\n \ni\n,\n \nr\n,\n \ns\n)\n\n            \nif\n \nq\n \n<\n \np\n[\ni\n]\n \n+\n \nval\n\n                \nq\n \n=\n \np\n[\ni\n]\n \n+\n \nval\n\n                \ns\n[\nn\n]\n \n=\n \ni\n\n    \nr\n[\nn\n]\n \n=\n \nq\n\n    \nreturn\n \n(\nq\n,\n \ns\n)\n\n\n\n\n\n\n\n$\\text{PRINT-CUT-ROD-SOLUTION}$ constructs the actual lengths where a cut should happen. Array entry $s[i]$\u008d contains the value $j$ indicating that an optimal cut for a rod of length $i$ is $j$ inches. The next cut is given by $s[i - j]$, and so on.\n\n\n15.1-5\n\u00b6\n\n\n\n\nThe Fibonacci numbers are defined by recurrence $\\text{(3.22)}$. Give an $O(n)$-time dynamic-programming algorithm to compute the nth Fibonacci number. Draw the subproblem graph. How many vertices and edges are in the graph?\n\n\n\n\n1\n2\n3\n4\n5\n6\nFIBONACCI\n(\nn\n)\n\n    \nlet\n \nfib\n[\n0.\n.\nn\n]\n \nbe\n \na\n \nnew\n \narray\n\n    \nfib\n[\n0\n]\n \n=\n \nfib\n[\n1\n]\n \n=\n \n1\n\n    \nfor\n \ni\n \n=\n \n2\n \nto\n \nn\n\n        \nfib\n[\ni\n]\n \n=\n \nfib\n[\ni\n \n-\n \n1\n]\n \n+\n \nfib\n[\ni\n \n-\n \n2\n]\n\n    \nreturn\n \nfib\n[\nn\n]\n\n\n\n\n\n\n\n$\\text{FIBONACCI}$ directly implements the recurrence relation of the Fibonacci sequence. Each number in the sequence is the sum of the two previous numbers in the sequence. The running time is clearly $O(n)$.\n\n\nThe subproblem graph consists of $n + 1$ vertices, $v_0, v_1, \\ldots, v_n$. For $i = 2, 3, \\ldots, n$, vertex $v_i$ has two leaving edges: to vertex $v_{i - 1}$ and to vertex $v_{i - 2}$. No edges leave vertices $v_0$ or $v_1$. Thus, the subproblem graph has $2n - 2$ edges.",
             "title": "15.1 Rod cutting"
         },
         {
@@ -2082,7 +2082,7 @@
         },
         {
             "location": "/Chap15/15.1/#151-2",
-            "text": "Show, by means of a counterexample, that the following ''greedy'' strategy does not always determine an optimal way to cut rods. Define the  density  of a rod of length $i$ to be $p_i / i$, that is, its value per inch. The greedy strategy for a rod of length $n$ cuts off a first piece of length $i$, where $1 \\le i \\le n$, having maximum density. It then continues by applying the greedy strategy to the remaining piece of length $n - i$.   Here is a counterexample for the ''greedy'' strategy:\n\\begin{array}{c|cccc}\n\\text{length $i$}  &  1 &  2 &  3 &  4 \\\\\n\\text{price $p_i$} &  1 & 20 & 33 & 36 \\\\\np_i / i            &  1 & 10 & 11 &  1 \n\\end{array}  Let the given rod length be $4$. According to a greedy strategy, we first cut out a rod of length $3$ for a price of $33$, which leaves us with a rod of length $1$ of price $1$. The total price for the rod is $34$. The optimal way is to cut it into two rods of length $2$ each fetching us $40$ dollars.",
+            "text": "Show, by means of a counterexample, that the following ''greedy'' strategy does not always determine an optimal way to cut rods. Define the  density  of a rod of length $i$ to be $p_i / i$, that is, its value per inch. The greedy strategy for a rod of length $n$ cuts off a first piece of length $i$, where $1 \\le i \\le n$, having maximum density. It then continues by applying the greedy strategy to the remaining piece of length $n - i$.   Here is a counterexample for the ''greedy'' strategy:\n\\begin{array}{c|cccc}\n\\text{length $i$}  &  1 &  2 &  3 &  4 \\\\\n\\hline\n\\text{price $p_i$} &  1 & 20 & 33 & 36 \\\\\np_i / i            &  1 & 10 & 11 &  1 \n\\end{array}  Let the given rod length be $4$. According to a greedy strategy, we first cut out a rod of length $3$ for a price of $33$, which leaves us with a rod of length $1$ of price $1$. The total price for the rod is $34$. The optimal way is to cut it into two rods of length $2$ each fetching us $40$ dollars.",
             "title": "15.1-2"
         },
         {
@@ -4197,13 +4197,733 @@
         },
         {
             "location": "/Chap27/Problems/27-5/",
-            "text": "Computational science is replete with algorithms that require the entries of an array to be filled in with values that depend on the values of certain already computed neighboring entries, along with other information that does not change over the course of the computation. The pattern of neighboring entries does not change during the computation and is called a \nstencil\n. For example, Section 15.4 presents a stencil algorithm to compute a longest common subsequence, where the value in entry $c[i, j]$ depends only on the values in $c[i - 1, j]$, $c[i, j - 1]$, and $c[i - 1, j - 1]$, as well as the elements $x_i$ and $y_j$ within the two sequences given as inputs. The input sequences are fixed, but the algorithm fills in the two-dimensional array $c$ so that it computes entry $c[i, j]$ after computing all three entries $c[i - 1, j]$, $c[i, j - 1]$, and $c[i - 1, j - 1]$.\n\n\nIn this problem, we examine how to use nested parallelism to multithread a simple stencil calculation on an $n \\times n$ array $A$ in which, of the values in $A$, the value placed into entry $A[i, j]$ depends only on values in $A[i' , j']$, where $i' \\le i$ and $j' \\le j$ (and of course, $i' \\ne i$ or $j' \\ne j$). In other words, the value in an entry depends only on values in entries that are above it and/or to its left, along with static information outside of the array. Furthermore, we assume throughout this problem that once we have filled in the entries upon which $A[i, j]$ depends, we can fill in $A[i, j]$ in $\\Theta(1)$ time (as in the $\\text{LCS-LENGTH}$ procedure of Section 15.4).\n\n\nWe can partition the $n \\times n$ array $A$ into four $n / 2 \\times n / 2$ subarrays as follows:\n\n\nA =\n\\begin{pmatrix}\nA_{11} & A_{12} \\\\\nA_{21} & A_{22} \\tag{27.11}\n\\end{pmatrix}.\n\n\nObserve now that we can fill in subarray $A_{11}$ recursively, since it does not depend on the entries of the other three subarrays. Once $A_{11}$ is complete, we can continue to fill in $A_{12}$ and $A_{21}$ recursively in parallel, because although they both depend on $A_{11}$ , they do not depend on each other. Finally, we can fill in $A_{22}$ recursively.\n\n\na.\n Give multithreaded pseudocode that performs this simple stencil calculation using a divide-and-conquer algorithm $\\text{SIMPLE-STENCIL}$ based on the decomposition $\\text{(27.11)}$ and the discussion above. (Don't worry about the details of the base case, which depends on the specific stencil.) Give and solve recurrences for the work and span of this algorithm in terms of $n$. What is the parallelism?\n\n\nb.\n Modify your solution to part (a) to divide an $n \\times n$ array into nine $n / 3 \\times n / 3$ subarrays, again recursing with as much parallelism as possible. Analyze this algorithm. How much more or less parallelism does this algorithm have compared with the algorithm from part (a)?\n\n\nc.\n Generalize your solutions to parts (a) and (b) as follows. Choose an integer $b \\ge 2$. Divide an $n \\times n$ array into $b^2$ subarrays, each of size $n / b \\times n / b$, recursing with as much parallelism as possible. In terms of $n$ and $b$, what are the work, span, and parallelism of your algorithm? Argue that, using this approach, the parallelism must be $o(n)$ for any choice of $b \\ge 2$. ($\\textit{Hint:}$ For this last argument, show that the exponent of $n$ in the parallelism is strictly less than $1$ for any choice of $b \\ge 2$.)\n\n\nd.\n Give pseudocode for a multithreaded algorithm for this simple stencil calculation that achieves $\\Theta(n\\lg n)$ parallelism. Argue using notions of work and span that the problem, in fact, has $\\Theta(n)$ inherent parallelism. As it turns out, the divide-and-conquer nature of our multithreaded pseudocode does not let us achieve this maximal parallelism.\n\n\n\n\na.\n In this part of the problem, we will assume that $n$ is an exact power of $2$, so that in a recursive step, when we divide the $n \\times n$ matrix $A$ into four $n / 2 \\times n / 2$ matrices, we will be guaranteed that $n / 2$ is an integer, for all $n \\ge 2$. We make this assumption simply to avoid introducing $\\lfloor n / 2 \\rfloor$ and $\\lceil n / 2 \\rceil$ terms in the pseudocode and the analysis that follow. In the pseudocode below, we assume that we have a procedure $\\text{BASE-CASE}$ available to us, which calculates the base case of the stencil.\n\n\n 1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n11\nSIMPLE\n-\nSTENCIL\n(\nA\n,\n \ni\n,\n \nj\n,\n \nn\n)\n\n    \nif\n \nn\n \n==\n \n1\n\n        \nA\n[\ni\n,\n \nj\n]\n \n=\n \nBASE\n-\nCASE\n(\nA\n,\n \ni\n,\n \nj\n)\n\n    \nelse\n \n// Calculate submatrix A11.\n\n        \nSIMPLE\n-\nSTENCIL\n(\nA\n,\n \ni\n,\n \nj\n,\n \nn\n \n/\n \n2\n)\n\n        \n// Calculate submatrices A12 and A21 in parallel.\n\n        \nspawn\n \nSIMPLE\n-\nSTENCIL\n(\nA\n,\n \ni\n,\n \nj\n \n+\n \nn\n \n/\n \n2\n,\n \nn\n \n/\n \n2\n)\n\n        \nSIMPLE\n-\nSTENCIL\n(\nA\n,\n \ni\n \n+\n \nn\n \n/\n \n2\n,\n \nj\n,\n \nn\n \n/\n \n2\n)\n\n        \nsync\n\n        \n// Calculate submatrix A22.\n\n        \nSIMPLE\n-\nSTENCIL\n(\nA\n,\n \ni\n \n+\n \nn\n \n/\n \n2\n,\n \nj\n \n+\n \nn\n \n/\n \n2\n,\n \nn\n \n/\n \n2\n)\n\n\n\n\n\n\n\nTo perform a simple stencil calculation on an $n \\times n$ matrix $A$, we call $\\text{SIMPLE-STENCIL}(A, 1, 1, n)$. The recurrence for the work is $T_1(n) = 4T_1(n / 2) + \\Theta(1) = \\Theta(n^2)$. Of the four recursive calls in the algorithm above, only two run in parallel. Therefore, the recurrence for the span is $T_\\infty(n) = 3T_\\infty(n / 2) + \\Theta(1) = \\Theta(n^{\\lg 3})$, and the parallelism is $\\Theta(n^{2 - \\lg 3}) \\approx \\Theta(n^{0.415})$.\n\n\nb.\n Similar to $\\text{SIMPLE-STENCIL}$ of the previous part, we present $\\text{P-STENCIL-3}$, which divides $A$ into nine submatrices, each of size $n / 3 \\times n / 3$, and solves them recursively. To perform a stencil calculation on an $n \\times n$ matrix $A$, we call $\\text{P-STENCIL-3}(A, 1, 1, n)$.\n\n\n 1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\nP\n-\nSTENCIL\n-\n3\n(\nA\n,\n \ni\n,\n \nj\n,\n \nn\n)\n\n    \nif\n \nn\n \n==\n \n1\n\n        \nA\n[\ni\n,\n \nj\n]\n \n=\n \nBASE\n-\nCASE\n(\nA\n,\n \ni\n,\n \nj\n)\n\n    \nelse\n \n// Group 1: compute submatrix A11.\n\n        \nP\n-\nSTENCIL\n-\n3\n(\nA\n,\n \ni\n,\n \nj\n,\n \nn\n \n/\n \n3\n)\n\n        \n// Group 2: compute submatrices A12 and A21.\n\n        \nspawn\n \nP\n-\nSTENCIL\n-\n3\n(\nA\n,\n \ni\n,\n \nj\n \n+\n \nn\n \n/\n \n3\n,\n \nn\n \n/\n \n3\n)\n\n        \nP\n-\nSTENCIL\n-\n3\n(\nA\n,\n \ni\n \n+\n \nn\n \n/\n \n3\n,\n \nj\n,\n \nn\n \n/\n \n3\n)\n\n        \nsync\n\n        \n// Group 3: compute submatrices A13, A22, and A31.\n\n        \nspawn\n \nP\n-\nSTENCIL\n-\n3\n(\nA\n,\n \ni\n,\n \nj\n \n+\n \n2\nn\n \n/\n \n3\n,\n \nn\n \n/\n \n3\n)\n\n        \nspawn\n \nP\n-\nSTENCIL\n-\n3\n(\nA\n,\n \ni\n \n+\n \nn\n \n/\n \n3\n,\n \nj\n \n+\n \nn\n \n/\n \n3\n,\n \nn\n \n/\n \n3\n)\n\n        \nP\n-\nSTENCIL\n-\n3\n(\nA\n,\n \ni\n \n+\n \n2\nn\n \n/\n \n3\n,\n \nj\n,\n \nn\n \n/\n \n3\n)\n\n        \nsync\n\n        \n// Group 4: compute submatrices A23 and A32.\n\n        \nspawn\n \nP\n-\nSTENCIL\n-\n3\n(\nA\n,\n \ni\n \n+\n \nn\n \n/\n \n3\n,\n \nj\n \n+\n \n2\nn\n \n/\n \n3\n,\n \nn\n \n/\n \n3\n)\n\n        \nP\n-\nSTENCIL\n-\n3\n(\nA\n,\n \ni\n \n+\n \n2\nn\n \n/\n \n3\n,\n \nj\n \n+\n \nn\n \n/\n \n3\n,\n \nn\n \n/\n \n3\n)\n\n        \nsync\n\n        \n// Group 5: compute submatrix A33.\n\n        \nP\n-\nSTENCIL\n-\n3\n(\nA\n,\n \ni\n \n+\n \n2\nn\n \n/\n \n3\n,\n \nj\n \n+\n \n2\nn\n \n/\n \n3\n,\n \nn\n \n/\n \n3\n)\n\n\n\n\n\n\n\nFrom the pseudocode, we can informally say that we can solve the nine subproblems in five groups, as shown in the following matrix:\n\n\n\\begin{pmatrix}\n1 & 2 & 3 \\\\\n2 & 3 & 4 \\\\\n3 & 4 & 5\n\\end{pmatrix}\n\n\nEach entry in the above matrix specifies the group of the corresponding $n / 3 \\times n / 3$ submatrix of $A$; we can compute in parallel the entries of all submatrices that fall in the same group. In general, for $i = 2, 3, 4, 5$, we can calculate group $i$ after completing the computation of group $i - 1$.\n\n\nThe recurrence for the work is $T_1(n) = 9T_1(n / 3) + \\Theta(1) = \\Theta(n^2)$. The recurrence for the span is $T_\\infty(n) = 5T_\\infty(n / 3) + \\Theta(1) = \\Theta(n^{\\log_3 5})$. Therefore, the parallelism is $\\Theta(n^{2 - \\log_3 5}) \\approx \\Theta(n^{0.535})$.\n\n\nc.\n Similar to the previous part, we can solve the $b^2$ subproblems in $2b - 1$ groups:\n\n\n\\begin{pmatrix}\n1 & 2 & 3 & \\cdots & b - 2 & b - 1 & b \\\\\n2 & 3 & 4 & \\cdots & b - 1 & b     & b + 1 \\\\\n3 & 4 & 5 & \\cdots & b     & b + 1 & b + 2 \\\\\n\\vdots & \\vdots & \\vdots & \\ddots & \\cdots & \\cdots & \\cdots \\\\\nb - 2 & b - 1 & b     & \\cdots & 2b - 5 & 2b - 4 & 2b - 3 \\\\\nb - 1 & b     & b + 1 & \\cdots & 2b - 4 & 2b - 3 & 2b - 2 \\\\\nb     & b + 1 & b + 2 & \\cdots & 2b - 3 & 2b - 2 & 2b - 1\n\\end{pmatrix}\n\n\nThe recurrence for the work is $T_1(n) = b^2 T_1(n / b) + \\Theta(1) = \\Theta(n^2)$. The recurrence for the span is $T_\\infty(n) = (2b - 1) T_\\infty(n / b) + \\Theta(1) = \\Theta(n^{\\log_b (2b - 1)})$. The parallelism is $\\Theta(n^{2 - \\log_b (2b - 1)})$.\n\n\nAs the hint suggests, in order to show that the parallelism must be $o(n)$ for any choice of $b \\ge 2$, we need to show that $2 - \\log_b (2b - 1)$, which is the exponent of $n$ in the parallelism, is strictly less than $1$ for any choice of $b \\ge 2$. Since $b \\ge 2$, we know that $2b - 1 > b$, which implies that $\\log_b (2b - 1) > \\log_b b = 1$. Hence, $2 - \\log_b (2b - 1) < 2 - 1 = 1$.\n\n\nd.\n The idea behind achieving $\\Theta(n / \\lg n)$ parallelism is similar to that presented in the previous part, except without recursive division. We will compute $A[1, 1]$ serially, which will enable us to compute entries $A[1, 2]$ and $A[2, 1]$ in parallel, after which we can compute entries $A[1, 3]$, $A[2, 2]$ and $A[3, 1]$ in parallel, and so on. Here is the pseudocode:\n\n\n 1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\nP\n-\nSTENCIL\n(\nA\n)\n\n    \nn\n \n=\n \nA\n.\nrows\n\n    \n// Calculate all entries on the antidiagonal and above it.\n\n    \nfor\n \ni\n \n=\n \n1\n \nto\n \nn\n\n        \nparallel\n \nfor\n \nj\n \n=\n \n1\n \nto\n \ni\n\n            \nA\n[\ni\n \n-\n \nj\n \n+\n \n1\n,\n \nj\n]\n \n=\n \nBASE\n-\nCASE\n(\nA\n,\n \ni\n \n-\n \nj\n \n+\n \n1\n,\n \nj\n)\n\n    \n// Calculate all entries below the antidiagonal.\n\n    \nfor\n \ni\n \n=\n \n2\n \nto\n \nn\n\n        \nparallel\n \nfor\n \nj\n \n=\n \ni\n \nto\n \nn\n\n            \nA\n[\nn\n \n+\n \ni\n \n-\n \nj\n,\n \nj\n]\n \n=\n \nBASE\n-\nCASE\n(\nA\n,\n \nn\n \n+\n \ni\n \n-\n \nj\n \n,\n \nj\n)\n\n\n\n\n\n\n\nFor each value of index $i$ of the first serial \nfor\n loop, the inner loop iterates $i$ times, doing constant work in each iteration. Because index $i$ ranges from $1$ to $n$ in the first \nfor\n loop, we require $\\Theta(1 + 2 + \\cdots + n) = \\Theta(n^2)$ work to calculate all entries on the antidiagonal and above it. For each value of index $i$ of the second serial \nfor\n loop, the inner loop iterates $n - i + 1$ times, doing constant work in each iteration. Because index $i$ ranges from $2$ to $n$ in the second \nfor\n loop, we require $\\Theta((n - 1) + (n - 2) + \\cdots + 1) = \\Theta(n^2)$ work to calculate all entries on the antidiagonal and above it. Therefore, the work of $\\text{P-STENCIL}$ is $T_1(n) = \\Theta(n^2)$.\n\n\nNote that both \nfor\n loops in $\\text{P-STENCIL}$, which execute \nparallel for\n loops within, are serial. Therefore, in order to calculate the span of $\\text{P-STENCIL}$, we must add the spans of all the \nparallel for\n loops. Given that any \nparallel for\n loop in $\\text{P-STENCIL}$ does constant work in each iteration, the span of a \nparallel for\n loop with $n'$ iterations is $\\Theta(\\lg n')$. Hence,\n\n\n\\begin{align}\nT_\\infty(n) & = \\Theta((\\lg 1 + \\lg 2 + \\cdots + \\lg n) + (\\lg(n - 1) + \\cdots + 1)) \\\\\n            & = \\Theta(\\lg(n!) + \\lg(n - 1)!) \\\\\n            & = \\Theta(n\\lg n),\n\\end{align}\n\n\ngiving us $\\Theta(n / \\lg n)$ parallelism.",
+            "text": "Computational science is replete with algorithms that require the entries of an array to be filled in with values that depend on the values of certain already computed neighboring entries, along with other information that does not change over the course of the computation. The pattern of neighboring entries does not change during the computation and is called a \nstencil\n. For example, Section 15.4 presents a stencil algorithm to compute a longest common subsequence, where the value in entry $c[i, j]$ depends only on the values in $c[i - 1, j]$, $c[i, j - 1]$, and $c[i - 1, j - 1]$, as well as the elements $x_i$ and $y_j$ within the two sequences given as inputs. The input sequences are fixed, but the algorithm fills in the two-dimensional array $c$ so that it computes entry $c[i, j]$ after computing all three entries $c[i - 1, j]$, $c[i, j - 1]$, and $c[i - 1, j - 1]$.\n\n\nIn this problem, we examine how to use nested parallelism to multithread a simple stencil calculation on an $n \\times n$ array $A$ in which, of the values in $A$, the value placed into entry $A[i, j]$ depends only on values in $A[i' , j']$, where $i' \\le i$ and $j' \\le j$ (and of course, $i' \\ne i$ or $j' \\ne j$). In other words, the value in an entry depends only on values in entries that are above it and/or to its left, along with static information outside of the array. Furthermore, we assume throughout this problem that once we have filled in the entries upon which $A[i, j]$ depends, we can fill in $A[i, j]$ in $\\Theta(1)$ time (as in the $\\text{LCS-LENGTH}$ procedure of Section 15.4).\n\n\nWe can partition the $n \\times n$ array $A$ into four $n / 2 \\times n / 2$ subarrays as follows:\n\n\n$$\nA =\n\\begin{pmatrix}\nA_{11} & A_{12} \\\\\nA_{21} & A_{22} \\tag{27.11}\n\\end{pmatrix}.\n$$\n\n\nObserve now that we can fill in subarray $A_{11}$ recursively, since it does not depend on the entries of the other three subarrays. Once $A_{11}$ is complete, we can continue to fill in $A_{12}$ and $A_{21}$ recursively in parallel, because although they both depend on $A_{11}$ , they do not depend on each other. Finally, we can fill in $A_{22}$ recursively.\n\n\na.\n Give multithreaded pseudocode that performs this simple stencil calculation using a divide-and-conquer algorithm $\\text{SIMPLE-STENCIL}$ based on the decomposition $\\text{(27.11)}$ and the discussion above. (Don't worry about the details of the base case, which depends on the specific stencil.) Give and solve recurrences for the work and span of this algorithm in terms of $n$. What is the parallelism?\n\n\nb.\n Modify your solution to part (a) to divide an $n \\times n$ array into nine $n / 3 \\times n / 3$ subarrays, again recursing with as much parallelism as possible. Analyze this algorithm. How much more or less parallelism does this algorithm have compared with the algorithm from part (a)?\n\n\nc.\n Generalize your solutions to parts (a) and (b) as follows. Choose an integer $b \\ge 2$. Divide an $n \\times n$ array into $b^2$ subarrays, each of size $n / b \\times n / b$, recursing with as much parallelism as possible. In terms of $n$ and $b$, what are the work, span, and parallelism of your algorithm? Argue that, using this approach, the parallelism must be $o(n)$ for any choice of $b \\ge 2$. ($\\textit{Hint:}$ For this last argument, show that the exponent of $n$ in the parallelism is strictly less than $1$ for any choice of $b \\ge 2$.)\n\n\nd.\n Give pseudocode for a multithreaded algorithm for this simple stencil calculation that achieves $\\Theta(n\\lg n)$ parallelism. Argue using notions of work and span that the problem, in fact, has $\\Theta(n)$ inherent parallelism. As it turns out, the divide-and-conquer nature of our multithreaded pseudocode does not let us achieve this maximal parallelism.\n\n\n\n\na.\n In this part of the problem, we will assume that $n$ is an exact power of $2$, so that in a recursive step, when we divide the $n \\times n$ matrix $A$ into four $n / 2 \\times n / 2$ matrices, we will be guaranteed that $n / 2$ is an integer, for all $n \\ge 2$. We make this assumption simply to avoid introducing $\\lfloor n / 2 \\rfloor$ and $\\lceil n / 2 \\rceil$ terms in the pseudocode and the analysis that follow. In the pseudocode below, we assume that we have a procedure $\\text{BASE-CASE}$ available to us, which calculates the base case of the stencil.\n\n\n 1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n11\nSIMPLE\n-\nSTENCIL\n(\nA\n,\n \ni\n,\n \nj\n,\n \nn\n)\n\n    \nif\n \nn\n \n==\n \n1\n\n        \nA\n[\ni\n,\n \nj\n]\n \n=\n \nBASE\n-\nCASE\n(\nA\n,\n \ni\n,\n \nj\n)\n\n    \nelse\n \n// Calculate submatrix A11.\n\n        \nSIMPLE\n-\nSTENCIL\n(\nA\n,\n \ni\n,\n \nj\n,\n \nn\n \n/\n \n2\n)\n\n        \n// Calculate submatrices A12 and A21 in parallel.\n\n        \nspawn\n \nSIMPLE\n-\nSTENCIL\n(\nA\n,\n \ni\n,\n \nj\n \n+\n \nn\n \n/\n \n2\n,\n \nn\n \n/\n \n2\n)\n\n        \nSIMPLE\n-\nSTENCIL\n(\nA\n,\n \ni\n \n+\n \nn\n \n/\n \n2\n,\n \nj\n,\n \nn\n \n/\n \n2\n)\n\n        \nsync\n\n        \n// Calculate submatrix A22.\n\n        \nSIMPLE\n-\nSTENCIL\n(\nA\n,\n \ni\n \n+\n \nn\n \n/\n \n2\n,\n \nj\n \n+\n \nn\n \n/\n \n2\n,\n \nn\n \n/\n \n2\n)\n\n\n\n\n\n\n\nTo perform a simple stencil calculation on an $n \\times n$ matrix $A$, we call $\\text{SIMPLE-STENCIL}(A, 1, 1, n)$. The recurrence for the work is $T_1(n) = 4T_1(n / 2) + \\Theta(1) = \\Theta(n^2)$. Of the four recursive calls in the algorithm above, only two run in parallel. Therefore, the recurrence for the span is $T_\\infty(n) = 3T_\\infty(n / 2) + \\Theta(1) = \\Theta(n^{\\lg 3})$, and the parallelism is $\\Theta(n^{2 - \\lg 3}) \\approx \\Theta(n^{0.415})$.\n\n\nb.\n Similar to $\\text{SIMPLE-STENCIL}$ of the previous part, we present $\\text{P-STENCIL-3}$, which divides $A$ into nine submatrices, each of size $n / 3 \\times n / 3$, and solves them recursively. To perform a stencil calculation on an $n \\times n$ matrix $A$, we call $\\text{P-STENCIL-3}(A, 1, 1, n)$.\n\n\n 1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\nP\n-\nSTENCIL\n-\n3\n(\nA\n,\n \ni\n,\n \nj\n,\n \nn\n)\n\n    \nif\n \nn\n \n==\n \n1\n\n        \nA\n[\ni\n,\n \nj\n]\n \n=\n \nBASE\n-\nCASE\n(\nA\n,\n \ni\n,\n \nj\n)\n\n    \nelse\n \n// Group 1: compute submatrix A11.\n\n        \nP\n-\nSTENCIL\n-\n3\n(\nA\n,\n \ni\n,\n \nj\n,\n \nn\n \n/\n \n3\n)\n\n        \n// Group 2: compute submatrices A12 and A21.\n\n        \nspawn\n \nP\n-\nSTENCIL\n-\n3\n(\nA\n,\n \ni\n,\n \nj\n \n+\n \nn\n \n/\n \n3\n,\n \nn\n \n/\n \n3\n)\n\n        \nP\n-\nSTENCIL\n-\n3\n(\nA\n,\n \ni\n \n+\n \nn\n \n/\n \n3\n,\n \nj\n,\n \nn\n \n/\n \n3\n)\n\n        \nsync\n\n        \n// Group 3: compute submatrices A13, A22, and A31.\n\n        \nspawn\n \nP\n-\nSTENCIL\n-\n3\n(\nA\n,\n \ni\n,\n \nj\n \n+\n \n2\nn\n \n/\n \n3\n,\n \nn\n \n/\n \n3\n)\n\n        \nspawn\n \nP\n-\nSTENCIL\n-\n3\n(\nA\n,\n \ni\n \n+\n \nn\n \n/\n \n3\n,\n \nj\n \n+\n \nn\n \n/\n \n3\n,\n \nn\n \n/\n \n3\n)\n\n        \nP\n-\nSTENCIL\n-\n3\n(\nA\n,\n \ni\n \n+\n \n2\nn\n \n/\n \n3\n,\n \nj\n,\n \nn\n \n/\n \n3\n)\n\n        \nsync\n\n        \n// Group 4: compute submatrices A23 and A32.\n\n        \nspawn\n \nP\n-\nSTENCIL\n-\n3\n(\nA\n,\n \ni\n \n+\n \nn\n \n/\n \n3\n,\n \nj\n \n+\n \n2\nn\n \n/\n \n3\n,\n \nn\n \n/\n \n3\n)\n\n        \nP\n-\nSTENCIL\n-\n3\n(\nA\n,\n \ni\n \n+\n \n2\nn\n \n/\n \n3\n,\n \nj\n \n+\n \nn\n \n/\n \n3\n,\n \nn\n \n/\n \n3\n)\n\n        \nsync\n\n        \n// Group 5: compute submatrix A33.\n\n        \nP\n-\nSTENCIL\n-\n3\n(\nA\n,\n \ni\n \n+\n \n2\nn\n \n/\n \n3\n,\n \nj\n \n+\n \n2\nn\n \n/\n \n3\n,\n \nn\n \n/\n \n3\n)\n\n\n\n\n\n\n\nFrom the pseudocode, we can informally say that we can solve the nine subproblems in five groups, as shown in the following matrix:\n\n\n\\begin{pmatrix}\n1 & 2 & 3 \\\\\n2 & 3 & 4 \\\\\n3 & 4 & 5\n\\end{pmatrix}\n\n\nEach entry in the above matrix specifies the group of the corresponding $n / 3 \\times n / 3$ submatrix of $A$; we can compute in parallel the entries of all submatrices that fall in the same group. In general, for $i = 2, 3, 4, 5$, we can calculate group $i$ after completing the computation of group $i - 1$.\n\n\nThe recurrence for the work is $T_1(n) = 9T_1(n / 3) + \\Theta(1) = \\Theta(n^2)$. The recurrence for the span is $T_\\infty(n) = 5T_\\infty(n / 3) + \\Theta(1) = \\Theta(n^{\\log_3 5})$. Therefore, the parallelism is $\\Theta(n^{2 - \\log_3 5}) \\approx \\Theta(n^{0.535})$.\n\n\nc.\n Similar to the previous part, we can solve the $b^2$ subproblems in $2b - 1$ groups:\n\n\n\\begin{pmatrix}\n1 & 2 & 3 & \\cdots & b - 2 & b - 1 & b \\\\\n2 & 3 & 4 & \\cdots & b - 1 & b     & b + 1 \\\\\n3 & 4 & 5 & \\cdots & b     & b + 1 & b + 2 \\\\\n\\vdots & \\vdots & \\vdots & \\ddots & \\cdots & \\cdots & \\cdots \\\\\nb - 2 & b - 1 & b     & \\cdots & 2b - 5 & 2b - 4 & 2b - 3 \\\\\nb - 1 & b     & b + 1 & \\cdots & 2b - 4 & 2b - 3 & 2b - 2 \\\\\nb     & b + 1 & b + 2 & \\cdots & 2b - 3 & 2b - 2 & 2b - 1\n\\end{pmatrix}\n\n\nThe recurrence for the work is $T_1(n) = b^2 T_1(n / b) + \\Theta(1) = \\Theta(n^2)$. The recurrence for the span is $T_\\infty(n) = (2b - 1) T_\\infty(n / b) + \\Theta(1) = \\Theta(n^{\\log_b (2b - 1)})$. The parallelism is $\\Theta(n^{2 - \\log_b (2b - 1)})$.\n\n\nAs the hint suggests, in order to show that the parallelism must be $o(n)$ for any choice of $b \\ge 2$, we need to show that $2 - \\log_b (2b - 1)$, which is the exponent of $n$ in the parallelism, is strictly less than $1$ for any choice of $b \\ge 2$. Since $b \\ge 2$, we know that $2b - 1 > b$, which implies that $\\log_b (2b - 1) > \\log_b b = 1$. Hence, $2 - \\log_b (2b - 1) < 2 - 1 = 1$.\n\n\nd.\n The idea behind achieving $\\Theta(n / \\lg n)$ parallelism is similar to that presented in the previous part, except without recursive division. We will compute $A[1, 1]$ serially, which will enable us to compute entries $A[1, 2]$ and $A[2, 1]$ in parallel, after which we can compute entries $A[1, 3]$, $A[2, 2]$ and $A[3, 1]$ in parallel, and so on. Here is the pseudocode:\n\n\n 1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\nP\n-\nSTENCIL\n(\nA\n)\n\n    \nn\n \n=\n \nA\n.\nrows\n\n    \n// Calculate all entries on the antidiagonal and above it.\n\n    \nfor\n \ni\n \n=\n \n1\n \nto\n \nn\n\n        \nparallel\n \nfor\n \nj\n \n=\n \n1\n \nto\n \ni\n\n            \nA\n[\ni\n \n-\n \nj\n \n+\n \n1\n,\n \nj\n]\n \n=\n \nBASE\n-\nCASE\n(\nA\n,\n \ni\n \n-\n \nj\n \n+\n \n1\n,\n \nj\n)\n\n    \n// Calculate all entries below the antidiagonal.\n\n    \nfor\n \ni\n \n=\n \n2\n \nto\n \nn\n\n        \nparallel\n \nfor\n \nj\n \n=\n \ni\n \nto\n \nn\n\n            \nA\n[\nn\n \n+\n \ni\n \n-\n \nj\n,\n \nj\n]\n \n=\n \nBASE\n-\nCASE\n(\nA\n,\n \nn\n \n+\n \ni\n \n-\n \nj\n \n,\n \nj\n)\n\n\n\n\n\n\n\nFor each value of index $i$ of the first serial \nfor\n loop, the inner loop iterates $i$ times, doing constant work in each iteration. Because index $i$ ranges from $1$ to $n$ in the first \nfor\n loop, we require $\\Theta(1 + 2 + \\cdots + n) = \\Theta(n^2)$ work to calculate all entries on the antidiagonal and above it. For each value of index $i$ of the second serial \nfor\n loop, the inner loop iterates $n - i + 1$ times, doing constant work in each iteration. Because index $i$ ranges from $2$ to $n$ in the second \nfor\n loop, we require $\\Theta((n - 1) + (n - 2) + \\cdots + 1) = \\Theta(n^2)$ work to calculate all entries on the antidiagonal and above it. Therefore, the work of $\\text{P-STENCIL}$ is $T_1(n) = \\Theta(n^2)$.\n\n\nNote that both \nfor\n loops in $\\text{P-STENCIL}$, which execute \nparallel for\n loops within, are serial. Therefore, in order to calculate the span of $\\text{P-STENCIL}$, we must add the spans of all the \nparallel for\n loops. Given that any \nparallel for\n loop in $\\text{P-STENCIL}$ does constant work in each iteration, the span of a \nparallel for\n loop with $n'$ iterations is $\\Theta(\\lg n')$. Hence,\n\n\n\\begin{align}\nT_\\infty(n) & = \\Theta((\\lg 1 + \\lg 2 + \\cdots + \\lg n) + (\\lg(n - 1) + \\cdots + 1)) \\\\\n            & = \\Theta(\\lg(n!) + \\lg(n - 1)!) \\\\\n            & = \\Theta(n\\lg n),\n\\end{align}\n\n\ngiving us $\\Theta(n / \\lg n)$ parallelism.",
             "title": "27-5 Multithreading a simple stencil calculation"
         },
         {
             "location": "/Chap27/Problems/27-6/",
-            "text": "Just as with ordinary serial algorithms, we sometimes want to implement randomized multithreaded algorithms. This problem explores how to adapt the various performance measures in order to handle the expected behavior of such algorithms. It also asks you to design and analyze a multithreaded algorithm for randomized quicksort.\n\n\na.\n Explain how to modify the work law $\\text{(27.2)}$, span law $\\text{(27.3)}$, and greedy scheduler bound $\\text{(27.4)}$ to work with expectations when $T_P$, $T_1$, and $T_\\infty$ are all random variables.\n\n\nb.\n Consider a randomized multithreaded algorithm for which $1\\%$ of the time we have $T_1 = 10^4$ and $T_{10,000} = 1$, but for $99\\%$ of the time we have $T_1 = T_{10,000} = 10^9$. Argue that the \nspeedup\n of a randomized multithreaded algorithm should be defined as $\\text E[T_1]/\\text E[T_P]$, rather than $\\text E[T_1 / T_P]$.\n\n\nc.\n Argue that the \nparallelism\n of a randomized multithreaded algorithm should be defined as the ratio $\\text E[T_1] / \\text E[T_\\infty]$.\n\n\nd.\n Multithread the $\\text{RANDOMIZED-QUICKSORT}$ algorithm on page 179 by using nested parallelism. (Do not parallelize $\\text{RANDOMIZED-PARTITION}$.) Give the pseudocode for your $\\text{P-RANDOMIZED-QUICKSORT}$ algorithm.\n\n\ne.\n Analyze your multithreaded algorithm for randomized quicksort. ($\\textit{Hint:}$ Review the analysis of $\\text{RANDOMIZED-SELECT}$ on page 216.)\n\n\n\n\na.\n\n\n\\begin{align}\n\\text E[T_P] & \\ge \\text E[T_1] / P \\\\\n\\text E[T_P] & \\ge \\text E[T_\\infty] \\\\\n\\text E[T_P] & \\le \\text E[T_1]/P + \\text E[T_\\infty].\n\\end{align}\n\n\nb.\n\n\n\\text E[T_1] \\approx \\text E[T_{10,000}] \\approx 9.9 \\times 10^8, \\text E[T_1]/\\text E[T_P] = 1.\n\\text E[T_1 / T_{10,000}] = 10^4 * 0.01 + 0.99 = 100.99.\n\n\nc.\n Same as the above.\n\n\nd.\n\n\n1\n2\n3\n4\n5\n6\nRANDOMIZED\n-\nQUICKSORT\n(\nA\n,\n \np\n,\n \nr\n)\n\n    \nif\n \np\n \n<\n \nr\n\n        \nq\n \n=\n \nRANDOM\n-\nPARTITION\n(\nA\n,\n \np\n,\n \nr\n)\n\n    \nspawn\n \nRANDOMIZED\n-\nQUICKSORT\n(\nA\n,\n \np\n,\n \nq\n \n-\n \n1\n)\n\n    \nRANDOMIZED\n-\nQUICKSORT\n(\nA\n,\n \nq\n \n+\n \n1\n,\n \nr\n)\n\n    \nsync\n\n\n\n\n\n\n\ne.\n\n\n\\begin{align}\n\\text E[T_1] & = O(n\\lg n) \\\\\n\\text E[T_\\infty] & = O(\\lg n) \\\\\n\\text E[T_1] / \\text E[T_\\infty] & = O(n).\n\\end{align}",
+            "text": "Just as with ordinary serial algorithms, we sometimes want to implement randomized multithreaded algorithms. This problem explores how to adapt the various performance measures in order to handle the expected behavior of such algorithms. It also asks you to design and analyze a multithreaded algorithm for randomized quicksort.\n\n\na.\n Explain how to modify the work law $\\text{(27.2)}$, span law $\\text{(27.3)}$, and greedy scheduler bound $\\text{(27.4)}$ to work with expectations when $T_P$, $T_1$, and $T_\\infty$ are all random variables.\n\n\nb.\n Consider a randomized multithreaded algorithm for which $1\\%$ of the time we have $T_1 = 10^4$ and $T_{10,000} = 1$, but for $99\\%$ of the time we have $T_1 = T_{10,000} = 10^9$. Argue that the \nspeedup\n of a randomized multithreaded algorithm should be defined as $\\text E[T_1]/\\text E[T_P]$, rather than $\\text E[T_1 / T_P]$.\n\n\nc.\n Argue that the \nparallelism\n of a randomized multithreaded algorithm should be defined as the ratio $\\text E[T_1] / \\text E[T_\\infty]$.\n\n\nd.\n Multithread the $\\text{RANDOMIZED-QUICKSORT}$ algorithm on page 179 by using nested parallelism. (Do not parallelize $\\text{RANDOMIZED-PARTITION}$.) Give the pseudocode for your $\\text{P-RANDOMIZED-QUICKSORT}$ algorithm.\n\n\ne.\n Analyze your multithreaded algorithm for randomized quicksort. ($\\textit{Hint:}$ Review the analysis of $\\text{RANDOMIZED-SELECT}$ on page 216.)\n\n\n\n\na.\n\n\n\\begin{align}\n\\text E[T_P] & \\ge \\text E[T_1] / P \\\\\n\\text E[T_P] & \\ge \\text E[T_\\infty] \\\\\n\\text E[T_P] & \\le \\text E[T_1]/P + \\text E[T_\\infty].\n\\end{align}\n\n\nb.\n\n\n$$\\text E[T_1] \\approx \\text E[T_{10,000}] \\approx 9.9 \\times 10^8, \\text E[T_1]/\\text E[T_P] = 1.$$\n\n\n$$\\text E[T_1 / T_{10,000}] = 10^4 * 0.01 + 0.99 = 100.99.$$\n\n\nc.\n Same as the above.\n\n\nd.\n\n\n1\n2\n3\n4\n5\n6\nRANDOMIZED\n-\nQUICKSORT\n(\nA\n,\n \np\n,\n \nr\n)\n\n    \nif\n \np\n \n<\n \nr\n\n        \nq\n \n=\n \nRANDOM\n-\nPARTITION\n(\nA\n,\n \np\n,\n \nr\n)\n\n    \nspawn\n \nRANDOMIZED\n-\nQUICKSORT\n(\nA\n,\n \np\n,\n \nq\n \n-\n \n1\n)\n\n    \nRANDOMIZED\n-\nQUICKSORT\n(\nA\n,\n \nq\n \n+\n \n1\n,\n \nr\n)\n\n    \nsync\n\n\n\n\n\n\n\ne.\n\n\n\\begin{align}\n\\text E[T_1] & = O(n\\lg n) \\\\\n\\text E[T_\\infty] & = O(\\lg n) \\\\\n\\text E[T_1] / \\text E[T_\\infty] & = O(n).\n\\end{align}",
             "title": "27-6 Randomized multithreaded algorithms"
+        },
+        {
+            "location": "/Chap28/28.1/",
+            "text": "28.1-1\n\u00b6\n\n\n\n\nSolve the equation\n\n\n$$\n\\begin{pmatrix}\n 1 & 0 & 0 \\\\\n 4 & 1 & 0 \\\\\n-6 & 5 & 1\n\\end{pmatrix}\n\\begin{pmatrix}\nx_1 \\\\\nx_2 \\\\\nx_3\n\\end{pmatrix}\n=\n\\begin{pmatrix}\n 3 \\\\\n14 \\\\\n-7\n\\end{pmatrix}\n$$\n\n\nby using forward substitution.\n\n\n\n\n28.1-2\n\u00b6\n\n\n\n\nFind an $\\text{LU}$ decomposition of the matrix\n\n\n$$\n\\begin{pmatrix}\n 4 & -5 &  6 \\\\\n 8 & -6 &  7 \\\\\n12 & -7 & 12\n\\end{pmatrix}.\n$$\n\n\n\n\n28.1-3\n\u00b6\n\n\n\n\nSolve the equation\n\n\n$$\n\\begin{pmatrix}\n1 & 5 & 4 \\\\\n2 & 0 & 3 \\\\\n5 & 8 & 2\n\\end{pmatrix}\n\\begin{pmatrix}\nx_1 \\\\\nx_2 \\\\\nx_3\n\\end{pmatrix}\n=\n\\begin{pmatrix}\n12 \\\\\n 9 \\\\\n 5\n\\end{pmatrix}\n$$\n\n\nby using forward substitution.\n\n\n\n\n28.1-4\n\u00b6\n\n\n\n\nDescribe the $\\text{LUP}$ decomposition of a diagonal matrix.\n\n\n\n\n28.1-5\n\u00b6\n\n\n\n\nDescribe the $\\text{LUP}$ decomposition of a permutation matrix $A$, and prove that it is unique.\n\n\n\n\n28.1-6\n\u00b6\n\n\n\n\nShow that for all $n \\ge 1$, there exists a singular $n \\times n$ matrix that has an $\\text{LU}$ decomposition.\n\n\n\n\n28.1-7\n\u00b6\n\n\n\n\nIn $\\text{LU-DECOMPOSITION}$, is it necessary to perform the outermost \nfor\n loop iteration when $k = n$? How about in $\\text{LUP-DECOMPOSITION}$?",
+            "title": "28.1 Solving systems of linear equations"
+        },
+        {
+            "location": "/Chap28/28.1/#281-1",
+            "text": "Solve the equation  $$\n\\begin{pmatrix}\n 1 & 0 & 0 \\\\\n 4 & 1 & 0 \\\\\n-6 & 5 & 1\n\\end{pmatrix}\n\\begin{pmatrix}\nx_1 \\\\\nx_2 \\\\\nx_3\n\\end{pmatrix}\n=\n\\begin{pmatrix}\n 3 \\\\\n14 \\\\\n-7\n\\end{pmatrix}\n$$  by using forward substitution.",
+            "title": "28.1-1"
+        },
+        {
+            "location": "/Chap28/28.1/#281-2",
+            "text": "Find an $\\text{LU}$ decomposition of the matrix  $$\n\\begin{pmatrix}\n 4 & -5 &  6 \\\\\n 8 & -6 &  7 \\\\\n12 & -7 & 12\n\\end{pmatrix}.\n$$",
+            "title": "28.1-2"
+        },
+        {
+            "location": "/Chap28/28.1/#281-3",
+            "text": "Solve the equation  $$\n\\begin{pmatrix}\n1 & 5 & 4 \\\\\n2 & 0 & 3 \\\\\n5 & 8 & 2\n\\end{pmatrix}\n\\begin{pmatrix}\nx_1 \\\\\nx_2 \\\\\nx_3\n\\end{pmatrix}\n=\n\\begin{pmatrix}\n12 \\\\\n 9 \\\\\n 5\n\\end{pmatrix}\n$$  by using forward substitution.",
+            "title": "28.1-3"
+        },
+        {
+            "location": "/Chap28/28.1/#281-4",
+            "text": "Describe the $\\text{LUP}$ decomposition of a diagonal matrix.",
+            "title": "28.1-4"
+        },
+        {
+            "location": "/Chap28/28.1/#281-5",
+            "text": "Describe the $\\text{LUP}$ decomposition of a permutation matrix $A$, and prove that it is unique.",
+            "title": "28.1-5"
+        },
+        {
+            "location": "/Chap28/28.1/#281-6",
+            "text": "Show that for all $n \\ge 1$, there exists a singular $n \\times n$ matrix that has an $\\text{LU}$ decomposition.",
+            "title": "28.1-6"
+        },
+        {
+            "location": "/Chap28/28.1/#281-7",
+            "text": "In $\\text{LU-DECOMPOSITION}$, is it necessary to perform the outermost  for  loop iteration when $k = n$? How about in $\\text{LUP-DECOMPOSITION}$?",
+            "title": "28.1-7"
+        },
+        {
+            "location": "/Chap28/28.2/",
+            "text": "28.2-1\n\u00b6\n\n\n\n\nLet $M(n)$ be the time to multiply two $n \\times n$ matrices, and let $S(n)$ denote the time required to square an $n \\times n$ matrix. Show that multiplying and squaring matrices have essentially the same difficulty: an $M(n)$-time matrix-multiplication algorithm implies an $O(M(n))$-time squaring algorithm, and an $S(n)$-time squaring algorithm implies an $O(S(n))$-time matrix-multiplication algorithm.\n\n\n\n\n28.2-2\n\u00b6\n\n\n\n\nLet $M(n)$ be the time to multiply two $n \\times n$ matrices, and let $L(n)$ be the time to compute the LUP decomposition of an $n \\times n$ matrix. Show that multiplying matrices and computing LUP decompositions of matrices have essentially the same difficulty: an $M(n)$-time matrix-multiplication algorithm implies an $O(M(n))$-time LUP-decomposition algorithm, and an $L(n)$-time LUP-decomposition algorithm implies an $O(L(n))$/-time matrix-multiplication algorithm.\n\n\n\n\n28.2-3\n\u00b6\n\n\n\n\nLet $M(n)$ be the time to multiply two $n \\times n$ matrices, and let $D(n)$ denote the time required to find the determinant of an $n \\times n$ matrix. Show that multiplying matrices and computing the determinant have essentially the same difficulty: an $M(n)$-time matrix-multiplication algorithm implies an $O(M(n))$-time determinant algorithm, and a $D(n)$-time determinant algorithm implies an $O(D(n))$-time matrix-multiplication algorithm.\n\n\n\n\n28.2-4\n\u00b6\n\n\n\n\nLet $M(n)$ be the time to multiply two $n \\times n$ boolean matrices, and let $T(n)$ be the time to find the transitive closure of an $n \\times n$ boolean matrix. (See Section 25.2.) Show that an $M(n)$-time boolean matrix-multiplication algorithm implies an $O(M(n)\\lg n)$-time transitive-closure algorithm, and a $T(n)$-time transitive-closure algorithm implies an $O(T(n))$-time boolean matrix-multiplication algorithm.\n\n\n\n\n28.2-5\n\u00b6\n\n\n\n\nDoes the matrix-inversion algorithm based on Theorem 28.2 work when matrix elements are drawn from the field of integers modulo $2$? Explain.\n\n\n\n\n28.2-6 $\\star$\n\u00b6\n\n\n\n\nGeneralize the matrix-inversion algorithm of Theorem 28.2 to handle matrices of complex numbers, and prove that your generalization works correctly. ($\\textit{Hint:}$ Instead of the transpose of $A$, use the \nconjugate transpose\n $A^*$, which you obtain from the transpose of $A$ by replacing every entry with its complex conjugate. Instead of symmetric matrices, consider \nHermitian\n matrices, which are matrices $A$ such that $A = A^*$.)",
+            "title": "28.2 Inverting matrices"
+        },
+        {
+            "location": "/Chap28/28.2/#282-1",
+            "text": "Let $M(n)$ be the time to multiply two $n \\times n$ matrices, and let $S(n)$ denote the time required to square an $n \\times n$ matrix. Show that multiplying and squaring matrices have essentially the same difficulty: an $M(n)$-time matrix-multiplication algorithm implies an $O(M(n))$-time squaring algorithm, and an $S(n)$-time squaring algorithm implies an $O(S(n))$-time matrix-multiplication algorithm.",
+            "title": "28.2-1"
+        },
+        {
+            "location": "/Chap28/28.2/#282-2",
+            "text": "Let $M(n)$ be the time to multiply two $n \\times n$ matrices, and let $L(n)$ be the time to compute the LUP decomposition of an $n \\times n$ matrix. Show that multiplying matrices and computing LUP decompositions of matrices have essentially the same difficulty: an $M(n)$-time matrix-multiplication algorithm implies an $O(M(n))$-time LUP-decomposition algorithm, and an $L(n)$-time LUP-decomposition algorithm implies an $O(L(n))$/-time matrix-multiplication algorithm.",
+            "title": "28.2-2"
+        },
+        {
+            "location": "/Chap28/28.2/#282-3",
+            "text": "Let $M(n)$ be the time to multiply two $n \\times n$ matrices, and let $D(n)$ denote the time required to find the determinant of an $n \\times n$ matrix. Show that multiplying matrices and computing the determinant have essentially the same difficulty: an $M(n)$-time matrix-multiplication algorithm implies an $O(M(n))$-time determinant algorithm, and a $D(n)$-time determinant algorithm implies an $O(D(n))$-time matrix-multiplication algorithm.",
+            "title": "28.2-3"
+        },
+        {
+            "location": "/Chap28/28.2/#282-4",
+            "text": "Let $M(n)$ be the time to multiply two $n \\times n$ boolean matrices, and let $T(n)$ be the time to find the transitive closure of an $n \\times n$ boolean matrix. (See Section 25.2.) Show that an $M(n)$-time boolean matrix-multiplication algorithm implies an $O(M(n)\\lg n)$-time transitive-closure algorithm, and a $T(n)$-time transitive-closure algorithm implies an $O(T(n))$-time boolean matrix-multiplication algorithm.",
+            "title": "28.2-4"
+        },
+        {
+            "location": "/Chap28/28.2/#282-5",
+            "text": "Does the matrix-inversion algorithm based on Theorem 28.2 work when matrix elements are drawn from the field of integers modulo $2$? Explain.",
+            "title": "28.2-5"
+        },
+        {
+            "location": "/Chap28/28.2/#282-6-star",
+            "text": "Generalize the matrix-inversion algorithm of Theorem 28.2 to handle matrices of complex numbers, and prove that your generalization works correctly. ($\\textit{Hint:}$ Instead of the transpose of $A$, use the  conjugate transpose  $A^*$, which you obtain from the transpose of $A$ by replacing every entry with its complex conjugate. Instead of symmetric matrices, consider  Hermitian  matrices, which are matrices $A$ such that $A = A^*$.)",
+            "title": "28.2-6 $\\star$"
+        },
+        {
+            "location": "/Chap28/28.3/",
+            "text": "28.3-1\n\u00b6\n\n\n\n\nProve that every diagonal element of a symmetric positive-definite matrix is positive.\n\n\n\n\n28.3-2\n\u00b6\n\n\n\n\nLet\n\n\n$$\nA = \n\\begin{pmatrix} \na & b \\\\ \nb & c \n\\end{pmatrix}\n$$\n\n\nbe a $2 \\times 2$ symmetrix positive-definite matrix. Prove that its determinant $ac - b^2$ is positive by ''completing the square'' in a manner similar to that used in the proof of Lemma 28.5.\n\n\n\n\n28.3-3\n\u00b6\n\n\n\n\nProve that the maximum element in a symmetric positive-definite matrix lies on the diagonal.\n\n\n\n\n28.3-4\n\u00b6\n\n\n\n\nProve that the determinant of each leading submatrix of a symmetrix positive-definite matrix is positive.\n\n\n\n\n28.3-5\n\u00b6\n\n\n\n\nLet $A_k$ denote the $k$th leading submatrix of a symmetric positive-definite matrix $A$. Prove that $\\text{det}(A_k) / \\text{det}(A_{k - 1})$ is the $k$th pivot during $\\text{LU}$ decomposition, where, by convention, $\\text{det}(A_0) = 1$.\n\n\n\n\n28.3-6\n\u00b6\n\n\n\n\nFind the function of the form\n\n\n$$F(x) = c_1 + c_2x\\lg x + c_3 e^x$$\n\n\nthat is the best least-squares fit to the data points\n\n\n$$(1, 1), (2, 1), (3, 3), (4, 8).$$\n\n\n\n\n28.3-7\n\u00b6\n\n\n\n\nShow that the pseudoinverse $A^+$ satisfies the following four equations:\n\n\n\\begin{align}\n           AA^+A & = A, \\\\\n         A^+AA^+ & = A^+, \\\\\n(AA^+)^{\\text T} & = AA^+, \\\\\n(A^+A)^{\\text T} & = A^+A.\n\\end{align}",
+            "title": "28.3 Symmetric positive-definite matrices and least-squares approximation"
+        },
+        {
+            "location": "/Chap28/28.3/#283-1",
+            "text": "Prove that every diagonal element of a symmetric positive-definite matrix is positive.",
+            "title": "28.3-1"
+        },
+        {
+            "location": "/Chap28/28.3/#283-2",
+            "text": "Let  $$\nA = \n\\begin{pmatrix} \na & b \\\\ \nb & c \n\\end{pmatrix}\n$$  be a $2 \\times 2$ symmetrix positive-definite matrix. Prove that its determinant $ac - b^2$ is positive by ''completing the square'' in a manner similar to that used in the proof of Lemma 28.5.",
+            "title": "28.3-2"
+        },
+        {
+            "location": "/Chap28/28.3/#283-3",
+            "text": "Prove that the maximum element in a symmetric positive-definite matrix lies on the diagonal.",
+            "title": "28.3-3"
+        },
+        {
+            "location": "/Chap28/28.3/#283-4",
+            "text": "Prove that the determinant of each leading submatrix of a symmetrix positive-definite matrix is positive.",
+            "title": "28.3-4"
+        },
+        {
+            "location": "/Chap28/28.3/#283-5",
+            "text": "Let $A_k$ denote the $k$th leading submatrix of a symmetric positive-definite matrix $A$. Prove that $\\text{det}(A_k) / \\text{det}(A_{k - 1})$ is the $k$th pivot during $\\text{LU}$ decomposition, where, by convention, $\\text{det}(A_0) = 1$.",
+            "title": "28.3-5"
+        },
+        {
+            "location": "/Chap28/28.3/#283-6",
+            "text": "Find the function of the form  $$F(x) = c_1 + c_2x\\lg x + c_3 e^x$$  that is the best least-squares fit to the data points  $$(1, 1), (2, 1), (3, 3), (4, 8).$$",
+            "title": "28.3-6"
+        },
+        {
+            "location": "/Chap28/28.3/#283-7",
+            "text": "Show that the pseudoinverse $A^+$ satisfies the following four equations:  \\begin{align}\n           AA^+A & = A, \\\\\n         A^+AA^+ & = A^+, \\\\\n(AA^+)^{\\text T} & = AA^+, \\\\\n(A^+A)^{\\text T} & = A^+A.\n\\end{align}",
+            "title": "28.3-7"
+        },
+        {
+            "location": "/Chap28/Problems/28-1/",
+            "text": "Consider the tridiagonal matrix\n\n\n$$\nA =\n\\begin{pmatrix}\n 1 & -1 &  0 &  0 &  0 \\\\\n-1 &  2 & -1 &  0 &  0 \\\\\n 0 & -1 &  2 & -1 &  0 \\\\\n 0 &  0 & -1 &  2 & -1 \\\\\n 0 &  0 &  0 & -1 &  2\n\\end{pmatrix}.\n$$\n\n\na.\n Find an $\\text{LU}$ decomposition of $A$.\n\n\nb.\n Solve the equation $Ax = \\begin{pmatrix} 1 & 1 & 1 & 1 & 1 \\end{pmatrix}^{\\text T}$ by using forward and back substitution.\n\n\nc.\n Find the inverse of $A$.\n\n\nd.\n Show how, for any $n \\times n$ symmetric positive-definite, tridiagonal matrix $A$ and any $n$-vector $b$, to solve the equation $Ax = b$ in $O(n)$ time by performing an $\\text{LU}$ decomposition. Argue that any method based on forming $A^{-1}$ is asymptotically more expensive in the worst case.\n\n\ne.\n Show how, for any $n \\times n$ nonsingular, tridiagonal matrix $A$ and any $n$-vector $b$, to solve the equation $Ax = b$ in $O(n)$ time by performing an $\\text{LUP}$ decomposition.",
+            "title": "28-1 Tridiagonal systems of linear equations"
+        },
+        {
+            "location": "/Chap28/Problems/28-2/",
+            "text": "A pratical method for interpolating a set of points with a curve is to use \ncubic splines\n. We are given a set $\\{(x_i, y_i): i = 0, 1, \\ldots, n\\}$ of $n + 1$ point-value pairs, where $x_0 < x_1 < \\cdots < x_n$. We wish to fit a piecewise-cubic curve (spline) $f(x)$ to the points. That is, the curve $f(x)$ is made up of $n$ cubic polynomials $f_i(x) = a_i + b_ix + c_ix^2 + d_ix^3$ for $i = 0, 1, \\ldots, n - 1$, where if $x$ falls in the range $x_i \\le x \\le x_{i + 1}$, then the value of the curve is given by $f(x) = f_i(x - x_i)$. The points $x_i$ at which the cubic polynomials are ''pasted'' together are called \nknots\n. For simplicity, we shall assume that $x_i = i$ for $i = 0, 1, \\ldots, n$.\n\n\nTo ensure continuity of $f(x)$, we require that\n\n\n\\begin{align}\nf(x_i)       & = f_i(0) = y_i, \\\\\nf(x_{i + 1}) & = f_i(1) = y_{i + 1}\n\\end{align}\n\n\nfor $i = 0, 1, \\ldots, n - 1$. To ensure that $f(x)$ is sufficiently smooth, we also insist that the first derivative be continuous at each knot:\n\n\n$$f'(x_{i + 1}) = f'_i(1) = f'_{i + 1}(0)$$\n\n\nfor $i = 0, 1, \\ldots, n - 2$.\n\n\na.\n Suppose that for $i = 0, 1, \\ldots, n$, we are given not only the point-value pairs $\\{(x_i, y_i)\\}$ but also the first derivatives $D_i = f'(x_i)$ at each knot. Express each coefficient $a_i$, $b_i$, $c_i$ and $d_i$ in terms of the values $y_i$, $y_{i + 1}$, $D_i$, and $D_{i + 1}$. (Remember that $x_i = i$.) How quickly can we compute the $4n$ coefficients from the point-value pairs and first derivatives?\n\n\nThe question remains of how to choose the first derivatives of $f(x)$ at the knots. One method is to require the second derivatives to be continuous at the knots:\n\n\n$$f''(x_{i + 1}) = f''_i(1) = f''_{i + 1}(0)$$\n\n\nfor $i = 0, 1, \\ldots, n - 2$. At the first and last knots, we assume that $f''(x_0) = f''_0(0) = 0$ and $f''(x_n) = f''_{n - 1}(1) = 0$; these assumptions make $f(x)$ a \nnatural\n cubic spline.\n\n\nb.\n Use the continuity constraints on the second derivative to show that for $i = 1, 2, \\ldots, n - 1$,\n\n\n$$D_{i - 1} + 4D_i + D_{i + 1} = 3(y_{i + 1} - y_{i - 1}). \\tag{23.21}$$\n\n\nc.\n Show that\n\n\n\\begin{align}\n      2D_0 + D_1 & = 3(y_1 - y_0),       \\tag{28.22} \\\\\nD_{n - 1} + 2D_n & = 3(y_n - y_{n - 1}). \\tag{28.23}\n\\end{align}\n\n\nd.\n Rewrite equations $\\text{(28.21)}$\u2013$\\text{(28.23)}$ as a matrix equation involving the vector $D = \\langle D_0, D_1, \\ldots, D_n \\rangle$ or unknowns. What attributes does the matrix in your equation have?\n\n\ne.\n Argue that a natural cubic spline can interpolate a set of $n + 1$ point-value pairs in $O(n)$ time (see Problem 28-1).\n\n\nf.\n Show how to determine a natural cubic spline that interpolates a set of $n + 1$ points $(x_i, y_i)$ satisfying $x_0 < x_1 < \\cdots < x_n$, even when $x_i$ is not necessarily equal to $i$. What matrix equation must your method solve, and how quickly does your algorithm run?",
+            "title": "28-2 Splines"
+        },
+        {
+            "location": "/Chap29/29.1/",
+            "text": "29.1-1\n\u00b6\n\n\n\n\nIf we express the linear program in $\\text{(29.24)}$\u2013$\\text{(29.28)}$ in the compact notation of $\\text{(29.19)}$\u2013$\\text{(29.21)}$, what are $n$, $m$, $A$, $b$, and $c$?\n\n\n\n\n29.1-2\n\u00b6\n\n\n\n\nGive three feasible solutions to the linear program in $\\text{(29.24)}$\u2013$\\text{(29.28)}$. What is the objective value of each one?\n\n\n\n\n29.1-3\n\u00b6\n\n\n\n\nFor the slack form in $\\text{(29.38)}$\u2013$\\text{(29.41)}$, what are $N$, $B$, $A$, $b$, $c$, and $v$?\n\n\n\n\n29.1-4\n\u00b6\n\n\n\n\nConvert the following linear program into standard form:\n\n\n\\begin{array}{lccccccc}\n\\text{minimize}   & 2x_1 & + & 7x_2 & + & x_3 &     & \\\\\n\\text{subject to} &      &   &      &   & \\\\\n                  &  x_1 &   &      & - & x_3 & =   &  7 \\\\\n                  & 3x_1 & + &  x_2 &   &     & \\ge & 24 \\\\\n                  &      &   &  x_2 &   &     & \\ge &  0 \\\\\n                  &      &   &      &   & x_3 & \\le &  0.\n\\end{array}\n\n\n\n\n29.1-5\n\u00b6\n\n\n\n\nConvert the following linear program into slack form:\n\n\n\\begin{array}{lccccccc}\n\\text{minimize}   & 2x_1 &   &      & - & 6x_3 \\\\\n\\text{subject to} & \\\\\n                  &  x_1 & + &  x_2 & - &  x_3 & \\le & 7 \\\\\n                  & 3x_1 & - &  x_2 &   &      & \\ge & 8 \\\\\n                  & -x_1 & + & 2x_2 & + & 2x_3 & \\ge & 0 \\\\\n                  &      & x_1, x_2, x_3 & & & & \\ge & 0.\n\\end{array}\n\n\nWhat are the basic and nonbasic variables?\n\n\n\n\n29.1-6\n\u00b6\n\n\n\n\nShow that the following linear program is infeasible:\n\n\n\\begin{array}{lccccc}\n\\text{minimize}   &  3x_1 & - & 2x_2 \\\\\n\\text{subject to} & \\\\\n                  &   x_1 & + &  x_2   & \\le &   2 \\\\\n                  & -2x_1 & - & 2x_2   & \\le & -10 \\\\\n                  &       & x_1, x_2 & & \\ge &   0.\n\\end{array}\n\n\n\n\n29.1-7\n\u00b6\n\n\n\n\nShow that the following linear program is unbounded:\n\n\n\\begin{array}{lccccc}\n\\text{minimize}   &   x_1 & - &  x_2 \\\\\n\\text{subject to} & \\\\\n                  & -2x_1 & + &  x_2   & \\le & -1 \\\\\n                  &  -x_1 & - & 2x_2   & \\le & -2 \\\\\n                  &       & x_1, x_2 & & \\ge &  0.\n\\end{array}\n\n\n\n\n29.1-8\n\u00b6\n\n\n\n\nSuppose that we have a general linear program with $n$ variables and $m$ constraints, and suppose that we convert it into standard form. Give an upper bound on the number of variables and constraints in the resulting linear program.\n\n\n\n\n29.1-9\n\u00b6\n\n\n\n\nGive an example of a linear program for which the feasible region is not bounded, but the optimal objective value is finite.",
+            "title": "29.1 Standard and slack forms"
+        },
+        {
+            "location": "/Chap29/29.1/#291-1",
+            "text": "If we express the linear program in $\\text{(29.24)}$\u2013$\\text{(29.28)}$ in the compact notation of $\\text{(29.19)}$\u2013$\\text{(29.21)}$, what are $n$, $m$, $A$, $b$, and $c$?",
+            "title": "29.1-1"
+        },
+        {
+            "location": "/Chap29/29.1/#291-2",
+            "text": "Give three feasible solutions to the linear program in $\\text{(29.24)}$\u2013$\\text{(29.28)}$. What is the objective value of each one?",
+            "title": "29.1-2"
+        },
+        {
+            "location": "/Chap29/29.1/#291-3",
+            "text": "For the slack form in $\\text{(29.38)}$\u2013$\\text{(29.41)}$, what are $N$, $B$, $A$, $b$, $c$, and $v$?",
+            "title": "29.1-3"
+        },
+        {
+            "location": "/Chap29/29.1/#291-4",
+            "text": "Convert the following linear program into standard form:  \\begin{array}{lccccccc}\n\\text{minimize}   & 2x_1 & + & 7x_2 & + & x_3 &     & \\\\\n\\text{subject to} &      &   &      &   & \\\\\n                  &  x_1 &   &      & - & x_3 & =   &  7 \\\\\n                  & 3x_1 & + &  x_2 &   &     & \\ge & 24 \\\\\n                  &      &   &  x_2 &   &     & \\ge &  0 \\\\\n                  &      &   &      &   & x_3 & \\le &  0.\n\\end{array}",
+            "title": "29.1-4"
+        },
+        {
+            "location": "/Chap29/29.1/#291-5",
+            "text": "Convert the following linear program into slack form:  \\begin{array}{lccccccc}\n\\text{minimize}   & 2x_1 &   &      & - & 6x_3 \\\\\n\\text{subject to} & \\\\\n                  &  x_1 & + &  x_2 & - &  x_3 & \\le & 7 \\\\\n                  & 3x_1 & - &  x_2 &   &      & \\ge & 8 \\\\\n                  & -x_1 & + & 2x_2 & + & 2x_3 & \\ge & 0 \\\\\n                  &      & x_1, x_2, x_3 & & & & \\ge & 0.\n\\end{array}  What are the basic and nonbasic variables?",
+            "title": "29.1-5"
+        },
+        {
+            "location": "/Chap29/29.1/#291-6",
+            "text": "Show that the following linear program is infeasible:  \\begin{array}{lccccc}\n\\text{minimize}   &  3x_1 & - & 2x_2 \\\\\n\\text{subject to} & \\\\\n                  &   x_1 & + &  x_2   & \\le &   2 \\\\\n                  & -2x_1 & - & 2x_2   & \\le & -10 \\\\\n                  &       & x_1, x_2 & & \\ge &   0.\n\\end{array}",
+            "title": "29.1-6"
+        },
+        {
+            "location": "/Chap29/29.1/#291-7",
+            "text": "Show that the following linear program is unbounded:  \\begin{array}{lccccc}\n\\text{minimize}   &   x_1 & - &  x_2 \\\\\n\\text{subject to} & \\\\\n                  & -2x_1 & + &  x_2   & \\le & -1 \\\\\n                  &  -x_1 & - & 2x_2   & \\le & -2 \\\\\n                  &       & x_1, x_2 & & \\ge &  0.\n\\end{array}",
+            "title": "29.1-7"
+        },
+        {
+            "location": "/Chap29/29.1/#291-8",
+            "text": "Suppose that we have a general linear program with $n$ variables and $m$ constraints, and suppose that we convert it into standard form. Give an upper bound on the number of variables and constraints in the resulting linear program.",
+            "title": "29.1-8"
+        },
+        {
+            "location": "/Chap29/29.1/#291-9",
+            "text": "Give an example of a linear program for which the feasible region is not bounded, but the optimal objective value is finite.",
+            "title": "29.1-9"
+        },
+        {
+            "location": "/Chap29/29.2/",
+            "text": "29.2-1\n\u00b6\n\n\n\n\nPut the single-pair shortest-path linear program from $\\text{(29.44)}$\u2013$\\text{(29.46)}$ into standard form.\n\n\n\n\n29.2-2\n\u00b6\n\n\n\n\nWrite out explicitly the linear program corresponding to finding the shortest path from node $s$ to node $y$ in Figure 24.2(a).\n\n\n\n\n29.2-3\n\u00b6\n\n\n\n\nIn the single-source shortest-paths problem, we want to find the shortest-path weights from a source vertex $s$ to all vertices $v \\in V$. Given a graph $G$, write a linear program for which the solution has the property that $d_v$ is the shortest-path weight from $s$ to $v$ for each vertex $v \\in V$.\n\n\n\n\n29.2-4\n\u00b6\n\n\n\n\nWrite out explicitly the linear program corresponding to finding the maximum flow in Figure 26.1(a).\n\n\n\n\n29.2-5\n\u00b6\n\n\n\n\nRewrite the linear program for maximum flow $\\text{(29.47)}$\u2013$\\text{(29.50)}$ so that it uses only $O(V + E)$ constraints.\n\n\n\n\n29.2-6\n\u00b6\n\n\n\n\nWrite a linear program that, given a bipartite graph $G = (V, E)$ solves the maximum-bipartite-matching problem.\n\n\n\n\n29.2-7\n\u00b6\n\n\n\n\nIn the \nminimum-cost multicommodity-flow problem\n, we are given directed graph $G = (V, E)$ in which each edge $(u, v) \\in E$ has a nonnegative capacity $c(u, v) \\ge 0$ and a cost $a(u, v)$. As in the multicommodity-flow problem, we are given $k$ different commodities, $K_1, K_2, \\ldots, K_k$, where we specify commodity $i$ by the triple $K_i = (s_i, t_i, d_i)$. We define the flow $f_i$ for commodity $i$ and the aggregate flow $f_{uv}$ on edge $(u, v)$ as in the multicommodity-flow problem. A feasible flow is one in which the aggregate flow on each edge $(u, v)$ is no more than the capacity of edge $(u, v)$. The cost of a flow is $\\sum_{u, v \\in V} a(u, v)f_{uv}$, and the goal is to find the feasible flow of minimum cost. Express this problem as a linear program.",
+            "title": "29.2 Formulating problems as linear programs"
+        },
+        {
+            "location": "/Chap29/29.2/#292-1",
+            "text": "Put the single-pair shortest-path linear program from $\\text{(29.44)}$\u2013$\\text{(29.46)}$ into standard form.",
+            "title": "29.2-1"
+        },
+        {
+            "location": "/Chap29/29.2/#292-2",
+            "text": "Write out explicitly the linear program corresponding to finding the shortest path from node $s$ to node $y$ in Figure 24.2(a).",
+            "title": "29.2-2"
+        },
+        {
+            "location": "/Chap29/29.2/#292-3",
+            "text": "In the single-source shortest-paths problem, we want to find the shortest-path weights from a source vertex $s$ to all vertices $v \\in V$. Given a graph $G$, write a linear program for which the solution has the property that $d_v$ is the shortest-path weight from $s$ to $v$ for each vertex $v \\in V$.",
+            "title": "29.2-3"
+        },
+        {
+            "location": "/Chap29/29.2/#292-4",
+            "text": "Write out explicitly the linear program corresponding to finding the maximum flow in Figure 26.1(a).",
+            "title": "29.2-4"
+        },
+        {
+            "location": "/Chap29/29.2/#292-5",
+            "text": "Rewrite the linear program for maximum flow $\\text{(29.47)}$\u2013$\\text{(29.50)}$ so that it uses only $O(V + E)$ constraints.",
+            "title": "29.2-5"
+        },
+        {
+            "location": "/Chap29/29.2/#292-6",
+            "text": "Write a linear program that, given a bipartite graph $G = (V, E)$ solves the maximum-bipartite-matching problem.",
+            "title": "29.2-6"
+        },
+        {
+            "location": "/Chap29/29.2/#292-7",
+            "text": "In the  minimum-cost multicommodity-flow problem , we are given directed graph $G = (V, E)$ in which each edge $(u, v) \\in E$ has a nonnegative capacity $c(u, v) \\ge 0$ and a cost $a(u, v)$. As in the multicommodity-flow problem, we are given $k$ different commodities, $K_1, K_2, \\ldots, K_k$, where we specify commodity $i$ by the triple $K_i = (s_i, t_i, d_i)$. We define the flow $f_i$ for commodity $i$ and the aggregate flow $f_{uv}$ on edge $(u, v)$ as in the multicommodity-flow problem. A feasible flow is one in which the aggregate flow on each edge $(u, v)$ is no more than the capacity of edge $(u, v)$. The cost of a flow is $\\sum_{u, v \\in V} a(u, v)f_{uv}$, and the goal is to find the feasible flow of minimum cost. Express this problem as a linear program.",
+            "title": "29.2-7"
+        },
+        {
+            "location": "/Chap29/29.3/",
+            "text": "29.3-1\n\u00b6\n\n\n\n\nComplete the proof of Lemma 29.4 by showing that it must be the case that $c = c'$ and $v = v'$.\n\n\n\n\n29.3-2\n\u00b6\n\n\n\n\nShow that the call to $\\text{PIVOT}$ in line 12 of $\\text{SIMPLEX}$ never decreases the value of $v$.\n\n\n\n\n29.3-3\n\u00b6\n\n\n\n\nProve that the slack form given to the $\\text{PIVOT}$ procedure and the slack form that the procedure returns are equivalent.\n\n\n\n\n29.3-4\n\u00b6\n\n\n\n\nSuppose we convert a linear program $(A, b, c)$ in standard form to slack form. Show that the basic solution is feasible if and only if $b_i \\ge 0$ for $i = 1, 2, \\ldots, m$.\n\n\n\n\n29.3-5\n\u00b6\n\n\n\n\nSolve the following linear program using $\\text{SIMPLEX}$:\n\n\n\\begin{array}{lccccc}\n\\text{minimize}   & 18x_1 & + & 12.5x_2 \\\\\n\\text{subject to} & \\\\\n                  &   x_1 & + &     x_2 & \\le & 20 \\\\\n                  &   x_1 &   &         & \\le & 12 \\\\\n                  &       &   &     x_2 & \\le & 16 \\\\\n                  &       & x_1, x_2 &  & \\ge &  0.\n\\end{array}\n\n\n\n\n29.3-6\n\u00b6\n\n\n\n\nSolve the following linear program using $\\text{SIMPLEX}$:\n\n\n\\begin{array}{lccccc}\n\\text{minimize}   & 5x_1 & - & 3x_2 \\\\\n\\text{subject to} & \\\\\n                  &  x_1 & - &  x_2 & \\le & 1 \\\\\n                  & 2x_1 & + &  x_2 & \\le & 2 \\\\\n                  &      & x_1, x_2 & & \\ge & 0.\n\\end{array}\n\n\n\n\n29.3-7\n\u00b6\n\n\n\n\nSolve the following linear program using $\\text{SIMPLEX}$:\n\n\n\\begin{array}{lccccc}\n\\text{minimize}   &   x_1 & + &     x_2 & + &   x_3 \\\\\n\\text{subject to} & \\\\\n                  &  2x_1 & + &  7.5x_2 & + &  3x_3 & \\ge & 10000 \\\\\n                  & 20x_1 &   &    5x_2 & + & 10x_3 & \\ge & 30000 \\\\\n                  &       & x_1, x_2, x_3 & & &     & \\ge &     0.\n\\end{array}\n\n\n\n\n29.3-8\n\u00b6\n\n\n\n\nIn the proof of Lemma 29.5, we argued that there are at most $\\binom{m + n}{n}$ ways to choose a set $B$ of basic variables. Give an example of a linear program in which there are strictly fewer than $\\binom{m + n}{n}$ ways to choose the set $B$.",
+            "title": "29.3 The simplex algorithm"
+        },
+        {
+            "location": "/Chap29/29.3/#293-1",
+            "text": "Complete the proof of Lemma 29.4 by showing that it must be the case that $c = c'$ and $v = v'$.",
+            "title": "29.3-1"
+        },
+        {
+            "location": "/Chap29/29.3/#293-2",
+            "text": "Show that the call to $\\text{PIVOT}$ in line 12 of $\\text{SIMPLEX}$ never decreases the value of $v$.",
+            "title": "29.3-2"
+        },
+        {
+            "location": "/Chap29/29.3/#293-3",
+            "text": "Prove that the slack form given to the $\\text{PIVOT}$ procedure and the slack form that the procedure returns are equivalent.",
+            "title": "29.3-3"
+        },
+        {
+            "location": "/Chap29/29.3/#293-4",
+            "text": "Suppose we convert a linear program $(A, b, c)$ in standard form to slack form. Show that the basic solution is feasible if and only if $b_i \\ge 0$ for $i = 1, 2, \\ldots, m$.",
+            "title": "29.3-4"
+        },
+        {
+            "location": "/Chap29/29.3/#293-5",
+            "text": "Solve the following linear program using $\\text{SIMPLEX}$:  \\begin{array}{lccccc}\n\\text{minimize}   & 18x_1 & + & 12.5x_2 \\\\\n\\text{subject to} & \\\\\n                  &   x_1 & + &     x_2 & \\le & 20 \\\\\n                  &   x_1 &   &         & \\le & 12 \\\\\n                  &       &   &     x_2 & \\le & 16 \\\\\n                  &       & x_1, x_2 &  & \\ge &  0.\n\\end{array}",
+            "title": "29.3-5"
+        },
+        {
+            "location": "/Chap29/29.3/#293-6",
+            "text": "Solve the following linear program using $\\text{SIMPLEX}$:  \\begin{array}{lccccc}\n\\text{minimize}   & 5x_1 & - & 3x_2 \\\\\n\\text{subject to} & \\\\\n                  &  x_1 & - &  x_2 & \\le & 1 \\\\\n                  & 2x_1 & + &  x_2 & \\le & 2 \\\\\n                  &      & x_1, x_2 & & \\ge & 0.\n\\end{array}",
+            "title": "29.3-6"
+        },
+        {
+            "location": "/Chap29/29.3/#293-7",
+            "text": "Solve the following linear program using $\\text{SIMPLEX}$:  \\begin{array}{lccccc}\n\\text{minimize}   &   x_1 & + &     x_2 & + &   x_3 \\\\\n\\text{subject to} & \\\\\n                  &  2x_1 & + &  7.5x_2 & + &  3x_3 & \\ge & 10000 \\\\\n                  & 20x_1 &   &    5x_2 & + & 10x_3 & \\ge & 30000 \\\\\n                  &       & x_1, x_2, x_3 & & &     & \\ge &     0.\n\\end{array}",
+            "title": "29.3-7"
+        },
+        {
+            "location": "/Chap29/29.3/#293-8",
+            "text": "In the proof of Lemma 29.5, we argued that there are at most $\\binom{m + n}{n}$ ways to choose a set $B$ of basic variables. Give an example of a linear program in which there are strictly fewer than $\\binom{m + n}{n}$ ways to choose the set $B$.",
+            "title": "29.3-8"
+        },
+        {
+            "location": "/Chap29/29.4/",
+            "text": "29.4-1\n\u00b6\n\n\n\n\nFormulate the dual of the linear program given in Exercise 29.3-5.\n\n\n\n\n29.4-2\n\u00b6\n\n\n\n\nSuppose that we have a linear program that is not in standard form. We could produce the dual by first converting it to standard form, and then taking the dual. It would be more convenient, however, to be able to produce the dual directly. Explain how we can directly take the dual of an arbitrary linear program.\n\n\n\n\n29.4-3\n\u00b6\n\n\n\n\nWrite down the dual of the maximum-flow linear program, as given in lines $\\text{(29.47)}$\u2013$\\text{(29.50)}$ on page 860. Explain how to interpret this formulation as a minimum-cut problem.\n\n\n\n\n29.4-4\n\u00b6\n\n\n\n\nWrite down the dual of the minimum-cost-flow linear program, as given in lines $\\text{(29.51)}$\u2013$\\text{(29.52)}$ on page 862. Explain how to interpret this problem in terms of graphs and flows.\n\n\n\n\n29.4-5\n\u00b6\n\n\n\n\nShow that the dual of the dual of a linear program is the primal linear program.\n\n\n\n\n29.4-6\n\u00b6\n\n\n\n\nWhich result from Chapter 26 can be interpreted as weak duality for the maximum-flow problem?",
+            "title": "29.4 Duality"
+        },
+        {
+            "location": "/Chap29/29.4/#294-1",
+            "text": "Formulate the dual of the linear program given in Exercise 29.3-5.",
+            "title": "29.4-1"
+        },
+        {
+            "location": "/Chap29/29.4/#294-2",
+            "text": "Suppose that we have a linear program that is not in standard form. We could produce the dual by first converting it to standard form, and then taking the dual. It would be more convenient, however, to be able to produce the dual directly. Explain how we can directly take the dual of an arbitrary linear program.",
+            "title": "29.4-2"
+        },
+        {
+            "location": "/Chap29/29.4/#294-3",
+            "text": "Write down the dual of the maximum-flow linear program, as given in lines $\\text{(29.47)}$\u2013$\\text{(29.50)}$ on page 860. Explain how to interpret this formulation as a minimum-cut problem.",
+            "title": "29.4-3"
+        },
+        {
+            "location": "/Chap29/29.4/#294-4",
+            "text": "Write down the dual of the minimum-cost-flow linear program, as given in lines $\\text{(29.51)}$\u2013$\\text{(29.52)}$ on page 862. Explain how to interpret this problem in terms of graphs and flows.",
+            "title": "29.4-4"
+        },
+        {
+            "location": "/Chap29/29.4/#294-5",
+            "text": "Show that the dual of the dual of a linear program is the primal linear program.",
+            "title": "29.4-5"
+        },
+        {
+            "location": "/Chap29/29.4/#294-6",
+            "text": "Which result from Chapter 26 can be interpreted as weak duality for the maximum-flow problem?",
+            "title": "29.4-6"
+        },
+        {
+            "location": "/Chap29/29.5/",
+            "text": "29.5-1\n\u00b6\n\n\n\n\nGive detailed pseudocode to implement lines 5 and 14 of $\\text{INITIALIZE-SIMPLEX}$.\n\n\n\n\n29.5-2\n\u00b6\n\n\n\n\nShow that when the main loop of $\\text{SIMPLEX}$ is run by $\\text{INITIALIZE-SIMPLEX}$, it can never return \"unbounded.\"\n\n\n\n\n29.5-3\n\u00b6\n\n\n\n\nSuppose that we are given a linear program $L$ in standard form, and suppose that for both $L$ and the dual of $L$, the basic solutions associated with the initial slack forms are feasible. Show that the optimal objective value of $L$ is $0$.\n\n\n\n\n29.5-4\n\u00b6\n\n\n\n\nSuppose that we allow strict inequalities in a linear program. Show that in this case, the fundamental theorem of linear programming does not hold.\n\n\n\n\n29.3-5\n\u00b6\n\n\n\n\nSolve the following linear program using $\\text{SIMPLEX}$:\n\n\n\\begin{array}{lccccc}\n\\text{maxmize}    &  x_1 & + & 3x_2 \\\\\n\\text{subject to} & \\\\\n                  &  x_1 & - &  x_2 & \\le &  8 \\\\\n                  & -x_1 & - &  x_2 & \\le & -3 \\\\\n                  & -x_1 & + & 4x_2 & \\le &  2 \\\\\n                  &      & x_1, x_2 & & \\ge & 0.\n\\end{array}\n\n\n\n\n29.3-6\n\u00b6\n\n\n\n\nSolve the following linear program using $\\text{SIMPLEX}$:\n\n\n\\begin{array}{lccccc}\n\\text{maxmize}    &   x_1 & - & 2x_2 \\\\\n\\text{subject to} & \\\\\n                  &   x_1 & + & 2x_2 & \\le &   4 \\\\\n                  & -2x_1 & - & 6x_2 & \\le & -12 \\\\\n                  &       &   &  x_2 & \\le &   1 \\\\\n                  &       & x_1, x_2 & & \\ge & 0.\n\\end{array}\n\n\n\n\n29.3-7\n\u00b6\n\n\n\n\nSolve the following linear program using $\\text{SIMPLEX}$:\n\n\n\\begin{array}{lccccc}\n\\text{maxmize}    &  x_1 & + & 3x_2 \\\\\n\\text{subject to} & \\\\\n                  & -x_1 & + &  x_2 & \\le & -1 \\\\\n                  & -x_1 & - &  x_2 & \\le & -3 \\\\\n                  & -x_1 & + & 4x_2 & \\le &  2 \\\\\n                  &      & x_1, x_2 & & \\ge & 0.\n\\end{array}\n\n\n\n\n29.5-8\n\u00b6\n\n\n\n\nSolve the linear program given in $\\text{(29.6)}$\u2013$\\text{(29.10)}$.\n\n\n\n\n29.5-9\n\u00b6\n\n\n\n\nConsider the following $1$-variable linear program, which we call $P$:\n\n\n\\begin{array}{lccc}\n\\text{maximize}   & tx \\\\\n\\text{subject to} & rx & \\le & s \\\\\n                  & x  & \\ge & 0,\n\\end{array}\n\n\nwhere $r$, $s$, and $t$ are arbitrary real numbers. Let $D$ be the dual of $P$.\n\n\nState for which values of $r$, $s$, and $t$ you can assert that\n\n\n\n\nBoth $P$ and $D$ have optimal solutions with finite objective values.\n\n\n$P$ is feasible, but $D$ is infeasible.\n\n\n$D$ is feasible, but $P$ is infeasible.\n\n\nNeither $P$ nor $D$ is feasible.",
+            "title": "29.5 The initial basic feasible solution"
+        },
+        {
+            "location": "/Chap29/29.5/#295-1",
+            "text": "Give detailed pseudocode to implement lines 5 and 14 of $\\text{INITIALIZE-SIMPLEX}$.",
+            "title": "29.5-1"
+        },
+        {
+            "location": "/Chap29/29.5/#295-2",
+            "text": "Show that when the main loop of $\\text{SIMPLEX}$ is run by $\\text{INITIALIZE-SIMPLEX}$, it can never return \"unbounded.\"",
+            "title": "29.5-2"
+        },
+        {
+            "location": "/Chap29/29.5/#295-3",
+            "text": "Suppose that we are given a linear program $L$ in standard form, and suppose that for both $L$ and the dual of $L$, the basic solutions associated with the initial slack forms are feasible. Show that the optimal objective value of $L$ is $0$.",
+            "title": "29.5-3"
+        },
+        {
+            "location": "/Chap29/29.5/#295-4",
+            "text": "Suppose that we allow strict inequalities in a linear program. Show that in this case, the fundamental theorem of linear programming does not hold.",
+            "title": "29.5-4"
+        },
+        {
+            "location": "/Chap29/29.5/#293-5",
+            "text": "Solve the following linear program using $\\text{SIMPLEX}$:  \\begin{array}{lccccc}\n\\text{maxmize}    &  x_1 & + & 3x_2 \\\\\n\\text{subject to} & \\\\\n                  &  x_1 & - &  x_2 & \\le &  8 \\\\\n                  & -x_1 & - &  x_2 & \\le & -3 \\\\\n                  & -x_1 & + & 4x_2 & \\le &  2 \\\\\n                  &      & x_1, x_2 & & \\ge & 0.\n\\end{array}",
+            "title": "29.3-5"
+        },
+        {
+            "location": "/Chap29/29.5/#293-6",
+            "text": "Solve the following linear program using $\\text{SIMPLEX}$:  \\begin{array}{lccccc}\n\\text{maxmize}    &   x_1 & - & 2x_2 \\\\\n\\text{subject to} & \\\\\n                  &   x_1 & + & 2x_2 & \\le &   4 \\\\\n                  & -2x_1 & - & 6x_2 & \\le & -12 \\\\\n                  &       &   &  x_2 & \\le &   1 \\\\\n                  &       & x_1, x_2 & & \\ge & 0.\n\\end{array}",
+            "title": "29.3-6"
+        },
+        {
+            "location": "/Chap29/29.5/#293-7",
+            "text": "Solve the following linear program using $\\text{SIMPLEX}$:  \\begin{array}{lccccc}\n\\text{maxmize}    &  x_1 & + & 3x_2 \\\\\n\\text{subject to} & \\\\\n                  & -x_1 & + &  x_2 & \\le & -1 \\\\\n                  & -x_1 & - &  x_2 & \\le & -3 \\\\\n                  & -x_1 & + & 4x_2 & \\le &  2 \\\\\n                  &      & x_1, x_2 & & \\ge & 0.\n\\end{array}",
+            "title": "29.3-7"
+        },
+        {
+            "location": "/Chap29/29.5/#295-8",
+            "text": "Solve the linear program given in $\\text{(29.6)}$\u2013$\\text{(29.10)}$.",
+            "title": "29.5-8"
+        },
+        {
+            "location": "/Chap29/29.5/#295-9",
+            "text": "Consider the following $1$-variable linear program, which we call $P$:  \\begin{array}{lccc}\n\\text{maximize}   & tx \\\\\n\\text{subject to} & rx & \\le & s \\\\\n                  & x  & \\ge & 0,\n\\end{array}  where $r$, $s$, and $t$ are arbitrary real numbers. Let $D$ be the dual of $P$.  State for which values of $r$, $s$, and $t$ you can assert that   Both $P$ and $D$ have optimal solutions with finite objective values.  $P$ is feasible, but $D$ is infeasible.  $D$ is feasible, but $P$ is infeasible.  Neither $P$ nor $D$ is feasible.",
+            "title": "29.5-9"
+        },
+        {
+            "location": "/Chap29/Problems/29-1/",
+            "text": "",
+            "title": "29-1 Linear-inequality feasibility"
+        },
+        {
+            "location": "/Chap29/Problems/29-2/",
+            "text": "",
+            "title": "29-2 Complementary slackness"
+        },
+        {
+            "location": "/Chap29/Problems/29-3/",
+            "text": "",
+            "title": "29-3 Integer linear programming"
+        },
+        {
+            "location": "/Chap29/Problems/29-4/",
+            "text": "",
+            "title": "29-4 Farkas'ss lemma"
+        },
+        {
+            "location": "/Chap29/Problems/29-5/",
+            "text": "",
+            "title": "29-5 Minimum-cost circulation"
+        },
+        {
+            "location": "/Chap30/30.1/",
+            "text": "",
+            "title": "30.1 Representing polynomials"
+        },
+        {
+            "location": "/Chap30/30.2/",
+            "text": "",
+            "title": "30.2 The DFT and FFT"
+        },
+        {
+            "location": "/Chap30/30.3/",
+            "text": "",
+            "title": "30.3 Efficient FFT implementations"
+        },
+        {
+            "location": "/Chap30/Problems/30-1/",
+            "text": "",
+            "title": "30-1 Divide-and-conquer multiplication"
+        },
+        {
+            "location": "/Chap30/Problems/30-2/",
+            "text": "",
+            "title": "30-2 Toeplitz matrices"
+        },
+        {
+            "location": "/Chap30/Problems/30-3/",
+            "text": "",
+            "title": "30-3 Multidimensional fast Fourier transform"
+        },
+        {
+            "location": "/Chap30/Problems/30-4/",
+            "text": "",
+            "title": "30-4 Evaluating all derivatives of a polynomial at a point"
+        },
+        {
+            "location": "/Chap30/Problems/30-5/",
+            "text": "",
+            "title": "30-5 Polynomial evaluation at multiple points"
+        },
+        {
+            "location": "/Chap30/Problems/30-6/",
+            "text": "",
+            "title": "30-6 FFT using modular arithmetic"
+        },
+        {
+            "location": "/Chap31/31.1/",
+            "text": "31.1-1\n\u00b6\n\n\n\n\nProve that if $a > b > 0$ and $c = a + b$, then $c \\mod a = b$.\n\n\n\n\n\\begin{align}\nc \\mod a & = (a + b) \\mod a \\\\\n         & = (a \\mod a) + (b \\mod a) \\\\\n         & = 0 + b \\\\\n         & = b.\n\\end{align}\n\n\n31.1-2\n\u00b6\n\n\n\n\nProve that there are infinitely many primes.\n\n\n\n\n\\begin{align}\n    ((p_1 p_2 \\cdots p_k) + 1) \\mod p_i\n= & (p_1 p_2 \\cdots p_k) \\mod p_i + (1 \\mod p_i) \\\\\n= & 0 + 1 \\\\\n= & 1.\n\\end{align}\n\n\n31.1-3\n\u00b6\n\n\n\n\nProve that if $a \\mid b$ and $b \\mid c$, then $a \\mid c$.\n\n\n\n\n\n\nIf $a \\mid b$, then $b = a \\cdot k_1$.\n\n\nIf $b \\mid c$, then $c = b \\cdot k_2 = a \\cdot (k_1 \\cdot k_2) = a \\cdot k_3$, then $a \\mid c$.\n\n\n\n\n31.1-4\n\u00b6\n\n\n\n\nProve that if $p$ is prime and $0 < k < p$, then $\\gcd(k, p) = 1$.\n\n\n\n\n\n\nIf $k \\ne 1$, then $k \\nmid p$.\n\n\nIf $k = 1$, then the divisor is $1$.\n\n\n\n\n31.1-5\n\u00b6\n\n\n\n\nProve Corollary 31.5.\n\n\nFor all positive integers $n$, $a$, and $b$, if $n \\mid ab$ and $\\gcd(a, n) = 1$, then $n \\mid b$.\n\n\n\n\nIf $n \\mid ab$, then $ab = kn$, then $b = nk / a$; since $\\gcd(a, n) = 1$, then $n / a$ could not be an integer; since $b$ is an integer, then $k / a$ must be an integer, $b = nk / a = n (k / a) = n k'$, then $n \\mid b$.\n\n\n31.1-6\n\u00b6\n\n\n\n\nProve that if $p$ is prime and $0 < k < p$, then $p \\mid \\binom{p}{k}$. Conclude that for all integers $a$ and $b$ and all primes $p$,\n\n\n$(a + b)^p \\equiv a^p + b^p (\\mod p)$.\n\n\n\n\n\\begin{array}{rlll}\n(a + b) ^ p & \\equiv & a^p + \\binom{p}{1} a^{p - 1}b^{1} + \\cdots + \\binom{p}{p - 1} a^{1}b^{p - 1} + b^p & (\\mod p) \\\\\n            & \\equiv & a^p + 0 + \\cdots + 0 + b^p                                                         & (\\mod p) \\\\\n            & \\equiv & a^p + b^p                                                                          & (\\mod p)\n\\end{array}\n\n\n31.1-7\n\u00b6\n\n\n\n\nProve that if $a$ and $b$ are any positive integers such that $a \\mid b$, then\n\n\n$$(x \\mod b) \\mod a = x \\mod a$$\n\n\nfor any $x$. Prove, under the same assumptions, that\n\n\n$x \\equiv y (\\mod b)$ implies $x \\equiv y (\\mod a)$\n\n\nfor any integers $x$ and $y$.\n\n\n\n\nSuppose $x = kb + c$, then $(x \\mod b) \\mod a = c \\mod a$, and $x \\mod a = (kb + c) \\mod a = (kb \\mod a) + (c \\mod a) = c \\mod a$.\n\n\n31.1-8\n\u00b6\n\n\n\n\nFor any integer $k > 0$, an integer $n$ is a \n$k$th power\n if there exists an integer $a$ such that $a^k = n$. Furthermore, $n > 1$ is a \nnontrivial power\n if it is a $k$th power for some integer $k > 1$. Show how to determine whether a given $\\beta$-bit integer $n$ is a nontrivial power in time polynomial in $\\beta$.\n\n\n\n\nIterate $a$ from $2$ to $\\sqrt n$, and do binary searching.\n\n\n31.1-9\n\u00b6\n\n\n\n\nProve equations $\\text{(31.6)}$\u2013$\\text{(31.10)}$.\n\n\n\n\n31.1-10\n\u00b6\n\n\n\n\nShow that the gcd operator is associative. That is, prove that for all integers $a$, $b$, and $c$,\n\n\n$\\gcd(a, \\gcd(b, c)) = \\gcd(\\gcd(a, b), c)$.\n\n\n\n\n31.1-11 $\\star$\n\u00b6\n\n\n\n\nProve Theorem 31.8.\n\n\n\n\n31.1-12\n\u00b6\n\n\n\n\nGive efficient algorithms for the operations of dividing a $\\beta$-bit integer by a shorter integer and of taking the remainder of a $\\beta$-bit integer when divided by a shorter integer. Your algorithms should run in time $\\Theta(\\beta^2)$.\n\n\n\n\nShift left until the two numbers have the same length, then repeatedly subtract with proper multiplier and shift right.\n\n\n31.1-13\n\u00b6\n\n\n\n\nGive an efficient algorithm to convert a given $\\beta$-bit (binary) integer to a decimal representation. Argue that if multiplication or division of integers whose length is at most $\\beta$ takes time $M(\\beta)$, then we can convert binary to decimal in time $\\Theta(M(\\beta) \\lg\\beta)$.",
+            "title": "31.1 Elementary number-theoretic notions"
+        },
+        {
+            "location": "/Chap31/31.1/#311-1",
+            "text": "Prove that if $a > b > 0$ and $c = a + b$, then $c \\mod a = b$.   \\begin{align}\nc \\mod a & = (a + b) \\mod a \\\\\n         & = (a \\mod a) + (b \\mod a) \\\\\n         & = 0 + b \\\\\n         & = b.\n\\end{align}",
+            "title": "31.1-1"
+        },
+        {
+            "location": "/Chap31/31.1/#311-2",
+            "text": "Prove that there are infinitely many primes.   \\begin{align}\n    ((p_1 p_2 \\cdots p_k) + 1) \\mod p_i\n= & (p_1 p_2 \\cdots p_k) \\mod p_i + (1 \\mod p_i) \\\\\n= & 0 + 1 \\\\\n= & 1.\n\\end{align}",
+            "title": "31.1-2"
+        },
+        {
+            "location": "/Chap31/31.1/#311-3",
+            "text": "Prove that if $a \\mid b$ and $b \\mid c$, then $a \\mid c$.    If $a \\mid b$, then $b = a \\cdot k_1$.  If $b \\mid c$, then $c = b \\cdot k_2 = a \\cdot (k_1 \\cdot k_2) = a \\cdot k_3$, then $a \\mid c$.",
+            "title": "31.1-3"
+        },
+        {
+            "location": "/Chap31/31.1/#311-4",
+            "text": "Prove that if $p$ is prime and $0 < k < p$, then $\\gcd(k, p) = 1$.    If $k \\ne 1$, then $k \\nmid p$.  If $k = 1$, then the divisor is $1$.",
+            "title": "31.1-4"
+        },
+        {
+            "location": "/Chap31/31.1/#311-5",
+            "text": "Prove Corollary 31.5.  For all positive integers $n$, $a$, and $b$, if $n \\mid ab$ and $\\gcd(a, n) = 1$, then $n \\mid b$.   If $n \\mid ab$, then $ab = kn$, then $b = nk / a$; since $\\gcd(a, n) = 1$, then $n / a$ could not be an integer; since $b$ is an integer, then $k / a$ must be an integer, $b = nk / a = n (k / a) = n k'$, then $n \\mid b$.",
+            "title": "31.1-5"
+        },
+        {
+            "location": "/Chap31/31.1/#311-6",
+            "text": "Prove that if $p$ is prime and $0 < k < p$, then $p \\mid \\binom{p}{k}$. Conclude that for all integers $a$ and $b$ and all primes $p$,  $(a + b)^p \\equiv a^p + b^p (\\mod p)$.   \\begin{array}{rlll}\n(a + b) ^ p & \\equiv & a^p + \\binom{p}{1} a^{p - 1}b^{1} + \\cdots + \\binom{p}{p - 1} a^{1}b^{p - 1} + b^p & (\\mod p) \\\\\n            & \\equiv & a^p + 0 + \\cdots + 0 + b^p                                                         & (\\mod p) \\\\\n            & \\equiv & a^p + b^p                                                                          & (\\mod p)\n\\end{array}",
+            "title": "31.1-6"
+        },
+        {
+            "location": "/Chap31/31.1/#311-7",
+            "text": "Prove that if $a$ and $b$ are any positive integers such that $a \\mid b$, then  $$(x \\mod b) \\mod a = x \\mod a$$  for any $x$. Prove, under the same assumptions, that  $x \\equiv y (\\mod b)$ implies $x \\equiv y (\\mod a)$  for any integers $x$ and $y$.   Suppose $x = kb + c$, then $(x \\mod b) \\mod a = c \\mod a$, and $x \\mod a = (kb + c) \\mod a = (kb \\mod a) + (c \\mod a) = c \\mod a$.",
+            "title": "31.1-7"
+        },
+        {
+            "location": "/Chap31/31.1/#311-8",
+            "text": "For any integer $k > 0$, an integer $n$ is a  $k$th power  if there exists an integer $a$ such that $a^k = n$. Furthermore, $n > 1$ is a  nontrivial power  if it is a $k$th power for some integer $k > 1$. Show how to determine whether a given $\\beta$-bit integer $n$ is a nontrivial power in time polynomial in $\\beta$.   Iterate $a$ from $2$ to $\\sqrt n$, and do binary searching.",
+            "title": "31.1-8"
+        },
+        {
+            "location": "/Chap31/31.1/#311-9",
+            "text": "Prove equations $\\text{(31.6)}$\u2013$\\text{(31.10)}$.",
+            "title": "31.1-9"
+        },
+        {
+            "location": "/Chap31/31.1/#311-10",
+            "text": "Show that the gcd operator is associative. That is, prove that for all integers $a$, $b$, and $c$,  $\\gcd(a, \\gcd(b, c)) = \\gcd(\\gcd(a, b), c)$.",
+            "title": "31.1-10"
+        },
+        {
+            "location": "/Chap31/31.1/#311-11-star",
+            "text": "Prove Theorem 31.8.",
+            "title": "31.1-11 $\\star$"
+        },
+        {
+            "location": "/Chap31/31.1/#311-12",
+            "text": "Give efficient algorithms for the operations of dividing a $\\beta$-bit integer by a shorter integer and of taking the remainder of a $\\beta$-bit integer when divided by a shorter integer. Your algorithms should run in time $\\Theta(\\beta^2)$.   Shift left until the two numbers have the same length, then repeatedly subtract with proper multiplier and shift right.",
+            "title": "31.1-12"
+        },
+        {
+            "location": "/Chap31/31.1/#311-13",
+            "text": "Give an efficient algorithm to convert a given $\\beta$-bit (binary) integer to a decimal representation. Argue that if multiplication or division of integers whose length is at most $\\beta$ takes time $M(\\beta)$, then we can convert binary to decimal in time $\\Theta(M(\\beta) \\lg\\beta)$.",
+            "title": "31.1-13"
+        },
+        {
+            "location": "/Chap31/31.2/",
+            "text": "31.2-1\n\u00b6\n\n\n\n\nProve that equations $\\text{(31.11)}$ and $\\text{(31.12)}$ imply equation $\\text{(31.13)}$.\n\n\n\n\n31.2-2\n\u00b6\n\n\n\n\nCompute the values $(d, x, y)$ that the call $\\text{EXTENDED-EUCLID}(899, 493)$ returns.\n\n\n\n\n$(29, -6, 11)$.\n\n\n31.2-3\n\u00b6\n\n\n\n\nProve that for all integers $a$, $k$, and $n$,\n\n\n$\\gcd(a, n) = \\gcd(a + kn, n)$.\n\n\n\n\n\n\n\n\n$\\gcd(a, n) \\mid \\gcd(a + kn, n)$.\n\n\nLet $d = \\gcd(a, n)$, then $d \\mid a$ and $d \\mid n$.\n\n\nSince $(a + kn) \\mod d = a \\mod d + k \\cdot (n \\mod d) = 0$ and $d \\mid n$, then $d \\mid \\gcd(a + kn, n)$, $\\gcd(a, n) \\mid \\gcd(a + kn, n)$.\n\n\n\n\n\n\n$\\gcd(a + kn, n) \\mid \\gcd(a, n)$.\n\n\nLet $d = \\gcd(a + kn, n)$, then $d \\mid n$ and $d \\mid (a + kn)$.\n\n\nSince $(a + kn) \\mod d = a \\mod d + k \\cdot (n \\mod d) = a \\mod d = 0$, then $d \\mid a$.\n\n\nSince $d \\mid a$ and $d \\mid n$, then $d \\mid \\gcd(a, n)$,  $\\gcd(a + kn, n) \\mid \\gcd(a, n)$.\n\n\n\n\n\n\nSince $\\gcd(a, n) \\mid \\gcd(a + kn, n)$ and $\\gcd(a + kn, n) \\mid \\gcd(a, n)$, then $\\gcd(a, n) = \\gcd(a + kn, n)$.\n\n\n31.2-4\n\u00b6\n\n\n\n\nRewrite $\\text{EUCLID}$ in an iterative form that uses only a constant amount of memory (that is, stores only a constant number of integer values).\n\n\n\n\n1\n2\n3\n4\n5\n6\nEUCLID\n(\na\n,\n \nb\n)\n\n    \nwhile\n \nb\n \n!=\n \n0\n\n        \nt\n \n=\n \na\n\n        \na\n \n=\n \nb\n\n        \nb\n \n=\n \nt\n \n%\n \nb\n\n    \nreturn\n \na\n\n\n\n\n\n\n\n31.2-5\n\u00b6\n\n\n\n\nIf $a > b \\ge 0$, show that the call EUCLID$(a, b)$ makes at most $1 + \\log_\\phi b$ recursive calls. Improve this bound to $1 + \\log_\\phi(b / \\gcd(a, b))$.\n\n\n\n\n$$b \\ge F_{k + 1} \\approx \\phi^{k + 1} / \\sqrt{5}$$\n\n\n$$k + 1 < \\log_\\phi \\sqrt{5} + \\log_\\phi b \\approx 1.67 + \\log_\\phi b$$\n\n\n$$k < 0.67 + \\log_\\phi b < 1 + \\log_\\phi b.$$\n\n\nSince $d \\cdot a \\mod d \\cdot b = d \\cdot (a \\mod b)$, $\\gcd(d \\cdot a, d \\cdot b)$ has the same number of recursive calls with $\\gcd(a, b)$, therefore we could let $b' = b / \\gcd(a, b)$, the inequality $k < 1 + \\log_\\phi(b') = 1 + \\log_\\phi(b / \\gcd(a, b))$. will holds.\n\n\n31.2-6\n\u00b6\n\n\n\n\nWhat does $\\text{EXTENDED-EUCLID}(F_{k + 1}, F_k)$ return? Prove your answer correct.\n\n\n\n\n\n\nIf $k$ is odd, then $(1, -F_{k-2}, F_{k - 1})$.\n\n\nIf $k$ is even, then $(1, F_{k-2}, -F_{k - 1})$.\n\n\n\n\n31.2-7\n\u00b6\n\n\n\n\nDefine the $\\gcd$ function for more than two arguments by the recursive equation $\\gcd(a_0, a_1, \\cdots, a_n) = \\gcd(a_0, \\gcd(a_1, a_2, \\cdots, a_n))$. Show that the $\\gcd$ function returns the same answer independent of the order in which its arguments are specified. Also show how to find integers $x_0, x_1, \\cdots, x_n$ such that $\\gcd(a_0, a_1, \\ldots, a_n) = a_0 x_0 + a_1 x_1 + \\cdots + a_n x_n$. Show that the number of divisions performed by your algorithm is $O(n + \\lg (max \\{a_0, a_1, \\cdots, a_n \\}))$.\n\n\n\n\nSuppose $\\gcd(a_0, \\gcd(a_1, a_2, \\cdots, a_n))  = a_0 \\cdot x + \\gcd(a_1, a_2, \\cdots, a_n) \\cdot y$ and $\\gcd(a_1, \\gcd(a_2, a_3, \\cdots, a_n))  = a_1 \\cdot x' + \\gcd(a_2, a_3, \\cdots, a_n) \\cdot y'$, then the coefficient of $a_1$ is $y \\cdot x'$.\n\n\n1\n2\n3\n4\n5\nEXTENDED\n-\nEUCLID\n(\na\n,\n \nb\n)\n\n    \nif\n \nb\n \n==\n \n0\n\n        \nreturn\n \n(\na\n,\n \n1\n,\n \n0\n)\n\n    \n(\nd\n,\n \nx\n,\n \ny\n)\n \n=\n \nEXTENDED\n-\nEUCLID\n(\nb\n,\n \na\n \n%\n \nb\n)\n\n    \nreturn\n \n(\nd\n,\n \ny\n,\n \nx\n \n-\n \n(\na\n \n/\n \nb\n)\n \n*\n \ny\n)\n\n\n\n\n\n\n\n 1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n11\n12\n13\nEXTENDED\n-\nEUCLID\n-\nMULTIPLE\n(\na\n)\n\n    \nif\n \na\n.\nlength\n \n==\n \n1\n\n        \nreturn\n \n(\na\n[\n0\n],\n \n1\n)\n\n    \ng\n \n=\n \na\n[\na\n.\nlength\n \n-\n \n1\n]\n\n    \nxs\n \n=\n \n[\n1\n]\n \n*\n \na\n.\nlength\n\n    \nys\n \n=\n \n[\n0\n]\n \n*\n \na\n.\nlength\n\n    \nfor\n \ni\n \n=\n \na\n.\nlength\n \n-\n \n2\n \ndownto\n \n0\n\n        \n(\ng\n,\n \nxs\n[\ni\n],\n \nys\n[\ni\n \n+\n \n1\n])\n \n=\n \nEXTENDED\n-\nEUCLID\n(\na\n[\ni\n],\n \ng\n)\n\n    \nm\n \n=\n \n1\n\n    \nfor\n \ni\n \n=\n \n1\n \nto\n \na\n.\nlength\n\n        \nm\n \n*=\n \nys\n[\ni\n]\n\n        \nxs\n[\ni\n]\n \n*=\n \nm\n\n    \nreturn\n \n(\ng\n,\n \nxs\n)\n\n\n\n\n\n\n\n31.2-8\n\u00b6\n\n\n\n\nDefine $\\text{lcm}(a_1, a_2, \\ldots, a_n)$ to be the \nleast common multiple\n of the $n$ integers $a_1, a_2, \\ldots, a_n$, that is, the smallest nonnegative integer that is a multiple of each $a_i$. Show how to compute $\\text{lcm}(a_1, a_2, \\ldots, a_n)$ efficiently using the (two-argument) $\\gcd$ operation as a subroutine.\n\n\n\n\n1\n2\n3\n4\ngcd\n(\na\n,\n \nb\n)\n\n    \nif\n \nb\n \n==\n \n0\n\n        \nreturn\n \na\n\n    \nreturn\n \ngcd\n(\nb\n,\n \na\n \n%\n \nb\n)\n\n\n\n\n\n\n\n1\n2\nlcm\n(\na\n,\n \nb\n)\n\n    \nreturn\n \na\n \n/\n \ngcd\n(\na\n,\n \nb\n)\n \n*\n \nb\n\n\n\n\n\n\n\n1\n2\n3\n4\n5\nlcm\n-\nMULTIPLE\n(\na\n)\n\n    \nl\n \n=\n \na\n[\n0\n]\n\n    \nfor\n \ni\n \n=\n \n1\n \nto\n \na\n.\nlength\n\n        \nl\n \n=\n \nlcm\n(\nl\n,\n \na\n[\ni\n])\n\n    \nreturn\n \nl\n\n\n\n\n\n\n\n31.2-9\n\u00b6\n\n\n\n\nProve that $n_1$, $n_2$, $n_3$, and $n_4$ are pairwise relatively prime if and only if\n\n\n$\\gcd(n_1n_2,n_3n_4) = \\gcd(n_1n_3, n_2n_4) = 1.$\n\n\nMore generally, show that $n_1, n_2, \\ldots, n_k$ are pairwise relatively prime if and only if a set of $\\lceil \\lg k \\rceil$ pairs of numbers derived from the $n_i$ are relatively prime.\n\n\n\n\nSuppose $n_1n_2 x + n_3n_4 y = 1$, then $n_1(n_2 x) + n_3(n_4 y) = 1$, thus $n_1$ and $n_3$ are relatively prime, $n_1$ and $n_4$, $n_2$ and $n_3$, $n_2$ and $n_4$ are the all relatively prime. And since $\\gcd(n_1n_3, n_2n_4) = 1$, all the pairs are relatively prime.\n\n\nGeneral: in the first round, divide the elements into two sets with equal number of elements, calculate the products of the two set separately, if the two products are relatively prime, then the element in one set is pairwise relatively prime with the element in the other set. In the next iterations, for each set, we divide the elements into two subsets, suppose we have subsets ${ (s_1, s_2), (s_3, s_4), \\ldots }$, then we calculate the products of ${ s_1, s_3, \\ldots }$ and ${ s_2, s_4, \\ldots }$, if the two products are relatively prime, then all the pairs of subset are pairwise relatively prime similar to the first round. In each iteration, the number of elements in a subset is half of the original set, thus there are $\\lceil \\lg k \\rceil$ pairs of products.\n\n\nTo choose the subsets efficiently, in the $k$th iteration, we could divide the numbers based on the value of the index's $k$th bit.",
+            "title": "31.2 Greatest common divisor"
+        },
+        {
+            "location": "/Chap31/31.2/#312-1",
+            "text": "Prove that equations $\\text{(31.11)}$ and $\\text{(31.12)}$ imply equation $\\text{(31.13)}$.",
+            "title": "31.2-1"
+        },
+        {
+            "location": "/Chap31/31.2/#312-2",
+            "text": "Compute the values $(d, x, y)$ that the call $\\text{EXTENDED-EUCLID}(899, 493)$ returns.   $(29, -6, 11)$.",
+            "title": "31.2-2"
+        },
+        {
+            "location": "/Chap31/31.2/#312-3",
+            "text": "Prove that for all integers $a$, $k$, and $n$,  $\\gcd(a, n) = \\gcd(a + kn, n)$.     $\\gcd(a, n) \\mid \\gcd(a + kn, n)$.  Let $d = \\gcd(a, n)$, then $d \\mid a$ and $d \\mid n$.  Since $(a + kn) \\mod d = a \\mod d + k \\cdot (n \\mod d) = 0$ and $d \\mid n$, then $d \\mid \\gcd(a + kn, n)$, $\\gcd(a, n) \\mid \\gcd(a + kn, n)$.    $\\gcd(a + kn, n) \\mid \\gcd(a, n)$.  Let $d = \\gcd(a + kn, n)$, then $d \\mid n$ and $d \\mid (a + kn)$.  Since $(a + kn) \\mod d = a \\mod d + k \\cdot (n \\mod d) = a \\mod d = 0$, then $d \\mid a$.  Since $d \\mid a$ and $d \\mid n$, then $d \\mid \\gcd(a, n)$,  $\\gcd(a + kn, n) \\mid \\gcd(a, n)$.    Since $\\gcd(a, n) \\mid \\gcd(a + kn, n)$ and $\\gcd(a + kn, n) \\mid \\gcd(a, n)$, then $\\gcd(a, n) = \\gcd(a + kn, n)$.",
+            "title": "31.2-3"
+        },
+        {
+            "location": "/Chap31/31.2/#312-4",
+            "text": "Rewrite $\\text{EUCLID}$ in an iterative form that uses only a constant amount of memory (that is, stores only a constant number of integer values).   1\n2\n3\n4\n5\n6 EUCLID ( a ,   b ) \n     while   b   !=   0 \n         t   =   a \n         a   =   b \n         b   =   t   %   b \n     return   a",
+            "title": "31.2-4"
+        },
+        {
+            "location": "/Chap31/31.2/#312-5",
+            "text": "If $a > b \\ge 0$, show that the call EUCLID$(a, b)$ makes at most $1 + \\log_\\phi b$ recursive calls. Improve this bound to $1 + \\log_\\phi(b / \\gcd(a, b))$.   $$b \\ge F_{k + 1} \\approx \\phi^{k + 1} / \\sqrt{5}$$  $$k + 1 < \\log_\\phi \\sqrt{5} + \\log_\\phi b \\approx 1.67 + \\log_\\phi b$$  $$k < 0.67 + \\log_\\phi b < 1 + \\log_\\phi b.$$  Since $d \\cdot a \\mod d \\cdot b = d \\cdot (a \\mod b)$, $\\gcd(d \\cdot a, d \\cdot b)$ has the same number of recursive calls with $\\gcd(a, b)$, therefore we could let $b' = b / \\gcd(a, b)$, the inequality $k < 1 + \\log_\\phi(b') = 1 + \\log_\\phi(b / \\gcd(a, b))$. will holds.",
+            "title": "31.2-5"
+        },
+        {
+            "location": "/Chap31/31.2/#312-6",
+            "text": "What does $\\text{EXTENDED-EUCLID}(F_{k + 1}, F_k)$ return? Prove your answer correct.    If $k$ is odd, then $(1, -F_{k-2}, F_{k - 1})$.  If $k$ is even, then $(1, F_{k-2}, -F_{k - 1})$.",
+            "title": "31.2-6"
+        },
+        {
+            "location": "/Chap31/31.2/#312-7",
+            "text": "Define the $\\gcd$ function for more than two arguments by the recursive equation $\\gcd(a_0, a_1, \\cdots, a_n) = \\gcd(a_0, \\gcd(a_1, a_2, \\cdots, a_n))$. Show that the $\\gcd$ function returns the same answer independent of the order in which its arguments are specified. Also show how to find integers $x_0, x_1, \\cdots, x_n$ such that $\\gcd(a_0, a_1, \\ldots, a_n) = a_0 x_0 + a_1 x_1 + \\cdots + a_n x_n$. Show that the number of divisions performed by your algorithm is $O(n + \\lg (max \\{a_0, a_1, \\cdots, a_n \\}))$.   Suppose $\\gcd(a_0, \\gcd(a_1, a_2, \\cdots, a_n))  = a_0 \\cdot x + \\gcd(a_1, a_2, \\cdots, a_n) \\cdot y$ and $\\gcd(a_1, \\gcd(a_2, a_3, \\cdots, a_n))  = a_1 \\cdot x' + \\gcd(a_2, a_3, \\cdots, a_n) \\cdot y'$, then the coefficient of $a_1$ is $y \\cdot x'$.  1\n2\n3\n4\n5 EXTENDED - EUCLID ( a ,   b ) \n     if   b   ==   0 \n         return   ( a ,   1 ,   0 ) \n     ( d ,   x ,   y )   =   EXTENDED - EUCLID ( b ,   a   %   b ) \n     return   ( d ,   y ,   x   -   ( a   /   b )   *   y )     1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n11\n12\n13 EXTENDED - EUCLID - MULTIPLE ( a ) \n     if   a . length   ==   1 \n         return   ( a [ 0 ],   1 ) \n     g   =   a [ a . length   -   1 ] \n     xs   =   [ 1 ]   *   a . length \n     ys   =   [ 0 ]   *   a . length \n     for   i   =   a . length   -   2   downto   0 \n         ( g ,   xs [ i ],   ys [ i   +   1 ])   =   EXTENDED - EUCLID ( a [ i ],   g ) \n     m   =   1 \n     for   i   =   1   to   a . length \n         m   *=   ys [ i ] \n         xs [ i ]   *=   m \n     return   ( g ,   xs )",
+            "title": "31.2-7"
+        },
+        {
+            "location": "/Chap31/31.2/#312-8",
+            "text": "Define $\\text{lcm}(a_1, a_2, \\ldots, a_n)$ to be the  least common multiple  of the $n$ integers $a_1, a_2, \\ldots, a_n$, that is, the smallest nonnegative integer that is a multiple of each $a_i$. Show how to compute $\\text{lcm}(a_1, a_2, \\ldots, a_n)$ efficiently using the (two-argument) $\\gcd$ operation as a subroutine.   1\n2\n3\n4 gcd ( a ,   b ) \n     if   b   ==   0 \n         return   a \n     return   gcd ( b ,   a   %   b )    1\n2 lcm ( a ,   b ) \n     return   a   /   gcd ( a ,   b )   *   b    1\n2\n3\n4\n5 lcm - MULTIPLE ( a ) \n     l   =   a [ 0 ] \n     for   i   =   1   to   a . length \n         l   =   lcm ( l ,   a [ i ]) \n     return   l",
+            "title": "31.2-8"
+        },
+        {
+            "location": "/Chap31/31.2/#312-9",
+            "text": "Prove that $n_1$, $n_2$, $n_3$, and $n_4$ are pairwise relatively prime if and only if  $\\gcd(n_1n_2,n_3n_4) = \\gcd(n_1n_3, n_2n_4) = 1.$  More generally, show that $n_1, n_2, \\ldots, n_k$ are pairwise relatively prime if and only if a set of $\\lceil \\lg k \\rceil$ pairs of numbers derived from the $n_i$ are relatively prime.   Suppose $n_1n_2 x + n_3n_4 y = 1$, then $n_1(n_2 x) + n_3(n_4 y) = 1$, thus $n_1$ and $n_3$ are relatively prime, $n_1$ and $n_4$, $n_2$ and $n_3$, $n_2$ and $n_4$ are the all relatively prime. And since $\\gcd(n_1n_3, n_2n_4) = 1$, all the pairs are relatively prime.  General: in the first round, divide the elements into two sets with equal number of elements, calculate the products of the two set separately, if the two products are relatively prime, then the element in one set is pairwise relatively prime with the element in the other set. In the next iterations, for each set, we divide the elements into two subsets, suppose we have subsets ${ (s_1, s_2), (s_3, s_4), \\ldots }$, then we calculate the products of ${ s_1, s_3, \\ldots }$ and ${ s_2, s_4, \\ldots }$, if the two products are relatively prime, then all the pairs of subset are pairwise relatively prime similar to the first round. In each iteration, the number of elements in a subset is half of the original set, thus there are $\\lceil \\lg k \\rceil$ pairs of products.  To choose the subsets efficiently, in the $k$th iteration, we could divide the numbers based on the value of the index's $k$th bit.",
+            "title": "31.2-9"
+        },
+        {
+            "location": "/Chap31/31.3/",
+            "text": "31.3-1\n\u00b6\n\n\n\n\nDraw the group operation tables for the groups $(\\mathbb Z_4, +_4)$ and $(\\mathbb Z_5^*, \\cdot_5)$. Show that these groups are isomorphic by exhibiting a one-to-one correspondence $\\alpha$ between their elements such that $a + b \\equiv c (\\mod 4)$ if and only if $\\alpha(a) \\cdot \\alpha(b) \\equiv \\alpha(c) (\\mod 5)$.\n\n\n\n\n\n\n$(\\mathbb Z_4, +_4)$: ${ 0, 1, 2, 3 }$.\n\n\n$(\\mathbb Z_5^*, \\cdot_5)$: ${ 1, 2, 3, 4 }$.\n\n\n\n\n$\\alpha(x) = 2^{x-1}$.\n\n\n31.3-2\n\u00b6\n\n\n\n\nList all subgroups of $\\mathbb Z_9$ and of $\\mathbb Z_{13}^*$.\n\n\n\n\n\n\n\n\n$\\mathbb Z_9$:\n\n\n\n\n$\\langle 0 \\rangle = { 0 }$,\n\n\n$\\langle 1 \\rangle = { 0, 1, 2, 3, 4, 5, 6, 7, 8 }$,\n\n\n$\\langle 2 \\rangle = { 0, 2, 4, 6, 8 }$.\n\n\n\n\n\n\n\n\n$\\mathbb Z_{13}^*$:\n\n\n\n\n$\\langle 1 \\rangle = { 1 }$,\n\n\n$\\langle 2 \\rangle = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 }$.\n\n\n\n\n\n\n\n\n31.3-3\n\u00b6\n\n\n\n\nProve Theorem 31.14.\n\n\n\n\nA nonempty closed subset of a finite group is a subgroup.\n\n\n\n\nClosure: the subset is closed.\n\n\nIdentity: suppose $a \\in S'$, then $a^{(k)} \\in S'$. Since the subset is finite, there must be a period such that $a^{(m)} = a^{(n)}$, hence $a^{(m)}a^{(-n)} = a^{(m - n)} = 1$, therefore the subset must contain the identity.\n\n\nAssociativity: inherit from the origin group.\n\n\nInverses: suppose $a^{(k)} = 1$, the inverse of element $a$ is $a^{(k - 1)}$ since $aa^{(k - 1)} = a^{(k)} = 1$.\n\n\n\n\n31.3-4\n\u00b6\n\n\n\n\nShow that if $p$ is prime and $e$ is a positive integer, then\n\n\n$\\phi(p^e) = p^{e - 1}(p - 1)$.\n\n\n\n\n$\\phi(p^e) = p^e \\cdot \\left ( 1 - \\frac{1}{p} \\right ) = p^{e - 1}(p - 1)$.\n\n\n31.3-5\n\u00b6\n\n\n\n\nShow that for any integer $n > 1$ and for any $a \\in \\mathbb Z_n^*$, the function $f_a : \\mathbb Z_n^* \\rightarrow \\mathbb Z_n^*$ defined by $f_a(x) = ax \\mod n$ is a permutation of $\\mathbb Z_n^*$.\n\n\n\n\nTo prove it is a permutation, we need to prove that \n- for each element $x \\in \\mathbb Z_n^*$, $f_a(x) \\in \\mathbb Z_n^*$,\n- the numbers generated by $f_a$ are distinct.\n\n\nSince $a \\in \\mathbb Z_{n}^*$ and $x \\in \\mathbb Z_n^*$, then $f_a(x) = ax \\mod n \\in \\mathbb Z_n^*$ by the closure property. \n\n\nSuppose there are two distinct numbers $x \\in \\mathbb Z_n^*$ and $y \\in \\mathbb Z_n^*$ that $f_a(x) = f_a(y)$,\n\n\n\\begin{align}\n              f_a(x) & = f_a(y) \\\\\n           ax \\mod n & = ay \\mod n \\\\\n(a \\mod n)(x \\mod n) & = (a \\mod n)(y \\mod n) \\\\\n          (x \\mod n) & = y \\mod n \\\\\n                   x & \\equiv y \\mod n,\n\\end{align}\n\n\nwhich contradicts the assumption, therefore the numbers generated by $f_a$ are distinct.",
+            "title": "31.3 Modular arithmetic"
+        },
+        {
+            "location": "/Chap31/31.3/#313-1",
+            "text": "Draw the group operation tables for the groups $(\\mathbb Z_4, +_4)$ and $(\\mathbb Z_5^*, \\cdot_5)$. Show that these groups are isomorphic by exhibiting a one-to-one correspondence $\\alpha$ between their elements such that $a + b \\equiv c (\\mod 4)$ if and only if $\\alpha(a) \\cdot \\alpha(b) \\equiv \\alpha(c) (\\mod 5)$.    $(\\mathbb Z_4, +_4)$: ${ 0, 1, 2, 3 }$.  $(\\mathbb Z_5^*, \\cdot_5)$: ${ 1, 2, 3, 4 }$.   $\\alpha(x) = 2^{x-1}$.",
+            "title": "31.3-1"
+        },
+        {
+            "location": "/Chap31/31.3/#313-2",
+            "text": "List all subgroups of $\\mathbb Z_9$ and of $\\mathbb Z_{13}^*$.     $\\mathbb Z_9$:   $\\langle 0 \\rangle = { 0 }$,  $\\langle 1 \\rangle = { 0, 1, 2, 3, 4, 5, 6, 7, 8 }$,  $\\langle 2 \\rangle = { 0, 2, 4, 6, 8 }$.     $\\mathbb Z_{13}^*$:   $\\langle 1 \\rangle = { 1 }$,  $\\langle 2 \\rangle = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 }$.",
+            "title": "31.3-2"
+        },
+        {
+            "location": "/Chap31/31.3/#313-3",
+            "text": "Prove Theorem 31.14.   A nonempty closed subset of a finite group is a subgroup.   Closure: the subset is closed.  Identity: suppose $a \\in S'$, then $a^{(k)} \\in S'$. Since the subset is finite, there must be a period such that $a^{(m)} = a^{(n)}$, hence $a^{(m)}a^{(-n)} = a^{(m - n)} = 1$, therefore the subset must contain the identity.  Associativity: inherit from the origin group.  Inverses: suppose $a^{(k)} = 1$, the inverse of element $a$ is $a^{(k - 1)}$ since $aa^{(k - 1)} = a^{(k)} = 1$.",
+            "title": "31.3-3"
+        },
+        {
+            "location": "/Chap31/31.3/#313-4",
+            "text": "Show that if $p$ is prime and $e$ is a positive integer, then  $\\phi(p^e) = p^{e - 1}(p - 1)$.   $\\phi(p^e) = p^e \\cdot \\left ( 1 - \\frac{1}{p} \\right ) = p^{e - 1}(p - 1)$.",
+            "title": "31.3-4"
+        },
+        {
+            "location": "/Chap31/31.3/#313-5",
+            "text": "Show that for any integer $n > 1$ and for any $a \\in \\mathbb Z_n^*$, the function $f_a : \\mathbb Z_n^* \\rightarrow \\mathbb Z_n^*$ defined by $f_a(x) = ax \\mod n$ is a permutation of $\\mathbb Z_n^*$.   To prove it is a permutation, we need to prove that \n- for each element $x \\in \\mathbb Z_n^*$, $f_a(x) \\in \\mathbb Z_n^*$,\n- the numbers generated by $f_a$ are distinct.  Since $a \\in \\mathbb Z_{n}^*$ and $x \\in \\mathbb Z_n^*$, then $f_a(x) = ax \\mod n \\in \\mathbb Z_n^*$ by the closure property.   Suppose there are two distinct numbers $x \\in \\mathbb Z_n^*$ and $y \\in \\mathbb Z_n^*$ that $f_a(x) = f_a(y)$,  \\begin{align}\n              f_a(x) & = f_a(y) \\\\\n           ax \\mod n & = ay \\mod n \\\\\n(a \\mod n)(x \\mod n) & = (a \\mod n)(y \\mod n) \\\\\n          (x \\mod n) & = y \\mod n \\\\\n                   x & \\equiv y \\mod n,\n\\end{align}  which contradicts the assumption, therefore the numbers generated by $f_a$ are distinct.",
+            "title": "31.3-5"
+        },
+        {
+            "location": "/Chap31/31.4/",
+            "text": "31.4-1\n\u00b6\n\n\n\n\nFind all solutions to the equation $35x \\equiv 10 (\\mod 50)$.\n\n\n\n\n${6, 16, 26, 36, 46}$.\n\n\n31.4-2\n\u00b6\n\n\n\n\nProve that the equation $ax \\equiv ay (\\mod n)$ implies $x \\equiv y (\\mod n)$ whenever $\\gcd(a, n) = 1$. Show that the condition $\\gcd(a, n) = 1$ is necessary by supplying a counterexample with $\\gcd(a, n) > 1$.\n\n\n\n\n$$d = \\gcd(ax, n) = \\gcd(x, n)$$\n\n\nSince $ax \\cdot x' + n \\cdot y' = d$, then $x \\cdot (ax') + n \\cdot y' = d$.\n\n\n\\begin{align}\n x_0 & = x'(ay / d),\nx_0' & = (ax')(y / d) = x'(ay / d) = x_0.\n\\end{align}\n\n\n31.4-3\n\u00b6\n\n\n\n\nConsider the following change to line 3 of the procedure $\\text{MODULAR-LINEAR-EQUATION-SOLVER}$:\n\n\n1\n \n3\n  \nx0\n \n=\n \nx\n'\n(\nb\n \n/\n \nd\n)\n \nmod\n \n(\nn\n \n/\n \nd\n)\n\n\n\n\n\n\n\nWill this work? Explain why or why not.\n\n\n\n\nAssume that $x_0 \\ge n / d$, then the largest solution is $x_0 + (d - 1) \\cdot (n / d) \\ge d \\cdot n / d \\ge n$, which is impossible, therefore $x_0 < n / d$.\n\n\n31.4-4 $\\star$\n\u00b6\n\n\n\n\nLet $p$ be prime and $f(x) \\equiv f_0 + f_1 x + \\cdots + f_tx^t (\\mod p)$ be a polynomial of degree $t$, with coefficients $f_i$ drawn from $\\mathbb Z_p$. We say that $a \\in \\mathbb Z_p$ is a \nzero\n of $f$ if $f(a) \\equiv 0 (\\mod p)$. Prove that if $a$ is a zero of $f$, then $f(x) \\equiv (x - a) g(x) (\\mod p)$ for some polynomial $g(x)$ of degree $t - 1$. Prove by induction on $t$ that if $p$ is prime, then a polynomial $f(x)$ of degree $t$ can have at most $t$ distinct zeros modulo $p$.",
+            "title": "31.4 Solving modular linear equations"
+        },
+        {
+            "location": "/Chap31/31.4/#314-1",
+            "text": "Find all solutions to the equation $35x \\equiv 10 (\\mod 50)$.   ${6, 16, 26, 36, 46}$.",
+            "title": "31.4-1"
+        },
+        {
+            "location": "/Chap31/31.4/#314-2",
+            "text": "Prove that the equation $ax \\equiv ay (\\mod n)$ implies $x \\equiv y (\\mod n)$ whenever $\\gcd(a, n) = 1$. Show that the condition $\\gcd(a, n) = 1$ is necessary by supplying a counterexample with $\\gcd(a, n) > 1$.   $$d = \\gcd(ax, n) = \\gcd(x, n)$$  Since $ax \\cdot x' + n \\cdot y' = d$, then $x \\cdot (ax') + n \\cdot y' = d$.  \\begin{align}\n x_0 & = x'(ay / d),\nx_0' & = (ax')(y / d) = x'(ay / d) = x_0.\n\\end{align}",
+            "title": "31.4-2"
+        },
+        {
+            "location": "/Chap31/31.4/#314-3",
+            "text": "Consider the following change to line 3 of the procedure $\\text{MODULAR-LINEAR-EQUATION-SOLVER}$:  1   3    x0   =   x ' ( b   /   d )   mod   ( n   /   d )    Will this work? Explain why or why not.   Assume that $x_0 \\ge n / d$, then the largest solution is $x_0 + (d - 1) \\cdot (n / d) \\ge d \\cdot n / d \\ge n$, which is impossible, therefore $x_0 < n / d$.",
+            "title": "31.4-3"
+        },
+        {
+            "location": "/Chap31/31.4/#314-4-star",
+            "text": "Let $p$ be prime and $f(x) \\equiv f_0 + f_1 x + \\cdots + f_tx^t (\\mod p)$ be a polynomial of degree $t$, with coefficients $f_i$ drawn from $\\mathbb Z_p$. We say that $a \\in \\mathbb Z_p$ is a  zero  of $f$ if $f(a) \\equiv 0 (\\mod p)$. Prove that if $a$ is a zero of $f$, then $f(x) \\equiv (x - a) g(x) (\\mod p)$ for some polynomial $g(x)$ of degree $t - 1$. Prove by induction on $t$ that if $p$ is prime, then a polynomial $f(x)$ of degree $t$ can have at most $t$ distinct zeros modulo $p$.",
+            "title": "31.4-4 $\\star$"
+        },
+        {
+            "location": "/Chap31/31.5/",
+            "text": "31.5-1\n\u00b6\n\n\n\n\nFind all solutions to the equations $x \\equiv 4 (\\mod 5)$ and $x \\equiv 5 (\\mod 11)$.\n\n\n\n\n$m_1 = 11$, $m_2 = 5$.\n\n\n$m_1^{-1} = 1$, $m_2^{-1} = 9$.\n\n\n$c_1 = 11$, $c_2 = 45$.\n\n\n$a = (c_1 \\cdot a_1 + c_2 \\cdot a_2) \\mod (n_1 \\cdot n_2) = (11 \\cdot 4 + 45 \\cdot 5) \\mod 55 = 49$.\n\n\n31.5-2\n\u00b6\n\n\n\n\nFind all integers $x$ that leave remainders $1$, $2$, $3$ when divided by $9$, $8$, $7$ respectively.\n\n\n\n\n$10 + 504i$, $i \\in \\mathbb Z$.\n\n\n31.5-3\n\u00b6\n\n\n\n\nArgue that, under the definitions of Theorem 31.27, if $\\gcd(a, n) = 1$, then\n\n\n$(a^{-1} \\mod n) \\leftrightarrow ((a_1^{-1} \\mod n_1), (a_2^{-1} \\mod n_2), \\ldots, (a_k^{-1} \\mod n_k))$.\n\n\n\n\n$\\gcd(a, n) = 1 \\rightarrow \\gcd(a, n_i) = 1$.\n\n\n31.5-4\n\u00b6\n\n\n\n\nUnder the definitions of Theorem 31.27, prove that for any polynomial $f$, the number of roots of the equation $f(x) \\equiv 0 (\\mod n)$ equals the product of the number of roots of each of the equations $f(x) \\equiv 0 (\\mod n_1), f(x) \\equiv 0 (\\mod n_2), \\ldots, f(x) \\equiv 0 (\\mod n_k)$.\n\n\n\n\nBased on 31.28\u201331.30.",
+            "title": "31.5 The Chinese remainder theorem"
+        },
+        {
+            "location": "/Chap31/31.5/#315-1",
+            "text": "Find all solutions to the equations $x \\equiv 4 (\\mod 5)$ and $x \\equiv 5 (\\mod 11)$.   $m_1 = 11$, $m_2 = 5$.  $m_1^{-1} = 1$, $m_2^{-1} = 9$.  $c_1 = 11$, $c_2 = 45$.  $a = (c_1 \\cdot a_1 + c_2 \\cdot a_2) \\mod (n_1 \\cdot n_2) = (11 \\cdot 4 + 45 \\cdot 5) \\mod 55 = 49$.",
+            "title": "31.5-1"
+        },
+        {
+            "location": "/Chap31/31.5/#315-2",
+            "text": "Find all integers $x$ that leave remainders $1$, $2$, $3$ when divided by $9$, $8$, $7$ respectively.   $10 + 504i$, $i \\in \\mathbb Z$.",
+            "title": "31.5-2"
+        },
+        {
+            "location": "/Chap31/31.5/#315-3",
+            "text": "Argue that, under the definitions of Theorem 31.27, if $\\gcd(a, n) = 1$, then  $(a^{-1} \\mod n) \\leftrightarrow ((a_1^{-1} \\mod n_1), (a_2^{-1} \\mod n_2), \\ldots, (a_k^{-1} \\mod n_k))$.   $\\gcd(a, n) = 1 \\rightarrow \\gcd(a, n_i) = 1$.",
+            "title": "31.5-3"
+        },
+        {
+            "location": "/Chap31/31.5/#315-4",
+            "text": "Under the definitions of Theorem 31.27, prove that for any polynomial $f$, the number of roots of the equation $f(x) \\equiv 0 (\\mod n)$ equals the product of the number of roots of each of the equations $f(x) \\equiv 0 (\\mod n_1), f(x) \\equiv 0 (\\mod n_2), \\ldots, f(x) \\equiv 0 (\\mod n_k)$.   Based on 31.28\u201331.30.",
+            "title": "31.5-4"
+        },
+        {
+            "location": "/Chap31/31.6/",
+            "text": "31.6-1\n\u00b6\n\n\n\n\nDraw a table showing the order of every element in $\\mathbb Z_{11}^*$. Pick the smallest primitive root $g$ and compute a table giving $\\text{ind}_{11, g}(x)$ for all $x \\in \\mathbb Z_{11}^*$.\n\n\n\n\n$g = 2$, ${1, 2, 4, 8, 5, 10, 9, 7, 3, 6}$.\n\n\n31.6-2\n\u00b6\n\n\n\n\nGive a modular exponentiation algorithm that examines the bits of $b$ from right to left instead of left to right.\n\n\n\n\n1\n2\n3\n4\n5\n6\n7\n8\n9\nMODULAR\n-\nEXPONENTIATION\n(\na\n,\n \nb\n,\n \nn\n)\n\n    \ni\n \n=\n \n0\n\n    \nd\n \n=\n \n1\n\n    \nwhile\n \n(\n1\n \n<<\n \ni\n)\n \n\u2264\n \nb\n\n        \nif\n \n(\nb\n \n&\n \n(\n1\n \n<<\n \ni\n))\n \n>\n \n0\n\n            \nd\n \n=\n \n(\nd\n \n*\n \na\n)\n \n%\n \nn\n\n        \na\n \n=\n \n(\na\n \n*\n \na\n)\n \n%\n \nn\n\n        \ni\n \n=\n \ni\n \n+\n \n1\n\n    \nreturn\n \nd\n\n\n\n\n\n\n\n31.6-3\n\u00b6\n\n\n\n\nAssuming that you know $\\phi(n)$, explain how to compute $a^{-1} \\mod n$ for any $a \\in \\mathbb Z_n^*$ using the procedure $\\text{MODULAR-EXPONENTIATION}$.\n\n\n\n\n\\begin{array}{rlll}\n           a^{\\phi(n)} & \\equiv & 1             & (\\mod n) \\\\\na\\cdot a^{\\phi(n) - 1} & \\equiv & 1             & (\\mod n) \\\\\n                a^{-1} & \\equiv & a^{\\phi(n)-1} & (\\mod n)\n\\end{array}",
+            "title": "31.6 Powers of an element"
+        },
+        {
+            "location": "/Chap31/31.6/#316-1",
+            "text": "Draw a table showing the order of every element in $\\mathbb Z_{11}^*$. Pick the smallest primitive root $g$ and compute a table giving $\\text{ind}_{11, g}(x)$ for all $x \\in \\mathbb Z_{11}^*$.   $g = 2$, ${1, 2, 4, 8, 5, 10, 9, 7, 3, 6}$.",
+            "title": "31.6-1"
+        },
+        {
+            "location": "/Chap31/31.6/#316-2",
+            "text": "Give a modular exponentiation algorithm that examines the bits of $b$ from right to left instead of left to right.   1\n2\n3\n4\n5\n6\n7\n8\n9 MODULAR - EXPONENTIATION ( a ,   b ,   n ) \n     i   =   0 \n     d   =   1 \n     while   ( 1   <<   i )   \u2264   b \n         if   ( b   &   ( 1   <<   i ))   >   0 \n             d   =   ( d   *   a )   %   n \n         a   =   ( a   *   a )   %   n \n         i   =   i   +   1 \n     return   d",
+            "title": "31.6-2"
+        },
+        {
+            "location": "/Chap31/31.6/#316-3",
+            "text": "Assuming that you know $\\phi(n)$, explain how to compute $a^{-1} \\mod n$ for any $a \\in \\mathbb Z_n^*$ using the procedure $\\text{MODULAR-EXPONENTIATION}$.   \\begin{array}{rlll}\n           a^{\\phi(n)} & \\equiv & 1             & (\\mod n) \\\\\na\\cdot a^{\\phi(n) - 1} & \\equiv & 1             & (\\mod n) \\\\\n                a^{-1} & \\equiv & a^{\\phi(n)-1} & (\\mod n)\n\\end{array}",
+            "title": "31.6-3"
+        },
+        {
+            "location": "/Chap31/31.7/",
+            "text": "31.7-1\n\u00b6\n\n\n\n\nConsider an RSA key set with $p = 11$, $q = 29$, $n = 319$, and $e = 3$. What value of $d$ should be used in the secret key? What is the encryption of the message $M = 100$?\n\n\n\n\n$\\phi(n) = (p - 1) \\cdot (q - 1) = 280$.\n\n\n$d = e^{-1} \\mod \\phi(n) = 187$.\n\n\n$P(M) = M^e \\mod n = 254$.\n\n\n$S(C) = C^d \\mod n = 254^{187} \\mod n =  100$.\n\n\n31.7-2\n\u00b6\n\n\n\n\nProve that if Alice's public exponent $e$ is $3$ and an adversary obtains Alice's secret exponent $d$, where $0 < d < \\phi(n)$, then the adversary can factor Alice's modulus $n$ in time polynomial in the number of bits in $n$. (Although you are not asked to prove it, you may be interested to know that this result remains true even if the condition $e = 3$ is removed. See Miller [255].)\n\n\n\n\n$$ed \\equiv 1 \\mod \\phi(n)$$\n\n\n$$ed - 1 = 3d - 1 = k \\phi(n)$$\n\n\nIf $p, q < n / 4$, then $\\phi(n) = n - (p + q) + 1 > n - n / 2 + 1 = n / 2 + 1 > n / 2$.\n\n\n$kn / 2 < 3d - 1 < 3d < 3n$, then $k < 6$, then we can solve $3d - 1 = n - p - n / p + 1$.\n\n\n31.7-3 $\\star$\n\u00b6\n\n\n\n\nProve that RSA is multiplicative in the sense that\n\n\n$P_A(M_1) P_A(M_2) \\equiv P_A(M_1, M_2) (\\mod n)$.\n\n\nUse this fact to prove that if an adversary had a procedure that could efficiently decrypt $1$ percent of messages from $\\mathbb Z_n$ encrypted with $P_A$, then he could employ a probabilistic algorithm to decrypt every message encrypted with $P_A$ with high probability.\n\n\n\n\nMultiplicative: $e$ is relatively prime to $n$.\n\n\nDecrypt: In each iteration randomly choose a prime number $m$ that $m$ is relatively prime to $n$, if we can decrypt $m \\cdot M$, then we can return $m^{-1}M$ since $m^{-1} = m^{n - 2}$.",
+            "title": "31.7 The RSA public-key cryptosystem"
+        },
+        {
+            "location": "/Chap31/31.7/#317-1",
+            "text": "Consider an RSA key set with $p = 11$, $q = 29$, $n = 319$, and $e = 3$. What value of $d$ should be used in the secret key? What is the encryption of the message $M = 100$?   $\\phi(n) = (p - 1) \\cdot (q - 1) = 280$.  $d = e^{-1} \\mod \\phi(n) = 187$.  $P(M) = M^e \\mod n = 254$.  $S(C) = C^d \\mod n = 254^{187} \\mod n =  100$.",
+            "title": "31.7-1"
+        },
+        {
+            "location": "/Chap31/31.7/#317-2",
+            "text": "Prove that if Alice's public exponent $e$ is $3$ and an adversary obtains Alice's secret exponent $d$, where $0 < d < \\phi(n)$, then the adversary can factor Alice's modulus $n$ in time polynomial in the number of bits in $n$. (Although you are not asked to prove it, you may be interested to know that this result remains true even if the condition $e = 3$ is removed. See Miller [255].)   $$ed \\equiv 1 \\mod \\phi(n)$$  $$ed - 1 = 3d - 1 = k \\phi(n)$$  If $p, q < n / 4$, then $\\phi(n) = n - (p + q) + 1 > n - n / 2 + 1 = n / 2 + 1 > n / 2$.  $kn / 2 < 3d - 1 < 3d < 3n$, then $k < 6$, then we can solve $3d - 1 = n - p - n / p + 1$.",
+            "title": "31.7-2"
+        },
+        {
+            "location": "/Chap31/31.7/#317-3-star",
+            "text": "Prove that RSA is multiplicative in the sense that  $P_A(M_1) P_A(M_2) \\equiv P_A(M_1, M_2) (\\mod n)$.  Use this fact to prove that if an adversary had a procedure that could efficiently decrypt $1$ percent of messages from $\\mathbb Z_n$ encrypted with $P_A$, then he could employ a probabilistic algorithm to decrypt every message encrypted with $P_A$ with high probability.   Multiplicative: $e$ is relatively prime to $n$.  Decrypt: In each iteration randomly choose a prime number $m$ that $m$ is relatively prime to $n$, if we can decrypt $m \\cdot M$, then we can return $m^{-1}M$ since $m^{-1} = m^{n - 2}$.",
+            "title": "31.7-3 $\\star$"
+        },
+        {
+            "location": "/Chap31/31.8/",
+            "text": "31.8-1\n\u00b6\n\n\n\n\nProve that if an odd integer $n > 1$ is not a prime or a prime power, then there exists a nontrivial square root of $1$ modulo $n$.\n\n\n\n\n31.8-2 $\\star$\n\u00b6\n\n\n\n\nIt is possible to strengthen Euler's theorem slightly to the form\n\n\n$a^{\\lambda(n)} \\equiv 1 (\\mod n)$ for all $a \\in \\mathbb Z_n^*$,\n\n\nwhere $n = p_1^{e_1} \\cdots p_r^{e_r}$ and $\\lambda(n)$ is defined by\n\n\n$$\\lambda(n) = \\text{lcm}(\\phi(p_1^{e_1}), \\ldots, \\phi\\phi(p_r^{e_r})). \\tag{31.42}$$\n\n\nProve that $\\lambda(n) \\mid \\phi(n)$. A composite number $n$ is a Carmichael number if \u0005$\\lambda(n) \\mid n - 1$. The smallest Carmichael number is $561 = 3 \\cdot 11 \\cdot 17$; here, $\\lambda(n) = \\text{lcm}(2, 10, 16) = 80$, which divides $560$. Prove that Carmichael numbers must be both \"square-free\" (not divisible by the square of any prime) and the product of at least three primes. (For this reason, they are not very common.)\n\n\n\n\n31.8-3\n\u00b6\n\n\n\n\nProve that if $x$ is a nontrivial square root of $1$, modulo $n$, then $\\gcd(x - 1, n)$ and $\\gcd(x + 1, n)$ are both nontrivial divisors of $n$.\n\n\n\n\n\\begin{array}{rlll}\n           x^2 & \\equiv & 1 & (\\mod n) \\\\\n       x^2 - 1 & \\equiv & 0 & (\\mod n) \\\\\n(x + 1)(x - 1) & \\equiv & 0 & (\\mod n).\n\\end{array}\n\n\n$n \\mid (x + 1)(x - 1)$, suppose $\\gcd(x - 1, n) = 1$, then $n \\mid (x + 1)$, then $x \\equiv -1 (\\mod n)$ which is trivial, it contradicts the fact that $x$ is nontrivial, therefore $\\gcd(x - 1, n) \\ne 1$, $\\gcd(x + 1, n) \\ne 1$.",
+            "title": "31.8 Primality testing"
+        },
+        {
+            "location": "/Chap31/31.8/#318-1",
+            "text": "Prove that if an odd integer $n > 1$ is not a prime or a prime power, then there exists a nontrivial square root of $1$ modulo $n$.",
+            "title": "31.8-1"
+        },
+        {
+            "location": "/Chap31/31.8/#318-2-star",
+            "text": "It is possible to strengthen Euler's theorem slightly to the form  $a^{\\lambda(n)} \\equiv 1 (\\mod n)$ for all $a \\in \\mathbb Z_n^*$,  where $n = p_1^{e_1} \\cdots p_r^{e_r}$ and $\\lambda(n)$ is defined by  $$\\lambda(n) = \\text{lcm}(\\phi(p_1^{e_1}), \\ldots, \\phi\\phi(p_r^{e_r})). \\tag{31.42}$$  Prove that $\\lambda(n) \\mid \\phi(n)$. A composite number $n$ is a Carmichael number if \u0005$\\lambda(n) \\mid n - 1$. The smallest Carmichael number is $561 = 3 \\cdot 11 \\cdot 17$; here, $\\lambda(n) = \\text{lcm}(2, 10, 16) = 80$, which divides $560$. Prove that Carmichael numbers must be both \"square-free\" (not divisible by the square of any prime) and the product of at least three primes. (For this reason, they are not very common.)",
+            "title": "31.8-2 $\\star$"
+        },
+        {
+            "location": "/Chap31/31.8/#318-3",
+            "text": "Prove that if $x$ is a nontrivial square root of $1$, modulo $n$, then $\\gcd(x - 1, n)$ and $\\gcd(x + 1, n)$ are both nontrivial divisors of $n$.   \\begin{array}{rlll}\n           x^2 & \\equiv & 1 & (\\mod n) \\\\\n       x^2 - 1 & \\equiv & 0 & (\\mod n) \\\\\n(x + 1)(x - 1) & \\equiv & 0 & (\\mod n).\n\\end{array}  $n \\mid (x + 1)(x - 1)$, suppose $\\gcd(x - 1, n) = 1$, then $n \\mid (x + 1)$, then $x \\equiv -1 (\\mod n)$ which is trivial, it contradicts the fact that $x$ is nontrivial, therefore $\\gcd(x - 1, n) \\ne 1$, $\\gcd(x + 1, n) \\ne 1$.",
+            "title": "31.8-3"
+        },
+        {
+            "location": "/Chap31/31.9/",
+            "text": "31.9-1\n\u00b6\n\n\n\n\nReferring to the execution history shown in Figure 31.7(a), when does \\text{POLLARDRHO} print the factor $73$ of $1387$?\n\n\n\n\n$x = 84$, $y = 814$.\n\n\n31.9-2\n\u00b6\n\n\n\n\nSuppose that we are given a function $f : \\mathbb Z_n \\rightarrow \\mathbb Z_n$ and an initial value $x_0 \\in \\mathbb Z_n$. Define $x_i = f(x_{i - 1})$ for $i = 1, 2, \\ldots$. Let $t$ and $u > 0$ be the smallest values such that $x_{t + i} = x_{t + u + i}$ for $i = 0, 1, \\ldots$. In the terminology of Pollard's rho algorithm, $t$ is the length of the tail and $u$ is the length of the cycle of the rho. Give an efficient algorithm to determine $t$ and $u$ exactly, and analyze its running time.\n\n\n\n\n31.9-3\n\u00b6\n\n\n\n\nHow many steps would you expect $\\text{POLLARD-RHO}$ to require to discover a factor of the form $p^e$, where $p$ is prime and $e > 1$?\n\n\n\n\n$\\Theta(\\sqrt p)$.\n\n\n31.9-4 $\\star$\n\u00b6\n\n\n\n\nOne disadvantage of $\\text{POLLARD-RHO}$ as written is that it requires one gcd computation for each step of the recurrence. Instead, we could batch the gcd computations by accumulating the product of several $x_i$ values in a row and then using this product instead of $x_i$ in the gcd computation. Describe carefully how you would implement this idea, why it works, and what batch size you would pick as the most effective when working on a $\\beta$-bit number $n$.",
+            "title": "31.9 Integer factorization"
+        },
+        {
+            "location": "/Chap31/31.9/#319-1",
+            "text": "Referring to the execution history shown in Figure 31.7(a), when does \\text{POLLARDRHO} print the factor $73$ of $1387$?   $x = 84$, $y = 814$.",
+            "title": "31.9-1"
+        },
+        {
+            "location": "/Chap31/31.9/#319-2",
+            "text": "Suppose that we are given a function $f : \\mathbb Z_n \\rightarrow \\mathbb Z_n$ and an initial value $x_0 \\in \\mathbb Z_n$. Define $x_i = f(x_{i - 1})$ for $i = 1, 2, \\ldots$. Let $t$ and $u > 0$ be the smallest values such that $x_{t + i} = x_{t + u + i}$ for $i = 0, 1, \\ldots$. In the terminology of Pollard's rho algorithm, $t$ is the length of the tail and $u$ is the length of the cycle of the rho. Give an efficient algorithm to determine $t$ and $u$ exactly, and analyze its running time.",
+            "title": "31.9-2"
+        },
+        {
+            "location": "/Chap31/31.9/#319-3",
+            "text": "How many steps would you expect $\\text{POLLARD-RHO}$ to require to discover a factor of the form $p^e$, where $p$ is prime and $e > 1$?   $\\Theta(\\sqrt p)$.",
+            "title": "31.9-3"
+        },
+        {
+            "location": "/Chap31/31.9/#319-4-star",
+            "text": "One disadvantage of $\\text{POLLARD-RHO}$ as written is that it requires one gcd computation for each step of the recurrence. Instead, we could batch the gcd computations by accumulating the product of several $x_i$ values in a row and then using this product instead of $x_i$ in the gcd computation. Describe carefully how you would implement this idea, why it works, and what batch size you would pick as the most effective when working on a $\\beta$-bit number $n$.",
+            "title": "31.9-4 $\\star$"
+        },
+        {
+            "location": "/Chap31/Problems/31-1/",
+            "text": "Most computers can perform the operations of subtraction, testing the parity (odd or even) of a binary integer, and halving more quickly than computing remainders. This problem investigates the \nbinary gcd algorithm\n, which avoids the remainder computations used in Euclid's algorithm.\n\n\na.\n Prove that if $a$ and $b$ are both even, then $\\gcd(a, b) = 2 \\cdot \\gcd(a / 2, b / 2)$.\n\n\nb.\n Prove that if $a$ is odd and $b$ is even, then $\\gcd(a, b) = \\gcd(a, b / 2)$.\n\n\nc.\n Prove that if $a$ and $b$ are both odd, then $\\gcd(a, b) = \\gcd((a - b) / 2, b)$.\n\n\nd.\n Design an efficient binary gcd algorithm for input integers $a$ and $b$, where $a \\ge b$, that runs in $O(\\lg a)$ time. Assume that each subtraction, parity test, and halving takes unit time.\n\n\n\n\nd.\n\n\n 1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n11\n12\nBINARY\n-\nGCD\n(\na\n,\n \nb\n)\n\n    \nif\n \na\n \n<\n \nb\n\n        \nreturn\n \nBINARY\n-\nGCD\n(\nb\n,\n \na\n)\n\n    \nif\n \nb\n \n==\n \n0\n\n        \nreturn\n \na\n\n    \nif\n \n(\na\n \n&\n \n1\n \n==\n \n1\n)\n \nand\n \n(\nb\n \n&\n \n1\n \n==\n \n1\n)\n\n        \nreturn\n \nBINARY\n-\nGCD\n((\na\n \n-\n \nb\n)\n \n>>\n \n1\n,\n \nb\n)\n\n    \nif\n \n(\na\n \n&\n \n1\n \n==\n \n0\n)\n \nand\n \n(\nb\n \n&\n \n1\n \n==\n \n0\n)\n\n        \nreturn\n \nBINARY\n-\nGCD\n(\na\n \n>>\n \n1\n,\n \nb\n \n>>\n \n1\n)\n \n<<\n \n1\n\n    \nif\n \na\n \n&\n \n1\n \n==\n \n1\n\n        \nreturn\n \nBINARY\n-\nGCD\n(\na\n,\n \nb\n \n>>\n \n1\n)\n\n    \nreturn\n \nBINARY\n-\nGCD\n(\na\n \n>>\n \n1\n,\n \nb\n)",
+            "title": "31-1 Binary gcd algorithm"
+        },
+        {
+            "location": "/Chap31/Problems/31-2/",
+            "text": "a.\n Consider the ordinary \"paper and pencil\" algorithm for long division: dividing $a$ by $b$, which yields a quotient $q$ and remainder $r$. Show that this method requires $O((1 + \\lg q) \\lg b)$ bit operations.\n\n\nb.\n Define $\\mu(a, b) = (1 + \\lg a)(1 + \\lg b)$. Show that the number of bit operations performed by $\\text{EUCLID}$ in reducing the problem of computing $\\gcd(a, b)$ to that of computing $\\gcd(b, a \\mod b)$ is at most $c(\\mu(a, b) - \\mu(b, a \\mod b))$ for some sufficiently large constant $c > 0$.\n\n\nc.\n Show that $\\text{EUCLID}(a, b)$ requires $O(\\mu(a, b))$ bit operations in general and $O(\\beta^2)$ bit operations when applied to two $\\beta$-bit inputs.\n\n\n\n\na.\n \n\n\n\n\nNumber of comparisons and subtractions: $\\lceil \\lg a \\rceil - \\lceil \\lg b \\rceil + 1 = \\lceil \\lg q \\rceil$.\n\n\nLength of subtraction: $\\lceil \\lg b \\rceil$.\n\n\nTotal: $O((1 + \\lg q) \\lg b)$.\n\n\n\n\nb.\n\n\n\\begin{array}{rlll}\n    & \\mu(a, b) - \\mu(b, a \\mod b) \\\\\n  = & \\mu(a, b) - \\mu(b, r) \\\\\n  = & (1 + \\lg a)(1 + \\lg b) - (1 + \\lg b)(1 + \\lg r) \\\\\n  = & (1 + \\lg b)(\\lg a - \\lg r) & (\\lg r \\le \\lg b) \\\\\n\\ge & (1 + \\lg b)(\\lg a - \\lg b) \\\\\n  = & (1 + \\lg b)(\\lg q + 1) \\\\\n\\ge & (1 + \\lg q) \\lg b\n\\end{array}\n\n\nc.\n $\\mu(a, b) = (1 + \\lg a)(1 + \\lg b) \\approx \\beta^2$",
+            "title": "31-2 Analysis of bit operations in Euclid's algorithm"
+        },
+        {
+            "location": "/Chap31/Problems/31-3/",
+            "text": "This problem compares the efficiency of three methods for computing the $n$th Fibonacci number $F_n$, given $n$. Assume that the cost of adding, subtracting, or multiplying two numbers is $O(1)$, independent of the size of the numbers.\n\n\na.\n Show that the running time of the straightforward recursive method for computing $F_n$ based on recurrence $\\text{(3.22)}$ is exponential in $n$. (See, for example, the FIB procedure on page 775.)\n\n\nb.\n Show how to compute $F_n$ in $O(n)$ time using memoization.\n\n\nc.\n Show how to compute $F_n$ in $O(\\lg n)$ time using only integer addition and multiplication.\n(Hint: Consider the matrix\n\n\n\\begin{pmatrix}\n0 & 1 \\\\\n1 & 1\n\\end{pmatrix}\n\n\nand its powers.)\n\n\nd.\n Assume now that adding two $\\beta$-bit numbers takes $\\Theta(\\beta)$ time and that multiplying two $\\beta$-bit numbers takes $\\Theta(\\beta^2)$ time. What is the running time of these three methods under this more reasonable cost measure for the elementary arithmetic operations?\n\n\n\n\na.\n $$T(n) = T(n - 1) + T(n - 2) + \\Theta(1) = \\Theta(2^n).$$\n\n\nb.\n\n\n1\n2\n3\nFIB\n(\nn\n)\n\n    \nfibs\n \n=\n \n[\n0\n,\n \n1\n]\n \n+\n \n[\n-\n1\n]\n \n*\n \n(\nn\n \n-\n \n1\n)\n\n    \nreturn\n \nFIB\n-\nSUB\n(\nn\n)\n\n\n\n\n\n\n\n1\n2\n3\n4\nFIB\n-\nSUB\n(\nn\n)\n\n    \nif\n \nfibs\n[\nn\n]\n \n==\n \n-\n1\n\n        \nfibs\n[\nn\n]\n \n=\n \nFIB\n-\nSUB\n(\nn\n \n-\n \n1\n)\n \n+\n \nFIB\n-\nSUB\n(\nn\n \n-\n \n1\n)\n\n    \nreturn\n \nfibs\n[\nn\n]\n\n\n\n\n\n\n\nc.\n\n\nd.\n\n\n\n\n$\\Theta(2^{2^\\beta})$.\n\n\n$\\Theta(2^\\beta)$.\n\n\n$T(n) = T(n / 2) + \\Theta(\\beta^2) = \\Theta(\\beta^3)$.",
+            "title": "31-3 Three algorithms for Fibonacci numbers"
+        },
+        {
+            "location": "/Chap31/Problems/31-4/",
+            "text": "Let $p$ be an odd prime. A number $a \\in Z_p^*$ is a \nquadratic residue\n if the equation $x^2 = a ~(\\text{mod}~p)$ has a solution for the unknown $x$.\n\n\na.\n Show that there are exactly $(p - 1) / 2$ quadratic residues, modulo $p$.\n\n\nb.\n If $p$ is prime, we define the \nLegendre symbol\n $(\\frac{a}{p})$, for $a \\in \\mathbb Z_p^*$, to be $1$ if $a$ is a quadratic residue modulo $p$ and $-1$ otherwise. Prove that if $a \\in \\mathbb Z_p^*$, then\n\n\n$$(\\frac{a}{p}) \\equiv a^{(p - 1) / 2} (\\mod p).$$\n\n\nGive an efficient algorithm that determines whether a given number $a$ is a quadratic residue modulo $p$. Analyze the efficiency of your algorithm.\n\n\nc.\n Prove that if $p$ is a prime of the form $4k + 3$ and $a$ is a quadratic residue in $\\mathbb Z_b^*$, then $a^{k + 1} \\mod p$ is a square root of $a$, modulo $p$. How much time is required to find the square root of a quadratic residue $a$ modulo $p$?\n\n\nd.\n Describe an efficient randomized algorithm for finding a nonquadratic residue, modulo an arbitrary prime $p$, that is, a member of $\\mathbb Z_p^*$ that is not a quadratic residue. How many arithmetic operations does your algorithm require on average?",
+            "title": "31-4 Quadratic residues"
         }
     ]
 }

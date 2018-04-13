@@ -339,3 +339,48 @@ pages:
         - 27-4 Multithreading reductions and prefix computations: Chap27/Problems/27-4.md
         - 27-5 Multithreading a simple stencil calculation: Chap27/Problems/27-5.md
         - 27-6 Randomized multithreaded algorithms: Chap27/Problems/27-6.md
+    - 28 Matrix Operations:
+      - 28.1 Solving systems of linear equations: Chap28/28.1.md
+      - 28.2 Inverting matrices: Chap28/28.2.md
+      - 28.3 Symmetric positive-definite matrices and least-squares approximation: Chap28/28.3.md
+      - Chap 28 Problems:
+        - 28-1 Tridiagonal systems of linear equations: Chap28/Problems/28-1.md
+        - 28-2 Splines: Chap28/Problems/28-2.md
+    - 29 Linear Programming:
+      - 29.1 Standard and slack forms: Chap29/29.1.md
+      - 29.2 Formulating problems as linear programs: Chap29/29.2.md
+      - 29.3 The simplex algorithm: Chap29/29.3.md
+      - 29.4 Duality: Chap29/29.4.md
+      - 29.5 The initial basic feasible solution: Chap29/29.5.md
+      - Chap 29 Problems:
+        - 29-1 Linear-inequality feasibility: Chap29/Problems/29-1.md
+        - 29-2 Complementary slackness: Chap29/Problems/29-2.md
+        - 29-3 Integer linear programming: Chap29/Problems/29-3.md
+        - 29-4 Farkas'ss lemma: Chap29/Problems/29-4.md
+        - 29-5 Minimum-cost circulation: Chap29/Problems/29-5.md
+    - 30 Polynomials and the FFT:
+      - 30.1 Representing polynomials:  Chap30/30.1.md
+      - 30.2 The DFT and FFT: Chap30/30.2.md
+      - 30.3 Efficient FFT implementations: Chap30/30.3.md
+      - Chap 30 Problems:
+        - 30-1 Divide-and-conquer multiplication: Chap30/Problems/30-1.md
+        - 30-2 Toeplitz matrices: Chap30/Problems/30-2.md
+        - 30-3 Multidimensional fast Fourier transform: Chap30/Problems/30-3.md
+        - 30-4 Evaluating all derivatives of a polynomial at a point: Chap30/Problems/30-4.md
+        - 30-5 Polynomial evaluation at multiple points: Chap30/Problems/30-5.md
+        - 30-6 FFT using modular arithmetic: Chap30/Problems/30-6.md
+    - 31 Number-Theoretic Algorithms:
+      - 31.1 Elementary number-theoretic notions: Chap31/31.1.md
+      - 31.2 Greatest common divisor: Chap31/31.2.md
+      - 31.3 Modular arithmetic: Chap31/31.3.md
+      - 31.4 Solving modular linear equations: Chap31/31.4.md
+      - 31.5 The Chinese remainder theorem: Chap31/31.5.md
+      - 31.6 Powers of an element: Chap31/31.6.md
+      - 31.7 The RSA public-key cryptosystem: Chap31/31.7.md
+      - 31.8 Primality testing: Chap31/31.8.md
+      - 31.9 Integer factorization: Chap31/31.9.md
+      - Chap 31 Problems:
+        - 31-1 Binary gcd algorithm: Chap31/Problems/31-1.md
+        - 31-2 Analysis of bit operations in Euclid's algorithm: Chap31/Problems/31-2.md
+        - 31-3 Three algorithms for Fibonacci numbers: Chap31/Problems/31-3.md
+        - 31-4 Quadratic residues: Chap31/Problems/31-4.md
