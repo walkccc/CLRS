@@ -5188,16 +5188,41 @@
 <li>
 <p>$\gcd(a, n) \mid \gcd(a + kn, n)$.</p>
 <p>Let $d = \gcd(a, n)$, then $d \mid a$ and $d \mid n$.</p>
-<p>Since $(a + kn) \mod d = a \mod d + k \cdot (n \mod d) = 0$ and $d \mid n$, then $d \mid \gcd(a + kn, n)$, $\gcd(a, n) \mid \gcd(a + kn, n)$.</p>
+<p>Since </p>
+<p>$$(a + kn) \mod d = a \mod d + k \cdot (n \mod d) = 0$$</p>
+<p>and </p>
+<p>$$d \mid n,$$</p>
+<p>we have</p>
+<p>$$d \mid \gcd(a + kn, n)$$</p>
+<p>and</p>
+<p>$$\gcd(a, n) \mid \gcd(a + kn, n).$$</p>
 </li>
 <li>
 <p>$\gcd(a + kn, n) \mid \gcd(a, n)$.</p>
-<p>Let $d = \gcd(a + kn, n)$, then $d \mid n$ and $d \mid (a + kn)$.</p>
-<p>Since $(a + kn) \mod d = a \mod d + k \cdot (n \mod d) = a \mod d = 0$, then $d \mid a$.</p>
-<p>Since $d \mid a$ and $d \mid n$, then $d \mid \gcd(a, n)$,  $\gcd(a + kn, n) \mid \gcd(a, n)$.</p>
+<p>Suppose $d = \gcd(a + kn, n)$, we have</p>
+<p>$$d \mid n$$</p>
+<p>and</p>
+<p>$$d \mid (a + kn).$$</p>
+<p>Since</p>
+<p>$$(a + kn) \mod d = a \mod d + k \cdot (n \mod d) = a \mod d = 0,$$</p>
+<p>we have</p>
+<p>$$d \mid a.$$</p>
+<p>Since</p>
+<p>$$d \mid a$$</p>
+<p>and</p>
+<p>$$d \mid n,$$</p>
+<p>we have </p>
+<p>$$d \mid \gcd(a, n)$$</p>
+<p>and</p>
+<p>$$\gcd(a + kn, n) \mid \gcd(a, n).$$</p>
 </li>
 </ul>
-<p>Since $\gcd(a, n) \mid \gcd(a + kn, n)$ and $\gcd(a + kn, n) \mid \gcd(a, n)$, then $\gcd(a, n) = \gcd(a + kn, n)$.</p>
+<p>Since</p>
+<p>$$\gcd(a, n) \mid \gcd(a + kn, n)$$</p>
+<p>and</p>
+<p>$$\gcd(a + kn, n) \mid \gcd(a, n),$$</p>
+<p>we have</p>
+<p>$$\gcd(a, n) = \gcd(a + kn, n).$$</p>
 <h2 id="312-4">31.2-4<a class="headerlink" href="#312-4" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Rewrite $\text{EUCLID}$ in an iterative form that uses only a constant amount of memory (that is, stores only a constant number of integer values).</p>
