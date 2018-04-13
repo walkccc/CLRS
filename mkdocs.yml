@@ -47,8 +47,10 @@ google_analytics:
 # Extensions
 markdown_extensions:
   - pymdownx.superfences
+  - codehilite:
+    linenums: true
   - toc:
-      permalink: true
+    permalink: true
 
 pages:
   - Preface: index.md
