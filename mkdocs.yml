@@ -384,3 +384,10 @@ pages:
         - 31-2 Analysis of bit operations in Euclid's algorithm: Chap31/Problems/31-2.md
         - 31-3 Three algorithms for Fibonacci numbers: Chap31/Problems/31-3.md
         - 31-4 Quadratic residues: Chap31/Problems/31-4.md
+    - 32 String Matching:
+      - 32.1 The naive string-matching algorithm: Chap32/32.1.md
+      - 32.2 The Rabin-Karp algorithm: Chap32/32.2.md
+      - 32.3 String matching with finite automata: Chap32/32.3.md
+      - 32.4 The Knuth-Morris-Pratt algorithm: Chap32/32.4.md
+      - Chap 32 Problems:
+        - 32-1 String matching based on repetition factors: Chap32/Problems/32-1.md
