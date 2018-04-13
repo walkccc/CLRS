@@ -5262,7 +5262,12 @@ b - 2 &amp; b - 1 &amp; b     &amp; \cdots &amp; 2b - 5 &amp; 2b - 4 &amp; 2b - 
 b - 1 &amp; b     &amp; b + 1 &amp; \cdots &amp; 2b - 4 &amp; 2b - 3 &amp; 2b - 2 \\
 b     &amp; b + 1 &amp; b + 2 &amp; \cdots &amp; 2b - 3 &amp; 2b - 2 &amp; 2b - 1
 \end{pmatrix}</p>
-<p>The recurrence for the work is $T_1(n) = b^2 T_1(n / b) + \Theta(1) = \Theta(n^2)$. The recurrence for the span is $T_\infty(n) = (2b - 1) T_\infty(n / b) + \Theta(1) = \Theta(n^{\log_b (2b - 1)})$. The parallelism is $\Theta(n^{2 - \log_b (2b - 1)})$.</p>
+<p>The recurrence for the work is</p>
+<p>$$T_1(n) = b^2 T_1(n / b) + \Theta(1) = \Theta(n^2).$$</p>
+<p>The recurrence for the span is</p>
+<p>$$T_\infty(n) = (2b - 1) T_\infty(n / b) + \Theta(1) = \Theta(n^{\log_b (2b - 1)}).$$</p>
+<p>The parallelism is</p>
+<p>$$\Theta(n^{2 - \log_b (2b - 1)}).$$</p>
 <p>As the hint suggests, in order to show that the parallelism must be $o(n)$ for any choice of $b \ge 2$, we need to show that $2 - \log_b (2b - 1)$, which is the exponent of $n$ in the parallelism, is strictly less than $1$ for any choice of $b \ge 2$. Since $b \ge 2$, we know that $2b - 1 &gt; b$, which implies that $\log_b (2b - 1) &gt; \log_b b = 1$. Hence, $2 - \log_b (2b - 1) &lt; 2 - 1 = 1$.</p>
 <p><strong>d.</strong> The idea behind achieving $\Theta(n / \lg n)$ parallelism is similar to that presented in the previous part, except without recursive division. We will compute $A[1, 1]$ serially, which will enable us to compute entries $A[1, 2]$ and $A[2, 1]$ in parallel, after which we can compute entries $A[1, 3]$, $A[2, 2]$ and $A[3, 1]$ in parallel, and so on. Here is the pseudocode:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
