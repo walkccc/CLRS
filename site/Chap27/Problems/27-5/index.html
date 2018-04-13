@@ -5246,7 +5246,12 @@ $$</p>
 3 &amp; 4 &amp; 5
 \end{pmatrix}</p>
 <p>Each entry in the above matrix specifies the group of the corresponding $n / 3 \times n / 3$ submatrix of $A$; we can compute in parallel the entries of all submatrices that fall in the same group. In general, for $i = 2, 3, 4, 5$, we can calculate group $i$ after completing the computation of group $i - 1$.</p>
-<p>The recurrence for the work is $T_1(n) = 9T_1(n / 3) + \Theta(1) = \Theta(n^2)$. The recurrence for the span is $T_\infty(n) = 5T_\infty(n / 3) + \Theta(1) = \Theta(n^{\log_3 5})$. Therefore, the parallelism is $\Theta(n^{2 - \log_3 5}) \approx \Theta(n^{0.535})$.</p>
+<p>The recurrence for the work is
+$$T_1(n) = 9T_1(n / 3) + \Theta(1) = \Theta(n^2).$$</p>
+<p>The recurrence for the span is </p>
+<p>$$T_\infty(n) = 5T_\infty(n / 3) + \Theta(1) = \Theta(n^{\log_3 5}).$$ </p>
+<p>Therefore, the parallelism is </p>
+<p>$$\Theta(n^{2 - \log_3 5}) \approx \Theta(n^{0.535}).$$</p>
 <p><strong>c.</strong> Similar to the previous part, we can solve the $b^2$ subproblems in $2b - 1$ groups:</p>
 <p>\begin{pmatrix}
 1 &amp; 2 &amp; 3 &amp; \cdots &amp; b - 2 &amp; b - 1 &amp; b \\
