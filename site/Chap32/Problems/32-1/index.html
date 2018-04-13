@@ -5174,7 +5174,7 @@
 14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">REPETITION_MATCHER</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
     <span class="n">m</span> <span class="o">=</span> <span class="n">P</span><span class="p">.</span><span class="n">length</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">T</span><span class="p">.</span><span class="n">length</span>
-    <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="err">\</span><span class="n">rho</span><span class="o">^*</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="err">ρ</span><span class="o">*</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
     <span class="n">q</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">while</span> <span class="n">s</span> <span class="err">≤</span> <span class="n">n</span> <span class="o">-</span> <span class="n">m</span>
@@ -5192,13 +5192,13 @@ This algorithm is due to Galil and Seiferas. By extending these ideas greatly, t
 <p><strong>a.</strong> Compute $\pi$, let $l = m - \pi[m]$, if $m ~\text{mod}~ l = 0$ and for all $p = m - i \cdot l &gt; 0$, $p - \pi[p] = l$, then $\rho(P_i) = m / l$, otherwise $\rho(P_i) = 1$. The running time is $\Theta(n)$.</p>
 <p><strong>b.</strong> </p>
 <p>\begin{align}
-P(\rho^*(P) \ge 2) = \frac{1}{2} + \frac{1}{8} + \frac{1}{32} + \cdots \approx \frac{2}{3} \\
-P(\rho^*(P) \ge 3) = \frac{1}{4} + \frac{1}{32} + \frac{1}{256} + \cdots \approx \frac{2}{7} \\
-P(\rho^*(P) \ge 4) = \frac{1}{8} + \frac{1}{128} + \frac{1}{2048} + \cdots \approx \frac{2}{15} \\
-  P(\rho^*(P) = 1) = \frac{1}{3} \\
-  P(\rho^*(P) = 2) = \frac{8}{21} \\
-  P(\rho^*(P) = 3) = \frac{16}{105} \\
-\text E[\rho^*(P)] = 1 \cdot \frac{1}{3} + 2 \cdot \frac{8}{21} + 3 \cdot \frac{16}{105} + \ldots \approx 2.21
+P(\rho^*(P) \ge 2) &amp; = \frac{1}{2} + \frac{1}{8} + \frac{1}{32} + \cdots \approx \frac{2}{3} \\
+P(\rho^*(P) \ge 3) &amp; = \frac{1}{4} + \frac{1}{32} + \frac{1}{256} + \cdots \approx \frac{2}{7} \\
+P(\rho^*(P) \ge 4) &amp; = \frac{1}{8} + \frac{1}{128} + \frac{1}{2048} + \cdots \approx \frac{2}{15} \\
+  P(\rho^*(P) = 1) &amp; = \frac{1}{3} \\
+  P(\rho^*(P) = 2) &amp; = \frac{8}{21} \\
+  P(\rho^*(P) = 3) &amp; = \frac{16}{105} \\
+\text E[\rho^*(P)] &amp; = 1 \cdot \frac{1}{3} + 2 \cdot \frac{8}{21} + 3 \cdot \frac{16}{105} + \ldots \approx 2.21
 \end{align}</p>
 <p><strong>c.</strong></p>
                 
