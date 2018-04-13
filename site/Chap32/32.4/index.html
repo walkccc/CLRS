@@ -5313,17 +5313,17 @@
 <blockquote>
 <p>Compute the prefix function $\pi$ for the pattern $\text{ababbabbabbababbabb}$.</p>
 </blockquote>
-<p>$\pi = \{ 0, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 3, 4, 5, 6, 7, 8 \}$.</p>
+<p>$$\pi = \{ 0, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 3, 4, 5, 6, 7, 8 \}.$$</p>
 <h2 id="324-2">32.4-2<a class="headerlink" href="#324-2" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Give an upper bound on the size of $\pi^*[q]$ as a function of $q$. Give an example to show that your bound is tight.</p>
 </blockquote>
-<p>$$|\pi^*[q]| &lt; q.$$</p>
+<p>$|\pi^*[q]| &lt; q$.</p>
 <h2 id="324-3">32.4-3<a class="headerlink" href="#324-3" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Explain how to determine the occurrences of pattern $P$ in the text $T$ by examining the $\pi$ function for the string $PT$ (the string of length $m + n$ that is the concatenation of $P$ and $T$).</p>
 </blockquote>
-<p>$$\{ q \mid \pi[q] = m \text{ and } q \ge 2m \}.$$</p>
+<p>$\{ q \mid \pi[q] = m \text{ and } q \ge 2m \}$.</p>
 <h2 id="324-4">32.4-4<a class="headerlink" href="#324-4" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Use an aggregate analysis to show that the running time of $\text{KMP-MATCHER}$ is $\Theta$.</p>
@@ -5333,7 +5333,7 @@
 <blockquote>
 <p>Use a potential function to show that the running time of $\text{KMP-MATCHER}$ is $\Theta(n)$.</p>
 </blockquote>
-<p>$\Phi = p$.</p>
+<p>$\Phi = p.$</p>
 <h2 id="324-6">32.4-6<a class="headerlink" href="#324-6" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Show how to improve $\text{KMP-MATCHER}$ by replacing the occurrence of $\pi$ in line 7 (but not line 12) by $\pi'$, where $\pi'$ is defined recursively for $q = 1, 2, \ldots, m - 1$ by the equation</p>
