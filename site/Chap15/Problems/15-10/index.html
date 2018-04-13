@@ -4091,7 +4091,20 @@
 <p><strong>a.</strong> Without loss of generality, suppose that there exists an optimal solution $S$ which involves investing $d_1$ dollars into investment $k$ and $d_2$ dollars into investement $m$ in year $1$. Further, suppose in this optimal solution, you don't move your money for the first $j$ years. If $r_{k1} + r_{k2} + \ldots + r_{kj} &gt; r_{m1} +r_{m2} + \ldots + r_{mj}$ then we can perform the usual cut-and-paste maneuver and instead invest $d_1 + d_2$ dollars into investment $k$ for $j$ years. Keeping all other investments the same, this results in a strategy which is at least as profitable as $S$, but has reduced the number of different investments in a given span of years by $1$. Continuing in this way, we can reduce the optimal strategy to consist of only a single investment each year.</p>
 <p><strong>b.</strong> If a particular investment strategy is the year-one-plan for a optimal investment strategy, then we must solve two kinds of optimal suproblem: either we maintain the strategy for an additional year, not incurring the moneymoving fee, or we move the money, which amounts to solving the problem where we ignore all information from year $1$. Thus, the problem exhibits optimal substructure.</p>
 <p><strong>c.</strong> The algorithm works as follows: We build tables $I$ and $R$ of size $10$ such that $I[i]$ tells which investment should be made (with all money) in year $i$, and $R[i]$ gives the total return on the investment strategy in years $i$ through $10$.</p>
-<div class="highlight"><pre><span></span><span class="n">INVEST</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">INVEST</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
     <span class="n">initialize</span> <span class="n">tables</span> <span class="n">I</span> <span class="n">and</span> <span class="n">R</span> <span class="n">of</span> <span class="n">size</span> <span class="mi">11</span><span class="p">,</span> <span class="n">all</span> <span class="n">filled</span> <span class="n">with</span> <span class="mi">0</span><span class="n">s</span>
     <span class="k">for</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">10</span> <span class="n">downto</span> <span class="mi">1</span>
         <span class="n">q</span> <span class="o">=</span> <span class="mi">1</span>
@@ -4106,6 +4119,7 @@
             <span class="n">I</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">q</span>
     <span class="k">return</span> <span class="n">I</span> <span class="n">as</span> <span class="n">an</span> <span class="n">optimal</span> <span class="n">stategy</span> <span class="n">with</span> <span class="k">return</span> <span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span>
 </pre></div>
+</td></tr></table>
 
 <p><strong>d.</strong> The previous investment strategy was independent of the amount of money you started with. When there is a cap on the amount you can invest, the amount you have to invest in the next year becomes relevant. If we know the year-one-strategy of an optimal investment, and we know that we need to move money after the first year, we're left with the problem of investing a different initial amount of money, so we'd have to solve a subproblem for every possible initial amount of money. Since there is no bound on the returns, there's also no bound on the number of subproblems we need to solve.</p>
                 

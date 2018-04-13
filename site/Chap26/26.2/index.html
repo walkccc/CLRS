@@ -4399,7 +4399,14 @@ $$</p>
 </blockquote>
 <p>For any two vertices $u$ and $v$ in $G$, we can define a flow network $G_{uv}$ consisting of the directed version of $G$ with $s = u$, $t = v$, and all edge capacities set to $1$. (The flow network $G_{uv}$ has $V$ vertices and $2|E|$ edges, so that it has $O(V)$ vertices and $O(E)$ edges, as required. We want all capacities to be $1$ so that the number of edges of $G$ crossing a cut equals the capacity of the cut in $G_{uv}$.) Let $f_{uv}$ denote a maximum flow in $G_{uv}$.</p>
 <p>We claim that for any $u \in V$, the edge connectivity $k$ equals $\min\limits_{v \in V - \{u\}}\{|f_{uv}|\}$. We'll show below that this claim holds. Assuming that it holds, we can find $k$ as follows:</p>
-<div class="highlight"><pre><span></span><span class="n">EDGE</span><span class="o">-</span><span class="n">CONNECTIVITY</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">EDGE</span><span class="o">-</span><span class="n">CONNECTIVITY</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
     <span class="n">k</span> <span class="o">=</span> <span class="err">∞</span>
     <span class="n">select</span> <span class="n">any</span> <span class="n">vertex</span> <span class="n">u</span> <span class="err">∈</span> <span class="n">G</span><span class="p">.</span><span class="n">V</span>
     <span class="k">for</span> <span class="n">each</span> <span class="n">vertex</span> <span class="n">v</span> <span class="err">∈</span> <span class="n">G</span><span class="p">.</span><span class="n">V</span> <span class="o">-</span> <span class="p">{</span><span class="n">u</span><span class="p">}</span>
@@ -4408,6 +4415,7 @@ $$</p>
         <span class="n">k</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="o">|</span><span class="n">f_</span><span class="p">{</span><span class="n">uv</span><span class="p">}</span><span class="o">|</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">k</span>
 </pre></div>
+</td></tr></table>
 
 <p>The claim follows from the max-flow min-cut theorem and how we chose capacities so that the capacity of a cut is the number of edges crossing it. We prove that $k = \min\limits_{v \in V - \{u\}}\{|f_{uv}|\}$ for any $u \in V$ by showing separately that $k$ is at least this minimum and that $k$ is at most this minimum.</p>
 <ul>

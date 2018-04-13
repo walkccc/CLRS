@@ -4248,7 +4248,19 @@
 <p>Suppose that we represent the graph $G = (V, E)$ as an adjacency matrix. Give a simple implementation of Prim's algorithm for this case that runs in $O(V^2)$ time.</p>
 </blockquote>
 <p>At each step of the algorithm we will add an edge from a vertex in the tree created so far to a vertex not in the tree, such that this edge has minimum weight. Thus, it will be useful to know, for each vertex not in the tree, the edge from that vertex to some vertex in the tree of minimal weight. We will store this information in an array $A$, where $A[u] = (v, w)$ if $w$ is the weight of $(u, v)$ and is minimal among the weights of edges from $u$ to some vertex $v$ in the tree built so far. We'll use $A[u].1$ to access $v$ and $A[u].2$ to access $w$.</p>
-<div class="highlight"><pre><span></span><span class="n">PRIM</span><span class="o">-</span><span class="n">ADJ</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">PRIM</span><span class="o">-</span><span class="n">ADJ</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
     <span class="n">initialize</span> <span class="n">A</span> <span class="n">with</span> <span class="n">every</span> <span class="n">entry</span> <span class="o">=</span> <span class="p">(</span><span class="n">NIL</span><span class="p">,</span> <span class="err">∞</span><span class="p">)</span>
     <span class="n">T</span> <span class="o">=</span> <span class="p">{</span><span class="n">r</span><span class="p">}</span>
     <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">V</span>
@@ -4262,6 +4274,7 @@
             <span class="k">if</span> <span class="n">Adf</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="n">and</span> <span class="n">Adj</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="mf">.2</span>
                 <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">Adj</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">])</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="232-3">23.2-3<a class="headerlink" href="#232-3" title="Permanent link">&para;</a></h2>
 <blockquote>

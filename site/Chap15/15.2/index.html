@@ -4218,7 +4218,14 @@
 <blockquote>
 <p>Give a recursive algorithm $\text{MATRIX-CHAIN-MULTIPLY}(A, s, i, j)$ that actually performs the optimal matrix-chain multiplication, given the sequence of matrices $\langle A_1, A_2, \ldots ,A_{n_i} \rangle$, the $s$ table computed by $\text{MATRIX-CHAIN-ORDER}$, and the indices $i$ and $j$. (The initial call would be $\text{MATRIX-CHAIN-MULTIPLY}(A, s, 1, n)$.)</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">MATRIX</span><span class="o">-</span><span class="n">CHAIN</span><span class="o">-</span><span class="n">MULTIPLY</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">MATRIX</span><span class="o">-</span><span class="n">CHAIN</span><span class="o">-</span><span class="n">MULTIPLY</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span>
         <span class="k">return</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">j</span>
@@ -4227,6 +4234,7 @@
     <span class="n">c</span> <span class="o">=</span> <span class="n">MATRIX</span><span class="o">-</span><span class="n">CHAIN</span><span class="o">-</span><span class="n">MULTIPLY</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">b</span> <span class="o">*</span> <span class="n">c</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="152-3">15.2-3<a class="headerlink" href="#152-3" title="Permanent link">&para;</a></h2>
 <blockquote>

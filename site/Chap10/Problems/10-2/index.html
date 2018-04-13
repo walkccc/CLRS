@@ -4095,7 +4095,14 @@
 <p>To get the minimum element, return the key of the head of the list in constant time.</p>
 <p>To extract the minimum element, we first call $\text{MINIMUM}$. Next, we'll replace the key of the head of the list by the key of the second smallest element $y$ in the list. We'll take the key stored at the end of the list and use it to replace the key of $y$. Finally, we'll delete the last element of the list, and call $\text{MIN-HEAPIFY}$ on the list. </p>
 <p>To implement this with linked lists, we need to step through the list to get from element $i$ to element $2i$. We omit this detail from the code, but we'll consider it for runtime analysis. Since the value of $i$ on which $\text{MIN-HEAPIFY}$ is called is always increasing and we never need to step through elements multiple times, the runtime is linear in the length of the list.</p>
-<div class="highlight"><pre><span></span><span class="n">EXTRACT</span><span class="o">-</span><span class="n">MIN</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">EXTRACT</span><span class="o">-</span><span class="n">MIN</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
     <span class="n">min</span> <span class="o">=</span> <span class="n">MINIMIM</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
     <span class="n">linearly</span> <span class="n">scan</span> <span class="k">for</span> <span class="n">the</span> <span class="n">second</span> <span class="n">smallest</span> <span class="n">element</span><span class="p">,</span> <span class="n">located</span> <span class="n">in</span> <span class="n">position</span> <span class="n">i</span><span class="p">.</span>
     <span class="n">L</span><span class="p">.</span><span class="n">head</span><span class="p">.</span><span class="n">key</span> <span class="o">=</span> <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
@@ -4104,8 +4111,20 @@
     <span class="n">MIN</span><span class="o">-</span><span class="n">HEAPIFY</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">i</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">min</span>
 </pre></div>
+</td></tr></table>
 
-<p><div class="highlight"><pre><span></span><span class="n">MIN</span><span class="o">-</span><span class="n">HEAPIFY</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">i</span><span class="p">)</span>
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">MIN</span><span class="o">-</span><span class="n">HEAPIFY</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">i</span><span class="p">)</span>
     <span class="n">l</span> <span class="o">=</span> <span class="n">L</span><span class="p">[</span><span class="mi">2</span><span class="n">i</span><span class="p">].</span><span class="n">key</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">L</span><span class="p">[</span><span class="mi">2</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">].</span><span class="n">key</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">key</span>
@@ -4118,6 +4137,7 @@
         <span class="n">exchange</span> <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="n">with</span> <span class="n">L</span><span class="p">[</span><span class="n">smallest</span><span class="p">]</span>
         <span class="n">MIN</span><span class="o">-</span><span class="n">HEAPIFY</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="n">smallest</span><span class="p">],</span> <span class="n">smallest</span><span class="p">])</span>
 </pre></div>
+</td></tr></table>
 Union is implemented below, where we assume $A$ and $B$ are the two list representations of heaps to be merged. The runtime is again linear in the lengths of the lists to be merged.</p>
 <p><strong>c.</strong> Since the algorithms in part (b) didn't depend on the elements being distinct, we can use the same ones.</p>
                 

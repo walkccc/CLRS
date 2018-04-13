@@ -4218,7 +4218,16 @@
 <blockquote>
 <p>Give pseudocode to reconstruct an $\text{LCS}$ from the completed $c$ table and the original sequences $X = \langle x_1, x_2, \ldots, x_m \rangle$ and $Y = \langle y_1, y_2, \ldots, y_n \rangle$ in $O(m + n)$ time, without using the $b$ table.</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">PRINT</span><span class="o">-</span><span class="n">LCS</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">PRINT</span><span class="o">-</span><span class="n">LCS</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
         <span class="k">return</span>
     <span class="k">if</span> <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">Y</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
@@ -4229,12 +4238,20 @@
     <span class="k">else</span>
         <span class="n">PRINT</span><span class="o">-</span><span class="n">LCS</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="154-3">15.4-3<a class="headerlink" href="#154-3" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Give a memoized version of $\text{LCS-LENGTH}$ that runs in $O(mn)$ time.</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">MEMOIZED</span><span class="o">-</span><span class="n">LCS</span><span class="o">-</span><span class="n">LENGTH</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">MEMOIZED</span><span class="o">-</span><span class="n">LCS</span><span class="o">-</span><span class="n">LENGTH</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span>
         <span class="k">return</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="n">or</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">0</span>
@@ -4243,6 +4260,7 @@
         <span class="k">return</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">LCS</span><span class="o">-</span><span class="n">LENGTH</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">LCS</span><span class="o">-</span><span class="n">LENGTH</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">),</span> <span class="n">LCS</span><span class="o">-</span><span class="n">LENGTH</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="154-4">15.4-4<a class="headerlink" href="#154-4" title="Permanent link">&para;</a></h2>
 <blockquote>
@@ -4279,7 +4297,21 @@
 <p>Give an $O(n^2)$-time algorithm to find the longest monotonically increasing subsequence of a sequence of $n$ numbers.</p>
 </blockquote>
 <p>Given a list of numbers $L$, make a copy of $L$ called $L'$ and then sort $L'$.</p>
-<div class="highlight"><pre><span></span><span class="n">PRINT</span><span class="o">-</span><span class="n">LCS</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">PRINT</span><span class="o">-</span><span class="n">LCS</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="n">X</span><span class="p">.</span><span class="n">length</span><span class="p">,</span> <span class="n">Y</span><span class="p">.</span><span class="n">length</span><span class="p">]</span>
     <span class="n">initialize</span> <span class="n">an</span> <span class="n">array</span> <span class="n">s</span> <span class="n">of</span> <span class="n">length</span> <span class="n">n</span>
     <span class="n">i</span> <span class="o">=</span> <span class="n">X</span><span class="p">.</span><span class="n">length</span>
@@ -4295,8 +4327,22 @@
     <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">s</span><span class="p">.</span><span class="n">length</span>
         <span class="n">print</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> 
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">MEMO</span><span class="o">-</span><span class="n">LCS</span><span class="o">-</span><span class="n">LENGTH</span><span class="o">-</span><span class="n">AUX</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">MEMO</span><span class="o">-</span><span class="n">LCS</span><span class="o">-</span><span class="n">LENGTH</span><span class="o">-</span><span class="n">AUX</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
     <span class="n">m</span> <span class="o">=</span> <span class="o">|</span><span class="n">X</span><span class="o">|</span>
     <span class="n">n</span> <span class="o">=</span> <span class="o">|</span><span class="n">Y</span><span class="o">|</span>
     <span class="k">if</span> <span class="n">c</span><span class="p">[</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="n">or</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">0</span> <span class="n">or</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span>
@@ -4311,13 +4357,19 @@
         <span class="n">b</span><span class="p">[</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="err">←</span>
         <span class="n">c</span><span class="p">[</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">MEMO</span><span class="o">-</span><span class="n">LCS</span><span class="o">-</span><span class="n">LENGTH</span><span class="o">-</span><span class="n">AUX</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">[</span><span class="mf">1.</span><span class="p">.</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">MEMO</span><span class="o">-</span><span class="n">LCS</span><span class="o">-</span><span class="n">LENGTH</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">MEMO</span><span class="o">-</span><span class="n">LCS</span><span class="o">-</span><span class="n">LENGTH</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
     <span class="n">let</span> <span class="n">c</span> <span class="n">be</span> <span class="n">a</span> <span class="o">|</span><span class="n">X</span><span class="o">|</span> <span class="n">by</span> <span class="o">|</span><span class="n">Y</span><span class="o">|</span> <span class="n">array</span> <span class="n">initiallized</span> <span class="n">to</span> <span class="mi">0</span>
     <span class="n">let</span> <span class="n">b</span> <span class="n">be</span> <span class="n">a</span> <span class="o">|</span><span class="n">X</span><span class="o">|</span> <span class="n">by</span> <span class="o">|</span><span class="n">Y</span><span class="o">|</span> <span class="n">array</span>
     <span class="n">MEMO</span><span class="o">-</span><span class="n">LCS</span><span class="o">-</span><span class="n">LENGTH</span><span class="o">-</span><span class="n">AUX</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">c</span> <span class="n">and</span> <span class="n">b</span>
 </pre></div>
+</td></tr></table>
 
 <p>Then, just run the $\text{LCS}$ algorithm on these two lists. The longest common subsequence must be monotone increasing because it is a subsequence of $L'$ which is sorted. It is also the longest monotone increasing subsequence because being a subsequence of $L'$ only adds the restriction that the subsequence must be monotone increasing. Since $|L| = |L'| = n$, and sorting $L$ can be done in $o(n^2)$ time, the final running time will be $O(|L||L'|) = O(n^2)$.</p>
 <h2 id="154-6-star">15.4-6 $\star$<a class="headerlink" href="#154-6-star" title="Permanent link">&para;</a></h2>
@@ -4327,7 +4379,22 @@
 <p>The algorithm $\text{LONG-MONOTONIC}(S)$ returns the longest monotonically increasing subsequence of $S$, where $S$ has length $n$. </p>
 <p>The algorithm works as follows: a new array B will be created such that $B[i]$ contains the last value of a longest monotonically increasing subsequence of length $i$. A new array $C$ will be such that $C[i]$ contains the monotonically increasing subsequence of length $i$ with smallest last element seen so far. </p>
 <p>To analyze the runtime, observe that the entries of $B$ are in sorted order, so we can execute line 9 in $O(\lg n)$ time. Since every other line in the for-loop takes constant time, the total run-time is $O(n\lg n)$.</p>
-<div class="highlight"><pre><span></span><span class="n">LONG</span><span class="o">-</span><span class="n">MONOTONIC</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">LONG</span><span class="o">-</span><span class="n">MONOTONIC</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
     <span class="n">initialize</span> <span class="n">an</span> <span class="n">array</span> <span class="n">B</span> <span class="n">of</span> <span class="n">integers</span> <span class="n">length</span> <span class="n">of</span> <span class="n">n</span><span class="p">,</span> <span class="n">where</span> <span class="n">every</span> <span class="n">value</span> <span class="n">is</span> <span class="n">set</span> <span class="n">equal</span> <span class="n">to</span> <span class="err">∞</span><span class="p">.</span>
     <span class="n">initialize</span> <span class="n">an</span> <span class="n">array</span> <span class="n">C</span> <span class="n">of</span> <span class="n">empty</span> <span class="n">lists</span> <span class="n">length</span> <span class="n">n</span><span class="p">.</span>
     <span class="n">L</span> <span class="o">=</span> <span class="mi">1</span>
@@ -4344,6 +4411,7 @@
                 <span class="n">L</span> <span class="o">=</span> <span class="n">L</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="n">print</span> <span class="n">C</span><span class="p">[</span><span class="n">L</span><span class="p">]</span>
 </pre></div>
+</td></tr></table>
                 
                   
                 

@@ -4318,7 +4318,25 @@
 <blockquote>
 <p>Modify the $\text{FLOYD-WARSHALL}$ procedure to compute the $\prod^{(k)}$ matrices according to equations $\text{(25.6)}$ and $\text{(25.7)}$. Prove rigorously that for all $i \in V$, the predecessor subgraph $G_{\pi, i}$ is a shortest-paths tree with root $i$. ($\textit{Hint:}$ To show that $G_{\pi, i}$ is acyclic, first show that $\pi_{ij}^{(k)} = l$ implies $d_{ij}^{(k)} \ge d_{il}^{(k)} + w_{lj}$, according to the definition of $\pi_{ij}^{(k)}$. Then, adapt the proof of Lemma 23.16.)</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">MOD</span><span class="o">-</span><span class="n">FLOYD</span><span class="o">-</span><span class="n">WARSHALL</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">MOD</span><span class="o">-</span><span class="n">FLOYD</span><span class="o">-</span><span class="n">WARSHALL</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">W</span><span class="p">.</span><span class="n">rows</span>
     <span class="n">D</span><span class="o">^</span><span class="mi">0</span> <span class="o">=</span> <span class="n">W</span>
     <span class="n">PI</span><span class="o">^</span><span class="mi">0</span> <span class="n">is</span> <span class="n">a</span> <span class="n">matrix</span> <span class="n">with</span> <span class="n">NIL</span> <span class="n">in</span> <span class="n">every</span> <span class="n">entry</span>
@@ -4338,13 +4356,21 @@
                     <span class="n">d</span><span class="o">^</span><span class="n">k_</span><span class="p">{</span><span class="n">ij</span><span class="p">}</span> <span class="o">=</span> <span class="n">d</span><span class="o">^</span><span class="p">{</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">}</span><span class="n">_</span><span class="p">{</span><span class="n">ik</span><span class="p">}</span> <span class="o">+</span> <span class="n">d</span><span class="o">^</span><span class="p">{</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">}</span><span class="n">_</span><span class="p">{</span><span class="n">kj</span><span class="p">}</span>
                     <span class="n">PI</span><span class="o">^</span><span class="n">k_</span><span class="p">{</span><span class="n">ij</span><span class="p">}</span> <span class="o">=</span> <span class="n">PI</span><span class="o">^</span><span class="p">{</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">}</span><span class="n">_</span><span class="p">{</span><span class="n">kj</span><span class="p">}</span>
 </pre></div>
+</td></tr></table>
 
 <p>In order to have that $\pi^{(k)}_{ij} = l$, we need that $d^{(k)}_{ij} \ge d^{(k)}_{il} + w_{lj}$. To see this fact, we will note that having $\pi^{(k)}_{ij} = l$ means that a shortest path from $i$ to $j$ last goes through $l$. A path that last goes through $l$ corresponds to taking a chepest path from $i$ to $l$ and then following the single edge from $l$ to $j$. However, This means that $d_{il} \le d_{ij} - w_{ij}$, which we can rearrange to get the desired inequality. We can just continue following this inequality
 around, and if we ever get some cycle, $i_1, i_2, \ldots, i_c$, then we would have that $d_{ii_1} \le d_{ii_1} + w_{i_1i_2} + w_{i_2i_3} + \cdots + w_{i_ci_1}$. So, if we subtract the common term sfrom both sides, we get that $0 \le w_{i_ci_1} + \sum_{q = 1}^{c - 1} w_{i_qi_{q + 1}}$. So, we have that we would only have a cycle in the precedessor graph if we ahvt that there is a zero weight cycle in the original graph. However, we would never have to go around the weight zero cycle since the constructed path of shortest weight favors ones with a fewer number of edges because of the way that we handle the equality case in equation $\text{(25.7)}$.</p>
 <h2 id="252-4">25.2-4<a class="headerlink" href="#252-4" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>As it appears above, the Floyd-Warshall algorithm requires $\Theta(n^3)$ space, since we compute $d_{ij}^{(k)}$ for $i, j, k = 1, 2, \ldots, n$. Show that the following procedure, which simply drops all the superscripts, is correct, and thus only $\Theta(n^2)$ space is required.</p>
-<div class="highlight"><pre><span></span><span class="n">FLOYD</span><span class="o">-</span><span class="n">WARSHALL</span><span class="err">&#39;</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">FLOYD</span><span class="o">-</span><span class="n">WARSHALL</span><span class="err">&#39;</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">W</span><span class="p">.</span><span class="n">rows</span>
     <span class="n">D</span> <span class="o">=</span> <span class="n">W</span>
     <span class="k">for</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">n</span>
@@ -4353,6 +4379,7 @@ around, and if we ever get some cycle, $i_1, i_2, \ldots, i_c$, then we would ha
                 <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">d</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">D</span>
 </pre></div>
+</td></tr></table>
 
 </blockquote>
 <p>With the superscripts, the computation is $d_{ij}^{(k)} = \min(d_{ij}^{(k - 1)}, d_{ik}^{(k - 1)} + d_{kj}^{(k - 1)})$. If, having dropped the superscripts, we were to compute and store $d_{ik}$ or $d_{kj}$ before using these values to compute $d_{ij}$, we might be computing one of the following:</p>

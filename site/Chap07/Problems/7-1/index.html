@@ -4083,7 +4083,20 @@
                 
                 <blockquote>
 <p>The version of $\text{PARTITION}$ given in this chapter is not the original partitioning algorithm. Here is the original partition algorithm, which is due to C.A.R. Hoare:</p>
-<div class="highlight"><pre><span></span><span class="n">HOARE</span><span class="o">-</span><span class="n">PARTITION</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">HOARE</span><span class="o">-</span><span class="n">PARTITION</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">p</span><span class="p">]</span>
     <span class="n">i</span> <span class="o">=</span> <span class="n">p</span> <span class="o">-</span> <span class="mi">1</span>
     <span class="n">j</span> <span class="o">=</span> <span class="n">r</span> <span class="o">+</span> <span class="mi">1</span>
@@ -4098,6 +4111,7 @@
             <span class="n">exchange</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="n">with</span> <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
         <span class="k">else</span> <span class="k">return</span> <span class="n">j</span>
 </pre></div>
+</td></tr></table>
 
 <p><strong>a.</strong> Demonstrate the operation of $\text{HOARE-PARTITION}$ on the array $A = \langle 13, 19, 9, 5, 12, 8, 7, 4, 11, 2, 6, 21 \rangle$, showing the values of the array and auxiliary values after each iteration of the <strong>while</strong> loop in lines 4-13.</p>
 <p>The next three questions ask you to give a careful argument that the procedure $\text{HOARE-PARTITION}$ is correct. Assuming that the subarray $A[p..r]$ contains at least two elements, prove the following:</p>
@@ -4112,12 +4126,17 @@
 <p><strong>c.</strong> When $i \ge j$, $\text{HOARE-PARTITION}$ terminates, so $p \le j &lt; r$.</p>
 <p><strong>d.</strong> When $\text{HOARE-PARTITION}$ terminates, $A[p..j] \le x \le A[j + 1..r]$.</p>
 <p><strong>e.</strong></p>
-<div class="highlight"><pre><span></span><span class="n">QUICKSORT</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">QUICKSORT</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="n">r</span>
         <span class="n">q</span> <span class="o">=</span> <span class="n">HOARE</span><span class="o">-</span><span class="n">PARTITION</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
         <span class="n">QUICKSORT</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
         <span class="n">QUICKSORT</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">q</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
                 
                   
                 

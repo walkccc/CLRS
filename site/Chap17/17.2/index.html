@@ -4213,7 +4213,17 @@ i &amp; \text{if $i$ is an exact power of $2$}, \\
 <p>Suppose we wish not only to increment a counter but also to reset it to zero (i.e., make all bits in it $0$). Counting the time to examine or modify a bit as $\Theta(1)$, show how to implement a counter as an array of bits so that any sequence of $n$ $\text{INCREMENT}$ and $\text{RESET}$ operations takes time $O(n)$ on an initially zero counter. ($\textit{Hint:}$ Keep a pointer to the high-order $1$.)</p>
 </blockquote>
 <p>We introduce a new field $A.max$ to hold the index of the high-order $1$ in $A$. Initially, $A.max$ is set to $-1$, since the low-order bit of $A$ is at index $0$, and there are initially no $1$'s in $A$. The value of $A.max$ is updated as appropriate when the counter is incremented or reset, and we use this value to limit how much of $A$ must be looked at to reset it. By controlling the cost of $\text{RESET}$ in this way, we can limit it to an amount that can be covered by credit from earlier $\text{INCREMENT}$s.</p>
-<div class="highlight"><pre><span></span><span class="n">INCREMENT</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">INCREMENT</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
     <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">A</span><span class="p">.</span><span class="n">length</span> <span class="n">and</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span>
         <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
@@ -4225,12 +4235,17 @@ i &amp; \text{if $i$ is an exact power of $2$}, \\
             <span class="n">A</span><span class="p">.</span><span class="n">max</span> <span class="o">=</span> <span class="n">i</span>
     <span class="k">else</span> <span class="n">A</span><span class="p">.</span><span class="n">max</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">RESET</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">RESET</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">to</span> <span class="n">A</span><span class="p">.</span><span class="n">max</span>
         <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">A</span><span class="p">.</span><span class="n">max</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
 </pre></div>
+</td></tr></table>
 
 <p>As for the counter in the book, we assume that it costs $\$1$ to flip a bit. In addition, we assume it costs $\$1$ to update $A.max$.</p>
 <p>Setting and resetting of bits by $\text{INCREMENT}$ will work exactly as for the original counter in the book: $\$1$ will pay to set one bit to $1$; $\$1$ will be placed on the bit that is set to $1$ as credit; the credit on each $1$ bit will pay to reset the bit during incrementing.</p>

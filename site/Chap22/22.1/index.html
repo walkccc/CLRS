@@ -4297,11 +4297,15 @@ $$</p>
 <ul>
 <li><strong>Adjacency-list representation:</strong> To compute $G^2$ from the adjacency-list representation $Adj$ of $G$, we perform the following for each $Adj[u]$:</li>
 </ul>
-<div class="highlight"><pre><span></span>    <span class="k">for</span> <span class="n">each</span> <span class="n">vertex</span> <span class="n">v</span> <span class="n">in</span> <span class="n">Adj</span><span class="p">[</span><span class="n">u</span><span class="p">]</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="k">for</span> <span class="n">each</span> <span class="n">vertex</span> <span class="n">v</span> <span class="n">in</span> <span class="n">Adj</span><span class="p">[</span><span class="n">u</span><span class="p">]</span>
         <span class="k">for</span> <span class="n">each</span> <span class="n">vertex</span> <span class="n">w</span> <span class="n">in</span> <span class="n">Adj</span><span class="p">[</span><span class="n">v</span><span class="p">]</span>
             <span class="n">edge</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span> <span class="err">∈</span> <span class="n">E</span><span class="o">^</span><span class="mi">2</span>
             <span class="n">insert</span> <span class="n">w</span> <span class="n">in</span> <span class="n">Adj2</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p>where $Adj2$ is the adjacency-list representation of $G^2$. After we have computed $Adj2$, we have to remove any duplicate edges from the lists (there may be more than one two-edge path in $G$ between any two vertices). For every edge in $Adj$ we scan at most $|V|$ vertices, we compute $Adj2$ in time $O(VE)$. Removing duplicate edges is done in $O(V + E)$ as shown in exercise 22.1-4. Thus the total running time is</p>
 <p>$$O(VE) + O(V + E) = O(VE).$$</p>
@@ -4314,7 +4318,15 @@ $$</p>
 </blockquote>
 <p>We start by observing that if $a_{ij} = 1$, so that $(i, j) \in E$, then vertex $i$ cannot be a universal sink, for it has an outgoing edge. Thus, if row $i$ contains a $1$, then vertex $i$ cannot be a universal sink. This observation also means that if there is a $\text{self-loop}(i, i)$, then vertex $i$ is not a universal sink. Now suppose that $a_{ij} = 0$, so that $(i, j) \notin E$, and also that $i \ne j$. Then vertex $j$ cannot be a universal sink, for either its $in\text-degree$ must be strictly less than $|V| - 1$ or it has a self-loop. Thus if column $j$ contains a $0$ in any position other than the diagonal entry $(j, j)$, then vertex $j$ cannot be a universal sink.</p>
 <p>Using the above observations, the following procedure returns $\text{TRUE}$ if vertex $k$ is a universal sink, and $\text{FALSE}$ otherwise. It takes as input a $|V| \times |V|$ adjacency matrix $A = (a_{ij})$.</p>
-<div class="highlight"><pre><span></span><span class="n">IS</span><span class="o">-</span><span class="n">SINK</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">IS</span><span class="o">-</span><span class="n">SINK</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
     <span class="n">let</span> <span class="n">A</span> <span class="n">be</span> <span class="o">|</span><span class="n">V</span><span class="o">|</span> <span class="err">×</span> <span class="o">|</span><span class="n">V</span><span class="o">|</span>
     <span class="k">for</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="o">|</span><span class="n">V</span><span class="o">|</span>      <span class="c1">// Check for a 1 in row k</span>
         <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span>
@@ -4324,11 +4336,24 @@ $$</p>
             <span class="k">return</span> <span class="n">FALSE</span>
     <span class="k">return</span> <span class="n">TRUE</span>
 </pre></div>
+</td></tr></table>
 
 <p>Because this procedure runs in $O(V)$ time, we may call it only $O(1)$ times in order to achieve our $O(V)$-time bound for determining whether directed graph $G$ contains a universal sink.</p>
 <p>Observe also that a directed graph can have at most one universal sink. This property holds because if vertex $j$ is a universal sink, then we would have $(i, j) \in E$ for all $i \ne j$ and so no other vertex $i$ could be a universal sink.</p>
 <p>The following procedure takes an adjacency matrix $A$ as input and returns either a message that there is no universal sink or a message containing the identity of the universal sink. It works by eliminating all but one vertex as a potential universal sink and then checking the remaining candidate vertex by a single call to $\text{IS-SINK}$.</p>
-<div class="highlight"><pre><span></span><span class="n">UNIVERSAL</span><span class="o">-</span><span class="n">SINK</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">UNIVERSAL</span><span class="o">-</span><span class="n">SINK</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
     <span class="n">let</span> <span class="n">A</span> <span class="n">be</span> <span class="o">|</span><span class="n">V</span><span class="o">|</span> <span class="err">×</span> <span class="o">|</span><span class="n">V</span><span class="o">|</span>
     <span class="n">i</span> <span class="o">=</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">while</span> <span class="n">i</span> <span class="err">≤</span> <span class="o">|</span><span class="n">V</span><span class="o">|</span> <span class="n">and</span> <span class="n">j</span> <span class="err">≤</span> <span class="o">|</span><span class="n">V</span><span class="o">|</span>
@@ -4342,6 +4367,7 @@ $$</p>
         <span class="k">return</span> <span class="s">&quot;there is no universal sink&quot;</span>
     <span class="k">else</span> <span class="k">return</span> <span class="n">i</span> <span class="s">&quot;is a universal sink&quot;</span>
 </pre></div>
+</td></tr></table>
 
 <p>$\text{UNIVERSAL-SINK}$ walks through the adjacency matrix, starting at the upper left corner and always moving either right or down by one position, depending on whether the current entry $a_{ij}$ it is examining is $0$ or $1$. It stops once either $i$ or $j$ exceeds $|V|$.</p>
 <p>To understand why $\text{UNIVERSAL-SINK}$ works, we need to show that after the <strong>while</strong> loop terminates, the only vertex that might be a universal sink is vertex $i$. The call to $\text{IS-SINK}$ then determines whether vertex $i$ is indeed a universal sink.</p>

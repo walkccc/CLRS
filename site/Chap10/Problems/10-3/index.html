@@ -4083,7 +4083,18 @@
                 
                 <blockquote>
 <p>Exercise 10.3-4 asked how we might maintain an n-element list compactly in the first n positions of an array. We shall assume that all keys are distinct and that the compact list is also sorted, that is, $key[i] &lt; key[next[i]]$ for all $i = 1, 2, \ldots, n$ such that $next[i] \ne \text{NIL}$. We will also assume that we have a variable $L$ that contains the index of the first element on the list. Under these assumptions, you will show that we can use the following randomized algorithm to search the list in $O(\sqrt n)$ expected time.</p>
-<div class="highlight"><pre><span></span><span class="n">COMPACT</span><span class="o">-</span><span class="n">LIST</span><span class="o">-</span><span class="n">SEARCH</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">COMPACT</span><span class="o">-</span><span class="n">LIST</span><span class="o">-</span><span class="n">SEARCH</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
     <span class="n">i</span> <span class="o">=</span> <span class="n">L</span>
     <span class="k">while</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">NIL</span> <span class="n">and</span> <span class="n">key</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">k</span>
         <span class="n">j</span> <span class="o">=</span> <span class="n">RANDOM</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
@@ -4096,11 +4107,24 @@
         <span class="k">return</span> <span class="n">NIL</span>
     <span class="k">else</span> <span class="k">return</span> <span class="n">i</span>
 </pre></div>
+</td></tr></table>
 
 <p>If we ignore lines 3–7 of the procedure, we have an ordinary algorithm for searching a sorted linked list, in which index $i$ points to each position of the list in turn. The search terminates once the index $i$ ''falls off'' the end of the list or once $key[i] = k$. In the latter case, if $key[i] = k$, clearly we have found a key with the value $k$. If, however, $key[i] &gt; k$, then we will never find a key with the value $k$, and so terminating the search was the right thing to do.</p>
 <p>Lines 3–7 attempt to skip ahead to a randomly chosen position $j$. Such a skip benefits us if $key[j]$  is larger than $key[i]$ and no larger than $k$; in such a case, $j$ marks a position in the list that $i$ would have to reach during an ordinary list search. Because the list is compact, we know that any choice of $j$ between $1$ and $n$ indexes some object in the list rather than a slot on the free list.</p>
 <p>Instead of analyzing the performance of $\text{COMPACT-LIST-SEARCH}$ directly, we shall analyze a related algorithm, $\text{COMPACT-LIST-SEARCH}'$, which executes two separate loops. This algorithm takes an additional parameter $t$ which determines an upper bound on the number of iterations of the first loop.</p>
-<div class="highlight"><pre><span></span><span class="n">COMPACT</span><span class="o">-</span><span class="n">LIST</span><span class="o">-</span><span class="n">SEARCH</span><span class="err">&#39;</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">COMPACT</span><span class="o">-</span><span class="n">LIST</span><span class="o">-</span><span class="n">SEARCH</span><span class="err">&#39;</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
     <span class="n">i</span> <span class="o">=</span> <span class="n">L</span>
     <span class="k">for</span> <span class="n">q</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">t</span>
         <span class="n">j</span> <span class="o">=</span> <span class="n">RANDOM</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
@@ -4114,6 +4138,7 @@
         <span class="k">return</span> <span class="n">NIL</span>
     <span class="k">else</span> <span class="k">return</span> <span class="n">i</span>
 </pre></div>
+</td></tr></table>
 
 <p>To compare the execution of the algorithms $\text{COMPACT-LIST-SEARCH}(L, n, k)$ and $\text{COMPACT-LIST-SEARCH}'(L, n, k, t)$, assume that the sequence of integers returned by the calls of $\text{RANDOM}(1, n)$ is the same for both algorithms.</p>
 <p><strong>a.</strong> Suppose that $\text{COMPACT-LIST-SEARCH}(L, n, k)$ takes $t$ iterations of the while loop of lines 2–8. Argue that $\text{COMPACT-LIST-SEARCH}'(L, n, k, t)$ returns the same answer and that the total number of iterations of both the for and while loops within $\text{COMPACT-LIST-SEARCH}'$ is at least $t$.</p>
@@ -4128,7 +4153,18 @@
 </blockquote>
 <p><strong>a.</strong> If the original version of the algorithm takes only $t$ iterations, then, we have that it was only at most t random skips though the list to get to the desired value, since each iteration of the original while loop is a possible random jump followed by a normal step through the linked list.</p>
 <p><strong>b.</strong> The for loop on lines 2–7 will get run exactly $t$ times, each of which is constant runtime. After that, the while loop on lines 8–9 will be run exactly $X_t$ times. So, the total runtime is $O(t + \text E[X_t])$.</p>
-<div class="highlight"><pre><span></span><span class="n">UNION</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">UNION</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">A</span><span class="p">.</span><span class="n">head</span> <span class="o">==</span> <span class="n">NIL</span>
         <span class="k">return</span> <span class="n">B</span>
     <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
@@ -4141,6 +4177,7 @@
         <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">next</span>
     <span class="k">return</span> <span class="n">A</span>
 </pre></div>
+</td></tr></table>
 
 <p><strong>c.</strong> Using equation $\text{C.25}$, we have that $\text E[X_t] = \sum_{i = 1}^\infty \Pr\{X_t \ge i\}$. So, we need to show that $\Pr\{X_t \ge i\} \le (1 - i / n)^t$. This can be seen because having $X_t$ being greater than $i$ means that each random choice will result in an element that is either at least $i$ steps before the desired element, or is after the desired element. There are $n - i$ such elements, out of the total $n$ elements that we were pricking from. So, for a single one of the choices to be from such a range, we have a probability of $(n - i) / n = (1 - i / n)$. Since each of the selections was independent, the total probability that all of them were is $(1 - i / n)^t$, as desired. Lastly, we can note that since the linked list has length $n$, the probability that $X_t$ is greater than $n$ is equal to zero.</p>
 <p><strong>d.</strong> Since we have that $t &gt; 0$, we know that the function $f(x) = x^t$ is increasing, so, that means that $\lfloor x \rfloor^t \le f(x)$. So,</p>

@@ -4246,7 +4246,18 @@
 <blockquote>
 <p>Write pseudocode for $\text{PROTO-vEB-DELETE}$. It should update the appropriate summary bit by scanning the related bits within the cluster. What is the worst-case running time of your procedure?</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">PROTO</span><span class="o">-</span><span class="n">vEB</span><span class="o">-</span><span class="n">DELETE</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">PROTO</span><span class="o">-</span><span class="n">vEB</span><span class="o">-</span><span class="n">DELETE</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">V</span><span class="p">.</span><span class="n">u</span> <span class="o">==</span> <span class="mi">2</span>
         <span class="n">V</span><span class="p">.</span><span class="n">A</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">else</span>
@@ -4259,6 +4270,7 @@
         <span class="k">if</span> <span class="n">inCluster</span> <span class="o">==</span> <span class="n">FALSE</span>
             <span class="n">PROTO</span><span class="o">-</span><span class="n">vEB</span><span class="o">-</span><span class="n">DELETE</span><span class="p">(</span><span class="n">V</span><span class="p">.</span><span class="n">summary</span><span class="p">,</span> <span class="n">high</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 </pre></div>
+</td></tr></table>
 
 <p>When we delete a key, we need to check membership of all keys of that cluster to know how to update the summary structure. There are $\sqrt u$ of these, and each membership takes $O(\lg\lg u)$ time to check. With the recursive calls, recurrence for running time is</p>
 <p>$$T(u) = T(\sqrt u) + O(\sqrt u\lg\lg u).$$</p>
@@ -4273,7 +4285,18 @@
 <p>Modify the $\text{proto-vEB}$ structure to support duplicate keys.</p>
 </blockquote>
 <p>The array $A$ found in a proto van Emde Boas structure of size $2$ should now support integers, instead of just bits. All other pats of the structure will remain the same. The integer will store the number of duplicates at that position. The modifications to insert, delete, minimum, successor, etc will be minor. Only the base cases will need to be updated.</p>
-<div class="highlight"><pre><span></span><span class="n">PROTO</span><span class="o">-</span><span class="n">vEB</span><span class="o">-</span><span class="n">DELETE</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">PROTO</span><span class="o">-</span><span class="n">vEB</span><span class="o">-</span><span class="n">DELETE</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">V</span><span class="p">.</span><span class="n">u</span> <span class="o">==</span> <span class="mi">2</span>
         <span class="n">V</span><span class="p">.</span><span class="n">A</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">else</span>
@@ -4286,6 +4309,7 @@
         <span class="k">if</span> <span class="n">inCluster</span> <span class="o">=</span> <span class="n">FALSE</span>
             <span class="n">PROTO</span><span class="o">-</span><span class="n">vEB</span><span class="o">-</span><span class="n">DELETE</span><span class="p">(</span><span class="n">V</span><span class="p">.</span><span class="n">summary</span><span class="p">,</span><span class="n">high</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="202-5">20.2-5<a class="headerlink" href="#202-5" title="Permanent link">&para;</a></h2>
 <blockquote>
@@ -4297,7 +4321,16 @@
 <p>Write pseudocode for a procedure that creates a $\text{proto-vEB}(u)$ structure.</p>
 </blockquote>
 <p>This algorithm recursively allocates proper space and appropriately initializes attributes for a proto van Emde Boas structure of size $u$.</p>
-<div class="highlight"><pre><span></span><span class="n">MAKE</span><span class="o">-</span><span class="n">PROTO</span><span class="o">-</span><span class="n">vEB</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">MAKE</span><span class="o">-</span><span class="n">PROTO</span><span class="o">-</span><span class="n">vEB</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
     <span class="n">V</span> <span class="o">=</span> <span class="n">allocate</span><span class="o">-</span><span class="n">node</span><span class="p">()</span>
     <span class="n">V</span><span class="p">.</span><span class="n">u</span> <span class="o">=</span> <span class="n">u</span>
     <span class="k">if</span> <span class="n">u</span> <span class="o">==</span> <span class="mi">2</span>
@@ -4308,6 +4341,7 @@
         <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">to</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
             <span class="n">V</span><span class="p">.</span><span class="n">cluster</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">MAKE</span><span class="o">-</span><span class="n">PROTO</span><span class="o">-</span><span class="n">vEB</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">u</span><span class="p">))</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="202-7">20.2-7<a class="headerlink" href="#202-7" title="Permanent link">&para;</a></h2>
 <blockquote>

@@ -4096,13 +4096,19 @@
 </blockquote>
 <p><strong>a.</strong> Initialize a second array of length $n$ to all trues, then, going through the indices of the original array in any order, if the corresponding entry in the second array is true, then swap the element at the current index with the element at the bit-reversed position, and set the entry in the second array corresponding to the bit-reversed index equal to false. Since we are running $rev_k &lt; n$ times, the total runtime is $O(nk)$.</p>
 <p><strong>b.</strong> Doing a bit reversed increment is the same thing as adding a one to the leftmost position where all carries are going to the left instead of the right. </p>
-<div class="highlight"><pre><span></span><span class="n">BIT</span><span class="o">-</span><span class="n">REVERSED</span><span class="o">-</span><span class="n">INCREMENT</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">BIT</span><span class="o">-</span><span class="n">REVERSED</span><span class="o">-</span><span class="n">INCREMENT</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
     <span class="n">let</span> <span class="n">m</span> <span class="n">be</span> <span class="n">a</span> <span class="mi">1</span> <span class="n">followed</span> <span class="n">by</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span> <span class="mi">0</span><span class="n">s</span>
     <span class="k">while</span> <span class="n">m</span> <span class="n">bitwise</span><span class="o">-</span><span class="n">AND</span> <span class="n">is</span> <span class="n">not</span> <span class="n">zero</span>
         <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="n">bitwise</span><span class="o">-</span><span class="n">XOR</span> <span class="n">m</span>
         <span class="n">shift</span> <span class="n">m</span> <span class="n">right</span> <span class="n">by</span> <span class="mi">1</span>
     <span class="n">m</span> <span class="n">bitwise</span><span class="o">-</span><span class="n">OR</span> <span class="n">a</span>
 </pre></div>
+</td></tr></table>
 
 <p>By a similar analysis to the binary counter (just look at the problem in a mirror), this $\text{BIT-REVERSED-INCREMENT}$ will take constant ammortized time. So, to perform the bit-reversed permutation, have a normal binary counter and a bit reversed counter, then, swap the values of the two counters and increment. Do not swap however if those pairs of elements have already been swapped, which can be kept track of in a auxiliary array.</p>
 <p><strong>c.</strong> The $\text{BIT-REVERSED-INCREMENT}$ procedure given in the previous part only uses single shifts to the right, not arbitrary shifts.</p>

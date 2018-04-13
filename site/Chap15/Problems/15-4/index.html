@@ -4121,7 +4121,30 @@ $$</p>
 <p>We can compute a table of $c$ values from left to right, since each value depends only on earlier values.</p>
 <p>To keep track of what words go on what lines, we can keep a parallel $p$ table that points to where each $c$ value came from. When $c[j]$ is computed, if $c[j]$ is based on the value of $c[k - 1]$, set $p[j] = k$. Then after $c[n]$ is computed, we can trace the pointers to see where to break the lines. The last line starts at word $p[n]$ and goes through word $n$. The previous line starts at word $p[p[n]]$ and goes through word $p[n] - 1$, et.</p>
 <p>In pseudocode, here's how we construct the tables:</p>
-<div class="highlight"><pre><span></span><span class="n">PRINT</span><span class="o">-</span><span class="n">NEATLY</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">M</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">PRINT</span><span class="o">-</span><span class="n">NEATLY</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">M</span><span class="p">)</span>
     <span class="n">let</span> <span class="n">extras</span><span class="p">[</span><span class="mf">1.</span><span class="p">.</span><span class="n">n</span><span class="p">,</span> <span class="mf">1.</span><span class="p">.</span><span class="n">n</span><span class="p">],</span> <span class="n">lc</span><span class="p">[</span><span class="mf">1.</span><span class="p">.</span><span class="n">n</span><span class="p">,</span> <span class="mf">1.</span><span class="p">.</span><span class="n">n</span><span class="p">],</span> <span class="n">and</span> <span class="n">c</span><span class="p">[</span><span class="mf">0.</span><span class="p">.</span><span class="n">n</span><span class="p">]</span> <span class="n">be</span> <span class="k">new</span> <span class="n">arrays</span>   
     <span class="c1">// Compute extras[i, j] for 1 ≤ i ≤ j ≤ n.</span>
     <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">n</span>
@@ -4146,12 +4169,19 @@ $$</p>
                 <span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
     <span class="k">return</span> <span class="n">c</span> <span class="n">and</span> <span class="n">p</span>
 </pre></div>
+</td></tr></table>
 
 <p>Quite clearly, both the time and space are $\Theta(n^2)$.</p>
 <p>In fact, we can do a bit better: we can get both the time and space down to $\Theta(nM)$. The key observation is that at most $\lceil M / 2 \rceil$ words can fit on a line. (Each word is at least one character long, and there's a space between words.) Since a line with words $i, \ldots, j$ contains $j - i + 1$ words, if $j - i + 1 &gt; \lceil M / 2 \rceil$ then we know that $lc[i, j] = \infty$. We need only compute and store $extras[i, j]$ and $lc[i, j]$ for $j - i + 1 \le \lceil M / 2 \rceil$. And the inner <strong>for</strong> loop header in the computation of $c[j]$ and $p[j]$ can run from $\max(1, j - \lceil M / 2 \rceil + 1)$ to $j$.</p>
 <p>We can reduce the space even further to $\Theta(n)$. We do so by not storing the $lc$ and $extras$ tables, and instead computing the value of $lc[i, j]$ as needed in the last loop. The idea is that we could compute $lc[i, j]$ in $O(1)$ time if we knew the value of $extras[i, j]$. And if we scan for the minimum value in <em>descending</em> order of $i$, we can compute that as $extras[i, j] = extras[i + 1, j] - l_i - 1$. (Initially, $extras[j, j] = M - l_j$.) This improvement reduces the space to $\Theta(n)$, since now the only tables we store are $c$ and $p$.</p>
 <p>Here's how we print which words are on which line. The printed output of $\text{GIVE-LINES}(p, j)$ is a sequence of triples $(k, i, j)$, indicating that words $i, \ldots, j$ are printed on line $k$. The return value is the line number $k$.</p>
-<div class="highlight"><pre><span></span><span class="n">GIVE</span><span class="o">-</span><span class="n">LINES</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">GIVE</span><span class="o">-</span><span class="n">LINES</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
     <span class="n">i</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span>
         <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span>
@@ -4159,6 +4189,7 @@ $$</p>
     <span class="n">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">k</span>
 </pre></div>
+</td></tr></table>
 
 <p>The initial call is $\text{GIVE-LINES}(p, n)$. Since the value of $j$ decreases in each recursive call, $\text{GIVE-LINES}$ takes a total of $O(n)$ time.</p>
                 

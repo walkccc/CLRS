@@ -4122,7 +4122,29 @@ p[i + 1, j - 1] + 2 &amp; \text{if $j &gt; i + 1$ and $x_i = x_j$}, \\
 $$</p>
 <p><strong>Step 3: Computing the length of an LPS</strong></p>
 <p>Procedure $\text{LONGEST-PALINDROME}$ takes a sequence $X = \langle x_1, x_2, \ldots, x_n \rangle$ as input. The procedure fills cells $p[i, i]$, where $1 \le i \le n$, and $p[i, i + 1]$, where $1 \le i \le n - 1$, as the base cases. It then starts filling cells $p[i, j]$, where $j &gt; i + 1$. The procedure fills the $p$ table row by row, starting with row $n - 2$ and moving toward row $1$. (Rows $n - 1$ and $n$ are already filled as part of the base cases.) Within each row, the procedure fills the entries from left to right. The procedure also maintains the table $b[1..n, 1..n]$ to help us construct an optimal solution. Intuitively, $b[i, j]$ points to the table entry corresponding to the optimal subproblem solution chosen when computing $p[i, j]$. The procedure returns the $b$ and $p$ tables, $p[1, n]$ contains the length of an $\text{LPS}$ of $X$. The running time of $\text{LONGEST-PALINDROME}$ is clearly $\Theta(n^2)$.</p>
-<div class="highlight"><pre><span></span><span class="n">LONGEST</span><span class="o">-</span><span class="n">PALINDROME</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">LONGEST</span><span class="o">-</span><span class="n">PALINDROME</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">X</span><span class="p">.</span><span class="n">length</span>
     <span class="n">let</span> <span class="n">b</span><span class="p">[</span><span class="mf">1.</span><span class="p">.</span><span class="n">n</span><span class="p">,</span> <span class="mf">1.</span><span class="p">.</span><span class="n">n</span><span class="p">]</span> <span class="n">and</span> <span class="n">p</span><span class="p">[</span><span class="mf">0.</span><span class="p">.</span><span class="n">n</span><span class="p">,</span> <span class="mf">0.</span><span class="p">.</span><span class="n">n</span><span class="p">]</span> <span class="n">be</span> <span class="k">new</span> <span class="n">tables</span>
     <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>
@@ -4146,10 +4168,20 @@ $$</p>
                 <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;←&quot;</span>
     <span class="k">return</span> <span class="n">p</span> <span class="n">and</span> <span class="n">b</span>
 </pre></div>
+</td></tr></table>
 
 <p><strong>Step 4: Constructing an LPS</strong></p>
 <p>The $b$ table returned by $\text{LONGEST-PALINDROME}$ enables us to quickly construct an $\text{LPS}$ of $X = \langle x_1, x_2, \ldots, x_m\rangle$. We simply begin at $b[1, n]$ and trace through the table by following the arrows. Whenever we encounter a "$\swarrow$" in entry $b[i, j]$, it implies that $x_i = y_j$ are the first and last elements of the $\text{LPS}$ that $\text{LONGEST-PALINDROME}$ found. The following recursive procedure returns a sequence $S$ that contains an $\text{LPS}$ of $X$. The initial call is $\text{GENERATE-LPS}(b, X, 1, X.length, \langle \rangle)$, where $\langle\rangle$ denotes an empty sequence. Within the procedure, the symbol $||$ denotes concatenation of a symbol and a sequence.</p>
-<div class="highlight"><pre><span></span><span class="n">GENERATE</span><span class="o">-</span><span class="n">LPS</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">GENERATE</span><span class="o">-</span><span class="n">LPS</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">j</span>
         <span class="k">return</span> <span class="n">S</span>
     <span class="k">else</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span>
@@ -4160,6 +4192,7 @@ $$</p>
         <span class="k">return</span> <span class="n">GENERATE</span><span class="o">-</span><span class="n">LPS</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span>
     <span class="k">else</span> <span class="k">return</span> <span class="n">GENERATE</span><span class="o">-</span><span class="n">LPS</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
                 
                   
                 

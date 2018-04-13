@@ -4218,10 +4218,13 @@
 <blockquote>
 <p>Suppose that we hash a string of $r$ characters into $m$ slots by treating it as a radix-128 number and then using the division method. We can easily represent the number $m$ as a 32-bit computer word, but the string of $r$ characters, treated as a radix-128 number, takes many words. How can we apply the division method to compute the hash value of the character string without using more than a constant number of words of storage outside the string itself?</p>
 </blockquote>
-<div class="highlight"><pre><span></span>    <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">r</span>
         <span class="n">sum</span> <span class="o">=</span> <span class="p">(</span><span class="n">sum</span> <span class="o">*</span> <span class="mi">128</span> <span class="o">+</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">%</span> <span class="n">m</span>
 </pre></div>
+</td></tr></table>
 
 <p>Use <code>sum</code> as the key.</p>
 <h2 id="113-3">11.3-3<a class="headerlink" href="#113-3" title="Permanent link">&para;</a></h2>

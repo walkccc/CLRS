@@ -4117,7 +4117,25 @@
 <p>The sorting phase can be done in $O(n\lg n)$ worst-case time (using merge sort or heapsort), and the scanning phase takes $O(n)$ time. The total running time in the worst case, therefore, is $O(n\lg n)$.</p>
 <p><strong>c.</strong> We find the weighted median in $\Theta(n)$ worst-case time using the $\Theta(n)$ worst-case median algorithm in Section 9.3. (Although the first paragraph of the section only claims an $O(n)$ upper bound, it is easy to see that the more precise running time of $\Theta(n)$ applies as well, since steps 1, 2, and 4 of $\text{SELECT}$ actually take $\Theta(n)$ time.)</p>
 <p>The weighted-median algorithm works as follows. If $n \le 2$, we just return the brute-force solution. Otherwise, we proceed as follows. We find the actual median $x_k$ of the $n$ elements and then partition around it. We then compute the total weights of the two halves. If the weights of the two halves are each strictly less than $1 / 2$, then the weighted median is $x_k$ . Otherwise, the weighted median should be in the half with total weight exceeding $1 / 2$. The total weight of the "light" half is lumped into the weight of $x_k$ , and the search continues within the half that weighs more than $1 / 2$. Here's pseudocode, which takes as input a set $X = {x_1, x_2, \ldots, x_n}$:</p>
-<div class="highlight"><pre><span></span><span class="n">WEIGHTED</span><span class="o">-</span><span class="n">MEDIAN</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">WEIGHTED</span><span class="o">-</span><span class="n">MEDIAN</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span>
         <span class="k">return</span> <span class="n">x1</span>
     <span class="k">else</span> <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span>
@@ -4137,6 +4155,7 @@
             <span class="n">X</span><span class="err">&#39;</span> <span class="o">=</span> <span class="p">{</span><span class="n">xi</span> <span class="err">∈</span> <span class="nl">X</span><span class="p">:</span> <span class="n">xi</span> <span class="err">≥</span> <span class="n">xk</span><span class="p">}</span>
             <span class="k">return</span> <span class="n">WEIGHTED</span><span class="o">-</span><span class="n">MEDIAN</span><span class="p">(</span><span class="n">X</span><span class="err">&#39;</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p>The recurrence for the worst-case running time of $\text{WEIGHTED-MEDIAN}$ is $T(n) = T(n / 2 + 1) + \Theta(n)$, since there is at most one recursive call on half the number of elements, plus the median element $x_k$, and all the work preceding the recursive call takes $\Theta(n)$ time. The solution of the recurrence is $T (n) = \Theta(n)$.</p>
 <p><strong>d.</strong> Let the $n$ points be denoted by their coordinates $x_1, x_2, \ldots, x_n$, let the corresponding weights be $w_1, w_2, \ldots, w_n$, and let $x = x_k$ be the weighted median. For any point $p$, let $f(p) = \sum_{i = 1}^n w_i |p - x_i|$; we want to find a point $p$ such that $f(p)$ is minimum. Let $y$ be any point (real number) other than $x$. We show the optimality of the weighted median $x$ by showing that $f(y) - f(x) \ge 0$. We examine separately the cases in which $y &gt; x$ and $x &gt; y$. For any $x$ and $y$, we have</p>

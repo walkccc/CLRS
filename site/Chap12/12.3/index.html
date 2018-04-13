@@ -4213,11 +4213,20 @@
 <blockquote>
 <p>Give a recursive version of the $\text{TREE-INSERT}$ procedure.</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">INSERT</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">INSERT</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
     <span class="n">root</span> <span class="o">=</span> <span class="n">INSERT</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">root</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">TREE</span><span class="o">-</span><span class="n">INSERT</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">TREE</span><span class="o">-</span><span class="n">INSERT</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">node</span> <span class="o">==</span> <span class="n">NIL</span>
         <span class="n">initialize</span> <span class="n">BSTnode</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
     <span class="k">else</span> <span class="k">if</span> <span class="n">node</span><span class="p">.</span><span class="n">key</span> <span class="o">&gt;</span> <span class="n">value</span>
@@ -4226,6 +4235,7 @@
         <span class="n">node</span><span class="p">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">INSERT</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">node</span><span class="p">.</span><span class="n">right</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">node</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="123-2">12.3-2<a class="headerlink" href="#123-2" title="Permanent link">&para;</a></h2>
 <blockquote>
@@ -4237,12 +4247,17 @@
 <p>We can sort a given set of $n$ numbers by first building a binary search tree containing these numbers (using $\text{TREE-INSERT}$ repeatedly to insert the numbers one by one) and then printing the numbers by an inorder tree walk. What are the worst-case and best-case running times for this sorting algorithm?</p>
 </blockquote>
 <p>Here's the algorithm:</p>
-<div class="highlight"><pre><span></span><span class="n">TREE</span><span class="o">-</span><span class="n">SORT</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">TREE</span><span class="o">-</span><span class="n">SORT</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
     <span class="n">let</span> <span class="n">T</span> <span class="n">be</span> <span class="n">an</span> <span class="n">empty</span> <span class="n">binary</span> <span class="n">search</span> <span class="n">tree</span>
     <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">n</span>
         <span class="n">TREE</span><span class="o">-</span><span class="n">INSERT</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
     <span class="n">INORDER</span><span class="o">-</span><span class="n">TREE</span><span class="o">-</span><span class="n">WALK</span><span class="p">(</span><span class="n">T</span><span class="p">.</span><span class="n">root</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <ul>
 <li>Worst case: $\Theta(n^2)$—occurs when a linear chain of nodes results from the repeated $\text{TREE-INSERT}$ operations.</li>
@@ -4259,7 +4274,19 @@
 <p>Suppose that instead of each node $x$ keeping the attribute $x.p$, pointing to $x$'s parent, it keeps $x.succ$, pointing to $x$'s successor. Give pseudocode for $\text{SEARCH}$, $\text{INSERT}$, and $\text{DELETE}$ on a binary search tree $T$ using this representation. These procedures should operate in time $O(h)$, where $h$ is the height of the tree $T$. ($\textit{Hint:}$ You may wish to implement a subroutine that returns the parent of a node.)</p>
 </blockquote>
 <p>In $\text{SEARCH}$ and $\text{INSERT}$, we do not need to know the parent of $x$.</p>
-<div class="highlight"><pre><span></span><span class="n">GET</span><span class="o">-</span><span class="n">PARENT</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">GET</span><span class="o">-</span><span class="n">PARENT</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">node</span> <span class="o">==</span> <span class="n">NIL</span>
         <span class="k">return</span> <span class="n">NIL</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">TREE</span><span class="o">-</span><span class="n">SUCCESSOR</span><span class="p">(</span><span class="n">TREE</span><span class="o">-</span><span class="n">MAXIMUM</span><span class="p">(</span><span class="n">node</span><span class="p">))</span>
@@ -4273,6 +4300,7 @@
         <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">right</span>
     <span class="k">return</span> <span class="n">x</span>
 </pre></div>
+</td></tr></table>
 
 <p>Therefore we can find $x$'s parent in $O(h)$, $\text{DELETE}$ is $O(h + h) = O(h)$.</p>
 <h2 id="123-6">12.3-6<a class="headerlink" href="#123-6" title="Permanent link">&para;</a></h2>

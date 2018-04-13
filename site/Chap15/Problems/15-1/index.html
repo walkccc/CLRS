@@ -4096,7 +4096,19 @@
 \max\limits_{(u, v)\in E}{w(u, v) + dist[v]} &amp; \text{otherwise}.
 \end{cases}</p>
 <p>This recurrence allows us to construct the following procedure:</p>
-<div class="highlight"><pre><span></span><span class="n">LONGEST</span><span class="o">-</span><span class="n">PATH</span><span class="o">-</span><span class="n">AUS</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">dist</span><span class="p">,</span> <span class="n">next</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">LONGEST</span><span class="o">-</span><span class="n">PATH</span><span class="o">-</span><span class="n">AUS</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">dist</span><span class="p">,</span> <span class="n">next</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">u</span> <span class="o">==</span> <span class="n">t</span>
         <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">dist</span><span class="p">,</span> <span class="n">next</span><span class="p">)</span>
@@ -4110,6 +4122,7 @@
                 <span class="n">next</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">dist</span><span class="p">,</span> <span class="n">next</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p>(See Section 22.1 for an explanation of the notation $G.Adj[u]$.)</p>
 <p>$\text{LONGEST-PATH-AUX}$ is a memoized, recursive procedure, which returns the tuple $(dist, next)$. The array $dist$ is the memoized array that holds the solution to subproblems. That is, after the procedure returns, $dist[u]$ will hold the weight of a longest path from $u$ to $t$. The array $next$ serves two purposes:</p>
@@ -4120,16 +4133,32 @@
 <p>The first <strong>if</strong> condition checks for the base case $u = t$. The second <strong>if</strong> condition checks whether the current subproblem has already been solved. The <strong>for</strong> loop iterates over each adjacent edge($u, v)$ and updates the longest distance in $dist[u]$.</p>
 <p>What is the running time of $\text{LONGEST-PATH-AUX}$? Each subproblem represented by a vertex $u$ is solved at most once due to the memoization. For each vertex, we examine its adjacent edges. Thus, each edge is examined at most once, and the overall running time is $O(E)$. (Section 22.1 discusses how we achieve $O(E)$ time by representing the graph with adjacency lists.)</p>
 <p>The $\text{PRINT-PATH}$ procedure prints out the path using information stored in the next array:</p>
-<div class="highlight"><pre><span></span><span class="n">PRINT</span><span class="o">-</span><span class="n">PATH</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">next</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">PRINT</span><span class="o">-</span><span class="n">PATH</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">next</span><span class="p">)</span>
     <span class="n">u</span> <span class="o">=</span> <span class="n">s</span>
     <span class="n">print</span> <span class="n">u</span>
     <span class="k">while</span> <span class="n">u</span> <span class="o">!=</span> <span class="n">t</span>
         <span class="n">print</span> <span class="s">&quot;→&quot;</span> <span class="n">next</span><span class="p">[</span><span class="n">u</span><span class="p">]</span>
         <span class="n">u</span> <span class="o">=</span> <span class="n">next</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 </pre></div>
+</td></tr></table>
 
 <p>The $\text{LONGEST-PATH-MAIN}$ procedure is the main driver. It creates and initializes the $dist$ and the $next$ arrays. It then calls $\text{LONGEST-PATH-AUX}$ to find a path and $\text{PRINT-PATH}$ to print out the actual path.</p>
-<div class="highlight"><pre><span></span><span class="n">LONGEST</span><span class="o">-</span><span class="n">PATH</span><span class="o">-</span><span class="n">MAIN</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">LONGEST</span><span class="o">-</span><span class="n">PATH</span><span class="o">-</span><span class="n">MAIN</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
     <span class="n">n</span> <span class="o">=</span> <span class="o">|</span><span class="n">G</span><span class="p">.</span><span class="n">V</span><span class="o">|</span>
     <span class="n">let</span> <span class="n">dist</span><span class="p">[</span><span class="mf">1.</span><span class="p">.</span><span class="n">n</span><span class="p">]</span> <span class="n">and</span> <span class="n">next</span><span class="p">[</span><span class="mf">1.</span><span class="p">.</span><span class="n">n</span><span class="p">]</span> <span class="n">be</span> <span class="k">new</span> <span class="n">arrays</span>
     <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">n</span>
@@ -4141,11 +4170,24 @@
     <span class="k">else</span> <span class="n">print</span> <span class="s">&quot;The weight of the longest path is&quot;</span> <span class="n">dist</span><span class="p">[</span><span class="n">s</span><span class="p">]</span>
         <span class="n">PRINT</span><span class="o">-</span><span class="n">PATH</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">next</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p>Initializating the dist and next arrays takes $O(V)$ time. Thus the overall running time of $\text{LONGEST-PATH-MAIN}$ is $O(V + E)$.</p>
 <p><strong>Alternative solution</strong> </p>
 <p>We can also solve the problem using a bottom-up aproach. To do so, we need to ensure that we solve ''smaller'' subproblems before we solve ''larger'' ones. In our case, we can use a <em>topological sort</em> (see Section 22.4) to obtain a bottom-up procedure, imposing the required ordering on the vertices in $\Theta(V + E)$ time.</p>
-<div class="highlight"><pre><span></span><span class="n">LONGEST</span><span class="o">-</span><span class="n">PATH2</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">LONGEST</span><span class="o">-</span><span class="n">PATH2</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
     <span class="n">let</span> <span class="n">dist</span><span class="p">[</span><span class="mf">1.</span><span class="p">.</span><span class="n">n</span><span class="p">]</span> <span class="n">and</span> <span class="n">next</span><span class="p">[</span><span class="mf">1.</span><span class="p">.</span><span class="n">n</span><span class="p">]</span> <span class="n">be</span> <span class="k">new</span> <span class="n">arrays</span>
     <span class="n">topologically</span> <span class="n">sort</span> <span class="n">the</span> <span class="n">vertices</span> <span class="n">of</span> <span class="n">G</span>
     <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="o">|</span><span class="n">G</span><span class="p">.</span><span class="n">V</span><span class="o">|</span>
@@ -4159,6 +4201,7 @@
     <span class="n">print</span> <span class="s">&quot;The longest distance is&quot;</span> <span class="n">dist</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
     <span class="n">PRINT</span><span class="o">-</span><span class="n">PATH</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">next</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p>The running time of $\text{LONGEST-PATH2}$ is $\Theta(V + E)$.</p>
                 

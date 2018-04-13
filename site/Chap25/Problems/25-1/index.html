@@ -4097,13 +4097,19 @@ t_{ij} =
 \end{cases}
 $$</p>
 <p>We update $T$ as follows when an edge $(u, v)$ is added to $G$:</p>
-<div class="highlight"><pre><span></span><span class="n">TRANSITIVE</span><span class="o">-</span><span class="n">CLOSURE</span><span class="o">-</span><span class="n">UPDATE</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">TRANSITIVE</span><span class="o">-</span><span class="n">CLOSURE</span><span class="o">-</span><span class="n">UPDATE</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
     <span class="n">let</span> <span class="n">T</span> <span class="n">be</span> <span class="o">|</span><span class="n">V</span><span class="o">|</span> <span class="err">×</span> <span class="o">|</span><span class="n">V</span><span class="o">|</span>
     <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="o">|</span><span class="n">V</span><span class="o">|</span>
         <span class="k">for</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="o">|</span><span class="n">V</span><span class="o">|</span>
             <span class="k">if</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">u</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="n">and</span> <span class="n">t</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span>
                 <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
+</td></tr></table>
 
 <ul>
 <li>With this procedure, the effect of adding edge $(u, v)$ is to create a path (via the new edge) from every vertex that could already reach $u$ to every vertex that could already be reached from $v$.</li>
@@ -4114,7 +4120,13 @@ $$</p>
 <p>Before this edge is inserted, only $|V|(|V| + 1) / 2$ entries in $T$ are $1$ (the entries on and above the main diagonal). After the edge is inserted, the graph is a cycle in which every vertex can reach every other vertex, so all $|V|^2$ entries in $T$ are $1$. Hence $|V|^2 - (|V|(|V| + 2) / 2) = \Theta(V^2)$ entries must be changed in $T$, so any algorithm to update the transitive closure must take $\Omega(V^2)$ time on this graph.</p>
 <p><strong>c.</strong> The algorithm in part (a) would take $\Theta(V^4)$ time to insert all possible $\Theta(V^2)$ edges, so we need a more efﬁcient algorithm in order for any sequence of insertions to take only $O(V^3)$ total time.</p>
 <p>To improve the algorithm, notice that the loop over $j$ is pointless when $t_{iv} = 1$. That is, if there is already a path $i \leadsto v$, then adding the edge $(u, v)$ cannot make any new vertices reachable from $i$. The loop to set $t_{ij}$ to $1$ for $j$ such that there exists a path $v \leadsto j$ is just setting entries that are already $1$. Eliminate this redundant processing as follows:</p>
-<div class="highlight"><pre><span></span><span class="n">TRANSITIVE</span><span class="o">-</span><span class="n">CLOSURE</span><span class="o">-</span><span class="n">UPDATE</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">TRANSITIVE</span><span class="o">-</span><span class="n">CLOSURE</span><span class="o">-</span><span class="n">UPDATE</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
     <span class="n">let</span> <span class="n">T</span> <span class="n">be</span> <span class="o">|</span><span class="n">V</span><span class="o">|</span> <span class="err">×</span> <span class="o">|</span><span class="n">V</span><span class="o">|</span>
     <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="o">|</span><span class="n">V</span><span class="o">|</span>
         <span class="k">if</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">u</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="n">and</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
@@ -4122,6 +4134,7 @@ $$</p>
                 <span class="k">if</span> <span class="n">t</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span>
                     <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
+</td></tr></table>
 
 <p>We show that this procedure takes $O(V^3)$ time to update the transitive closure for any sequence of $n$ insertions:</p>
 <ul>

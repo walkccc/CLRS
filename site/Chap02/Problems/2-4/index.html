@@ -4097,7 +4097,14 @@
 <p>Having shown a one-to-one correspondence between inversions and mergeinversions, it suffices for us to count merge-inversions.</p>
 <p>Consider a merge-inversion involving $y$ in $R$. Let $z$ be the smallest value in $L$ that is greater than $y$. At some point during the merging process, $z$ and $y$ will be the "exposed" values in $L$ and $R$, i.e., we will have $z = L[i]$ and $y = R[j]$ in line 13 of $\text{MERGE}$. At that time, there will be merge-inversions involving $y$ and $L[i], L[i + 1], L[i + 2], \ldots, L[n_1]$, and these $n_1 - i + 1$ merge-inversions will be the only ones involving $y$. Therefore, we need to detect the first time that $z$ and $y$ become exposed during the $\text{MERGE}$ procedure and add the value of $n_1 - i + 1$ at that time to our total count of merge-inversions.</p>
 <p>The following pseudocode, modeled on merge sort, works as we have just described. It also sorts the array $A$.</p>
-<div class="highlight"><pre><span></span><span class="n">COUNT</span><span class="o">-</span><span class="n">INVERSIONS</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">COUNT</span><span class="o">-</span><span class="n">INVERSIONS</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
     <span class="n">inversions</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="n">r</span>
         <span class="n">q</span> <span class="o">=</span> <span class="n">floor</span><span class="p">((</span><span class="n">p</span> <span class="o">+</span> <span class="n">r</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
@@ -4106,8 +4113,29 @@
         <span class="n">inversions</span> <span class="o">=</span> <span class="n">inversions</span> <span class="o">+</span> <span class="n">MERGE</span><span class="o">-</span><span class="n">INVERSIONS</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">inversions</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">MERGE</span><span class="o">-</span><span class="n">INVERSIONS</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">MERGE</span><span class="o">-</span><span class="n">INVERSIONS</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
     <span class="n">n1</span> <span class="o">=</span> <span class="n">q</span> <span class="o">-</span> <span class="n">p</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="n">n2</span> <span class="o">=</span> <span class="n">r</span> <span class="o">-</span> <span class="n">q</span>
     <span class="n">let</span> <span class="n">L</span><span class="p">[</span><span class="mf">1.</span><span class="p">.</span><span class="n">n1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="n">and</span> <span class="n">R</span><span class="p">[</span><span class="mf">1.</span><span class="p">.</span><span class="n">n2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="n">be</span> <span class="k">new</span> <span class="n">arrays</span>
@@ -4129,6 +4157,7 @@
             <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="n">inversions</span>
 </pre></div>
+</td></tr></table>
 
 <p>The initial call is $\text{COUNT-INVERSIONS}(A, 1, n)$.</p>
 <p>In $\text{MERGE-INVERSIONS}$, whenever $R[j]$ is exposed and a value greater than $R[j]$ becomes exposed in the $L$ array, we increase inersions by the number of remaining elements in $L$. Then because $R[j + 1]$ becomes exposed, $R[j]$ can never be exposed again. We don't have to worry about merge-inversions involving the sentinel $\infty$ in $R$, since no value in $L$ will be greater than $\infty$.</p>

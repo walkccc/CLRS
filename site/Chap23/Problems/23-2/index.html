@@ -4084,7 +4084,30 @@
                 <blockquote>
 <p>For a very sparse connected graph $G = (V, E)$, we can further improve upon the $O(E + V\lg V)$ running time of Prim's algorithm with Fibonacci heaps by preprocessing $G$ to decrease the number of vertices before running Prim's algorithm. In particular, we choose, for each vertex $u$, the minimum-weight edge $(u, v)$ incident on $u$, and we put $(u, v)$ into the minimum spanning tree under construction. We then contract all chosen edges (see Section B.4). Rather than contracting these edges one at a time, we first identify sets of vertices that are united into the same new vertex. Then we create the graph that would have resulted from contracting these edges one at a time, but we do so by ''renaming'' edges according to the sets into which their endpoints were placed. Several edges from the original graph may be renamed the same as each other. In such a case, only one edge results, and its weight is the minimum of the weights of the corresponding original edges.</p>
 <p>Initially, we set the minimum spanning tree $T$ being constructed to be empty, and for each edge $(u, v) \in E$, we initialize the attributes $(u, v).orig = (u, v)$ and $(u, v).c = w(u, v)$. We use the $orig$ attribute to reference the edge from the initial graph that is associated with an edge in the contracted graph. The $c$ attribute holds the weight of an edge, and as edges are contracted, we update it according to the above scheme for choosing edge weights. The procedure $\text{MST-REDUCE}$ takes inputs $G$ and $T$, and it returns a contracted graph $G'$ with updated attributes $orig'$ and $c'$. The procedure also accumulates edges of $G$ into the minimum spanning tree $T$.</p>
-<div class="highlight"><pre><span></span><span class="n">MST</span><span class="o">-</span><span class="n">REDUCE</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">MST</span><span class="o">-</span><span class="n">REDUCE</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">each</span> <span class="n">v</span> <span class="n">in</span> <span class="n">G</span><span class="p">.</span><span class="n">V</span>
         <span class="n">v</span><span class="p">.</span><span class="n">mark</span> <span class="o">=</span> <span class="n">FALSE</span>
         <span class="n">MAKE</span><span class="o">-</span><span class="n">SET</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
@@ -4109,6 +4132,7 @@
     <span class="n">construct</span> <span class="n">adjacency</span> <span class="n">lists</span> <span class="n">G</span><span class="err">&#39;</span><span class="p">.</span><span class="n">Adj</span> <span class="k">for</span> <span class="n">G</span><span class="err">&#39;</span>
     <span class="k">return</span> <span class="n">G</span><span class="err">&#39;</span> <span class="n">and</span> <span class="n">T</span>
 </pre></div>
+</td></tr></table>
 
 <p><strong>a.</strong> Let $T$ be the set of edges returned by $\text{MST-REDUCE}$, and let $A$ be the minimum spanning tree of the graph $G'$ formed by the call $\text{MST-PRIM}(G', c', r)$, where $c'$ is the weight attribute on the edges of $G'.E$ and $r$ is any vertex in $G'.V$. Prove that $T \cup \{(x,y).orig': (x, y) \in A\}$ is a minimum spanning tree of $G$.</p>
 <p><strong>b.</strong> Argue that $|G'.V| \le |V| / 2$.</p>

@@ -4232,7 +4232,20 @@
 <blockquote>
 <p>Give a nonrecursive algorithm that performs an inorder tree walk. ($\textit{Hint:}$ An easy solution uses a stack as an auxiliary data structure. A more complicated, but elegant, solution uses no stack but assumes that we can test two pointers for equality.)</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">INORDER</span><span class="o">-</span><span class="n">TREE</span><span class="o">-</span><span class="n">WALK</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">INORDER</span><span class="o">-</span><span class="n">TREE</span><span class="o">-</span><span class="n">WALK</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
     <span class="n">create</span> <span class="n">an</span> <span class="n">empty</span> <span class="n">stack</span> <span class="n">S</span> <span class="o">=</span> <span class="n">NIL</span>
     <span class="n">current</span> <span class="o">=</span> <span class="n">T</span><span class="p">.</span><span class="n">root</span>
     <span class="n">done</span> <span class="o">=</span> <span class="mi">0</span>
@@ -4247,24 +4260,35 @@
                 <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">right</span>
             <span class="k">else</span> <span class="n">done</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="121-4">12.1-4<a class="headerlink" href="#121-4" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Give recursive algorithms that perform preorder and postorder tree walks in $\Theta(n)$ time on a tree of $n$ nodes.</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">PREORDER</span><span class="o">-</span><span class="n">TREE</span><span class="o">-</span><span class="n">WALK</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">PREORDER</span><span class="o">-</span><span class="n">TREE</span><span class="o">-</span><span class="n">WALK</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">NIL</span>
         <span class="n">print</span> <span class="n">x</span><span class="p">.</span><span class="n">key</span>
         <span class="n">PREORDER</span><span class="o">-</span><span class="n">TREE</span><span class="o">-</span><span class="n">WALK</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span>
         <span class="n">PREORDER</span><span class="o">-</span><span class="n">TREE</span><span class="o">-</span><span class="n">WALK</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">POSTORDER</span><span class="o">-</span><span class="n">TREE</span><span class="o">-</span><span class="n">WALK</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">POSTORDER</span><span class="o">-</span><span class="n">TREE</span><span class="o">-</span><span class="n">WALK</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">NIL</span>
         <span class="n">POSTORDER</span><span class="o">-</span><span class="n">TREE</span><span class="o">-</span><span class="n">WALK</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span>
         <span class="n">POSTORDER</span><span class="o">-</span><span class="n">TREE</span><span class="o">-</span><span class="n">WALK</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span>
         <span class="n">print</span> <span class="n">x</span><span class="p">.</span><span class="n">key</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="121-5">12.1-5<a class="headerlink" href="#121-5" title="Permanent link">&para;</a></h2>
 <blockquote>

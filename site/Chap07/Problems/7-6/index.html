@@ -4087,7 +4087,23 @@
 <p><strong>b.</strong> Argue that your algorithm runs in expected time $\Theta(n\lg n)$ in general, but runs in expected time $\Theta(n)$ when all of the intervals overlap (i.e., when there exists a value $x$ such that $x \in [a_i, b_i]$ for all $i$). Your algorithm should not be checking for this case explicitly; rather, its performance should naturally improve as the amount of overlap increases.</p>
 </blockquote>
 <p><strong>a.</strong></p>
-<div class="highlight"><pre><span></span><span class="n">FUZZY</span><span class="o">-</span><span class="n">PARTITION</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">FUZZY</span><span class="o">-</span><span class="n">PARTITION</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">r</span><span class="p">]</span>
     <span class="n">exchange</span> <span class="n">A</span><span class="p">[</span><span class="n">r</span><span class="p">]</span> <span class="n">with</span> <span class="n">A</span><span class="p">[</span><span class="n">p</span><span class="p">]</span>
     <span class="n">i</span> <span class="o">=</span> <span class="n">p</span> <span class="o">-</span> <span class="mi">1</span>
@@ -4105,6 +4121,7 @@
     <span class="n">exchange</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="n">with</span> <span class="n">A</span><span class="p">[</span><span class="n">r</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="n">and</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span>
 </pre></div>
+</td></tr></table>
 
 <p>When intervals overlap we treat them as equal elements, thus cutting down on the time required to sort.</p>
 <p><strong>b.</strong> For distinct intervals the algorithm runs exactly as regular quicksort does, so its expected runtime will be $\Theta(n\lg n)$ in general. If all of the intervals overlap

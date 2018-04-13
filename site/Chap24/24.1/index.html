@@ -4236,7 +4236,13 @@ d &amp; 0 &amp; 0 &amp; 2 &amp; 7 &amp; -2 \\
 <p>Given a weighted, directed graph $G = (V, E)$ with no negative-weight cycles, let $m$ be the maximum over all vertices $v \in V$ of the minimum number of edges in a shortest path from the source $s$ to $v$. (Here, the shortest path is by weight, not the number of edges.) Suggest a simple change to the Bellman-Ford algorithm that allows it to terminate in $m + 1$ passes, even if $m$ is not known in advance.</p>
 </blockquote>
 <p>If the greatest number of edges on any shortest path from the source is $m$, then the path-relaxation property tells us that after $m$ iterations of $\text{BELLMAN-FORD}$, every vertex $v$ has achieved its shortest-path weight in $v.d$. By the upper-bound property, after $m$ iterations, no $d$ values will ever change. Therefore, no $d$ values will change in the $(m + 1)$st iteration. Because we do not know $m$ in advance, we cannot make the algorithm iterate exactly $m$ times and then terminate. But if we just make the algorithm stop when nothing changes any more, it will stop after $m + 1$ iterations.</p>
-<div class="highlight"><pre><span></span><span class="n">BELLMAN</span><span class="o">-</span><span class="n">FORD</span><span class="o">-</span><span class="p">(</span><span class="n">M</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)(</span><span class="n">G</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">BELLMAN</span><span class="o">-</span><span class="n">FORD</span><span class="o">-</span><span class="p">(</span><span class="n">M</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)(</span><span class="n">G</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
     <span class="n">INITIALIZE</span><span class="o">-</span><span class="n">SINGLE</span><span class="o">-</span><span class="n">SOURCE</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
     <span class="n">changes</span> <span class="o">=</span> <span class="n">TRUE</span>
     <span class="k">while</span> <span class="n">changes</span> <span class="o">==</span> <span class="n">TRUE</span>
@@ -4244,13 +4250,19 @@ d &amp; 0 &amp; 0 &amp; 2 &amp; 7 &amp; -2 \\
         <span class="k">for</span> <span class="n">each</span> <span class="n">edge</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="err">∈</span> <span class="n">G</span><span class="p">.</span><span class="n">E</span>
             <span class="n">RELAX</span><span class="o">-</span><span class="n">M</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">RELAX</span><span class="o">-</span><span class="n">M</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">RELAX</span><span class="o">-</span><span class="n">M</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">v</span><span class="p">.</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">u</span><span class="p">.</span><span class="n">d</span> <span class="o">+</span> <span class="n">w</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
         <span class="n">v</span><span class="p">.</span><span class="n">d</span> <span class="o">=</span> <span class="n">u</span><span class="p">.</span><span class="n">d</span> <span class="o">+</span> <span class="n">w</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
         <span class="n">v</span><span class="p">.</span><span class="n">PI</span> <span class="o">=</span> <span class="n">u</span>
         <span class="n">changes</span> <span class="o">=</span> <span class="n">TRUE</span>
 </pre></div>
+</td></tr></table>
 
 <p>The test for a negative-weight cycle (based on there being a $d$ value that would change if another relaxation step was done) has been removed above, because this version of the algorithm will never get out of the <strong>while</strong> loop unless all $d$ values stop changing.</p>
 <h2 id="241-4">24.1-4<a class="headerlink" href="#241-4" title="Permanent link">&para;</a></h2>
@@ -4258,19 +4270,25 @@ d &amp; 0 &amp; 0 &amp; 2 &amp; 7 &amp; -2 \\
 <p>Modify the Bellman-Ford algorithm so that it sets $v.d$ to $-\infty$ for all vertices $v$ for which there is a negative-weight cycle on some path from the source to $v$.</p>
 </blockquote>
 <p>In particular, replace line 7 with $v.d = -\infty$.</p>
-<div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">v</span><span class="p">.</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">u</span><span class="p">.</span><span class="n">d</span> <span class="o">+</span> <span class="n">w</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">if</span> <span class="n">v</span><span class="p">.</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">u</span><span class="p">.</span><span class="n">d</span> <span class="o">+</span> <span class="n">w</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
     <span class="n">v</span><span class="p">.</span><span class="n">d</span> <span class="o">=</span> <span class="o">-</span><span class="err">∞</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="241-5-star">24.1-5 $\star$<a class="headerlink" href="#241-5-star" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Let $G = (V, E)$ be a weighted, directed graph with weight function $w : E \rightarrow \mathbb R$. Give an $O(VE)$-time algorithm to find, for each vertex $v \in V$, the value $\delta^*(v) = \min_{u \in V} {\delta(u, v)}$.</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">RELAX</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">RELAX</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">v</span><span class="p">.</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">min</span><span class="p">(</span><span class="n">w</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">),</span> <span class="n">w</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="o">+</span> <span class="n">u</span><span class="p">.</span><span class="n">d</span><span class="p">)</span>
         <span class="n">v</span><span class="p">.</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">min</span><span class="p">(</span><span class="n">w</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">),</span> <span class="n">w</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="o">+</span> <span class="n">u</span><span class="p">.</span><span class="n">d</span><span class="p">)</span>
         <span class="n">v</span><span class="p">.</span><span class="n">PI</span> <span class="o">=</span> <span class="n">u</span><span class="p">.</span><span class="n">PI</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="241-6-star">24.1-6 $\star$<a class="headerlink" href="#241-6-star" title="Permanent link">&para;</a></h2>
 <blockquote>

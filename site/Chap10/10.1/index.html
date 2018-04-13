@@ -4256,7 +4256,15 @@
 <blockquote>
 <p>Rewrite $\text{ENQUEUE}$ and $\text{DEQUEUE}$ to detect underflow and overflow of a queue.</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">ENQUEUE</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">ENQUEUE</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">Q</span><span class="p">.</span><span class="n">head</span> <span class="o">==</span> <span class="n">Q</span><span class="p">.</span><span class="n">tail</span>
         <span class="n">error</span> <span class="s">&quot;Queue overflow&quot;</span>
     <span class="n">Q</span><span class="p">[</span><span class="n">Q</span><span class="p">.</span><span class="n">tail</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
@@ -4266,8 +4274,18 @@
         <span class="n">Q</span><span class="p">.</span><span class="n">tail</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">else</span> <span class="n">Q</span><span class="p">.</span><span class="n">tail</span> <span class="o">=</span> <span class="n">Q</span><span class="p">.</span><span class="n">tail</span> <span class="o">+</span> <span class="mi">1</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">DEQUEUE</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">DEQUEUE</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">Q</span><span class="p">.</span><span class="n">head</span> <span class="o">==</span> <span class="n">NIL</span>
         <span class="n">error</span> <span class="s">&quot;Queue underflow&quot;</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">Q</span><span class="p">[</span><span class="n">Q</span><span class="p">.</span><span class="n">head</span><span class="p">]</span>
@@ -4278,39 +4296,60 @@
         <span class="n">Q</span><span class="p">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">NIL</span>
     <span class="k">return</span> <span class="n">x</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="101-5">10.1-5<a class="headerlink" href="#101-5" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Whereas a stack allows insertion and deletion of elements at only one end, and a queue allows insertion at one end and deletion at the other end, a <strong><em>deque</em></strong> (doubleended queue) allows insertion and deletion at both ends. Write four $O(1)$-time procedures to insert elements into and delete elements from both ends of a deque implemented by an array.</p>
 </blockquote>
 <p>As in the example code given in the section, we will neglect to check for overflow and underflow errors.</p>
-<div class="highlight"><pre><span></span><span class="n">HEAD</span><span class="o">-</span><span class="n">ENQUEUE</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">HEAD</span><span class="o">-</span><span class="n">ENQUEUE</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="n">Q</span><span class="p">[</span><span class="n">Q</span><span class="p">.</span><span class="n">head</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
     <span class="k">if</span> <span class="n">Q</span><span class="p">.</span><span class="n">head</span> <span class="o">==</span> <span class="mi">1</span>
         <span class="n">Q</span><span class="p">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">Q</span><span class="p">.</span><span class="n">length</span>
     <span class="k">else</span> <span class="n">Q</span><span class="p">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">Q</span><span class="p">.</span><span class="n">head</span> <span class="o">-</span> <span class="mi">1</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">TAIL</span><span class="o">-</span><span class="n">ENQUEUE</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">TAIL</span><span class="o">-</span><span class="n">ENQUEUE</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="n">Q</span><span class="p">[</span><span class="n">Q</span><span class="p">.</span><span class="n">tail</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
     <span class="k">if</span> <span class="n">Q</span><span class="p">.</span><span class="n">tail</span> <span class="o">==</span> <span class="n">Q</span><span class="p">.</span><span class="n">length</span>
         <span class="n">Q</span><span class="p">.</span><span class="n">tail</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">else</span> <span class="n">Q</span><span class="p">.</span><span class="n">tail</span> <span class="o">=</span> <span class="n">Q</span><span class="p">.</span><span class="n">tail</span> <span class="o">+</span> <span class="mi">1</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">HEAD</span><span class="o">-</span><span class="n">DEQUEUE</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">HEAD</span><span class="o">-</span><span class="n">DEQUEUE</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">Q</span><span class="p">[</span><span class="n">Q</span><span class="p">.</span><span class="n">head</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">Q</span><span class="p">.</span><span class="n">head</span> <span class="o">==</span> <span class="n">Q</span><span class="p">.</span><span class="n">length</span>
         <span class="n">Q</span><span class="p">.</span><span class="n">head</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">else</span> <span class="n">Q</span><span class="p">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">Q</span><span class="p">.</span><span class="n">head</span> <span class="o">+</span> <span class="mi">1</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">TAIL</span><span class="o">-</span><span class="n">DEQUEUE</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">TAIL</span><span class="o">-</span><span class="n">DEQUEUE</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">Q</span><span class="p">[</span><span class="n">Q</span><span class="p">.</span><span class="n">tail</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">Q</span><span class="p">.</span><span class="n">tail</span> <span class="o">==</span> <span class="mi">1</span>
         <span class="n">Q</span><span class="p">.</span><span class="n">tail</span> <span class="o">=</span> <span class="n">Q</span><span class="p">.</span><span class="n">length</span>
     <span class="k">else</span> <span class="n">Q</span><span class="p">.</span><span class="n">tail</span> <span class="o">=</span> <span class="n">Q</span><span class="p">.</span><span class="n">tail</span> <span class="o">-</span> <span class="mi">1</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="101-6">10.1-6<a class="headerlink" href="#101-6" title="Permanent link">&para;</a></h2>
 <blockquote>

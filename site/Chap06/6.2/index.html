@@ -4222,7 +4222,17 @@
 <blockquote>
 <p>Starting with the procedure $\text{MAX-HEAPIFY}$, write pseudocode for the procedure $\text{MIN-HEAPIFY}(A, i)$, which performs the corresponding manipulation on a min-heap. How does the running time of $\text{MIN-HEAPIFY}$ compare to that of $\text{MAX-HEAPIFY}$?</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">MIN</span><span class="o">-</span><span class="n">HEAPIFY</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">MIN</span><span class="o">-</span><span class="n">HEAPIFY</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
     <span class="n">l</span> <span class="o">=</span> <span class="n">LEFT</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">RIGHT</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">l</span> <span class="err">≤</span> <span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">size</span> <span class="n">and</span> <span class="n">A</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
@@ -4234,6 +4244,7 @@
         <span class="n">exchange</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="n">with</span> <span class="n">A</span><span class="p">[</span><span class="n">smallest</span><span class="p">]</span>
     <span class="n">MIN</span><span class="o">-</span><span class="n">HEAPIFY</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">smallest</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p>The running time is the same. Actually, the algorithm is the same with the exceptions of two comparisons and some names.</p>
 <h2 id="62-3">6.2-3<a class="headerlink" href="#62-3" title="Permanent link">&para;</a></h2>
@@ -4250,7 +4261,19 @@
 <blockquote>
 <p>The code for $\text{MAX-HEAPIFY}$ is quite efficient in terms of constant factors, except possibly for the recursive call in line 10, which might cause some compilers to produce inefficient code. Write an efficient $\text{MAX-HEAPIFY}$ that uses an iterative control construct (a loop) instead of recursion.</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">MAX</span><span class="o">-</span><span class="n">HEAPIFY</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">MAX</span><span class="o">-</span><span class="n">HEAPIFY</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
     <span class="k">while</span> <span class="nb">true</span>
         <span class="n">left</span> <span class="o">=</span> <span class="n">LEFT</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
         <span class="n">right</span> <span class="o">=</span> <span class="n">RIGHT</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
@@ -4264,6 +4287,7 @@
         <span class="n">exchange</span> <span class="n">A</span><span class="p">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="n">with</span> <span class="n">A</span><span class="p">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">largest</span><span class="p">]</span>
         <span class="n">i</span> <span class="o">=</span> <span class="n">largest</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="62-6">6.2-6<a class="headerlink" href="#62-6" title="Permanent link">&para;</a></h2>
 <blockquote>

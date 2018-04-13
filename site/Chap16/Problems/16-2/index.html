@@ -4088,7 +4088,23 @@
 </blockquote>
 <p><strong>a.</strong> Order the tasks by processing time from smallest to largest and run them in that order. To see that this greedy solution is optimal, first observe that the problem exhibits optimal substructure: if we run the first task in an optimal solution, then we obtain an optimal solution by running the remaining tasks in a way which minimizes the average completion time. Let $O$ be an optimal solution. Let $a$ be the task which has the smallest processing time and let b be the first task run in $O$. Let $G$ be the solution obtained by switching the order in which we run $a$ and $b$ in $O$. This amounts reducing the completion times of a and the completion times of all tasks in $G$ between $a$ and $b$ by the difference in processing times of $a$ and $b$. Since all other completion times remain the same, the average completion time of $G$ is less than or equal to the average completion time of $O$, proving that the greedy solution gives an optimal solution. This has runtime $O(n\lg n)$ because we must first sort the elements.</p>
 <p><strong>b.</strong> Without loss of generality we my assume that every task is a unit time task. Apply the same strategy as in part (a), except this time if a task which we would like to add next to the schedule isn't allowed to run yet, we must skip over it. Since there could be many tasks of short processing time which have late release time, the runtime becomes $O(n^2)$ since we might have to spend $O(n)$ time deciding which task to add next at each step.</p>
-<div class="highlight"><pre><span></span><span class="n">MAKE</span><span class="o">-</span><span class="n">CHANGE</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">MAKE</span><span class="o">-</span><span class="n">CHANGE</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
     <span class="n">let</span> <span class="n">numcoins</span> <span class="n">and</span> <span class="n">coin</span> <span class="n">be</span> <span class="n">empty</span> <span class="n">arrays</span> <span class="n">of</span> <span class="n">length</span> <span class="n">v</span><span class="p">,</span> <span class="n">and</span> <span class="n">any</span> <span class="n">attempt</span> <span class="n">to</span> <span class="n">access</span> <span class="n">them</span> <span class="n">at</span> <span class="n">indices</span> <span class="n">in</span> <span class="n">the</span> <span class="n">range</span> <span class="o">-</span><span class="n">max</span><span class="p">(</span><span class="n">S</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span> <span class="n">should</span> <span class="k">return</span> <span class="err">∞</span>
     <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">v</span> 
         <span class="n">bestcoin</span> <span class="o">=</span> <span class="n">NIL</span>
@@ -4106,6 +4122,7 @@
         <span class="n">iter</span> <span class="o">=</span> <span class="n">iter</span> <span class="o">-</span> <span class="n">coin</span><span class="p">[</span><span class="n">iter</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">change</span>
 </pre></div>
+</td></tr></table>
                 
                   
                 

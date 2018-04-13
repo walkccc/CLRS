@@ -4097,32 +4097,58 @@
 <p><strong>a.</strong> Denote the number of nodes by $n$, and let $n = (m + 1) / 3$, so that $m = 3n - 1$. First, perform the $n$ operations $\text{MAKE-TREE}(v_1)$, $\text{MAKE-TREE}(v_2)$, $\ldots$, $\text{MAKE-TREE}(v_n)$. Then perform the sequence of $n - 1$ $\text{GRAFT}$ operations $\text{GRAFT}(v_1, v_2)$, $\text{GRAFT}(v_2, v_3)$, $\ldots$, $\text{GRAFT}(v_n - 1, v_n)$; this sequence produces a single disjoint-set tree that is a linear chain of $n$ nodes with $v_n$ at the root and $v_1$ as the only leaf. Then perform $\text{FIND-DEPTH}(v_1)$ repeatedly, $n$ times. The total number of operations is $n + (n - 1) + n = 3n - 1 = m$.</p>
 <p>Each $\text{MAKE-TREE}$ and $\text{GRAFT}$ operation takes $O(1)$ time. Each $\text{FIND-DEPTH}$ operation has to follow an $n$-node find path, and so each of the $n$ $\text{FIND-DEPTH}$ operations takes $\Theta(n)$ time. The total time is $n \cdot \Theta(n) + (2n - 1) \cdot O(1) = \Theta(n^2) = \Theta(m^2)$.</p>
 <p><strong>b.</strong> $\text{MAKE-TREE}$ is like $\text{MAKE-SET}$, except that it also sets the $d$ value to $0$:</p>
-<p><div class="highlight"><pre><span></span><span class="n">MAKE</span><span class="o">-</span><span class="n">TREE</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">MAKE</span><span class="o">-</span><span class="n">TREE</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
     <span class="n">v</span><span class="p">.</span><span class="n">p</span> <span class="o">=</span> <span class="n">v</span>
     <span class="n">v</span><span class="p">.</span><span class="n">rank</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">v</span><span class="p">.</span><span class="n">d</span> <span class="o">=</span> <span class="mi">0</span>
 </pre></div>
+</td></tr></table>
 It is correct to set $v.d$ to $0$, because the depth of the node in the single-node disjoint-set tree is $0$, and the sum of the depths on the find path for $v$ consists only of $v.d$.</p>
 <p><strong>c.</strong> $\text{FIND-DEPTH}$ will call a procedure $\text{FIND-ROOT}$:</p>
-<div class="highlight"><pre><span></span><span class="n">FIND</span><span class="o">-</span><span class="n">ROOT</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">FIND</span><span class="o">-</span><span class="n">ROOT</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">v</span><span class="p">.</span><span class="n">p</span> <span class="o">!=</span> <span class="n">v</span><span class="p">.</span><span class="n">p</span><span class="p">.</span><span class="n">p</span>
         <span class="n">y</span> <span class="o">=</span> <span class="n">v</span><span class="p">.</span><span class="n">p</span>
         <span class="n">v</span><span class="p">.</span><span class="n">p</span> <span class="o">=</span> <span class="n">FIND</span><span class="o">-</span><span class="n">ROOT</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
         <span class="n">v</span><span class="p">.</span><span class="n">d</span> <span class="o">=</span> <span class="n">v</span><span class="p">.</span><span class="n">d</span> <span class="o">+</span> <span class="n">y</span><span class="p">.</span><span class="n">d</span>
     <span class="k">return</span> <span class="n">v</span><span class="p">.</span><span class="n">p</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">FIND</span><span class="o">-</span><span class="n">DEPTH</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">FIND</span><span class="o">-</span><span class="n">DEPTH</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
     <span class="n">FIND</span><span class="o">-</span><span class="n">ROOT</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>    <span class="c1">// no need to save the return value</span>
     <span class="k">if</span> <span class="n">v</span> <span class="o">==</span> <span class="n">v</span><span class="p">.</span><span class="n">p</span>
         <span class="k">return</span> <span class="n">v</span><span class="p">.</span><span class="n">d</span>
     <span class="k">else</span> <span class="k">return</span> <span class="n">v</span><span class="p">.</span><span class="n">d</span> <span class="o">+</span> <span class="n">v</span><span class="p">.</span><span class="n">p</span><span class="p">.</span><span class="n">d</span>
 </pre></div>
+</td></tr></table>
 
 <p>$\text{FIND-ROOT}$ performs path compression and updates pseudodistances along the find path from $v$. It is similar to $\text{FIND-SET}$ on page 571, but with three changes. First, when $v$ is either the root or a child of a root (one of these conditions holds if and only if $v.p = v.p.p$) in the disjoint-set forest, we don't have to recurse; instead, we just return $v.p$. Second, when we do recurse, we save the pointer $v.p$ into a new variable $y$. Third, when we recurse, we update $v.d$ by adding into it the $d$ values of all nodes on the find path that are no longer proper ancestors of $v$ after path compression; these nodes are precisely the proper ancestors of $v$ other than the root. Thus, as long as $v$ does not start out the $\text{FIND-ROOT}$ call as either the root or a child of the root, we add $y.d$ into $v.d$. Note that $y.d$ has been updated prior to updating $v.d$, if $y$ is also neither the root nor a child of the root.</p>
 <p>$\text{FIND-DEPTH}$ first calls $\text{FIND-ROOT}$ to perform path compression and update pseudodistances. Afterward, the find path from $v$ consists of either just $v$ (if $v$ is a root) or just $v$ and $v.p$ (if $v$ is not a root, in which case it is a child of the root after path compression). In the former case, the depth of $v$ is just $v.d$, and in the latter case, the depth is $v.d + v.p.d$.</p>
 <p><strong>d.</strong> Our procedure for $\text{GRAFT}$ is a combination of $\text{UNION}$ and $\text{LINK}$:</p>
-<div class="highlight"><pre><span></span><span class="n">GRAPT</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">GRAPT</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
     <span class="n">r</span><span class="err">&#39;</span> <span class="o">=</span> <span class="n">FIND</span><span class="o">-</span><span class="n">ROOT</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
     <span class="n">v</span><span class="err">&#39;</span> <span class="o">=</span> <span class="n">FIND</span><span class="o">-</span><span class="n">ROOT</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
     <span class="n">z</span> <span class="o">=</span> <span class="n">FIND</span><span class="o">-</span><span class="n">DEPTH</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
@@ -4135,6 +4161,7 @@ It is correct to set $v.d$ to $0$, because the depth of the node in the single-n
         <span class="k">if</span> <span class="n">r</span><span class="err">&#39;</span><span class="p">.</span><span class="n">rank</span> <span class="o">==</span> <span class="n">v</span><span class="err">&#39;</span><span class="p">.</span><span class="n">rank</span>
             <span class="n">v</span><span class="err">&#39;</span><span class="p">.</span><span class="n">rank</span> <span class="o">=</span> <span class="n">v</span><span class="err">&#39;</span><span class="p">.</span><span class="n">rank</span> <span class="o">+</span> <span class="mi">1</span>
 </pre></div>
+</td></tr></table>
 
 <p>This procedure works as follows. First, we call $\text{FIND-ROOT}$ on $r$ and $v$ in order to find the roots $r'$ and $v'$, respectively, of their trees in the disjoint-set forest. As we saw in part (c), these $\text{FIND-ROOT}$ calls also perform path compression and update pseudodistances on the find paths from $r$ and $v$. We then call $\text{FIND-DEPTH}(v)$, saving the depth of $v$ in the variable $z$. (Since we have just compressed $v$'s find path, this call of $\text{FIND-DEPTH}$ takes $\text{O(1)}$ time.) Next, we emulate the action of $\text{LINK}$, by making the root ($r'$ or $v'$) of smaller rank a child of the root of larger rank; in case of a tie, we make $r'$ a child of $v'$.</p>
 <p>If $v'$ has the smaller rank, then all nodes in $r$'s tree will have their depths increased by the depth of $v$ plus $1$ (because $r$ is to become a child of $v$). Altering the psuedodistance of the root of a disjoint-set tree changes the computed depth of all nodes in that tree, and so adding $z + 1$ to $r'.d$ accomplishes this update for all nodes in $r$'s disjoint-set tree. Since $v'$ will become a child of $r'$ in the disjoint-set forest, we have just increased the computed depth of all nodes in the disjoint-set tree rooted at $v'$ by $r'.d$. These computed depths should not have changed, however. Thus, we subtract off $r'.d$ from $v'.d$, so that the sum $v'.d + r'.d$ after making $v'$ a child of $r'$ equals $v'.d$ before making $v'$ a child of $r'$.</p>

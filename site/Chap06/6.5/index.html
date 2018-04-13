@@ -4307,11 +4307,20 @@
 <blockquote>
 <p>Write pseudocode for the procedures $\text{HEAP-MINIMUM}$, $\text{HEAP-EXTRACT-MIN}$, $\text{HEAP-DECREASE-KEY}$, and $\text{MIN-HEAP-INSERT}$ that implement a min-priority queue with a min-heap.</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">HEAP</span><span class="o">-</span><span class="n">MINIMUM</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">HEAP</span><span class="o">-</span><span class="n">MINIMUM</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">HEAP</span><span class="o">-</span><span class="n">EXTRACT</span><span class="o">-</span><span class="n">MIN</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">HEAP</span><span class="o">-</span><span class="n">EXTRACT</span><span class="o">-</span><span class="n">MIN</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">size</span> <span class="o">&lt;</span> <span class="mi">1</span>
         <span class="n">error</span> <span class="s">&quot;heap underflow&quot;</span>
     <span class="n">min</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -4320,8 +4329,15 @@
     <span class="n">MIN</span><span class="o">-</span><span class="n">HEAPIFY</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">min</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">HEAP</span><span class="o">-</span><span class="n">DECREASE</span><span class="o">-</span><span class="n">KEY</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">HEAP</span><span class="o">-</span><span class="n">DECREASE</span><span class="o">-</span><span class="n">KEY</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">key</span> <span class="o">&gt;</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
         <span class="n">error</span> <span class="s">&quot;new key is larger than current key&quot;</span>
     <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
@@ -4329,12 +4345,17 @@
         <span class="n">exchange</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="n">with</span> <span class="n">A</span><span class="p">[</span><span class="n">PARENT</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span>
         <span class="n">i</span> <span class="o">=</span> <span class="n">PAREANT</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">MIN</span><span class="o">-</span><span class="n">HEAP</span><span class="o">-</span><span class="n">INSERT</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">MIN</span><span class="o">-</span><span class="n">HEAP</span><span class="o">-</span><span class="n">INSERT</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
     <span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">size</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">size</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="n">A</span><span class="p">[</span><span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">size</span><span class="p">]</span> <span class="o">=</span> <span class="err">∞</span>
     <span class="n">HEAP</span><span class="o">-</span><span class="n">DECREASE</span><span class="o">-</span><span class="n">KEY</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">size</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="65-4">6.5-4<a class="headerlink" href="#65-4" title="Permanent link">&para;</a></h2>
 <blockquote>
@@ -4355,7 +4376,14 @@
 <p>Each exchange operation on line 5 of $\text{HEAP-INCREASE-KEY}$ typically requires three assignments. Show how to use the idea of the inner loop of $\text{INSERTION-SORT}$ to reduce the three assignments down to just one assignment.</p>
 </blockquote>
 <p>Change the procedure to the following:</p>
-<div class="highlight"><pre><span></span><span class="n">HEAP</span><span class="o">-</span><span class="n">INCREASE</span><span class="o">-</span><span class="n">KEY</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">HEAP</span><span class="o">-</span><span class="n">INCREASE</span><span class="o">-</span><span class="n">KEY</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">key</span> <span class="o">&lt;</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
         <span class="n">error</span> <span class="s">&quot;new key is smaller than current key&quot;</span>
     <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
@@ -4364,6 +4392,7 @@
         <span class="n">i</span> <span class="o">=</span> <span class="n">PARENT</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
     <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="65-7">6.5-7<a class="headerlink" href="#65-7" title="Permanent link">&para;</a></h2>
 <blockquote>
@@ -4375,11 +4404,15 @@
 <blockquote>
 <p>The operation $\text{HEAP-DELETE}(A, i)$ deletes the item in node $i$ from heap $A$. Give an implementation of $\text{HEAP-DELETE}$ that runs in $O(\lg n)$ time for an $n$-element max-heap.</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">HEAP</span><span class="o">-</span><span class="n">DELETE</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">HEAP</span><span class="o">-</span><span class="n">DELETE</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
     <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">size</span><span class="p">]</span>
     <span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">size</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span>
     <span class="n">MAX</span><span class="o">-</span><span class="n">HEAPIFY</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p>We just move the last element of the heap to the deleated position and then call $\text{MAX-HEAPIFY}$ on it. This works, because the element is already smaller than its parent (because it was already under it on the heap), but might be larger than its children. $\text{MAX-HEAPIFY}$ restored the heap property.</p>
 <h2 id="65-9">6.5-9<a class="headerlink" href="#65-9" title="Permanent link">&para;</a></h2>

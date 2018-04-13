@@ -4088,10 +4088,13 @@ P(x) &amp; = \sum_{k = 0}^n a_k x^k \\
      &amp; = a_0 + x(a_1 + x (a_2 + \cdots + x(a_{n - 1} + x a_n) \cdots)),
 \end{align}</p>
 <p>given the coefficients $a_0, a_1, \ldots, a_n$ and a value of $x$:</p>
-<div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="n">n</span> <span class="n">down</span> <span class="mi">0</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">ai</span> <span class="o">+</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
 </pre></div>
+</td></tr></table>
 
 <p><strong>a.</strong> In terms of $\Theta$-notation, what is the running time of this code fragment for Horner's rule?</p>
 <p><strong>b.</strong> Write pseudocode to implement the naive polynomial-evaluation algorithm that computes each term of the polynomial from scratch. What is the running time of this algorithm? How does it compare to Horner's rule </p>
@@ -4102,7 +4105,13 @@ P(x) &amp; = \sum_{k = 0}^n a_k x^k \\
 </blockquote>
 <p><strong>a.</strong> $\Theta(n)$.</p>
 <p><strong>b.</strong> </p>
-<div class="highlight"><pre><span></span><span class="n">NAIVE</span><span class="o">-</span><span class="n">HORNER</span><span class="p">()</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">NAIVE</span><span class="o">-</span><span class="n">HORNER</span><span class="p">()</span>
     <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">to</span> <span class="n">n</span>
         <span class="n">temp</span> <span class="o">=</span> <span class="mi">1</span>
@@ -4110,6 +4119,7 @@ P(x) &amp; = \sum_{k = 0}^n a_k x^k \\
             <span class="n">temp</span> <span class="o">=</span> <span class="n">temp</span> <span class="o">*</span> <span class="n">x</span>
             <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">ai</span> <span class="o">*</span> <span class="n">m</span>
 </pre></div>
+</td></tr></table>
 
 <p>The running time is $\Theta(n^2)$, because of the nested loop. It is obviously slower.</p>
 <p><strong>c.</strong> <strong>Initialization:</strong> It is pretty trivial, since the summation has no terms which implies $y = 0$.</p>

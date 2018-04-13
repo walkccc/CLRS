@@ -4096,7 +4096,22 @@
 </blockquote>
 <p><strong>a.</strong> If all elements are equal, then when $\text{PARTITION}$ returns, $q = r$ and all elements in $A[p..q - 1]$ are equal. We get the recurrence $T(n) = T(n - 1) + T(0) + \Theta(n)$ for the running time, and so $T(n) = \Theta(n^2)$.</p>
 <p><strong>b.</strong> The $\text{PARTITION}'$ procedure:</p>
-<div class="highlight"><pre><span></span><span class="n">PARTITION</span><span class="err">&#39;</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">PARTITION</span><span class="err">&#39;</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">p</span><span class="p">]</span>
     <span class="n">i</span> <span class="o">=</span> <span class="n">h</span> <span class="o">=</span> <span class="n">p</span>
     <span class="k">for</span> <span class="n">j</span> <span class="o">=</span> <span class="n">p</span> <span class="o">+</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">r</span>
@@ -4113,14 +4128,20 @@
             <span class="n">h</span> <span class="o">=</span> <span class="n">h</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p><strong>c.</strong> $\text{RANDOMIZED-PARTITION}'$ is the same as $\text{RANDOMIZED-PARTITION}$, but with the call to $\text{PARTITION}$ replaced by a call to $\text{PARTITION}'$.</p>
-<div class="highlight"><pre><span></span><span class="n">QUICKSORT</span><span class="err">&#39;</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">QUICKSORT</span><span class="err">&#39;</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">q</span> <span class="o">&lt;</span> <span class="n">r</span>
         <span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="o">=</span> <span class="n">RANDOMIZED</span><span class="o">-</span><span class="n">PARTITION</span><span class="err">&#39;</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
         <span class="n">QUICKSORT</span><span class="err">&#39;</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
         <span class="n">QUICKSORT</span><span class="err">&#39;</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">t</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p><strong>d.</strong> Putting elements equal to the pivot in the same partition as the pivot can only help us, because we do not recurse on elements equal to the pivot. Thus, the subproblem sizes with $\text{QUICKSORT}'$, even with equal elements, are no larger than the subproblem sizes with $\text{QUICKSORT}$ when all elements are distinct.</p>
                 

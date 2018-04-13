@@ -4216,8 +4216,9 @@ r &amp; s &amp; t &amp; x &amp; y &amp; z \\
 <h2 id="242-2">24.2-2<a class="headerlink" href="#242-2" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Suppose we change line 3 of $\text{DAG-SHORTEST-PATHS}$ to read </p>
-<div class="highlight"><pre><span></span> <span class="mi">3</span>  <span class="k">for</span> <span class="n">the</span> <span class="n">first</span> <span class="o">|</span><span class="n">V</span><span class="o">|</span> <span class="o">-</span> <span class="mi">1</span> <span class="n">vertices</span><span class="p">,</span> <span class="n">taken</span> <span class="n">in</span> <span class="n">topologically</span> <span class="n">sorted</span> <span class="n">order</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="mi">3</span>  <span class="k">for</span> <span class="n">the</span> <span class="n">first</span> <span class="o">|</span><span class="n">V</span><span class="o">|</span> <span class="o">-</span> <span class="mi">1</span> <span class="n">vertices</span><span class="p">,</span> <span class="n">taken</span> <span class="n">in</span> <span class="n">topologically</span> <span class="n">sorted</span> <span class="n">order</span>
 </pre></div>
+</td></tr></table>
 
 <p>Show that the procedure would remain correct.</p>
 </blockquote>
@@ -4234,12 +4235,17 @@ r &amp; s &amp; t &amp; x &amp; y &amp; z \\
 <p>Give an efficient algorithm to count the total number of paths in a directed acyclic graph. Analyze your algorithm.</p>
 </blockquote>
 <p>We will compute the total number of paths by counting the number of paths whose start point is at each vertex $v$, which will be stored in an attribute $v.paths$. Assume that initial we have $v.paths = 0$ for all $v \in V$. Since all vertices adjacent to $u$ occur later in the topological sort and the final vertex has no neighbors, line 4 is well-defined. Topological sort takes $O(V + E)$ and the nested for-loops take $O(V + E)$ so the total runtime is $O(V + E)$.</p>
-<div class="highlight"><pre><span></span><span class="n">PATHS</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">PATHS</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
     <span class="n">topologically</span> <span class="n">sort</span> <span class="n">the</span> <span class="n">vertices</span> <span class="n">of</span> <span class="n">G</span>
     <span class="k">for</span> <span class="n">each</span> <span class="n">vertex</span> <span class="n">u</span><span class="p">,</span> <span class="n">taken</span> <span class="n">in</span> <span class="n">reverse</span> <span class="n">topologically</span> <span class="n">sorted</span> <span class="n">order</span>
         <span class="k">for</span> <span class="n">each</span> <span class="n">vertex</span> <span class="n">v</span> <span class="err">∈</span> <span class="n">G</span><span class="p">.</span><span class="n">Adj</span><span class="p">[</span><span class="n">u</span><span class="p">]</span>
             <span class="n">u</span><span class="p">.</span><span class="n">paths</span> <span class="o">=</span> <span class="n">u</span><span class="p">.</span><span class="n">paths</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">v</span><span class="p">.</span><span class="n">paths</span>
 </pre></div>
+</td></tr></table>
                 
                   
                 

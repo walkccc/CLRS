@@ -4224,7 +4224,15 @@ p &amp; 27 &amp; 28
 <p>Give a linear-time algorithm that takes as input a directed acyclic graph $G = (V, E)$ and two vertices $s$ and $t$, and returns the number of simple paths from $s$ to $t$ in $G$. For example, the directed acyclic graph of Figure 22.8 contains exactly four simple paths from vertex $p$ to vertex $v: pov$, $poryv$, $posryv$, and $psryv$. (Your algorithm needs only to count the simple paths, not list them.)</p>
 </blockquote>
 <p>The algorithm works as follows. The attribute $u.paths$ of node $u$ tells the number of simple paths from $u$ to $v$, where we assume that $v$ is fixed throughout the entire process. To count the number of paths, we can sum the number of paths which leave from each of $u$'s neighbors. Since we have no cycles, we will never risk adding a partially completed number of paths. Moreover, we can never consider the same edge twice among the recursive calls. Therefore, the total number of executions of the for-loop over all recursive calls is $O(V + E)$. Calling $\text{SIMPLE-PATHS}(s, t)$ yields the desired result.</p>
-<div class="highlight"><pre><span></span><span class="n">SIMPLE</span><span class="o">-</span><span class="n">PATHS</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">SIMPLE</span><span class="o">-</span><span class="n">PATHS</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">u</span> <span class="o">==</span> <span class="n">v</span>
         <span class="k">return</span> <span class="mi">1</span>
     <span class="k">else</span> <span class="k">if</span> <span class="n">u</span><span class="p">.</span><span class="n">paths</span> <span class="o">!=</span> <span class="n">NIL</span>
@@ -4234,6 +4242,7 @@ p &amp; 27 &amp; 28
             <span class="n">u</span><span class="p">.</span><span class="n">pahts</span> <span class="o">=</span> <span class="n">u</span><span class="p">.</span><span class="n">paths</span> <span class="o">+</span> <span class="n">SIMPLE</span><span class="o">-</span><span class="n">PATHS</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">u</span><span class="p">.</span><span class="n">paths</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="224-3">22.4-3<a class="headerlink" href="#224-3" title="Permanent link">&para;</a></h2>
 <blockquote>
@@ -4259,7 +4268,34 @@ p &amp; 27 &amp; 28
 <blockquote>
 <p>Another way to perform topological sorting on a directed acyclic graph $G = (V, E)$ is to repeatedly find a vertex of $in\text-degree$ $0$, output it, and remove it and all of its outgoing edges from the graph. Explain how to implement this idea so that it runs in time $O(V + E)$. What happens to this algorithm if $G$ has cycles?</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">TOPOLOGICAL</span><span class="o">-</span><span class="n">SORT</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">TOPOLOGICAL</span><span class="o">-</span><span class="n">SORT</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
     <span class="c1">// Initialize in-degree, Θ(V) time.</span>
     <span class="k">for</span> <span class="n">each</span> <span class="n">vertex</span> <span class="n">u</span> <span class="err">∈</span> <span class="n">G</span><span class="p">.</span><span class="n">V</span>
         <span class="n">u</span><span class="p">.</span><span class="n">in</span><span class="o">-</span><span class="n">degree</span> <span class="o">=</span> <span class="mi">0</span>
@@ -4288,6 +4324,7 @@ p &amp; 27 &amp; 28
     <span class="c1">// Another way to check for cycles would be to count the vertices </span>
     <span class="c1">// that are output and report a cycle if that number is &lt; |V|.</span>
 </pre></div>
+</td></tr></table>
 
 <p>To find and output vertices of $in\text-degree$ $0$, we first compute all vertices' $in\text-degree$s by making a pass through all the edges (by scanning the adjacency lists of all the vertices) and incrementing the $in\text-degree$ of each vertex an edge enters.</p>
 <ul>

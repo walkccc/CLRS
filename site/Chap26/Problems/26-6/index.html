@@ -4086,7 +4086,13 @@
 <p>Given two sets $A$ and $B$, the <strong><em>symmetric difference</em></strong> $A \oplus B$ is defined as $(A - B) \cup (B - A)$, that is, the elements that are in exactly one of the two sets.</p>
 <p><strong>a.</strong> Show that if $M$ is a matching and $P$ is an augmenting path with respect to $M$, then the symmetric difference $M \oplus P$ is a matching and $M \oplus P = |M| + 1$. Show that if $P_1, P_2, \ldots, P_k$ are vertex-disjoint augmenting paths with respect to $M$, then the symmetric difference $M \oplus (P_1 \cup P_2 \cup \cdots \cup P_k)$ is a matching with cardinality $|M| + k$.</p>
 <p>The general structure of our algorithm is the following:</p>
-<div class="highlight"><pre><span></span><span class="n">HOPCROPFT</span><span class="o">-</span><span class="n">KARP</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">HOPCROPFT</span><span class="o">-</span><span class="n">KARP</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
     <span class="n">M</span> <span class="o">=</span> <span class="err">∅</span>
     <span class="n">repeat</span>
         <span class="n">let</span> <span class="n">P</span> <span class="o">=</span> <span class="p">{</span><span class="n">P1</span><span class="p">,</span> <span class="n">P2</span><span class="p">,...,</span><span class="n">Pk</span><span class="p">}</span> <span class="n">be</span> <span class="n">a</span> <span class="n">maximal</span> <span class="n">set</span> <span class="n">of</span> <span class="n">vertex</span><span class="o">-</span><span class="n">disjoint</span> <span class="n">shortest</span> <span class="n">augmenting</span> <span class="n">paths</span> <span class="n">with</span> <span class="n">respect</span> <span class="n">to</span> <span class="n">M</span>
@@ -4094,6 +4100,7 @@
     <span class="n">until</span> <span class="n">P</span> <span class="o">==</span> <span class="err">∅</span>
     <span class="k">return</span> <span class="n">M</span>
 </pre></div>
+</td></tr></table>
 
 <p>The remainder of this problem asks you to analyze the number of iterations in the algorithm (that is, the number of iterations in the repeat loop) and to describe an implementation of line 3.</p>
 <p><strong>b.</strong> Given two matchings $M$ and $M^*$ in $G$, show that every vertex in the graph $G' = (V, M \oplus M^*)$ has degree at most $2$. Conclude that $G'$ is a disjoint union of simple paths or cycles. Argue that edges in each such simple path or cycle belong alternately to $M$ or $M^*$. Prove that if $|M| \le |M^*|$, then $M \oplus M^*$ contains at least $|M^*| - |M|$ vertex-disjoint augmenting paths with respect to $M$.</p>

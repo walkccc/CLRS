@@ -4219,18 +4219,27 @@
 <blockquote>
 <p>Write the procedures $\text{ALLOCATE-OBJECT}$ and $\text{FREE-OBJECT}$ for a homogeneous collection of objects implemented by the single-array representation.</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">ALLOCATE</span><span class="o">-</span><span class="n">OBJECT</span><span class="p">()</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">ALLOCATE</span><span class="o">-</span><span class="n">OBJECT</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">free</span> <span class="o">==</span> <span class="n">NIL</span>
         <span class="n">error</span> <span class="s">&quot;out of space&quot;</span>
     <span class="k">else</span> <span class="n">x</span> <span class="o">=</span> <span class="n">free</span>
         <span class="n">free</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">x</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">FREE</span><span class="o">-</span><span class="n">OBJECT</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">FREE</span><span class="o">-</span><span class="n">OBJECT</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="n">A</span><span class="p">[</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">free</span>
     <span class="n">free</span> <span class="o">=</span> <span class="n">x</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="103-3">10.3-3<a class="headerlink" href="#103-3" title="Permanent link">&para;</a></h2>
 <blockquote>
@@ -4241,14 +4250,26 @@
 <blockquote>
 <p>It is often desirable to keep all elements of a doubly linked list compact in storage, using, for example, the first $m$ index locations in the multiple-array representation. (This is the case in a paged, virtual-memory computing environment.) Explain how to implement the procedures $\text{ALLOCATE-OBJECT}$ and $\text{FREE-OBJECT}$ so that the representation is compact. Assume that there are no pointers to elements of the linked list outside the list itself. ($\textit{Hint:}$ Use the array implementation of a stack.)</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">ALLOCATE</span><span class="o">-</span><span class="n">OBJECT</span><span class="p">()</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">ALLOCATE</span><span class="o">-</span><span class="n">OBJECT</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">STACK</span><span class="o">-</span><span class="n">EMPTY</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
         <span class="n">error</span> <span class="s">&quot;out of space&quot;</span>
     <span class="k">else</span> <span class="n">x</span> <span class="o">=</span> <span class="n">POP</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">x</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">FREE</span><span class="o">-</span><span class="n">OBJECT</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">FREE</span><span class="o">-</span><span class="n">OBJECT</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">F</span><span class="p">.</span><span class="n">top</span> <span class="o">-</span> <span class="mi">1</span>
     <span class="n">p</span><span class="p">.</span><span class="n">prev</span><span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">x</span>
     <span class="n">p</span><span class="p">.</span><span class="n">next</span><span class="p">.</span><span class="n">prev</span> <span class="o">=</span> <span class="n">x</span>
@@ -4257,13 +4278,26 @@
     <span class="n">x</span><span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">next</span>
     <span class="n">PUSH</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="103-5">10.3-5<a class="headerlink" href="#103-5" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Let $L$ be a doubly linked list of length $n$ stored in arrays $key$, $prev$, and $next$ of length $m$. Suppose that these arrays are managed by $\text{ALLOCATE-OBJECT}$ and $\text{FREE-OBJECT}$ procedures that keep a doubly linked free list $F$. Suppose further that of the $m$ items, exactly $n$ are on list $L$ and $m - n$ are on the free list. Write a procedure $\text{COMPACTIFY-LIST}(L, F)$ that, given the list $L$ and the free list $F$, moves the items in $L$ so that they occupy array positions $1, 2, \ldots, n$ and adjusts the free list $F$ so that it remains correct, occupying array positions $n + 1, n + 2, \ldots, m$. The running time of your procedure should be $\Theta(n)$, and it should use only a constant amount of extra space. Argue that your procedure is correct.</p>
 </blockquote>
 <p>We represent the combination of arrays $key$, $prev$, and $next$ by a multible-array $A$. Each object of $A$'s is either in list $L$ or in the free list $F$, but not in both. The procedure $\text{COMPACTIFY-LIST}$ transposes the first object in $L$ with the first object in $A$, the second objects until the list $L$ is exhausted.</p>
-<div class="highlight"><pre><span></span><span class="n">COMPACTIFY</span><span class="o">-</span><span class="n">LIST</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">COMPACTIFY</span><span class="o">-</span><span class="n">LIST</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span>
     <span class="n">TRANSPOSE</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">L</span><span class="p">.</span><span class="n">head</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
     <span class="k">if</span> <span class="n">F</span><span class="p">.</span><span class="n">head</span> <span class="o">==</span> <span class="mi">1</span>
         <span class="n">F</span><span class="p">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">L</span><span class="p">.</span><span class="n">head</span>
@@ -4277,13 +4311,19 @@
         <span class="n">l</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">l</span><span class="p">].</span><span class="n">next</span>
         <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">TRANSPOSE</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">TRANSPOSE</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
     <span class="n">swap</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">prev</span><span class="p">.</span><span class="n">next</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">prev</span><span class="p">.</span><span class="n">next</span><span class="p">)</span>
     <span class="n">swap</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">prev</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">prev</span><span class="p">)</span>
     <span class="n">swap</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">next</span><span class="p">.</span><span class="n">prev</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">next</span><span class="p">.</span><span class="n">prev</span><span class="p">)</span>
     <span class="n">swap</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">next</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">next</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
                 
                   
                 

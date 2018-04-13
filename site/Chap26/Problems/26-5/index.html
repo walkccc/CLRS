@@ -4086,7 +4086,14 @@
 <p><strong>a.</strong> Argue that a minimum cut of $G$ has capacity at most $C|E|$.</p>
 <p><strong>b.</strong> For a given number $K$, show how to find an augmenting path of capacity at least $K$ in $O(E)$ time, if such a path exists.</p>
 <p>We can use the following modification of $\text{FORD-FULKERSON-METHOD}$ to compute a maximum flow in $G$:</p>
-<div class="highlight"><pre><span></span><span class="n">MAX</span><span class="o">-</span><span class="n">FLOW</span><span class="o">-</span><span class="n">BY</span><span class="o">-</span><span class="n">SCALING</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">MAX</span><span class="o">-</span><span class="n">FLOW</span><span class="o">-</span><span class="n">BY</span><span class="o">-</span><span class="n">SCALING</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
     <span class="n">C</span> <span class="o">=</span> <span class="n">max_</span><span class="p">{(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="err">∈</span> <span class="n">E</span><span class="p">}</span> <span class="n">c</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
     <span class="n">initialize</span> <span class="n">flow</span> <span class="n">f</span> <span class="n">to</span> <span class="mi">0</span>
     <span class="n">K</span> <span class="o">=</span> <span class="mi">2</span><span class="o">^</span><span class="p">{</span><span class="n">floor</span><span class="p">(</span><span class="n">lg</span> <span class="n">C</span><span class="p">)}</span>
@@ -4095,6 +4102,7 @@
         <span class="n">K</span> <span class="o">=</span> <span class="n">K</span> <span class="o">/</span> <span class="mi">2</span>
     <span class="k">return</span> <span class="n">f</span>
 </pre></div>
+</td></tr></table>
 
 <p><strong>c.</strong> Argue that $\text{MAX-FLOW-BY-SCALING}$ returns a maximum flow.</p>
 <p><strong>d.</strong> Show that the capacity of a minimum cut of the residual network $G_f$ is at most $2K|E|$ each time line 4 is executed.</p>

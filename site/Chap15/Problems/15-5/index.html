@@ -4171,7 +4171,37 @@ c[i, j] = c[i, j - 1] + \text{cost(insert)}             &amp; \text{always}, \\
 \end{cases}
 $$</p>
 <p>Like we did for LCS, our pseudocode fills in the table in row-major order, i.e., row-by-row from top to bottom, and left to right within each row. Columnmajor order (column-by-column from left to right, and top to bottom within each column) would also work. Along with the $c[i, j]$ table, we fill in the table $op[i, j]$, holding which operation was used.</p>
-<div class="highlight"><pre><span></span><span class="n">EDIT</span><span class="o">-</span><span class="n">DISTANCE</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">EDIT</span><span class="o">-</span><span class="n">DISTANCE</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
     <span class="n">let</span> <span class="n">c</span><span class="p">[</span><span class="mf">0.</span><span class="p">.</span><span class="n">m</span><span class="p">,</span> <span class="mf">0.</span><span class="p">.</span><span class="n">n</span><span class="p">]</span> <span class="n">and</span> <span class="n">op</span><span class="p">[</span><span class="mf">0.</span><span class="p">.</span><span class="n">m</span><span class="p">,</span> <span class="mf">0.</span><span class="p">.</span><span class="n">n</span><span class="p">]</span> <span class="n">be</span> <span class="k">new</span> <span class="n">arrays</span>
     <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">to</span> <span class="n">m</span>
         <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">cost</span><span class="p">(</span><span class="k">delete</span><span class="p">)</span>
@@ -4203,11 +4233,32 @@ $$</p>
             <span class="n">op</span><span class="p">[</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">KILL</span> <span class="n">i</span>
     <span class="k">return</span> <span class="n">c</span> <span class="n">and</span> <span class="n">op</span>
 </pre></div>
+</td></tr></table>
 
 <p>The time and space are both $\Theta(mn)$. If we store a $\text{KILL}$ operation in $op[m, n]$, we also include the index $i$ after which we killed, to help us reconstruct the optimal sequence of operations. (We don't need to store $y[i]$ in the $op$ table for replace or insert operations.)</p>
 <p>To reconstruct this sequence, we use the $op$ table returned by $\text{EDIT-DISTANCE}$. 
 The procedure $\text{OP-SEQUENCE}(op, i, j)$ reconstructs the optimal operation sequence that we found to transform $X_i$ into $Y_j$. The base case is when $i = j = 0$. The first call is $\text{OP-SEQUENCE}(op, m, n)$.</p>
-<div class="highlight"><pre><span></span><span class="n">OP</span><span class="o">-</span><span class="n">SEQUENCE</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">OP</span><span class="o">-</span><span class="n">SEQUENCE</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="n">and</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">return</span>
     <span class="k">if</span> <span class="n">op</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">COPY</span> <span class="n">or</span> <span class="n">op</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">REPLACE</span>
@@ -4229,6 +4280,7 @@ The procedure $\text{OP-SEQUENCE}(op, i, j)$ reconstructs the optimal operation 
     <span class="n">OP</span><span class="o">-</span><span class="n">SEQUENCE</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">i</span><span class="err">&#39;</span><span class="p">,</span> <span class="n">j</span><span class="err">&#39;</span><span class="p">)</span>
     <span class="n">print</span> <span class="n">op</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
 </pre></div>
+</td></tr></table>
 
 <p>This procedure determines which subproblem we used, recurses on it, and then prints its own last operation.</p>
 <p><strong>b.</strong> The DNA-alignment problem is just the edit-distance problem, with

@@ -4097,7 +4097,15 @@
 <p><strong>i.</strong> Which of the three searching algorithms would you use? Explain your answer.</p>
 </blockquote>
 <p><strong>a.</strong> </p>
-<div class="highlight"><pre><span></span><span class="n">RANDOM</span><span class="o">-</span><span class="n">SEARCH</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">RANDOM</span><span class="o">-</span><span class="n">SEARCH</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
     <span class="n">v</span> <span class="o">=</span> <span class="err">∅</span>
     <span class="k">while</span> <span class="o">|</span><span class="err">∅</span><span class="o">|</span> <span class="o">!=</span> <span class="n">n</span>
         <span class="n">i</span> <span class="o">=</span> <span class="n">RANDOM</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
@@ -4107,6 +4115,7 @@
             <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="err">∩</span> <span class="n">i</span>
     <span class="k">return</span> <span class="n">NIL</span>
 </pre></div>
+</td></tr></table>
 
 <p>$v$ can be implemented in multiple ways: a hash table, a tree or a bitmap. The last one would probabily perform best and consume the least space.</p>
 <p><strong>b.</strong> $\text{RANDOM-SEARCH}$ is well-modelled by Bernoulli trials. The expected number of picks is $n$.</p>

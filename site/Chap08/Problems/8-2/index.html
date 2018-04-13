@@ -4099,7 +4099,17 @@
 <p><strong>c.</strong> Insertion-Sort.</p>
 <p><strong>d.</strong> (a) Yes. (b) No. (c) No.</p>
 <p><strong>e.</strong> Using $O(k)$ outside the input-arr.</p>
-<div class="highlight"><pre><span></span><span class="n">COUNTING</span><span class="o">-</span><span class="n">SORT</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">COUNTING</span><span class="o">-</span><span class="n">SORT</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
     <span class="n">let</span> <span class="n">C</span><span class="p">[</span><span class="mf">0.</span><span class="p">.</span><span class="n">k</span><span class="p">]</span> <span class="n">be</span> <span class="n">a</span> <span class="k">new</span> <span class="n">array</span>
     <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">to</span> <span class="n">k</span>
         <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
@@ -4111,6 +4121,7 @@
             <span class="n">p</span> <span class="o">=</span> <span class="n">p</span> <span class="o">+</span> <span class="mi">1</span>
             <span class="n">A</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
 </pre></div>
+</td></tr></table>
 
 <p>Not stable, in place, in $O(n + k)$.</p>
                 

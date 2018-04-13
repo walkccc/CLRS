@@ -4190,7 +4190,14 @@
 <blockquote>
 <p>Consider sorting $n$ numbers stored in array $A$ by first finding the smallest element of $A$ and exchanging it with the element in $A[1]$. Then find the second smallest element of $A$, and exchange it with $A[2]$. Continue in this manner for the first $n - 1$ elements of $A$. Write pseudocode for this algorithm, which is known as <strong><em>selection sort</em></strong>. What loop invariant does this algorithm maintain? Why does it need to run for only the first $n - 1$ elements, rather than for all $n$ elements? Give the best-case and worst-case running times of selection sort in $\Theta$-notation.</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">SELECTION</span><span class="o">-</span><span class="n">SORT</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">SELECTION</span><span class="o">-</span><span class="n">SORT</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">length</span>
     <span class="k">for</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>
         <span class="n">smallest</span> <span class="o">=</span> <span class="n">j</span>
@@ -4199,6 +4206,7 @@
                 <span class="n">smallest</span> <span class="o">=</span> <span class="n">i</span>
         <span class="n">exchange</span> <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="n">with</span> <span class="n">A</span><span class="p">[</span><span class="n">smallest</span><span class="p">]</span>
 </pre></div>
+</td></tr></table>
 
 <p>The algorithm maintains the loop invariant that at the start of each iteration of the outer <strong>for</strong> loop, the subarray $A[1..j - 1]$ consists of the $j - 1$ smallest elements in the array $A[1..n]$, and this subarray is in sorted order. After the first $n - 1$ elements, the subarray $A[1..n]$ contains the smallest $n - 1$ elements, sorted, and therefore element $A[n]$ must be the largest element.</p>
 <p>The running time of the algorithm is $\Theta(n^2)$ for all cases.</p>

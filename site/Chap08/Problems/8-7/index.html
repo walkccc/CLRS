@@ -4083,18 +4083,25 @@
                 
                 <blockquote>
 <p>A <strong><em>compare-exchange</em></strong> operation on two array elements $A[i]$ and $A[j]$, where $i &lt; j$, has the form</p>
-<div class="highlight"><pre><span></span><span class="n">COMPARE</span><span class="o">-</span><span class="n">EXCHANGE</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">COMPARE</span><span class="o">-</span><span class="n">EXCHANGE</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
         <span class="n">exchange</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="n">with</span> <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
 </pre></div>
+</td></tr></table>
 
 <p>After the compare-exchange operation, we know that $A[i] \le A[j]$.</p>
 <p>An <strong><em>oblivious compare-exchange algorithm</em></strong> operates solely by a sequence of prespecified compare-exchange operations. The indices of the positions compared in the sequence must be determined in advance, and although they can depend on the number of elements being sorted, they cannot depend on the values being sorted, nor can they depend on the result of any prior compare-exchange operation. For example, here is insertion sort expressed as an oblivious compare-exchange algorithm:</p>
-<div class="highlight"><pre><span></span><span class="n">INSERTION</span><span class="o">-</span><span class="n">SORT</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">INSERTION</span><span class="o">-</span><span class="n">SORT</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">2</span> <span class="n">to</span> <span class="n">A</span><span class="p">.</span><span class="n">length</span>
         <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span> <span class="n">downto</span> <span class="mi">1</span>
             <span class="n">COMPARE</span><span class="o">-</span><span class="n">EXCHANGE</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p>The <strong><em>$0$-$1$ sorting lemma</em></strong> provides a powerful way to prove that an oblivious compare-exchange algorithm produces a sorted result. It states that if an oblivious compare-exchange algorithm correctly sorts all input sequences consisting of only $0$s and $1$s, then it correctly sorts all inputs containing arbitrary values.</p>
 <p>You will prove the $0$-$1$ sorting lemma by proving its contrapositive: if an oblivious compare-exchange algorithm fails to sort an input containing arbitrary values, then it fails to sort some $0$-$1$ input. Assume that an oblivious compare-exchange algorithm $\text X$ fails to correctly sort the array $A[1..n]$. Let $A[p]$ be the smallest value in $A$ that algorithm $\text X$ puts into the wrong location, and let $A[q]$ be the value that algorithm $\text X$ moves to the location into which $A[p]$ should have gone. Define an array $B[1..n]$ of $0$s and $1$s as follows:</p>

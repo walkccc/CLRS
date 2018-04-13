@@ -4094,7 +4094,14 @@
 </ul>
 <p>Because the hash table is implemented with a dynamic table, the space it requires is proportional to the number of nonempty clusters.</p>
 <p>When we need to insert an element into an empty RS-vEB tree, we create the RS-vEB tree by calling the following procedure, where the parameter u is the universe size of the RS-vEB tree:</p>
-<div class="highlight"><pre><span></span><span class="n">CREATE</span><span class="o">-</span><span class="n">NEW</span><span class="o">-</span><span class="n">RS</span><span class="o">-</span><span class="n">VEB</span><span class="o">-</span><span class="n">TREE</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">CREATE</span><span class="o">-</span><span class="n">NEW</span><span class="o">-</span><span class="n">RS</span><span class="o">-</span><span class="n">VEB</span><span class="o">-</span><span class="n">TREE</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
     <span class="n">allocate</span> <span class="n">a</span> <span class="k">new</span> <span class="n">vEB</span> <span class="n">tree</span> <span class="n">V</span>
     <span class="n">V</span><span class="p">.</span><span class="n">u</span> <span class="o">=</span> <span class="n">u</span>
     <span class="n">V</span><span class="p">.</span><span class="n">min</span> <span class="o">=</span> <span class="n">NIL</span>
@@ -4103,6 +4110,7 @@
     <span class="n">create</span> <span class="n">V</span><span class="p">.</span><span class="n">cluster</span> <span class="n">as</span> <span class="n">an</span> <span class="n">empty</span> <span class="n">dynamic</span> <span class="n">hash</span> <span class="n">table</span>
     <span class="k">return</span> <span class="n">V</span>
 </pre></div>
+</td></tr></table>
 
 <p><strong>c.</strong> Modify the $\text{VEB-TREE-INSERT}$ procedure to produce pseudocode for the procedure $\text{RS-VEB-TREE-INSERT}(V, x)$, which inserts $x$ into the RS-vEB tree $V$, calling $\text{CREATE-NEW-RS-VEB-TREE}$ as appropriate.</p>
 <p><strong>d.</strong> Modify the $\text{VEB-TREE-SUCCESSOR}$ procedure to produce pseudocode for the procedure $\text{RS-VEB-TREE-SUCCESSOR}(V, x)$, which returns the successor of $x$ in RS-vEB tree $V$, or $\text{NIL}$ if $x$ has no successor in $V$.</p>

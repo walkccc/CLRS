@@ -4228,15 +4228,23 @@
 <p>Write pseudocode for $\text{LEFT-ROTATE}$ that operates on nodes in an interval tree and updates the $max$ attributes in $O(1)$ time.</p>
 </blockquote>
 <p>Add 2 lines in $\text{LEFT-ROTATE}$ in 13.2</p>
-<div class="highlight"><pre><span></span>    <span class="n">max</span><span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="n">max</span><span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
     <span class="n">max</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">high</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="n">max</span><span class="p">(</span><span class="n">left</span><span class="p">[</span><span class="n">x</span><span class="p">]),</span> <span class="n">max</span><span class="p">(</span><span class="n">right</span><span class="p">[</span><span class="n">x</span><span class="p">]))</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="143-2">14.3-2<a class="headerlink" href="#143-2" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Rewrite the code for $\text{INTERVAL-SEARCH}$ so that it works properly when all intervals are open.</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">INTERVAL</span><span class="o">-</span><span class="n">SEARCH</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">INTERVAL</span><span class="o">-</span><span class="n">SEARCH</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">T</span><span class="p">.</span><span class="n">root</span>
     <span class="k">while</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">T</span><span class="p">.</span><span class="n">nil</span> <span class="n">and</span> <span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">high</span> <span class="err">≤</span> <span class="n">x</span><span class="p">.</span><span class="kt">int</span><span class="p">.</span><span class="n">left</span> <span class="n">or</span> <span class="n">x</span><span class="p">.</span><span class="kt">int</span><span class="p">.</span><span class="n">right</span> <span class="err">≤</span> <span class="n">i</span><span class="p">.</span><span class="n">low</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">x</span><span class="p">.</span><span class="n">left</span> <span class="o">!=</span> <span class="n">T</span><span class="p">.</span><span class="n">nil</span> <span class="n">and</span> <span class="n">x</span><span class="p">.</span><span class="n">left</span><span class="p">.</span><span class="n">max</span> <span class="o">&gt;</span> <span class="n">i</span><span class="p">.</span><span class="n">low</span>
@@ -4244,6 +4252,7 @@
         <span class="k">else</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">right</span>
     <span class="k">return</span> <span class="n">x</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="143-3">14.3-3<a class="headerlink" href="#143-3" title="Permanent link">&para;</a></h2>
 <blockquote>
@@ -4251,11 +4260,23 @@
 </blockquote>
 <p>As it travels down the tree, $\text{INTERVAL-SEARCH}$ first checks whether current node $x$ overlaps the query interval $i$ and, if it does not, goes down to either the left or right child. If node $x$ overlaps $i$, and some node in the right subtree overlaps $i$, but no node in the left subtree overlaps $i$, then because the keys are low endpoints, this order of checking (first  $x$, then one child) will return the overlapping interval with the minimum low endpoint. On the other hand, if there is an interval that overlaps $i$ in the left subtree of $x$, then checking $x$ before the left subtree might cause the procedure to return an interval whose low endpoint is not the minimum of those that overlap $i$. Therefore, if there is a possibility that the left subtree might contain an interval that overlaps $i$, we need to check the left subtree first. If there is no overlap in the left subtree but node $x$ overlaps $i$, then we return $x$. We check the right subtree under the same conditions as in $\text{INTERVAL-SEARCH}$: the left subtree cannot contain an interval that overlaps $i$, and node $x$ does not overlap $i$, either.</p>
 <p>Because we might search the left subtree first, it is easier to write the pseudocode to use a recursive procedure $\text{MIN-INTERVAL-SEARCH-FROM}(T, x, i)$, which returns the node overlapping $i$ with the minimum low endpoint in the subtree rooted at $x$, or $T.nil$ if there is no such node.</p>
-<div class="highlight"><pre><span></span><span class="n">MIN</span><span class="o">-</span><span class="n">INTERVAL</span><span class="o">-</span><span class="n">SEARCH</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">MIN</span><span class="o">-</span><span class="n">INTERVAL</span><span class="o">-</span><span class="n">SEARCH</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">MIN</span><span class="o">-</span><span class="n">INTERVAL</span><span class="o">-</span><span class="n">SEARCH</span><span class="o">-</span><span class="n">FROM</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">.</span><span class="n">root</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">MIN</span><span class="o">-</span><span class="n">INTERVAL</span><span class="o">-</span><span class="n">SEARCH</span><span class="o">-</span><span class="n">FROM</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">MIN</span><span class="o">-</span><span class="n">INTERVAL</span><span class="o">-</span><span class="n">SEARCH</span><span class="o">-</span><span class="n">FROM</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">x</span><span class="p">.</span><span class="n">left</span> <span class="o">!=</span> <span class="n">T</span><span class="p">.</span><span class="n">nil</span> <span class="n">and</span> <span class="n">x</span><span class="p">.</span><span class="n">left</span><span class="p">.</span><span class="n">max</span> <span class="err">≥</span> <span class="n">i</span><span class="p">.</span><span class="n">low</span>
         <span class="n">y</span> <span class="o">=</span> <span class="n">MIN</span><span class="o">-</span><span class="n">INTERVAL</span><span class="o">-</span><span class="n">SEARCH</span><span class="o">-</span><span class="n">FROM</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">.</span><span class="n">left</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">y</span> <span class="o">!=</span> <span class="n">T</span><span class="p">.</span><span class="n">nil</span>
@@ -4267,13 +4288,22 @@
         <span class="k">return</span> <span class="n">x</span>
     <span class="k">else</span> <span class="k">return</span> <span class="n">MIN</span><span class="o">-</span><span class="n">INTERVAL</span><span class="o">-</span><span class="n">SEARCH</span><span class="o">-</span><span class="n">FROM</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">.</span><span class="n">right</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p>The call $\text{MIN-INTERVAL-SEARCH}(T, i)$ takes $O\lg n)$ time, since each recursive call of $\text{MIN-INTERVAL-SEARCH-FROM}$ goes one node lower in the tree, and the height of the tree is $O(\lg n)$.</p>
 <h2 id="143-4">14.3-4<a class="headerlink" href="#143-4" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Given an interval tree $T$ and an interval $i$, describe how to list all intervals in $T$ that overlap $i$ in $O(\min(n, k \lg n))$ time, where $k$ is the number of intervals in the output list. ($\textit{Hint:}$ One simple method makes several queries, modifying the tree between queries. A slightly more complicated method does not modify the tree.)</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">INTERVALS</span><span class="o">-</span><span class="n">SEARCH</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">INTERVALS</span><span class="o">-</span><span class="n">SEARCH</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
     <span class="n">list</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">if</span> <span class="n">i</span> <span class="n">overlaps</span> <span class="n">x</span><span class="p">.</span><span class="kt">int</span>
         <span class="n">list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -4283,13 +4313,24 @@
         <span class="n">list</span> <span class="o">=</span> <span class="n">list</span> <span class="o">+</span> <span class="n">INTERVALS</span><span class="o">-</span><span class="n">SEARCH</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">.</span><span class="n">right</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">list</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="143-5">14.3-5<a class="headerlink" href="#143-5" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Suggest modifications to the interval-tree procedures to support the new operation $\text{INTERVAL-SEARCH-EXACTLY}(T, i)$, where $T$ is an interval tree and $i$ is an interval. The operation should return a pointer to a node $x$ in $T$ such that $x.int.low = i.low$ and $x.int.high = i.high$, or $T.nil$ if $T$ contains no such node. All operations, including $\text{INTERVAL-SEARCH-EXACTLY}$, should run in $O(\lg n)$ time on an $n$-node interval tree.</p>
 </blockquote>
 <p>Search for nodes which has exactly the same low value.</p>
-<div class="highlight"><pre><span></span><span class="n">INTERVAL</span><span class="o">-</span><span class="n">SEARCH</span><span class="o">-</span><span class="n">EXACTLY</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">INTERVAL</span><span class="o">-</span><span class="n">SEARCH</span><span class="o">-</span><span class="n">EXACTLY</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">root</span><span class="p">[</span><span class="n">T</span><span class="p">]</span>
     <span class="k">while</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">nil</span><span class="p">[</span><span class="n">T</span><span class="p">]</span> <span class="n">and</span> <span class="n">i</span> <span class="n">not</span> <span class="n">exactly</span> <span class="n">overlap</span> <span class="n">x</span>
         <span class="k">if</span> <span class="n">high</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">max</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
@@ -4301,6 +4342,7 @@
         <span class="k">else</span> <span class="n">x</span> <span class="o">=</span> <span class="n">nil</span><span class="p">[</span><span class="n">T</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">x</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="143-6">14.3-6<a class="headerlink" href="#143-6" title="Permanent link">&para;</a></h2>
 <blockquote>

@@ -4248,7 +4248,18 @@ c[i - 1, w]                                &amp; \text{ if } w_i &gt; w, \\
 $$</p>
 <p>The last case says that the value of a solution for i items either includes item $i$, in which case it is $v_i$ plus a subproblem solution for $i - 1$ items and the weight excluding $w_i$, or doesn't include item $i$, in which case it is a subproblem solution for $i - 1$ items and the same weight. That is, if the thief picks item $i$, he takes $v_i$ value, and he can choose from items $1, \ldots, i - 1$ up to the weight limit $w - w_i$ , and get $c[i - 1, w - w_i]$ additional value. On the other hand, if he decides not to take item $i$, he can choose from items $1, \ldots, i - 1$ up to the weight limit $w$, and get $c[i - 1, w]$ value. The better of these two choices should be made.</p>
 <p>The algorithm takes as inputs the maximum weight $W$, the number of items $n$, and the two sequences $v = \langle v_1, v_2, \ldots, v_n \rangle$ and $w = \langle w_1, w_2, \ldots, w_n \rangle$. It stores the $c[i, j]$ values in a table $c[0..n, 0..W]$ whose entries are computed in row-major order. (That is, the first row of $c$ is filled in from left to right, then the second row, and so on.) At the end of the computation, $c[n, W]$ contains the maximum value the thief can take.</p>
-<div class="highlight"><pre><span></span><span class="n">DYNAMIC</span><span class="o">-</span><span class="mi">0</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">KNAPSACK</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">DYNAMIC</span><span class="o">-</span><span class="mi">0</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">KNAPSACK</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span>
     <span class="n">let</span> <span class="n">c</span><span class="p">[</span><span class="mf">0.</span><span class="p">.</span><span class="n">n</span><span class="p">,</span> <span class="mf">0.</span><span class="p">.</span><span class="n">W</span><span class="p">]</span> <span class="n">be</span> <span class="n">a</span> <span class="k">new</span> <span class="n">array</span>
     <span class="k">for</span> <span class="n">w</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">to</span> <span class="n">W</span>
         <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
@@ -4261,6 +4272,7 @@ $$</p>
                 <span class="k">else</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">w</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">w</span><span class="p">]</span>
             <span class="k">else</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">w</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">w</span><span class="p">]</span>
 </pre></div>
+</td></tr></table>
 
 <p>The set of items to take can be deduced from the $c$ table by starting at $c[n, W]$ and tracing where the optimal values came from. If $c[i, w] = c[i - 1, w]$, then item $i$ is not part of the solution, and we continue tracing with $c[i - 1, w]$. Otherwise item $i$ is part of the solution, and we continue tracing with $c[i - 1, w - w_i]$.</p>
 <p>The above algorithm takes $\Theta(nW)$ time total:</p>

@@ -4268,23 +4268,38 @@
 <blockquote>
 <p>Write recursive versions of $\text{TREE-MINIMUM}$ and $\text{TREE-MAXIMUM}$.</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">TREE</span><span class="o">-</span><span class="n">MINIMUM</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">TREE</span><span class="o">-</span><span class="n">MINIMUM</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="k">if</span> <span class="o">!</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">left</span>
         <span class="k">return</span> <span class="n">TREE</span><span class="o">-</span><span class="n">MINIMUM</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">x</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">TREE</span><span class="o">-</span><span class="n">MAXIMUM</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">TREE</span><span class="o">-</span><span class="n">MAXIMUM</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="k">if</span> <span class="o">!</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">right</span>
         <span class="k">return</span> <span class="n">TREE</span><span class="o">-</span><span class="n">MAXIMUM</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">x</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="122-3">12.2-3<a class="headerlink" href="#122-3" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Write the $\text{TREE-PREDECESSOR}$ procedure.</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">TREE</span><span class="o">-</span><span class="n">PREDECESSOR</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">TREE</span><span class="o">-</span><span class="n">PREDECESSOR</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="k">if</span> <span class="o">!</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">left</span>
         <span class="k">return</span> <span class="n">TREE</span><span class="o">-</span><span class="n">MAXIMUM</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">-&gt;</span><span class="n">parent</span>
@@ -4293,6 +4308,7 @@
         <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">-&gt;</span><span class="n">parent</span>
     <span class="k">return</span> <span class="n">y</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="122-4">12.2-4<a class="headerlink" href="#122-4" title="Permanent link">&para;</a></h2>
 <blockquote>

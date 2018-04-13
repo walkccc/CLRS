@@ -4232,19 +4232,36 @@
 <blockquote>
 <p>Write an $O(n)$-time recursive procedure that, given an $n$-node binary tree, prints out the key of each node in the tree.</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">PRINT</span><span class="o">-</span><span class="n">BINARY</span><span class="o">-</span><span class="n">TREE</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">PRINT</span><span class="o">-</span><span class="n">BINARY</span><span class="o">-</span><span class="n">TREE</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">T</span><span class="p">.</span><span class="n">root</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">NIL</span>
         <span class="n">PRINT</span><span class="o">-</span><span class="n">BINARY</span><span class="o">-</span><span class="n">TREE</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">left</span><span class="p">)</span>
         <span class="n">print</span> <span class="n">x</span><span class="p">.</span><span class="n">key</span>
         <span class="n">PRINT</span><span class="o">-</span><span class="n">BINARY</span><span class="o">-</span><span class="n">TREE</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">right</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="104-3">10.4-3<a class="headerlink" href="#104-3" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Write an O$(n)$-time nonrecursive procedure that, given an $n$-node binary tree, prints out the key of each node in the tree. Use a stack as an auxiliary data structure.</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">PRINT</span><span class="o">-</span><span class="n">BINARY</span><span class="o">-</span><span class="n">TREE</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">PRINT</span><span class="o">-</span><span class="n">BINARY</span><span class="o">-</span><span class="n">TREE</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span>
     <span class="n">PUSH</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">T</span><span class="p">.</span><span class="n">root</span><span class="p">)</span>
     <span class="k">while</span> <span class="o">!</span><span class="n">STACK</span><span class="o">-</span><span class="n">EMPTY</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">S</span><span class="p">[</span><span class="n">S</span><span class="p">.</span><span class="n">top</span><span class="p">]</span>
@@ -4257,12 +4274,23 @@
             <span class="n">print</span> <span class="n">x</span><span class="p">.</span><span class="n">key</span>
             <span class="n">PUSH</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">x</span><span class="p">.</span><span class="n">right</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="104-4">10.4-4<a class="headerlink" href="#104-4" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Write an $O(n)$-time procedure that prints all the keys of an arbitrary rooted tree with $n$ nodes, where the tree is stored using the left-child, right-sibling representation.</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">PRINT</span><span class="o">-</span><span class="n">LCRS</span><span class="o">-</span><span class="n">TREE</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">PRINT</span><span class="o">-</span><span class="n">LCRS</span><span class="o">-</span><span class="n">TREE</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">T</span><span class="p">.</span><span class="n">root</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">NIL</span>
         <span class="n">print</span> <span class="n">x</span><span class="p">.</span><span class="n">key</span>
@@ -4274,12 +4302,30 @@
                 <span class="n">PRINT</span><span class="o">-</span><span class="n">LCRS</span><span class="o">-</span><span class="n">TREE</span><span class="p">(</span><span class="n">rs</span><span class="p">)</span>
                 <span class="n">rs</span> <span class="o">=</span> <span class="n">rs</span><span class="p">.</span><span class="n">right</span><span class="o">-</span><span class="n">sibling</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="104-5-star">10.4-5 $\star$<a class="headerlink" href="#104-5-star" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Write an $O(n)$-time nonrecursive procedure that, given an $n$-node binary tree, prints out the key of each node. Use no more than constant extra space outside of the tree itself and do not modify the tree, even temporarily, during the procedure.</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">PRINT</span><span class="o">-</span><span class="n">KEY</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">PRINT</span><span class="o">-</span><span class="n">KEY</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
     <span class="n">prev</span> <span class="o">=</span> <span class="n">NIL</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">T</span><span class="p">.</span><span class="n">root</span>
     <span class="k">while</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">NIL</span>
@@ -4298,6 +4344,7 @@
                 <span class="n">prev</span> <span class="o">=</span> <span class="n">x</span>
                 <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">parent</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="104-6-star">10.4-6 $\star$<a class="headerlink" href="#104-6-star" title="Permanent link">&para;</a></h2>
 <blockquote>

@@ -4104,7 +4104,14 @@
 \end{align}</p>
 <p><strong>b.</strong> Let $\text{UNBAL}(x)$ denote $x.left.h - x.right.h$. Then, the algorithm $\text{BALANCE}$ does what is desired. Note that because we are only rotating a single element at a time, the value of $\text{UNBAL}(x)$ can only change by at most $2$ in each step.</p>
 <p>Also, it must eventually start to change as the tree that was shorter becomes saturated with elements. We also fix any breaking of the AVL property that rotating may of caused by our recursive calls to the children.</p>
-<div class="highlight"><pre><span></span><span class="n">BALANCE</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">BALANCE</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="k">while</span> <span class="o">|</span><span class="n">UNBAL</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">|</span> <span class="o">&gt;</span> <span class="mi">1</span>
         <span class="k">if</span> <span class="n">UNBAL</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
             <span class="n">RIGHT</span><span class="o">-</span><span class="n">ROTATE</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
@@ -4113,10 +4120,32 @@
             <span class="n">BALANCE</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">left</span><span class="p">)</span>
             <span class="n">BALANCE</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">right</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p><strong>c.</strong> For the given algorithm $\text{AVL-INSERT}(x, z)$, it correctly maintains the fact that it is a BST by the way we search for the correct spot to insert $z$. Also, we can see that it maintains the property of being AVL, because after inserting the element, it checks all of the parents for the AVL property, since those are the only places it could of broken. It then fixes it and also updates the height attribute for any of the nodes for which it may of changed.</p>
 <p><strong>d.</strong> Both <strong>for</strong> loops only run for $O(h) = O(\lg(n))$ iterations. Also, only a single rotation will occur in the second while loop because when we do it, we will be decreasing the height of the subtree rooted there, which means that it's back down to what it was before, so all of it's ancestors will have unchanged heights, so, no further balancing will be required.</p>
-<div class="highlight"><pre><span></span><span class="n">AVL</span><span class="o">-</span><span class="n">INSERT</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">AVL</span><span class="o">-</span><span class="n">INSERT</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
     <span class="n">w</span> <span class="o">=</span> <span class="n">x</span>
     <span class="k">while</span> <span class="n">w</span> <span class="o">!=</span> <span class="n">NIL</span>
         <span class="n">y</span> <span class="o">=</span> <span class="n">w</span>
@@ -4139,6 +4168,7 @@
             <span class="n">LEFT</span><span class="o">-</span><span class="n">ROTATE</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
             <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">.</span><span class="n">p</span>   
 </pre></div>
+</td></tr></table>
                 
                   
                 

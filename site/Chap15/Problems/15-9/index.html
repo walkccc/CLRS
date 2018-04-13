@@ -4109,7 +4109,25 @@ cost[i, j] =
 \end{cases}
 $$</p>
 <p>Thus, our approach to solving the subproblem $(i, j)$ will be to try to split the respective substring at all possible values of $k$ and then choosing a break that results in the minimum cost. We need to be careful to solve smaller subproblems before we solve larger subproblems. In particular, we solve subproblems in increasing order of the length $j - 1$.</p>
-<div class="highlight"><pre><span></span><span class="n">BREAK</span><span class="o">-</span><span class="n">STRING</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">BREAK</span><span class="o">-</span><span class="n">STRING</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>
     <span class="n">prepend</span> <span class="mi">0</span> <span class="n">to</span> <span class="n">the</span> <span class="n">start</span> <span class="n">of</span> <span class="n">L</span> <span class="n">and</span> <span class="n">append</span> <span class="n">n</span> <span class="n">to</span> <span class="n">the</span> <span class="n">end</span> <span class="n">of</span> <span class="n">L</span>
     <span class="n">m</span> <span class="o">=</span> <span class="n">L</span><span class="p">.</span><span class="n">length</span>
     <span class="n">sort</span> <span class="n">L</span> <span class="n">into</span> <span class="n">increasing</span> <span class="n">order</span>
@@ -4129,6 +4147,7 @@ $$</p>
     <span class="n">print</span> <span class="s">&quot;The minimum cost of breaking the string is&quot;</span> <span class="n">cost</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="p">]</span>
     <span class="n">PRINT</span><span class="o">-</span><span class="n">BREAKS</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="k">break</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p>After sorting $L$, we initialize the base cases, in which $i = j$ or $j = i + 1$.</p>
 <p>The nested <strong>for</strong> loops represent the main computation. The outermost <strong>for</strong> loop runs for $len = 3$ to $m$, which means that we need to consider subarrays of $L$ with length at least $3$, since the first and the last element define the substring, and we need at least one more element to specify a break. The increasing values of $len$ also ensures that we solve subproblems with smaller length before we solve subproblems with greater length.</p>
@@ -4146,12 +4165,17 @@ $$</p>
     &amp; = \Theta(m^3).                                   &amp; \text{(equation (A.3))}
 \end{align}</p>
 <p>Since each iteration of the innermost <strong>for</strong> loop takes constant time, the total running time is $\Theta(m^3)$. Note in particular that the running time is independent of the length of the string $n$.</p>
-<div class="highlight"><pre><span></span><span class="n">PRINT</span><span class="o">-</span><span class="n">BREAKS</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="k">break</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">PRINT</span><span class="o">-</span><span class="n">BREAKS</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="k">break</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">j</span> <span class="o">-</span> <span class="n">i</span> <span class="err">≥</span> <span class="mi">2</span>
         <span class="n">print</span> <span class="s">&quot;Break at&quot;</span> <span class="n">L</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
         <span class="n">PRINT</span><span class="o">-</span><span class="n">BREAKS</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="k">break</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
         <span class="n">PRINT</span><span class="o">-</span><span class="n">BREAKS</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="k">break</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p>$\text{PRINT-BREAKS}$ uses the information stored in $break$ to print out the actual sequence of breaks.</p>
                 

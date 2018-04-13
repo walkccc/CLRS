@@ -4083,11 +4083,15 @@
                 
                 <blockquote>
 <p>We can build a heap by repeatedly calling $\text{MAX-HEAP-INSERT}$ to insert the elements into the heap. Consider the following variation of the $\text{BUILD-MAX-HEAP}$ procedure:</p>
-<div class="highlight"><pre><span></span><span class="n">BUILD</span><span class="o">-</span><span class="n">MAX</span><span class="o">-</span><span class="n">HEAP</span><span class="err">&#39;</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">BUILD</span><span class="o">-</span><span class="n">MAX</span><span class="o">-</span><span class="n">HEAP</span><span class="err">&#39;</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
     <span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">size</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span> <span class="n">to</span> <span class="n">A</span><span class="p">.</span><span class="n">length</span>
         <span class="n">MAX</span><span class="o">-</span><span class="n">HEAP</span><span class="o">-</span><span class="n">INSERT</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 </pre></div>
+</td></tr></table>
 
 <p><strong>a.</strong> Do the procedures $\text{BUILD-MAX-HEAP}$ and $\text{BUILD-MAX-HEAP}'$ always create the same heap when run on the same input array? Prove that they do, or provide a counterexample.</p>
 <p><strong>b.</strong> Show that in the worst case, $\text{BUILD-MAX-HEAP}'$ requires $\Theta(n\lg n)$ time to build a $n$-element heap.</p>

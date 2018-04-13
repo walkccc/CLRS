@@ -4211,7 +4211,14 @@ v_4.N &amp; = \langle v_2, v_3, t \rangle.
 <p>We would like to implement a push-relabel algorithm in which we maintain a firstin, first-out queue of overflowing vertices. The algorithm repeatedly discharges the vertex at the head of the queue, and any vertices that were not overflowing before the discharge but are overflowing afterward are placed at the end of the queue. After the vertex at the head of the queue is discharged, it is removed. When the queue is empty, the algorithm terminates. Show how to implement this algorithm to compute a maximum flow in $O(V^3)$ time.</p>
 </blockquote>
 <p>Initially, the vertices adjacent to $s$ are the only ones which are overflowing. The implementation is as follows:</p>
-<div class="highlight"><pre><span></span><span class="n">PUSH</span><span class="o">-</span><span class="n">RELABEL</span><span class="o">-</span><span class="n">QUEUE</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">PUSH</span><span class="o">-</span><span class="n">RELABEL</span><span class="o">-</span><span class="n">QUEUE</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
     <span class="n">INITIALIZE</span><span class="o">-</span><span class="n">PREFLOW</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
     <span class="n">Initialize</span> <span class="n">an</span> <span class="n">empty</span> <span class="n">queue</span> <span class="n">q</span>
     <span class="k">for</span> <span class="n">v</span> <span class="err">∈</span> <span class="n">G</span><span class="p">.</span><span class="n">Adj</span><span class="p">[</span><span class="n">s</span><span class="p">]</span>
@@ -4220,6 +4227,7 @@ v_4.N &amp; = \langle v_2, v_3, t \rangle.
         <span class="n">DISCHARGE</span><span class="p">(</span><span class="n">q</span><span class="p">.</span><span class="n">head</span><span class="p">)</span>
         <span class="n">q</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span>
 </pre></div>
+</td></tr></table>
 
 <p>Note that we need to modify the $\text{DISCHARGE}$ algorithm to push vertices $v$ onto the queue if $v$ was not overflowing before a discharge but is overflowing after one.</p>
 <p>Between lines 7 and 8 of $\text{DISCHARGE}(u)$, add the line ''if $v.e &gt; 0$, $q.push(v)$.'' This is an implementation of the generic push-relabel algorithm, so we know it is correct. The analysis of runtime is almost identical to that of Theorem 26.30. We just need to verify that there are at most $|V|$ calls to $\text{DISCHARGE}$ between two consecutive relabel operations. Observe that after calling $\text{PUSH}(u, v)$, Corollary 26.28 tells us that no admissible edges are entering $v$. Thus, once $v$ is put into the queue because of the push, it can't be added again until it has been relabeled. Thus, at most $|V|$ vertices are added to the queue between relabel operations.</p>

@@ -4116,7 +4116,31 @@ v[i, x] =
 \end{cases}
 $$</p>
 <p>This recurrence lends itself to implementation in a straightforward way. Let $p_{ij}$ denote the $j$th player who plays position $i$.</p>
-<div class="highlight"><pre><span></span><span class="n">FREE</span><span class="o">-</span><span class="n">AGENT</span><span class="o">-</span><span class="n">VROP</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">FREE</span><span class="o">-</span><span class="n">AGENT</span><span class="o">-</span><span class="n">VROP</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
     <span class="n">let</span> <span class="n">v</span><span class="p">[</span><span class="mf">1.</span><span class="p">.</span><span class="n">N</span><span class="p">][</span><span class="mf">0.</span><span class="p">.</span><span class="n">X</span><span class="p">]</span> <span class="n">and</span> <span class="n">who</span><span class="p">[</span><span class="mf">1.</span><span class="p">.</span><span class="n">N</span><span class="p">][</span><span class="mf">0.</span><span class="p">.</span><span class="n">X</span><span class="p">]</span> <span class="n">be</span> <span class="k">new</span> <span class="n">tables</span>
     <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">to</span> <span class="n">X</span>
         <span class="n">v</span><span class="p">[</span><span class="n">N</span><span class="p">,</span> <span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="err">∞</span>
@@ -4142,6 +4166,7 @@ $$</p>
             <span class="n">amt</span> <span class="o">=</span> <span class="n">amt</span> <span class="o">-</span> <span class="n">p_</span><span class="p">{</span><span class="n">ik</span><span class="p">}.</span><span class="n">cost</span>
     <span class="n">print</span> <span class="s">&quot;The total money spent is &quot;</span> <span class="n">X</span> <span class="o">-</span> <span class="n">amt</span>
 </pre></div>
+</td></tr></table>
 
 <p>The input to $\text{FREE-AGENT-VORP}$ is the list of players $p$ and $N$, $P$, and $X$, as given in the problem. The table $v[i, x]$ holds the maximum $\text{VORP}$ for the subproblem $(i, x)$. The table $who[i, x]$ holds information necessary to reconstruct the actual solution. Specifically, $who[i, x]$ holds the index of player to sign for position $i$, or $0$ if no player should be signed for position $i$. The first set of nested <strong>for</strong> loops initializes the base cases, in which $i = N$. For every amount $x$, the inner loop simply picks the player with the highest $\text{VORP}$ who plays position $N$ and whose cost is at most $x$.</p>
 <p>The next set of three nested <strong>for</strong> loops represents the main computation. The outermost <strong>for</strong> loop runs down from position $N - 1$ to $1$. This order ensures that smaller subproblems are solved before larger ones. We initialize $v[i, x]$ as $v[i + 1, x]$. This way, we already take care of the case in which we decide not to sign any player who plays position $i$. The innermost <strong>for</strong> loop tries to sign each player (if we have enough money) in turn, and it keeps track of the maximum $\text{VORP}$ possible.</p>

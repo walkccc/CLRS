@@ -4251,7 +4251,14 @@
 <li><strong>PRE:</strong> $x$ is a node on the B-tree $T$. The top level call is $\text{B-TREE-FIND-MIN}(T.root)$.</li>
 <li><strong>POST:</strong> $\text{FCTVAL}$ is the minimum key stored in the subtree rooted at $x$.</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="n">B</span><span class="o">-</span><span class="n">TREE</span><span class="o">-</span><span class="n">FIND</span><span class="o">-</span><span class="n">MIN</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">B</span><span class="o">-</span><span class="n">TREE</span><span class="o">-</span><span class="n">FIND</span><span class="o">-</span><span class="n">MIN</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">NIL</span>           <span class="c1">// T is empty</span>
         <span class="k">return</span> <span class="n">NIL</span>
     <span class="k">else</span> <span class="k">if</span> <span class="n">x</span><span class="p">.</span><span class="n">leaf</span>        <span class="c1">// x is leaf</span>
@@ -4260,6 +4267,7 @@
         <span class="n">DISK</span><span class="o">-</span><span class="n">READ</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">B</span><span class="o">-</span><span class="n">TREE</span><span class="o">-</span><span class="n">FIND</span><span class="o">-</span><span class="n">MIN</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
+</td></tr></table>
 
 <p>Finding the predecessor of a given key $x.key_i$ is according to the following rules:</p>
 <ol>
@@ -4274,7 +4282,27 @@ at $x.c_i$.</li>
 </li>
 <li><strong>POST:</strong> $\text{FCTVAL}$ is the predecessor of $x.key_i$.</li>
 </ol>
-<div class="highlight"><pre><span></span><span class="n">B</span><span class="o">-</span><span class="n">TREE</span><span class="o">-</span><span class="n">FIND</span><span class="o">-</span><span class="n">PREDECESSOR</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">B</span><span class="o">-</span><span class="n">TREE</span><span class="o">-</span><span class="n">FIND</span><span class="o">-</span><span class="n">PREDECESSOR</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
     <span class="k">if</span> <span class="o">!</span><span class="n">x</span><span class="p">.</span><span class="n">leaf</span>
         <span class="n">DISK</span><span class="o">-</span><span class="n">READ</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">B</span><span class="o">-</span><span class="n">TREE</span><span class="o">-</span><span class="n">FIND</span><span class="o">-</span><span class="n">MAX</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
@@ -4296,12 +4324,20 @@ at $x.c_i$.</li>
               <span class="k">else</span>
                   <span class="k">return</span> <span class="n">y</span><span class="p">.</span><span class="n">key</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
 </pre></div>
+</td></tr></table>
 
 <ul>
 <li><strong>PRE:</strong> $x$ is a node on the B-tree $T$. The top level call is $\text{B-TREE-FIND-MAX}(T.root)$.</li>
 <li><strong>POST:</strong> $\text{FCTVAL}$ is the maximum key stored in the subtree rooted at $x$.</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="n">B</span><span class="o">-</span><span class="n">TREE</span><span class="o">-</span><span class="n">FIND</span><span class="o">-</span><span class="n">MAX</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">B</span><span class="o">-</span><span class="n">TREE</span><span class="o">-</span><span class="n">FIND</span><span class="o">-</span><span class="n">MAX</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">NIL</span>           <span class="c1">// T is empty</span>
         <span class="k">return</span> <span class="n">NIL</span>
     <span class="k">else</span> <span class="k">if</span> <span class="n">x</span><span class="p">.</span><span class="n">leaf</span>        <span class="c1">// x is leaf</span>
@@ -4310,6 +4346,7 @@ at $x.c_i$.</li>
         <span class="n">DISK</span><span class="o">-</span><span class="n">READ</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">c</span><span class="p">[</span><span class="n">x</span><span class="p">.</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">B</span><span class="o">-</span><span class="n">TREE</span><span class="o">-</span><span class="n">FIND</span><span class="o">-</span><span class="n">MIN</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">c</span><span class="p">[</span><span class="n">x</span><span class="p">.</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="182-4-star">18.2-4 $\star$<a class="headerlink" href="#182-4-star" title="Permanent link">&para;</a></h2>
 <blockquote>

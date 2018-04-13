@@ -4084,7 +4084,13 @@
                 <blockquote>
 <p>In this problem, we give pseudocode for three different algorithms. Each one takes a connected graph and a weight function as input and returns a set of edges $T$. For each algorithm, either prove that $T$ is a minimum spanning tree or prove that $T$ is not a minimum spanning tree. Also describe the most efficient implementation of each algorithm, whether or not it computes a minimum spanning tree.</p>
 <p><strong>a.</strong> </p>
-<div class="highlight"><pre><span></span><span class="n">MAYBE</span><span class="o">-</span><span class="n">MST</span><span class="o">-</span><span class="n">A</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">MAYBE</span><span class="o">-</span><span class="n">MST</span><span class="o">-</span><span class="n">A</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
     <span class="n">sort</span> <span class="n">the</span> <span class="n">edges</span> <span class="n">into</span> <span class="n">nonincreasing</span> <span class="n">order</span> <span class="n">of</span> <span class="n">edge</span> <span class="n">weights</span> <span class="n">w</span>
     <span class="n">T</span> <span class="o">=</span> <span class="n">E</span>
     <span class="k">for</span> <span class="n">each</span> <span class="n">edge</span> <span class="n">e</span><span class="p">,</span> <span class="n">taken</span> <span class="n">in</span> <span class="n">nonincreasing</span> <span class="n">order</span> <span class="n">by</span> <span class="n">weight</span>
@@ -4092,18 +4098,32 @@
             <span class="n">T</span> <span class="o">=</span> <span class="n">T</span> <span class="o">-</span> <span class="p">{</span><span class="n">e</span><span class="p">}</span>
     <span class="k">return</span> <span class="n">T</span>
 </pre></div>
+</td></tr></table>
 
 <p><strong>b.</strong> </p>
-<div class="highlight"><pre><span></span><span class="n">MAYBE</span><span class="o">-</span><span class="n">MST</span><span class="o">-</span><span class="n">B</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">MAYBE</span><span class="o">-</span><span class="n">MST</span><span class="o">-</span><span class="n">B</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
     <span class="n">T</span> <span class="o">=</span> <span class="n">emptyset</span>
     <span class="k">for</span> <span class="n">each</span> <span class="n">edge</span> <span class="n">e</span><span class="p">,</span> <span class="n">taken</span> <span class="n">in</span> <span class="n">arbitrary</span> <span class="n">order</span>
         <span class="k">if</span> <span class="n">T</span> <span class="err">∪</span> <span class="p">{</span><span class="n">e</span><span class="p">}</span> <span class="n">has</span> <span class="n">no</span> <span class="n">cycles</span>
             <span class="n">T</span> <span class="o">=</span> <span class="n">T</span> <span class="err">∪</span> <span class="p">{</span><span class="n">e</span><span class="p">}</span>
     <span class="k">return</span> <span class="n">T</span>
 </pre></div>
+</td></tr></table>
 
 <p><strong>c.</strong> </p>
-<div class="highlight"><pre><span></span><span class="n">MAYBE</span><span class="o">-</span><span class="n">MST</span><span class="o">-</span><span class="n">C</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">MAYBE</span><span class="o">-</span><span class="n">MST</span><span class="o">-</span><span class="n">C</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
     <span class="n">T</span> <span class="o">=</span> <span class="n">emptyset</span>
     <span class="k">for</span> <span class="n">each</span> <span class="n">edge</span> <span class="n">e</span><span class="p">,</span> <span class="n">taken</span> <span class="n">in</span> <span class="n">arbitrary</span> <span class="n">order</span>
         <span class="n">T</span> <span class="o">=</span> <span class="n">T</span> <span class="err">∪</span> <span class="p">{</span><span class="n">e</span><span class="p">}</span>
@@ -4112,6 +4132,7 @@
             <span class="n">T</span> <span class="o">=</span> <span class="n">T</span> <span class="o">-</span> <span class="p">{</span><span class="n">e</span><span class="p">}</span>
     <span class="k">return</span> <span class="n">T</span>
 </pre></div>
+</td></tr></table>
 
 </blockquote>
 <p><strong>a.</strong> This does return an $\text{MST}$. To see this, we'll show that we never remove an edge which must be part of a minimum spanning tree. If we remove $e$, then $e$ cannot be a bridge, which means that e lies on a simple cycle of the graph. Since we remove edges in nonincreasing order, the weight of every edge on the cycle must be less than or equal to that of $e$. By exercise 23.1-5, there is a minimum spanning tree on $G$ with edge $e$ removed.</p>

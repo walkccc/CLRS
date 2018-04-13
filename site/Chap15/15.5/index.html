@@ -4199,7 +4199,17 @@
 \end{align}</p>
 <p>corresponding to the optimal binary search tree shown in Figure 15.9(b).</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">CONSTRUCT</span><span class="o">-</span><span class="n">OPTIMAL</span><span class="o">-</span><span class="n">BST</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">last</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">CONSTRUCT</span><span class="o">-</span><span class="n">OPTIMAL</span><span class="o">-</span><span class="n">BST</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">last</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span>
         <span class="k">return</span>
     <span class="k">if</span> <span class="n">last</span> <span class="o">==</span> <span class="mi">0</span>
@@ -4211,6 +4221,7 @@
     <span class="n">CONSTRUCT</span><span class="o">-</span><span class="n">OPTIMAL</span><span class="o">-</span><span class="n">BST</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">root</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">root</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
     <span class="n">CONSTRUCT</span><span class="o">-</span><span class="n">OPTIMAL</span><span class="o">-</span><span class="n">BST</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">root</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">root</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="155-2">15.5-2<a class="headerlink" href="#155-2" title="Permanent link">&para;</a></h2>
 <blockquote>
@@ -4232,8 +4243,9 @@ q_i &amp; 0.06 &amp; 0.06 &amp; 0.06 &amp; 0.06 &amp; 0.05 &amp; 0.05 &amp; 0.05
 <p>Knuth [212] has shown that there are always roots of optimal subtrees such that $root[i, j - 1] \le root[i, j] \le root[i + 1, j]$ for all $1 \le i &lt; j \le n$. Use this fact to modify the $\text{OPTIMAL-BST}$ procedure to run in $\Theta(n^2)$ time.</p>
 </blockquote>
 <p>Change the <strong>for</strong> loop of line 10 in $\text{OPTIMAL-BST}$ to</p>
-<div class="highlight"><pre><span></span>    <span class="k">for</span> <span class="n">r</span> <span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="n">to</span> <span class="n">r</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="k">for</span> <span class="n">r</span> <span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="n">to</span> <span class="n">r</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
 </pre></div>
+</td></tr></table>
 
 <p>Knuth's result implies that it is sufficient to only check these values because optimal root found in this range is in fact the optimal root of some binary search tree. The time spent within the <strong>for</strong> loop of line 6 is now $\Theta(n)$. This is because the bounds on $r$ in the new <strong>for</strong> loop of line 10 are nonoverlapping.</p>
 <p>To see this, suppose we have fixed $l$ and $i$. On one iteration of the <strong>for</strong> loop of line 6, the upper bound on $r$ is</p>

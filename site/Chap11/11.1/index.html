@@ -4186,17 +4186,25 @@
 <p>Suppose that a dynamic set $S$ is represented by a direct-address table $T$ of length $m$. Describe a procedure that finds the maximum element of $S$. What is the worst-case performance of your procedure?</p>
 </blockquote>
 <p>As the dynamic set $S$ is represented by the direct-address table $T$, for each key $k$ in $S$, there is a slot $k$ in $T$ points to it. If no element with key $k$ in $S$, then $T[k] = \text{NIL}$. Using this property, we can find the maximum element of $S$ by traversing down from the highest slot to seek the first non-$\text{NIL}$ one.</p>
-<div class="highlight"><pre><span></span><span class="n">MAXIMUM</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">MAXIMUM</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">TABLE</span><span class="o">-</span><span class="n">MAXIMUM</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">TABLE</span><span class="o">-</span><span class="n">MAXIMUM</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">TABLE</span><span class="o">-</span><span class="n">MAXIMUM</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">l</span> <span class="o">&lt;</span> <span class="mi">0</span>
         <span class="k">return</span> <span class="n">NIL</span>
     <span class="k">else</span> <span class="k">if</span> <span class="n">DIRECT</span><span class="o">-</span><span class="n">ADDRESS</span><span class="o">-</span><span class="n">SEARCH</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span> <span class="o">!=</span> <span class="n">NIL</span>
         <span class="k">return</span> <span class="n">l</span>
     <span class="k">else</span> <span class="k">return</span> <span class="n">TABLE</span><span class="o">-</span><span class="n">MAXIMUM</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">l</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p>The $\text{TABLE-MAXIMUM}$ procedure gest down and checks $1$ sloc at a time, linearly approaches the solution. In the worst case where $S$ is empty, $\text{TABLE-MAXIMUM}$ examines $m$ slots. Therefore, the worst-case performance of $\text{MAXIMUM}$ is $O(n)$, where $n$ is the number of elements in the set $S$.</p>
 <h2 id="111-2">11.1-2<a class="headerlink" href="#111-2" title="Permanent link">&para;</a></h2>
@@ -4205,19 +4213,27 @@
 </blockquote>
 <p>Using the bit vector data structure, we can represent keys less than $m$ by a string of $m$ bits, denoted by $V[0..m - 1]$, in which each position that occupied by the bit $1$, corresponds to a key in the set $S$. If the set contains no element with key $k$, then $V[k] = 0$. For instance, we can store the set ${2, 4, 6, 10, 16}$ in a bit vector of length $20$:</p>
 <p>001010100010000010000</p>
-<div class="highlight"><pre><span></span><span class="n">BITMAP</span><span class="o">-</span><span class="n">SEARCH</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">BITMAP</span><span class="o">-</span><span class="n">SEARCH</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">V</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span>
         <span class="k">return</span> <span class="n">k</span>
     <span class="k">else</span> <span class="k">return</span> <span class="n">NIL</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">BITMAP</span><span class="o">-</span><span class="n">INSERT</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">BITMAP</span><span class="o">-</span><span class="n">INSERT</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="n">V</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">BITMAP</span><span class="o">-</span><span class="n">DELETE</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">BITMAP</span><span class="o">-</span><span class="n">DELETE</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="n">V</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 </pre></div>
+</td></tr></table>
 
 <p>Each of these operations takes only $O(1)$ time.</p>
 <h2 id="111-3">11.1-3<a class="headerlink" href="#111-3" title="Permanent link">&para;</a></h2>

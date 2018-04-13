@@ -4099,7 +4099,22 @@ b[j - 1, j] &amp; = \min_{1\le k &lt; j - 1} {b[k, j - 1] + |p_k p_j|}.
 <p>We need to compute $b[n, n]$. In an optimal bitonic tour, one of the points adjacent to $p_n$ must be $p_{n - 1}$, and so we have</p>
 <p>$$b[n, n] = b[n - 1, n] + |p_{n - 1} p_n|.$$</p>
 <p>To reconstruct the points on the shortest bitonic tour, we define $r[i, j]$ to be the index of the immediate predecessor of $p_j$ on the shortest bitonic path $P_{i, j}$. Because the immediate predecessor of $p_2$ on $P_{1, 2}$ is $p_1$, we know that $r[1, 2]$ must be $1$. The pseudocode below shows how we compute $b[i, j]$ and $r[i, j]$. It fills in only entries $b[i, j]$ where $1 \le i \le n - 1$ and $i + 1 \le j \le n$, or where $i = j = n$, and only entries $r[i, j]$ where $1 \le i \le n - 2$ and $i + 2 \le j \le n$.</p>
-<div class="highlight"><pre><span></span><span class="n">EUCLIDEAN</span><span class="o">-</span><span class="n">TSP</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">EUCLIDEAN</span><span class="o">-</span><span class="n">TSP</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
     <span class="n">sort</span> <span class="n">the</span> <span class="n">points</span> <span class="n">so</span> <span class="n">that</span> <span class="err">⟨</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">,...,</span> <span class="n">pn</span><span class="err">⟩</span> <span class="n">are</span> <span class="n">in</span> <span class="n">order</span> <span class="n">of</span> <span class="n">increasing</span> <span class="n">x</span><span class="o">-</span><span class="n">coordinate</span>
     <span class="n">let</span> <span class="n">b</span><span class="p">[</span><span class="mf">1.</span><span class="p">.</span><span class="n">n</span><span class="p">,</span> <span class="mf">2.</span><span class="p">.</span><span class="n">n</span><span class="p">]</span> <span class="n">and</span> <span class="n">r</span><span class="p">[</span><span class="mf">1.</span><span class="p">.</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">3.</span><span class="p">.</span><span class="n">n</span><span class="p">]</span> <span class="n">be</span> <span class="k">new</span> <span class="n">arrays</span>
     <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="o">|</span><span class="n">p1p2</span><span class="o">|</span>
@@ -4116,17 +4131,34 @@ b[j - 1, j] &amp; = \min_{1\le k &lt; j - 1} {b[k, j - 1] + |p_k p_j|}.
     <span class="n">b</span><span class="p">[</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="o">|</span><span class="n">p</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="n">pn</span><span class="o">|</span>
     <span class="k">return</span> <span class="n">b</span> <span class="n">and</span> <span class="n">r</span>
 </pre></div>
+</td></tr></table>
 
 <p>We print out the tour we found by starting at $p_n$, then a leftgoing subpath that includes $p_{n - 1}$, from right to left, until we hit $p_1$. Then we print right-to-left the remaining subpath, which does not include $p_{n - 1}$. For the example in Figure 15.11(b) on page 405, we wish to print the sequence $p_7, p_6, p_4, p_3, p_1, p_2, p_5$. Our code is recursive. The right-to-left subpath is printed as we go deeper into the recursion, and the left-to-right subpath is printed as we back out.</p>
-<div class="highlight"><pre><span></span><span class="n">PRINT</span><span class="o">-</span><span class="n">TOUR</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">PRINT</span><span class="o">-</span><span class="n">TOUR</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
     <span class="n">print</span> <span class="n">pn</span>
     <span class="n">print</span> <span class="n">p</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">k</span> <span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">]</span>
     <span class="n">PRINT</span><span class="o">-</span><span class="n">PATH</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">print</span> <span class="n">pk</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">PRINT</span><span class="o">-</span><span class="n">PATH</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">PRINT</span><span class="o">-</span><span class="n">PATH</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">j</span>
         <span class="n">k</span> <span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="n">i</span>
@@ -4138,6 +4170,7 @@ b[j - 1, j] &amp; = \min_{1\le k &lt; j - 1} {b[k, j - 1] + |p_k p_j|}.
             <span class="n">PRINT</span><span class="o">-</span><span class="n">PATH</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
             <span class="n">print</span> <span class="n">pk</span>
 </pre></div>
+</td></tr></table>
 
 <p>The relative values of the parameters $i$ and $j$ in each call of $\text{PRINT-PATH}$ indicate which subpath we're working on. If $i &lt; j$, we're on the right-to-left subpath, and if $i &gt; j$, we're on the left-to-right subpath. The test for $k \ne i$ prevents us from printing $p_1$ an extra time, which could occur when we call $\text{PRINT-PATH}(r, 1, 2)$.</p>
 <p>The time to run $\text{EUCLIDEAN-TSP}$ is $O(n^2)$ since the outer loop on $j$ iterates $n - 2$ times and the inner loops on $i$ and $k$ each run at most $n - 2$ times. The sorting step at the beginning takes $O(n\lg n)$ time, which the loop times dominate. The time to run $\text{PRINT-TOUR}$ is $O(n)$, since each point is printed just once.</p>

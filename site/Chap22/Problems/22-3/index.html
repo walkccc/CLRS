@@ -4101,7 +4101,16 @@
 </ol>
 <p>Initially, $L$ contains one vertex, which may be any vertex of $G$.</p>
 <p>Here is the algorithm.</p>
-<div class="highlight"><pre><span></span><span class="n">EULER</span><span class="o">-</span><span class="n">TOUR</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">EULER</span><span class="o">-</span><span class="n">TOUR</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
     <span class="n">T</span> <span class="o">=</span> <span class="n">empty</span> <span class="n">list</span>
     <span class="n">L</span> <span class="o">=</span> <span class="p">(</span><span class="n">any</span> <span class="n">vertex</span> <span class="n">v</span> <span class="err">∈</span> <span class="n">G</span><span class="p">.</span><span class="n">V</span><span class="p">,</span> <span class="n">NIL</span><span class="p">)</span>
     <span class="k">while</span> <span class="n">L</span> <span class="n">is</span> <span class="n">not</span> <span class="n">empty</span>
@@ -4112,8 +4121,19 @@
         <span class="k">else</span> <span class="n">splice</span> <span class="n">C</span> <span class="n">into</span> <span class="n">T</span> <span class="n">just</span> <span class="n">before</span> <span class="n">location</span> <span class="o">-</span> <span class="n">in</span><span class="o">-</span><span class="n">T</span>
     <span class="k">return</span> <span class="n">T</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">VISIT</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">VISIT</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
     <span class="n">C</span> <span class="o">=</span> <span class="n">empty</span> <span class="n">sequence</span> <span class="n">of</span> <span class="n">vertices</span>
     <span class="n">u</span> <span class="o">=</span> <span class="n">v</span>
     <span class="k">while</span> <span class="n">out</span><span class="o">-</span><span class="n">degree</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
@@ -4125,6 +4145,7 @@
         <span class="n">u</span> <span class="o">=</span> <span class="n">w</span>
     <span class="k">return</span> <span class="n">C</span>
 </pre></div>
+</td></tr></table>
 
 <p>The use of $\text{NIL}$ in the initial assignment to $L$ ensures that the first cycle $C$ returned by $\text{VISIT}$ becomes the current version of the Euler tour $T$. All cycles returned by $\text{VISIT}$ thereafter are spliced into $T$. We assume that whenever an empty cycle is returned by $\text{VISIT}$, splicing it into $T$ leaves $T$ unchanged.</p>
 <p>Each time that $\text{EULER-TOUR}$ removes a vertex $v$ from the list $L$, it calls $\text{VISIT}(G, L, v)$ to find a cycle $C$, possibly empty and possibly not simple, that starts and ends at $v$; the cycle $C$ is represented by a list that starts with $v$ and ends with the last vertex on the cycle before the cycle ends at $v$. $\text{EULER-TOUR}$ then splices this cycle $C$ into the Euler tour $T$ just before some appearance of $v$ in $T$.</p>

@@ -4244,10 +4244,13 @@
 <ul>
 <li>
 <p>$\text{INSERT}$: can be implemented in constant time by prepending it to the list.</p>
-<div class="highlight"><pre><span></span><span class="n">LIST</span><span class="o">-</span><span class="n">INSERT</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">LIST</span><span class="o">-</span><span class="n">INSERT</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="n">x</span><span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">L</span><span class="p">.</span><span class="n">head</span>
     <span class="n">L</span><span class="p">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">x</span>
 </pre></div>
+</td></tr></table>
 
 </li>
 <li>
@@ -4258,27 +4261,37 @@
 <blockquote>
 <p>Implement a stack using a singly linked list $L$. The operations $\text{PUSH}$ and $\text{POP}$ should still take $O(1)$ time.</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">STACK</span><span class="o">-</span><span class="n">EMPTY</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">STACK</span><span class="o">-</span><span class="n">EMPTY</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">L</span><span class="p">.</span><span class="n">head</span> <span class="o">==</span> <span class="n">NIL</span>
         <span class="k">return</span> <span class="n">TRUE</span>
     <span class="k">else</span> <span class="k">return</span> <span class="n">FALSE</span>
 </pre></div>
+</td></tr></table>
 
 <ul>
 <li>
 <p>$\text{PUSH}$: adds an element in the beginning of the list.</p>
-<div class="highlight"><pre><span></span><span class="n">PUSH</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">PUSH</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="n">LIST</span><span class="o">-</span><span class="n">INSERT</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 </li>
 <li>
 <p>$\text{POP}$: removes the first element from the list.</p>
-<div class="highlight"><pre><span></span><span class="n">POP</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">POP</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">L</span><span class="p">.</span><span class="n">head</span>
     <span class="n">LIST</span><span class="o">-</span><span class="n">DELETE</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">L</span><span class="p">.</span><span class="n">head</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">x</span>
 </pre></div>
+</td></tr></table>
 
 </li>
 </ul>
@@ -4286,27 +4299,46 @@
 <blockquote>
 <p>Implement a queue by a singly linked list $L$. The operations $\text{ENQUEUE}$ and $\text{DEQUEUE}$ should still take $O(1)$ time.</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">QUEUE</span><span class="o">-</span><span class="n">EMPTY</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">QUEUE</span><span class="o">-</span><span class="n">EMPTY</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">L</span><span class="p">.</span><span class="n">head</span> <span class="o">==</span> <span class="n">NIL</span>
         <span class="k">return</span> <span class="n">TRUE</span>
     <span class="k">else</span> <span class="k">return</span> <span class="n">FALSE</span>
 </pre></div>
+</td></tr></table>
 
 <ul>
 <li>
 <p>$\text{ENQUEUE}$: inserts an element in the beginning of the list.</p>
-<div class="highlight"><pre><span></span><span class="n">ENQUEUE</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">ENQUEUE</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">QUEUE</span><span class="o">-</span><span class="n">EMPTY</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
         <span class="n">Q</span><span class="p">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">x</span>
     <span class="k">else</span> <span class="n">Q</span><span class="p">.</span><span class="n">tail</span><span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">x</span>
     <span class="n">Q</span><span class="p">.</span><span class="n">tail</span> <span class="o">=</span> <span class="n">x</span>
     <span class="n">x</span><span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">NIL</span>
 </pre></div>
+</td></tr></table>
 
 </li>
 <li>
 <p>$\text{DEQUEUE}$: removes an element from the end of the list. In this case we need to keep track of the last element of the list. We can do that with a sentinel.</p>
-<div class="highlight"><pre><span></span><span class="n">DEQUEUE</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">DEQUEUE</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">QUEUE</span><span class="o">-</span><span class="n">EMPTY</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
         <span class="n">error</span> <span class="s">&quot;underflow&quot;</span>
     <span class="k">else</span>
@@ -4317,6 +4349,7 @@
         <span class="n">LIST</span><span class="o">-</span><span class="n">DELETE</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">L</span><span class="p">.</span><span class="n">head</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">x</span>
 </pre></div>
+</td></tr></table>
 
 </li>
 </ul>
@@ -4324,13 +4357,19 @@
 <blockquote>
 <p>As written, each loop iteration in the $\text{LIST-SEARCH}'$ procedure requires two tests: one for $x \ne L.nil$ and one for $x.key \ne k$. Show how to eliminate the test for $x \ne L.nil$ in each iteration.</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">LIST</span><span class="o">-</span><span class="n">SEARCH</span><span class="err">&#39;</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">LIST</span><span class="o">-</span><span class="n">SEARCH</span><span class="err">&#39;</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">L</span><span class="p">.</span><span class="n">nil</span><span class="p">.</span><span class="n">next</span>
     <span class="n">L</span><span class="p">.</span><span class="n">nil</span><span class="p">.</span><span class="n">key</span> <span class="o">=</span> <span class="n">k</span>
     <span class="k">while</span> <span class="n">x</span><span class="p">.</span><span class="n">key</span> <span class="o">!=</span> <span class="n">k</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">next</span>
     <span class="k">return</span> <span class="n">x</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="102-5">10.2-5<a class="headerlink" href="#102-5" title="Permanent link">&para;</a></h2>
 <blockquote>
@@ -4339,15 +4378,24 @@
 <ul>
 <li>
 <p>$\text{INSERT}$: $O(n)$.</p>
-<div class="highlight"><pre><span></span><span class="n">LIST</span><span class="o">-</span><span class="n">INSERT</span><span class="err">&#39;&#39;</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">LIST</span><span class="o">-</span><span class="n">INSERT</span><span class="err">&#39;&#39;</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="n">x</span><span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">L</span><span class="p">.</span><span class="n">nil</span><span class="p">.</span><span class="n">next</span>
     <span class="n">L</span><span class="p">.</span><span class="n">nil</span><span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">x</span>
 </pre></div>
+</td></tr></table>
 
 </li>
 <li>
 <p>$\text{DELETE}$: $O(n)$.</p>
-<div class="highlight"><pre><span></span><span class="n">LIST</span><span class="o">-</span><span class="n">DELETE</span><span class="err">&#39;&#39;</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">LIST</span><span class="o">-</span><span class="n">DELETE</span><span class="err">&#39;&#39;</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="n">prev</span> <span class="o">=</span> <span class="n">L</span><span class="p">.</span><span class="n">nil</span>
     <span class="k">while</span> <span class="n">prev</span><span class="p">.</span><span class="n">next</span><span class="p">.</span><span class="n">key</span> <span class="o">!=</span> <span class="n">x</span>
         <span class="k">if</span> <span class="n">prev</span><span class="p">.</span><span class="n">next</span> <span class="o">==</span> <span class="n">L</span><span class="p">.</span><span class="n">nil</span>
@@ -4355,17 +4403,24 @@
         <span class="n">prev</span> <span class="o">=</span> <span class="n">prev</span><span class="p">.</span><span class="n">next</span>
     <span class="n">prev</span><span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">next</span>
 </pre></div>
+</td></tr></table>
 
 </li>
 <li>
 <p>$\text{SEARCH}$: $O(n)$.</p>
-<div class="highlight"><pre><span></span><span class="n">LIST</span><span class="o">-</span><span class="n">SEARCH</span><span class="err">&#39;&#39;</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">LIST</span><span class="o">-</span><span class="n">SEARCH</span><span class="err">&#39;&#39;</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="n">L</span><span class="p">.</span><span class="n">nil</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">L</span><span class="p">.</span><span class="n">nil</span><span class="p">.</span><span class="n">next</span>
     <span class="k">while</span> <span class="n">x</span><span class="p">.</span><span class="n">key</span> <span class="o">!=</span> <span class="n">k</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">next</span>
     <span class="k">return</span> <span class="n">x</span>
 </pre></div>
+</td></tr></table>
 
 </li>
 </ul>
@@ -4374,18 +4429,38 @@
 <p>The dynamic-set operation $\text{UNION}$ takes two disjoint sets $S_1$ and $S_2$ as input, and it returns a set $S = S_1 \cup S_2$ consisting of all the elements of $S_1$ and $S_2$. The sets $S_1$ and $S_2$ are usually destroyed by the operation. Show how to support $\text{UNION}$ in $O(1)$ time using a suitable list data structure.</p>
 </blockquote>
 <p>If both sets are a doubly linked lists, we just point link the last element of the first list to the first element in the second. If the implementation uses sentinels, we need to destroy one of them.</p>
-<div class="highlight"><pre><span></span><span class="n">LIST</span><span class="o">-</span><span class="n">UNION</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">LIST</span><span class="o">-</span><span class="n">UNION</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">)</span>
     <span class="n">L2</span><span class="p">.</span><span class="n">nil</span><span class="p">.</span><span class="n">next</span><span class="p">.</span><span class="n">prev</span> <span class="o">=</span> <span class="n">L1</span><span class="p">.</span><span class="n">nil</span><span class="p">.</span><span class="n">prev</span>
     <span class="n">L1</span><span class="p">.</span><span class="n">nil</span><span class="p">.</span><span class="n">prev</span><span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">L2</span><span class="p">.</span><span class="n">nil</span><span class="p">.</span><span class="n">next</span>
     <span class="n">L2</span><span class="p">.</span><span class="n">nil</span><span class="p">.</span><span class="n">prev</span><span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">L1</span><span class="p">.</span><span class="n">nil</span>
     <span class="n">L1</span><span class="p">.</span><span class="n">nil</span><span class="p">.</span><span class="n">prev</span> <span class="o">=</span> <span class="n">L2</span><span class="p">.</span><span class="n">nil</span><span class="p">.</span><span class="n">prev</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="102-7">10.2-7<a class="headerlink" href="#102-7" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Give a $\Theta(n)$-time nonrecursive procedure that reverses a singly linked list of $n$ elements. The procedure should use no more than constant storage beyond that needed for the list itself.</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">LIST</span><span class="o">-</span><span class="n">REVERSE</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">LIST</span><span class="o">-</span><span class="n">REVERSE</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">L</span><span class="p">.</span><span class="n">head</span> <span class="o">==</span> <span class="n">NIL</span>
         <span class="n">error</span> <span class="s">&quot;empty list&quot;</span>
     <span class="k">else</span> <span class="k">if</span> <span class="n">L</span><span class="p">.</span><span class="n">head</span><span class="p">.</span><span class="n">next</span> <span class="o">==</span> <span class="n">NIL</span>
@@ -4402,6 +4477,7 @@
             <span class="n">p2</span> <span class="o">=</span> <span class="n">p3</span>
         <span class="n">L</span><span class="p">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">p1</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="102-8-star">10.2-8 $\star$<a class="headerlink" href="#102-8-star" title="Permanent link">&para;</a></h2>
 <blockquote>

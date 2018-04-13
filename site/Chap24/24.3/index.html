@@ -4334,8 +4334,9 @@ z &amp; s &amp; z &amp; s &amp; \text{NIL}
 <h2 id="243-3">24.3-3<a class="headerlink" href="#243-3" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Suppose we change line 4 of Dijkstra's algorithm to the following. </p>
-<div class="highlight"><pre><span></span> <span class="mi">4</span>  <span class="k">while</span> <span class="o">|</span><span class="n">Q</span><span class="o">|</span> <span class="o">&gt;</span> <span class="mi">1</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="mi">4</span>  <span class="k">while</span> <span class="o">|</span><span class="n">Q</span><span class="o">|</span> <span class="o">&gt;</span> <span class="mi">1</span>
 </pre></div>
+</td></tr></table>
 
 <p>This change causes the <strong>while</strong> loop to execute $|V| - 1$ times instead of $|V|$ times. Is this proposed algorithm correct?</p>
 </blockquote>
@@ -4371,11 +4372,15 @@ z &amp; s &amp; z &amp; s &amp; \text{NIL}
 <li>$1$ (identity for $\cdot$) for $0$ (identity for $+$) and $-\infty$ (identity for min) for $\infty$ (identity for max).</li>
 </ul>
 <p>For example, we would use the following instead of the usual $\text{RELAX}$ procedure:</p>
-<div class="highlight"><pre><span></span><span class="n">RELAX</span><span class="o">-</span><span class="n">RELIABILITY</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">RELAX</span><span class="o">-</span><span class="n">RELIABILITY</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">v</span><span class="p">.</span><span class="n">d</span> <span class="o">&lt;</span> <span class="n">u</span><span class="p">.</span><span class="n">d</span><span class="err">．</span><span class="n">r</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
         <span class="n">v</span><span class="p">.</span><span class="n">d</span> <span class="o">=</span> <span class="n">u</span><span class="p">.</span><span class="n">d</span><span class="err">．</span><span class="n">r</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
         <span class="n">v</span><span class="p">.</span><span class="n">PI</span> <span class="o">=</span> <span class="n">u</span>
 </pre></div>
+</td></tr></table>
 
 <p>This algorithm is isomorphic to the one above: it performs the same operations except that it is working with the original probabilities instead of the transformed ones.</p>
 <h2 id="243-7">24.3-7<a class="headerlink" href="#243-7" title="Permanent link">&para;</a></h2>

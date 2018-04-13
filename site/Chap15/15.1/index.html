@@ -4220,7 +4220,15 @@ p_i / i            &amp;  1 &amp; 10 &amp; 11 &amp;  1
 <blockquote>
 <p>Consider a modification of the rod-cutting problem in which, in addition to a price $p_i$ for each rod, each cut incurs a fixed cost of $c$. The revenue associated with a solution is now the sum of the prices of the pieces minus the costs of making the cuts. Give a dynamic-programming algorithm to solve this modified problem.</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">MODIFIED</span><span class="o">-</span><span class="n">CUT</span><span class="o">-</span><span class="n">ROD</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">MODIFIED</span><span class="o">-</span><span class="n">CUT</span><span class="o">-</span><span class="n">ROD</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
     <span class="n">let</span> <span class="n">r</span><span class="p">[</span><span class="mf">0.</span><span class="p">.</span><span class="n">n</span><span class="p">]</span> <span class="n">be</span> <span class="n">a</span> <span class="k">new</span> <span class="n">array</span>
     <span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">n</span>
@@ -4230,13 +4238,23 @@ p_i / i            &amp;  1 &amp; 10 &amp; 11 &amp;  1
         <span class="n">r</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">q</span>
     <span class="k">return</span> <span class="n">r</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
 </pre></div>
+</td></tr></table>
 
 <p>The major modification required is in the body of the inner <strong>for</strong> loop, which now reads $q = \max(q, p[i] + r[j - i] - c)$. This change reﬂects the fixed cost of making the cut, which is deducted from the revenue. We also have to handle the case in which we make no cuts (when $i$ equals $j$); the total revenue in this case is simply $p[j]$. Thus, we modify the inner <strong>for</strong> loop to run from $i$ to $j - 1$ instead of to $j$. The assignment $q = p[j]$ takes care of the case of no cuts. If we did not make these modifications, then even in the case of no cuts, we would be deducting $c$ from the total revenue.</p>
 <h2 id="151-4">15.1-4<a class="headerlink" href="#151-4" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Modify $\text{MEMOIZED-CUT-ROD}$ to return not only the value but the actual solution, too.</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">MEMOIZED</span><span class="o">-</span><span class="n">CUT</span><span class="o">-</span><span class="n">ROD</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">MEMOIZED</span><span class="o">-</span><span class="n">CUT</span><span class="o">-</span><span class="n">ROD</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
     <span class="n">let</span> <span class="n">r</span><span class="p">[</span><span class="mf">0.</span><span class="p">.</span><span class="n">n</span><span class="p">]</span> <span class="n">and</span> <span class="n">s</span><span class="p">[</span><span class="mf">0.</span><span class="p">.</span><span class="n">n</span><span class="p">]</span> <span class="n">be</span> <span class="k">new</span> <span class="n">arrays</span>
     <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">to</span> <span class="n">n</span>
         <span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="err">∞</span>
@@ -4247,8 +4265,21 @@ p_i / i            &amp;  1 &amp; 10 &amp; 11 &amp;  1
         <span class="n">print</span> <span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
         <span class="n">j</span> <span class="o">=</span> <span class="n">j</span> <span class="o">-</span> <span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">MEMOIZED</span><span class="o">-</span><span class="n">CUT</span><span class="o">-</span><span class="n">ROD</span><span class="o">-</span><span class="n">AUX</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">MEMOIZED</span><span class="o">-</span><span class="n">CUT</span><span class="o">-</span><span class="n">ROD</span><span class="o">-</span><span class="n">AUX</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">r</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="err">≥</span> <span class="mi">0</span>
         <span class="k">return</span> <span class="n">r</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span>
@@ -4262,19 +4293,26 @@ p_i / i            &amp;  1 &amp; 10 &amp; 11 &amp;  1
     <span class="n">r</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">q</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p>$\text{PRINT-CUT-ROD-SOLUTION}$ constructs the actual lengths where a cut should happen. Array entry $s[i]$ contains the value $j$ indicating that an optimal cut for a rod of length $i$ is $j$ inches. The next cut is given by $s[i - j]$, and so on.</p>
 <h2 id="151-5">15.1-5<a class="headerlink" href="#151-5" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>The Fibonacci numbers are defined by recurrence $\text{(3.22)}$. Give an $O(n)$-time dynamic-programming algorithm to compute the nth Fibonacci number. Draw the subproblem graph. How many vertices and edges are in the graph?</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">FIBONACCI</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">FIBONACCI</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
     <span class="n">let</span> <span class="n">fib</span><span class="p">[</span><span class="mf">0.</span><span class="p">.</span><span class="n">n</span><span class="p">]</span> <span class="n">be</span> <span class="n">a</span> <span class="k">new</span> <span class="n">array</span>
     <span class="n">fib</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">fib</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span> <span class="n">to</span> <span class="n">n</span>
         <span class="n">fib</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">fib</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">fib</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">fib</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
 </pre></div>
+</td></tr></table>
 
 <p>$\text{FIBONACCI}$ directly implements the recurrence relation of the Fibonacci sequence. Each number in the sequence is the sum of the two previous numbers in the sequence. The running time is clearly $O(n)$.</p>
 <p>The subproblem graph consists of $n + 1$ vertices, $v_0, v_1, \ldots, v_n$. For $i = 2, 3, \ldots, n$, vertex $v_i$ has two leaving edges: to vertex $v_{i - 1}$ and to vertex $v_{i - 2}$. No edges leave vertices $v_0$ or $v_1$. Thus, the subproblem graph has $2n - 2$ edges.</p>

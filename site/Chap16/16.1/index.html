@@ -4203,7 +4203,25 @@
 <p>The tricky part is determining which activities are in the set $S_{ij}$. If activity $k$ is in $S_{ij}$, then we must have $i &lt; k &lt; j$, which means that $j - 1 \ge 2$, but we must also have that $f_i \le s_k$ and $f_k \le s_j$. If we start $k$ at $j - 1$ and decrement $k$, we can stop once $k$ reaches $i$, but we can also stop once we find that $f_k \le f_i$, since then activities $i + 1$ through $k$ cannot be compatible with activity $i$.</p>
 <p>We create two fictitious activities, $a_0$ with $f_0 = 0$ and $a_{n + 1}$ with $s_{n + 1} = \infty$. We are interested in a maximum-size set $A_{0, n + 1}$ of mutually compatible activities in $S_{0, n + 1}$. We'll use tables $c[0..n + 1, 0..n + 1]$, as in recurrence $\text{(16.2)}$ (so that $c[i, j] = |A_{ij}|$), and $act[0..n + 1, 0..n + 1]$, where $act[i, j]$ is the activity $k$ that we choose to put into $A_{ij}$.</p>
 <p>We fill the tables in according to increasing difference $j - 1$, which we denote by $l$ in the pseudocode. Since $S_{ij} = \emptyset$; if $j - i &lt; 2$, we initialize $c[i, i] = 0$ for all $i$ and $c[i, i + 1] = 0$ for $0 \le i \le n$. As in $\text{RECURSIVE-ACTIVITY-SELECTOR}$ and $\text{GREEDY-ACTIVITY-SELECTOR}$, the start and finish times are given as arrays $s$ and $f$, where we assume that the arrays already include the two fictitious activities and that the activities are sorted by monotonically increasing finish time.</p>
-<div class="highlight"><pre><span></span><span class="n">DYNAMIC</span><span class="o">-</span><span class="n">ACTIVITY</span><span class="o">-</span><span class="n">SELECTOR</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">DYNAMIC</span><span class="o">-</span><span class="n">ACTIVITY</span><span class="o">-</span><span class="n">SELECTOR</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
     <span class="n">let</span> <span class="n">c</span><span class="p">[</span><span class="mf">0.</span><span class="p">.</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.</span><span class="p">.</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="n">and</span> <span class="n">act</span><span class="p">[</span><span class="mf">0.</span><span class="p">.</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.</span><span class="p">.</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="n">be</span> <span class="k">new</span> <span class="n">tables</span>
     <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">to</span> <span class="n">n</span>
         <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
@@ -4223,14 +4241,21 @@
     <span class="n">print</span> <span class="s">&quot;The set contains&quot;</span>
     <span class="n">PRINT</span><span class="o">-</span><span class="n">ACTIVITIES</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">act</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">PRINT</span><span class="o">-</span><span class="n">ACTIVITIES</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">act</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">PRINT</span><span class="o">-</span><span class="n">ACTIVITIES</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">act</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span>
         <span class="n">k</span> <span class="o">=</span> <span class="n">act</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
         <span class="n">print</span> <span class="n">k</span>
         <span class="n">PRINT</span><span class="o">-</span><span class="n">ACTIVITIES</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">act</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
         <span class="n">PRINT</span><span class="o">-</span><span class="n">ACTIVITIES</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">act</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p>The $\text{PRINT-ACTIVITIES}$ procedure recursively prints the set of activities placed into the optimal solution $A_{ij}$. It first prints the activity $k$ that achieved the maximum value of $c[i, j]$, and then it recurses to print the activities in $A_{ik}$ and $A_{kj}$. The recursion bottoms out when $c[i, j] = 0$, so that $A_{ij} = \emptyset$.</p>
 <p>Whereas $\text{GREEDY-ACTIVITY-SELECTOR}$ runs in $\Theta(n)$ time, the $\text{DYNAMIC-ACTIVITY-SELECTOR}$ procedure runs in $O(n^3)$ time.</p>
@@ -4309,7 +4334,25 @@ $$</p>
 <p>While implementing the recurrence, the tricky part is determining which activities are in the set $S_{ij}$ . If activity $k$ is in $S_{ij}$ , then we must have $i &lt; k &lt; j$, which means that $j - i \ge 2$, but we must also have that $f_i \le s_k$ and $f_k \le s_j$. If we start $k$ at $j - 1$ and decrement $k$, we can stop once $k$ reaches $i$, but we can also stop once we find that $f_k \le f_i$, since then activities $i + 1$ through $k$ cannot be compatible with activity $i$.</p>
 <p>We create two fictitious activities, $a_0$ with $f_0 = 0$ and $a_{n + 1}$ with $s_{n + 1} = \infty$. We are interested in a maximum-size set $A_{0, n + 1}$ of mutually compatible activities in $S_{0, n + 1}$. We'll use tables $val[0..n + 1, 0..n + 1]$, as in the recurrence, and $act[0..n + 1, 0..n + 1]$, where $act[i, j]$ is the activity $k$ that we choose to put into $A_{ij}$ .</p>
 <p>We fill the tables in according to increasing difference $j - i$, which we denote by $l$ in the pseudocode. Since $S_{ij} = \emptyset$ if $j - i &lt; 2$, we initialize $val[i, i] = 0$ for all $i$ and $val[i, i + 1] = 0$ for $0\le i\le n$. As in $\text{RECURSIVE-ACTIVITY-SELECTOR}$ and $\text{GREEDY-ACTIVITY-SELECTOR}$, the start and finish times are given as arrays $s$ and $f$, where we assume that the arrays already include the two fictitious activities and that the activities are sorted by monotonically increasing finish time. The array $v$ specifies the value of each activity.</p>
-<div class="highlight"><pre><span></span><span class="n">MAX</span><span class="o">-</span><span class="n">VALUE</span><span class="o">-</span><span class="n">ACTIVITY</span><span class="o">-</span><span class="n">SELECTOR</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">MAX</span><span class="o">-</span><span class="n">VALUE</span><span class="o">-</span><span class="n">ACTIVITY</span><span class="o">-</span><span class="n">SELECTOR</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
     <span class="n">let</span> <span class="n">val</span><span class="p">[</span><span class="mf">0.</span><span class="p">.</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.</span><span class="p">.</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="n">and</span> <span class="n">act</span><span class="p">[</span><span class="mf">0.</span><span class="p">.</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.</span><span class="p">.</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="n">be</span> <span class="k">new</span> <span class="n">tables</span>
     <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">to</span> <span class="n">n</span>
         <span class="n">val</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
@@ -4329,14 +4372,21 @@ $$</p>
     <span class="n">print</span> <span class="s">&quot;The set contains&quot;</span>
     <span class="n">PRINT</span><span class="o">-</span><span class="n">ACTIVITIES</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">act</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">PRINT</span><span class="o">-</span><span class="n">ACTIVITIES</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">act</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">PRINT</span><span class="o">-</span><span class="n">ACTIVITIES</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">act</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">val</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span>
         <span class="n">k</span> <span class="o">=</span> <span class="n">act</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
         <span class="n">print</span> <span class="n">k</span>
         <span class="n">PRINT</span><span class="o">-</span><span class="n">ACTIVITIES</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">act</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
         <span class="n">PRINT</span><span class="o">-</span><span class="n">ACTIVITIES</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">act</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p>The $\text{PRINT-ACTIVITIES}$ procedure recursively prints the set of activities placed into the optimal solution $A_{ij}$ . It first prints the activity $k$ that achieved the maximum value of $val[i, j]$, and then it recurses to print the activities in $A_{ik}$ and $A_{kj}$. The recursion bottoms out when $val[i, j] = 0$, so that $A_{ij} = \emptyset$.</p>
 <p>Whereas $\text{GREEDY-ACTIVITY-SELECTOR}$ runs in $\Theta(n)$ time, the $\text{MAX-VALUE-ACTIVITY-SELECTOR}$ procedure runs in $O(n^3)$ time.</p>

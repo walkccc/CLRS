@@ -4289,7 +4289,13 @@ T(n) &amp; \ge T(\lceil n / 3 \rceil) + T(2n / 3 - 1) + \Theta(n) \\
 </blockquote>
 <p>A modification to quicksort that allows it to run in $O(n\lg n)$ time in the worst case uses the deterministic $\text{PARTITION}$ algorithm that was modified to take an element to partition around as an input parameter.</p>
 <p>$\text{SELECT}$ takes an array $A$, the bounds $p$ and $r$ of the subarray in $A$, and the rank $i$ of an order statistic, and in time linear in the size of the subarray $A[p..r]$ it returns the ith smallest element in $A[p..r]$.</p>
-<div class="highlight"><pre><span></span><span class="n">BEST</span><span class="o">-</span><span class="n">CASE</span><span class="o">-</span><span class="n">QUICKSORT</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">BEST</span><span class="o">-</span><span class="n">CASE</span><span class="o">-</span><span class="n">QUICKSORT</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="n">r</span>
         <span class="n">i</span> <span class="o">=</span> <span class="n">floor</span><span class="p">((</span><span class="n">r</span> <span class="o">-</span> <span class="n">p</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">SELECT</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
@@ -4297,6 +4303,7 @@ T(n) &amp; \ge T(\lceil n / 3 \rceil) + T(2n / 3 - 1) + \Theta(n) \\
         <span class="n">BEST</span><span class="o">-</span><span class="n">CASE</span><span class="o">-</span><span class="n">QUICKSORT</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
         <span class="n">BEST</span><span class="o">-</span><span class="n">CASE</span><span class="o">-</span><span class="n">QUICKSORT</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">q</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p>For an $n$-element array, the largest subarray that $\text{BEST-CASE-QUICKSORT}$ recurses on has $n / 2$ elements. This situation occurs when $n = r - p + 1$ is even; then the subarray $A[q + 1..r]$ has $n / 2$ elements, and the subarray $A[p..q - 1]$ has $n / 2 - 1$ elements.</p>
 <p>Because $\text{BEST-CASE-QUICKSORT}$ always recurses on subarrays that are at most half the size of the original array, the recurrence for the worst-case running time is $T(n) \le 2T(n / 2) + \Theta(n) = O(n\lg n)$.</p>
@@ -4311,7 +4318,17 @@ T(n) &amp; \ge T(\lceil n / 3 \rceil) + T(2n / 3 - 1) + \Theta(n) \\
 </blockquote>
 <p>We assume that are given a procedure $\text{MEDIAN}$ that takes as parameters an array $A$ and subarray indices $p$ and $r$, and returns the value of the median element of $A[p..r]$ in $O(n)$ time in the worst case.</p>
 <p>Given $\text{MEDIAN}$, here is a linear-time algorithm $\text{SELECT}'$ for finding the $i$th smallest element in $A[p..r]$. This algorithm uses the deterministic $\text{PARTITION}$ algorithm that was modified to take an element to partition around as an input parameter.</p>
-<div class="highlight"><pre><span></span><span class="n">SELECT</span><span class="err">&#39;</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">SELECT</span><span class="err">&#39;</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">p</span> <span class="o">==</span> <span class="n">r</span>
         <span class="k">return</span> <span class="n">A</span><span class="p">[</span><span class="n">p</span><span class="p">]</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">MEDIAN</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
@@ -4323,6 +4340,7 @@ T(n) &amp; \ge T(\lceil n / 3 \rceil) + T(2n / 3 - 1) + \Theta(n) \\
         <span class="k">return</span> <span class="n">SELECT</span><span class="err">&#39;</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
     <span class="k">else</span> <span class="k">return</span> <span class="n">SELECT</span><span class="err">&#39;</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">q</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="n">k</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p>Because $x$ is the median of $A[p..r]$, each of the subarrays $A[p..q - 1]$ and $A[q + 1..r]$ has at most half the number of elements of $A[p..r]$. The recurrence for the worst-case running time of $\text{SELECT}'$ is $T(n) \le T(n / 2) + O(n) = O(n)$.</p>
 <h2 id="93-6">9.3-6<a class="headerlink" href="#93-6" title="Permanent link">&para;</a></h2>
@@ -4330,7 +4348,16 @@ T(n) &amp; \ge T(\lceil n / 3 \rceil) + T(2n / 3 - 1) + \Theta(n) \\
 <p>The $k$th <strong><em>quantiles</em></strong> of an $n$-element set are the $k - 1$ order statistics that divide the sorted set into $k$ equal-sized sets (to within $1$). Give an $O(n\lg k)$-time algorithm to list the $k$th quantiles of a set.</p>
 </blockquote>
 <p>Pre-calculate the positions of the quantiles in $O(k)$, we use the $O(n)$ select algorithm to find the $\lfloor k / 2 \rfloor$th position, after that the elements are divided into two sets by the pivot the $\lfloor k / 2 \rfloor$th position, we do it recursively in the two sets to find other positions. Since the maximum depth is $\lceil \lg k \rceil$, the total running time is $O(n\lg k)$.</p>
-<div class="highlight"><pre><span></span><span class="n">PARTITION</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">PARTITION</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">r</span><span class="p">]</span>
     <span class="n">i</span> <span class="o">=</span> <span class="n">p</span>
     <span class="k">for</span> <span class="n">k</span> <span class="o">=</span> <span class="n">p</span> <span class="n">to</span> <span class="n">r</span>
@@ -4341,14 +4368,31 @@ T(n) &amp; \ge T(\lceil n / 3 \rceil) + T(2n / 3 - 1) + \Theta(n) \\
     <span class="n">swap</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="n">r</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">i</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">RANDOMIZED</span><span class="o">-</span><span class="n">PARTITION</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">RANDOMIZED</span><span class="o">-</span><span class="n">PARTITION</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
     <span class="n">swap</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="n">r</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">PARTITION</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">RANDOMIZED</span><span class="o">-</span><span class="n">SELECT</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">RANDOMIZED</span><span class="o">-</span><span class="n">SELECT</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
     <span class="k">while</span> <span class="n">TRUE</span>
         <span class="k">if</span> <span class="n">p</span> <span class="o">==</span> <span class="n">r</span>
             <span class="k">return</span> <span class="n">p</span><span class="p">,</span> <span class="n">A</span><span class="p">[</span><span class="n">p</span><span class="p">]</span>
@@ -4362,8 +4406,18 @@ T(n) &amp; \ge T(\lceil n / 3 \rceil) + T(2n / 3 - 1) + \Theta(n) \\
             <span class="n">p</span> <span class="o">=</span> <span class="n">q</span> <span class="o">+</span> <span class="mi">1</span>
             <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="n">k</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">k</span><span class="o">-</span><span class="n">QUANTITLES</span><span class="o">-</span><span class="n">SUB</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">quantiles</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">k</span><span class="o">-</span><span class="n">QUANTITLES</span><span class="o">-</span><span class="n">SUB</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">quantiles</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">f</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&gt;</span> <span class="n">e</span>
         <span class="k">return</span>
     <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span> <span class="o">+</span> <span class="n">e</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
@@ -4374,8 +4428,19 @@ T(n) &amp; \ge T(\lceil n / 3 \rceil) + T(2n / 3 - 1) + \Theta(n) \\
         <span class="n">pos</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pos</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">k</span>
     <span class="n">k</span><span class="o">-</span><span class="n">QUANTILES</span><span class="o">-</span><span class="n">SUB</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">q</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">quantiles</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">k</span><span class="o">-</span><span class="n">QUANTITLES</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">k</span><span class="o">-</span><span class="n">QUANTITLES</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
     <span class="n">num</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">/</span> <span class="n">k</span>
     <span class="n">mod</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">%</span> <span class="n">k</span>
     <span class="n">pos</span> <span class="o">=</span> <span class="n">num</span><span class="p">[</span><span class="mf">1.</span><span class="p">.</span><span class="n">k</span><span class="p">]</span>
@@ -4387,6 +4452,7 @@ T(n) &amp; \ge T(\lceil n / 3 \rceil) + T(2n / 3 - 1) + \Theta(n) \\
     <span class="n">k</span><span class="o">-</span><span class="n">QUANTITLES</span><span class="o">-</span><span class="n">SUB</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">A</span><span class="p">.</span><span class="n">length</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">pos</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span> <span class="n">quantiles</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">quantiles</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="93-7">9.3-7<a class="headerlink" href="#93-7" title="Permanent link">&para;</a></h2>
 <blockquote>
@@ -4402,15 +4468,31 @@ T(n) &amp; \ge T(\lceil n / 3 \rceil) + T(2n / 3 - 1) + \Theta(n) \\
 <p>Now, if the median is in $X$ but is not in $X[k]$, then the above condition will not hold. If the median is in $X[k']$ , where $k' &lt; k$, then $X[k]$ is above the median, and $Y[n - k + 1] &lt; X[k]$. Conversely, if the median is in $X[k'']$, where $k'' &gt; k$, then $X[k]$ is below the median, and $X[k] &lt; Y[n - k]$.</p>
 <p>Thus, we can use a binary search to determine whether there is an $X[k]$ such that either $k &lt; n$ and $X[n - k] \le Y[k] \le X[n - k + 1]$ or $k = n$ and $X[k] \le Y[n - k + 1]$; if we find such an $X[k]$, then it is the median. Otherwise, we know that the median is in $Y$, and we use a binary search to find a $Y[k]$ such that either $k &lt; n$ and $X[n - k] \le Y[k] \le X[n - k + 1]$ or $k = n$ is the median. Since each binary search takes $O(\lg n)$ time, we spend a total of $O(\lg n)$ time.</p>
 <p>Here's how we write the algorithm in pseudocode:</p>
-<div class="highlight"><pre><span></span><span class="n">TWO</span><span class="o">-</span><span class="n">ARRAY</span><span class="o">-</span><span class="n">MEDIAN</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">TWO</span><span class="o">-</span><span class="n">ARRAY</span><span class="o">-</span><span class="n">MEDIAN</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">X</span><span class="p">.</span><span class="n">length</span>        <span class="c1">// n also equals Y.length</span>
     <span class="n">median</span> <span class="o">=</span> <span class="n">FIND</span><span class="o">-</span><span class="n">MEDIAN</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">median</span> <span class="o">==</span> <span class="n">NOT</span><span class="o">-</span><span class="n">FOUND</span>
         <span class="n">median</span> <span class="o">=</span> <span class="n">FIND</span><span class="o">-</span><span class="n">MEDIAN</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">median</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">FIND</span><span class="o">-</span><span class="n">MEDIAN</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">hign</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">FIND</span><span class="o">-</span><span class="n">MEDIAN</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">hign</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">low</span> <span class="o">&gt;</span> <span class="n">high</span>
         <span class="k">return</span> <span class="n">NOT</span><span class="o">-</span><span class="n">FOUND</span>
     <span class="k">else</span> <span class="n">k</span> <span class="o">=</span> <span class="n">floor</span><span class="p">((</span><span class="n">low</span> <span class="o">+</span> <span class="n">high</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
@@ -4422,6 +4504,7 @@ T(n) &amp; \ge T(\lceil n / 3 \rceil) + T(2n / 3 - 1) + \Theta(n) \\
             <span class="k">return</span> <span class="n">FIND</span><span class="o">-</span><span class="n">MEDIAN</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
         <span class="k">else</span> <span class="k">return</span> <span class="n">FIND</span><span class="o">-</span><span class="n">MEDIAN</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="93-9">9.3-9<a class="headerlink" href="#93-9" title="Permanent link">&para;</a></h2>
 <blockquote>

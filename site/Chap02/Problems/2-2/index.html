@@ -4083,12 +4083,17 @@
                 
                 <blockquote>
 <p>Bubblesort is a popular, but inefficient, sorting algorithm. It works by repeatedly swapping adjacent elements that are out of order.</p>
-<div class="highlight"><pre><span></span><span class="n">BUBBLESORT</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">BUBBLESORT</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">A</span><span class="p">.</span><span class="n">length</span> <span class="o">-</span> <span class="mi">1</span> 
         <span class="k">for</span> <span class="n">j</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">length</span> <span class="n">downto</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> 
             <span class="k">if</span> <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">A</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
                 <span class="n">exchange</span> <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="n">with</span> <span class="n">A</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
 </pre></div>
+</td></tr></table>
 
 <p><strong>a.</strong> Let $A'$ denote the output of $\text{BUBBLESORT}(A)$ To prove that $\text{BUBBLESORT}$ is correct, we need to prove that it terminates and that</p>
 <p>$$A'[1] \le A'[2] \le \cdots \le A'[n], \tag{2.3}$$</p>

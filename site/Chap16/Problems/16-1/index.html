@@ -4137,7 +4137,15 @@
 1 + \min\limits_{1 \le i \le k} {c[j - d_i]} &amp; \text{if $j &gt; 1$}.
 \end{cases}</p>
 <p>We can compute the $c[j]$ values in order of increasing $j$ by using a table. The following procedure does so, producing a table $c[1..n]$. It avoids even examining $c[j]$ for $j \le 0$ by ensuring that $j \ge d_i$ before looking up $c[j - d_i]$. The procedure also produces a table $denom[1..n]$, where $denom[j]$ is the denomination of a coin used in an optimal solution to the problem of making change for $j$ cents.</p>
-<div class="highlight"><pre><span></span><span class="n">COMPUTE</span><span class="o">-</span><span class="n">CHANGE</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">COMPUTE</span><span class="o">-</span><span class="n">CHANGE</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
     <span class="n">let</span> <span class="n">c</span><span class="p">[</span><span class="mf">1.</span><span class="p">.</span><span class="n">n</span><span class="p">]</span> <span class="n">and</span> <span class="n">denom</span><span class="p">[</span><span class="mf">1.</span><span class="p">.</span><span class="n">n</span><span class="p">]</span> <span class="n">be</span> <span class="k">new</span> <span class="n">arrays</span>
     <span class="k">for</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">n</span>
         <span class="n">c</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="err">∞</span>
@@ -4147,14 +4155,19 @@
                 <span class="n">denom</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">di</span>
     <span class="k">return</span> <span class="n">c</span> <span class="n">and</span> <span class="n">denom</span>
 </pre></div>
+</td></tr></table>
 
 <p>This procedure obviously runs in $O(nk)$ time.</p>
 <p>We use the following procedure to output the coins used in the optimal solution computed by $\text{COMPUTE-CHANGE}$:</p>
-<div class="highlight"><pre><span></span><span class="n">GIVE</span><span class="o">-</span><span class="n">CHANGE</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">denom</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">GIVE</span><span class="o">-</span><span class="n">CHANGE</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">denom</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">j</span> <span class="o">&gt;</span> <span class="mi">0</span>
         <span class="n">give</span> <span class="n">one</span> <span class="n">coin</span> <span class="n">of</span> <span class="n">denomination</span> <span class="n">denom</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
         <span class="n">GIVE</span><span class="o">-</span><span class="n">CHANGE</span><span class="p">(</span><span class="n">j</span> <span class="o">-</span> <span class="n">denom</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">denom</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p>The initial call is $\text{GIVE-CHANGE}(n, denom)$. Since the value of the first parameter decreases in each recursive call, this procedure runs in $O(n)$ time.</p>
                 

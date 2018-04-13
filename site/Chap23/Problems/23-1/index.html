@@ -4099,7 +4099,22 @@
 <p><strong>c.</strong> We can fill in $max[u, v]$ for all $u, v \in V$ in $O(V^2)$ time by simply doing a search from each vertex $u$, having restricted the edges visited to those of the spanning tree $T$. It doesn't matter what kind of search we do: breadth-first, depth-first, or any other kind.</p>
 <p>We'll give pseudocode for both breadth-first and depth-first approaches. Each approach differs from the pseudocode given in Chapter 22 in that we don't need to compute $d$ or $f$ values, and we'll use the $max$ table itself to record whether a vertex has been visited in a given search. In particular, $max[u, v] = \text{NIL}$ if and only if $u = v$ or we have not yet visited vertex $v$ in a search from vertex $u$. Note also that since we're visiting via edges in a spanning tree of an undirected graph, we are guaranteed that the search from each vertex $u$—whether breadth-first or depth-first—will visit all vertices. There will be no need to ''restart'' the search as is done in the $\text{DFS}$ procedure of Section 22.3. Our pseudocode assumes that the adjacency list of each vertex consists only of edges in the spanning tree $T$.</p>
 <p>Here's the breadth-first search approach:</p>
-<div class="highlight"><pre><span></span><span class="n">BFS</span><span class="o">-</span><span class="n">FILL</span><span class="o">-</span><span class="n">MAX</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">BFS</span><span class="o">-</span><span class="n">FILL</span><span class="o">-</span><span class="n">MAX</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
     <span class="n">let</span> <span class="n">max</span> <span class="n">be</span> <span class="n">a</span> <span class="k">new</span> <span class="n">table</span> <span class="n">with</span> <span class="n">an</span> <span class="n">entry</span> <span class="n">max</span><span class="p">[</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">]</span> <span class="k">for</span> <span class="n">each</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="err">∈</span> <span class="n">G</span><span class="p">.</span><span class="n">V</span>
     <span class="k">for</span> <span class="n">each</span> <span class="n">vertex</span> <span class="n">u</span> <span class="err">∈</span> <span class="n">G</span><span class="p">.</span><span class="n">V</span>
         <span class="k">for</span> <span class="n">each</span> <span class="n">vertex</span> <span class="n">v</span> <span class="err">∈</span> <span class="n">G</span><span class="p">.</span><span class="n">V</span>
@@ -4116,9 +4131,16 @@
                     <span class="n">ENQUEUE</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">max</span>
 </pre></div>
+</td></tr></table>
 
 <p>Here's the depth-first search approach:</p>
-<div class="highlight"><pre><span></span><span class="n">DFS</span><span class="o">-</span><span class="n">FILL</span><span class="o">-</span><span class="n">MAX</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">DFS</span><span class="o">-</span><span class="n">FILL</span><span class="o">-</span><span class="n">MAX</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
     <span class="n">let</span> <span class="n">max</span> <span class="n">be</span> <span class="n">a</span> <span class="k">new</span> <span class="n">table</span> <span class="n">with</span> <span class="n">an</span> <span class="n">entry</span> <span class="n">max</span><span class="p">[</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">]</span> <span class="k">for</span> <span class="n">each</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="err">∈</span> <span class="n">G</span><span class="p">.</span><span class="n">V</span> 
     <span class="k">for</span> <span class="n">each</span> <span class="n">vertex</span> <span class="n">u</span> <span class="err">∈</span> <span class="n">G</span><span class="p">.</span><span class="n">V</span>
         <span class="k">for</span> <span class="n">each</span> <span class="n">vertex</span> <span class="n">v</span> <span class="err">∈</span> <span class="n">G</span><span class="p">.</span><span class="n">V</span>
@@ -4126,8 +4148,15 @@
         <span class="n">DFS</span><span class="o">-</span><span class="n">FILL</span><span class="o">-</span><span class="n">MAX</span><span class="o">-</span><span class="n">VISIT</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">max</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">max</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">DFS</span><span class="o">-</span><span class="n">FILL</span><span class="o">-</span><span class="n">MAX</span><span class="o">-</span><span class="n">VISIT</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">max</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">DFS</span><span class="o">-</span><span class="n">FILL</span><span class="o">-</span><span class="n">MAX</span><span class="o">-</span><span class="n">VISIT</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">max</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">each</span> <span class="n">vertex</span> <span class="n">v</span> <span class="err">∈</span> <span class="n">G</span><span class="p">.</span><span class="n">Adj</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">max</span><span class="p">[</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">]</span> <span class="o">==</span> <span class="n">NIL</span> <span class="n">and</span> <span class="n">v</span> <span class="o">!=</span> <span class="n">u</span>
             <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">u</span> <span class="n">or</span> <span class="n">w</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">max</span><span class="p">[</span><span class="n">u</span><span class="p">,</span> <span class="n">x</span><span class="p">]</span>
@@ -4135,6 +4164,7 @@
             <span class="k">else</span> <span class="n">max</span><span class="p">[</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">[</span><span class="n">u</span><span class="p">,</span> <span class="n">x</span><span class="p">]</span>
             <span class="n">DFS</span><span class="o">-</span><span class="n">FILL</span><span class="o">-</span><span class="n">MAX</span><span class="o">-</span><span class="n">VISIT</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">max</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p>For either approach, we are filling in $|V|$ rows of the $max$ table. Since the number of edges in the spanning tree is $|V| - 1$, each row takes $O(V)$ time to fill in. Thus, the total time to fill in the $max$ table is $O(V^2)$.</p>
 <p><strong>d.</strong> In part (b), we established that we can find a second-best minimum spanning tree by replacing just one edge of the minimum spanning tree $T$ by some edge $(u, v)$ not in $T$. As we know, if we create spanning tree $T'$ by replacing edge $(x, y) \in T$ by edge $(u, v) \ne T$, then $w(T') = w(T) - w(x, y) + w(u, v)$. For a given edge $(u, v)$, the edge $(x, y) \in T$ that minimizes $w(T')$ is the edge of maximum weight on the unique path between $u$ and $v$ in $T$. If we have already computed the $max$ table from part (c) based on $T$, then the identity of this edge is precisely what is stored in $max[u, v]$. All we have to do is determine an edge $(u, v) \ne T$ for which $w(max[u, v]) - w(u, v)$ is minimum.</p>

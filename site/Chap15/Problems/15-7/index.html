@@ -4088,7 +4088,15 @@
 <p><strong>b.</strong> Extend your answer to part (a) so that if a path is returned, it is a <em>most probable path</em> starting at $v_0$ and having label $s$. Analyze the running time of your algorithm.</p>
 </blockquote>
 <p><strong>a.</strong> Our substructure will consist of trying to find suffixes of s of length one less starting at all the edges leaving $v_0$ with label $\sigma_0$. if any of them have a solution, then, there is a solution. If none do, then there is none. See the algorithm $\text{VITERBI}$ for details.</p>
-<div class="highlight"><pre><span></span><span class="n">VITERBI</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">VITERBI</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
     <span class="k">if</span> <span class="n">s</span><span class="p">.</span><span class="n">length</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">return</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">edges</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="n">in</span> <span class="n">V</span> <span class="k">for</span> <span class="n">some</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -4098,11 +4106,22 @@
                 <span class="k">return</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">res</span>
     <span class="k">return</span> <span class="n">NO</span><span class="o">-</span><span class="n">SUCH</span><span class="o">-</span><span class="n">PATH</span>
 </pre></div>
+</td></tr></table>
 
 <p>Since the subproblems are indexed by a suffix of $s$ (of which there are only $k$) and a vertex in the graph, there are at most $O(k|V|)$ different possible arguments. Since each run may require testing a edge going to every other vertex, and each iteration of the <strong>for</strong> loop takes at most a constant amount of time other than the call to $\text{PROB-VITERBI}$, the final runtime is $O(k|V|^2)$.</p>
 <p><strong>b.</strong> For this modification, we will need to try all the possible edges leaving from $v_0$ instead of stopping as soon as we find one that works. The substructure is very similar. We'll make it so that instead of just returning the sequence, we'll have the algorithm also return the probability of that maximum probability sequence, calling the fields seq and prob respectively. See the algorithm $\text{PROB-VITERBI}$.</p>
 <p>Since the runtime is indexed by the same things, we have that we will call it with at most $O(k|V|)$ different possible arguments. Since each run may require testing a edge going to every other vertex, and each iteration of the <strong>for</strong> loop takes at most a constant amount of time other than the call to $\text{PROB-VITERBI}$, the final runtime is $O(k|V|^2)$.</p>
-<div class="highlight"><pre><span></span><span class="n">PROB</span><span class="o">-</span><span class="n">VITERBI</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">PROB</span><span class="o">-</span><span class="n">VITERBI</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
     <span class="k">if</span> <span class="n">s</span><span class="p">.</span><span class="n">length</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">return</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">sols</span><span class="p">.</span><span class="n">seq</span> <span class="o">=</span> <span class="n">NO</span><span class="o">-</span><span class="n">SUCH</span><span class="o">-</span><span class="n">PATH</span>
@@ -4114,6 +4133,7 @@
                 <span class="n">sols</span><span class="p">.</span><span class="n">prob</span> <span class="o">=</span> <span class="n">p</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="n">res</span><span class="p">.</span><span class="n">prob</span> <span class="n">and</span> <span class="n">sols</span><span class="p">.</span><span class="n">seq</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">res</span><span class="p">.</span><span class="n">seq</span>
     <span class="k">return</span> <span class="n">sols</span>
 </pre></div>
+</td></tr></table>
                 
                   
                 

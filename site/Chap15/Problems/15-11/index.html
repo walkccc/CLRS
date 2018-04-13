@@ -4111,7 +4111,26 @@ c \cdot \max(L(n, s) - m, 0) + h(s + L(n, s) - d_n) &amp; \text{if $k = n$}, \\
 \end{cases}
 $$</p>
 <p>The recurrence suggests how to build an optimal plan in a bottom-up fashion. We now present the algorithm for constructing an optimal plan.</p>
-<div class="highlight"><pre><span></span><span class="n">INVERTORY</span><span class="o">-</span><span class="n">PLANNING</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">INVERTORY</span><span class="o">-</span><span class="n">PLANNING</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
     <span class="n">let</span> <span class="n">cost</span><span class="p">[</span><span class="mf">1.</span><span class="p">.</span><span class="n">n</span><span class="p">,</span> <span class="mf">0.</span><span class="p">.</span><span class="n">D</span><span class="p">]</span> <span class="n">and</span> <span class="n">make</span><span class="p">[</span><span class="mf">1.</span><span class="p">.</span><span class="n">n</span><span class="p">,</span> <span class="mf">0.</span><span class="p">.</span><span class="n">D</span><span class="p">]</span> <span class="n">be</span> <span class="k">new</span> <span class="n">tables</span>
     <span class="c1">// Compute cost[n, 0..D] and make[n, 0..D]</span>
     <span class="k">for</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">to</span> <span class="n">D</span>
@@ -4132,13 +4151,19 @@ $$</p>
     <span class="n">print</span> <span class="n">cost</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
     <span class="n">PRINT</span><span class="o">-</span><span class="n">PLAN</span><span class="p">(</span><span class="n">make</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
-<div class="highlight"><pre><span></span><span class="n">PRINT</span><span class="o">-</span><span class="n">PLAN</span><span class="p">(</span><span class="n">make</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">PRINT</span><span class="o">-</span><span class="n">PLAN</span><span class="p">(</span><span class="n">make</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
     <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">n</span>
         <span class="n">print</span> <span class="s">&quot;For month &quot;</span> <span class="n">k</span> <span class="s">&quot;manufacture &quot;</span> <span class="n">make</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">s</span><span class="p">]</span> <span class="s">&quot;machines&quot;</span>
         <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">make</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">s</span><span class="p">]</span> <span class="o">-</span> <span class="n">dk</span>
 </pre></div>
+</td></tr></table>
 
 <p>In $\text{INVENTORY-PLANNING}$, we build the solution month by month, starting from month $n$, moving backward toward month $1$. First, we solve the subproblem for the last month, for all surpluses. Then, for each month and for each surplus entering that month, we calculate the cheapest way to satisfy demand for that month based on the solved subproblems of the next month.</p>
 <ul>

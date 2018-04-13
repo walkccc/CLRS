@@ -4228,12 +4228,17 @@
 <p>Professor Marceau objects to the loop invariant used in the proof of Lemma 5.5. He questions whether it is true prior to the first iteration. He reasons that we could just as easily declare that an empty subarray contains no $0$-permutations. Therefore, the probability that an empty subarray contains a $0$-permutation should be $0$, thus invalidating the loop invariant prior to the first iteration. Rewrite the procedure $\text{RANDOMIZE-IN-PLACE}$ so that its associated loop invariant applies to a nonempty subarray prior to the first iteration, and modify the proof of Lemma 5.5 for your procedure.</p>
 </blockquote>
 <p>Here's the rewritten procedure:</p>
-<div class="highlight"><pre><span></span><span class="n">RANDOMIZE</span><span class="o">-</span><span class="n">IN</span><span class="o">-</span><span class="n">PLACE</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">RANDOMIZE</span><span class="o">-</span><span class="n">IN</span><span class="o">-</span><span class="n">PLACE</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">length</span>
     <span class="n">swap</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">with</span> <span class="n">A</span><span class="p">[</span><span class="n">RANDOM</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span> <span class="n">to</span> <span class="n">n</span>
         <span class="n">swap</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="n">with</span> <span class="n">A</span><span class="p">[</span><span class="n">RANDOM</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="p">)]</span>
 </pre></div>
+</td></tr></table>
 
 <p>The loop invariant becomes</p>
 <p><strong>Loop invariant:</strong> Just prior to the iteration of the <strong>for</strong> loop for each value of $i = 2, \ldots, n$, for each possible $(i - 1)$-permutation, the subarray $A[1..i - 1]$ contains this $(i - 1)$-permutation with probability $(n - i + 1)! / n!$.</p>
@@ -4241,11 +4246,15 @@
 <h2 id="53-2">5.3-2<a class="headerlink" href="#53-2" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Professor Kelp decides to write a procedure that produces at random any permutation besides the identity permutation. He proposes the following procedure:</p>
-<div class="highlight"><pre><span></span><span class="n">PERMUTE</span><span class="o">-</span><span class="n">WITHOUT</span><span class="o">-</span><span class="n">IDENTITY</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">PERMUTE</span><span class="o">-</span><span class="n">WITHOUT</span><span class="o">-</span><span class="n">IDENTITY</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">length</span>
     <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>
         <span class="n">swap</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="n">with</span> <span class="n">A</span><span class="p">[</span><span class="n">RANDOM</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)]</span>
 </pre></div>
+</td></tr></table>
 
 <p>Does this code do what Professor Kelp intends?</p>
 </blockquote>
@@ -4253,11 +4262,15 @@
 <h2 id="53-3">5.3-3<a class="headerlink" href="#53-3" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Suppose that instead of swapping element $A[i]$ with a random element from the subarray $A[i..n]$, we swapped it with a random element from anywhere in the array:</p>
-<div class="highlight"><pre><span></span><span class="n">PERMUTE</span><span class="o">-</span><span class="n">WITH</span><span class="o">-</span><span class="n">ALL</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">PERMUTE</span><span class="o">-</span><span class="n">WITH</span><span class="o">-</span><span class="n">ALL</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">length</span>
     <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">n</span>
         <span class="n">swap</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="n">with</span> <span class="n">A</span><span class="p">[</span><span class="n">RANDOM</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)]</span>
 </pre></div>
+</td></tr></table>
 
 <p>Does this code produce a uniform random permutation? Why or why not?</p>
 </blockquote>
@@ -4277,7 +4290,16 @@
 <h2 id="53-4">5.3-4<a class="headerlink" href="#53-4" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Professor Armstrong suggests the following procedure for generating a uniform random permutation:</p>
-<div class="highlight"><pre><span></span><span class="n">PERMUTE</span><span class="o">-</span><span class="n">BY</span><span class="o">-</span><span class="n">CYCLE</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">PERMUTE</span><span class="o">-</span><span class="n">BY</span><span class="o">-</span><span class="n">CYCLE</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">length</span>
     <span class="n">let</span> <span class="n">B</span><span class="p">[</span><span class="mf">1.</span><span class="p">.</span><span class="n">n</span><span class="p">]</span> <span class="n">be</span> <span class="n">a</span> <span class="k">new</span> <span class="n">array</span>
     <span class="n">offset</span> <span class="o">=</span> <span class="n">RANDOM</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
@@ -4288,6 +4310,7 @@
         <span class="n">B</span><span class="p">[</span><span class="n">dest</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">B</span>
 </pre></div>
+</td></tr></table>
 
 <p>Show that each element $A[i]$ has a $1 / n$ probability of winding up in any particular position in $B$. Then show that Professor Armstrong is mistaken by showing that the resulting permutation is not uniformly random.</p>
 </blockquote>
@@ -4312,16 +4335,28 @@
 <blockquote>
 <p>Explain how to implement the algorithm $\text{PERMUTE-BY-SORTING}$ to handle the case in which two or more priorities are identical. That is, your algorithm should produce a uniform random permutation, even if two or more priorities are identical.</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">PERMUTE</span><span class="o">-</span><span class="n">BY</span><span class="o">-</span><span class="n">SORTING</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">PERMUTE</span><span class="o">-</span><span class="n">BY</span><span class="o">-</span><span class="n">SORTING</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
     <span class="n">initialize</span> <span class="n">P</span> <span class="n">with</span> <span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mf">1.</span><span class="p">.</span><span class="n">n</span>
     <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">n</span>
         <span class="n">swap</span> <span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="n">with</span> <span class="n">P</span><span class="p">[</span><span class="n">RANDOM</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="p">)]</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="53-7">5.3-7<a class="headerlink" href="#53-7" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Suppose we want to create a <strong><em>random sample</em></strong> of the set $\{1, 2, 3, \ldots, n\}$, that is, an $m$-element subset $S$, where $0 \le m \le n$, such that each $m$-subset is equally likely to be created. One way would be to set $A[i] = i$ for $i = 1, 2, 3, \ldots, n$, call $\text{RANDOMIZE-IN-PLACE}(A)$, and then take just the first $m$ array elements. This method would make $n$ calls to the $\text{RANDOM}$ procedure. If $n$ is much larger than $m$, we can create a random sample with fewer calls to $\text{RANDOM}$. Show that the following recursive procedure returns a random $m$-subset $S$ of $\{1, 2, 3, \ldots, n\}$, in which each $m$-subset is equally likely, while making only $m$ calls to $\text{RANDOM}$:</p>
-<div class="highlight"><pre><span></span><span class="n">RANDOM</span><span class="o">-</span><span class="n">SAMPLE</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">RANDOM</span><span class="o">-</span><span class="n">SAMPLE</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">0</span>
         <span class="k">return</span> <span class="err">∅</span>
     <span class="k">else</span> <span class="n">S</span> <span class="o">=</span> <span class="n">RANDOM</span><span class="o">-</span><span class="n">SAMPLE</span><span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
@@ -4331,6 +4366,7 @@
         <span class="k">else</span> <span class="n">S</span> <span class="o">=</span> <span class="n">S</span> <span class="err">∪</span> <span class="p">{</span><span class="n">i</span><span class="p">}</span>
         <span class="k">return</span> <span class="n">S</span>
 </pre></div>
+</td></tr></table>
 
 </blockquote>
 <p>Since each recursive call reduces $m$ by $1$ and makes only one call to $\text{RANDOM}$, it's easy to see that there are a total of $m$ calls to $\text{RANDOM}$. Moreover, since each recursive call adds exactly one element to the set, it's easy to see that the resulting set $S$ contains exactly $m$ elements.</p>

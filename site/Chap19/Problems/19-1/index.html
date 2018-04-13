@@ -4083,7 +4083,15 @@
                 
                 <blockquote>
 <p>Professor Pisano has proposed the following variant of the $\text{FIB-HEAP-DELETE}$ procedure, claiming that it runs faster when the node being deleted is not the node pointed to by $H.min$.</p>
-<div class="highlight"><pre><span></span><span class="n">PISANO</span><span class="o">-</span><span class="n">DELETE</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">PISANO</span><span class="o">-</span><span class="n">DELETE</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">H</span><span class="p">.</span><span class="n">min</span>
         <span class="n">FIB</span><span class="o">-</span><span class="n">HEAP</span><span class="o">-</span><span class="n">EXTRACT</span><span class="o">-</span><span class="n">MIN</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
     <span class="k">else</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">p</span>
@@ -4093,6 +4101,7 @@
         <span class="n">add</span> <span class="n">x</span><span class="err">&#39;</span><span class="n">s</span> <span class="n">child</span> <span class="n">list</span> <span class="n">to</span> <span class="n">the</span> <span class="n">root</span> <span class="n">list</span> <span class="n">of</span> <span class="n">H</span>
         <span class="n">remove</span> <span class="n">x</span> <span class="n">from</span> <span class="n">the</span> <span class="n">root</span> <span class="n">list</span> <span class="n">of</span> <span class="n">H</span>
 </pre></div>
+</td></tr></table>
 
 <p><strong>a.</strong> The professor's claim that this procedure runs faster is based partly on the assumption that line 7 can be performed in $O(1)$ actual time. What is wrong with this assumption?</p>
 <p><strong>b.</strong> Give a good upper bound on the actual time of $\text{PISANO-DELETE}$ when $x$ is not $H.min$. Your bound should be in terms of $x.degree$ and the number $c$ of calls to the $\text{CASCADING-CUT}$ procedure.</p>

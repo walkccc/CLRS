@@ -4104,7 +4104,24 @@
 <li>$\text{COPY-NODE}(x)$ creates a new node whose $key$, $left$, and $right$ attributes have the same values as those of node $x$, and it returns a pointer to the new node.</li>
 </ul>
 <p>Here are two ways to write $\text{PERSISTENT-TREE-INSERT}$. The first is a version of $\text{TREE-INSERT}$, modified to create new nodes along the path to where the new node will go, and to not use parent attributes. It returns the root of the new tree.</p>
-<div class="highlight"><pre><span></span><span class="n">PERSISTENT</span><span class="o">-</span><span class="n">TREE</span><span class="o">-</span><span class="n">INSERT</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">PERSISTENT</span><span class="o">-</span><span class="n">TREE</span><span class="o">-</span><span class="n">INSERT</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
     <span class="n">z</span> <span class="o">=</span> <span class="n">MAKE</span><span class="o">-</span><span class="n">NEW</span><span class="o">-</span><span class="n">NODE</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
     <span class="k">new</span><span class="o">-</span><span class="n">root</span> <span class="o">=</span> <span class="n">COPY</span><span class="o">-</span><span class="n">NODE</span><span class="p">(</span><span class="n">T</span><span class="p">.</span><span class="n">root</span><span class="p">)</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">NIL</span>
@@ -4123,9 +4140,17 @@
     <span class="k">else</span> <span class="n">y</span><span class="p">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">z</span>
     <span class="k">return</span> <span class="k">new</span><span class="o">-</span><span class="n">root</span>
 </pre></div>
+</td></tr></table>
 
 <p>The second is a rather elegant recursive procedure. The initial call should have $T.root$ as its first argument. It returns the root of the new tree.</p>
-<div class="highlight"><pre><span></span><span class="n">PERSISTENT</span><span class="o">-</span><span class="n">TREE</span><span class="o">-</span><span class="n">INSERT</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">PERSISTENT</span><span class="o">-</span><span class="n">TREE</span><span class="o">-</span><span class="n">INSERT</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">r</span> <span class="o">==</span> <span class="n">NIL</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">MAKE</span><span class="o">-</span><span class="n">NEW</span><span class="o">-</span><span class="n">NODE</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
     <span class="k">else</span> <span class="n">x</span> <span class="o">=</span> <span class="n">COPY</span><span class="o">-</span><span class="n">NODE</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
@@ -4134,6 +4159,7 @@
         <span class="k">else</span> <span class="n">x</span><span class="p">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">PERSISTENT</span><span class="o">-</span><span class="n">TREE</span><span class="o">-</span><span class="n">INSERT</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">right</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">x</span>
 </pre></div>
+</td></tr></table>
 
 <p><strong>c.</strong> Like $\text{TREE-INSERT}$, $\text{PERSISTENT-TREE-INSERT}$ does a constant amount of work at each node along the path from the root to the new node. Since the length of the path is at most $h$, it takes $O(h)$ time.</p>
 <p>Since it allocates a new node (a constant amount of space) for each ancestor of the inserted node, it also needs $O(h)$ space.</p>

@@ -4263,7 +4263,14 @@
 <blockquote>
 <p>Write a nonrecursive version of $\text{OS-SELECT}$.</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">OS</span><span class="o">-</span><span class="n">SELECT</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">OS</span><span class="o">-</span><span class="n">SELECT</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">left</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="k">while</span> <span class="n">r</span> <span class="o">!=</span> <span class="n">i</span>
         <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">r</span>
@@ -4272,29 +4279,40 @@
             <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="n">r</span>
         <span class="n">r</span> <span class="o">=</span> <span class="n">left</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="141-4">14.1-4<a class="headerlink" href="#141-4" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Write a recursive procedure $\text{OS-KEY-RANK}(T, k)$ that takes as input an order-statistic tree $T$ and a key $k$ and returns the rank of $k$ in the dynamic set represented by $T$. Assume that the keys of $T$ are distinct.</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="n">OS</span><span class="o">-</span><span class="n">KEY</span><span class="o">-</span><span class="n">RANK</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">OS</span><span class="o">-</span><span class="n">KEY</span><span class="o">-</span><span class="n">RANK</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="n">key</span><span class="p">[</span><span class="n">root</span><span class="p">[</span><span class="n">T</span><span class="p">]]</span>
         <span class="k">return</span> <span class="n">size</span><span class="p">[</span><span class="n">left</span><span class="p">[</span><span class="n">root</span><span class="p">[</span><span class="n">T</span><span class="p">]]]</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="k">else</span> <span class="k">if</span> <span class="n">key</span><span class="p">[</span><span class="n">root</span><span class="p">[</span><span class="n">T</span><span class="p">]]</span> <span class="o">&gt;</span> <span class="n">k</span>
         <span class="k">return</span> <span class="n">OS</span><span class="o">-</span><span class="n">KEY</span><span class="o">-</span><span class="n">RANK</span><span class="p">(</span><span class="n">left</span><span class="p">[</span><span class="n">T</span><span class="p">],</span> <span class="n">k</span><span class="p">)</span>
     <span class="k">else</span> <span class="k">return</span> <span class="n">size</span><span class="p">[</span><span class="n">left</span><span class="p">[</span><span class="n">root</span><span class="p">[</span><span class="n">T</span><span class="p">]]]</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">OS</span><span class="o">-</span><span class="n">KEY</span><span class="o">-</span><span class="n">RANK</span><span class="p">(</span><span class="n">right</span><span class="p">[</span><span class="n">T</span><span class="p">],</span> <span class="n">k</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="141-5">14.1-5<a class="headerlink" href="#141-5" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Given an element $x$ in an $n$-node order-statistic tree and a natural number $i$, how can we determine the $i$th successor of $x$ in the linear order of the tree in $O(\lg n)$ time?</p>
 </blockquote>
 <p>Given an element $x$ in an $n$-node order-statistic tree $T$ and a natural number $i$, the following procedure retrieves the $i$th successor of $x$ in the linear order of $T$:</p>
-<div class="highlight"><pre><span></span><span class="n">OS</span><span class="o">-</span><span class="n">SUCCESSOR</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">OS</span><span class="o">-</span><span class="n">SUCCESSOR</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">OS</span><span class="o">-</span><span class="n">RANK</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="n">s</span> <span class="o">=</span> <span class="n">r</span> <span class="o">+</span> <span class="n">i</span>
     <span class="k">return</span> <span class="n">OS</span><span class="o">-</span><span class="n">SELECT</span><span class="p">(</span><span class="n">T</span><span class="p">.</span><span class="n">root</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p>Since $\text{OS-RANK}$ and $\text{OS-SELECT}$ each take $O(\lg n)$ time, so does the procedure $\text{OS-SUCCESSOR}$.</p>
 <h2 id="141-6">14.1-6<a class="headerlink" href="#141-6" title="Permanent link">&para;</a></h2>

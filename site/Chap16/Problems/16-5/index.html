@@ -4090,15 +4090,31 @@
 <p><strong>c.</strong> Prove that furthest-in-future produces the minimum possible number of cache misses.</p>
 </blockquote>
 <p><strong>a.</strong> The procedure $\text{CACHE-MANAGER}$ is a generic procedure, which initializes a cache by calling $\text{INITIALIZE-CACHE}$ and then calls $\text{ACCESS}$ with each data element in turn. The inputs are a sequence $R = \langle r_1, r_, \ldots, r_n \rangle$ of memory requests and a cache size $k$.</p>
-<div class="highlight"><pre><span></span><span class="n">CACHE</span><span class="o">-</span><span class="n">MANAGER</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">CACHE</span><span class="o">-</span><span class="n">MANAGER</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
     <span class="n">INITIALIZE</span><span class="o">-</span><span class="n">CACHE</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">n</span>
         <span class="n">ACCESS</span><span class="p">(</span><span class="n">ri</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p>The running time of $\text{CACHE-MANAGER}$ of course depends heavily on how $\text{ACCESS}$ is implemented. We have several choices for how to implement the greedy strategy outlined in the problem. A straightforward way of implementing the greedy strategy is that when processing request $r_i$, for each of the at most $k$ elements currently in the cache, scan through requests $r_{i + 1}, \ldots, r_n$ to find which of the elements in the cache and $r_i$ has its next access furthest in the future, and evict this element. Because each scan takes $O(n)$ time, each request entails $O(k)$ scans, and there are $n$ requests, the running time of this straightforward approach is $O(kn^2)$.</p>
 <p>Instead, we describe an asymptotically faster algorithm, which uses a red-black tree to check whether a given element is currently in the cache, a max-priority queue to retrieve the data element with the furthest access time, and a hash table (resolving collisions by chaining) to map data elements to integer indices. We assume that the data elements can be linearly ordered, so that it makes sense to put them into a red-black tree and a max-priority queue. The following procedure $\text{INITIALIZE-CACHE}$ creates and initializes some global data structures that are used by ACCESS.</p>
-<div class="highlight"><pre><span></span><span class="n">INITIALIZE</span><span class="o">-</span><span class="n">CACHE</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">INITIALIZE</span><span class="o">-</span><span class="n">CACHE</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
     <span class="n">let</span> <span class="n">T</span> <span class="n">be</span> <span class="n">a</span> <span class="k">new</span> <span class="n">red</span><span class="o">-</span><span class="n">black</span> <span class="n">tree</span>
     <span class="n">let</span> <span class="n">P</span> <span class="n">be</span> <span class="n">a</span> <span class="k">new</span> <span class="n">max</span><span class="o">-</span><span class="n">priority</span> <span class="n">queue</span>
     <span class="n">let</span> <span class="n">H</span> <span class="n">be</span> <span class="n">a</span> <span class="k">new</span> <span class="n">hash</span> <span class="n">table</span>
@@ -4112,6 +4128,7 @@
             <span class="n">ind</span> <span class="o">=</span> <span class="n">ind</span> <span class="o">+</span> <span class="mi">1</span>
         <span class="n">append</span> <span class="n">i</span> <span class="n">to</span> <span class="n">Sj</span>
 </pre></div>
+</td></tr></table>
 
 <p>In the above procedure, here is the meaning of various variables:</p>
 <ul>
@@ -4121,7 +4138,39 @@
 <li>For every distinct data element $r_i$, we create a linked list $S_{ind}$ (where $ind$ is obtained through the hash table) holding the indices in the input array where $r_i$ occurs. For example, if the input sequence is $\langle d, b, d, b, d, a, c, d, b, a, c, b \rangle$, then we create four linked lists: $S_1$ for $a$, $S_2$ for $b$, $S_3$ for $c$, and $S_4$ for $d$. $S_1$ holds the indices where $a$ is accessed, and so $S_1 = \langle 6, 10 \rangle$. Similarly, $S_2 = \langle 2, 4, 9, 12 \rangle$, $S_3 = \langle 7, 11 \rangle$ and $S_4 = \langle 1, 3, 5, 8 \rangle$.</li>
 </ul>
 <p>For each data element $r_i$, we first check whether there is already a linked list associated with $r_i$ and create a new linked list if not. We retrieve the linked list associated with $r_i$ and append $i$ to it, indicating that an access to $r_i$ occurs at access $i$.</p>
-<div class="highlight"><pre><span></span><span class="n">ACCESS</span><span class="p">(</span><span class="n">ri</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">ACCESS</span><span class="p">(</span><span class="n">ri</span><span class="p">)</span>
     <span class="c1">// Compute the next access time for ri.</span>
     <span class="n">ind</span> <span class="o">=</span> <span class="n">HASH</span><span class="o">-</span><span class="n">SEARCH</span><span class="p">(</span><span class="n">ri</span><span class="p">)</span>
     <span class="n">time</span> <span class="o">=</span> <span class="err">∞</span>
@@ -4155,6 +4204,7 @@
             <span class="n">z</span><span class="p">.</span><span class="n">key</span> <span class="o">=</span> <span class="n">ri</span>
             <span class="n">RB</span><span class="o">-</span><span class="n">INSERT</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p>The procedure $\text{ACCESS}$ takes an input $r_i$ and decides which element to evict, if any, from the cache. The first if condition properly sets time to the next access time of $r_i$. The head of the linked list associated with $r_i$ contains $i$; we remove this element from the list, and the new head contains the next access time for $r_i$. Then, we check to see whether $r_i$ is already present in the cache. If $r_i$ is not present in the cache, we check to see whether we can store $r_i$ in an empty slot. If there are no empty slots, we have to evict the element with the furthest access time. We retrieve the element with the furthest access time from the max-priority queue and compare it with that of $r_i$ . If $r_i$'s next access is sooner, we evict the element with the furthest access time from the cache (deleting the element from the tree and from the priority queue) and insert $r_i$ into the tree and priority queue.</p>
 <p>Under the assumption of simple uniform hashing, the average-case running time of $\text{ACCESS}$ is $O(\lg k)$, since it performs a constant number of operations on the red-black tree, priority queue, and hash table. Thus, the average-case running time of $\text{CACHE-MANAGER}$ is $O(n\lg k)$.</p>
