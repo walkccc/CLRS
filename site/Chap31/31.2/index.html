@@ -5188,30 +5188,20 @@
 <li>
 <p>$\gcd(a, n) \mid \gcd(a + kn, n)$.</p>
 <p>Let $d = \gcd(a, n)$, then $d \mid a$ and $d \mid n$.</p>
-<p>Since </p>
+<p>Since</p>
 <p>$$(a + kn) \mod d = a \mod d + k \cdot (n \mod d) = 0$$</p>
-<p>and </p>
-<p>$$d \mid n,$$</p>
-<p>we have</p>
+<p>and $d \mid n$, we have</p>
 <p>$$d \mid \gcd(a + kn, n)$$</p>
 <p>and</p>
 <p>$$\gcd(a, n) \mid \gcd(a + kn, n).$$</p>
 </li>
 <li>
 <p>$\gcd(a + kn, n) \mid \gcd(a, n)$.</p>
-<p>Suppose $d = \gcd(a + kn, n)$, we have</p>
-<p>$$d \mid n$$</p>
-<p>and</p>
-<p>$$d \mid (a + kn).$$</p>
+<p>Suppose $d = \gcd(a + kn, n)$, we have $d \mid n$ and $d \mid (a + kn)$.</p>
 <p>Since</p>
 <p>$$(a + kn) \mod d = a \mod d + k \cdot (n \mod d) = a \mod d = 0,$$</p>
-<p>we have</p>
-<p>$$d \mid a.$$</p>
-<p>Since</p>
-<p>$$d \mid a$$</p>
-<p>and</p>
-<p>$$d \mid n,$$</p>
-<p>we have </p>
+<p>we have $d \mid a$.</p>
+<p>Since $d \mid a$ and $d \mid n$, we have </p>
 <p>$$d \mid \gcd(a, n)$$</p>
 <p>and</p>
 <p>$$\gcd(a + kn, n) \mid \gcd(a, n).$$</p>
@@ -5261,7 +5251,11 @@
 <blockquote>
 <p>Define the $\gcd$ function for more than two arguments by the recursive equation $\gcd(a_0, a_1, \cdots, a_n) = \gcd(a_0, \gcd(a_1, a_2, \cdots, a_n))$. Show that the $\gcd$ function returns the same answer independent of the order in which its arguments are specified. Also show how to find integers $x_0, x_1, \cdots, x_n$ such that $\gcd(a_0, a_1, \ldots, a_n) = a_0 x_0 + a_1 x_1 + \cdots + a_n x_n$. Show that the number of divisions performed by your algorithm is $O(n + \lg (max \{a_0, a_1, \cdots, a_n \}))$.</p>
 </blockquote>
-<p>Suppose $\gcd(a_0, \gcd(a_1, a_2, \cdots, a_n))  = a_0 \cdot x + \gcd(a_1, a_2, \cdots, a_n) \cdot y$ and $\gcd(a_1, \gcd(a_2, a_3, \cdots, a_n))  = a_1 \cdot x' + \gcd(a_2, a_3, \cdots, a_n) \cdot y'$, then the coefficient of $a_1$ is $y \cdot x'$.</p>
+<p>Suppose</p>
+<p>$$\gcd(a_0, \gcd(a_1, a_2, \cdots, a_n)) = a_0 \cdot x + \gcd(a_1, a_2, \cdots, a_n) \cdot y$$</p>
+<p>and</p>
+<p>$$\gcd(a_1, \gcd(a_2, a_3, \cdots, a_n)) = a_1 \cdot x' + \gcd(a_2, a_3, \cdots, a_n) \cdot y',$$</p>
+<p>then the coefficient of $a_1$ is $y \cdot x'$.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
