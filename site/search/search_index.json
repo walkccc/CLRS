@@ -4772,7 +4772,7 @@
         },
         {
             "location": "/Chap31/31.4/",
-            "text": "31.4-1\n\u00b6\n\n\n\n\nFind all solutions to the equation $35x \\equiv 10 (\\mod 50)$.\n\n\n\n\n${6, 16, 26, 36, 46}$.\n\n\n31.4-2\n\u00b6\n\n\n\n\nProve that the equation $ax \\equiv ay (\\mod n)$ implies $x \\equiv y (\\mod n)$ whenever $\\gcd(a, n) = 1$. Show that the condition $\\gcd(a, n) = 1$ is necessary by supplying a counterexample with $\\gcd(a, n) > 1$.\n\n\n\n\n$$d = \\gcd(ax, n) = \\gcd(x, n)$$\n\n\nSince $ax \\cdot x' + n \\cdot y' = d$, then $x \\cdot (ax') + n \\cdot y' = d$.\n\n\n\\begin{align}\n x_0 & = x'(ay / d),\nx_0' & = (ax')(y / d) = x'(ay / d) = x_0.\n\\end{align}\n\n\n31.4-3\n\u00b6\n\n\n\n\nConsider the following change to line 3 of the procedure $\\text{MODULAR-LINEAR-EQUATION-SOLVER}$:\n\n\n1\n \n3\n  \nx0\n \n=\n \nx\n'\n(\nb\n \n/\n \nd\n)\n \nmod\n \n(\nn\n \n/\n \nd\n)\n\n\n\n\n\n\n\nWill this work? Explain why or why not.\n\n\n\n\nAssume that $x_0 \\ge n / d$, then the largest solution is $x_0 + (d - 1) \\cdot (n / d) \\ge d \\cdot n / d \\ge n$, which is impossible, therefore $x_0 < n / d$.\n\n\n31.4-4 $\\star$\n\u00b6\n\n\n\n\nLet $p$ be prime and $f(x) \\equiv f_0 + f_1 x + \\cdots + f_tx^t (\\mod p)$ be a polynomial of degree $t$, with coefficients $f_i$ drawn from $\\mathbb Z_p$. We say that $a \\in \\mathbb Z_p$ is a \nzero\n of $f$ if $f(a) \\equiv 0 (\\mod p)$. Prove that if $a$ is a zero of $f$, then $f(x) \\equiv (x - a) g(x) (\\mod p)$ for some polynomial $g(x)$ of degree $t - 1$. Prove by induction on $t$ that if $p$ is prime, then a polynomial $f(x)$ of degree $t$ can have at most $t$ distinct zeros modulo $p$.",
+            "text": "31.4-1\n\u00b6\n\n\n\n\nFind all solutions to the equation $35x \\equiv 10 (\\mod 50)$.\n\n\n\n\n${6, 16, 26, 36, 46}$.\n\n\n31.4-2\n\u00b6\n\n\n\n\nProve that the equation $ax \\equiv ay (\\mod n)$ implies $x \\equiv y (\\mod n)$ whenever $\\gcd(a, n) = 1$. Show that the condition $\\gcd(a, n) = 1$ is necessary by supplying a counterexample with $\\gcd(a, n) > 1$.\n\n\n\n\n$$d = \\gcd(ax, n) = \\gcd(x, n)$$\n\n\nSince $ax \\cdot x' + n \\cdot y' = d$, \n\n\nwe have\n\n\n$$x \\cdot (ax') + n \\cdot y' = d.$$\n\n\n\\begin{align}\n x_0 & = x'(ay / d), \\\\\nx_0' & = (ax')(y / d) = x'(ay / d) = x_0.\n\\end{align}\n\n\n31.4-3\n\u00b6\n\n\n\n\nConsider the following change to line 3 of the procedure $\\text{MODULAR-LINEAR-EQUATION-SOLVER}$:\n\n\n1\n \n3\n  \nx0\n \n=\n \nx\n'\n(\nb\n \n/\n \nd\n)\n \nmod\n \n(\nn\n \n/\n \nd\n)\n\n\n\n\n\n\n\nWill this work? Explain why or why not.\n\n\n\n\nAssume that $x_0 \\ge n / d$, then the largest solution is $x_0 + (d - 1) \\cdot (n / d) \\ge d \\cdot n / d \\ge n$, which is impossible, therefore $x_0 < n / d$.\n\n\n31.4-4 $\\star$\n\u00b6\n\n\n\n\nLet $p$ be prime and $f(x) \\equiv f_0 + f_1 x + \\cdots + f_tx^t (\\mod p)$ be a polynomial of degree $t$, with coefficients $f_i$ drawn from $\\mathbb Z_p$. We say that $a \\in \\mathbb Z_p$ is a \nzero\n of $f$ if $f(a) \\equiv 0 (\\mod p)$. Prove that if $a$ is a zero of $f$, then $f(x) \\equiv (x - a) g(x) (\\mod p)$ for some polynomial $g(x)$ of degree $t - 1$. Prove by induction on $t$ that if $p$ is prime, then a polynomial $f(x)$ of degree $t$ can have at most $t$ distinct zeros modulo $p$.",
             "title": "31.4 Solving modular linear equations"
         },
         {
@@ -4782,7 +4782,7 @@
         },
         {
             "location": "/Chap31/31.4/#314-2",
-            "text": "Prove that the equation $ax \\equiv ay (\\mod n)$ implies $x \\equiv y (\\mod n)$ whenever $\\gcd(a, n) = 1$. Show that the condition $\\gcd(a, n) = 1$ is necessary by supplying a counterexample with $\\gcd(a, n) > 1$.   $$d = \\gcd(ax, n) = \\gcd(x, n)$$  Since $ax \\cdot x' + n \\cdot y' = d$, then $x \\cdot (ax') + n \\cdot y' = d$.  \\begin{align}\n x_0 & = x'(ay / d),\nx_0' & = (ax')(y / d) = x'(ay / d) = x_0.\n\\end{align}",
+            "text": "Prove that the equation $ax \\equiv ay (\\mod n)$ implies $x \\equiv y (\\mod n)$ whenever $\\gcd(a, n) = 1$. Show that the condition $\\gcd(a, n) = 1$ is necessary by supplying a counterexample with $\\gcd(a, n) > 1$.   $$d = \\gcd(ax, n) = \\gcd(x, n)$$  Since $ax \\cdot x' + n \\cdot y' = d$,   we have  $$x \\cdot (ax') + n \\cdot y' = d.$$  \\begin{align}\n x_0 & = x'(ay / d), \\\\\nx_0' & = (ax')(y / d) = x'(ay / d) = x_0.\n\\end{align}",
             "title": "31.4-2"
         },
         {
@@ -4797,12 +4797,12 @@
         },
         {
             "location": "/Chap31/31.5/",
-            "text": "31.5-1\n\u00b6\n\n\n\n\nFind all solutions to the equations $x \\equiv 4 (\\mod 5)$ and $x \\equiv 5 (\\mod 11)$.\n\n\n\n\n$m_1 = 11$, $m_2 = 5$.\n\n\n$m_1^{-1} = 1$, $m_2^{-1} = 9$.\n\n\n$c_1 = 11$, $c_2 = 45$.\n\n\n$a = (c_1 \\cdot a_1 + c_2 \\cdot a_2) \\mod (n_1 \\cdot n_2) = (11 \\cdot 4 + 45 \\cdot 5) \\mod 55 = 49$.\n\n\n31.5-2\n\u00b6\n\n\n\n\nFind all integers $x$ that leave remainders $1$, $2$, $3$ when divided by $9$, $8$, $7$ respectively.\n\n\n\n\n$10 + 504i$, $i \\in \\mathbb Z$.\n\n\n31.5-3\n\u00b6\n\n\n\n\nArgue that, under the definitions of Theorem 31.27, if $\\gcd(a, n) = 1$, then\n\n\n$(a^{-1} \\mod n) \\leftrightarrow ((a_1^{-1} \\mod n_1), (a_2^{-1} \\mod n_2), \\ldots, (a_k^{-1} \\mod n_k))$.\n\n\n\n\n$\\gcd(a, n) = 1 \\rightarrow \\gcd(a, n_i) = 1$.\n\n\n31.5-4\n\u00b6\n\n\n\n\nUnder the definitions of Theorem 31.27, prove that for any polynomial $f$, the number of roots of the equation $f(x) \\equiv 0 (\\mod n)$ equals the product of the number of roots of each of the equations $f(x) \\equiv 0 (\\mod n_1), f(x) \\equiv 0 (\\mod n_2), \\ldots, f(x) \\equiv 0 (\\mod n_k)$.\n\n\n\n\nBased on 31.28\u201331.30.",
+            "text": "31.5-1\n\u00b6\n\n\n\n\nFind all solutions to the equations $x \\equiv 4 (\\mod 5)$ and $x \\equiv 5 (\\mod 11)$.\n\n\n\n\n\\begin{align}\nm_1 = 11, m_2 = 5. \\\\\nm_1^{-1} = 1, m_2^{-1} = 9. \\\\\nc_1 = 11, c_2 = 45. \\\\\na = (c_1 \\cdot a_1 + c_2 \\cdot a_2) \\mod (n_1 \\cdot n_2) = (11 \\cdot 4 + 45 \\cdot 5) \\mod 55 = 49.\n\\end{align}\n\n\n31.5-2\n\u00b6\n\n\n\n\nFind all integers $x$ that leave remainders $1$, $2$, $3$ when divided by $9$, $8$, $7$ respectively.\n\n\n\n\n$10 + 504i$, $i \\in \\mathbb Z$.\n\n\n31.5-3\n\u00b6\n\n\n\n\nArgue that, under the definitions of Theorem 31.27, if $\\gcd(a, n) = 1$, then\n\n\n$$(a^{-1} \\mod n) \\leftrightarrow ((a_1^{-1} \\mod n_1), (a_2^{-1} \\mod n_2), \\ldots, (a_k^{-1} \\mod n_k)).$$\n\n\n\n\n$$\\gcd(a, n) = 1 \\rightarrow \\gcd(a, n_i) = 1.$$\n\n\n31.5-4\n\u00b6\n\n\n\n\nUnder the definitions of Theorem 31.27, prove that for any polynomial $f$, the number of roots of the equation $f(x) \\equiv 0 (\\mod n)$ equals the product of the number of roots of each of the equations\n\n\n$$f(x) \\equiv 0 (\\mod n_1), f(x) \\equiv 0 (\\mod n_2), \\ldots, f(x) \\equiv 0 (\\mod n_k).$$\n\n\n\n\nBased on 31.28\u201331.30.",
             "title": "31.5 The Chinese remainder theorem"
         },
         {
             "location": "/Chap31/31.5/#315-1",
-            "text": "Find all solutions to the equations $x \\equiv 4 (\\mod 5)$ and $x \\equiv 5 (\\mod 11)$.   $m_1 = 11$, $m_2 = 5$.  $m_1^{-1} = 1$, $m_2^{-1} = 9$.  $c_1 = 11$, $c_2 = 45$.  $a = (c_1 \\cdot a_1 + c_2 \\cdot a_2) \\mod (n_1 \\cdot n_2) = (11 \\cdot 4 + 45 \\cdot 5) \\mod 55 = 49$.",
+            "text": "Find all solutions to the equations $x \\equiv 4 (\\mod 5)$ and $x \\equiv 5 (\\mod 11)$.   \\begin{align}\nm_1 = 11, m_2 = 5. \\\\\nm_1^{-1} = 1, m_2^{-1} = 9. \\\\\nc_1 = 11, c_2 = 45. \\\\\na = (c_1 \\cdot a_1 + c_2 \\cdot a_2) \\mod (n_1 \\cdot n_2) = (11 \\cdot 4 + 45 \\cdot 5) \\mod 55 = 49.\n\\end{align}",
             "title": "31.5-1"
         },
         {
@@ -4812,12 +4812,12 @@
         },
         {
             "location": "/Chap31/31.5/#315-3",
-            "text": "Argue that, under the definitions of Theorem 31.27, if $\\gcd(a, n) = 1$, then  $(a^{-1} \\mod n) \\leftrightarrow ((a_1^{-1} \\mod n_1), (a_2^{-1} \\mod n_2), \\ldots, (a_k^{-1} \\mod n_k))$.   $\\gcd(a, n) = 1 \\rightarrow \\gcd(a, n_i) = 1$.",
+            "text": "Argue that, under the definitions of Theorem 31.27, if $\\gcd(a, n) = 1$, then  $$(a^{-1} \\mod n) \\leftrightarrow ((a_1^{-1} \\mod n_1), (a_2^{-1} \\mod n_2), \\ldots, (a_k^{-1} \\mod n_k)).$$   $$\\gcd(a, n) = 1 \\rightarrow \\gcd(a, n_i) = 1.$$",
             "title": "31.5-3"
         },
         {
             "location": "/Chap31/31.5/#315-4",
-            "text": "Under the definitions of Theorem 31.27, prove that for any polynomial $f$, the number of roots of the equation $f(x) \\equiv 0 (\\mod n)$ equals the product of the number of roots of each of the equations $f(x) \\equiv 0 (\\mod n_1), f(x) \\equiv 0 (\\mod n_2), \\ldots, f(x) \\equiv 0 (\\mod n_k)$.   Based on 31.28\u201331.30.",
+            "text": "Under the definitions of Theorem 31.27, prove that for any polynomial $f$, the number of roots of the equation $f(x) \\equiv 0 (\\mod n)$ equals the product of the number of roots of each of the equations  $$f(x) \\equiv 0 (\\mod n_1), f(x) \\equiv 0 (\\mod n_2), \\ldots, f(x) \\equiv 0 (\\mod n_k).$$   Based on 31.28\u201331.30.",
             "title": "31.5-4"
         },
         {
