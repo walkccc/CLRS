@@ -57,7 +57,7 @@ markdown_extensions:
 pages:
   - Preface: index.md
   - Color: color.md
-  - Google: googlea9d36ceadbb8d4f8.md
+  - Google: googlea9d36ceadbb8d4f8.html.md
   - I Foundations:
     - 1 The Role of Algorithms in Computing:
       - 1.1 Algorithms: Chap01/1.1.md
