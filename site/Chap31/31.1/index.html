@@ -5420,7 +5420,15 @@ c \mod a &amp; = (a + b) \mod a \\
 <p>Prove Corollary 31.5.</p>
 <p>For all positive integers $n$, $a$, and $b$, if $n \mid ab$ and $\gcd(a, n) = 1$, then $n \mid b$.</p>
 </blockquote>
-<p>If $n \mid ab$, then $ab = kn$, then $b = nk / a$; since $\gcd(a, n) = 1$, then $n / a$ could not be an integer; since $b$ is an integer, then $k / a$ must be an integer, $b = nk / a = n (k / a) = n k'$, then $n \mid b$.</p>
+<p>Since $n \mid ab$,</p>
+<p>\begin{align}
+    ab &amp; = nk \\
+    b  &amp; = nk / a.
+\end{align}</p>
+<p>Since $\gcd(a, n) = 1$, $n / a$ could not be an integer.</p>
+<p>Since $b$ is an integer, then $k / a$ must be an integer, we have</p>
+<p>$$b = nk / a = n (k / a) = n k',$$</p>
+<p>therefore $n \mid b$.</p>
 <h2 id="311-6">31.1-6<a class="headerlink" href="#311-6" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Prove that if $p$ is prime and $0 &lt; k &lt; p$, then $p \mid \binom{p}{k}$. Conclude that for all integers $a$ and $b$ and all primes $p$,</p>
@@ -5439,7 +5447,10 @@ c \mod a &amp; = (a + b) \mod a \\
 <p>$x \equiv y (\mod b)$ implies $x \equiv y (\mod a)$</p>
 <p>for any integers $x$ and $y$.</p>
 </blockquote>
-<p>Suppose $x = kb + c$, then $(x \mod b) \mod a = c \mod a$, and $x \mod a = (kb + c) \mod a = (kb \mod a) + (c \mod a) = c \mod a$.</p>
+<p>Suppose $x = kb + c$, we have</p>
+<p>$$(x \mod b) \mod a = c \mod a,$$ </p>
+<p>and </p>
+<p>$$x \mod a = (kb + c) \mod a = (kb \mod a) + (c \mod a) = c \mod a.$$</p>
 <h2 id="311-8">31.1-8<a class="headerlink" href="#311-8" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>For any integer $k &gt; 0$, an integer $n$ is a <strong><em>$k$th power</em></strong> if there exists an integer $a$ such that $a^k = n$. Furthermore, $n &gt; 1$ is a <strong><em>nontrivial power</em></strong> if it is a $k$th power for some integer $k &gt; 1$. Show how to determine whether a given $\beta$-bit integer $n$ is a nontrivial power in time polynomial in $\beta$.</p>
