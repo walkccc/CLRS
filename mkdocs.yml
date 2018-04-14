@@ -28,6 +28,8 @@ extra:
   social:
     - type: 'github'
       link: 'https://github.com/walkccc'
+    - type: 'book'
+      link: 'https://walkccc.github.io/LeetCode-in-Python'
     - type: 'gamepad'
       link: 'https://walkccc.github.io/MemoryGame'
     - type: 'linkedin'
