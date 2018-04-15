@@ -9,7 +9,7 @@ repo_name: 'walkccc/CLRS'
 repo_url: 'https://github.com/walkccc/CLRS'
 
 # Copyright
-copyright: 'Built by Jay Chen. 2017 - 2018'
+copyright: 'Built by <a href="http://github.com/walkccc">Jay Chen</a> &copy; 2017 - 2018'
 
 # Configuration
 theme:
@@ -22,6 +22,8 @@ theme:
   font:
     text: 'Roboto'
     code: 'Roboto Mono'
+  logo:
+    icon: 'widgets'
 
 # Customization
 extra:
