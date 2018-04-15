@@ -9,7 +9,7 @@ repo_name: 'walkccc/CLRS'
 repo_url: 'https://github.com/walkccc/CLRS'
 
 # Copyright
-copyright: 'Copyright &copy; 2017 - 2018 Jay Chen'
+copyright: 'Built by Jay Chen. 2017 - 2018'
 
 # Configuration
 theme:
