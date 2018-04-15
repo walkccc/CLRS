@@ -5319,8 +5319,15 @@ Then, if $B \subseteq A$, this means that $|B| \le |A| \le k$, so $B \in \mathca
 <p>There is an element $y \in B - A'$ such that $(A - B') \cup \{y\} \in \mathcal I$.</p>
 <p><strong><em>Proof</em></strong></p>
 <p>First, observe that because $A - B' \subseteq A$ and $A \in \mathcal I$, we have that $A - B' \in \mathcal I$. Similarly, $B - A' \subseteq B$ and $B \in \mathcal I$, and so $B - A' \in \mathcal I$. If we show that $|A - B'| &lt; |B - A'|$, the assumption that $(S, \mathcal I)$ is a matroid proves the existence of $y$.</p>
-<p>Because $B' - A' \subseteq A$ and $A \subseteq S - A'$, we can apply Fact 2 to conclude that $|B' \cap A| = |B'| - |B' \cap A'|$. We claim that $|B \cap A'| \le |A' - B'|$. To see why, observe that $A' - B' = A' \cap (S - B')$ and $B \subseteq S - B'$, and so $B \cap A' \subseteq (S - B') \cap A' = A' \cap (S - B') = A' - B'$. Applying Fact 1, we see that $|A' - B'| = |A'| - |A' \cap B'| = |A'| - |B' \cap A'|$, and hence $|B \cap A'| \le |A'| - |B' \cap A'|$.<br />
-Now, we have</p>
+<p>Because $B' - A' \subseteq A$ and $A \subseteq S - A'$, we can apply Fact 2 to conclude that</p>
+<p>$$|B' \cap A| = |B'| - |B' \cap A'|.$$</p>
+<p>We claim that $|B \cap A'| \le |A' - B'|$. To see why, observe that $A' - B' = A' \cap (S - B')$ and $B \subseteq S - B'$, and so</p>
+<p>$$B \cap A' \subseteq (S - B') \cap A' = A' \cap (S - B') = A' - B'.$$</p>
+<p>Applying Fact 1, we see that</p>
+<p>$$|A' - B'| = |A'| - |A' \cap B'| = |A'| - |B' \cap A'|,$$</p>
+<p>and hence</p>
+<p>$$|B \cap A'| \le |A'| - |B' \cap A'|.$$</p>
+<p>Now, we have</p>
 <p>\begin{align}
               |A'| &amp; &lt; |B'|                &amp; \text{(by assumption)} \\
 |A'| - |B'\cap A'| &amp; &lt; |B'| - |B' \cap A'| &amp; \text{(subtracting same quantity)} \\
