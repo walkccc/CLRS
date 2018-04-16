@@ -5284,7 +5284,7 @@
 <p>A <strong><em>bit vector</em></strong> is simply an array of bits ($0$s and $1$s). A bit vector of length $m$ takes much less space than an array of $m$ pointers. Describe how to use a bit vector to represent a dynamic set of distinct elements with no satellite data. Dictionary operations should run in $O(1)$ time.</p>
 </blockquote>
 <p>Using the bit vector data structure, we can represent keys less than $m$ by a string of $m$ bits, denoted by $V[0..m - 1]$, in which each position that occupied by the bit $1$, corresponds to a key in the set $S$. If the set contains no element with key $k$, then $V[k] = 0$. For instance, we can store the set ${2, 4, 6, 10, 16}$ in a bit vector of length $20$:</p>
-<p>001010100010000010000</p>
+<p>$$001010100010000010000$$</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3

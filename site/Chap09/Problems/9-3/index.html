@@ -5208,7 +5208,7 @@ U_i(n)
                   c\lg(n / 2 + 1) - d(\lg(\lg n - 1)) &amp; \le c\lg n - d(\lg\lg n) \\
                             c(\lg(n / 2 + 1) - \lg n) &amp; \le d(\lg(\lg n - 1) - \lg\lg n) \\
                   c\Bigg(\lg\frac{n / 2 + 1}{n}\Bigg) &amp; \le d\lg\frac{\lg n - 1}{\lg n} \\
-c\Bigg(\lg\Bigg(\frac{1}{2} + \frac{1}{n}\Bigg)\Bigg) &amp; \le d\lg\frac{\lg n - 1}{\lg n}
+c\Bigg(\lg\Bigg(\frac{1}{2} + \frac{1}{n}\Bigg)\Bigg) &amp; \le d\lg\frac{\lg n - 1}{\lg n}.
 \end{align}</p>
 <p>Observe that $1 / 2 + 1 / n$ decreases as $n$ increases, but $(\lg n - 1) / \lg n$ increases as $n$ increases. When $n = 4$, we have $1 / 2 + 1 / n = 3 / 4$ and $(\lg n - 1) = \lg n = 1 / 2$. Thus, we just need to choose $d$ such that $c\lg(3 / 4) \le d\lg(1 / 2)$ or, equivalently, $c\lg(3 / 4) \le -d$. Multiplying both sides by $-1$, we get $d \le -c\lg(3 / 4) = c\lg(4 / 3)$. Thus, any value of $d$ that is at most $c\lg(4 / 3)$ suffices.</p>
 <p><strong>c.</strong> When $i$ is a constant, $T(2i) = O(1)$ and $\lg(n / i) = \lg n - \lg i = O(\lg n)$.</p>
