@@ -5154,7 +5154,7 @@
                   <h1>10-3 Searching a sorted compact list</h1>
                 
                 <blockquote>
-<p>Exercise 10.3-4 asked how we might maintain an n-element list compactly in the first n positions of an array. We shall assume that all keys are distinct and that the compact list is also sorted, that is, $key[i] &lt; key[next[i]]$ for all $i = 1, 2, \ldots, n$ such that $next[i] \ne \text{NIL}$. We will also assume that we have a variable $L$ that contains the index of the first element on the list. Under these assumptions, you will show that we can use the following randomized algorithm to search the list in $O(\sqrt n)$ expected time.</p>
+<p>Exercise 10.3-4 asked how we might maintain an n-element list compactly in the first n positions of an array. We shall assume that all keys are distinct and that the compact list is also sorted, that is, $key[i] &lt; key[next[i]]$ for all $i = 1, 2, \ldots, n$ such that $next[i] \ne \text{NIL}$. We will also assume that we have a variable $L$ that contains the index of the first element on the list. Under these assumptions, you will show that we can use the following randomized algorithm to search the list in $O(\sqrt n)$ expected time.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -5182,7 +5182,7 @@
 </td></tr></table>
 
 <p>If we ignore lines 3–7 of the procedure, we have an ordinary algorithm for searching a sorted linked list, in which index $i$ points to each position of the list in turn. The search terminates once the index $i$ ''falls off'' the end of the list or once $key[i] = k$. In the latter case, if $key[i] = k$, clearly we have found a key with the value $k$. If, however, $key[i] &gt; k$, then we will never find a key with the value $k$, and so terminating the search was the right thing to do.</p>
-<p>Lines 3–7 attempt to skip ahead to a randomly chosen position $j$. Such a skip benefits us if $key[j]$  is larger than $key[i]$ and no larger than $k$; in such a case, $j$ marks a position in the list that $i$ would have to reach during an ordinary list search. Because the list is compact, we know that any choice of $j$ between $1$ and $n$ indexes some object in the list rather than a slot on the free list.</p>
+<p>Lines 3–7 attempt to skip ahead to a randomly chosen position $j$. Such a skip benefits us if $key[j]$  is larger than $key[i]$ and no larger than $k$; in such a case, $j$ marks a position in the list that $i$ would have to reach during an ordinary list search. Because the list is compact, we know that any choice of $j$ between $1$ and $n$ indexes some object in the list rather than a slot on the free list.</p>
 <p>Instead of analyzing the performance of $\text{COMPACT-LIST-SEARCH}$ directly, we shall analyze a related algorithm, $\text{COMPACT-LIST-SEARCH}'$, which executes two separate loops. This algorithm takes an additional parameter $t$ which determines an upper bound on the number of iterations of the first loop.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2

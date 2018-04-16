@@ -5313,7 +5313,7 @@ p_i / i            &amp;  1 &amp; 10 &amp; 11 &amp;  1
 </pre></div>
 </td></tr></table>
 
-<p>The major modification required is in the body of the inner <strong>for</strong> loop, which now reads $q = \max(q, p[i] + r[j - i] - c)$. This change reﬂects the fixed cost of making the cut, which is deducted from the revenue. We also have to handle the case in which we make no cuts (when $i$ equals $j$); the total revenue in this case is simply $p[j]$. Thus, we modify the inner <strong>for</strong> loop to run from $i$ to $j - 1$ instead of to $j$. The assignment $q = p[j]$ takes care of the case of no cuts. If we did not make these modifications, then even in the case of no cuts, we would be deducting $c$ from the total revenue.</p>
+<p>The major modification required is in the body of the inner <strong>for</strong> loop, which now reads $q = \max(q, p[i] + r[j - i] - c)$. This change reﬂects the fixed cost of making the cut, which is deducted from the revenue. We also have to handle the case in which we make no cuts (when $i$ equals $j$); the total revenue in this case is simply $p[j]$. Thus, we modify the inner <strong>for</strong> loop to run from $i$ to $j - 1$ instead of to $j$. The assignment $q = p[j]$ takes care of the case of no cuts. If we did not make these modifications, then even in the case of no cuts, we would be deducting $c$ from the total revenue.</p>
 <h2 id="151-4">15.1-4<a class="headerlink" href="#151-4" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Modify $\text{MEMOIZED-CUT-ROD}$ to return not only the value but the actual solution, too.</p>
@@ -5368,7 +5368,7 @@ p_i / i            &amp;  1 &amp; 10 &amp; 11 &amp;  1
 </pre></div>
 </td></tr></table>
 
-<p>$\text{PRINT-CUT-ROD-SOLUTION}$ constructs the actual lengths where a cut should happen. Array entry $s[i]$ contains the value $j$ indicating that an optimal cut for a rod of length $i$ is $j$ inches. The next cut is given by $s[i - j]$, and so on.</p>
+<p>$\text{PRINT-CUT-ROD-SOLUTION}$ constructs the actual lengths where a cut should happen. Array entry $s[i]$ contains the value $j$ indicating that an optimal cut for a rod of length $i$ is $j$ inches. The next cut is given by $s[i - j]$, and so on.</p>
 <h2 id="151-5">15.1-5<a class="headerlink" href="#151-5" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>The Fibonacci numbers are defined by recurrence $\text{(3.22)}$. Give an $O(n)$-time dynamic-programming algorithm to compute the nth Fibonacci number. Draw the subproblem graph. How many vertices and edges are in the graph?</p>

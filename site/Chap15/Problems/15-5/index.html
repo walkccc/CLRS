@@ -5162,7 +5162,7 @@
 <p><strong>Insert</strong> the character $c$ into $z$ by setting $z[j] = c$ and then incrementing $j$, but leaving $i$ alone. This operation examines no characters of $x$.</p>
 <p><strong>Twiddle</strong> (i.e., exchange) the next two characters by copying them from $x$ to $z$ but in the opposite order; we do so by setting $z[j] = x[i + 1]$ and $z[j + 1] = x[i]$ and then setting $i = i + 2$ and $j = j + 2$. This operation examines $x[i]$ and $x[i + 1]$.</p>
 <p><strong>Kill</strong> the remainder of $x$ by setting $i = m + 1$. This operation examines all characters in $x$ that have not yet been examined. This operation, if performed, must be the final operation.</p>
-<p>As an example, one way to transform the source string $\text{algorithm}$ to the target string altruistic is to use the following sequence of operations, where the underlined characters are $x[i]$ and $z[j]$  after the operation:</p>
+<p>As an example, one way to transform the source string $\text{algorithm}$ to the target string altruistic is to use the following sequence of operations, where the underlined characters are $x[i]$ and $z[j]$  after the operation:</p>
 <p>\begin{array}{lll}
 \text{Operation}         &amp; x           &amp; z \\
 \hline
@@ -5198,12 +5198,12 @@
 <p>A $+$ under a position indicates a score of $+1$ for that position, a $-$ indicates a score of $-1$, and a $*$ indicates a score of $-2$, so that this alignment has a total score of $6 \cdot -2 \cdot 1 - 4 \cdot 2 = -4$.</p>
 <p><strong>b.</strong> Explain how to cast the problem of finding an optimal alignment as an edit distance problem using a subset of the transformation operations copy, replace, delete, insert, twiddle, and kill.</p>
 </blockquote>
-<p><strong>a.</strong> Dynamic programming is the ticket. This problem is slightly similar to the longest-common-subsequence problem. In fact, we'll define the notational conveniences $X_i$ and $Y_j$ in the similar manner as we did for the LCS problem: $X_i = x[1..i]$ and $Y_j = y[1..j]$.</p>
+<p><strong>a.</strong> Dynamic programming is the ticket. This problem is slightly similar to the longest-common-subsequence problem. In fact, we'll define the notational conveniences $X_i$ and $Y_j$ in the similar manner as we did for the LCS problem: $X_i = x[1..i]$ and $Y_j = y[1..j]$.</p>
 <p>Our subproblems will be determining an optimal sequence of operations that converts $X_i$ to $Y_j$, for $0 \le i \le m$ and $0 \le j \le n$. We'll call this the ''$X_i \to Y_j$ problem.'' The original problem is the $X_m \to Y_n$ problem.</p>
-<p>Let's suppose for the moment that we know what was the last operation used to convert $X_i$ to $Y_j$. There are six possibilities. We denote by $c[i, j]$ the cost of an optimal solution to the $X_i \to Y_j$ problem.</p>
+<p>Let's suppose for the moment that we know what was the last operation used to convert $X_i$ to $Y_j$. There are six possibilities. We denote by $c[i, j]$ the cost of an optimal solution to the $X_i \to Y_j$ problem.</p>
 <ul>
 <li>
-<p>If the last operation was a <strong>copy</strong>, then we must have had $x[i] = y[j]$. The subproblem that remains is converting $X_{i - 1}$ to $Y_{j - 1}$. And an optimal solution to the $X_i \to Y_j$ problem must include an optimal solution to the $X_{i - 1} \to Y_{j - 1}$ problem. The cut-and-paste argument applies. Thus, assuming that the last operation was a copy, we have</p>
+<p>If the last operation was a <strong>copy</strong>, then we must have had $x[i] = y[j]$. The subproblem that remains is converting $X_{i - 1}$ to $Y_{j - 1}$. And an optimal solution to the $X_i \to Y_j$ problem must include an optimal solution to the $X_{i - 1} \to Y_{j - 1}$ problem. The cut-and-paste argument applies. Thus, assuming that the last operation was a copy, we have</p>
 <p>$$c[i, j] = c[i - 1, j - 1] + \text{cost(copy)}.$$</p>
 </li>
 <li>
@@ -5228,7 +5228,7 @@
 </li>
 </ul>
 <p>We have not handled the base cases, in which $i = 0$ or $j = 0$. These are easy. $X_0$ and $Y_0$ are the empty strings. We convert an empty string into $Y_j$ by a sequence of $j$ inserts, so that $c[0, j] = j \cdot \text{cost(insert)}$. Similarly, we convert $X_i$ into $Y_0$ by a sequence of $i$ deletes, so that $c[i, 0] = i \cdot \text{cost(delete)}$. When $i = j = 0$, either formula gives us $c[0, 0] = 0$, which makes sense, since there's no cost to convert the empty string to the empty string.</p>
-<p>For $i, j &gt; 0$, our recursive formulation for $c[i, j]$ applies the above formulas in the situations in which they hold:</p>
+<p>For $i, j &gt; 0$, our recursive formulation for $c[i, j]$ applies the above formulas in the situations in which they hold:</p>
 <p>$$
 c[i, j] = \min
 \begin{cases}
@@ -5242,7 +5242,7 @@ c[i, j] = c[i, j - 1] + \text{cost(insert)}             &amp; \text{always}, \\
 \min\limits_{0 \le i &lt; m} {c[i, n]} + \text{cost(kill)} &amp; \text{if $i = m$ and $j = n$}.
 \end{cases}
 $$</p>
-<p>Like we did for LCS, our pseudocode fills in the table in row-major order, i.e., row-by-row from top to bottom, and left to right within each row. Columnmajor order (column-by-column from left to right, and top to bottom within each column) would also work. Along with the $c[i, j]$ table, we fill in the table $op[i, j]$, holding which operation was used.</p>
+<p>Like we did for LCS, our pseudocode fills in the table in row-major order, i.e., row-by-row from top to bottom, and left to right within each row. Columnmajor order (column-by-column from left to right, and top to bottom within each column) would also work. Along with the $c[i, j]$ table, we fill in the table $op[i, j]$, holding which operation was used.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -5307,7 +5307,7 @@ $$</p>
 </pre></div>
 </td></tr></table>
 
-<p>The time and space are both $\Theta(mn)$. If we store a $\text{KILL}$ operation in $op[m, n]$, we also include the index $i$ after which we killed, to help us reconstruct the optimal sequence of operations. (We don't need to store $y[i]$ in the $op$ table for replace or insert operations.)</p>
+<p>The time and space are both $\Theta(mn)$. If we store a $\text{KILL}$ operation in $op[m, n]$, we also include the index $i$ after which we killed, to help us reconstruct the optimal sequence of operations. (We don't need to store $y[i]$ in the $op$ table for replace or insert operations.)</p>
 <p>To reconstruct this sequence, we use the $op$ table returned by $\text{EDIT-DISTANCE}$. 
 The procedure $\text{OP-SEQUENCE}(op, i, j)$ reconstructs the optimal operation sequence that we found to transform $X_i$ into $Y_j$. The base case is when $i = j = 0$. The first call is $\text{OP-SEQUENCE}(op, m, n)$.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1

@@ -5166,7 +5166,7 @@
 <p><strong>c.</strong> Modify the $\text{RANDOMIZED-QUICKSORT}$ procedure to call $\text{PARTITION}'$, and name the new procedure $\text{RANDOMIZED-QUICKSORT}'$. Then modify the $\text{QUICKSORT}$ procedure to produce a procedure $\text{QUICKSORT}'(p, r)$ that calls $\text{RANDOMIZED-PARTITION}'$ and recurses only on partitions of elements not know to be equal to each other.</p>
 <p><strong>d.</strong> Using $\text{QUICKSORT}'$, how would you adjust the analysis of section 7.4.2 to avoid the assumption that all elements are distinct?</p>
 </blockquote>
-<p><strong>a.</strong> If all elements are equal, then when $\text{PARTITION}$ returns, $q = r$ and all elements in $A[p..q - 1]$ are equal. We get the recurrence $T(n) = T(n - 1) + T(0) + \Theta(n)$ for the running time, and so $T(n) = \Theta(n^2)$.</p>
+<p><strong>a.</strong> If all elements are equal, then when $\text{PARTITION}$ returns, $q = r$ and all elements in $A[p..q - 1]$ are equal. We get the recurrence $T(n) = T(n - 1) + T(0) + \Theta(n)$ for the running time, and so $T(n) = \Theta(n^2)$.</p>
 <p><strong>b.</strong> The $\text{PARTITION}'$ procedure:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2

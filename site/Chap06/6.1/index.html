@@ -5311,7 +5311,7 @@
 <blockquote>
 <p>Show that in any subtree of a max-heap, the root of the subtree contains the largest value occuring anywhere in the subtree.</p>
 </blockquote>
-<p>Assume the claim is false—i.e., that there is a subtree whose root is not the largest element in the subtree. Then the maximum element is somewhere else in the subtree, possibly even at more than one location. Let $m$ be the index at which the maximum appears (the lowest such index if the maximum appears more than once). Since the maximum is not at the root of the subtree, node $m$ has a parent. Since the parent of a node has a lower index than the node, and $m$ was chosen to be the smallest index of the maximum value, $A[\text{PARENT}(m)] &lt; A[m]$. But by the maxheap property, we must have $A[\text{PARENT}(m)] \ge A[m]$. So our assumption is false, and the claim is true.</p>
+<p>Assume the claim is false—i.e., that there is a subtree whose root is not the largest element in the subtree. Then the maximum element is somewhere else in the subtree, possibly even at more than one location. Let $m$ be the index at which the maximum appears (the lowest such index if the maximum appears more than once). Since the maximum is not at the root of the subtree, node $m$ has a parent. Since the parent of a node has a lower index than the node, and $m$ was chosen to be the smallest index of the maximum value, $A[\text{PARENT}(m)] &lt; A[m]$. But by the maxheap property, we must have $A[\text{PARENT}(m)] \ge A[m]$. So our assumption is false, and the claim is true.</p>
 <h2 id="61-4">6.1-4<a class="headerlink" href="#61-4" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Where in a max-heap might the smallest element reside, assuming that all elements are distinct?</p>

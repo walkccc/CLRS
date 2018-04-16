@@ -5281,12 +5281,12 @@ B &amp; = \langle, , , 1, , 2, , 3, , , \rangle
 <p><em>[The following solution also answers Exercise 8.2-2.]</em></p>
 <p>Notice that the correctness argument in the text does not depend on the order in which $A$ is processed. The algorithm is correct no matter what order is used!</p>
 <p>But the modified algorithm is not stable. As before, in the final <strong>for</strong> loop an element equal to one taken from $A$ earlier is placed before the earlier one (i.e., at a lower index position) in the output array $B$. The original algorithm was stable because an element taken from $A$ later started out with a lower index than one taken earlier. But in the modified algorithm, an element taken from $A$ later started out with a higher index than one taken earlier.</p>
-<p>In particular, the algorithm still places the elements with value $k$ in positions $C[k - 1] + 1$ through $C[k]$, but in the reverse order of their appearance in $A$.</p>
+<p>In particular, the algorithm still places the elements with value $k$ in positions $C[k - 1] + 1$ through $C[k]$, but in the reverse order of their appearance in $A$.</p>
 <h2 id="82-4">8.2-4<a class="headerlink" href="#82-4" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Describe an algorithm that, given n integers in the range $0$ to $k$, preprocesses its input and then answers any query about how many of the $n$ integers fall into a range $[a..b]$ in $O(1)$ time. Your algorithm should use $\Theta(n + k)$ preprocessing time.</p>
 </blockquote>
-<p>Compute the $C$ array as is done in counting sort. The number of integers in the range $[a..b]$ is $C[b] - C[a - 1]$, where we interpret $C[-1]$ as $0$.</p>
+<p>Compute the $C$ array as is done in counting sort. The number of integers in the range $[a..b]$ is $C[b] - C[a - 1]$, where we interpret $C[-1]$ as $0$.</p>
                 
                   
                 

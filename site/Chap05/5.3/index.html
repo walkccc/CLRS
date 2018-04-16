@@ -5314,7 +5314,7 @@
 
 <p>The loop invariant becomes</p>
 <p><strong>Loop invariant:</strong> Just prior to the iteration of the <strong>for</strong> loop for each value of $i = 2, \ldots, n$, for each possible $(i - 1)$-permutation, the subarray $A[1..i - 1]$ contains this $(i - 1)$-permutation with probability $(n - i + 1)! / n!$.</p>
-<p>The maintenance and termination parts remain the same. The initialization part is for the subarray $A[1..1]$, which contains any $1$-permutation with probability $(n - 1)! / n \ne 1 / n$.</p>
+<p>The maintenance and termination parts remain the same. The initialization part is for the subarray $A[1..1]$, which contains any $1$-permutation with probability $(n - 1)! / n \ne 1 / n$.</p>
 <h2 id="53-2">5.3-2<a class="headerlink" href="#53-2" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Professor Kelp decides to write a procedure that produces at random any permutation besides the identity permutation. He proposes the following procedure:</p>
@@ -5387,7 +5387,7 @@
 <p>Show that each element $A[i]$ has a $1 / n$ probability of winding up in any particular position in $B$. Then show that Professor Armstrong is mistaken by showing that the resulting permutation is not uniformly random.</p>
 </blockquote>
 <p>$\text{PERMUTE-BY-CYCLE}$ chooses offset as a random integer in the range $1 \le offset \le n$, and then it performs a cyclic rotation of the array. That is, $B[((i + offset - 1)\mod n) + 1] = A[i]$. (The subtraction and addition of $1$ in the index calculation is due to the $1$-origin indexing. If we had used $0$-origin indexing instead, the index calculation would have simplied to $B[(i + offset)\mod n] = A[i]$ for $i = 0, 1, \ldots, n - 1$.)</p>
-<p>Thus, once offset is determined, so is the entire permutation. Since each value of offset occurs with probability $1 / n$, each element $A[i]$ has a probability of ending up in position $B[j]$ with probability $1 / n$.</p>
+<p>Thus, once offset is determined, so is the entire permutation. Since each value of offset occurs with probability $1 / n$, each element $A[i]$ has a probability of ending up in position $B[j]$ with probability $1 / n$.</p>
 <p>This procedure does not produce a uniform random permutation, however, since it can produce only $n$ different permutations. Thus, $n$ permutations occur with probability $1 / n$, and the remaining $n! - n$ permutations occur with probability $0$.</p>
 <h2 id="53-5-star">5.3-5 $\star$<a class="headerlink" href="#53-5-star" title="Permanent link">&para;</a></h2>
 <blockquote>

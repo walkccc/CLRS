@@ -5353,7 +5353,7 @@ k = \frac{\log(1 / 2)}{\log(364 / 365)} &amp; \approx 263.
 <blockquote>
 <p>Suppose that $n$ balls are tossed into $n$ bins, where each toss is independent and the ball is equally likely to end up in any bin. What is the expected number of empty bins? What is the expected number of bins with exactly one ball?</p>
 </blockquote>
-<p>First we determine the expected number of empty bins. We define a random variable $X$ to be the number of empty bins, so that we want to compute $\text E[X]$. Next, for $i = 1, 2, \ldots, n$, we define the indicator random variable $Y_i = I\{\text{bin } i \text{ is empty}\}$. Thus,</p>
+<p>First we determine the expected number of empty bins. We define a random variable $X$ to be the number of empty bins, so that we want to compute $\text E[X]$. Next, for $i = 1, 2, \ldots, n$, we define the indicator random variable $Y_i = I\{\text{bin } i \text{ is empty}\}$. Thus,</p>
 <p>$$X = \sum_{i = 1}^n Y_i,$$</p>
 <p>and so</p>
 <p>\begin{align}
@@ -5371,7 +5371,7 @@ k = \frac{\log(1 / 2)}{\log(364 / 365)} &amp; \approx 263.
 \text E[X] &amp; = \sum_{i = 1}^n\Big(1 - \frac{1}{n})^n \\
            &amp; = n\Big(1 - \frac{1}{n}\Big)^n.
 \end{align}</p>
-<p>By equation $\text{(3.14)}$, as $n$ approaches $\infty$, the quantity $(1 - 1 / n)^n$ approaches $1/e$, and so $\text E[X]$ approaches $n/e$.</p>
+<p>By equation $\text{(3.14)}$, as $n$ approaches $\infty$, the quantity $(1 - 1 / n)^n$ approaches $1/e$, and so $\text E[X]$ approaches $n/e$.</p>
 <p>Now we determine the expected number of bins with exactly one ball. We redefine $X$ to be number of bins with exactly one ball, and we redefine $Y_i$ to be $I\{\text{bin $i$ gets exactly one ball}\}$. As before, we find that</p>
 <p>$$\text E[X] = \sum_{i = 1}^n \Pr\{\text{bin $i$ gets exactly one ball}\}.$$</p>
 <p>Again focusing on bin $i$, we need exactly $n - 1$ successes in $n$ independent Bernoulli trials, and so</p>

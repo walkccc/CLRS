@@ -5397,7 +5397,7 @@
 <blockquote>
 <p>Show how to use an order-statistic tree to count the number of inversions (see Problem 2-4) in an array of size $n$ in time $O(n\lg n)$.</p>
 </blockquote>
-<p>Let $A[1..n]$ be the array of $n$ distinct numbers.</p>
+<p>Let $A[1..n]$ be the array of $n$ distinct numbers.</p>
 <p>One way to count the inversions is to add up, for each element, the number of larger elements that precede it in the array:</p>
 <p>$$\text{# of inversions} = \sum_{j = 1}^n |Inv(j)|,$$</p>
 <p>where $Inv(j) = {i: i &lt; j \text{ and } A[i] &gt; A[j]}$.</p>

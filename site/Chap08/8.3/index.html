@@ -5295,7 +5295,7 @@
 <blockquote>
 <p>Which of the following sorting algorithms are stable: insertion sort, merge sort, heapsort, and quicksort? Give a simple scheme that makes any sorting algorithm stable. How much additional time and space does your scheme entail?</p>
 </blockquote>
-<p>Insertion sort is stable. When inserting $A[j]$ into the sorted sequence $A[1..j - 1]$, we do it the following way: compare $A[j]$ to $A[i]$, starting with $i = j - 1$ and going down to $i = 1$. Continue at long as $A[j] &lt; A[i]$.</p>
+<p>Insertion sort is stable. When inserting $A[j]$ into the sorted sequence $A[1..j - 1]$, we do it the following way: compare $A[j]$ to $A[i]$, starting with $i = j - 1$ and going down to $i = 1$. Continue at long as $A[j] &lt; A[i]$.</p>
 <p>Merge sort as defined is stable, because when two elements compared are equal, the tie is broken by taking the element from array $L$ which keeps them in the original order.</p>
 <p>Heapsort and quicksort are not stable.</p>
 <p>One scheme that makes a sorting algorithm stable is to store the index of each element (the element's place in the original ordering) with the element. When comparing two elements, compare them by their values and break ties by their indices.</p>

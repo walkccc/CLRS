@@ -5181,7 +5181,7 @@
 <p>The way that the theorem characterizes longest palindrome subsequences tells us that an $\text{LPS}$ of a sequence contains within it an $\text{LPS}$ of a subsequence of the sequence. Thus, the $\text{LPS}$ problem has an optimal-substructure property.</p>
 <p><strong>Step 2: A recursive solution</strong></p>
 <p>The theorem implies that we should examine either one or two subproblems when finding an $\text{LPS}$ of $X = \langle x_1, x_2, \ldots, x_n \rangle$, depending on whether $x_1 = x_n$.</p>
-<p>Let us define $p[i, j]$  to be the length of an $\text{LPS}$ of the subsequence $X_{ij}$. If $i = j$, the $\text{LPS}$ has length $1$. If $j = i + 1$, then the $\text{LPS}$ has length either $1$ or $2$, depending on whether $x_i = x_j$. The optimal substructure of the $\text{LPS}$ problem gives the following recursive formula:</p>
+<p>Let us define $p[i, j]$  to be the length of an $\text{LPS}$ of the subsequence $X_{ij}$. If $i = j$, the $\text{LPS}$ has length $1$. If $j = i + 1$, then the $\text{LPS}$ has length either $1$ or $2$, depending on whether $x_i = x_j$. The optimal substructure of the $\text{LPS}$ problem gives the following recursive formula:</p>
 <p>$$
 p[i, j] =
 \begin{cases}
@@ -5193,7 +5193,7 @@ p[i + 1, j - 1] + 2 &amp; \text{if $j &gt; i + 1$ and $x_i = x_j$}, \\
 \end{cases}
 $$</p>
 <p><strong>Step 3: Computing the length of an LPS</strong></p>
-<p>Procedure $\text{LONGEST-PALINDROME}$ takes a sequence $X = \langle x_1, x_2, \ldots, x_n \rangle$ as input. The procedure fills cells $p[i, i]$, where $1 \le i \le n$, and $p[i, i + 1]$, where $1 \le i \le n - 1$, as the base cases. It then starts filling cells $p[i, j]$, where $j &gt; i + 1$. The procedure fills the $p$ table row by row, starting with row $n - 2$ and moving toward row $1$. (Rows $n - 1$ and $n$ are already filled as part of the base cases.) Within each row, the procedure fills the entries from left to right. The procedure also maintains the table $b[1..n, 1..n]$ to help us construct an optimal solution. Intuitively, $b[i, j]$ points to the table entry corresponding to the optimal subproblem solution chosen when computing $p[i, j]$. The procedure returns the $b$ and $p$ tables, $p[1, n]$ contains the length of an $\text{LPS}$ of $X$. The running time of $\text{LONGEST-PALINDROME}$ is clearly $\Theta(n^2)$.</p>
+<p>Procedure $\text{LONGEST-PALINDROME}$ takes a sequence $X = \langle x_1, x_2, \ldots, x_n \rangle$ as input. The procedure fills cells $p[i, i]$, where $1 \le i \le n$, and $p[i, i + 1]$, where $1 \le i \le n - 1$, as the base cases. It then starts filling cells $p[i, j]$, where $j &gt; i + 1$. The procedure fills the $p$ table row by row, starting with row $n - 2$ and moving toward row $1$. (Rows $n - 1$ and $n$ are already filled as part of the base cases.) Within each row, the procedure fills the entries from left to right. The procedure also maintains the table $b[1..n, 1..n]$ to help us construct an optimal solution. Intuitively, $b[i, j]$ points to the table entry corresponding to the optimal subproblem solution chosen when computing $p[i, j]$. The procedure returns the $b$ and $p$ tables, $p[1, n]$ contains the length of an $\text{LPS}$ of $X$. The running time of $\text{LONGEST-PALINDROME}$ is clearly $\Theta(n^2)$.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -5243,7 +5243,7 @@ $$</p>
 </td></tr></table>
 
 <p><strong>Step 4: Constructing an LPS</strong></p>
-<p>The $b$ table returned by $\text{LONGEST-PALINDROME}$ enables us to quickly construct an $\text{LPS}$ of $X = \langle x_1, x_2, \ldots, x_m\rangle$. We simply begin at $b[1, n]$ and trace through the table by following the arrows. Whenever we encounter a "$\swarrow$" in entry $b[i, j]$, it implies that $x_i = y_j$ are the first and last elements of the $\text{LPS}$ that $\text{LONGEST-PALINDROME}$ found. The following recursive procedure returns a sequence $S$ that contains an $\text{LPS}$ of $X$. The initial call is $\text{GENERATE-LPS}(b, X, 1, X.length, \langle \rangle)$, where $\langle\rangle$ denotes an empty sequence. Within the procedure, the symbol $||$ denotes concatenation of a symbol and a sequence.</p>
+<p>The $b$ table returned by $\text{LONGEST-PALINDROME}$ enables us to quickly construct an $\text{LPS}$ of $X = \langle x_1, x_2, \ldots, x_m\rangle$. We simply begin at $b[1, n]$ and trace through the table by following the arrows. Whenever we encounter a "$\swarrow$" in entry $b[i, j]$, it implies that $x_i = y_j$ are the first and last elements of the $\text{LPS}$ that $\text{LONGEST-PALINDROME}$ found. The following recursive procedure returns a sequence $S$ that contains an $\text{LPS}$ of $X$. The initial call is $\text{GENERATE-LPS}(b, X, 1, X.length, \langle \rangle)$, where $\langle\rangle$ denotes an empty sequence. Within the procedure, the symbol $||$ denotes concatenation of a symbol and a sequence.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3

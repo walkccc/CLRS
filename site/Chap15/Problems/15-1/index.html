@@ -5161,7 +5161,7 @@
 <p>We claim that $p'$ is a longest path from $v$ to $t$.</p>
 <p>To prove the claim, we use a cut-and-paste argument. If $p'$ were not a longest path, then there exists a longer path $p''$ from $v$ to $t$. We could cut out $p'$ and paste in $p''$ to produce a path $u \to v \overset{p''}{\leadsto} t$ which is longer than $p$, thus contradicting the assumption that $p$ is a longest path from $u$ to $t$.</p>
 <p>It is important to note that the graph is <em>acyclic</em>. Because the graph is acyclic, path $p''$ cannot include the vertex u, for otherwise there would be a cycle of the form $u \to v \leadsto u$ in the graph. Thus, we can indeed use $p''$ to construct a longer path. The acyclicity requirement ensures that by pasting in path $p''$ , the overall path is still a <em>simple</em> path (there is no cycle in the path). This difference between the cyclic and the acyclic case allows us to use dynamic programming to solve the acyclic case.</p>
-<p>Let $dist[u]$ denote the weight of a longest path from $u$ to $t$. The optimal substructure property allows us to write a recurrence for $dist[u]$ as</p>
+<p>Let $dist[u]$ denote the weight of a longest path from $u$ to $t$. The optimal substructure property allows us to write a recurrence for $dist[u]$ as</p>
 <p>dist[u] =
 \begin{cases}
                                            0 &amp; \text{if $u = t$}, \\
@@ -5197,12 +5197,12 @@
 </td></tr></table>
 
 <p>(See Section 22.1 for an explanation of the notation $G.Adj[u]$.)</p>
-<p>$\text{LONGEST-PATH-AUX}$ is a memoized, recursive procedure, which returns the tuple $(dist, next)$. The array $dist$ is the memoized array that holds the solution to subproblems. That is, after the procedure returns, $dist[u]$ will hold the weight of a longest path from $u$ to $t$. The array $next$ serves two purposes:</p>
+<p>$\text{LONGEST-PATH-AUX}$ is a memoized, recursive procedure, which returns the tuple $(dist, next)$. The array $dist$ is the memoized array that holds the solution to subproblems. That is, after the procedure returns, $dist[u]$ will hold the weight of a longest path from $u$ to $t$. The array $next$ serves two purposes:</p>
 <ul>
-<li>It holds information necessary for printing out an actual path. Specifically, if $u$ is a vertex on the longest path that the procedure found, then $next[u]$ is the next vertex on the path.</li>
-<li>The value in $next[u]$ is used to check whether the current subproblem has been solved earlier. A value of at least zero indicates that this subproblem has been solved earlier.</li>
+<li>It holds information necessary for printing out an actual path. Specifically, if $u$ is a vertex on the longest path that the procedure found, then $next[u]$ is the next vertex on the path.</li>
+<li>The value in $next[u]$ is used to check whether the current subproblem has been solved earlier. A value of at least zero indicates that this subproblem has been solved earlier.</li>
 </ul>
-<p>The first <strong>if</strong> condition checks for the base case $u = t$. The second <strong>if</strong> condition checks whether the current subproblem has already been solved. The <strong>for</strong> loop iterates over each adjacent edge($u, v)$ and updates the longest distance in $dist[u]$.</p>
+<p>The first <strong>if</strong> condition checks for the base case $u = t$. The second <strong>if</strong> condition checks whether the current subproblem has already been solved. The <strong>for</strong> loop iterates over each adjacent edge($u, v)$ and updates the longest distance in $dist[u]$.</p>
 <p>What is the running time of $\text{LONGEST-PATH-AUX}$? Each subproblem represented by a vertex $u$ is solved at most once due to the memoization. For each vertex, we examine its adjacent edges. Thus, each edge is examined at most once, and the overall running time is $O(E)$. (Section 22.1 discusses how we achieve $O(E)$ time by representing the graph with adjacency lists.)</p>
 <p>The $\text{PRINT-PATH}$ procedure prints out the path using information stored in the next array:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
