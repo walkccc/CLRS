@@ -5181,7 +5181,7 @@ $$</p>
 <ol>
 <li>No comparisons.</li>
 <li>$m = \lfloor n / 2 \lfloor$ comparisons.</li>
-<li>Since we recurse on $A[p + m + 1..p + n]$, which has dn / 2e elements, the number of comparisons is $U_i(\lceil n / 2 \rceil)$.</li>
+<li>Since we recurse on $A[p + m + 1..p + n]$, which has $dn / 2e$ elements, the number of comparisons is $U_i(\lceil n / 2 \rceil)$.</li>
 <li>Since we call $\text{SELECT}$ on an array with $2i$ elements, the number of comparisons is $T(2i)$.</li>
 </ol>
 <p>Thus, when $i &lt; n / 2$, the total number of comparisons is $\lfloor n / 2 \rfloor + U_i(\lceil n / 2 \rceil) + T(2i)$.</p>
