@@ -5273,7 +5273,7 @@
 <p><strong>Case 1:</strong> $z$'s uncle is red.</p>
 <p><img alt="" src="https://i.imgur.com/rr7tQNC.png?width=45rem" /></p>
 <ul>
-<li>Before color changes, suppose that all subtrees $\alpha$, $beta$, $\gamma$, $\delta$, $\epsilon$ have the same black-height $k$ with a black root, so that nodes $A$, $B$, $C$, and $D$ have blackheights of $k + 1$.</li>
+<li>Before color changes, suppose that all subtrees $\alpha$, $\beta$, $\gamma$, $\delta$, $\epsilon$ have the same black-height $k$ with a black root, so that nodes $A$, $B$, $C$, and $D$ have blackheights of $k + 1$.</li>
 <li>After color changes, the only node whose black-height changed is node $C$. To fix that, add $z.p.p.bh = z.p.p.bh + 1$ after line 7 in $\text{RB-INSERT-FIXUP}$. </li>
 <li>Since the number of black nodes between $z.p.p$ and $z$ remains the same, nodes above $z.p.p$ are not affected by the color change.</li>
 </ul>
@@ -5281,7 +5281,7 @@
 <strong>Case 3:</strong> $z$'s uncle $y$ is black, and $z$ is a left child.</p>
 <p><img alt="" src="https://i.imgur.com/UoqU0C0.png?width=45rem" /></p>
 <ul>
-<li>With subtrees $\alpha$, $beta$, $\gamma$, $\delta$, $\epsilon$ of black-height $k$, we see that even with color changes and rotations, the black-heights of nodes $A$, $B$, and $C$ remain the same $(k + 1)$.</li>
+<li>With subtrees $\alpha$, $\beta$, $\gamma$, $\delta$, $\epsilon$ of black-height $k$, we see that even with color changes and rotations, the black-heights of nodes $A$, $B$, and $C$ remain the same $(k + 1)$.</li>
 </ul>
 <p>Thus, $\text{RB-INSERT-FIXUP}$ maintains its original $O(\lg n)$ time.<br />
 For $\text{RB-DELETE-FIXUP}$, there are 4 cases to examine.</p>
