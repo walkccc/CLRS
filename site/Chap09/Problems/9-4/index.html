@@ -5181,9 +5181,9 @@ $$</p>
 <p>Letting $C$ be the event that $z_i$ is compared with $z_j$ during the execution of the algorithm, we have that</p>
 <p>\begin{align}
 \text E[X_{ijk}] 
-    &amp; = \Pr{C} \\
-    &amp; = \Pr{z_i \text{ or } z_j \text{ is the first pivot chosen from } Z_{ijk}} \\
-    &amp; = \Pr{z_i \text{ is the first pivot chosen from } Z_{ijk}} + \Pr{z_j \text{ is the first pivot chosen from } Z_{ijk}} \\
+    &amp; = \Pr\{C\} \\
+    &amp; = \Pr\{z_i \text{ or } z_j \text{ is the first pivot chosen from } Z_{ijk}\} \\
+    &amp; = \Pr\{z_i \text{ is the first pivot chosen from } Z_{ijk}\} + \Pr\{z_j \text{ is the first pivot chosen from } Z_{ijk}\} \\
     &amp; = \frac{1}{|Z_{ijk}|} + \frac{1}{|Z_{ijk}|} \\
     &amp; = \frac{2}{\max(j - i + 1, j - k + 1, k - i + 1)}.
 \end{align}</p>
