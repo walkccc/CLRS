@@ -5269,6 +5269,8 @@ B &amp; = \langle, , , 1, , 2, , 3, , , \rangle
 <blockquote>
 <p>Prove that $\text{COUNTING-SORT}$ is stable.</p>
 </blockquote>
+<p>Consider two elements in the input array, $A[s]$ and $A[s + 1]$, such that $A[s] = A[s + 1]$, $1 \le s \le n - 1$.</p>
+<p>After the execution of the final fo $r$ loop in $\text{COUNTING-SORT}$, $B[p] = A[s + 1]$ and $B[p - 1] = A[s]$, $2 \le p \le n$. $A[s]$ and $A[s + 1]$ appear in the output array $B$ in the same order as they appear in $A$. Therefore, $\text{COUNTING-SORT}$ is stable.</p>
 <h2 id="82-3">8.2-3<a class="headerlink" href="#82-3" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Suppose that we were to rewrite the <strong>for</strong> loop header in line 10 of the $\text{COUNTING-SORT}$ as</p>
