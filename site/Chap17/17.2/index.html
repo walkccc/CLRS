@@ -5250,16 +5250,19 @@
 <p>Redo Exercise 17.1-3 using an accounting method of analysis.</p>
 </blockquote>
 <p>Let $c_i =$ csot of $i$th operation.</p>
-<p>c_i =
+<p>$$
+c_i =
 \begin{cases}
 i &amp; \text{if $i$ is an exact power of $2$}, \\
-1 &amp; \text{otherwise}. \\
-\end{cases}</p>
+1 &amp; \text{otherwise}.
+\end{cases}
+$$</p>
 <p>Charge each operation $3$ (amotized cost $\hat c_i$).</p>
 <ul>
 <li>If $i$ is not an exact power of $2$, pay $\$1$, and store $\$2$ as credit.</li>
-<li>If $i$ is an exact power of $2$, pay $\$i$, using stored credit.
-\begin{array}{cccc}
+<li>If $i$ is an exact power of $2$, pay $\$i$, using stored credit.</li>
+</ul>
+<p>\begin{array}{cccc}
 \text{Operation} &amp; \text{Cost} &amp; \text{Actual cost} &amp; \text{Credit remaining} \\
 \hline
  1 &amp; 3 &amp; 1 &amp;  2 \\
@@ -5273,8 +5276,7 @@ i &amp; \text{if $i$ is an exact power of $2$}, \\
  9 &amp; 3 &amp; 1 &amp;  7 \\
 10 &amp; 3 &amp; 1 &amp;  9 \\
 \vdots &amp; \vdots &amp; \vdots &amp; \vdots
-\end{array}</li>
-</ul>
+\end{array}</p>
 <p>Since the amortized cost is $\$3$ per operation, $\sum\limits_{i = 1}^n \hat c_i = 3n$. </p>
 <p>We know from Exercise 17.1-3 that $\sum\limits_{i = 1}^n \hat c_i &lt; 3n$.</p>
 <p>Then we have</p>

@@ -5243,7 +5243,7 @@
 <blockquote>
 <p>If the set of stack operations included a $\text{MULTIPUSH}$ operation, which pushses $k$ items onto the stack, would the $O(1)$ bound on the amortized cost of stack operations continue to hold?</p>
 </blockquote>
-<p>No. The time complexity of such a series of operations depends on the number of pushes (pops vise versa) could be made. Since one $\text{MULTIPUSH}$ needs $\Theta(k)$ time, performing n $\text{MULTIPUSH}$ operations, each with $k$ elements, would take $\Theta(kn)$ time, leading to amortized cost of $\Theta(k)$.</p>
+<p>No. The time complexity of such a series of operations depends on the number of pushes (pops vise versa) could be made. Since one $\text{MULTIPUSH}$ needs $\Theta(k)$ time, performing $n$ $\text{MULTIPUSH}$ operations, each with $k$ elements, would take $\Theta(kn)$ time, leading to amortized cost of $\Theta(k)$.</p>
 <h2 id="171-2">17.1-2<a class="headerlink" href="#171-2" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Show that if a $\text{DECREMENT}$ operatoin were included in the $k$-bit counter example, $n$ operations could cost as much as $\Theta(nk)$ time.</p>
@@ -5281,7 +5281,7 @@ $$</p>
 <p>(Note: Ignoring floor in upper bound of $\sum 2^j$.)</p>
 <p>Average cost of operation:</p>
 <p>$$\frac{\text{Total case}}{\text{# operations}} &lt; 3.$$</p>
-<p>By aggregate analysis, the amoritzed cost per operation = $O(1)$.</p>
+<p>By aggregate analysis, the amoritzed cost per operation $= O(1)$.</p>
                 
                   
                 
