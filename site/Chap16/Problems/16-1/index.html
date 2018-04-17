@@ -5203,11 +5203,13 @@
 <p>Let us define $c[j]$ to be the minimum number of coins we need to make change for $j$ cents. Let the coin denominations be $d_1, d_2, \ldots, d_k$. Since one of the coins is a penny, there is a way to make change for any amount $j \ge 1$.</p>
 <p>Because of the optimal substructure, if we knew that an optimal solution for the problem of making change for $j$ cents used a coin of denomination $d_i$, we would have $c[j] = 1 + c[j - d_i]$. As base cases, we have that $c[j] = 0$ for all $j \le 0$.</p>
 <p>To develop a recursive formulation, we have to check all denominations, giving</p>
-<p>c[j] =
+<p>$$
+c[j] =
 \begin{cases}
-0                                            &amp; \text{if $j \le 0$}, \\
-1 + \min\limits_{1 \le i \le k} {c[j - d_i]} &amp; \text{if $j &gt; 1$}.
-\end{cases}</p>
+0                                                &amp; \text{if $j \le 0$}, \\
+1 + \min\limits_{1 \le i \le k} \{c[j - d_i]\} &amp; \text{if $j &gt; 1$}.
+\end{cases}
+$$</p>
 <p>We can compute the $c[j]$ values in order of increasing $j$ by using a table. The following procedure does so, producing a table $c[1..n]$. It avoids even examining $c[j]$ for $j \le 0$ by ensuring that $j \ge d_i$ before looking up $c[j - d_i]$. The procedure also produces a table $denom[1..n]$, where $denom[j]$ is the denomination of a coin used in an optimal solution to the problem of making change for $j$ cents.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
