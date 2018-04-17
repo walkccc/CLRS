@@ -14,7 +14,7 @@ Please don't hesitate to give me your feedback if any adjustment is needed with 
 
 ## Known issue
 
-In the Safari on an iOS device, the math equation of [Problem 1-1](https://walkccc.github.io/CLRS/Chap01/Problems/1-1/) and some other pages won't be rendered. I currently don't know how to fix this. If you know how to tackle this problem, please tell me, thanks.
+In the Safari on an iOS device, the math equationS of [Problem 1-1](https://walkccc.github.io/CLRS/Chap01/Problems/1-1/), [16.3-3](https://walkccc.github.io/CLRS/Chap16/16.3/#163-3) and some other pages won't be rendered. I currently don't know how to fix this. If you know how to tackle this problem, please tell me, thanks.
 
 ## Working on following exercises
 
