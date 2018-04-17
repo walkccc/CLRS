@@ -5155,7 +5155,7 @@
                 
                 <blockquote>
 <p>Modern computers use a cache to store a small amount of data in a fast memory. Even though a program may access large amounts of data, by storing a small subset of the main memory in the <strong><em>cache</em></strong>—a small but faster memory—overall access time can greatly decrease. When a computer program executes, it makes a sequence $\langle r_1, r_2, \ldots, r_n \rangle$ of $n$ memory requests, where each request is for a particular data element. For example, a program that accesses 4 distinct elements $\{a, b, c, d\}$ might make the sequence of requests $\langle d, b, d, b, d, a, c, d, b, a, c, b \rangle$. Let $k$ be the size of the cache. When the cache contains $k$ elements and the program requests the $(k + 1)$st element, the system must decide, for this and each subsequent request, which $k$ elements to keep in the cache. More precisely, for each request $r_i$, the cache-management algorithm checks whether element $r_i$ is already in the cache. If it is, then we have a <strong><em>cache hit</em></strong>; otherwise, we have a cache miss. Upon a <strong><em>cache miss</em></strong>, the system retrieves $r_i$ from the main memory, and the cache-management algorithm must decide whether to keep $r_i$ in the cache. If it decides to keep $r_i$ and the cache already holds $k$ elements, then it must evict one element to make room for $r_i$ . The cache-management algorithm evicts data with the goal of minimizing the number of cache misses over the entire sequence of requests.</p>
-<p>Typically, caching is an on-line problem. That is, we have to make decisions about which data to keep in the cache without knowing the future requests. Here, however, we consider the off-line version of this problem, in which we are given in advance the entire sequence of n requests and the cache size $k$, and we wish to minimize the total number of cache misses.</p>
+<p>Typically, caching is an on-line problem. That is, we have to make decisions about which data to keep in the cache without knowing the future requests. Here, however, we consider the off-line version of this problem, in which we are given in advance the entire sequence of $n$ requests and the cache size $k$, and we wish to minimize the total number of cache misses.</p>
 <p>We can solve this off-line problem by a greedy strategy called <strong><em>furthest-in-future</em></strong>, which chooses to evict the item in the cache whose next access in the request sequence comes furthest in the future.</p>
 <p><strong>a.</strong> Write pseudocode for a cache manager that uses the furthest-in-future strategy. The input should be a sequence $\langle r_1, r2, \ldots, r_n \rangle$ of requests and a cache size $k$, and the output should be a sequence of decisions about which data element (if any) to evict upon each request. What is the running time of your algorithm?</p>
 <p><strong>b.</strong> Show that the off-line caching problem exhibits optimal substructure.</p>
@@ -5288,10 +5288,10 @@ Let $miss(C, i)$ denote the minimum number of cache misses for $(C, i)$. We can 
 <p>$$
 miss(C, i) =
 \begin{cases}
-0                                              &amp; \text{if $i = n$ and $r_n \in C$}, \\
-1                                              &amp; \text{if $i = n$ and $r_n \notin C$}, \\
-miss(C, i + 1)                                 &amp; \text{if $i &lt; n$ and $r_i \in C$}, \\
-1 + \min\limits_{C' \in P_C} {miss(C', i + 1)} &amp; \text{if $i &lt; n$ and $r_i \notin C$}.
+0                                                  &amp; \text{if $i = n$ and $r_n \in C$}, \\
+1                                                  &amp; \text{if $i = n$ and $r_n \notin C$}, \\
+miss(C, i + 1)                                     &amp; \text{if $i &lt; n$ and $r_i \in C$}, \\
+1 + \min\limits_{C' \in P_C} \{miss(C', i + 1)\} &amp; \text{if $i &lt; n$ and $r_i \notin C$}.
 \end{cases}
 $$</p>
 <p>Thus, we conclude that the problem exhibits optimal substructure.</p>
