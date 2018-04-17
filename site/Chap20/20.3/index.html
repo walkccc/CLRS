@@ -5315,7 +5315,7 @@
 <blockquote>
 <p>Creating a vEB tree with universe size $u$ requires $O(u)$ time. Suppose we wish to explicitly account for that time. What is the smallest number of operations $n$ for which the amortized time of each operation in a vEB tree is $O(\lg\lg u)$?</p>
 </blockquote>
-<p>Set $n = u / \lg\lg u$. Then performing $n$ operations takes $c(u + n\lg\lg u)$ time for some constant $c$. Using the aggregate amortized analysis, we divide by n to see that the amortized cost of each operations is $c(\lg\lg u + \lg\lg u) = O(\lg\lg u)$ per operation. Thus we need $n \ge u/ \lg \lg u$.</p>
+<p>Set $n = u / \lg\lg u$. Then performing $n$ operations takes $c(u + n\lg\lg u)$ time for some constant $c$. Using the aggregate amortized analysis, we divide by $n$ to see that the amortized cost of each operations is $c(\lg\lg u + \lg\lg u) = O(\lg\lg u)$ per operation. Thus we need $n \ge u/ \lg \lg u$.</p>
                 
                   
                 

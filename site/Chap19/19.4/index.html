@@ -5230,8 +5230,8 @@
 <p>Professor Pinocchio claims that the height of an $n$-node Fibonacci heap is $O(\lg n)$. Show that the professor is mistaken by exhibiting, for any positive integer $n$, a sequence of Fibonacci-heap operations that creates a Fibonacci heap consisting of just one tree that is a linear chain of $n$ nodes.</p>
 </blockquote>
 <ul>
-<li><strong>Initialize:</strong> insert 3 numbers then extract-min.</li>
-<li><strong>Iteration:</strong> insert 3 numbers, in which at least two numbers are less than the root of chain, then extract-min. The smallest newly inserted number will be extracted and the remaining two numbers will form a heap whose degree of root is $1$, and since the root of the heap is less than the old chain, the chain will be merged into the newly created heap. Finally we should delete the node which contains the largest number of the 3 inserted numbers.</li>
+<li><strong>Initialize:</strong> insert $3$ numbers then extract-min.</li>
+<li><strong>Iteration:</strong> insert $3$ numbers, in which at least two numbers are less than the root of chain, then extract-min. The smallest newly inserted number will be extracted and the remaining two numbers will form a heap whose degree of root is $1$, and since the root of the heap is less than the old chain, the chain will be merged into the newly created heap. Finally we should delete the node which contains the largest number of the 3 inserted numbers.</li>
 </ul>
 <h2 id="194-2">19.4-2<a class="headerlink" href="#194-2" title="Permanent link">&para;</a></h2>
 <blockquote>
