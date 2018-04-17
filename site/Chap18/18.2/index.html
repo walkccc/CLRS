@@ -5430,7 +5430,7 @@ at $x.c_i$.</li>
 <blockquote>
 <p>Since leaf nodes require no pointers to children, they could conceivably use a different (larger) $t$ value than internal nodes for the same disk page size. Show how to modify the procedures for creating and inserting into a B-tree to handle this variation.</p>
 </blockquote>
-<p>We could set the new $t$ (name it $t'$) value of leaf node = $1.5t$.</p>
+<p>You would modify the insertion procedure by, in $\text{B-TREE-INSERT}$, check if the node is a leaf, and if it is, only split it if there twice as many keys stored as expected. Also, if an element needs to be inserted into a full leaf, we would split the leaf into two separate leaves, each of which doesn't have too many keys stored in it.</p>
 <h2 id="182-6">18.2-6<a class="headerlink" href="#182-6" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Suppose that we were to implement $\text{B-TREE-SEARCH}$ to use binary search rather than linear search within each node. Show that this change makes the CPU time required $O(\lg n)$, independently of how $t$ might be chosen as a function of $n$.</p>
