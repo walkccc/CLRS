@@ -5330,7 +5330,7 @@ A &amp; = \langle 26, 31, 41, 41, 58, 59 \rangle
         <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">carry</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span>  <span class="c1">// remainder</span>
         <span class="n">carry</span> <span class="o">=</span> <span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">carry</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="c1">// quotient</span>
     <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">carry</span>
-    <span class="k">return</span> <span class="n">ADD</span><span class="o">-</span><span class="n">BINARY</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">C</span>
 </pre></div>
 </td></tr></table>
                 
