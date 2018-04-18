@@ -5319,7 +5319,7 @@
 <p>To compute the in degree of each vertex, we will have to scan through all of the adjacency lists and keep counters for how many times each vertex has appeared. As in the previous case, the time to scan through all of the adjacency lists takes time $O(|E| + |V|)$.</p>
 <h2 id="221-2">22.1-2<a class="headerlink" href="#221-2" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>Give an adjacency-list representation for a complete binary tree on 7 vertices. Give an equivalent adjacency-matrix representation. Assume that vertices are numbered from 1 to 7 as in a binary heap.</p>
+<p>Give an adjacency-list representation for a complete binary tree on $7$ vertices. Give an equivalent adjacency-matrix representation. Assume that vertices are numbered from $1$ to $7$ as in a binary heap.</p>
 </blockquote>
 <ul>
 <li>
@@ -5351,7 +5351,7 @@ $$</p>
 </ul>
 <h2 id="221-3">22.1-3<a class="headerlink" href="#221-3" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>The <strong><em>transpose</em></strong> of a directed graph $G = (V, E)$ is the graph $G^\text T = (V, E^\text T)$, where $E^\text T = {(v, u) \in V \times V: (u, v) \in E}$. Thus, $G^\text T$ is $G$ with all its edges reversed. Describe efficient algorithms for computing $G^\text T$ from $G$, for both the adjacency-list and adjacency-matrix representations of $G$. Analyze the running times of your algorithms.</p>
+<p>The <strong><em>transpose</em></strong> of a directed graph $G = (V, E)$ is the graph $G^\text T = (V, E^\text T)$, where $E^\text T = \{ (v, u) \in V \times V: (u, v) \in E \}$. Thus, $G^\text T$ is $G$ with all its edges reversed. Describe efficient algorithms for computing $G^\text T$ from $G$, for both the adjacency-list and adjacency-matrix representations of $G$. Analyze the running times of your algorithms.</p>
 </blockquote>
 <ul>
 <li><strong>Adjacency-list representation:</strong>  For the adjacency list representation, we will maintain an initially empty adjacency list representation of the transpose. Then, we scan through every list in the original graph. If we are in the list corresponding to vertex $v$ and see $u$ as an entry in the list, then we add an entry of $v$ to the list in the transpose graph corresponding to vertex $u$. Since this only requires a scan through all of the lists, it only takes time $O(|E| + |V|)$.</li>
@@ -5449,8 +5449,8 @@ $$</p>
 <p>To see that $\text{UNIVERSAL-SINK}$ runs in $O(V)$ time, observe that either $i$ or $j$ is incremented in each iteration of the <strong>while</strong> loop. Thus, the <strong>while</strong> loop makes at most $2|V| - 1$ iterations. Each iteration takes $O(1)$ time, for a total <strong>while</strong> loop time of $O(V)$ and, combined with the $O(V)$-time call to $\text{IS-SINK}$, we get a total running time of $O(V)$.</p>
 <h2 id="221-7">22.1-7<a class="headerlink" href="#221-7" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>The <strong><em>incidence matrix</em></strong> of a directed graph $G = (V, E)$ with no self-loops is a $|V| \times |E|$ matrix $B = (b_{ij})$ such that
-$$
+<p>The <strong><em>incidence matrix</em></strong> of a directed graph $G = (V, E)$ with no self-loops is a $|V| \times |E|$ matrix $B = (b_{ij})$ such that</p>
+<p>$$
 b_{ij} =
 \begin{cases}
 -1 &amp; \text{if edge $j$ leaves vertex $i$}, \\
