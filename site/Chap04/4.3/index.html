@@ -5398,8 +5398,8 @@ T(n) &amp; \le 2(c\lfloor n / 2 \rfloor\lg{\lfloor n / 2 \rfloor} + \lfloor n / 
 </blockquote>
 <p>To show $\Theta$ bound, separately show $O$ and $\Omega$ bounds.</p>
 <ul>
-<li>For $O(n\lg n)$, we guess $T(n) \le c(n - 2)\lg(n - 2)$,</li>
-</ul>
+<li>
+<p>For $O(n\lg n)$, we guess $T(n) \le c(n - 2)\lg(n - 2)$,</p>
 <p>\begin{align}
 T(n) &amp; \le c(\lceil n / 2 \rceil -2 )\lg(\lceil n / 2 \rceil - 2) + c(\lfloor n / 2 \rfloor - 2)\lg(\lfloor n / 2 \rfloor - 2) + dn \\
      &amp; \le c(n / 2 + 1 -2 )\lg(n / 2 + 1 - 2) + c(n / 2 - 2)\lg(n / 2 - 2) + dn \\
@@ -5411,9 +5411,9 @@ T(n) &amp; \le c(\lceil n / 2 \rceil -2 )\lg(\lceil n / 2 \rceil - 2) + c(\lfloo
      &amp; \le c(n - 2)\lg(n - 2),
 \end{align}</p>
 <p>where the last step holds for $c &gt; d$.</p>
-<ul>
-<li>For $\Omega(n\lg n)$, we guess $T(n) \ge c(n + 2)\lg (n + 2)$,</li>
-</ul>
+</li>
+<li>
+<p>For $\Omega(n\lg n)$, we guess $T(n) \ge c(n + 2)\lg (n + 2)$,</p>
 <p>\begin{align}
 T(n) &amp; \ge c(\lceil n / 2 \rceil +2 )\lg(\lceil n / 2 \rceil + 2) + c(\lfloor n / 2 \rfloor + 2)\lg(\lfloor n / 2 \rfloor + 2) + dn \\
      &amp; \ge c(n / 2 + 2)\lg(n / 2 + 2) + c(n / 2-1+2)\lg(n / 2-1+2) + dn \\
@@ -5425,6 +5425,8 @@ T(n) &amp; \ge c(\lceil n / 2 \rceil +2 )\lg(\lceil n / 2 \rceil + 2) + c(\lfloo
      &amp; \ge c(n + 2)\lg(n + 2),
 \end{align}</p>
 <p>where the last step holds for $d &gt; c$.</p>
+</li>
+</ul>
 <h2 id="43-6">4.3-6<a class="headerlink" href="#43-6" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Show that the solution to $T(n) = 2T(\lfloor n / 2 \rfloor + 17) + n$ is $O(n\lg n)$.</p>
