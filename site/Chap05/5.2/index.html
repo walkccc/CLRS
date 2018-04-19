@@ -5326,12 +5326,12 @@ A &amp; = F \cap (E_1 \cup E_2 \cup \cdots \cup E_{n - 1}) \\
 \end{align}</p>
 <h2 id="52-4">5.2-4<a class="headerlink" href="#52-4" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>Use indicator random variables to solve the following problem, which is known as the <strong><em>hat-check problem</em></strong>. Each of $n$ customer gives a hat to a hat-check person at a restaurant. The hat-check person gives the hats back to the customers in a random order. What is the expected number of customers who get back their hat?</p>
+<p>Use indicator random variables to solve the following problem, which is known as the <strong><em>hat-check problem</em></strong>. Each of $n$ customers gives a hat to a hat-check person at a restaurant. The hat-check person gives the hats back to the customers in a random order. What is the expected number of customers who get back their hat?</p>
 </blockquote>
 <p>Another way to think of the hat-check problem is that we want to determine the expected number of fixed points in a random permutation. (A <strong><em>fixed point</em></strong> of a permutation $\pi$ is a value $i$ for which $\pi(i) = i$.) We could enumerate all $n!$ permutations, count the total number of fixed points, and divide by $n!$ to determine the average number of fixed points per permutation. This would be a painstaking process, and the answer would turn out to be $1$. We can use indicator random variables, however, to arrive at the same answer much more easily.</p>
 <p>Define a random variable $X$ that equals the number of customers that get back their own hat, so that we want to compute $\text E[X]$.</p>
 <p>For $i = 1, 2, \ldots, n$, define the indicator random variable</p>
-<p>$X_i = I$ {customer $i$ gets back his own hat}.</p>
+<p>$$X_i = I\{\text{customer $i$ gets back his own hat}\}.$$</p>
 <p>Then $X = X_1 + X_2 + \cdots + X_n$.</p>
 <p>Since the ordering of hats is random, each customer has a probability of $1 / n$ of getting back his or her own hat. In other words, $\Pr\{X_i = 1\} = 1 / n$, which, by Lemma 5.1, implies that $\text E[X_i] = 1 / n$.</p>
 <p>Thus,</p>

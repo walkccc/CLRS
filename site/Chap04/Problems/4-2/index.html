@@ -5155,19 +5155,19 @@
                 
                 <blockquote>
 <p>Throughout this book, we assume that parameter passing during procedure calls takes constant time, even if an $N$-element array is being passed. This assumption is valid in most systems because a pointer to the array is passed, not the array itself. This problem examines the implications of three parameter-passing strategies:</p>
-<ul>
+<ol>
 <li>An array is passed by pointer. Time $= \Theta(1)$.</li>
 <li>An array is passed by copying. Time $= \Theta(N)$, where $N$ is the size of the array.</li>
 <li>An array is passed by copying only the subrage that might be accessed by the called procedure. Time $= \Theta(q - p + 1)$ if the subarray $A[p..q]$ is passed.</li>
-</ul>
+</ol>
 <p><strong>a.</strong> Consider the recursive binary search algorithm for finding a number in a sorted array (see Exercise 2.3-5). Give recurrences for the worst-case running times of binary search when arrays are passed using each of the three methods above, and give good upper bounds on the solutions of the recurrences. Let $N$ be the size of the original problems and $n$ be the size of a subproblem.</p>
 <p><strong>b.</strong> Redo part (a) for the $\text{MERGE-SORT}$ algorithm from Section 2.3.1.</p>
 </blockquote>
 <p><strong>a.</strong></p>
-<ul>
+<ol>
 <li>$T(n) = T(n / 2) + c = \Theta(\lg n)$. (master method)</li>
-<li>$\Theta(n\lg n)$.</li>
-</ul>
+<li>
+<p>$\Theta(n\lg n)$.</p>
 <p>\begin{align}
 T(n) &amp; = T(n / 2) + cN \\
      &amp; = 2cN + T(n / 4) \\
@@ -5176,14 +5176,16 @@ T(n) &amp; = T(n / 2) + cN \\
      &amp; = cN\lg n \\
      &amp; = \Theta(n\lg n).
 \end{align}</p>
-<ul>
-<li>$T(n) = T(n / 2) + cn = \Theta(n)$. (master method)</li>
-</ul>
+</li>
+<li>
+<p>$T(n) = T(n / 2) + cn = \Theta(n)$. (master method)</p>
+</li>
+</ol>
 <p><strong>b.</strong></p>
-<ul>
+<ol>
 <li>$T(n) = 2T(n / 2) + cn = \Theta(n\lg n)$. (master method)</li>
-<li>$\Theta(n^2)$.</li>
-</ul>
+<li>
+<p>$\Theta(n^2)$.</p>
 <p>\begin{align}
 T(n) &amp; = 2T(n / 2) + cn + 2N = 4N + cn + 2c(n / 2) + 4T(n / 4) \\
      &amp; = 8N + 2cn + 4c(n / 4) + 8T(n / 8) \\
@@ -5193,14 +5195,16 @@ T(n) &amp; = 2T(n / 2) + cn + 2N = 4N + cn + 2c(n / 2) + 4T(n / 4) \\
      &amp; = cn\lg n + nN - N = \Theta(nN) \\
      &amp; = \Theta(n^2).
 \end{align}</p>
-<ul>
-<li>$\Theta(n\lg n)$.</li>
-</ul>
+</li>
+<li>
+<p>$\Theta(n\lg n)$.</p>
 <p>\begin{align}
 T(n) &amp; = 2T(n / 2) + cn + 2n / 2 \\
      &amp; = 2T(n / 2) + (c + 1)n \\
      &amp; = \Theta(n\lg n).
 \end{align}</p>
+</li>
+</ol>
                 
                   
                 

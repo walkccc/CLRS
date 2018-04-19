@@ -5298,14 +5298,17 @@
                 <h2 id="42-1">4.2-1<a class="headerlink" href="#42-1" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Use Strassen's algorithm to compute the matrix product</p>
-<p>\begin{pmatrix}
+<p>$$
+\begin{pmatrix}
 1 &amp; 2 \\
 7 &amp; 5
 \end{pmatrix}
 \begin{pmatrix}
 6 &amp; 8 \\
 4 &amp; 2
-\end{pmatrix}</p>
+\end{pmatrix}
+.
+$$</p>
 <p>Show your work.</p>
 </blockquote>
 <p>The first matrices are</p>
@@ -5374,12 +5377,14 @@ $$</p>
 28
 29
 30
-31</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">STRASSEN</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+31
+32</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">STRASSEN</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">rows</span>
     <span class="n">let</span> <span class="o">+</span> <span class="n">be</span> <span class="n">a</span> <span class="k">new</span> <span class="n">n</span> <span class="o">*</span> <span class="n">n</span> <span class="n">matrix</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span>
         <span class="n">c11</span> <span class="o">=</span> <span class="n">a11</span> <span class="o">*</span> <span class="n">b11</span>
-    <span class="k">else</span> <span class="n">partition</span> <span class="n">A</span> <span class="n">and</span> <span class="n">B</span> <span class="n">in</span> <span class="n">equations</span> <span class="p">(</span><span class="mf">4.9</span><span class="p">)</span>
+    <span class="k">else</span> 
+        <span class="n">partition</span> <span class="n">A</span> <span class="n">and</span> <span class="n">B</span> <span class="n">in</span> <span class="n">equations</span> <span class="p">(</span><span class="mf">4.9</span><span class="p">)</span>
         <span class="n">let</span> <span class="n">C11</span><span class="p">,</span> <span class="n">C12</span><span class="p">,</span> <span class="n">C21</span><span class="p">,</span> <span class="n">and</span> <span class="n">C22</span> <span class="n">be</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span> <span class="n">matrices</span>
         <span class="n">create</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span> <span class="n">matrices</span> <span class="n">S1</span><span class="p">,</span> <span class="n">S2</span><span class="p">,...,</span><span class="n">S10</span> <span class="n">and</span> <span class="n">P1</span><span class="p">,</span> <span class="n">P2</span><span class="p">,...,</span><span class="n">P7</span>
         <span class="n">S1</span> <span class="o">=</span> <span class="n">B12</span> <span class="o">-</span> <span class="n">B22</span>
