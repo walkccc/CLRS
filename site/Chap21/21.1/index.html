@@ -5241,8 +5241,9 @@
                 
                 <h2 id="211-1">21.1-1<a class="headerlink" href="#211-1" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>Suppose that $\text{CONNECTED-COMPONENTS}$ is run on the undirected graph $G = (V, E)$, where $V = \{a, b, c, d, e, f, g, h, i, j, k\}$ and the edges of $E$ are processed in the order $(d, i)$, $(f, k)$, $(g, i)$, $(b, g)$, $(a, h)$, $(i, j)$, $(d, k)$, $(b, j)$, $(d, f)$, $(g, j)$, $(a, e)$. List the vertices in each connected component after each iteration of lines 3–5.
-\begin{array}{c|lllllllllll}
+<p>Suppose that $\text{CONNECTED-COMPONENTS}$ is run on the undirected graph $G = (V, E)$, where $V = \{a, b, c, d, e, f, g, h, i, j, k\}$ and the edges of $E$ are processed in the order $(d, i)$, $(f, k)$, $(g, i)$, $(b, g)$, $(a, h)$, $(i, j)$, $(d, k)$, $(b, j)$, $(d, f)$, $(g, j)$, $(a, e)$. List the vertices in each connected component after each iteration of lines 3–5.</p>
+</blockquote>
+<p>\begin{array}{c|lllllllllll}
 \text{Edge processed} &amp; \\
 \hline
 initial &amp; \{a\}       &amp; \{b\}                   &amp; \{c\} &amp; \{d\}       &amp; \{e\} &amp; \{f\}    &amp; \{g\} &amp; \{h\} &amp; \{i\} &amp; \{j\} &amp; \{k\} \\
@@ -5258,7 +5259,6 @@ initial &amp; \{a\}       &amp; \{b\}                   &amp; \{c\} &amp; \{d\} 
 (g, j)  &amp; \{a, h\}    &amp; \{b, g, i, g, j, f, k\} &amp; \{c\} &amp;             &amp; \{e\} &amp;          &amp;       &amp;       &amp;       &amp;       &amp;       \\
 (a, e)  &amp; \{a, e, h\} &amp; \{b, g, i, g, j, f, k\} &amp; \{c\} &amp;             &amp; \{e\} &amp;          &amp;       &amp;       &amp;       &amp;       &amp;     <br />
 \end{array}</p>
-</blockquote>
 <p>So, the connected components that we are left with are  $\{a, h, e\}$,  $\{b, d, i, g, j, f, k\}$, and $\{c\}$.</p>
 <h2 id="211-2">21.1-2<a class="headerlink" href="#211-2" title="Permanent link">&para;</a></h2>
 <blockquote>

@@ -5154,7 +5154,7 @@
                   <h1>21-3 Tarjan's off-line least-common-ancestors algorithm</h1>
                 
                 <blockquote>
-<p>The least common ancestor of two nodes $u$ and $v$ in a rooted tree $T$ is the node $w$ that is an ancestor of both $u$ and $v$ and that has the greatest depth in $T$. In the <strong><em>off-line least-common-ancestors problem</em></strong>, we are given a rooted tree $T$ and an arbitrary set $P = {{u, v}}$ of unordered pairs of nodes in $T$, and we wish to determine the least common ancestor of each pair in $P$.</p>
+<p>The <strong><em>least common ancestor</em></strong> of two nodes $u$ and $v$ in a rooted tree $T$ is the node $w$ that is an ancestor of both $u$ and $v$ and that has the greatest depth in $T$. In the <strong><em>off-line least-common-ancestors problem</em></strong>, we are given a rooted tree $T$ and an arbitrary set $P = \{\{u, v\}\}$ of unordered pairs of nodes in $T$, and we wish to determine the least common ancestor of each pair in $P$.</p>
 <p>To solve the off-line least-common-ancestors problem, the following procedure performs a tree walk of $T$ with the initial call $\text{LCA}(T.root)$. We assume that each node is colored $\text{WHITE}$ prior to the walk.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -5166,8 +5166,7 @@
  8
  9
 10
-11
-12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">LCA</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">LCA</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
     <span class="n">MAKE</span><span class="o">-</span><span class="n">SET</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
     <span class="n">FIND</span><span class="o">-</span><span class="n">SET</span><span class="p">(</span><span class="n">u</span><span class="p">).</span><span class="n">ancestor</span> <span class="o">=</span> <span class="n">u</span>
     <span class="k">for</span> <span class="n">each</span> <span class="n">child</span> <span class="n">v</span> <span class="n">of</span> <span class="n">u</span> <span class="n">in</span> <span class="n">T</span>
@@ -5177,14 +5176,13 @@
     <span class="n">u</span><span class="p">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">BLACK</span>
     <span class="k">for</span> <span class="n">each</span> <span class="n">node</span> <span class="n">v</span> <span class="n">such</span> <span class="n">that</span> <span class="p">{</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">}</span> <span class="n">in</span> <span class="n">P</span>
         <span class="k">if</span> <span class="n">v</span><span class="p">.</span><span class="n">color</span> <span class="o">==</span> <span class="n">BLACK</span>
-            <span class="n">print</span> <span class="s">&quot;The least common ancestor of&quot;</span> <span class="n">u</span>
-            <span class="s">&quot;and&quot;</span> <span class="n">v</span> <span class="s">&quot;is&quot;</span> <span class="n">FIND</span><span class="o">-</span><span class="n">SET</span><span class="p">(</span><span class="n">v</span><span class="p">).</span><span class="n">ancestor</span>
+            <span class="n">print</span> <span class="s">&quot;The least common ancestor of&quot;</span> <span class="n">u</span> <span class="s">&quot;and&quot;</span> <span class="n">v</span> <span class="s">&quot;is&quot;</span> <span class="n">FIND</span><span class="o">-</span><span class="n">SET</span><span class="p">(</span><span class="n">v</span><span class="p">).</span><span class="n">ancestor</span>
 </pre></div>
 </td></tr></table>
 
-<p><strong>a.</strong> Argue that line 10 executes exactly once for each pair ${u, v} \in P$.</p>
+<p><strong>a.</strong> Argue that line 10 executes exactly once for each pair $\{u, v\} \in P$.</p>
 <p><strong>b.</strong> Argue that at the time of the call $\text{LCA}(u)$, the number of sets in the disjoint-set data structure equals the depth of $u$ in $T$.</p>
-<p><strong>c.</strong> Prove that $\text{LCA}$ correctly prints the least common ancestor of $u$ and $v$ for each pair ${u, v} \in P$.</p>
+<p><strong>c.</strong> Prove that $\text{LCA}$ correctly prints the least common ancestor of $u$ and $v$ for each pair $\{u, v\} \in P$.</p>
 <p><strong>d.</strong> Analyze the running time of $\text{LCA}$, assuming that we use the implementation of the disjoint-set data structure in Section 21.3.</p>
 </blockquote>
 <p><strong>a.</strong> Suppose that we let $\le_{LCA}$ to be an ordering on the vertices so that $u \le_{LCA} v$ if we run line 7 of $\text{LCA}(u)$ before line 7 of $\text{LCA}(v)$. Then, when we are running line 7 of $\text{LCA}(u)$, we immediately go on to the <strong>for</strong> loop on line 8.</p>

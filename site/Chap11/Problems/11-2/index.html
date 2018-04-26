@@ -5156,12 +5156,12 @@
                 <blockquote>
 <p>Suppose that we have a hash table with $n$ slots, with collisions resolved by chaining, and suppose that $n$ keys are inserted into the table. Each key is equally likely to be hashed to each slot. Let $M$ be the maximum number of keys in any slot after all the keys have been inserted. Your mission is to prove an $O(\lg n / \lg\lg n)$ upper bound on $\text E[M]$, the expected value of $M$.</p>
 <p><strong>a.</strong> Argue that the probability $Q_k$ that exactly $k$ keys hash to a particular slot is given by</p>
-<p>$$Q_k = (\frac{1}{n})k (1 - \frac{1}{n})^{n - k} \binom{n}{k}.$$</p>
+<p>$$Q_k = \bigg(\frac{1}{n} \bigg)^k \bigg(1 - \frac{1}{n} \bigg)^{n - k} \binom{n}{k}.$$</p>
 <p><strong>b.</strong> Let $P_k$ be the probability that $M = k$, that is, the probability that the slot containing the most keys contains $k$ keys. Show that $P_k \le n Q_k$.</p>
 <p><strong>c.</strong> Use Stirling's approximation, equation $\text{(3.18)}$, to show that $Q_k &lt; e^k / k^k$.</p>
 <p><strong>d.</strong> Show that there exists a constant $c &gt; 1$ such that $Q_{k_0} &lt; 1 / n^3$ for $k_0 = c\lg n / \lg\lg n$. Conclude that $P_k &lt; 1 / n^2$ for $k \ge k_0 = c\lg n / \lg\lg n$.</p>
 <p><strong>e.</strong> Argue that</p>
-<p>$$\text E[M] \le \Pr\{M &gt; \frac{c\lg n}{\lg\lg n}\} \cdot n + \Pr\{M \le \frac{c\lg n}{\lg\lg n}\} \cdot \frac{c\lg n}{\lg\lg n}.$$</p>
+<p>$$\text E[M] \le \Pr\bigg\{M &gt; \frac{c\lg n}{\lg\lg n}\bigg\} \cdot n + \Pr\bigg\{M \le \frac{c\lg n}{\lg\lg n}\bigg\} \cdot \frac{c\lg n}{\lg\lg n}.$$</p>
 <p>Conclude that $\text E[M] = O(\lg n / \lg\lg n)$.</p>
 </blockquote>
 <p><strong>a.</strong> A particular key is hashed to a particular slot with probability $1 / n$. Suppose we select a specific set of $k$ keys. The probability that these $k$ keys are inserted into the slot in question and that all other keys are inserted elsewhere is</p>

@@ -5280,7 +5280,7 @@
 <p>According to property 5 of B-tree, every node other than the root must have at least $t - 1$ keys and may contain at most $2t - 1$ keys. In Figure 18.1, the number of keys of each node (except the root) is either $2$ or $3$. So to make it a legal B-tree, we need to guarantee that $t - 1 \le 2 \text{ and } 2 t - 1 \ge 3$, which yields $2 \le t \le 3$. So $t$ can be $2$ or $3$. </p>
 <h2 id="181-3">18.1-3<a class="headerlink" href="#181-3" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>Show all legal B-trees of minimum degree $2$ that represent ${1, 2, 3, 4, 5}$.</p>
+<p>Show all legal B-trees of minimum degree $2$ that represent $\{1, 2, 3, 4, 5\}$.</p>
 </blockquote>
 <p>We know that every node except the root must have at least $t - 1 = 2$ keys, and at most $2t - 1 = 5$ keys. Also remember that the leaves stay in the same depth. Thus, there are $2$ possible legal B-trees:</p>
 <ul>

@@ -5311,10 +5311,10 @@
                 
                 <h2 id="221-1">22.1-1<a class="headerlink" href="#221-1" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>Given an adjacency-list representation of a directed graph, how long does it take to compute the $out\text-degree$ of every vertex? How long does it take to compute the $in\text-degrees$?</p>
+<p>Given an adjacency-list representation of a directed graph, how long does it take to compute the $\text{out-degree}$ of every vertex? How long does it take to compute the $\text{in-degree}s$?</p>
 </blockquote>
-<p>Since it seems as though the list for the neighbors of each vertex $v$ is just an undecorated list, to find the length of each would take time $O(out\text-degree(v))$. So, the total cost will be</p>
-<p>$$\sum_{v \in V}O(out\text-degree(v)) = O(|E| + |V|).$$</p>
+<p>Since it seems as though the list for the neighbors of each vertex $v$ is just an undecorated list, to find the length of each would take time $O(\text{out-degree}(v))$. So, the total cost will be</p>
+<p>$$\sum_{v \in V}O(\text{out-degree}(v)) = O(|E| + |V|).$$</p>
 <p>Note that the $|V|$ showing up in the asymptotics is necessary, because it still takes a constant amount of time to know that a list is empty. This time could be reduced to $O(|V|)$ if for each list in the adjacency list representation, we just also stored its length.</p>
 <p>To compute the in degree of each vertex, we will have to scan through all of the adjacency lists and keep counters for how many times each vertex has appeared. As in the previous case, the time to scan through all of the adjacency lists takes time $O(|E| + |V|)$.</p>
 <h2 id="221-2">22.1-2<a class="headerlink" href="#221-2" title="Permanent link">&para;</a></h2>
@@ -5386,9 +5386,9 @@ $$</p>
 </ul>
 <h2 id="221-6">22.1-6<a class="headerlink" href="#221-6" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>Most graph algorithms that take an adjacency-matrix representation as input require time $\Omega(V^2)$, but there are some exceptions. Show how to determine whether a directed graph $G$ contains a <strong><em>universal sink</em></strong> $-$ a vertex with $in\text-degree$ $|V| - 1$ and $out\text-degree$ $0$ $-$ in time $O(V)$, given an adjacency matrix for $G$.</p>
+<p>Most graph algorithms that take an adjacency-matrix representation as input require time $\Omega(V^2)$, but there are some exceptions. Show how to determine whether a directed graph $G$ contains a <strong><em>universal sink</em></strong> $-$ a vertex with $\text{in-degree}$ $|V| - 1$ and $\text{out-degree}$ $0$ $-$ in time $O(V)$, given an adjacency matrix for $G$.</p>
 </blockquote>
-<p>We start by observing that if $a_{ij} = 1$, so that $(i, j) \in E$, then vertex $i$ cannot be a universal sink, for it has an outgoing edge. Thus, if row $i$ contains a $1$, then vertex $i$ cannot be a universal sink. This observation also means that if there is a $\text{self-loop}(i, i)$, then vertex $i$ is not a universal sink. Now suppose that $a_{ij} = 0$, so that $(i, j) \notin E$, and also that $i \ne j$. Then vertex $j$ cannot be a universal sink, for either its $in\text-degree$ must be strictly less than $|V| - 1$ or it has a self-loop. Thus if column $j$ contains a $0$ in any position other than the diagonal entry $(j, j)$, then vertex $j$ cannot be a universal sink.</p>
+<p>We start by observing that if $a_{ij} = 1$, so that $(i, j) \in E$, then vertex $i$ cannot be a universal sink, for it has an outgoing edge. Thus, if row $i$ contains a $1$, then vertex $i$ cannot be a universal sink. This observation also means that if there is a $\text{self-loop}(i, i)$, then vertex $i$ is not a universal sink. Now suppose that $a_{ij} = 0$, so that $(i, j) \notin E$, and also that $i \ne j$. Then vertex $j$ cannot be a universal sink, for either its $\text{in-degree}$ must be strictly less than $|V| - 1$ or it has a self-loop. Thus if column $j$ contains a $0$ in any position other than the diagonal entry $(j, j)$, then vertex $j$ cannot be a universal sink.</p>
 <p>Using the above observations, the following procedure returns $\text{TRUE}$ if vertex $k$ is a universal sink, and $\text{FALSE}$ otherwise. It takes as input a $|V| \times |V|$ adjacency matrix $A = (a_{ij})$.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2

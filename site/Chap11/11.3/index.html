@@ -5373,7 +5373,7 @@ u_j(u_j - 1) / 2 + u_k(u_k - 1) / 2 &amp; &lt; (u_j - 1)(u_j - 2) / 2 + (u_k + 1
 <h2 id="113-6-star">11.3-6 $\star$<a class="headerlink" href="#113-6-star" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Let $U$ be the set of $n$-tuples of values drawn from $\mathbb Z_p$, and let $B = \mathbb Z_p$, where $p$ is prime. Define the hash function $h_b: U \rightarrow B$ for $b \in \mathbb Z_p$ on an input $n$-tuple $\langle a_0, a_1, \ldots, a_{n - 1} \rangle$ from $U$ as</p>
-<p>$$h_b(\langle a_0, a_1, \ldots, a_{n - 1} \rangle) = (\sum_{j = 0}^{n - 1} a_jb^j) \mod p,$$</p>
+<p>$$h_b(\langle a_0, a_1, \ldots, a_{n - 1} \rangle) = \Bigg(\sum_{j = 0}^{n - 1} a_jb^j \Bigg) \mod p,$$</p>
 <p>and let $\mathcal{H} = \{h_b : b \in \mathbb Z_p\}$. Argue that $\mathcal H$ is $((n - 1) / p)$-universal according to the definition of $\epsilon$-universal in Exercise 11.3-5. ($\textit{Hint:}$ See Exercise 31.4-4.)</p>
 </blockquote>
 <p>Fix $b \in \mathbb Z_p$. By exercise 31.4-4, $h_b(x)$ collides with $h_b(y)$ for at most $n - 1$ other $y \in U$. Since there are a total of $p$ possible values that $h_b$ takes on, the

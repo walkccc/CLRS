@@ -5166,7 +5166,7 @@
 <p><strong>d.</strong> Define for $i = 2, 3, \ldots, k$ and all $(u, v) \in E$, </p>
 <p>$$\hat w_i = w_i(u, v) + 2\delta_{i - 1}(s, u) - 2\delta_{i - 1}(s, v).$$</p>
 <p>Prove that for $i = 2, 3, \ldots, k$ and all $u, v \in V$, the ''reweighted'' value $\hat w_i(u, v)$ of edge $(u, v)$ is a nonnegative integer.</p>
-<p><strong>e.</strong> Now, define $\delta_i(s, v)$ as the shortest-path weight from $s$ to $v$ using the weight function $\hat w_i$. Prove that for $i = 2, 3, \ldots, k$ and all $v \in V$, </p>
+<p><strong>e.</strong> Now, define $\hat\delta_i(s, v)$ as the shortest-path weight from $s$ to $v$ using the weight function $\hat w_i$. Prove that for $i = 2, 3, \ldots, k$ and all $v \in V$, </p>
 <p>$$\delta_i(s, v) = \hat\delta_i(s, v) + 2\delta_{i - 1}(s, v)$$</p>
 <p>and that $\hat\delta_i(s, v) \le |E|$.</p>
 <p><strong>f.</strong> Show how to compute $\delta_i(s, v)$ from $\delta_{i - 1}(s, v)$ for all $v \in V$ in $O(E)$ time, and conclude that we can compute $\delta(s, v)$ for all $v \in V$ in $O(E\lg W)$ time.</p>

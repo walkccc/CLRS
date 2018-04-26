@@ -5315,7 +5315,7 @@
 
 <h2 id="103-3">10.3-3<a class="headerlink" href="#103-3" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>Why don't we need to set or reset the prev attributes of objects in the implementation of the $\text{ALLOCATE-OBJECT}$ and $\text{FREE-OBJECT}$ procedures?</p>
+<p>Why don't we need to set or reset the $prev$ attributes of objects in the implementation of the $\text{ALLOCATE-OBJECT}$ and $\text{FREE-OBJECT}$ procedures?</p>
 </blockquote>
 <p>We implement $\text{ALLOCATE-OBJECT}$ and $\text{FREE-OBJECT}$ in the hope of managing the storage of currently non-used object in the free list so that one can be allocated for reusing. As the free list acts like a stack, to maintain this stack-like collection, we merely remember its first pointer and set the $next$ attribute of objects. There is no need to worry the $prev$ attribute, for it hardly has any impact on the resulting free list.</p>
 <h2 id="103-4">10.3-4<a class="headerlink" href="#103-4" title="Permanent link">&para;</a></h2>

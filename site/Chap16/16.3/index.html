@@ -5351,7 +5351,7 @@
 <h2 id="163-3">16.3-3<a class="headerlink" href="#163-3" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>What is an optimal Huffman code for the following set of frequencies, based on<br />
-the first 8 Fibonacci numbers?</p>
+the first $8$ Fibonacci numbers?</p>
 <p>$$a:1 \quad b:1 \quad c:2 \quad d:3 \quad e:5 \quad f:8 \quad g:13 \quad h:21$$</p>
 <p>Can you generalize your answer to find the optimal code when the frequencies are the first $n$ Fibonacci numbers?</p>
 </blockquote>
@@ -5369,7 +5369,7 @@ h &amp; 0
 <blockquote>
 <p>Prove that we can also express the total cost of a tree for a code as the sum, over all internal nodes, of the combined frequencies of the two children of the node.</p>
 </blockquote>
-<p>Let tree be a full binary tree with n leaves. Apply induction hypothesis on the number of leaves in $T$. When $n = 2$ (the case $n = 1$ is trivially true), there are two leaves $x$ and $y$ with the same parent $z$, then the cost of $T$ is</p>
+<p>Let tree be a full binary tree with $n$ leaves. Apply induction hypothesis on the number of leaves in $T$. When $n = 2$ (the case $n = 1$ is trivially true), there are two leaves $x$ and $y$ with the same parent $z$, then the cost of $T$ is</p>
 <p>\begin{align}
 B(T) &amp; = f(x) d_T(x) + f(y) d_T(y) \\
      &amp; = f(x) + f(y) &amp; \text{since $d_T(x) = d_T(y) = 1$}  \\
@@ -5409,7 +5409,7 @@ f(x_i) &amp; &gt; f(x_{n - i + 1}) &amp; 1 \le i \le \Big\lfloor \frac{n}{2} \Bi
 \end{align}</p>
 <h2 id="163-6">16.3-6<a class="headerlink" href="#163-6" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>Suppose we have an optimal prefix code on a set $C = {0, 1, \ldots, n - 1}$ of characters and we wish to transmit this code using as few bits as possible. Show how to represent any optimal prefix code on $C$ using only $2n - 1 + n \lceil \lg n \rceil$ bits. ($\textit{Hint:}$ Use $2n - 1$ bits to specify the structure of the tree, as discovered by a walk of the tree.)</p>
+<p>Suppose we have an optimal prefix code on a set $C = \{0, 1, \ldots, n - 1 \}$ of characters and we wish to transmit this code using as few bits as possible. Show how to represent any optimal prefix code on $C$ using only $2n - 1 + n \lceil \lg n \rceil$ bits. ($\textit{Hint:}$ Use $2n - 1$ bits to specify the structure of the tree, as discovered by a walk of the tree.)</p>
 </blockquote>
 <p>First observe that any full binary tree has exactly $2n - 1$ nodes. We can encode the structure of our full binary tree by performing a preorder traversal of $T$. 
 For each node that we record in the traversal, write a $0$ if it is an internal node and a $1$ if it is a leaf node. Since we know the tree to be full, this uniquely determines its structure. </p>
@@ -5426,7 +5426,7 @@ For each node that we record in the traversal, write a $0$ if it is an internal 
 <p>For any $2$ characters, the sum of their frequencies exceeds the frequency of any other character, so initially Huffman coding makes $128$ small trees with $2$ leaves each. At the next stage, no internal node has a label which is more than twice that of any other, so we are in the same setup as before. Continuing in this fashion, Huffman coding builds a complete binary tree of height $\lg 256 = 8$, which is no more efficient than ordinary $8$-bit length codes.</p>
 <h2 id="163-9">16.3-9<a class="headerlink" href="#163-9" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>Show that no compression scheme can expect to compress a file of randomly chosen 8-bit characters by even a single bit. ($\textit{Hint:}$ Compare the number of possible files with the number of possible encoded files.)</p>
+<p>Show that no compression scheme can expect to compress a file of randomly chosen $8$-bit characters by even a single bit. ($\textit{Hint:}$ Compare the number of possible files with the number of possible encoded files.)</p>
 </blockquote>
 <p>If every possible character is equally likely, then, when constructing the Huffman code, we will end up with a complete binary tree of depth $7$. This means that every character, regardless of what it is will be represented using $7$ bits.</p>
 <p>This is exactly as many bits as was originally used to represent those characters,

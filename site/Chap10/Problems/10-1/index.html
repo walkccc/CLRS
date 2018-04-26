@@ -5155,34 +5155,48 @@
                 
                 <blockquote>
 <p>For each of the four types of lists in the following table, what is the asymptotic worst-case running time for each dynamic-set operation listed?</p>
-<p>\begin{array}{l|cccc}
+<p>\begin{array}{l|c|c|c|c|}
                            &amp; \text{unsorted, singly linked} 
                            &amp; \text{sorted, singly linked} 
                            &amp; \text{unsorted, doubly linked} 
                            &amp; \text{sorted, doubly linked} \\
 \hline
 \text{SEARCH($L, k$)}      &amp; &amp; &amp; &amp; \\
+\hline
 \text{INSERT($L, x$)}      &amp; &amp; &amp; &amp; \\
+\hline
 \text{DELETE($L, x$)}      &amp; &amp; &amp; &amp; \\
+\hline
 \text{SUCCESSOR($L, x$)}   &amp; &amp; &amp; &amp; \\
+\hline
 \text{PREDECESSOR($L, x$)} &amp; &amp; &amp; &amp; \\
+\hline
 \text{MINIMUM($L$)}        &amp; &amp; &amp; &amp; \\
-\text{MAXIMUM($L$)}        &amp; &amp; &amp; &amp;
+\hline
+\text{MAXIMUM($L$)}        &amp; &amp; &amp; &amp; \\
+\hline
 \end{array}</p>
 </blockquote>
-<p>\begin{array}{l|cccc}
+<p>\begin{array}{l|c|c|c|c|}
                            &amp; \text{unsorted, singly linked} 
                            &amp; \text{sorted, singly linked} 
                            &amp; \text{unsorted, doubly linked} 
                            &amp; \text{sorted, doubly linked} \\
 \hline
 \text{SEARCH($L, k$)}      &amp; \Theta(n) &amp; \Theta(n) &amp; \Theta(n) &amp; \Theta(n) \\
+\hline
 \text{INSERT($L, x$)}      &amp; \Theta(1) &amp; \Theta(n) &amp; \Theta(1) &amp; \Theta(n) \\
+\hline
 \text{DELETE($L, x$)}      &amp; \Theta(n) &amp; \Theta(n) &amp; \Theta(1) &amp; \Theta(1) \\
+\hline
 \text{SUCCESSOR($L, x$)}   &amp; \Theta(n) &amp; \Theta(1) &amp; \Theta(n) &amp; \Theta(1) \\
+\hline
 \text{PREDECESSOR($L, x$)} &amp; \Theta(n) &amp; \Theta(n) &amp; \Theta(n) &amp; \Theta(1) \\
+\hline
 \text{MINIMUM($L$)}        &amp; \Theta(n) &amp; \Theta(1) &amp; \Theta(n) &amp; \Theta(1) \\
-\text{MAXIMUM($L$)}        &amp; \Theta(n) &amp; \Theta(n) &amp; \Theta(n) &amp; \Theta(n)
+\hline
+\text{MAXIMUM($L$)}        &amp; \Theta(n) &amp; \Theta(n) &amp; \Theta(n) &amp; \Theta(n) \\
+\hline
 \end{array}</p>
                 
                   

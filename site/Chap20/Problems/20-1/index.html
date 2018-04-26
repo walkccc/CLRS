@@ -5155,10 +5155,10 @@
                 
                 <blockquote>
 <p>This problem explores the space requirements for van Emde Boas trees and suggests a way to modify the data structure to make its space requirement depend on the number $n$ of elements actually stored in the tree, rather than on the universe size $u$. For simplicity, assume that $\sqrt u$ is always an integer.</p>
-<p><strong>a.</strong> Explain why the following recurrence characterizes the space requirement $P(u)$ of a van Emde Boas tree with universe size u:</p>
+<p><strong>a.</strong> Explain why the following recurrence characterizes the space requirement $P(u)$ of a van Emde Boas tree with universe size $u$:</p>
 <p>$$P(u) = (\sqrt u + 1) P(\sqrt u) + \Theta(\sqrt u). \tag{20.5}$$</p>
 <p><strong>b.</strong> Prove that recurrence $\text{(20.5)}$ has the solution $P(u) = O(u)$.</p>
-<p>In order to reduce the space requirements, let us define a <strong><em>reduced-space van Emde Boas tree</em></strong>, or <strong><em>RS-vEB tree</em></strong>, as a <strong><em>vEB tree</em></strong> $V$ but with the following changes:</p>
+<p>In order to reduce the space requirements, let us define a <strong><em>reduced-space van Emde Boas tree</em></strong>, or <strong><em>RS-vEB tree</em></strong>, as a vEB tree $V$ but with the following changes:</p>
 <ul>
 <li>The attribute $V.cluster$, rather than being stored as a simple array of pointers to vEB trees with universe size $\sqrt u$, is a hash table (see Chapter 11) stored as a dynamic table (see Section 17.4). Corresponding to the array version of $V.cluster$, the hash table stores pointers to RS-vEB trees with universe size $\sqrt u$. To find the $i$th cluster, we look up the key $i$ in the hash table, so that we can find the $i$th cluster by a single search in the hash table.</li>
 <li>The hash table stores only pointers to nonempty clusters. A search in the hash table for an empty cluster returns $\text{NIL}$, indicating that the cluster is empty.</li>

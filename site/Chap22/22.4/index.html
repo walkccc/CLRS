@@ -5338,7 +5338,7 @@ p &amp; 27 &amp; 28
 <p>The ''bad'' edges in this case are $(b, c)$ and $(d, c)$. However, if we had instead ordered them by $a, b, d, c$ then the only bad edges would be $(c, a)$. Thus $\text{TOPOLOGICAL-SORT}$ doesn't always minimizes the number of ''bad'' edges</p>
 <h2 id="224-5">22.4-5<a class="headerlink" href="#224-5" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>Another way to perform topological sorting on a directed acyclic graph $G = (V, E)$ is to repeatedly find a vertex of $in\text-degree$ $0$, output it, and remove it and all of its outgoing edges from the graph. Explain how to implement this idea so that it runs in time $O(V + E)$. What happens to this algorithm if $G$ has cycles?</p>
+<p>Another way to perform topological sorting on a directed acyclic graph $G = (V, E)$ is to repeatedly find a vertex of $\text{in-degree}$ $0$, output it, and remove it and all of its outgoing edges from the graph. Explain how to implement this idea so that it runs in time $O(V + E)$. What happens to this algorithm if $G$ has cycles?</p>
 </blockquote>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -5398,28 +5398,28 @@ p &amp; 27 &amp; 28
 </pre></div>
 </td></tr></table>
 
-<p>To find and output vertices of $in\text-degree$ $0$, we first compute all vertices' $in\text-degree$s by making a pass through all the edges (by scanning the adjacency lists of all the vertices) and incrementing the $in\text-degree$ of each vertex an edge enters.</p>
+<p>To find and output vertices of $\text{in-degree}$ $0$, we first compute all vertices' $\text{in-degree}$s by making a pass through all the edges (by scanning the adjacency lists of all the vertices) and incrementing the $\text{in-degree}$ of each vertex an edge enters.</p>
 <ul>
-<li>Computing all $in\text-degree$s takes $\Theta(V + E)$ time ($|V|$ adjacency lists accessed, $|E|$ edges total found in those lists, $\Theta(1)$ work for each edge).</li>
+<li>Computing all $\text{in-degree}$s takes $\Theta(V + E)$ time ($|V|$ adjacency lists accessed, $|E|$ edges total found in those lists, $\Theta(1)$ work for each edge).</li>
 </ul>
-<p>We keep the vertices with $in\text-degree$ $0$ in a FIFO queue, so that they can be enqueued and dequeued in $O(1)$ time. (The order in which vertices in the queue are processed doesn't matter, so any kind of FIFO queue works.)</p>
+<p>We keep the vertices with $\text{in-degree}$ $0$ in a FIFO queue, so that they can be enqueued and dequeued in $O(1)$ time. (The order in which vertices in the queue are processed doesn't matter, so any kind of FIFO queue works.)</p>
 <ul>
 <li>Initializing the queue takes one pass over the vertices doing $\Theta(1)$ work, for total time $\Theta(V)$.</li>
 </ul>
-<p>As we process each vertex from the queue, we effectively remove its outgoing edges from the graph by decrementing the $in\text-degree$ of each vertex one of those edges enters, and we enqueue any vertex whose $in\text-degree$ goes to $0$. We do not need to actually remove the edges from the adjacency list, because that adjacency list will never be processed again by the algorithm: Each vertex is enqueued/dequeued at most once because it is enqueued only if it starts out with $in\text-degree$ $0$ or if its indegree becomes $0$ after being decremented (and never incremented) some number of times.</p>
+<p>As we process each vertex from the queue, we effectively remove its outgoing edges from the graph by decrementing the $\text{in-degree}$ of each vertex one of those edges enters, and we enqueue any vertex whose $\text{in-degree}$ goes to $0$. We do not need to actually remove the edges from the adjacency list, because that adjacency list will never be processed again by the algorithm: Each vertex is enqueued/dequeued at most once because it is enqueued only if it starts out with $\text{in-degree}$ $0$ or if its indegree becomes $0$ after being decremented (and never incremented) some number of times.</p>
 <ul>
 <li>The processing of a vertex from the queue happens $O(V)$ times because no vertex can be enqueued more than once. The per-vertex work (dequeue and output) takes $O(1)$ time, for a total of $O(V)$ time.</li>
 <li>Because the adjacency list of each vertex is scanned only when the vertex is dequeued, the adjacency list of each vertex is scanned at most once. Since the sum of the lengths of all the adjacency lists is $\Theta(E)$, at most $O(E)$ time is spent in total scanning adjacency lists. For each edge in an adjacency list, $\Theta(1)$ work is done, for a total of $O(E)$ time.</li>
 </ul>
 <p>Thus the total time taken by the algorithm is $O(V + E)$.</p>
-<p>The algorithm outputs vertices in the right order ($u$ before $v$ for every edge $(u, v)$) because vwill not be output until its $in\text-degree$ becomes $0$, which happens only when every edge $(u, v)$ leading into $v$ has been ''removed'' due to the processing (including output) of $u$.</p>
+<p>The algorithm outputs vertices in the right order ($u$ before $v$ for every edge $(u, v)$) because vwill not be output until its $\text{in-degree}$ becomes $0$, which happens only when every edge $(u, v)$ leading into $v$ has been ''removed'' due to the processing (including output) of $u$.</p>
 <p>If there are no cycles, all vertices are output.</p>
 <ul>
-<li>Proof: Assume that some vertex $v_0$ is not output. Vertex $v_0$ cannot start out with $in\text-degree$ $0$ (or it would be output), so there are edges into $v_0$. Since $v_0$'s $in\text-degree$ never becomes $0$, at least one edge $(v_1, v_0)$ is never removed, which means that at least one other vertex $v_1$ was not output. Similarly, $v_1$ not output means that some vertex $v_2$ such that $(v_2, v_1) \in E$ was not output, and so on. Since the number of vertices is finite, this path ($\cdots \to v_2 \to v_1 \to v_0$) is finite, so we must have $v_i = v_j$ for some $i$ and $j$ in this sequence, which means there is a cycle.</li>
+<li>Proof: Assume that some vertex $v_0$ is not output. Vertex $v_0$ cannot start out with $\text{in-degree}$ $0$ (or it would be output), so there are edges into $v_0$. Since $v_0$'s $\text{in-degree}$ never becomes $0$, at least one edge $(v_1, v_0)$ is never removed, which means that at least one other vertex $v_1$ was not output. Similarly, $v_1$ not output means that some vertex $v_2$ such that $(v_2, v_1) \in E$ was not output, and so on. Since the number of vertices is finite, this path ($\cdots \to v_2 \to v_1 \to v_0$) is finite, so we must have $v_i = v_j$ for some $i$ and $j$ in this sequence, which means there is a cycle.</li>
 </ul>
-<p>If there are cycles, not all vertices will be output, because some $in\text-degree$s never become $0$.</p>
+<p>If there are cycles, not all vertices will be output, because some $\text{in-degree}$s never become $0$.</p>
 <ul>
-<li>Proof: Assume that a vertex in a cycle is output (its $in\text-degree$ becomes $0$). Let $v$ be the first vertex in its cycle to be output, and let $u$ be $v$'s predecessor in the cycle. In order for $v$'s $in\text-degree$ to become $0$, the edge $(u, v)$ must have been ''removed,'' which happens only when $u$ is processed. But this cannot have happened, because $v$ is the first vertex in its cycle to be processed. Thus no vertices in cycles are output.</li>
+<li>Proof: Assume that a vertex in a cycle is output (its $\text{in-degree}$ becomes $0$). Let $v$ be the first vertex in its cycle to be output, and let $u$ be $v$'s predecessor in the cycle. In order for $v$'s $\text{in-degree}$ to become $0$, the edge $(u, v)$ must have been ''removed,'' which happens only when $u$ is processed. But this cannot have happened, because $v$ is the first vertex in its cycle to be processed. Thus no vertices in cycles are output.</li>
 </ul>
                 
                   

@@ -5175,7 +5175,7 @@
 </pre></div>
 </td></tr></table>
 
-<p>The <strong><em>$0$-$1$ sorting lemma</em></strong> provides a powerful way to prove that an oblivious compare-exchange algorithm produces a sorted result. It states that if an oblivious compare-exchange algorithm correctly sorts all input sequences consisting of only $0$s and $1$s, then it correctly sorts all inputs containing arbitrary values.</p>
+<p>The <strong><em>0-1 sorting lemma</em></strong> provides a powerful way to prove that an oblivious compare-exchange algorithm produces a sorted result. It states that if an oblivious compare-exchange algorithm correctly sorts all input sequences consisting of only $0$s and $1$s, then it correctly sorts all inputs containing arbitrary values.</p>
 <p>You will prove the $0$-$1$ sorting lemma by proving its contrapositive: if an oblivious compare-exchange algorithm fails to sort an input containing arbitrary values, then it fails to sort some $0$-$1$ input. Assume that an oblivious compare-exchange algorithm $\text X$ fails to correctly sort the array $A[1..n]$. Let $A[p]$ be the smallest value in $A$ that algorithm $\text X$ puts into the wrong location, and let $A[q]$ be the value that algorithm $\text X$ moves to the location into which $A[p]$ should have gone. Define an array $B[1..n]$ of $0$s and $1$s as follows:</p>
 <p>$$
 B[i] =
@@ -5196,7 +5196,7 @@ $$</p>
 <p>Columnsort operates in eight steps, regardless of the value of $n$. The odd steps are all the same: sort each column individually. Each even step is a fixed permutation. Here are the steps:</p>
 <ol>
 <li>Sort each column.</li>
-<li>Transpose the array, but reshape it back to r rows and s columns. In other words, turn the leftmost column into the top $r / s$ rows, in order; turn the next column into the next $r / s$ rows, in order; and so on.</li>
+<li>Transpose the array, but reshape it back to $r$ rows and $s$ columns. In other words, turn the leftmost column into the top $r / s$ rows, in order; turn the next column into the next $r / s$ rows, in order; and so on.</li>
 <li>Sort each column.</li>
 <li>Perform the inverse of the permutation performed in step 2.</li>
 <li>Sort each column.</li>
@@ -5206,11 +5206,11 @@ $$</p>
 </ol>
 <p>Figure 8.5 shows an example of the steps of columnsort with $r = 6$ and $s = 3$. (Even though this example violates the requirement that $r \ge 2s^2$, it happens to work.)</p>
 <p><strong>c.</strong> Argue that we can treat columnsort as an oblivious compare-exchange algorithm, even if we do not know what sorting method the odd steps use.</p>
-<p>Although it might seem hard to believe that columnsort actually sorts, you will use the $0$-$1$ sorting lemma to prove that it does. The $0$-$1$ sorting lemma applies because we can treat columnsort as an oblivious compare-exchange algorithm. A couple of definitions will help you apply the $0$-$1$ sorting lemma. We say that an area of an array is clean if we know that it contains either all $0$s or all $1$s. Otherwise, the area might contain mixed $0$s and $1$s, and it is dirty. From here on, assume that the input array contains only $0$s and $1$s, and that we can treat it as an array with $r$ rows and $s$ columns.</p>
+<p>Although it might seem hard to believe that columnsort actually sorts, you will use the $0$-$1$ sorting lemma to prove that it does. The $0$-$1$ sorting lemma applies because we can treat columnsort as an oblivious compare-exchange algorithm. A couple of definitions will help you apply the $0$-$1$ sorting lemma. We say that an area of an array is <strong><em>clean</em></strong> if we know that it contains either all $0$s or all $1$s. Otherwise, the area might contain mixed $0$s and $1$s, and it is <strong><em>dirty</em></strong>. From here on, assume that the input array contains only $0$s and $1$s, and that we can treat it as an array with $r$ rows and $s$ columns.</p>
 <p><strong>d.</strong> Prove that after steps 1–3, the array consists of some clean rows of $0$s at the top, some clean rows of $1$s at the bottom, and at most $s$ dirty rows between them.</p>
 <p><strong>e.</strong> Prove that after step 4, the array, read in column - major order, starts with a clean area of $0$s, ends with a clean area of $1$s, and has a dirty area of at most $s^2$ elements in the middle.</p>
 <p><strong>f.</strong> Prove that steps 5–8 produce a fully sorted $0$-$1$ output. Conclude that columnsort correctly sorts all inputs containing arbitrary values.</p>
-<p><strong>g.</strong> Now suppose that s does not divide r. Prove that after steps 1–3, the array consists of some clean rows of $0$s at the top, some clean rows of $1$s at the bottom, and at most $2s - 1$ dirty rows between them. How large must $r$ be, compared with $s$, for columnsort to correctly sort when $s$ does not divide $r$?</p>
+<p><strong>g.</strong> Now suppose that $s$ does not divide $r$. Prove that after steps 1–3, the array consists of some clean rows of $0$s at the top, some clean rows of $1$s at the bottom, and at most $2s - 1$ dirty rows between them. How large must $r$ be, compared with $s$, for columnsort to correctly sort when $s$ does not divide $r$?</p>
 <p><strong>h.</strong> Suggest a simple change to step 1 that allows us to maintain the requirement that $r \ge 2s^2$ even when $s$ does not divide $r$, and prove that with your change, columnsort correctly sorts.</p>
 </blockquote>
 <p><strong>a.</strong> $A[q]$ must go the wrong place, because it goes where $A[p]$ should go. Since $A[p]$ is the smallest value in array $A$ that goes to the wrong array location, $A[p]$ must be smaller than $A[q]$.</p>

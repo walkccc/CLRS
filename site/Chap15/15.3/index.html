@@ -5322,7 +5322,7 @@ T(n) &amp; \le 2\sum_{i = 1}^{n - 1} T(i) + cn \\
 <p>$$\sum_{i = 1}^{n - 1} ix^{i - 1} = f'(x) = \frac{nx^{n - 1}}{x - 1} + \frac{1 - x^n}{(x - 1)^2}.$$</p>
 <h2 id="153-2">15.3-2<a class="headerlink" href="#153-2" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>Draw the recursion tree for the $\text{MERGE-SORT}$ procedure from Section 2.3.1 on an array of 16 elements. Explain why memoization fails to speed up a good divide-and-conquer algorithm such as $\text{MERGE-SORT}$.</p>
+<p>Draw the recursion tree for the $\text{MERGE-SORT}$ procedure from Section 2.3.1 on an array of $16$ elements. Explain why memoization fails to speed up a good divide-and-conquer algorithm such as $\text{MERGE-SORT}$.</p>
 </blockquote>
 <p>Draw a recursion tree. The $\text{MERGE-SORT}$ procedure performs at most a single call to any pair of indices of the array that is being sorted. In other words, the subproblems do not overlap and therefore memoization will not improve the running time.</p>
 <h2 id="153-3">15.3-3<a class="headerlink" href="#153-3" title="Permanent link">&para;</a></h2>
@@ -5351,6 +5351,7 @@ This requires </p>
 <p>We say that a problem exhibits the optimal substructure property when optimal solutions to a problem incorporate optimal solutions to related subproblems, <em>which we may solve independently</em> (i.e., they do not share resources). When we impose a limit $l_i$ on the number of pieces of size $i$ that we are permitted to produce, the subproblems can no longer be solved <em>independently</em>. For example, consider a rod of length $4$ with the following prices and limits:</p>
 <p>\begin{array}{c|cccc}
 \text{length $i$}  &amp;  1 &amp;  2 &amp;  3 &amp;  4 \\
+\hline
 \text{price $p_i$} &amp; 15 &amp; 20 &amp; 33 &amp; 36 \\
 \text{limit $l_i$} &amp;  2 &amp;  1 &amp;  1 &amp;  1 
 \end{array}</p>

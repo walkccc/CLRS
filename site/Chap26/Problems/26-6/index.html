@@ -5156,7 +5156,7 @@
                 <blockquote>
 <p>In this problem, we describe a faster algorithm, due to Hopcroft and Karp, for $p$ finding a maximum matching in a bipartite graph. The algorithm runs in $O(\sqrt V E)$ time. Given an undirected, bipartite graph $G = (V, E)$, where $V = L \cup R$ and all edges have exactly one endpoint in $L$, let $M$ be a matching in $G$. We say that a simple path $P$ in $G$ is an <strong><em>augmenting path</em></strong> with respect to $M$ if it starts at an unmatched vertex in $L$, ends at an unmatched vertex in $R$, and its edges belong alternately to $M$ and $E - M$. (This definition of an augmenting path is related to, but different from, an augmenting path in a flow network.) In this problem, we treat a path as a sequence of edges, rather than as a sequence of vertices. A shortest augmenting path with respect to a matching $M$ is an augmenting path with a minimum number of edges.</p>
 <p>Given two sets $A$ and $B$, the <strong><em>symmetric difference</em></strong> $A \oplus B$ is defined as $(A - B) \cup (B - A)$, that is, the elements that are in exactly one of the two sets.</p>
-<p><strong>a.</strong> Show that if $M$ is a matching and $P$ is an augmenting path with respect to $M$, then the symmetric difference $M \oplus P$ is a matching and $M \oplus P = |M| + 1$. Show that if $P_1, P_2, \ldots, P_k$ are vertex-disjoint augmenting paths with respect to $M$, then the symmetric difference $M \oplus (P_1 \cup P_2 \cup \cdots \cup P_k)$ is a matching with cardinality $|M| + k$.</p>
+<p><strong>a.</strong> Show that if $M$ is a matching and $P$ is an augmenting path with respect to $M$, then the symmetric difference $M \oplus P$ is a matching and $|M \oplus P| = |M| + 1$. Show that if $P_1, P_2, \ldots, P_k$ are vertex-disjoint augmenting paths with respect to $M$, then the symmetric difference $M \oplus (P_1 \cup P_2 \cup \cdots \cup P_k)$ is a matching with cardinality $|M| + k$.</p>
 <p>The general structure of our algorithm is the following:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -5174,7 +5174,7 @@
 </pre></div>
 </td></tr></table>
 
-<p>The remainder of this problem asks you to analyze the number of iterations in the algorithm (that is, the number of iterations in the repeat loop) and to describe an implementation of line 3.</p>
+<p>The remainder of this problem asks you to analyze the number of iterations in the algorithm (that is, the number of iterations in the <strong>repeat</strong> loop) and to describe an implementation of line 3.</p>
 <p><strong>b.</strong> Given two matchings $M$ and $M^*$ in $G$, show that every vertex in the graph $G' = (V, M \oplus M^*)$ has degree at most $2$. Conclude that $G'$ is a disjoint union of simple paths or cycles. Argue that edges in each such simple path or cycle belong alternately to $M$ or $M^*$. Prove that if $|M| \le |M^*|$, then $M \oplus M^*$ contains at least $|M^*| - |M|$ vertex-disjoint augmenting paths with respect to $M$.</p>
 <p>Let $l$ be the length of a shortest augmenting path with respect to a matching $M$, and let $P_1, P_2, \ldots, P_k$ be a maximal set of vertex-disjoint augmenting paths of length $l$ with respect to $M$. Let $M' = M \oplus (P_1 \cup \cdots \cup P_k)$, and suppose that $P$ is a shortest augmenting path with respect to $M'$.</p>
 <p><strong>c.</strong> Show that if $P$ is vertex-disjoint from $P_1, P_2, \ldots, P_k$ , then $P$ has more than $l$ edges.</p>

@@ -5269,7 +5269,7 @@
                 
                 <h2 id="263-1">26.3-1<a class="headerlink" href="#263-1" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>Run the Ford-Fulkerson algorithm on the flow network in Figure 26.8(c) and show the residual network after each flow augmentation. Number the vertices in $L$ top to bottom from 1 to 5 and in $R$ top to bottom from 6 to 9. For each iteration, pick the augmenting path that is lexicographically smallest.</p>
+<p>Run the Ford-Fulkerson algorithm on the flow network in Figure 26.8(c) and show the residual network after each flow augmentation. Number the vertices in $L$ top to bottom from $1$ to $5$ and in $R$ top to bottom from $6$ to $9$. For each iteration, pick the augmenting path that is lexicographically smallest.</p>
 </blockquote>
 <p>First, we pick an augmenting path that passes through vertices 1 and 6. Then, we pick the path going through 2 and 8. Then, we pick the path going through 3 and 7. Then, the resulting residual graph has no path from $s$ to $t$. So, we know that we are done, and that we are pairing up vertices $(1, 6)$, $(2, 8)$, and $(3, 7)$. This number of unit augmenting paths agrees with the value of the cut where you cut the edges $(s, 3)$, $(6, t)$, and $(7, t)$.</p>
 <h2 id="263-2">26.3-2<a class="headerlink" href="#263-2" title="Permanent link">&para;</a></h2>
@@ -5288,7 +5288,7 @@
 <h2 id="263-4-star">26.3-4 $\star$<a class="headerlink" href="#263-4-star" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>A <strong><em>perfect matching</em></strong> is a matching in which every vertex is matched. Let $G = (V, E)$ be an undirected bipartite graph with vertex partition $V = L \cup R$, where $|L| = |R|$. For any $X \subseteq V$, define the <strong><em>neighborhood</em></strong> of $X$ as</p>
-<p>$N(X) = \{y \in V: (x, y) \in E \text{ for some } x \in X\}$,</p>
+<p>$$N(X) = \{y \in V: (x, y) \in E \text{ for some } x \in X\},$$</p>
 <p>that is, the set of vertices adjacent to some member of $X$. Prove <strong><em>Hall's theorem</em></strong>: there exists a perfect matching in $G$ if and only if $|A| \le |N(A)|$ for every subset $A \subseteq L$.</p>
 </blockquote>
 <p>First suppose there exists a perfect matching in $G$. Then for any subset $A \subseteq L$, each vertex of $A$ is matched with a neighbor in $R$, and since it is a matching, no two such vertices are matched with the same vertex in $R$. Thus, there are at least $|A|$ vertices in the neighborhood of $A$.</p>

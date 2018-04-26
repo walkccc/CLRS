@@ -5269,7 +5269,7 @@
                 
                 <h2 id="164-1">16.4-1<a class="headerlink" href="#164-1" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>Show that $(S, I_k)$ is a matroid, where $S$ is any finite set and $I_k$ is the set of all subsets of $S$ of size at most $k$, where $k \le |S|$.</p>
+<p>Show that $(S, \mathcal I_k)$ is a matroid, where $S$ is any finite set and $\mathcal I_k$ is the set of all subsets of $S$ of size at most $k$, where $k \le |S|$.</p>
 </blockquote>
 <p>The first condition that $S$ is a finite set is a given. To prove the second condition we assume that $k \ge 0$, this gets us that $\mathcal I_k$ is nonempty. Also, to prove the hereditary property, suppose $A \in \mathcal I_k$ this means that $|A| \le k$.
 Then, if $B \subseteq A$, this means that $|B| \le |A| \le k$, so $B \in \mathcal I_k$. Lastly, we prove the exchange property by letting $A, B \in \mathcal I_k$ be such that $|A| &lt; |B|$. Then, we can pick any element $x \in B \backslash A$, then,</p>
@@ -5297,7 +5297,7 @@ Then, if $B \subseteq A$, this means that $|B| \le |A| \le k$, so $B \in \mathca
 <h2 id="164-3-star">16.4-3 $\star$<a class="headerlink" href="#164-3-star" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Show that if $(S, \mathcal I)$ is a matroid, then $(S, \mathcal I')$ is a matroid, where</p>
-<p>$I' = \{A': S - A'$ contains some maximal $A \in \mathcal I\}$.</p>
+<p>$\mathcal I' = \{A': S - A'$ contains some maximal $A \in \mathcal I\}$.</p>
 <p>That is, the maximal independent sets of $(S, \mathcal I')$ are just the complements of the maximal independent sets of $(S, \mathcal I)$.</p>
 </blockquote>
 <p><em>[This exercise defines what is commonly known as the dual of a matroid, and it asks to prove that the dual of a matroid is itself a matroid. The literature contains simpler proofs of this fact, but they depend on other (equivalent) definitions of a matroid. The proof given here is more complicated, but it relies only on the definition given in the text.]</em></p>
@@ -5341,7 +5341,7 @@ Then, if $B \subseteq A$, this means that $|B| \le |A| \le k$, so $B \in \mathca
 <p>The set $C$ so constructed is maximal, because it has the same cardinality as $A$, which is maximal, and $C \in \mathcal I$. All the elements but one in $C$ are also in $A$; the one exceptions is in $B - A'$, and so $C$ contains no elements in $A'$. Because we never added $x$ to $C$, we have that $C \subseteq S - A' - \{x\} = S - (A' \cup \{x\})$. Therefore, $A' \cup \{x\} \in \mathcal I'$, as we needed to show.</p>
 <h2 id="164-4-star">16.4-4 $\star$<a class="headerlink" href="#164-4-star" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>Let $S$ be a finite set and let $S_1, S_2, \ldots, S_k$ be a partition of $S$ into nonempty disjoint subsets. Define the structure $(S, I)$ by the condition that $\mathcal I = \{A: \mid A \cap S_i \mid \le 1$ for $i = 1, 2, \ldots, k\}$. Show that $(S, \mathcal I)$ is a matroid. That is, the set of all sets $A$ that contain at most one member of each subset in the partition determines the independent sets of a matroid.</p>
+<p>Let $S$ be a finite set and let $S_1, S_2, \ldots, S_k$ be a partition of $S$ into nonempty disjoint subsets. Define the structure $(S, \mathcal I)$ by the condition that $\mathcal I = \{A: \mid A \cap S_i \mid \le 1$ for $i = 1, 2, \ldots, k\}$. Show that $(S, \mathcal I)$ is a matroid. That is, the set of all sets $A$ that contain at most one member of each subset in the partition determines the independent sets of a matroid.</p>
 </blockquote>
 <p>Suppose $X \subset Y$ and $Y \in \mathcal I$. Then $(X \cap S_i) \subset (Y \cap S_i)$ for all $i$, so</p>
 <p>$$|X \cap S_i| \le |Y \cap S_i| \le 1$$</p>

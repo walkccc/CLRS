@@ -5159,8 +5159,8 @@
 <p>$$
 U_i(n) = 
 \begin{cases} 
-T(n) &amp; = \text{ if $i \ge n / 2$}, \\
-\lfloor n / 2 \rfloor + U_i(\lfloor n / 2 \rfloor) + T(2i) &amp; = \text{ otherwise}.
+T(n) &amp; \text{if $i \ge n / 2$}, \\
+\lfloor n / 2 \rfloor + U_i(\lceil n / 2 \rceil) + T(2i) &amp; \text{otherwise}.
 \end{cases}
 $$</p>
 <p>($\textit{Hint:}$ Begin with $\lfloor n / 2 \rfloor$ disjoint pairwise comparisons, and recurse on the set containing the smaller element from each pair.)</p>

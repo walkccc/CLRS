@@ -5193,7 +5193,7 @@
 <p>The $\text{PARTITION}$ procedure in section 7.1 separates the pivot value (originally in $A[r]$) from the two partitions it forms. The $\text{HOARE-PARTITION}$ procedure, on the other hand, always places the pivot value (originally in $A[p]$) into one of the two parititions $A[p..j]$ and $A[j + 1..r]$. Since $p \le j &lt; r$, this split is always nontrivial.</p>
 <p><strong>e.</strong> Rewrite the $\text{QUICKSORT}$ procedure to use $\text{HOARE-PARTITION}$.</p>
 </blockquote>
-<p><strong>a.</strong> SKIP</p>
+<p><strong>a.</strong> After the end of the loop, the variables have the following values: $x = 13$, $j = 9$ and $i = 10$.</p>
 <p><strong>b.</strong> Because when $\text{HOARE-PARTITION}$ is running, $p \le i &lt; j \le r$ will always hold, $i$, $j$ won't access any element of $A$ outside the subarray $A[p..r]$.</p>
 <p><strong>c.</strong> When $i \ge j$, $\text{HOARE-PARTITION}$ terminates, so $p \le j &lt; r$.</p>
 <p><strong>d.</strong> When $\text{HOARE-PARTITION}$ terminates, $A[p..j] \le x \le A[j + 1..r]$.</p>

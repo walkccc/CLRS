@@ -5162,21 +5162,21 @@
 <p><strong>Insert</strong> the character $c$ into $z$ by setting $z[j] = c$ and then incrementing $j$, but leaving $i$ alone. This operation examines no characters of $x$.</p>
 <p><strong>Twiddle</strong> (i.e., exchange) the next two characters by copying them from $x$ to $z$ but in the opposite order; we do so by setting $z[j] = x[i + 1]$ and $z[j + 1] = x[i]$ and then setting $i = i + 2$ and $j = j + 2$. This operation examines $x[i]$ and $x[i + 1]$.</p>
 <p><strong>Kill</strong> the remainder of $x$ by setting $i = m + 1$. This operation examines all characters in $x$ that have not yet been examined. This operation, if performed, must be the final operation.</p>
-<p>As an example, one way to transform the source string $\text{algorithm}$ to the target string altruistic is to use the following sequence of operations, where the underlined characters are $x[i]$ and $z[j]$  after the operation:</p>
+<p>As an example, one way to transform the source string $\text{algorithm}$ to the target string $\text{altruistic}$ is to use the following sequence of operations, where the underlined characters are $x[i]$ and $z[j]$  after the operation:</p>
 <p>\begin{array}{lll}
 \text{Operation}         &amp; x           &amp; z \\
 \hline
-\textit{initial strings} &amp; \text{_}algorithm &amp; \text{_} \\
-\text{copy}              &amp; a\text{_}lgorithm &amp; a\text{_} \\
-\text{copy}              &amp; al\text{_}gorithm &amp; al\text{_} \\
-\text{replace by $t$}    &amp; alg\text{_}orithm &amp; alt\text{_} \\
-\text{delete}            &amp; algo\text{_}rithm &amp; alt\text{_} \\
-\text{copy}              &amp; algor\text{_}ithm &amp; altr\text{_} \\
-\text{insert $u$}        &amp; algor\text{_}ithm &amp; altru\text{_} \\
-\text{insert $i$}        &amp; algor\text{_}ithm &amp; altrui\text{_}\\
-\text{insert $s$}        &amp; algor\text{_}ithm &amp; altruis\text{_}\\
-\text{twiddle}           &amp; algorit\text{_}hm &amp; altruisti\text{_}\\
-\text{insert $c$}        &amp; algorit\text{_}hm &amp; altruistic\text{_}\\
+\textit{initial strings} &amp; \underline algorithm &amp; \text{_} \\
+\text{copy}              &amp; a\underline lgorithm &amp; a\text{_} \\
+\text{copy}              &amp; al\underline gorithm &amp; al\text{_} \\
+\text{replace by $t$}    &amp; alg\underline orithm &amp; alt\text{_} \\
+\text{delete}            &amp; algo\underline rithm &amp; alt\text{_} \\
+\text{copy}              &amp; algor\underline ithm &amp; altr\text{_} \\
+\text{insert $u$}        &amp; algor\underline ithm &amp; altru\text{_} \\
+\text{insert $i$}        &amp; algor\underline ithm &amp; altrui\text{_}\\
+\text{insert $s$}        &amp; algor\underline ithm &amp; altruis\text{_}\\
+\text{twiddle}           &amp; algorit\underline hm &amp; altruisti\text{_}\\
+\text{insert $c$}        &amp; algorit\underline hm &amp; altruistic\text{_}\\
 \text{kill}              &amp; algorithm\text{_} &amp; altruistic\text{_}
 \end{array}</p>
 <p>Note that there are several other sequences of transformation operations that transform $\text{algorithm}$ to $\text{altruistic}$.</p>

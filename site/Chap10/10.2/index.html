@@ -5553,7 +5553,7 @@
 
 <h2 id="102-8-star">10.2-8 $\star$<a class="headerlink" href="#102-8-star" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>Explain how to implement doubly linked lists using only one pointer value $x.np$ per item instead of the usual two ($next$ and $prev$). Assume all pointer values can be interpreted as $k$-bit integers, and define $x.np$ to be $x.np = x.next$ XOR $x.prev$, the $k$-bit "exclusive-or" of $x.next$ and $x.prev$. (The value $\text{NIL}$ is represented by $0$.) Be sure to describe what information you need to access the head of the list. Show how to implement the $\text{SEARCH}$, $\text{INSERT}$, and $\text{DELETE}$ operations on such a list. Also show how to reverse such a list in $O(1)$ time.</p>
+<p>Explain how to implement doubly linked lists using only one pointer value $x.np$ per item instead of the usual two ($next$ and $prev$). Assume all pointer values can be interpreted as $k$-bit integers, and define $x.np$ to be $x.np = x.next \text{ XOR } x.prev$, the $k$-bit "exclusive-or" of $x.next$ and $x.prev$. (The value $\text{NIL}$ is represented by $0$.) Be sure to describe what information you need to access the head of the list. Show how to implement the $\text{SEARCH}$, $\text{INSERT}$, and $\text{DELETE}$ operations on such a list. Also show how to reverse such a list in $O(1)$ time.</p>
 </blockquote>
 <p>\begin{align}
 head.np &amp;= next \\
@@ -5561,9 +5561,7 @@ tail.np &amp;= prev \\
    next &amp;= x.np \text{ XOR } prev \\
    prev &amp;= x.np \text{ XOR } next \\
 \end{align}</p>
-<ul>
-<li>Reverse:</li>
-</ul>
+<p>Reverse:</p>
 <p>\begin{align}
       head.np.np &amp;= (head\text{ XOR }head.np.np)\text{ XOR }tail \\
       tail.np.np &amp;= (tail\text{ XOR }tail.np.np)\text{ XOR }head \\

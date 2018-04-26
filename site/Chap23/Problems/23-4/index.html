@@ -5179,7 +5179,7 @@
 4
 5
 6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">MAYBE</span><span class="o">-</span><span class="n">MST</span><span class="o">-</span><span class="n">B</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
-    <span class="n">T</span> <span class="o">=</span> <span class="n">emptyset</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="err">Ø</span>
     <span class="k">for</span> <span class="n">each</span> <span class="n">edge</span> <span class="n">e</span><span class="p">,</span> <span class="n">taken</span> <span class="n">in</span> <span class="n">arbitrary</span> <span class="n">order</span>
         <span class="k">if</span> <span class="n">T</span> <span class="err">∪</span> <span class="p">{</span><span class="n">e</span><span class="p">}</span> <span class="n">has</span> <span class="n">no</span> <span class="n">cycles</span>
             <span class="n">T</span> <span class="o">=</span> <span class="n">T</span> <span class="err">∪</span> <span class="p">{</span><span class="n">e</span><span class="p">}</span>
@@ -5196,7 +5196,7 @@
 6
 7
 8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">MAYBE</span><span class="o">-</span><span class="n">MST</span><span class="o">-</span><span class="n">C</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
-    <span class="n">T</span> <span class="o">=</span> <span class="n">emptyset</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="err">Ø</span>
     <span class="k">for</span> <span class="n">each</span> <span class="n">edge</span> <span class="n">e</span><span class="p">,</span> <span class="n">taken</span> <span class="n">in</span> <span class="n">arbitrary</span> <span class="n">order</span>
         <span class="n">T</span> <span class="o">=</span> <span class="n">T</span> <span class="err">∪</span> <span class="p">{</span><span class="n">e</span><span class="p">}</span>
         <span class="k">if</span> <span class="n">T</span> <span class="n">has</span> <span class="n">a</span> <span class="n">cycle</span> <span class="n">c</span>

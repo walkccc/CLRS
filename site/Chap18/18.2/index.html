@@ -5422,7 +5422,7 @@ at $x.c_i$.</li>
 
 <h2 id="182-4-star">18.2-4 $\star$<a class="headerlink" href="#182-4-star" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>Suppose that we insert the keys ${1, 2, \ldots, n}$ into an empty B-tree with minimum degree 2. How many nodes does the final B-tree have?</p>
+<p>Suppose that we insert the keys $\{1, 2, \ldots, n\}$ into an empty B-tree with minimum degree 2. How many nodes does the final B-tree have?</p>
 </blockquote>
 <p>The final tree can have as many as $n - 1$ nodes. Unless $n = 1$ there cannot ever be $n$ nodes since we only ever insert a key into a non-empty node, so there will always be at least one node with $2$ keys. </p>
 <p>Next observe that we will never have more than one key in a node which is not a right spine of our B-tree. This is because every key we insert is larger than all keys stored in the tree, so it will be inserted into the right spine of the tree. Nodes not in the right spine are a result of splits, and since $t = 2$, every split results in child nodes with one key each. The fewest possible number of nodes occurs when every node in the right spine has $3$ keys. In this case, $n = 2h + 2^{h + 1} - 1$ where $h$ is the height of the B-tree, and the number of nodes is $2^{h + 1} - 1$. Asymptotically these are the same, so the number of nodes is $\Theta(n)$.</p>

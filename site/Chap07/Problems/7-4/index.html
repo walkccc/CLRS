@@ -5154,7 +5154,7 @@
                   <h1>7-4 Stack depth for quicksort</h1>
                 
                 <blockquote>
-<p>The $\text{QUICKSORT}$ algorithm of Section 7.1 contains two recursive calls to itself. After $\text{QUICKSORT}$ calls $\text{PARTITION}$, it recursively sorts the left subarray and then it recursively sorts the right subarray. The second recursive call in $\text{QUICKSORT}$ is not really necessary; we can avoid it by using an iterative control structure. This technique, called tail recursion, is provided automatically by good compilers. Consider the following version of quicksort, which simulates tail recursion:</p>
+<p>The $\text{QUICKSORT}$ algorithm of Section 7.1 contains two recursive calls to itself. After $\text{QUICKSORT}$ calls $\text{PARTITION}$, it recursively sorts the left subarray and then it recursively sorts the right subarray. The second recursive call in $\text{QUICKSORT}$ is not really necessary; we can avoid it by using an iterative control structure. This technique, called <strong><em>tail recursion</em></strong>, is provided automatically by good compilers. Consider the following version of quicksort, which simulates tail recursion:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -5169,8 +5169,8 @@
 </pre></div>
 </td></tr></table>
 
-<p><strong>a.</strong> Argue that $\text{TAIL-RECURSIVE-QUICKSORT}(A, 1, A.length)$ correctly sorts the array $A$.
-Compilers usually execute recursive procedures by using a <strong><em>stack</em></strong> that contains pertinent information, including the parameter values, for each recursive call. The information for the most recent call is at the top of the stack, and the information for the initial call is at the bottom. Upon calling a procedure, its information is <strong><em>pushed</em></strong> onto the stack; when it terminates, its information is <strong><em>popped</em></strong>. Since we assume that array parameters are represented by pointers, the information for each procedure call on the stack requires $O(1)$ stack space. The <strong><em>stack depth</em></strong> is the maximum amount of stack space used at any time during a computation.</p>
+<p><strong>a.</strong> Argue that $\text{TAIL-RECURSIVE-QUICKSORT}(A, 1, A.length)$ correctly sorts the array $A$.</p>
+<p>Compilers usually execute recursive procedures by using a <strong><em>stack</em></strong> that contains pertinent information, including the parameter values, for each recursive call. The information for the most recent call is at the top of the stack, and the information for the initial call is at the bottom. Upon calling a procedure, its information is <strong><em>pushed</em></strong> onto the stack; when it terminates, its information is <strong><em>popped</em></strong>. Since we assume that array parameters are represented by pointers, the information for each procedure call on the stack requires $O(1)$ stack space. The <strong><em>stack depth</em></strong> is the maximum amount of stack space used at any time during a computation.</p>
 <p><strong>b.</strong> Describe a scenario in which $\text{TAIL-RECURSIVE-QUICKSORT}$'s stack depth is $\Theta(n)$ on an $n$-element input array.</p>
 <p><strong>c.</strong> Modify the code for $\text{TAIL-RECURSIVE-QUICKSORT}$ so that the worst-case stack depth is $\Theta(\lg n)$. Maintain the $O(n\lg n)$ expected running time of the algorithm.</p>
 </blockquote>

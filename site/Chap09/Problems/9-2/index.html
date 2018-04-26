@@ -5261,7 +5261,7 @@ f(y) - f(x) &amp; =   \sum_{i = 1}^n w_i(|y - x_i| - |x - x_i|) \\
             &amp; =   (x - y) \Bigg(\sum_{x \le x_i} w_i - \sum_{x &gt; x_i} w_i \Bigg).
 \end{align}</p>
 <p>The property that $sum_{x_i &gt; x} w_i \le 1 / 2$ implies that $\sum_{x \le x_i} w_i &gt; 1 / 2$. This fact, combined with $x - y &gt; 0$ and $\sum_{x &gt; x_i} w_i &lt; 1 / 2$, yields that $f(y) - f(x) &gt; 0$.</p>
-<p><strong>e.</strong> We are given $n$ 2-dimensional points $p_1, p_2, \ldots, p_n$, where each $p_i$ is a pair of real numbers $p_i = (x_i, y_i)$, and positive weights $w_1, w_2, \ldots, w_n$. The goal is to find a point $p = (x, y)$ that minimizes the sum</p>
+<p><strong>e.</strong> We are given $n$ $2$-dimensional points $p_1, p_2, \ldots, p_n$, where each $p_i$ is a pair of real numbers $p_i = (x_i, y_i)$, and positive weights $w_1, w_2, \ldots, w_n$. The goal is to find a point $p = (x, y)$ that minimizes the sum</p>
 <p>$$f(x, y) = \sum_{i = 1}^n w_i(|x - x_i| + |y - y_i|).$$</p>
 <p>We can express the cost function of the two variables, $f(x, y)$, as the sum of two functions of one variable each: $f(x, y) = g(x) + h(y)$, where $g(x) = \sum_{i = 1}^n w_i |x - x_i|$, and $h(y) = \sum_{i = 1}^n w_i |y - y_i|$. The goal of finding a point $p = (x, y)$ that minimizes the value of $f(x, y)$ can be achieved by treating each dimension independently, because $g$ does not depend on $y$ and $h$ does not depend on $x$. Thus,</p>
 <p>\begin{align}
@@ -5271,7 +5271,7 @@ f(y) - f(x) &amp; =   \sum_{i = 1}^n w_i(|y - x_i| - |x - x_i|) \\
     &amp; = \min_x \Big(g(x) + \min_y h(y)\Big) \\
     &amp; = \min_x g(x) + \min_y h(y).
 \end{align}</p>
-<p>Consequently, finding the best location in 2 dimensions can be done by finding the weighted median $x_k$ of the $x$-coordinates and then finding the weighted median $y_j$ of the $y$-coordinates. The point $(x_k, y_j)$ is an optimal solution for the 2-dimensional post-office location problem.</p>
+<p>Consequently, finding the best location in $2$ dimensions can be done by finding the weighted median $x_k$ of the $x$-coordinates and then finding the weighted median $y_j$ of the $y$-coordinates. The point $(x_k, y_j)$ is an optimal solution for the $2$-dimensional post-office location problem.</p>
                 
                   
                 
