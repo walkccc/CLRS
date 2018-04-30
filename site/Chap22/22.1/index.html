@@ -5364,7 +5364,7 @@ $$</p>
 <p>Create an list array $Adj'$ of size $|V|$ and an empty matrix $M$ of size $|V|^2$ first.
 For each vertex $u$ in the multigraph $G$, we iterably examine each vertex $v$ of $Adj[u]$.</p>
 <ul>
-<li>If $M(u, v) == \emptyset$, mark $M(u, v)$ as <code>true</code>, then add $v$ to $Adj[u]$.</li>
+<li>If $M(u, v) == \emptyset$, mark $M(u, v)$ as <code>true</code>, then add $v$ to $Adj'[u]$.</li>
 <li>If $M(u, v) == true$, do nothing.</li>
 </ul>
 <p>Since we lookup in the $Adj$ array for $|V + E|$ times, the time complexity is $O(V + E)$.</p>
@@ -5373,11 +5373,13 @@ For each vertex $u$ in the multigraph $G$, we iterably examine each vertex $v$ o
 3
 4
 5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">EQUIVALENT</span><span class="o">-</span><span class="n">UNDIRECTED</span><span class="o">-</span><span class="n">GRAPH</span>
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">EQUIVALENT</span><span class="o">-</span><span class="n">UNDIRECTED</span><span class="o">-</span><span class="n">GRAPH</span>
     <span class="n">initialize</span> <span class="n">a</span> <span class="n">list</span> <span class="n">array</span> <span class="n">Adj</span><span class="err">&#39;</span> <span class="n">of</span> <span class="n">size</span> <span class="o">|</span><span class="n">V</span><span class="o">|</span> <span class="n">and</span> <span class="n">an</span> <span class="n">empty</span> <span class="n">matrix</span> <span class="n">M</span> <span class="n">of</span> <span class="n">size</span> <span class="o">|</span><span class="n">V</span><span class="o">|^</span><span class="mi">2</span>
     <span class="k">for</span> <span class="n">each</span> <span class="n">vertex</span> <span class="n">u</span> <span class="err">∈</span> <span class="n">G</span><span class="p">.</span><span class="n">V</span>
         <span class="k">for</span> <span class="n">each</span> <span class="n">v</span> <span class="err">∈</span> <span class="n">Adj</span><span class="p">[</span><span class="n">u</span><span class="p">]</span>
             <span class="k">if</span> <span class="n">M</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="o">==</span> <span class="err">∅</span>
+                <span class="n">M</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="o">=</span> <span class="nb">true</span>
                 <span class="n">add</span> <span class="n">v</span> <span class="n">to</span> <span class="n">Adj</span><span class="err">&#39;</span><span class="p">[</span><span class="n">u</span><span class="p">]</span>
 </pre></div>
 </td></tr></table>
