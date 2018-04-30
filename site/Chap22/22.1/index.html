@@ -5368,7 +5368,7 @@ For each vertex $u$ in the multigraph $G$, we iterably examine each item $v$ of 
 <li>If $v \in Adj'[u]$, do nothing.</li>
 <li>If $v \notin Adj'[u]$, add $v$ to $Adj'[u]$. </li>
 </ul>
-<p>Since we lookup in the $Adj$ array for $|E|$ times, the total runtime is $O(V + E)$.</p>
+<p>Since we lookup in the $Adj$ array for $|V + E|$ times, the total runtime is $O(V + E)$.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
