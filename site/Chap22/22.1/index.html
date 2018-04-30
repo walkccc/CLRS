@@ -5359,9 +5359,30 @@ $$</p>
 </ul>
 <h2 id="221-4">22.1-4<a class="headerlink" href="#221-4" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>Given an adjacency-list representation of a multigraph $G = (V, E)$, describe an $O(V + E)$-time algorithm to compute the adjacency-list representation of the ''equivalent'' undirected graph $G' = (V, E')$, where $E'$ consists of the edges in $E$ with all multiple edges between two vertices replaced by a single edge and with all self-loops removed.</p>
+<p>Given an adjacency-list representation of a multigraph $G = (V, E)$, describe an $O(V + E)$-time algorithm to compute the adjacency-list representation of the "equivalent" undirected graph $G' = (V, E')$, where $E'$ consists of the edges in $E$ with all multiple edges between two vertices replaced by a single edge and with all self-loops removed.</p>
 </blockquote>
-<p>Create an array $A$ of size $|V|$. For a list in the adjacency list corresponding to vertex $v$, examine items on the list one by one. If any item is equal to $v$, remove it. If vertex $u$ appears on the list, examine $A[u]$. If it's not equal to $v$, set it equal to $v$. If it's equal to $v$, remove $u$ from the list. Since we have constant time lookup in the array, the total runtime is $O(V + E)$.</p>
+<p>Create an list array $Adj'$ of size $|V|$ first.
+For each vertex $u$ in the multigraph $G$, we iterably examine each item $v$ of $Adj[u]$.</p>
+<ul>
+<li>If $v == u$, do nothing.</li>
+<li>If $v \in Adj'[u]$, do nothing.</li>
+<li>If $v \notin Adj'[u]$, add $v$ to $Adj'[u]$. </li>
+</ul>
+<p>Since we lookup in the $Adj$ array for $|E|$ times, the total runtime is $O(V + E)$.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">EQUIVALENT</span><span class="o">-</span><span class="n">UNDIRECTED</span><span class="o">-</span><span class="n">GRAPH</span>
+    <span class="n">initialize</span> <span class="n">an</span> <span class="n">list</span> <span class="n">array</span> <span class="n">Adj</span><span class="err">&#39;</span> <span class="n">of</span> <span class="n">size</span> <span class="o">|</span><span class="n">V</span><span class="o">|</span>
+    <span class="k">for</span> <span class="n">each</span> <span class="n">vertex</span> <span class="n">u</span> <span class="err">∈</span> <span class="n">G</span><span class="p">.</span><span class="n">V</span>
+        <span class="k">for</span> <span class="n">each</span> <span class="n">v</span> <span class="err">∈</span> <span class="n">Adj</span><span class="p">[</span><span class="n">u</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">v</span> <span class="err">∉</span> <span class="n">Adj</span><span class="err">&#39;</span><span class="p">[</span><span class="n">u</span><span class="p">]</span>
+                <span class="n">add</span> <span class="n">v</span> <span class="n">to</span> <span class="n">Adj</span><span class="err">&#39;</span><span class="p">[</span><span class="n">u</span><span class="p">]</span>
+</pre></div>
+</td></tr></table>
+
 <h2 id="221-5">22.1-5<a class="headerlink" href="#221-5" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>The <strong><em>square</em></strong> of a directed graph $G = (V, E)$ is the graph $G^2 = (V, E^2)$ such that $(u, v) \in E$ if and only $G$ contains a path with at most two edges between $u$ and $v$. Describe efficient algorithms for computing $G^2$ from $G$ for both the adjacency-list and adjacency-matrix representations of $G$. Analyze the running times of your algorithms.</p>
