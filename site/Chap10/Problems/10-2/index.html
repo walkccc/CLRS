@@ -5185,7 +5185,7 @@
 </pre></div>
 </td></tr></table>
 
-<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -5210,7 +5210,32 @@
         <span class="n">MIN</span><span class="o">-</span><span class="n">HEAPIFY</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="n">smallest</span><span class="p">],</span> <span class="n">smallest</span><span class="p">])</span>
 </pre></div>
 </td></tr></table>
-Union is implemented below, where we assume $A$ and $B$ are the two list representations of heaps to be merged. The runtime is again linear in the lengths of the lists to be merged.</p>
+
+<p>Union is implemented below, where we assume $A$ and $B$ are the two list representations of heaps to be merged. The runtime is again linear in the lengths of the lists to be merged.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">UNION</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">A</span><span class="p">.</span><span class="n">head</span> <span class="o">==</span> <span class="n">NIL</span>
+        <span class="k">return</span> <span class="n">B</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">head</span>
+    <span class="k">while</span> <span class="n">B</span><span class="p">.</span><span class="n">head</span> <span class="o">!=</span> <span class="n">NIL</span>
+        <span class="k">if</span> <span class="n">B</span><span class="p">.</span><span class="n">head</span><span class="p">.</span><span class="n">key</span> <span class="err">≤</span> <span class="n">x</span><span class="p">.</span><span class="n">key</span>
+            <span class="n">INSERT</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">x</span><span class="p">.</span><span class="n">key</span><span class="p">)</span>
+            <span class="n">x</span><span class="p">.</span><span class="n">key</span> <span class="o">=</span> <span class="n">B</span><span class="p">.</span><span class="n">head</span><span class="p">.</span><span class="n">key</span>
+            <span class="n">DELETE</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">B</span><span class="p">.</span><span class="n">head</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">next</span>
+    <span class="k">return</span> <span class="n">A</span>
+</pre></div>
+</td></tr></table>
+
 <p><strong>c.</strong> Since the algorithms in part (b) didn't depend on the elements being distinct, we can use the same ones.</p>
                 
                   
