@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-This website contains the solutions to the bible textbook - [Introduction to Algorithms, Third Edition](https://mitpress.mit.edu/books/introduction-algorithms-third-edition) published by [Thomas H. Cormen](https://mitpress.mit.edu/contributors/thomas-h-cormen), [Charles E. Leiserson](https://mitpress.mit.edu/contributors/charles-e-leiserson), [Ronald L. Rivest](https://mitpress.mit.edu/contributors/ronald-l-rivest) and [Clifford Stein](https://mitpress.mit.edu/contributors/clifford-stein).
+This website contains nearly complete solutions to the bible textbook - [Introduction to Algorithms, Third Edition](https://mitpress.mit.edu/books/introduction-algorithms-third-edition) published by [Thomas H. Cormen](https://mitpress.mit.edu/contributors/thomas-h-cormen), [Charles E. Leiserson](https://mitpress.mit.edu/contributors/charles-e-leiserson), [Ronald L. Rivest](https://mitpress.mit.edu/contributors/ronald-l-rivest) and [Clifford Stein](https://mitpress.mit.edu/contributors/clifford-stein).
 
 Hope to _re-sort_ solutions to help more people and myself study algorithms. By using [Markdown(.md)](https://en.wikipedia.org/wiki/Markdown) files, it's much more readable on portable devices now.
 
@@ -14,7 +14,7 @@ Please don't hesitate to give me your feedback if any adjustment is needed with 
 
 ## Known issue
 
-In the Safari on an iOS device, the math equationS of [Problem 1-1](https://walkccc.github.io/CLRS/Chap01/Problems/1-1/), [16.3-3](https://walkccc.github.io/CLRS/Chap16/16.3/#163-3) and some other pages won't be rendered. I currently don't know how to fix this. If you know how to tackle this problem, please tell me, thanks.
+In the Safari on an iOS device, the math equations of [Problem 1-1](https://walkccc.github.io/CLRS/Chap01/Problems/1-1/), [16.3-3](https://walkccc.github.io/CLRS/Chap16/16.3/#163-3) and some other pages won't be rendered. I currently don't know how to fix this. If you know how to tackle this problem, please tell me, thanks.
 
 ## Working on following exercises
 
