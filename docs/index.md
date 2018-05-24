@@ -1,4 +1,4 @@
-# Solutions to Introduction to Algorithms 3rd
+# Solutions to *Introduction to Algorithms 3rd Edition*
 
 ## Getting Started
 
