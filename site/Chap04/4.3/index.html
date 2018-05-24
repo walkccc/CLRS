@@ -5323,7 +5323,7 @@
                 
                   <h1>4.3 The substitution method for solving recurrences</h1>
                 
-                <h2 id="43-1">4.3-1<a class="headerlink" href="#43-1" title="Permanent link">&para;</a></h2>
+                <h2 id="43-1">4.3-1</h2>
 <blockquote>
 <p>Show that the solution of $T(n) = T(n - 1) + n$ is $O(n^2)$.</p>
 </blockquote>
@@ -5336,7 +5336,7 @@ T(n) &amp; =   T(n - 1) + n \\
 \end{align}</p>
 <p>The last quantity is less than or equal to $cn^2$ if $c(1 - 2n) + n \le 0$ or, equivalently, $c \ge n / (2n - 1)$. This last condition holds for all $n \ge 1$ and $c \ge 1$.</p>
 <p>For the boundary condition, we set $T(1) = 1$, and so $T(1) = 1 \le c \cdot 1^2$. Thus, we can choose $n_0 = 1$ and $c = 1$.</p>
-<h2 id="43-2">4.3-2<a class="headerlink" href="#43-2" title="Permanent link">&para;</a></h2>
+<h2 id="43-2">4.3-2</h2>
 <blockquote>
 <p>Show that the solution of $T(n) = T(\lceil n / 2 \rceil) + 1$ is $O(\lg n)$.</p>
 </blockquote>
@@ -5349,7 +5349,7 @@ T(n) &amp; \le c\lg(\lceil n / 2 \rceil - 2) + 1 \\
      &amp; \le c\lg(n - 2),
 \end{align}</p>
 <p>where the last step holds for $c \ge 1$.</p>
-<h2 id="43-3">4.3-3<a class="headerlink" href="#43-3" title="Permanent link">&para;</a></h2>
+<h2 id="43-3">4.3-3</h2>
 <blockquote>
 <p>We saw that the solution of $T(n) = 2T(\lfloor n / 2 \rfloor) + n$ is $O(n\lg n)$. Show that the solution of this recurrence is also $\Omega(n\lg n)$. Conclude that the solution is $\Theta(n\lg n)$.</p>
 </blockquote>
@@ -5372,7 +5372,7 @@ T(n) &amp; \ge 2c(\lfloor n / 2 \rfloor + 2)(\lg(\lfloor n / 2 \rfloor + 2) + n 
      &amp; \ge c(n + 2)\lg(n + 2), 
 \end{align}</p>
 <p>where the last step holds for $n \ge \frac{2c}{1 - c}$, $0 \le c &lt; 1$.</p>
-<h2 id="43-4">4.3-4<a class="headerlink" href="#43-4" title="Permanent link">&para;</a></h2>
+<h2 id="43-4">4.3-4</h2>
 <blockquote>
 <p>Show that by making a different inductive hyptohesis, we can overcome the difficulty with the boundary condition $T(1) = 1$ for recurrence $\text{(4.19)}$ without adjusting the boundary conditions for the inductive proof.</p>
 </blockquote>
@@ -5388,7 +5388,7 @@ T(n) &amp; \le 2(c\lfloor n / 2 \rfloor\lg{\lfloor n / 2 \rfloor} + \lfloor n / 
 <p>where the last step holds for $c \ge 1$.</p>
 <p>This time, the boundary condition is</p>
 <p>$$T(1) = 1 \le cn\lg n + n = 0 + 1 = 1.$$</p>
-<h2 id="43-5">4.3-5<a class="headerlink" href="#43-5" title="Permanent link">&para;</a></h2>
+<h2 id="43-5">4.3-5</h2>
 <blockquote>
 <p>Show that $\Theta(n\lg n)$ is the solution to the "exact" recurrence $\text{(4.3)}$ for merge sort.</p>
 </blockquote>
@@ -5427,7 +5427,7 @@ T(n) &amp; \ge c(\lceil n / 2 \rceil +2 )\lg(\lceil n / 2 \rceil + 2) + c(\lfloo
 <p>where the last step holds for $d &gt; c$.</p>
 </li>
 </ul>
-<h2 id="43-6">4.3-6<a class="headerlink" href="#43-6" title="Permanent link">&para;</a></h2>
+<h2 id="43-6">4.3-6</h2>
 <blockquote>
 <p>Show that the solution to $T(n) = 2T(\lfloor n / 2 \rfloor + 17) + n$ is $O(n\lg n)$.</p>
 </blockquote>
@@ -5440,7 +5440,7 @@ T(n) &amp; \le 2c(\lfloor n / 2 \rfloor + 17 - a)\lg(\lfloor n / 2 \rfloor + 17 
      &amp; \le c(n + 36 - 2a)\lg(n + 36 - 2a) &amp; (a \ge 36) \\
      &amp; \le c(n - a)\lg(n - a).
 \end{align}</p>
-<h2 id="43-7">4.3-7<a class="headerlink" href="#43-7" title="Permanent link">&para;</a></h2>
+<h2 id="43-7">4.3-7</h2>
 <blockquote>
 <p>Using the master method in Section 4.5, you can show that the solution to the recurrence $T(n) = 4T(n / 3) + n$ is $T(n) = \Theta(n^{\log_3 4})$. Show that a substitution proof with the assumption $T(n) \le cn^{\log_{3}4}$ fails. Then show how to subtract off a lower-order term to make the substitution proof work.</p>
 </blockquote>
@@ -5457,7 +5457,7 @@ T(n) &amp; \le 4(c(n / 3)^{\log_3 4} - dn / 3) + n \\
      &amp; =   cn^{\log_3 4} - \frac{4}{3}dn + n,
 \end{align}</p>
 <p>which is less than or equal to $cn^{\log_3 4} - dn$ if $d \ge 3$.</p>
-<h2 id="43-8">4.3-8<a class="headerlink" href="#43-8" title="Permanent link">&para;</a></h2>
+<h2 id="43-8">4.3-8</h2>
 <blockquote>
 <p>Using the master method in Section 4.5, you can show that the solution to the recurrence $T(n) = 4T(n / 2) + n^2$ is $T(n) = \Theta(n^2)$. Show that a substitution proof with the assumption $T(n) \le cn^2$ fails. Then show how to subtract off a lower-order term to make the substitution proof work.</p>
 </blockquote>
@@ -5475,7 +5475,7 @@ T(n) &amp; \le 4\Big(c(n / 2)^2 - n / 2\Big) + n \\
      &amp; =   cn^2 - n.
 \end{align}</p>
 <p>We're done!</p>
-<h2 id="43-9">4.3-9<a class="headerlink" href="#43-9" title="Permanent link">&para;</a></h2>
+<h2 id="43-9">4.3-9</h2>
 <blockquote>
 <p>Solve the recurrence $T(n) = 3T(\sqrt n) + \log n$ by making a change of variables. Your solution should be asymptotically tight. Do not worry about whether values are integral.</p>
 </blockquote>

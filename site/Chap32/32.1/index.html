@@ -5253,16 +5253,16 @@
                 
                   <h1>32.1 The naive string-matching algorithm</h1>
                 
-                <h2 id="321-1">32.1-1<a class="headerlink" href="#321-1" title="Permanent link">&para;</a></h2>
+                <h2 id="321-1">32.1-1</h2>
 <blockquote>
 <p>Show the comparisons the naive string matcher makes for the pattern $P = 0001$ in the text $T = 000010001010001$.</p>
 </blockquote>
-<h2 id="321-2">32.1-2<a class="headerlink" href="#321-2" title="Permanent link">&para;</a></h2>
+<h2 id="321-2">32.1-2</h2>
 <blockquote>
 <p>Suppose that all characters in the pattern $P$ are different. Show how to accelerate $\text{NAIVE-STRING-MATCHER}$ to run in time $O(n)$ on an $n$-character text $T$.</p>
 </blockquote>
 <p>Suppose $T[i] \ne P[j]$, then for $k \in [1, j)$, $T[i - k] = P[j - k] \ne P[0]$, the $[i - k, i)$ are all invalid shifts which could be skipped, therefore we can compare $T[i]$ with $P[0]$ in the next iteration.</p>
-<h2 id="321-3">32.1-3<a class="headerlink" href="#321-3" title="Permanent link">&para;</a></h2>
+<h2 id="321-3">32.1-3</h2>
 <blockquote>
 <p>Suppose that pattern $P$ and text $T$ are randomly chosen strings of length $m$ and $n$, respectively, from the $d$-ary alphabet $\Sigma_d = \{ 0, 1, \ldots, d - 1 \}$, where $d \ge 2$. Show that the expected number of character-to-character comparisons made by the implicit loop in line 4 of the naive algorithm is</p>
 <p>$$(n - m + 1) \frac{1 - d^{-m}}{1 - d^{-1}} \le 2(n - m + 1)$$</p>
@@ -5288,7 +5288,7 @@
 <p>$$(n - m + 1) \cdot \text E[L] = (n - m + 1) \frac{1 - d^{-m}}{1 - d^{-1}}$$</p>
 <p>Since $d \ge 2$, $1 - d^{-1} \ge 0.5$, $1 - d^{-m} &lt; 1$, and $ \frac{1 - d^{-m}}{1 - d^{-1}} \le 2$, therefore </p>
 <p>$$(n - m + 1) \frac{1 - d^{-m}}{1 - d^{-1}} \le 2 (n - m + 1).$$</p>
-<h2 id="321-4">32.1-4<a class="headerlink" href="#321-4" title="Permanent link">&para;</a></h2>
+<h2 id="321-4">32.1-4</h2>
 <blockquote>
 <p>Suppose we allow the pattern $P$ to contain occurrences of a <strong><em>gap character</em></strong> $\diamond$ that can match an <em>arbitrary</em> string of characters (even one of zero length). For example, the pattern $ab\diamond ba\diamond c$ occurs in the text $cabccbacbacab$ as</p>
 <p>$$c \underbrace{ab}_{ab} \underbrace{cc}_{\diamond} \underbrace{ba}_{ba} \underbrace{cba}_{\diamond} \underbrace{c}_{c} ab$$</p>

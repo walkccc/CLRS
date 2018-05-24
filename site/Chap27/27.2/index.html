@@ -5281,27 +5281,27 @@
                 
                   <h1>27.2 Multithreaded matrix multiplication</h1>
                 
-                <h2 id="272-1">27.2-1<a class="headerlink" href="#272-1" title="Permanent link">&para;</a></h2>
+                <h2 id="272-1">27.2-1</h2>
 <blockquote>
 <p>Draw the computation dag for computing $\text{P-SQUARE-MATRIX-MULTIPLY}$ on $2 \times 2$ matrices, labeling how the vertices in your diagram correspond to strands in the execution of the algorithm. Use the convention that spawn and call edges point downward, continuation edges point horizontally to the right, and return edges point upward. Assuming that each strand takes unit time, analyze the work, span, and parallelism of this computation.</p>
 </blockquote>
-<h2 id="272-2">27.2-2<a class="headerlink" href="#272-2" title="Permanent link">&para;</a></h2>
+<h2 id="272-2">27.2-2</h2>
 <blockquote>
 <p>Repeat Exercise 27.2-1 for $\text{P-MATRIX-MULTIPLY-RECURSIVE}$.</p>
 </blockquote>
-<h2 id="272-3">27.2-3<a class="headerlink" href="#272-3" title="Permanent link">&para;</a></h2>
+<h2 id="272-3">27.2-3</h2>
 <blockquote>
 <p>Give pseudocode for a multithreaded algorithm that multiplies two $n \times n$ matrices with work $\Theta(n^3)$ but span only $\Theta(\lg n)$. Analyze your algorithm.</p>
 </blockquote>
 <p>We perform a modification of the $\text{P-SQUARE-MATRIX-MULTIPLY}$ algorithm. Basically, as hinted in the text, we will parallelize the innermost for loop in such a way that there aren't any data races formed. To do this, we will just define a parallelized dot product procedure. This means that lines 5-7 can be replaced by a single call to this procedure. $\text{P-DOT-PRODUCT}$ computes the dot dot product of the two lists between the two bounds on indices.</p>
 <p>Using this, we can use this to modify $\text{P-SQUARE-MATRIX-MULTIPLY}$
 Since the runtime of the inner loop is $O(\lg n)$, which is the depth of the recursion. Since the paralel for loops also take $O(\lg n)$ time. So, since the runtimes are additive here, the total span of this procedure is $\Theta(\lg n)$. The total work is still just $O(n^3)$ Since all the spawning and recursing call be re- placed with the normal serial version once there aren't enough free processors to handle all of the spawned calls to $\text{P-DOT-PRODUCT}$.</p>
-<h2 id="272-4">27.2-4<a class="headerlink" href="#272-4" title="Permanent link">&para;</a></h2>
+<h2 id="272-4">27.2-4</h2>
 <blockquote>
 <p>Give pseudocode for an efficient multithreaded algorithm that multiplies a $p \times q$ matrix by a $q \times r$ matrix. Your algorithm should be highly parallel even if any of $p$, $q$, and $r$ are 1. Analyze your algorithm.</p>
 </blockquote>
 <p>$T_\infty = \Theta(\min \{ \lg p, \lg q, \lg r \})$</p>
-<h2 id="272-5">27.2-5<a class="headerlink" href="#272-5" title="Permanent link">&para;</a></h2>
+<h2 id="272-5">27.2-5</h2>
 <blockquote>
 <p>Give pseudocode for an efficient multithreaded algorithm that transposes an $n \times n$ matrix in place by using divide-and-conquer to divide the matrix recursively into four $n / 2 \times n / 2$ submatrices. Analyze your algorithm.</p>
 </blockquote>
@@ -5369,7 +5369,7 @@ T_1(N) &amp; = 2T_1(N / 4) + \Theta(N) \\
 <p>$$T_\infty(N) = T_\infty(N / 4) + \Theta(1)$$</p>
 <p>has the solution $T_\infty(N) = \Theta(\lg N)$ by case 2 of Theorem 4.1, the span of the recursive call is asymptotically the same as the span of $\text{P-MATRIX-TRANSPOSE-SWAP}$, and hence the span of $\text{P-MATRIX-TRANSPOSE-RECURSIVE}$ is $\Theta(\lg N)$.</p>
 <p>Thus, $\text{P-MATRIX-TRANSPOSE-RECURSIVE}$ has parallelism $\Theta(N / \lg N) = \Theta(n^2 / \lg n)$.</p>
-<h2 id="272-6">27.2-6<a class="headerlink" href="#272-6" title="Permanent link">&para;</a></h2>
+<h2 id="272-6">27.2-6</h2>
 <blockquote>
 <p>Give pseudocode for an efficient multithreaded implementation of the Floyd-Warshall algorithm (see Section 25.2), which computes shortest paths between all pairs of vertices in an edge-weighted graph. Analyze your algorithm.</p>
 </blockquote>

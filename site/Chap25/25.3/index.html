@@ -5281,7 +5281,7 @@
                 
                   <h1>25.3 Johnson's algorithm for sparse graphs</h1>
                 
-                <h2 id="253-1">25.3-1<a class="headerlink" href="#253-1" title="Permanent link">&para;</a></h2>
+                <h2 id="253-1">25.3-1</h2>
 <blockquote>
 <p>Use Johnson's algorithm to find the shortest paths between all pairs of vertices in the graph of Figure 25.2. Show the values of $h$ and $\hat w$ computed by the algorithm.</p>
 </blockquote>
@@ -5326,29 +5326,29 @@ u &amp; v &amp; \hat w(u, v) &amp; u &amp; v &amp; \hat w(u, v) \\
 \end{pmatrix}
 .
 $$</p>
-<h2 id="253-2">25.3-2<a class="headerlink" href="#253-2" title="Permanent link">&para;</a></h2>
+<h2 id="253-2">25.3-2</h2>
 <blockquote>
 <p>What is the purpose of adding the new vertex $s$ to $V'$, yielding $V'$?</p>
 </blockquote>
 <p>This is only important when there are negative-weight cycles in the graph. Using a dummy vertex gets us around the problem of trying to compute $-\infty + \infty$ to find $\hat w$. Moreover, if we had instead used a vertex $v$ in the graph instead of the new vertex $s$, then we run into trouble if a vertex fails to be reachable from $v$.</p>
-<h2 id="253-3">25.3-3<a class="headerlink" href="#253-3" title="Permanent link">&para;</a></h2>
+<h2 id="253-3">25.3-3</h2>
 <blockquote>
 <p>Suppose that $w(u, v) \ge 0$ for all edges $(u, v) \in E$. What is the relationship between the weight functions $w$ and $\hat w$?</p>
 </blockquote>
 <p>If all the edge weights are nonnegative, then the values computed as the shortest distances when running Bellman-Ford will be all zero. This is because when constructing $G'$ on the first line of Johnson's algorithm, we place an edge of weight zero from s to every other vertex. Since any path within the graph has no negative edges, its cost cannot be negative, and so, cannot beat the trivial path that goes straight from $s$ to any given vertex. Since we have that $h(u) = h(v)$ for every $u$ and $v$, the reweighting that occurs only adds and subtracts $0$, and so we have that $w(u, v) = \hat w(u, v)$</p>
-<h2 id="253-4">25.3-4<a class="headerlink" href="#253-4" title="Permanent link">&para;</a></h2>
+<h2 id="253-4">25.3-4</h2>
 <blockquote>
 <p>Professor Greenstreet claims that there is a simpler way to reweight edges than the method used in Johnson's algorithm. Letting $w^* = \min_{(u, v) \in E} \{w(u, v)\}$, just define $\hat w(u, v) = w(u, v) - w^*$ for all edges $(u, v) \in E$. What is wrong with the professor's method of reweighting?</p>
 </blockquote>
 <p>It changes shortest paths. Consider the following graph. $V = \{s, x, y, z\}$, and there are 4 edges: $w(s, x) = 2$, $w(x, y) = 2$, $w(s, y) = 5$, and $w(s, z) = -10$. So we'd add $10$ to every weight to make $\hat w$. With $w$, the shortest path from $s$ to $y$ is $s \to x \to y$, with weight $4$. With $\hat w$, the shortest path from $s$ to $y$ is $s \to y$, with weight $15$. (The path $s \to x \to y$ has weight $24$.) The problem is that by just adding the same amount to every edge, you penalize paths with more edges, even if their weights are low.</p>
-<h2 id="253-5">25.3-5<a class="headerlink" href="#253-5" title="Permanent link">&para;</a></h2>
+<h2 id="253-5">25.3-5</h2>
 <blockquote>
 <p>Suppose that we run Johnson's algorithm on a directed graph $G$ with weight function $w$. Show that if $G$ contains a $0$-weight cycle $c$, then $\hat w(u, v) = 0$ for every edge $(u, v)$ in $c$.</p>
 </blockquote>
 <p>If $\delta(s, v) - \delta(s, u) \le w(u, v)$, we have</p>
 <p>$$\delta(s, u) \le \delta(s, v) + (0 - w(u, v)) &lt; \delta(s, u) + w(u, v) - w(u, v) = \delta(s, u),$$</p>
 <p>which is impossible, thus $\delta(s, v) - \delta(s, u) = w(u, v)$, $\hat w(u, v) = w(u, v) + \delta(s, u) - \delta(s, v) = 0$.</p>
-<h2 id="253-6">25.3-6<a class="headerlink" href="#253-6" title="Permanent link">&para;</a></h2>
+<h2 id="253-6">25.3-6</h2>
 <blockquote>
 <p>Professor Michener claims that there is no need to create a new source vertex in line 1 of $\text{JOHNSON}$. He claims that instead we can just use $G' = G$ and let $s$ be any vertex. Give an example of a weighted, directed graph $G$ for which incorporating the professor's idea into $\text{JOHNSON}$ causes incorrect answers. Then show that if $G$ is strongly connected (every vertex is reachable from every other vertex), the results returned by $\text{JOHNSON}$ with the professor's modification are correct.</p>
 </blockquote>

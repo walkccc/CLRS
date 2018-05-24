@@ -5281,7 +5281,7 @@
                 
                   <h1>11.2 Hash tables</h1>
                 
-                <h2 id="112-1">11.2-1<a class="headerlink" href="#112-1" title="Permanent link">&para;</a></h2>
+                <h2 id="112-1">11.2-1</h2>
 <blockquote>
 <p>Suppose we use a hash function $h$ to hash $n$ distinct keys into an array $T$ of length $m$. Assuming simple uniform hashing, what is the expected number of collisions? More precisely, what is the expected cardinality of $\{\{k, l\}: k \ne l \text{ and } h(k) = h(l)\}$?</p>
 </blockquote>
@@ -5294,7 +5294,7 @@
            &amp; = \frac{n(n - 1)}{2} \cdot \frac{1}{m} \\
            &amp; = \frac{n(n - 1)}{2m}.
 \end{align}</p>
-<h2 id="112-2">11.2-2<a class="headerlink" href="#112-2" title="Permanent link">&para;</a></h2>
+<h2 id="112-2">11.2-2</h2>
 <blockquote>
 <p>Demonstrate what happens when we insert the keys $5, 28, 19, 15, 20, 33, 12, 17, 10$ into a hash table with collisions resolved by chaining. Let the table have $9$ slots, and let the hash function be $h(k) = k \mod 9$.</p>
 </blockquote>
@@ -5305,7 +5305,7 @@
 <li>To delete $x$, set $b[x] = 0$. </li>
 </ul>
 <p>Each of these takes $O(1)$ time.</p>
-<h2 id="112-3">11.2-3<a class="headerlink" href="#112-3" title="Permanent link">&para;</a></h2>
+<h2 id="112-3">11.2-3</h2>
 <blockquote>
 <p>Professor Marley hypothesizes that he can obtain substantial performance gains by modifying the chaining scheme to keep each list in sorted order. How does the professor's modification affect the running time for successful searches, unsuccessful searches, insertions, and deletions?</p>
 </blockquote>
@@ -5315,7 +5315,7 @@
 <li>Insertions: same as successful searches, $\Theta(1 + \alpha)$.</li>
 <li>Deletions: same as successful searches, $\Theta(1 + \alpha)$.</li>
 </ul>
-<h2 id="112-4">11.2-4<a class="headerlink" href="#112-4" title="Permanent link">&para;</a></h2>
+<h2 id="112-4">11.2-4</h2>
 <blockquote>
 <p>Suggest how to allocate and deallocate storage for elements within the hash table itself by linking all unused slots into a free list. Assume that one slot can store a flag and either one element plus a pointer or two pointers. All dictionary and free-list operations should run in $O(1)$ expected time. Does the free list need to be doubly linked, or does a singly linked free list suffice?</p>
 </blockquote>
@@ -5353,14 +5353,14 @@
     All the operations take expected $O(1)$ times for the same reason they do with the version in the book: The expected time to search the chains is $O(1 + \alpha)$ regardless of where the chains are stored, and the fact that all the elements are stored in the table means that $\alpha \le 1$. If the free list were singly linked, then operations that involved removing an arbitrary slot from the free list would not run in $O(1)$ time.</p>
 </li>
 </ul>
-<h2 id="112-5">11.2-5<a class="headerlink" href="#112-5" title="Permanent link">&para;</a></h2>
+<h2 id="112-5">11.2-5</h2>
 <blockquote>
 <p>Suppose that we are storing a set of $n$ keys into a hash table of size $m$. Show that if the keys are drawn from a universe $U$ with $|U| &gt; nm$, then $U$ has a subset of size $n$ consisting of keys that all hash to the same slot, so that the worst-case searching time for hashing with chaining is $\Theta(n)$.</p>
 </blockquote>
 <p>Suppose the $m - 1$ slots contains at most $n - 1$ elements, then the remaining slot should have </p>
 <p>$$|U| - (m - 1)(n - 1) &gt; nm - (m - 1)(n - 1) = n + m - 1 \ge n$$</p>
 <p>elements, thus $U$ has a subset of size $n$.</p>
-<h2 id="112-6">11.2-6<a class="headerlink" href="#112-6" title="Permanent link">&para;</a></h2>
+<h2 id="112-6">11.2-6</h2>
 <blockquote>
 <p>Suppose we have stored $n$ keys in a hash table of size $m$, with collisions resolved by chaining, and that we know the length of each chain, including the length $L$ of the longest chain. Describe a procedure that selects a key uniformly at random from among the keys in the hash table and returns it in expected time $O(L \cdot (1 + 1 / \alpha))$.</p>
 </blockquote>

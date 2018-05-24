@@ -5239,7 +5239,7 @@
                 
                   <h1>21.1 Disjoint-set operations</h1>
                 
-                <h2 id="211-1">21.1-1<a class="headerlink" href="#211-1" title="Permanent link">&para;</a></h2>
+                <h2 id="211-1">21.1-1</h2>
 <blockquote>
 <p>Suppose that $\text{CONNECTED-COMPONENTS}$ is run on the undirected graph $G = (V, E)$, where $V = \{a, b, c, d, e, f, g, h, i, j, k\}$ and the edges of $E$ are processed in the order $(d, i)$, $(f, k)$, $(g, i)$, $(b, g)$, $(a, h)$, $(i, j)$, $(d, k)$, $(b, j)$, $(d, f)$, $(g, j)$, $(a, e)$. List the vertices in each connected component after each iteration of lines 3–5.</p>
 </blockquote>
@@ -5260,12 +5260,12 @@ initial &amp; \{a\}       &amp; \{b\}                   &amp; \{c\} &amp; \{d\} 
 (a, e)  &amp; \{a, e, h\} &amp; \{b, g, i, g, j, f, k\} &amp; \{c\} &amp;             &amp; \{e\} &amp;          &amp;       &amp;       &amp;       &amp;       &amp;     <br />
 \end{array}</p>
 <p>So, the connected components that we are left with are  $\{a, h, e\}$,  $\{b, d, i, g, j, f, k\}$, and $\{c\}$.</p>
-<h2 id="211-2">21.1-2<a class="headerlink" href="#211-2" title="Permanent link">&para;</a></h2>
+<h2 id="211-2">21.1-2</h2>
 <blockquote>
 <p>Show that after all edges are processed by $\text{CONNECTED-COMPONENTS}$, two vertices are in the same connected component if and only if they are in the same set.</p>
 </blockquote>
 <p>First suppose that two vertices are in the same connected component. Then there exists a path of edges connecting them. If two vertices are connected by a single edge, then they are put into the same set when that edge is processed. At some point during the algorithm every edge of the path will be processed, so all vertices on the path will be in the same set, including the endpoints. Now suppose two vertices $u$ and $v$ wind up in the same set. Since every vertex starts off in its own set, some sequence of edges in $G$ must have resulted in eventually combining the sets containing $u$ and $v$. From among these, there must be a path of edges from $u$ to $v$, implying that $u$ and $v$ are in the same connected component.</p>
-<h2 id="211-3">21.1-3<a class="headerlink" href="#211-3" title="Permanent link">&para;</a></h2>
+<h2 id="211-3">21.1-3</h2>
 <blockquote>
 <p>During the execution of $\text{CONNECTED-COMPONENTS}$ on an undirected graph $G = (V, E)$ with $k$ connected components, how many times is $\text{FIND-SET}$ called? How many times is $\text{UNION}$ called? Express your answers in terms of $|V|$, $|E|$, and $k$.</p>
 </blockquote>

@@ -5267,7 +5267,7 @@
                 
                   <h1>11.4 Open addressing</h1>
                 
-                <h2 id="114-1">11.4-1<a class="headerlink" href="#114-1" title="Permanent link">&para;</a></h2>
+                <h2 id="114-1">11.4-1</h2>
 <blockquote>
 <p>Consider inserting the keys $10, 22, 31, 4, 15, 28, 17, 88, 59$ into a hash table of length $m = 11$ using open addressing with the auxiliary hash function $h'(k) = k$. Illustrate the result of inserting these keys using linear probing, using quadratic probing with $c_1 = 1$ and $c_2 = 3$, and using double hashing with $h_1(k) = k$ and $h_2(k) = 1 + (k \mod (m - 1))$.</p>
 </blockquote>
@@ -5324,7 +5324,7 @@
 \end{array}</p>
 </li>
 </ul>
-<h2 id="114-2">11.4-2<a class="headerlink" href="#114-2" title="Permanent link">&para;</a></h2>
+<h2 id="114-2">11.4-2</h2>
 <blockquote>
 <p>Write pseudocode for $\text{HASH-DELETE}$ as outlined in the text, and modify $\text{HASH-INSERT}$ to handle the special value $\text{DELETED}$.</p>
 </blockquote>
@@ -5373,7 +5373,7 @@
 </pre></div>
 </td></tr></table>
 
-<h2 id="114-3">11.4-3<a class="headerlink" href="#114-3" title="Permanent link">&para;</a></h2>
+<h2 id="114-3">11.4-3</h2>
 <blockquote>
 <p>Consider an open-address hash table with uniform hashing. Give upper bounds on the expected number of probes in an unsuccessful search and on the expected number of probes in a successful search when the load factor is $3 / 4$ and when it is $7 / 8$.</p>
 </blockquote>
@@ -5389,13 +5389,13 @@
 </ul>
 </li>
 </ul>
-<h2 id="114-4-star">11.4-4 $\star$<a class="headerlink" href="#114-4-star" title="Permanent link">&para;</a></h2>
+<h2 id="114-4-star">11.4-4 $\star$</h2>
 <blockquote>
 <p>Suppose that we use double hashing to resolve collisions—that is, we use the hash function $h(k, i) = (h_1(k) + ih_2(k) \mod m$. Show that if $m$ and $h_2(k)$ have greatest common divisor $d \ge 1$ for some key $k$, then an unsuccessful search for key $k$ examines $(1/d)$th of the hash table before returning to slot $h_1(k)$. Thus, when $d = 1$, so that $m$ and $h_2(k)$ are relatively prime, the search may examine the entire hash table. ($\textit{Hint:}$ See Chapter 31.)</p>
 </blockquote>
 <p>Suppose $d = \gcd(m, h_2(k))$, the $\text{LCM}$ $l = m \cdot h_2(k) / d$.</p>
 <p>Since $d | h_2(k)$, then $m \cdot h_2(k) / d \mod m = 0 \cdot (h_2(k) / d \mod m) = 0$, therefore $(l + ih_2(k)) \mod m = ih_2(k) \mod m$, which means $ih_2(k) \mod m$ has a period of $m / d$.</p>
-<h2 id="114-5-star">11.4-5 $\star$<a class="headerlink" href="#114-5-star" title="Permanent link">&para;</a></h2>
+<h2 id="114-5-star">11.4-5 $\star$</h2>
 <blockquote>
 <p>Consider an open-address hash table with a load factor $\alpha$. Find the nonzero value $\alpha$ for which the expected number of probes in an unsuccessful search equals twice the expected number of probes in a successful search. Use the upper bounds given by Theorems 11.6 and 11.8 for these expected numbers of probes.</p>
 </blockquote>

@@ -55,7 +55,7 @@ markdown_extensions:
   - codehilite:
       linenums: true
   - toc:
-      permalink: true
+      permalink: false
   - pymdownx.superfences
 
 pages:

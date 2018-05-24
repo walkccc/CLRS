@@ -5170,16 +5170,16 @@
                   <a href="https://github.com/walkccc/CLRS/edit/master/docs/Chap31/31.2.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h2 id="312-1">31.2-1<a class="headerlink" href="#312-1" title="Permanent link">&para;</a></h2>
+                <h2 id="312-1">31.2-1</h2>
 <blockquote>
 <p>Prove that equations $\text{(31.11)}$ and $\text{(31.12)}$ imply equation $\text{(31.13)}$.</p>
 </blockquote>
-<h2 id="312-2">31.2-2<a class="headerlink" href="#312-2" title="Permanent link">&para;</a></h2>
+<h2 id="312-2">31.2-2</h2>
 <blockquote>
 <p>Compute the values $(d, x, y)$ that the call $\text{EXTENDED-EUCLID}(899, 493)$ returns.</p>
 </blockquote>
 <p>$(29, -6, 11)$.</p>
-<h2 id="312-3">31.2-3<a class="headerlink" href="#312-3" title="Permanent link">&para;</a></h2>
+<h2 id="312-3">31.2-3</h2>
 <blockquote>
 <p>Prove that for all integers $a$, $k$, and $n$,</p>
 <p>$\gcd(a, n) = \gcd(a + kn, n)$.</p>
@@ -5213,7 +5213,7 @@
 <p>$$\gcd(a + kn, n) \mid \gcd(a, n),$$</p>
 <p>we have</p>
 <p>$$\gcd(a, n) = \gcd(a + kn, n).$$</p>
-<h2 id="312-4">31.2-4<a class="headerlink" href="#312-4" title="Permanent link">&para;</a></h2>
+<h2 id="312-4">31.2-4</h2>
 <blockquote>
 <p>Rewrite $\text{EUCLID}$ in an iterative form that uses only a constant amount of memory (that is, stores only a constant number of integer values).</p>
 </blockquote>
@@ -5231,7 +5231,7 @@
 </pre></div>
 </td></tr></table>
 
-<h2 id="312-5">31.2-5<a class="headerlink" href="#312-5" title="Permanent link">&para;</a></h2>
+<h2 id="312-5">31.2-5</h2>
 <blockquote>
 <p>If $a &gt; b \ge 0$, show that the call EUCLID$(a, b)$ makes at most $1 + \log_\phi b$ recursive calls. Improve this bound to $1 + \log_\phi(b / \gcd(a, b))$.</p>
 </blockquote>
@@ -5239,7 +5239,7 @@
 <p>$$k + 1 &lt; \log_\phi \sqrt{5} + \log_\phi b \approx 1.67 + \log_\phi b$$</p>
 <p>$$k &lt; 0.67 + \log_\phi b &lt; 1 + \log_\phi b.$$</p>
 <p>Since $d \cdot a \mod d \cdot b = d \cdot (a \mod b)$, $\gcd(d \cdot a, d \cdot b)$ has the same number of recursive calls with $\gcd(a, b)$, therefore we could let $b' = b / \gcd(a, b)$, the inequality $k &lt; 1 + \log_\phi(b') = 1 + \log_\phi(b / \gcd(a, b))$. will holds.</p>
-<h1 id="312-6">31.2-6<a class="headerlink" href="#312-6" title="Permanent link">&para;</a></h1>
+<h1 id="312-6">31.2-6</h1>
 <blockquote>
 <p>What does $\text{EXTENDED-EUCLID}(F_{k + 1}, F_k)$ return? Prove your answer correct.</p>
 </blockquote>
@@ -5247,7 +5247,7 @@
 <li>If $k$ is odd, then $(1, -F_{k-2}, F_{k - 1})$.</li>
 <li>If $k$ is even, then $(1, F_{k-2}, -F_{k - 1})$.</li>
 </ul>
-<h2 id="312-7">31.2-7<a class="headerlink" href="#312-7" title="Permanent link">&para;</a></h2>
+<h2 id="312-7">31.2-7</h2>
 <blockquote>
 <p>Define the $\gcd$ function for more than two arguments by the recursive equation $\gcd(a_0, a_1, \cdots, a_n) = \gcd(a_0, \gcd(a_1, a_2, \cdots, a_n))$. Show that the $\gcd$ function returns the same answer independent of the order in which its arguments are specified. Also show how to find integers $x_0, x_1, \cdots, x_n$ such that $\gcd(a_0, a_1, \ldots, a_n) = a_0 x_0 + a_1 x_1 + \cdots + a_n x_n$. Show that the number of divisions performed by your algorithm is $O(n + \lg (max \{a_0, a_1, \cdots, a_n \}))$.</p>
 </blockquote>
@@ -5296,7 +5296,7 @@
 </pre></div>
 </td></tr></table>
 
-<h2 id="312-8">31.2-8<a class="headerlink" href="#312-8" title="Permanent link">&para;</a></h2>
+<h2 id="312-8">31.2-8</h2>
 <blockquote>
 <p>Define $\text{lcm}(a_1, a_2, \ldots, a_n)$ to be the <strong><em>least common multiple</em></strong> of the $n$ integers $a_1, a_2, \ldots, a_n$, that is, the smallest nonnegative integer that is a multiple of each $a_i$. Show how to compute $\text{lcm}(a_1, a_2, \ldots, a_n)$ efficiently using the (two-argument) $\gcd$ operation as a subroutine.</p>
 </blockquote>
@@ -5328,7 +5328,7 @@
 </pre></div>
 </td></tr></table>
 
-<h2 id="312-9">31.2-9<a class="headerlink" href="#312-9" title="Permanent link">&para;</a></h2>
+<h2 id="312-9">31.2-9</h2>
 <blockquote>
 <p>Prove that $n_1$, $n_2$, $n_3$, and $n_4$ are pairwise relatively prime if and only if</p>
 <p>$\gcd(n_1n_2,n_3n_4) = \gcd(n_1n_3, n_2n_4) = 1.$</p>

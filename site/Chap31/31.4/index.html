@@ -5253,12 +5253,12 @@
                 
                   <h1>31.4 Solving modular linear equations</h1>
                 
-                <h2 id="314-1">31.4-1<a class="headerlink" href="#314-1" title="Permanent link">&para;</a></h2>
+                <h2 id="314-1">31.4-1</h2>
 <blockquote>
 <p>Find all solutions to the equation $35x \equiv 10 (\mod 50)$.</p>
 </blockquote>
 <p>${6, 16, 26, 36, 46}$.</p>
-<h2 id="314-2">31.4-2<a class="headerlink" href="#314-2" title="Permanent link">&para;</a></h2>
+<h2 id="314-2">31.4-2</h2>
 <blockquote>
 <p>Prove that the equation $ax \equiv ay (\mod n)$ implies $x \equiv y (\mod n)$ whenever $\gcd(a, n) = 1$. Show that the condition $\gcd(a, n) = 1$ is necessary by supplying a counterexample with $\gcd(a, n) &gt; 1$.</p>
 </blockquote>
@@ -5270,7 +5270,7 @@
  x_0 &amp; = x'(ay / d), \\
 x_0' &amp; = (ax')(y / d) = x'(ay / d) = x_0.
 \end{align}</p>
-<h2 id="314-3">31.4-3<a class="headerlink" href="#314-3" title="Permanent link">&para;</a></h2>
+<h2 id="314-3">31.4-3</h2>
 <blockquote>
 <p>Consider the following change to line 3 of the procedure $\text{MODULAR-LINEAR-EQUATION-SOLVER}$:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="mi">3</span>  <span class="n">x0</span> <span class="o">=</span> <span class="n">x</span><span class="err">&#39;</span><span class="p">(</span><span class="n">b</span> <span class="o">/</span> <span class="n">d</span><span class="p">)</span> <span class="n">mod</span> <span class="p">(</span><span class="n">n</span> <span class="o">/</span> <span class="n">d</span><span class="p">)</span>
@@ -5280,7 +5280,7 @@ x_0' &amp; = (ax')(y / d) = x'(ay / d) = x_0.
 <p>Will this work? Explain why or why not.</p>
 </blockquote>
 <p>Assume that $x_0 \ge n / d$, then the largest solution is $x_0 + (d - 1) \cdot (n / d) \ge d \cdot n / d \ge n$, which is impossible, therefore $x_0 &lt; n / d$.</p>
-<h2 id="314-4-star">31.4-4 $\star$<a class="headerlink" href="#314-4-star" title="Permanent link">&para;</a></h2>
+<h2 id="314-4-star">31.4-4 $\star$</h2>
 <blockquote>
 <p>Let $p$ be prime and $f(x) \equiv f_0 + f_1 x + \cdots + f_tx^t (\mod p)$ be a polynomial of degree $t$, with coefficients $f_i$ drawn from $\mathbb Z_p$. We say that $a \in \mathbb Z_p$ is a <strong><em>zero</em></strong> of $f$ if $f(a) \equiv 0 (\mod p)$. Prove that if $a$ is a zero of $f$, then $f(x) \equiv (x - a) g(x) (\mod p)$ for some polynomial $g(x)$ of degree $t - 1$. Prove by induction on $t$ that if $p$ is prime, then a polynomial $f(x)$ of degree $t$ can have at most $t$ distinct zeros modulo $p$.</p>
 </blockquote>

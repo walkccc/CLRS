@@ -5309,13 +5309,13 @@
                 
                   <h1>23.2 The algorithms of Kruskal and Prim</h1>
                 
-                <h2 id="232-1">23.2-1<a class="headerlink" href="#232-1" title="Permanent link">&para;</a></h2>
+                <h2 id="232-1">23.2-1</h2>
 <blockquote>
 <p>Kruskal's algorithm can return different spanning trees for the same input graph $G$, depending on how it breaks ties when the edges are sorted into order. Show that for each minimum spanning tree $T$ of $G$, there is a way to sort the edges of $G$ in Kruskal's algorithm so that the algorithm returns $T$.</p>
 </blockquote>
 <p>Suppose that we wanted to pick $T$ as our minimum spanning tree. Then, to obtain this tree with Kruskal's algorithm, we will order the edges first by their weight, but then will resolve ties in edge weights by picking an edge first if it is contained in the minimum spanning tree, and treating all the edges that aren't in $T$ as being slightly larger, even though they have the same actual weight.</p>
 <p>With this ordering, we will still be finding a tree of the same weight as all the minimum spanning trees $w(T)$. However, since we prioritize the edges in $T$, we have that we will pick them over any other edges that may be in other minimum spanning trees.</p>
-<h2 id="232-2">23.2-2<a class="headerlink" href="#232-2" title="Permanent link">&para;</a></h2>
+<h2 id="232-2">23.2-2</h2>
 <blockquote>
 <p>Suppose that we represent the graph $G = (V, E)$ as an adjacency matrix. Give a simple implementation of Prim's algorithm for this case that runs in $O(V^2)$ time.</p>
 </blockquote>
@@ -5348,7 +5348,7 @@
 </pre></div>
 </td></tr></table>
 
-<h2 id="232-3">23.2-3<a class="headerlink" href="#232-3" title="Permanent link">&para;</a></h2>
+<h2 id="232-3">23.2-3</h2>
 <blockquote>
 <p>For a sparse graph $G = (V, E)$, where $|E| = \Theta(V)$, is the implementation of Prim's algorithm with a Fibonacci heap asymptotically faster than the binary-heap implementation? What about for a dense graph, where $|E| = \Theta(V^2)$? How must the sizes $|E|$ and $|V|$ be related for the Fibonacci-heap implementation to be asymptotically faster than the binary-heap implementation?</p>
 </blockquote>
@@ -5380,14 +5380,14 @@
 <p>$$O(E + V\lg V) = O(f(V) + V\lg V).$$</p>
 <p>This runtime is either $O(f(V))$ or $O(V\lg V)$ depending on if $f(V)$ grows more or less quickly than $V\lg V$ respectively.</p>
 <p>In either case, we have that the runtime is faster than $O(f(V)\lg V)$.</p>
-<h2 id="232-4">23.2-4<a class="headerlink" href="#232-4" title="Permanent link">&para;</a></h2>
+<h2 id="232-4">23.2-4</h2>
 <blockquote>
 <p>Suppose that all edge weights in a graph are integers in the range from $1$ to $|V|$. How fast can you make Kruskal's algorithm run? What if the edge weights are integers in the range from $1$ to $W$ for some constant $W$?</p>
 </blockquote>
 <p>We know that Kruskal's algorithm takes $O(V)$ time for initialization, $O(E\lg E)$ time to sort the edges, and $O(E\alpha(V))$ time for the disjoint-set operations, for a total running time of $O(V + E\lg E + E\alpha(V)) = O(E\lg E)$.</p>
 <p>If we knew that all of the edge weights in the graph were integers in the range from $1$ to $|V|$, then we could sort the edges in $O(V + E)$ time using counting sort. Since the graph is connected, $V = O(E)$, and so the sorting time is reduced to $O(E)$. This would yield a total running time of $O(V + E + E\alpha(V)) = O(E\alpha(V))$, again since $V = O(E)$, and since $E = O(E\alpha(V))$. The time to process the edges, not the time to sort them, is now the dominant term. Knowledge about the weights won't help speed up any other part of the algorithm, since nothing besides the sort uses the weight values.</p>
 <p>If the edge weights were integers in the range from $1$ to $W$ for some constant $W$, then we could again use counting sort to sort the edges more quickly. This time, sorting would take $O(E + W) = O(E)$ time, since $W$ is a constant. As in the first part, we get a total running time of $O(E\alpha(V))$.</p>
-<h2 id="232-5">23.2-5<a class="headerlink" href="#232-5" title="Permanent link">&para;</a></h2>
+<h2 id="232-5">23.2-5</h2>
 <blockquote>
 <p>Suppose that all edge weights in a graph are integers in the range from $1$ to $|V|$. How fast can you make Prim's algorithm run? What if the edge weights are integers in the range from $1$ to $W$ for some constant $W$?</p>
 </blockquote>
@@ -5400,12 +5400,12 @@
 <li>van Emde Boas trees (see Chapter 20) give an upper bound of $O(E + V\lg\lg V)$ time for Prim's algorithm.</li>
 <li>A redistributive heap (used in the single-source shortest-paths algorithm of Ahuja, Mehlhorn, Orlin, and Tarjan, and mentioned in the chapter notes for Chapter 24) gives an upper bound of $O(E + V \sqrt{\lg V})$ for Prim's algorithm.</li>
 </ul>
-<h2 id="232-6-star">23.2-6 $\star$<a class="headerlink" href="#232-6-star" title="Permanent link">&para;</a></h2>
+<h2 id="232-6-star">23.2-6 $\star$</h2>
 <blockquote>
 <p>Suppose that the edge weights in a graph are uniformly distributed over the halfopen interval $[0, 1)$. Which algorithm, Kruskal's or Prim's, can you make run faster?</p>
 </blockquote>
 <p>For input drawn from a uniform distribution I would use bucket sort with Kruskal's algorithm, for expected linear time sorting of edges by weight. This would achieve expected runtime $O(E\alpha(V))$.</p>
-<h2 id="232-7-star">23.2-7 $\star$<a class="headerlink" href="#232-7-star" title="Permanent link">&para;</a></h2>
+<h2 id="232-7-star">23.2-7 $\star$</h2>
 <blockquote>
 <p>Suppose that a graph $G$ has a minimum spanning tree already computed. How quickly can we update the minimum spanning tree if we add a new vertex and incident edges to $G$?</p>
 </blockquote>
@@ -5428,7 +5428,7 @@
 <p>With the claim in hand, we suppose that some edge $(u, v) \in \overline T$ is placed into $T'$. That means that Kruskal's algorithm run on $G$ found $u$ and $v$ to be in the same set (since $(u, v) \in \overline T$ ) but Kruskal's algorithm run on $G'$ found $u$ and $v$ to be in different sets (since $(u, v)$ is placed into $T'$). This fact contradicts the claim, and we conclude that no edge in $\overline T$ is placed into $T'$. Thus, by running Kruskal's algorithm on $G$ and $G'$, we demonstrate that there exists a minimum spanning tree of $G'$ that includes no edges in $\overline T$. (#lemma)</p>
 <p>We use this lemma as follows. Let $G' = (V', E')$ be the graph $G = (V, E)$ with the one new vertex and its incident edges added. Suppose that we have a minimum spanning tree $T$ for $G$. We compute a minimum spanning tree for $G'$ by creating the graph $G'' = (V', E'')$, where $E''$ consists of the edges of $T$ and the edges in $E' - E$ (i.e., the edges added to $G$ that made $G'$), and then finding a minimum spanning tree $T'$ for $G''$. By the lemma, there is a minimum spanning tree for $G'$ that includes no edges of $E - T$. In other words, $G'$ has a minimum spanning tree that includes only edges in $T$ and $E' - E$ ; these edges comprise exactly the set $E''$. Thus, the the minimum spanning tree $T'$ of $G''$ is also a minimum spanning tree of $G'$.</p>
 <p>Even though the proof of the lemma uses Kruskal's algorithm, we are not required to use this algorithm to find $T'$. We can find a minimum spanning tree by any means we choose. Let us use Prim's algorithm with a Fibonacci-heap priority queue. Since $|V'| = |V| + 1$ and $|E''| \le 2|V| - 1$ ($E''$ contains the $|V| - 1$ edges of $T$ and at most $|V|$ edges in $E' - E$ ), it takes $O(V)$ time to construct $G''$, and the run of Prim's algorithm with a Fibonacci-heap priority queue takes time $O(E'' + V'\lg V) = O(V\lg V)$. Thus, if we are given a minimum spanning tree of $G$, we can compute a minimum spanning tree of $G'$ in $O(V\lg V)$ time.</p>
-<h2 id="232-8">23.2-8<a class="headerlink" href="#232-8" title="Permanent link">&para;</a></h2>
+<h2 id="232-8">23.2-8</h2>
 <blockquote>
 <p>Professor Borden proposes a new divide-and-conquer algorithm for computing minimum spanning trees, which goes as follows. Given a graph $G = (V, E)$, partition the set $V$ of vertices into two sets $V_1$ and $V_2$ such that $|V_1|$ and $|V_2|$ differ by at most $1$. Let $E_1$ be the set of edges that are incident only on vertices in $V_1$, and let $E_2$ be the set of edges that are incident only on vertices in $V_2$. Recursively solve a minimum-spanning-tree problem on each of the two subgraphs $G_1 = (V_1, E_1)$ and $G_2 = (V_2, E_2)$. Finally, select the minimum-weight edge in $E$ that crosses the cut $(V_1, V_2)$, and use this edge to unite the resulting two minimum spanning trees into a single spanning tree.</p>
 <p>Either argue that the algorithm correctly computes a minimum spanning tree of $G$, or provide an example for which the algorithm fails.</p>

@@ -5253,7 +5253,7 @@
                 
                   <h1>11.1 Direct-address tables</h1>
                 
-                <h2 id="111-1">11.1-1<a class="headerlink" href="#111-1" title="Permanent link">&para;</a></h2>
+                <h2 id="111-1">11.1-1</h2>
 <blockquote>
 <p>Suppose that a dynamic set $S$ is represented by a direct-address table $T$ of length $m$. Describe a procedure that finds the maximum element of $S$. What is the worst-case performance of your procedure?</p>
 </blockquote>
@@ -5279,7 +5279,7 @@
 </td></tr></table>
 
 <p>The $\text{TABLE-MAXIMUM}$ procedure gest down and checks $1$ sloc at a time, linearly approaches the solution. In the worst case where $S$ is empty, $\text{TABLE-MAXIMUM}$ examines $m$ slots. Therefore, the worst-case performance of $\text{MAXIMUM}$ is $O(n)$, where $n$ is the number of elements in the set $S$.</p>
-<h2 id="111-2">11.1-2<a class="headerlink" href="#111-2" title="Permanent link">&para;</a></h2>
+<h2 id="111-2">11.1-2</h2>
 <blockquote>
 <p>A <strong><em>bit vector</em></strong> is simply an array of bits ($0$s and $1$s). A bit vector of length $m$ takes much less space than an array of $m$ pointers. Describe how to use a bit vector to represent a dynamic set of distinct elements with no satellite data. Dictionary operations should run in $O(1)$ time.</p>
 </blockquote>
@@ -5308,7 +5308,7 @@
 </td></tr></table>
 
 <p>Each of these operations takes only $O(1)$ time.</p>
-<h2 id="111-3">11.1-3<a class="headerlink" href="#111-3" title="Permanent link">&para;</a></h2>
+<h2 id="111-3">11.1-3</h2>
 <blockquote>
 <p>Suggest how to implement a direct-address table in which the keys of stored elements do not need to be distinct and the elements can have satellite data. All three dictionary operations ($\text{INSERT}$, $\text{DELETE}$, and $\text{SEARCH}$) should run in $O(1)$ time. (Don't forget that $\text{DELETE}$ takes as an argument a pointer to an object to be deleted, not a key.)</p>
 </blockquote>
@@ -5318,7 +5318,7 @@
 <li>$\text{DELETE}$: removes the element from the linked list in constant time (the element contains pointers to the previous and next element)</li>
 <li>$\text{SEARCH}$: returns the first element, which is a node in a linked list, in constant time</li>
 </ul>
-<h2 id="111-4-star">11.1-4 $\star$<a class="headerlink" href="#111-4-star" title="Permanent link">&para;</a></h2>
+<h2 id="111-4-star">11.1-4 $\star$</h2>
 <blockquote>
 <p>We wish to implement a dictionary by using direct addressing on a <em>huge</em> array. At the start, the array entries may contain garbage, and initializing the entire array is impractical because of its size. Describe a scheme for implementing a direct-address dictionary on a huge array. Each stored object should use $O(1)$ space; the operations $\text{SEARCH}$, $\text{INSERT}$, and $\text{DELETE}$ should take $O(1)$ time each; and initializing the data structure should take $O(1)$ time. ($\textit{Hint:}$ Use an additional array, treated somewhat like a stack whose size is the number of keys actually stored in the dictionary, to help determine whether a given entry in the huge array is valid or not.)</p>
 </blockquote>

@@ -5267,12 +5267,12 @@
                 
                   <h1>32.3 String matching with finite automata</h1>
                 
-                <h2 id="323-1">32.3-1<a class="headerlink" href="#323-1" title="Permanent link">&para;</a></h2>
+                <h2 id="323-1">32.3-1</h2>
 <blockquote>
 <p>Construct the string-matching automaton for the pattern $P = aabab$ and illustrate its operation on the text string $T = \text{aaababaabaababaab}$.</p>
 </blockquote>
 <p>$$0 \rightarrow 1 \rightarrow 2 \rightarrow 2 \rightarrow 3 \rightarrow 4 \rightarrow 5 \rightarrow 1 \rightarrow 2 \rightarrow 3 \rightarrow 4 \rightarrow 2 \rightarrow 3 \rightarrow 4 \rightarrow 5 \rightarrow 1 \rightarrow 2 \rightarrow 3.$$</p>
-<h2 id="323-2">32.3-2<a class="headerlink" href="#323-2" title="Permanent link">&para;</a></h2>
+<h2 id="323-2">32.3-2</h2>
 <blockquote>
 <p>Draw a state-transition diagram for a string-matching automaton for the pattern
 $ababbabbababbababbabb$ over the alphabet $\sigma = \{a, b\}$.</p>
@@ -5301,17 +5301,17 @@ $ababbabbababbababbabb$ over the alphabet $\sigma = \{a, b\}$.</p>
 20 &amp;  3 &amp; 21 \\
 21 &amp;  9 &amp;  0
 \end{array}</p>
-<h2 id="323-3">32.3-3<a class="headerlink" href="#323-3" title="Permanent link">&para;</a></h2>
+<h2 id="323-3">32.3-3</h2>
 <blockquote>
 <p>We call a pattern $P$ <strong><em>nonoverlappable</em></strong> if $P_k \sqsupset P_q$ implies $k = 0$ or $k = q$. Describe the state-transition diagram of the string-matching automaton for a nonoverlappable pattern.</p>
 </blockquote>
 <p>$\delta(q, a) \in \{q + 1, 0\}$.</p>
-<h2 id="323-4-star">32.3-4 $\star$<a class="headerlink" href="#323-4-star" title="Permanent link">&para;</a></h2>
+<h2 id="323-4-star">32.3-4 $\star$</h2>
 <blockquote>
 <p>Given two patterns $P$ and $P'$, describe how to construct a finite automaton that determines all occurrences of either pattern. Try to minimize the number of states in your automaton.</p>
 </blockquote>
 <p>Combine the common prefix and suffix.</p>
-<h2 id="323-5">32.3-5<a class="headerlink" href="#323-5" title="Permanent link">&para;</a></h2>
+<h2 id="323-5">32.3-5</h2>
 <blockquote>
 <p>Given a pattern $P$ containing gap characters (see Exercise 32.1-4), show how to build a finite automaton that can find an occurrence of $P$ in a text $T$ in $O(n)$ matching time, where $n = |T|$.</p>
 </blockquote>

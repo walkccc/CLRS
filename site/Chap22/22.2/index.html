@@ -5323,7 +5323,7 @@
                 
                   <h1>22.2 Breadth-first search</h1>
                 
-                <h2 id="222-1">22.2-1<a class="headerlink" href="#222-1" title="Permanent link">&para;</a></h2>
+                <h2 id="222-1">22.2-1</h2>
 <blockquote>
 <p>Show the $d$ and $\pi$ values that result from running breadth-first search on the directed graph of Figure 22.2(a), using vertex $3$ as the source.</p>
 </blockquote>
@@ -5333,7 +5333,7 @@
 d &amp; \infty &amp; 3 &amp; 0 &amp; 2 &amp; 1 &amp; 1 \\
 \pi &amp; \text{NIL} &amp; 4 &amp; \text{NIL} &amp; 5 &amp; 3 &amp; 3
 \end{array}</p>
-<h2 id="222-2">22.2-2<a class="headerlink" href="#222-2" title="Permanent link">&para;</a></h2>
+<h2 id="222-2">22.2-2</h2>
 <blockquote>
 <p>Show the $d$ and $\pi$ values that result from running breadth-first search on the undirected graph of Figure 22.3, using vertex $u$ as the source.</p>
 </blockquote>
@@ -5343,38 +5343,38 @@ d &amp; \infty &amp; 3 &amp; 0 &amp; 2 &amp; 1 &amp; 1 \\
 d &amp; 4 &amp; 3 &amp; 1 &amp; 0 &amp; 5 &amp; 2 &amp; 1 &amp; 1 \\
 \pi &amp; s &amp; w &amp; u &amp; \text{NIL} &amp; r &amp; t &amp; u &amp; u
 \end{array}</p>
-<h2 id="222-3">22.2-3<a class="headerlink" href="#222-3" title="Permanent link">&para;</a></h2>
+<h2 id="222-3">22.2-3</h2>
 <blockquote>
 <p>Show that using a single bit to store each vertex color suffices by arguing that the $\text{BFS}$ procedure would produce the same result if lines 5 and 14 were removed.</p>
 </blockquote>
 <p>$\textit{Note:}$ This exercise changed in the third printing. This solution reflects the change.</p>
 <p>The $\text{BFS}$ procedure cares only whether a vertex is white or not. $A$ vertex $v$ must become non-white at the same time that $v.d$ is assigned a finite value so that we do not attempt to assign to $v.d$ again, and so we need to change vertex colors in lines 5 and 14. Once we have changed a vertex's color to non-white, we do not need to change it again.</p>
-<h2 id="222-4">22.2-4<a class="headerlink" href="#222-4" title="Permanent link">&para;</a></h2>
+<h2 id="222-4">22.2-4</h2>
 <blockquote>
 <p>What is the running time of $\text{BFS}$ if we represent its input graph by an adjacency matrix and modify the algorithm to handle this form of input?</p>
 </blockquote>
 <p>The correctness proof for the $\text{BFS}$ algorithm shows that $d[u] = \delta(s, u)$, and the algorithm doesn't assume that the adjacency lists are in any particular order.</p>
 <p>In Figure 22.3, if t precedes $x$ in $Adj[w]$, we can get the breadth-first tree shown in the figure. But if $x$ precedes $t$ in $Adj[w]$ and $u$ precedes $y$ in $Adj[x]$, we can get edge $(x, u)$ in the breadth-first tree.</p>
-<h2 id="222-5">22.2-5<a class="headerlink" href="#222-5" title="Permanent link">&para;</a></h2>
+<h2 id="222-5">22.2-5</h2>
 <blockquote>
 <p>Argue that in a breadth-first search, the value $u.d$ assigned to a vertex $u$ is independent of the order in which the vertices appear in each adjacency list. Using Figure 22.3 as an example, show that the breadth-first tree computed by $\text{BFS}$ can depend on the ordering within adjacency lists.</p>
 </blockquote>
 <p>The correctness proof for the $\text{BFS}$ algorithm shows that $\delta.d = \delta(s, u)$, and the algorithm doesn't assume that the adjacency lists are in any particular order.</p>
 <p>In Figure 22.3, if $t$ precedes $x$ in $Adj[w]$, we can get the breadth-first tree shown in the figure. But if $x$ precedes $t$ in $Adj[w]$ and $u$ precedes $y$ in $Adj[x]$, we can get edge $(x, u)$ in the breadth-first tree.</p>
-<h2 id="222-6">22.2-6<a class="headerlink" href="#222-6" title="Permanent link">&para;</a></h2>
+<h2 id="222-6">22.2-6</h2>
 <blockquote>
 <p>Give an example of a directed graph $G = (V, E)$, a source vertex $s \in V$, and a set of tree edges $E_\pi \subseteq E$ such that for each vertex $v \in V$, the unique simple path in the graph $(V, E_\pi)$ from $s$ to $v$ is a shortest path in $G$, yet the set of edges $E_\pi$ cannot be produced by running $\text{BFS}$ on $G$, no matter how the vertices are ordered in each adjacency list.</p>
 </blockquote>
 <p>The edges in $E_\pi$ are shaded in the following graph:</p>
 <p><img alt="" src="https://i.imgur.com/mIHBMbg.png?width=10rem" /></p>
 <p>To see that $E_\pi$ cannot be a breadth-first tree, let's suppose that $Adj[s]$ contains $u$ before $v$. $\text{BFS}$ adds edges $(s, u)$ and $(s, v)$ to the breadth-first tree. Since $u$ is enqueued before $v$, $\text{BFS}$ then adds edges $(u, w)$ and $(u, x)$. (The order of $w$ and $x$ in $Adj[u]$ doesn't matter.) Symmetrically, if $Adj[s]$ contains $v$ before $u$, then $\text{BFS}$ adds edges $(s, v)$ and $(s, u)$ to the breadth-first tree, $v$ is enqueued before $u$, and $\text{BFS}$ adds edges $(v, w)$ and $(v, x)$. (Again, the order of $w$ and $x$ in $Adj[v]$ doesn't matter.) $\text{BFS}$ will never put both edges $(u, w)$ and $(v, x)$ into the breadth-first tree. In fact, it will also never put both edges $(u, x)$ and $(v, w)$ into the breadth-first tree.</p>
-<h2 id="222-7">22.2-7<a class="headerlink" href="#222-7" title="Permanent link">&para;</a></h2>
+<h2 id="222-7">22.2-7</h2>
 <blockquote>
 <p>There are two types of professional wrestlers: ''babyfaces'' (''good guys'') and ''heels'' (''bad guys''). Between any pair of professional wrestlers, there may or may not be a rivalry. Suppose we have $n$ professional wrestlers and we have a list of $r$ pairs of wrestlers for which there are rivalries. Give an $O(n + r)$-time algorithm that determines whether it is possible to designate some of the wrestlers as babyfaces and the remainder as heels such that each rivalry is between a babyface and a heel. If it is possible to perform such a designation, your algorithm should produce it.</p>
 </blockquote>
 <p>Create a graph $G$ where each vertex represents a wrestler and each edge represents a rivalry. The graph will contain $n$ vertices and $r$ edges.</p>
 <p>Perform as many $\text{BFS}$'s as needed to visit all vertices. Assign all wrestlers whose distance is even to be babyfaces and all wrestlers whose distance is odd to be heels. Then check each edge to verify that it goes between a babyface and a heel. This solution would take $O(n + r)$ time for the $\text{BFS}$, $O(n)$ time to designate each wrestler as a babyface or heel, and $O(r)$ time to check edges, which is $O(n + r)$ time overall.</p>
-<h2 id="222-8-star">22.2-8 $\star$<a class="headerlink" href="#222-8-star" title="Permanent link">&para;</a></h2>
+<h2 id="222-8-star">22.2-8 $\star$</h2>
 <blockquote>
 <p>The <strong><em>diameter</em></strong> of a tree $T = (V, E)$ is defined as $\max_{u,v \in V} \delta(u, v)$, that is, the largest of all shortest-path distances in the tree. Give an efficient algorithm to compute the diameter of a tree, and analyze the running time of your algorithm.</p>
 </blockquote>
@@ -5395,7 +5395,7 @@ d(a, b) + 2d(s, c) &amp; = d(s, c) + d(c, b) + d(s, c) + d(c, a) \\
 <p>I claim that $d(x, b) = d(s, c) + d(s, b)$. If not, then by the triangle inequality we must have a strict less-than. In other words, there is some path from $x$ to $b$ which does not go through $c$. This gives the contradiction, because it implies there is a cycle formed by concatenating these paths. Then we have</p>
 <p>$$d(a, b) &lt; d(a, b) + 2d(s, c) &lt; d(x, b).$$</p>
 <p>Since it is assumed that $d(a, b)$ is maximal among all pairs, we have a contradiction. Therefore, since trees have $|V| - 1$ edges, we can run $\text{BFS}$ a single time in $O(V)$ to obtain one of the vertices which is the endpoint of the longest simple path contained in the graph. Running $\text{BFS}$ again will show us where the other one is, so we can solve the diameter problem for trees in $O(V)$.</p>
-<h2 id="222-9">22.2-9<a class="headerlink" href="#222-9" title="Permanent link">&para;</a></h2>
+<h2 id="222-9">22.2-9</h2>
 <blockquote>
 <p>Let $G = (V, E)$ be a connected, undirected graph. Give an $O(V + E)$-time algorithm to compute a path in $G$ that traverses each edge in $E$ exactly once in each direction. Describe how you can find your way out of a maze if you are given a large supply of pennies.</p>
 </blockquote>

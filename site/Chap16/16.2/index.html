@@ -5295,7 +5295,7 @@
                 
                   <h1>16.2 Elements of the greedy strategy</h1>
                 
-                <h2 id="162-1">16.2-1<a class="headerlink" href="#162-1" title="Permanent link">&para;</a></h2>
+                <h2 id="162-1">16.2-1</h2>
 <blockquote>
 <p>Prove that the fractional knapsack problem has the greedy-choice property.</p>
 </blockquote>
@@ -5304,7 +5304,7 @@ Let $s = (s_1, s_2, \ldots, s_n)$ be a solution. The greedy algorithm works by a
 <p>$$I' = (n - 1, {v_1, v_2, \ldots, v_{n - 1}}, {w_1, w_2, \ldots, w_{n - 1}}, W - w_n)$$</p>
 <p>until it either reaches the state $W = 0$ or $n = 0$.</p>
 <p>We need to show that this strategy always gives an optimal solution. We prove this by contradiction. Suppose the optimal solution to $I$ is $s_1, s_2, \ldots, s_n$, where $s_n &lt; \min(wn, W)$. Let $i$ be the smallest number such that $s_i &gt; 0$. By decreasing $s_i$ to $\max(0, W - w_n)$ and increasing $s_n$ by the same amount, we get a better solution. Since this a contradiction the assumption must be false. Hence the problem has the greedy-choice property.</p>
-<h2 id="162-2">16.2-2<a class="headerlink" href="#162-2" title="Permanent link">&para;</a></h2>
+<h2 id="162-2">16.2-2</h2>
 <blockquote>
 <p>Give a dynamic-programming solution to the $0$-$1$ knapsack problem that runs in $O(nW)$ time, where $n$ is the number of items and $W$ is the maximum weight of items that the thief can put in his knapsack.</p>
 </blockquote>
@@ -5352,12 +5352,12 @@ $$</p>
 <li>$\Theta(nW)$ to fill in the $c$ table: $(n + 1) \cdot (W + 1)$ entries, each requiring $\Theta(1)$ time to compute.</li>
 <li>$O(n)$ time to trace the solution (since it starts in row $n$ of the table and moves up one row at each step).</li>
 </ul>
-<h2 id="162-3">16.2-3<a class="headerlink" href="#162-3" title="Permanent link">&para;</a></h2>
+<h2 id="162-3">16.2-3</h2>
 <blockquote>
 <p>Suppose that in a $0$-$1$ knapsack problem, the order of the items when sorted by increasing weight is the same as their order when sorted by decreasing value. Give an efficient algorithm to find an optimal solution to this variant of the knapsack problem, and argue that your algorithm is correct.</p>
 </blockquote>
 <p>Suppose in an optimal solution we take an item with $v_1$, $w_1$, and drop an item with $v_2$, $w_2$, and $w_1 &gt; w_2$, $v_1 &lt; v_2$, we can substitude $1$ with $2$ and get a better solution. Therefore we should always choose the items with the greatest values.</p>
-<h2 id="162-4">16.2-4<a class="headerlink" href="#162-4" title="Permanent link">&para;</a></h2>
+<h2 id="162-4">16.2-4</h2>
 <blockquote>
 <p>Professor Gekko has always dreamed of inline skating across North Dakota. He plans to cross the state on highway U.S. 2, which runs from Grand Forks, on the eastern border with Minnesota, to Williston, near the western border with Montana. The professor can carry two liters of water, and he can skate $m$ miles before running out of water. (Because North Dakota is relatively flat, the professor does not have to worry about drinking water at a greater rate on uphill sections than on flat or downhill sections.) The professor will start in Grand Forks with two full liters of water. His official North Dakota state map shows all the places along U.S. 2 at which he can refill his water and the distances between these locations.</p>
 <p>The professor's goal is to minimize the number of water stops along his route across the state. Give an efficient method by which he can determine which water stops he should make. Prove that your strategy yields an optimal solution, and give its running time.</p>
@@ -5367,13 +5367,13 @@ $$</p>
 <p>This problem has optimal substructure. Suppose there are $n$ possible refilling locations. Consider an optimal solution with $s$ refilling locations and whose first stop is at the $k$th refilling location. Then the rest of the optimal solution must be an optimal solution to the subproblem of the remaining $n - k$ locations. Otherwise, if there were a better solution to the subproblem, i.e., one with fewer than $s - 1$ stops, we could use it to come up with a solution with fewer than $s$ stops for the full problem, contradicting our supposition of optimality.</p>
 <p>This problem also has the greedy-choice property. Suppose there are $k$ refilling locations beyond the start that are within $m$ miles of the start. The greedy solution chooses the $k$th location as its first stop. No location beyond the $k$th works as a first stop, since Professor Gekko runs out of gas first. If a solution chooses a location $j &lt; k$ as its first stop, then Professor Gekko could choose the $k$th location instead, having at least as much water when he leaves the $k$th location as if he'd chosen the $j$th location. Therefore, he would get at least as far without filling up again if he had chosen the $k$th location.</p>
 <p>If there are $n$ refilling locations on the map, Professor Gekko needs to inspect each one just once. The running time is $O(n)$.</p>
-<h2 id="162-5">16.2-5<a class="headerlink" href="#162-5" title="Permanent link">&para;</a></h2>
+<h2 id="162-5">16.2-5</h2>
 <blockquote>
 <p>Describe an efficient algorithm that, given a set $\{x_1, x_2, \ldots, x_n\}$ of points on the real line, determines the smallest set of unit-length closed intervals that contains all of the given points. Argue that your algorithm is correct.</p>
 </blockquote>
 <p>Consider the leftmost interval. It will do no good if it extends any further left than the leftmost point, however, we know that it must contain the leftmost point. So, we know that it's left hand side is exactly the leftmost point. </p>
 <p>So, we just remove any point that is within a unit distance of the left most point since they are contained in this single interval. Then, we just repeat until all points are covered. Since at each step there is a clearly optimal choice for where to put the leftmost interval, this final solution is optimal.</p>
-<h2 id="162-6-star">16.2-6 $\star$<a class="headerlink" href="#162-6-star" title="Permanent link">&para;</a></h2>
+<h2 id="162-6-star">16.2-6 $\star$</h2>
 <blockquote>
 <p>Show how to solve the fractional knapsack problem in $O(n)$ time.</p>
 </blockquote>
@@ -5385,7 +5385,7 @@ $$</p>
 <li>Otherwise $(W_G + W_E &lt; W)$, then after taking all the items in sets $G$ and $E$, recurse on the set of items $L$ and knapsack capacity $W - W_G - W_E$.</li>
 </ul>
 <p>To analyze this algorithm, note that each recursive call takes linear time, exclusive of the time for a recursive call that it may make. When there is a recursive call, there is just one, and it's for a problem of at most half the size. Thus, the running time is given by the recurrence $T(n) \le T (n / 2) + \Theta(n)$, whose solution is $T(n) = O(n)$.</p>
-<h2 id="162-7">16.2-7<a class="headerlink" href="#162-7" title="Permanent link">&para;</a></h2>
+<h2 id="162-7">16.2-7</h2>
 <blockquote>
 <p>Suppose you are given two sets $A$ and $B$, each containing $n$ positive integers. You can choose to reorder each set however you like. After reordering, let $a_i$ be the $i$th element of set $A$, and let $b_i$ be the $i$th element of set $B$. You then receive a payoff of $\prod_{i = 1}^n a_i^{b_i}$. Give an algorithm that will maximize your payoff. Prove that your algorithm maximizes the payoff, and state its running time.</p>
 </blockquote>

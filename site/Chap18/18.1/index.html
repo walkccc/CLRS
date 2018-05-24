@@ -5267,18 +5267,18 @@
                 
                   <h1>18.1 Definition of B-trees</h1>
                 
-                <h2 id="181-1">18.1-1<a class="headerlink" href="#181-1" title="Permanent link">&para;</a></h2>
+                <h2 id="181-1">18.1-1</h2>
 <blockquote>
 <p>Why don't we allow a minimum degree of $t = 1$?</p>
 </blockquote>
 <p>According to the definition, minimum degree $t$ means every node other than the root must have at least $t - 1$ keys, and every internal node other than the root thus has at least $t$ children. So, when $t = 1$, it means every node other than the root must have at least $t - 1 = 0$ key, and every internal node other than the root thus has at least $t = 1$ child.</p>
 <p>Thus, we can see that the minimum case doesn't exist, because no node exists with $0$ key, and no node exists with only $1$ child in a B-tree.</p>
-<h2 id="181-2">18.1-2<a class="headerlink" href="#181-2" title="Permanent link">&para;</a></h2>
+<h2 id="181-2">18.1-2</h2>
 <blockquote>
 <p>For what values of $t$ is the tree of Figure 18.1 a legal B-tree?</p>
 </blockquote>
 <p>According to property 5 of B-tree, every node other than the root must have at least $t - 1$ keys and may contain at most $2t - 1$ keys. In Figure 18.1, the number of keys of each node (except the root) is either $2$ or $3$. So to make it a legal B-tree, we need to guarantee that $t - 1 \le 2 \text{ and } 2 t - 1 \ge 3$, which yields $2 \le t \le 3$. So $t$ can be $2$ or $3$. </p>
-<h2 id="181-3">18.1-3<a class="headerlink" href="#181-3" title="Permanent link">&para;</a></h2>
+<h2 id="181-3">18.1-3</h2>
 <blockquote>
 <p>Show all legal B-trees of minimum degree $2$ that represent $\{1, 2, 3, 4, 5\}$.</p>
 </blockquote>
@@ -5293,7 +5293,7 @@
 <p>$$| 1, 2 | \qquad\qquad | 4, 5 |$$</p>
 </li>
 </ul>
-<h2 id="181-4">18.1-4<a class="headerlink" href="#181-4" title="Permanent link">&para;</a></h2>
+<h2 id="181-4">18.1-4</h2>
 <blockquote>
 <p>As a function of the minimum degree $t$, what is the maximum number of keys that can be stored in a B-tree of height $h$?</p>
 </blockquote>
@@ -5301,7 +5301,7 @@
 n &amp; = (1 + 2t + (2t) ^ 2 + \cdots + (2t) ^ {h}) \cdot (2t - 1) \\
   &amp; = (2t)^{h + 1} - 1.
 \end{align}</p>
-<h2 id="181-5">18.1-5<a class="headerlink" href="#181-5" title="Permanent link">&para;</a></h2>
+<h2 id="181-5">18.1-5</h2>
 <blockquote>
 <p>Describe the data structure that would result if each black node in a red-black tree were to absorb its red children, incorporating their children with its own.</p>
 </blockquote>

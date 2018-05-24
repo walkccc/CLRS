@@ -5295,14 +5295,14 @@
                 
                   <h1>18.2 Basic operations on B-trees</h1>
                 
-                <h2 id="182-1">18.2-1<a class="headerlink" href="#182-1" title="Permanent link">&para;</a></h2>
+                <h2 id="182-1">18.2-1</h2>
 <blockquote>
 <p>Show the results of inserting the keys </p>
 <p>$$F, S, Q, K, C, L, H, T, V, W, M, R, N, P, A, B, X, Y, D, Z, E$$</p>
 <p>in order into an empty B-tree with minimum degree $2$. Draw only the configurations of the tree just before some node must split, and also draw the final configuration.</p>
 </blockquote>
 <p>(Omit!)</p>
-<h2 id="182-2">18.2-2<a class="headerlink" href="#182-2" title="Permanent link">&para;</a></h2>
+<h2 id="182-2">18.2-2</h2>
 <blockquote>
 <p>Explain under what circumstances, if any, redundant $\text{DISK-READ}$ or $\text{DISK-WRITE}$ operations occur during the course of executing a call to $\text{B-TREE-INSERT}$. (A redundant $\text{DISK-READ}$ is a $\text{DISK-READ}$ for a page that is already in memory. A redundant $\text{DISK-WRITE}$ writes to disk a page of information that is identical to what is already stored there.)</p>
 </blockquote>
@@ -5314,7 +5314,7 @@
 <li>$\text{DISK-WRITE}$: Fill parent</li>
 </ul>
 <p>If both were full, we'd have to do the same, but instead of the final step, repeat the above to split the parent node and write into the child nodes. With both considerations in mind, there should never be a redundant $\text{DISK-READ}$ or $\text{DISK-WRITE}$ on a $\text{B-TREE-INSERT}$.</p>
-<h2 id="182-3">18.2-3<a class="headerlink" href="#182-3" title="Permanent link">&para;</a></h2>
+<h2 id="182-3">18.2-3</h2>
 <blockquote>
 <p>Explain how to find the minimum key stored in a B-tree and how to find the predecessor of a given key stored in a B-tree.</p>
 </blockquote>
@@ -5420,18 +5420,18 @@ at $x.c_i$.</li>
 </pre></div>
 </td></tr></table>
 
-<h2 id="182-4-star">18.2-4 $\star$<a class="headerlink" href="#182-4-star" title="Permanent link">&para;</a></h2>
+<h2 id="182-4-star">18.2-4 $\star$</h2>
 <blockquote>
 <p>Suppose that we insert the keys $\{1, 2, \ldots, n\}$ into an empty B-tree with minimum degree 2. How many nodes does the final B-tree have?</p>
 </blockquote>
 <p>The final tree can have as many as $n - 1$ nodes. Unless $n = 1$ there cannot ever be $n$ nodes since we only ever insert a key into a non-empty node, so there will always be at least one node with $2$ keys. </p>
 <p>Next observe that we will never have more than one key in a node which is not a right spine of our B-tree. This is because every key we insert is larger than all keys stored in the tree, so it will be inserted into the right spine of the tree. Nodes not in the right spine are a result of splits, and since $t = 2$, every split results in child nodes with one key each. The fewest possible number of nodes occurs when every node in the right spine has $3$ keys. In this case, $n = 2h + 2^{h + 1} - 1$ where $h$ is the height of the B-tree, and the number of nodes is $2^{h + 1} - 1$. Asymptotically these are the same, so the number of nodes is $\Theta(n)$.</p>
-<h2 id="182-5">18.2-5<a class="headerlink" href="#182-5" title="Permanent link">&para;</a></h2>
+<h2 id="182-5">18.2-5</h2>
 <blockquote>
 <p>Since leaf nodes require no pointers to children, they could conceivably use a different (larger) $t$ value than internal nodes for the same disk page size. Show how to modify the procedures for creating and inserting into a B-tree to handle this variation.</p>
 </blockquote>
 <p>You would modify the insertion procedure by, in $\text{B-TREE-INSERT}$, check if the node is a leaf, and if it is, only split it if there twice as many keys stored as expected. Also, if an element needs to be inserted into a full leaf, we would split the leaf into two separate leaves, each of which doesn't have too many keys stored in it.</p>
-<h2 id="182-6">18.2-6<a class="headerlink" href="#182-6" title="Permanent link">&para;</a></h2>
+<h2 id="182-6">18.2-6</h2>
 <blockquote>
 <p>Suppose that we were to implement $\text{B-TREE-SEARCH}$ to use binary search rather than linear search within each node. Show that this change makes the CPU time required $O(\lg n)$, independently of how $t$ might be chosen as a function of $n$.</p>
 </blockquote>
@@ -5441,7 +5441,7 @@ O(\lg t \cdot \log_t n) &amp; = O(\lg t \cdot \frac{\lg n}{\lg t}) &amp; \text{b
                         &amp; = O(\lg n).
 \end{align}</p>
 <p>Thus, the CPU time required is $O(\lg n)$.</p>
-<h2 id="182-7">18.2-7<a class="headerlink" href="#182-7" title="Permanent link">&para;</a></h2>
+<h2 id="182-7">18.2-7</h2>
 <blockquote>
 <p>Suppose that disk hardware allows us to choose the size of a disk page arbitrarily, but that the time it takes to read the disk page is $a + bt$, where $a$ and $b$ are specified constants and $t$ is the minimum degree for a B-tree using pages of the selected size. Describe how to choose $t$ so as to minimize (approximately) the B-tree search time. Suggest an optimal value of $t$ for the case in which $a = 5$ milliseconds and $b = 10$ microseconds.</p>
 </blockquote>

@@ -5253,7 +5253,7 @@
                 
                   <h1>14.2 How to augment a data structure</h1>
                 
-                <h2 id="142-1">14.2-1<a class="headerlink" href="#142-1" title="Permanent link">&para;</a></h2>
+                <h2 id="142-1">14.2-1</h2>
 <blockquote>
 <p>Show, by adding pointers to the nodes, how to support each of the dynamic-set queries $\text{MINIMUM}$, $\text{MAXIMUM}$, $\text{SUCCESSOR}$, and $\text{PREDECESSOR}$ in $O(1)$worstcase time on an augmented order-statistic tree. The asymptotic performance of other operations on order-statistic trees should not be affected.</p>
 </blockquote>
@@ -5263,7 +5263,7 @@
 <li><strong>SUCCESSOR:</strong> Every node records its successor, the insertion and deletion is similar to that in linked list.</li>
 <li><strong>PREDECESSOR:</strong> Similar to $\text{MAXIMUM}$.</li>
 </ul>
-<h2 id="142-2">14.2-2<a class="headerlink" href="#142-2" title="Permanent link">&para;</a></h2>
+<h2 id="142-2">14.2-2</h2>
 <blockquote>
 <p>Can we maintain the black-heights of nodes in a red-black tree as attributes in the nodes of the tree without affecting the asymptotic performance of any of the redblack tree operations? Show how, or argue why not. How about maintaining the depths of nodes?</p>
 </blockquote>
@@ -5326,12 +5326,12 @@ $$
 <p>Thus, $\text{RB-DELETE-FIXUP}$ maintains its original $O(\lg n)$ time.</p>
 <p>Therefore, we conclude that black-heights of nodes can be maintained as attributes in red-black trees without affecting the asymptotic performance of red-black tree operations.</p>
 <p>For the second part of the question, no, we cannot maintain node depths without affecting the asymptotic performance of red-black tree operations. The depth of a node depends on the depth of its parent. When the depth of a node changes, the depths of all nodes below it in the tree must be updated. Updating the root node causes $n - 1$ other nodes to be updated, which would mean that operations on the tree that change node depths might not run in $O(n\lg n)$ time.</p>
-<h2 id="142-3-star">14.2-3 $\star$<a class="headerlink" href="#142-3-star" title="Permanent link">&para;</a></h2>
+<h2 id="142-3-star">14.2-3 $\star$</h2>
 <blockquote>
 <p>Let $\otimes$ be an associative binary operator, and let $a$ be an attribute maintained in each node of a red-black tree. Suppose that we want to include in each node $x$ an additional attribute $f$ such that $x.f = x_1.a \otimes x_2.a \otimes \cdots \otimes x_m.a$, where $x_1, x_2, \ldots ,x_m$ is the inorder listing of nodes in the subtree rooted at $x$. Show how to update the $f$ attributes in $O(1)$ time after a rotation. Modify your argument slightly to apply it to the $size$ attributes in order-statistic trees.</p>
 </blockquote>
 <p>$x.f = x.left.f \otimes x.a \otimes x.right.f$.</p>
-<h2 id="142-4-star">14.2-4 $\star$<a class="headerlink" href="#142-4-star" title="Permanent link">&para;</a></h2>
+<h2 id="142-4-star">14.2-4 $\star$</h2>
 <blockquote>
 <p>We wish to augment red-black trees with an operation $\text{RB-ENUMERATE}(x, a, b)$ that outputs all the keys $k$ such that $a \le k \le b$ in a red-black tree rooted at $x$. Describe how to implement $\text{RB-ENUMERATE}$ in $\Theta(m+\lg n)$ time, where $m$ is the number of keys that are output and $n$ is the number of internal nodes in the tree. ($\textit{Hint:}$ You do not need to add new attributes to the red-black tree.)</p>
 </blockquote>

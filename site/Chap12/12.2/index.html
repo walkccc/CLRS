@@ -5323,7 +5323,7 @@
                 
                   <h1>12.2 Querying a binary search tree</h1>
                 
-                <h2 id="122-1">12.2-1<a class="headerlink" href="#122-1" title="Permanent link">&para;</a></h2>
+                <h2 id="122-1">12.2-1</h2>
 <blockquote>
 <p>Suppose that we have numbers between $1$ and $1000$ in a binary search tree, and we want to search for the number $363$. Which of the following sequences could <em>not</em> be the sequence of nodes examined?</p>
 <p><strong>a.</strong> $2, 252, 401, 398, 330, 344, 397, 363$.</p>
@@ -5336,7 +5336,7 @@
 <li><strong>c.</strong> could not be the sequence of nodes explored because we take the left child from the $911$ node, and yet somehow manage to get to the $912$ node which cannot belong the left subtree of $911$ because it is greater. </li>
 <li><strong>e.</strong> is also impossible because we take the right subtree on the $347$ node and yet later come across the $299$ node.</li>
 </ul>
-<h2 id="122-2">12.2-2<a class="headerlink" href="#122-2" title="Permanent link">&para;</a></h2>
+<h2 id="122-2">12.2-2</h2>
 <blockquote>
 <p>Write recursive versions of $\text{TREE-MINIMUM}$ and $\text{TREE-MAXIMUM}$.</p>
 </blockquote>
@@ -5360,7 +5360,7 @@
 </pre></div>
 </td></tr></table>
 
-<h2 id="122-3">12.2-3<a class="headerlink" href="#122-3" title="Permanent link">&para;</a></h2>
+<h2 id="122-3">12.2-3</h2>
 <blockquote>
 <p>Write the $\text{TREE-PREDECESSOR}$ procedure.</p>
 </blockquote>
@@ -5382,25 +5382,25 @@
 </pre></div>
 </td></tr></table>
 
-<h2 id="122-4">12.2-4<a class="headerlink" href="#122-4" title="Permanent link">&para;</a></h2>
+<h2 id="122-4">12.2-4</h2>
 <blockquote>
 <p>Professor Bunyan thinks he has discovered a remarkable property of binary search trees. Suppose that the search for key $k$ in a binary search tree ends up in a leaf. Consider three sets: $A$, the keys to the left of the search path; $B$, the keys on the search path; and $C$, the keys to the right of the search path. Professor Bunyan claims that any three keys $a \in A$, $b \in B$, and $c \in C$ must satisfy $a \le b \le c$. Give a smallest possible counterexample to the professor's claim.</p>
 </blockquote>
 <p>Search for $9$ in this tree. Then $A = {7}$, $B = {5, 8, 9}$ and $C = {}$.  So, since $7 &gt; 5$ it breaks professor's claim.</p>
-<h2 id="122-5">12.2-5<a class="headerlink" href="#122-5" title="Permanent link">&para;</a></h2>
+<h2 id="122-5">12.2-5</h2>
 <blockquote>
 <p>Show that if a node in a binary search tree has two children, then its successor has no left child and its predecessor has no right child.</p>
 </blockquote>
 <p>Let $x$ be a node with two children. In an inorder tree walk, the nodes in $x$'s left subtree immediately precede $x$ and the nodes in $x$'s right subtree immediately follow $x$. Thus, $x$'s predecessor is in its left subtree, and its successor is in its right subtree.</p>
 <p>Let $s$ be $x$'s successor. Then s cannot have a left child, for a left child of $s$ would come between $x$ and $s$ in the inorder walk. (It's after $x$ because it's in $x$'s right subtree, and it's before s because it's in $s$'s left subtree.) If any node were to come between $x$ and $s$ in an inorder walk, then s would not be $x$'s successor, as we had supposed.</p>
 <p>Symmetrically, $x$'s predecessor has no right child.</p>
-<h2 id="122-6">12.2-6<a class="headerlink" href="#122-6" title="Permanent link">&para;</a></h2>
+<h2 id="122-6">12.2-6</h2>
 <blockquote>
 <p>Consider a binary search tree $T$ whose keys are distinct. Show that if the right subtree of a node $x$ in $T$ is empty and $x$ has a successor $y$, then $y$ is the lowest ancestor of $x$ whose left child is also an ancestor of $x$. (Recall that every node is its own ancestor.)</p>
 </blockquote>
 <p>First we establish that $y$ must be an ancestor of $x$. If $y$ weren't an ancestor of $x$, then let $z$ denote the first common ancestor of $x$ and $y$. By the binary-search-tree property, $x &lt; z &lt; y$, so $y$ cannot be the successor of $x$.</p>
 <p>Next observe that $y.left$ must be an ancestor of $x$ because if it weren't, then $y.right$ would be an ancestor of $x$, implying that $x &gt; y$. Finally, suppose that $y$ is not the lowest ancestor of $x$ whose left child is also an ancestor of $x$. Let $z$ denote this lowest ancestor. Then $z$ must be in the left subtree of $y$, which implies $z &lt; y$, contradicting the fact that $y$ is the successor if $x$.</p>
-<h2 id="122-7">12.2-7<a class="headerlink" href="#122-7" title="Permanent link">&para;</a></h2>
+<h2 id="122-7">12.2-7</h2>
 <blockquote>
 <p>An alternative method of performing an inorder tree walk of an $n$-node binary search tree finds the minimum element in the tree by calling $\text{TREE-MINIMUM}$ and then making $n - 1$ calls to $\text{TREE-SUCCESSOR}$. Prove that this algorithm runs in $\Theta(n)$ time.</p>
 </blockquote>
@@ -5424,12 +5424,12 @@
 </ul>
 <p>Hence, no edge is traversed twice in the same direction.</p>
 <p>Therefore, this algorithm runs in $\Theta(n)$ time.</p>
-<h2 id="122-8">12.2-8<a class="headerlink" href="#122-8" title="Permanent link">&para;</a></h2>
+<h2 id="122-8">12.2-8</h2>
 <blockquote>
 <p>Prove that no matter what node we start at in a height-$h$ binary search tree, $k$ successive calls to $\text{TREE-SUCCESSOR}$ take $O(k + h)$ time.</p>
 </blockquote>
 <p>Suppose $x$ is the starting node and $y$ is the ending node. The distance between $x$ and $y$ is at most $2h$, and all the edges connecting the $k$ nodes are visited twice, therefore it takes $O(k + h)$ time.</p>
-<h2 id="122-9">12.2-9<a class="headerlink" href="#122-9" title="Permanent link">&para;</a></h2>
+<h2 id="122-9">12.2-9</h2>
 <blockquote>
 <p>Let $T$ be a binary search tree whose keys are distinct, let $x$ be a leaf node, and let $y$ be its parent. Show that $y.key$ is either the smallest key in $T$ larger than $x.key$ or the largest key in $T$ smaller than $x.key$.</p>
 </blockquote>

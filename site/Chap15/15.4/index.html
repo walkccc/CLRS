@@ -5281,12 +5281,12 @@
                 
                   <h1>15.4 Longest common subsequence</h1>
                 
-                <h2 id="154-1">15.4-1<a class="headerlink" href="#154-1" title="Permanent link">&para;</a></h2>
+                <h2 id="154-1">15.4-1</h2>
 <blockquote>
 <p>Determine an $\text{LCS}$ of $\langle 1, 0, 0, 1, 0, 1, 0, 1 \rangle$ and $\langle 0, 1, 0, 1, 1, 0, 1, 1, 0 \rangle$.</p>
 </blockquote>
 <p>$\langle 1, 0, 0, 1, 1, 0 \rangle$.</p>
-<h2 id="154-2">15.4-2<a class="headerlink" href="#154-2" title="Permanent link">&para;</a></h2>
+<h2 id="154-2">15.4-2</h2>
 <blockquote>
 <p>Give pseudocode to reconstruct an $\text{LCS}$ from the completed $c$ table and the original sequences $X = \langle x_1, x_2, \ldots, x_m \rangle$ and $Y = \langle y_1, y_2, \ldots, y_n \rangle$ in $O(m + n)$ time, without using the $b$ table.</p>
 </blockquote>
@@ -5312,7 +5312,7 @@
 </pre></div>
 </td></tr></table>
 
-<h2 id="154-3">15.4-3<a class="headerlink" href="#154-3" title="Permanent link">&para;</a></h2>
+<h2 id="154-3">15.4-3</h2>
 <blockquote>
 <p>Give a memoized version of $\text{LCS-LENGTH}$ that runs in $O(mn)$ time.</p>
 </blockquote>
@@ -5334,7 +5334,7 @@
 </pre></div>
 </td></tr></table>
 
-<h2 id="154-4">15.4-4<a class="headerlink" href="#154-4" title="Permanent link">&para;</a></h2>
+<h2 id="154-4">15.4-4</h2>
 <blockquote>
 <p>Show how to compute the length of an $\text{LCS}$ using only $2 \cdot \min(m, n)$ entries in the $c$ table plus $O(1)$ additional space. Then show how to do the same thing, but using $\min(m, n)$ entries plus $O(1)$ additional space.</p>
 </blockquote>
@@ -5364,7 +5364,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="154-5">15.4-5<a class="headerlink" href="#154-5" title="Permanent link">&para;</a></h2>
+<h2 id="154-5">15.4-5</h2>
 <blockquote>
 <p>Give an $O(n^2)$-time algorithm to find the longest monotonically increasing subsequence of a sequence of $n$ numbers.</p>
 </blockquote>
@@ -5444,7 +5444,7 @@
 </td></tr></table>
 
 <p>Then, just run the $\text{LCS}$ algorithm on these two lists. The longest common subsequence must be monotone increasing because it is a subsequence of $L'$ which is sorted. It is also the longest monotone increasing subsequence because being a subsequence of $L'$ only adds the restriction that the subsequence must be monotone increasing. Since $|L| = |L'| = n$, and sorting $L$ can be done in $o(n^2)$ time, the final running time will be $O(|L||L'|) = O(n^2)$.</p>
-<h2 id="154-6-star">15.4-6 $\star$<a class="headerlink" href="#154-6-star" title="Permanent link">&para;</a></h2>
+<h2 id="154-6-star">15.4-6 $\star$</h2>
 <blockquote>
 <p>Give an $O(n\lg n)$-time algorithm to find the longest monotonically increasing subsequence of a sequence of $n$ numbers. ($\textit{Hint:}$ Observe that the last element of a candidate subsequence of length $i$ is at least as large as the last element of a candidate subsequence of length $i - 1$. Maintain candidate subsequences by linking them through the input sequence.)</p>
 </blockquote>

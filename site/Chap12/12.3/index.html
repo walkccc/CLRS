@@ -5281,7 +5281,7 @@
                 
                   <h1>12.3 Insertion and deletion</h1>
                 
-                <h2 id="123-1">12.3-1<a class="headerlink" href="#123-1" title="Permanent link">&para;</a></h2>
+                <h2 id="123-1">12.3-1</h2>
 <blockquote>
 <p>Give a recursive version of the $\text{TREE-INSERT}$ procedure.</p>
 </blockquote>
@@ -5309,12 +5309,12 @@
 </pre></div>
 </td></tr></table>
 
-<h2 id="123-2">12.3-2<a class="headerlink" href="#123-2" title="Permanent link">&para;</a></h2>
+<h2 id="123-2">12.3-2</h2>
 <blockquote>
 <p>Suppose that we construct a binary search tree by repeatedly inserting distinct values into the tree. Argue that the number of nodes examined in searching for a value in the tree is one plus the number of nodes examined when the value was first inserted into the tree.</p>
 </blockquote>
 <p>Number of nodes examined while searching also includes the node which is searched for, which isn't the case when we inserted it.</p>
-<h2 id="123-3">12.3-3<a class="headerlink" href="#123-3" title="Permanent link">&para;</a></h2>
+<h2 id="123-3">12.3-3</h2>
 <blockquote>
 <p>We can sort a given set of $n$ numbers by first building a binary search tree containing these numbers (using $\text{TREE-INSERT}$ repeatedly to insert the numbers one by one) and then printing the numbers by an inorder tree walk. What are the worst-case and best-case running times for this sorting algorithm?</p>
 </blockquote>
@@ -5335,13 +5335,13 @@
 <li>Worst case: $\Theta(n^2)$—occurs when a linear chain of nodes results from the repeated $\text{TREE-INSERT}$ operations.</li>
 <li>Best case: $\Theta(n\lg n)$—occurs when a binary tree of height $\Theta(\lg n)$ results from the repeated $\text{TREE-INSERT}$ operations.</li>
 </ul>
-<h2 id="123-4">12.3-4<a class="headerlink" href="#123-4" title="Permanent link">&para;</a></h2>
+<h2 id="123-4">12.3-4</h2>
 <blockquote>
 <p>Is the operation of deletion ''commutative'' in the sense that deleting $x$ and then $y$ from a binary search tree leaves the same tree as deleting $y$ and then $x$? Argue why it is or give a counterexample.</p>
 </blockquote>
 <p>If node $z$ has two child, when the node $z$ is deleted we'll copy the satellite data of it's successor which is node $y$ and replace it's satellite data with it's right child's data. Now, if this happens the data structure pointing to $y$ will point to a node with a completely different satellite data.</p>
 <p>Update the data structure to point to the new node which contains satellite data of $y$.</p>
-<h2 id="123-5">12.3-5<a class="headerlink" href="#123-5" title="Permanent link">&para;</a></h2>
+<h2 id="123-5">12.3-5</h2>
 <blockquote>
 <p>Suppose that instead of each node $x$ keeping the attribute $x.p$, pointing to $x$'s parent, it keeps $x.succ$, pointing to $x$'s successor. Give pseudocode for $\text{SEARCH}$, $\text{INSERT}$, and $\text{DELETE}$ on a binary search tree $T$ using this representation. These procedures should operate in time $O(h)$, where $h$ is the height of the tree $T$. ($\textit{Hint:}$ You may wish to implement a subroutine that returns the parent of a node.)</p>
 </blockquote>
@@ -5375,7 +5375,7 @@
 </td></tr></table>
 
 <p>Therefore we can find $x$'s parent in $O(h)$, $\text{DELETE}$ is $O(h + h) = O(h)$.</p>
-<h2 id="123-6">12.3-6<a class="headerlink" href="#123-6" title="Permanent link">&para;</a></h2>
+<h2 id="123-6">12.3-6</h2>
 <blockquote>
 <p>When node $z$ in $\text{TREE-DELETE}$ has two children, we could choose node $y$ as its predecessor rather than its successor. What other changes to $\text{TREE-DELETE}$ would be necessary if we did so? Some have argued that a fair strategy, giving equal priority to predecessor and successor, yields better empirical performance. How might $\text{TREE-DELETE}$ be changed to implement such a fair strategy?</p>
 </blockquote>

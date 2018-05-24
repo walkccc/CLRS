@@ -5309,7 +5309,7 @@
                 
                   <h1>14.1 Dynamic order statistics</h1>
                 
-                <h2 id="141-1">14.1-1<a class="headerlink" href="#141-1" title="Permanent link">&para;</a></h2>
+                <h2 id="141-1">14.1-1</h2>
 <blockquote>
 <p>Show how $\text{OS-SELECT}(T.root, 10)$ operates on the red-black tree $T$ of Figure 14.1.</p>
 </blockquote>
@@ -5320,7 +5320,7 @@
 <li>$19: r =  1, i =  2$, go right.</li>
 <li>$20: r =  1, i =  1$, choose $20$.</li>
 </ul>
-<h2 id="141-2">14.1-2<a class="headerlink" href="#141-2" title="Permanent link">&para;</a></h2>
+<h2 id="141-2">14.1-2</h2>
 <blockquote>
 <p>Show how $\text{OS-RANK}(T, x)$ operates on the red-black tree $T$ of Figure 14.1 and the node $x$ with $x.key = 35$.</p>
 </blockquote>
@@ -5331,7 +5331,7 @@
 <li>$41: r = 3$.</li>
 <li>$26: r = r + 13 = 16$.</li>
 </ul>
-<h2 id="141-3">14.1-3<a class="headerlink" href="#141-3" title="Permanent link">&para;</a></h2>
+<h2 id="141-3">14.1-3</h2>
 <blockquote>
 <p>Write a nonrecursive version of $\text{OS-SELECT}$.</p>
 </blockquote>
@@ -5353,7 +5353,7 @@
 </pre></div>
 </td></tr></table>
 
-<h2 id="141-4">14.1-4<a class="headerlink" href="#141-4" title="Permanent link">&para;</a></h2>
+<h2 id="141-4">14.1-4</h2>
 <blockquote>
 <p>Write a recursive procedure $\text{OS-KEY-RANK}(T, k)$ that takes as input an order-statistic tree $T$ and a key $k$ and returns the rank of $k$ in the dynamic set represented by $T$. Assume that the keys of $T$ are distinct.</p>
 </blockquote>
@@ -5371,7 +5371,7 @@
 </pre></div>
 </td></tr></table>
 
-<h2 id="141-5">14.1-5<a class="headerlink" href="#141-5" title="Permanent link">&para;</a></h2>
+<h2 id="141-5">14.1-5</h2>
 <blockquote>
 <p>Given an element $x$ in an $n$-node order-statistic tree and a natural number $i$, how can we determine the $i$th successor of $x$ in the linear order of the tree in $O(\lg n)$ time?</p>
 </blockquote>
@@ -5387,13 +5387,13 @@
 </td></tr></table>
 
 <p>Since $\text{OS-RANK}$ and $\text{OS-SELECT}$ each take $O(\lg n)$ time, so does the procedure $\text{OS-SUCCESSOR}$.</p>
-<h2 id="141-6">14.1-6<a class="headerlink" href="#141-6" title="Permanent link">&para;</a></h2>
+<h2 id="141-6">14.1-6</h2>
 <blockquote>
 <p>Observe that whenever we reference the size attribute of a node in either $\text{OS-SELECT}$ or $\text{OS-RANK}$, we use it only to compute a rank. Accordingly, suppose we store in each node its rank in the subtree of which it is the root. Show how to maintain this information during insertion and deletion. (Remember that these two operations can cause rotations.)</p>
 </blockquote>
 <p>When inserting node $z$, we search down the tree for the proper place for $z$. For each node $x$ on this path, add $1$ to $x.rank$ if $z$ is inserted within $x$'s left subtree, and leave $x.rank$ unchanged if $z$ is inserted within $x$'s right subtree. Similarly when deleting, subtract $1$ from $x.rank$ whenever the spliced-out node had been in $x$'s left subtree.</p>
 <p>We also need to handle the rotations that occur during the fixup procedures for insertion and deletion. Consider a left rotation on node $x$, where the pre-rotation right child of $x$ is $y$ (so that $x$ becomes $y$'s left child after the left rotation). We leave $x.rank$ unchanged, and letting $r = y.rank$ before the rotation, we set $y.rank = r + x.rank$. Right rotations are handled in an analogous manner.</p>
-<h2 id="141-7">14.1-7<a class="headerlink" href="#141-7" title="Permanent link">&para;</a></h2>
+<h2 id="141-7">14.1-7</h2>
 <blockquote>
 <p>Show how to use an order-statistic tree to count the number of inversions (see Problem 2-4) in an array of size $n$ in time $O(n\lg n)$.</p>
 </blockquote>
@@ -5405,7 +5405,7 @@
 <p>$$|Inv(j)| = j - r(j)$$</p>
 <p>by inserting $A[1], \ldots, A[n]$ into an order-statistic tree and using $\text{OS-RANK}$ to find the rank of each $A[j]$ in the tree immediately after it is inserted into the tree. (This $\text{OS-RANK}$ value is $r(j)$.)</p>
 <p>Insertion and $\text{OS-RANK}$ each take $O(\lg n)$ time, and so the total time for $n$ elements is $O(n\lg n)$.</p>
-<h2 id="141-8-star">14.1-8 $\star$<a class="headerlink" href="#141-8-star" title="Permanent link">&para;</a></h2>
+<h2 id="141-8-star">14.1-8 $\star$</h2>
 <blockquote>
 <p>Consider $n$ chords on a circle, each defined by its endpoints. Describe an $O(n\lg n)$-time algorithm to determine the number of pairs of chords that intersect inside the circle. (For example, if the $n$ chords are all diameters that meet at the center, then the correct answer is $\binom{n}{2}$.) Assume that no two chords share an endpoint.</p>
 </blockquote>

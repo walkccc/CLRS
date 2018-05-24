@@ -5295,7 +5295,7 @@
                 
                   <h1>13.4 Deletion</h1>
                 
-                <h2 id="134-1">13.4-1<a class="headerlink" href="#134-1" title="Permanent link">&para;</a></h2>
+                <h2 id="134-1">13.4-1</h2>
 <blockquote>
 <p>Argue that after executing $\text{RB-DELETE-FIXUP}$, the root of the tree must be black.</p>
 </blockquote>
@@ -5305,13 +5305,13 @@
 <li><strong>Case 3:</strong> transform to 4.</li>
 <li><strong>Case 4:</strong> the root (the new $x$) is set to black.</li>
 </ul>
-<h2 id="134-2">13.4-2<a class="headerlink" href="#134-2" title="Permanent link">&para;</a></h2>
+<h2 id="134-2">13.4-2</h2>
 <blockquote>
 <p>Argue that if in $\text{RB-DELETE}$ both $x$ and $x.p$ are red, then property 4 is restored by the call to $\text{RB-DELETE-FIXUP}(T, x)$.</p>
 </blockquote>
 <p>Suppose that both $x$ and $x.p$ are red in $\text{RB-DELETE}$. This can only happen
 in the else-case of line 9. Since we are deleting from a red-black tree, the other child of y.p which becomes $x$'s sibling in the call to $\text{RB-TRANSPLANT}$ on line 14 must be black, so $x$ is the only child of $x.p$ which is red. The while-loop condition of $\text{RB-DELETE-FIXUP}(T, x)$ is immediately violated so we simply set $x.color = black$, restoring property 4.</p>
-<h2 id="134-3">13.4-3<a class="headerlink" href="#134-3" title="Permanent link">&para;</a></h2>
+<h2 id="134-3">13.4-3</h2>
 <blockquote>
 <p>In Exercise 13.3-2, you found the red-black tree that results from successively inserting the keys $41, 38, 31, 12, 19, 8$ into an initially empty tree. Now show the red-black trees that result from the successive deletion of the keys in the order $8, 12, 19, 31, 38, 41$.</p>
 </blockquote>
@@ -5345,12 +5345,12 @@ in the else-case of line 9. Since we are deleting from a red-black tree, the oth
 <p><img alt="" src="https://i.imgur.com/xZSTs76.png?width=30rem" /></p>
 </li>
 </ul>
-<h2 id="134-4">13.4-4<a class="headerlink" href="#134-4" title="Permanent link">&para;</a></h2>
+<h2 id="134-4">13.4-4</h2>
 <blockquote>
 <p>In which lines of the code for $\text{RB-DELETE-FIXUP}$ might we examine or modify the sentinel $T.nil$?</p>
 </blockquote>
 <p>Since it is possible that $w$ is $T.nil$, any line of $\text{RB-DELETE-FIXUP}(T, x)$ which examines or modifies w must be included. However, as described on page 317, $x$ will never be $T.nil$, so we need not include those lines.</p>
-<h2 id="134-5">13.4-5<a class="headerlink" href="#134-5" title="Permanent link">&para;</a></h2>
+<h2 id="134-5">13.4-5</h2>
 <blockquote>
 <p>In each of the cases of Figure 13.7, give the count of black nodes from the root of the subtree shown to each of the subtrees $\alpha, \beta, \ldots, \zeta$, and verify that each count remains the same after the transformation. When a node has a $color$ attribute $c$ or $c'$, use the notation $\text{count}(c)$ or $\text{count}(c')$ symbolically in your count.</p>
 </blockquote>
@@ -5378,12 +5378,12 @@ in the else-case of line 9. Since we are deleting from a red-black tree, the oth
 </li>
 </ul>
 <p>This increase in the count for $\alpha$ and $\beta$ is because $x$ before indicated an extra black.</p>
-<h2 id="134-6">13.4-6<a class="headerlink" href="#134-6" title="Permanent link">&para;</a></h2>
+<h2 id="134-6">13.4-6</h2>
 <blockquote>
 <p>Professors Skelton and Baron are concerned that at the start of case 1 of $\text{RB-DELETE-FIXUP}$, the node $x.p$ might not be black. If the professors are correct, then lines 5–6 are wrong. Show that $x.p$ must be black at the start of case 1, so that the professors have nothing to worry about.</p>
 </blockquote>
 <p>Case 1 occurs only if $x$'s sibling $w$ is red. If $x.p$ were red, then there would be two reds in a row, namely $x.p$ (which is also $w.p$) and $w$, and we would have had these two reds in a row even before calling $\text{RB-DELETE}$.</p>
-<h2 id="134-7">13.4-7<a class="headerlink" href="#134-7" title="Permanent link">&para;</a></h2>
+<h2 id="134-7">13.4-7</h2>
 <blockquote>
 <p>Suppose that a node $x$ is inserted into a red-black tree with $\text{RB-INSERT}$ and then is immediately deleted with $\text{RB-DELETE}$. Is the resulting red-black tree the same as the initial red-black tree? Justify your answer.</p>
 </blockquote>

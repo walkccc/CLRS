@@ -5309,7 +5309,7 @@
                 
                   <h1>3.1 Asymptotic notation</h1>
                 
-                <h2 id="31-1">3.1-1<a class="headerlink" href="#31-1" title="Permanent link">&para;</a></h2>
+                <h2 id="31-1">3.1-1</h2>
 <blockquote>
 <p>Let $f(n) + g(n)$ be asymptotically nonnegative functions. Using the basic definition of $\Theta$-notation, prove that $\max(f(n), g(n)) = \Theta(f(n) + g(n))$.</p>
 </blockquote>
@@ -5327,7 +5327,7 @@ $$</p>
 <p>Similarly, since for any particular $n$, $h(n)$ is the larger of $f(n)$ and $g(n)$, we have for all $n \ge n_0$, $0 \le f(n) \le h(n)$ and $0 \le g(n) \le h(n)$. Adding these two inequalities yields $0 \le f(n) + g(n) \le 2h(n)$, or equivalently $0 \le (f(n) + g(n)) / 2 \le h(n)$, which shows that</p>
 <p>$$h(n) = \max(f(n), g(n)) \ge c_1(f(n) + g(n))$$</p>
 <p>for all $n \ge n_0$ (with $c_1 = 1 / 2$ in the definition of $\Theta$).</p>
-<h2 id="31-2">3.1-2<a class="headerlink" href="#31-2" title="Permanent link">&para;</a></h2>
+<h2 id="31-2">3.1-2</h2>
 <blockquote>
 <p>Show that for any real constants $a$ and $b$, where $b &gt; 0$,</p>
 <p>$$(n + a)^b = \Theta(n^b). \tag{3.2}$$</p>
@@ -5351,12 +5351,12 @@ n + a &amp; \ge n - |a|           &amp; \\
 0 \le \Big(\frac{1}{2}\Big)^b n^b &amp; \le (n + a)^b \le 2^b n^b.
 \end{align}</p>
 <p>Thus, $c_1 = (1 / 2)^b$, $c_2 = 2^b$, and $n_0 = 2|a|$ satisfy the definition.</p>
-<h2 id="31-3">3.1-3<a class="headerlink" href="#31-3" title="Permanent link">&para;</a></h2>
+<h2 id="31-3">3.1-3</h2>
 <blockquote>
 <p>Explain why the statement, ''The running time of algorithm $A$ is at least $O(n^2)$,'' is meaningless.</p>
 </blockquote>
 <p>Let the running time be $T(n)$. $T(n) \ge O(n^2)$ means that $T(n) \ge f(n)$ for some function $f(n)$ in the set $O(n^2)$. This statement holds for any running time $T(n)$, since the function $g(n) = 0$ for all $n$ is in $O(n^2)$, and running times are always nonnegative. Thus, the statement tells us nothing about the running time.</p>
-<h2 id="31-4">3.1-4<a class="headerlink" href="#31-4" title="Permanent link">&para;</a></h2>
+<h2 id="31-4">3.1-4</h2>
 <blockquote>
 <p>Is $2^{n + 1} = O(2^n)$? Is $2^{2n} = O(2^n)$?</p>
 </blockquote>
@@ -5377,7 +5377,7 @@ $$</p>
 <p>Then $2^{2n} = 2^n \cdot 2^n \le c \cdot 2^n \Rightarrow 2^n \le c$. But no constant is greater than all $2^n$, and so the assumption leads to a contradiction.</p>
 </li>
 </ul>
-<h2 id="31-5">3.1-5<a class="headerlink" href="#31-5" title="Permanent link">&para;</a></h2>
+<h2 id="31-5">3.1-5</h2>
 <blockquote>
 <p>Prove Theorem 3.1.</p>
 </blockquote>
@@ -5396,7 +5396,7 @@ $$</p>
 <p>If we let $n_3 = \max(n_1, n_2)$ and merge the inequalities, we get</p>
 <p>$$0 \le c_3g(n) \le f(n) \le c_4g(n) \text{ for all } n &gt; n_3.$$</p>
 <p>Which is the definition of $\Theta$.</p>
-<h2 id="31-6">3.1-6<a class="headerlink" href="#31-6" title="Permanent link">&para;</a></h2>
+<h2 id="31-6">3.1-6</h2>
 <blockquote>
 <p>Prove that the running time of an algorithm is $\Theta(g(n))$ if and only if its worst-case running time is $O(g(n))$ and its best-case running time is $\Omega(g(n))$.</p>
 </blockquote>
@@ -5408,7 +5408,7 @@ $$</p>
 <p>Combining them we get</p>
 <p>$$0 \le c_1g(n) \le T_b(n) \le T_w(n) \le c_2g(n) \text{ for } n &gt; \max(n_b, n_w).$$</p>
 <p>Since the running time is bound between $T_b$ and $T_w$ and the above is the definition of the $\Theta$-notation, proved.</p>
-<h2 id="31-7">3.1-7<a class="headerlink" href="#31-7" title="Permanent link">&para;</a></h2>
+<h2 id="31-7">3.1-7</h2>
 <blockquote>
 <p>Prove $o(g(n)) \cap w(g(n))$ is the empty set.</p>
 </blockquote>
@@ -5420,7 +5420,7 @@ $$</p>
 <p>If we pick $n_0 = \max(n_1, n_2)$, from the problem definition we get</p>
 <p>$$f(n) &lt; cg(n) &lt; f(n).$$</p>
 <p>There is no solutions, which means that the intersection is the empty set.</p>
-<h2 id="31-8">3.1-8<a class="headerlink" href="#31-8" title="Permanent link">&para;</a></h2>
+<h2 id="31-8">3.1-8</h2>
 <blockquote>
 <p>We can extend our notation to the case of two parameters $n$ and $m$ that can go to infinity independently at different rates. For a given function $g(n, m)$ we denote $O(g(n, m))$ the set of functions:</p>
 <p>\begin{align}

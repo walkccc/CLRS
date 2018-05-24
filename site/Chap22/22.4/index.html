@@ -5267,7 +5267,7 @@
                 
                   <h1>22.4 Topological sort</h1>
                 
-                <h2 id="224-1">22.4-1<a class="headerlink" href="#224-1" title="Permanent link">&para;</a></h2>
+                <h2 id="224-1">22.4-1</h2>
 <blockquote>
 <p>Show the ordering of vertices produced by $\text{TOPOLOGICAL-SORT}$ when it is run on the dag of Figure 22.8, under the assumption of Exercise 22.3-2.</p>
 </blockquote>
@@ -5291,7 +5291,7 @@ s &amp; 24 &amp; 24 \\
 p &amp; 27 &amp; 28
 \end{array}</p>
 <p>And so, by reading off the entries in decreasing order of finish time, we have the sequence $p, n, o, s, m, r, y, v, x, w, z, u, q, t$.</p>
-<h2 id="224-2">22.4-2<a class="headerlink" href="#224-2" title="Permanent link">&para;</a></h2>
+<h2 id="224-2">22.4-2</h2>
 <blockquote>
 <p>Give a linear-time algorithm that takes as input a directed acyclic graph $G = (V, E)$ and two vertices $s$ and $t$, and returns the number of simple paths from $s$ to $t$ in $G$. For example, the directed acyclic graph of Figure 22.8 contains exactly four simple paths from vertex $p$ to vertex $v: pov$, $poryv$, $posryv$, and $psryv$. (Your algorithm needs only to count the simple paths, not list them.)</p>
 </blockquote>
@@ -5316,7 +5316,7 @@ p &amp; 27 &amp; 28
 </pre></div>
 </td></tr></table>
 
-<h2 id="224-3">22.4-3<a class="headerlink" href="#224-3" title="Permanent link">&para;</a></h2>
+<h2 id="224-3">22.4-3</h2>
 <blockquote>
 <p>Give an algorithm that determines whether or not a given undirected graph $G = (V, E)$ contains a cycle. Your algorithm should run in $O(V)$ time, independent of $|E|$.</p>
 </blockquote>
@@ -5330,13 +5330,13 @@ p &amp; 27 &amp; 28
 <li>Time: $O(V)$. (Not $O(V + E)$!)</li>
 </ul>
 <p>If we ever see $|V|$ distinct edges, we must have seen a back edge because (by Theorem B.2 on p. 1174) in an acyclic (undirected) forest, $|E| \le |V| - 1$.</p>
-<h2 id="224-4">22.4-4<a class="headerlink" href="#224-4" title="Permanent link">&para;</a></h2>
+<h2 id="224-4">22.4-4</h2>
 <blockquote>
 <p>Prove or disprove: If a directed graph $G$ contains cycles, then $\text{TOPOLOGICAL-SORT}(G)$ produces a vertex ordering that minimizes the number of ''bad'' edges that are inconsistent with the ordering produced.</p>
 </blockquote>
 <p>This is not true. Consider the graph $G$ consisting of vertices $a, b, c$, and $d$. Let the edges be $(a, b)$, $(b, c)$, $(a, d)$, $(d, c)$, and $(c, a)$. Suppose that we start the $\text{DFS}$ of $\text{TOPOLOGICAL-SORT}$ at vertex $c$. Assuming that $b$ appears before $d$ in the adjacency list of $a$, the order, from latest to earliest, of finish times is $c, a, d, b$. </p>
 <p>The ''bad'' edges in this case are $(b, c)$ and $(d, c)$. However, if we had instead ordered them by $a, b, d, c$ then the only bad edges would be $(c, a)$. Thus $\text{TOPOLOGICAL-SORT}$ doesn't always minimizes the number of ''bad'' edges</p>
-<h2 id="224-5">22.4-5<a class="headerlink" href="#224-5" title="Permanent link">&para;</a></h2>
+<h2 id="224-5">22.4-5</h2>
 <blockquote>
 <p>Another way to perform topological sorting on a directed acyclic graph $G = (V, E)$ is to repeatedly find a vertex of $\text{in-degree}$ $0$, output it, and remove it and all of its outgoing edges from the graph. Explain how to implement this idea so that it runs in time $O(V + E)$. What happens to this algorithm if $G$ has cycles?</p>
 </blockquote>

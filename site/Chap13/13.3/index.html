@@ -5281,12 +5281,12 @@
                 
                   <h1>13.3 Insertion</h1>
                 
-                <h2 id="133-1">13.3-1<a class="headerlink" href="#133-1" title="Permanent link">&para;</a></h2>
+                <h2 id="133-1">13.3-1</h2>
 <blockquote>
 <p>In line 16 of $\text{RB-INSERT}$, we set the color of the newly inserted node $z$ to red. Observe that if we had chosen to set $z$'s color to black, then property 4 of a red-black tree would not be violated. Why didn't we choose to set $z$'s color to black?</p>
 </blockquote>
 <p>If we chose to set the color of $z$ to black then we would be violating property 5 of being a red-black tree. Because any path from the root to a leaf under $z$ would have one more black node than the paths to the other leaves.</p>
-<h2 id="133-2">13.3-2<a class="headerlink" href="#133-2" title="Permanent link">&para;</a></h2>
+<h2 id="133-2">13.3-2</h2>
 <blockquote>
 <p>Show the red-black trees that result after successively inserting the keys $41, 38, 31, 12, 19, 8$ into an initially empty red-black tree.</p>
 </blockquote>
@@ -5316,7 +5316,7 @@
 <p><img alt="" src="https://i.imgur.com/sKNgCIR.png?width=30rem" /></p>
 </li>
 </ul>
-<h2 id="133-3">13.3-3<a class="headerlink" href="#133-3" title="Permanent link">&para;</a></h2>
+<h2 id="133-3">13.3-3</h2>
 <blockquote>
 <p>Suppose that the black-height of each of the subtrees $\alpha, \beta, \gamma, \delta, \epsilon$ in Figures 13.5 and 13.6 is $k$. Label each node in each figure with its black-height to verify that the indicated transformation preserves property 5.</p>
 </blockquote>
@@ -5325,12 +5325,12 @@
 <p>In Figure 13.6, nodes $A$, $B$, and $C$ have black-height $k + 1$ in all cases. At left and in the middle, each of $A$'s and $B$'s subtrees has black-height $k$ and a black root, while $C$ has one such subtree and a red child with black-height $k + 1$. At the right, each of $A$'s and $C$'s subtrees has black-height $k$ and a black root, while $B$'s red children each have black-height $k + 1$.</p>
 <p><img alt="" src="https://i.imgur.com/xfqDlQs.png?width=40rem" /></p>
 <p>Property 5 is preserved by the transformations. We have shown above that the black-height is well-defined within the subtrees pictured, so property 5 is preserved within those subtrees. Property 5 is preserved for the tree containing the subtrees pictured, because every path through these subtrees to a leaf contributes $k + 2$ black nodes.</p>
-<h2 id="133-4">13.3-4<a class="headerlink" href="#133-4" title="Permanent link">&para;</a></h2>
+<h2 id="133-4">13.3-4</h2>
 <blockquote>
 <p>Professor Teach is concerned that $\text{RB-INSERT-FIXUP}$ might set $T.nil.color$ to $\text{RED}$, in which case the test in line 1 would not cause the loop to terminate when $z$ is the root. Show that the professor's concern is unfounded by arguing that $\text{RB-INSERT-FIXUP}$ never sets $T.nil.color$ to $\text{RED}$.</p>
 </blockquote>
 <p>Colors are set to red only in cases 1 and 3, and in both situations, it is $z.p.p$ that is reddened. If $z.p.p$ is the sentinel, then $z.p$ is the root. By part (b) of the loop invariant and line 1 of $\text{RB-INSERT-FIXUP}$, if $z.p$ is the root, then we have dropped out of the loop. The only subtlety is in case 2, where we set $z = z.p$ before coloring $z.p.p$ red. Because we rotate before the recoloring, the identity of $z.p.p$ is the same before and after case 2, so there's no problem.</p>
-<h2 id="133-5">13.3-5<a class="headerlink" href="#133-5" title="Permanent link">&para;</a></h2>
+<h2 id="133-5">13.3-5</h2>
 <blockquote>
 <p>Consider a red-black tree formed by inserting $n$ nodes with $\text{RB-INSERT}$. Argue that if $n &gt; 1$, the tree has at least one red node.</p>
 </blockquote>
@@ -5340,7 +5340,7 @@
 <li><strong>Case 3:</strong> $z$ is $\text{RED}$ and $z$ could not be the root, thus $z$ is $\text{RED}$ after the fix up.</li>
 </ul>
 <p>Therefore, there is always at least one red node.</p>
-<h2 id="133-6">13.3-6<a class="headerlink" href="#133-6" title="Permanent link">&para;</a></h2>
+<h2 id="133-6">13.3-6</h2>
 <blockquote>
 <p>Suggest how to implement $\text{RB-INSERT}$ efficiently if the representation for red-black trees includes no storage for parent pointers.</p>
 </blockquote>

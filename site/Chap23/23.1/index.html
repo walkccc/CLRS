@@ -5351,36 +5351,36 @@
                 
                   <h1>23.1 Growing a minimum spanning tree</h1>
                 
-                <h2 id="231-1">23.1-1<a class="headerlink" href="#231-1" title="Permanent link">&para;</a></h2>
+                <h2 id="231-1">23.1-1</h2>
 <blockquote>
 <p>Let $(u, v)$ be a minimum-weight edge in a connected graph $G$. Show that $(u, v)$ belongs to some minimum spanning tree of $G$.</p>
 </blockquote>
 <p>Theorem 23.1 shows this.</p>
 <p>Let $A$ be the empty set and $S$ be any set containing $u$ but not $v$.</p>
-<h2 id="231-2">23.1-2<a class="headerlink" href="#231-2" title="Permanent link">&para;</a></h2>
+<h2 id="231-2">23.1-2</h2>
 <blockquote>
 <p>Professor Sabatier conjectures the following converse of Theorem 23.1. Let $G = (V, E)$ be a connected, undirected graph with a real-valued weight function $w$ defined on $E$. Let $A$ be a subset of $E$ that is included in some minimum spanning tree for $G$, let $(S, V - S)$ be any cut of $G$ that respects $A$, and let $(u, v)$ be a safe edge for $A$ crossing $(S, V - S)$. Then, $(u, v)$ is a light edge for the cut. Show that the professor's conjecture is incorrect by giving a counterexample.</p>
 </blockquote>
 <p>Let $G$ be the graph with $4$ vertices: $u, v, w, z$. Let the edges of the graph be $(u, v), (u, w), (w, z)$ with weights $3$, $1$, and $2$ respectively. </p>
 <p>Suppose $A$ is the set $\{(u, w)\}$. Let $S = A$. Then $S$ clearly respects $A$. Since $G$ is a tree, its minimum spanning tree is itself, so $A$ is trivially a subset of a minimum spanning tree.</p>
 <p>Moreover, every edge is safe. In particular, $(u, v)$ is safe but not a light edge for the cut. Therefore Professor Sabatier's conjecture is false.</p>
-<h2 id="231-3">23.1-3<a class="headerlink" href="#231-3" title="Permanent link">&para;</a></h2>
+<h2 id="231-3">23.1-3</h2>
 <blockquote>
 <p>Show that if an edge $(u, v)$ is contained in some minimum spanning tree, then it is a light edge crossing some cut of the graph.</p>
 </blockquote>
 <p>Let $T_0$ and $T_1$ be the two trees that are obtained by removing edge $(u, v)$ from a $\text{MST}$. Suppose that $V_0$ and $V_1$ are the vertices of $T_0$ and $T_1$ respectively.</p>
 <p>Consider the cut which separates $V_0$ from $V_1$. Suppose to a contradiction that there is some edge that has weight less than that of $(u, v)$ in this cut. Then, we could construct a minimum spanning tree of the whole graph by adding that edge to $T_1 \cup T_0$. This would result in a minimum spanning tree that has weight less than the original minimum spanning tree that contained $(u, v)$.</p>
-<h2 id="231-4">23.1-4<a class="headerlink" href="#231-4" title="Permanent link">&para;</a></h2>
+<h2 id="231-4">23.1-4</h2>
 <blockquote>
 <p>Give a simple example of a connected graph such that the set of edges $\{(u, v):$ there exists a cut $(S, V - S)$ such that $(u, v)$ is a light edge crossing $(S, V - S)\}$ does not form a minimum spanning tree.</p>
 </blockquote>
 <p>A triangle whose edge weights are all equal is a graph in which every edge is a light edge crossing some cut. But the triangle is cyclic, so it is not a minimum spanning tree.</p>
-<h2 id="231-5">23.1-5<a class="headerlink" href="#231-5" title="Permanent link">&para;</a></h2>
+<h2 id="231-5">23.1-5</h2>
 <blockquote>
 <p>Let $e$ be a maximum-weight edge on some cycle of connected graph $G = (V, E)$. Prove that there is a minimum spanning tree of $G' = (V, E - \{e\})$ that is also a minimum spanning tree of $G$. That is, there is a minimum spanning tree of $G$ that does not include $e$.</p>
 </blockquote>
 <p>Let $A$ be any cut that causes some vertices in the cycle on once side of the cut, and some vertices in the cycle on the other. For any of these cuts, we know that the edge $e$ is not a light edge for this cut. Since all the other cuts won't have the edge $e$ crossing it, we won't have that the edge is light for any of those cuts either. This means that we have that e is not safe.</p>
-<h2 id="231-6">23.1-6<a class="headerlink" href="#231-6" title="Permanent link">&para;</a></h2>
+<h2 id="231-6">23.1-6</h2>
 <blockquote>
 <p>Show that a graph has a unique minimum spanning tree if, for every cut of the graph, there is a unique light edge crossing the cut. Show that the converse is not true by giving a counterexample.</p>
 </blockquote>
@@ -5388,13 +5388,13 @@
 <p>Here's a counterexample for the converse:</p>
 <p><img alt="" src="https://i.imgur.com/FBjdNpO.png?width=10rem" /></p>
 <p>Here, the graph is its own minimum spanning tree, and so the minimum spanning tree is unique. Consider the cut $(\{x\}, \{y, z\})$. Both of the edges $(x, y)$ and $(x, z)$ are light edges crossing the cut, and they are both light edges.</p>
-<h2 id="231-7">23.1-7<a class="headerlink" href="#231-7" title="Permanent link">&para;</a></h2>
+<h2 id="231-7">23.1-7</h2>
 <blockquote>
 <p>Argue that if all edge weights of a graph are positive, then any subset of edges that connects all vertices and has minimum total weight must be a tree. Give an example to show that the same conclusion does not follow if we allow some weights to be nonpositive.</p>
 </blockquote>
 <p>First, we show that the subset of edges of minimum total weight that connects all the vertices is a tree. To see this, suppose not, that it had a cycle. This would mean that removing any of the edges in this cycle would mean that the remaining edges would still connect all the vertices, but would have a total weight that's less by the weight of the edge that was removed. This would contradict the minimality of the total weight of the subset of vertices. Since the subset of edges forms a tree, and has minimal total weight, it must also be a minimum spanning tree.</p>
 <p>To see that this conclusion is not true if we allow negative edge weights, we provide a construction. Consider the graph $K_3$ with all edge weights equal to $-1$. The only minimum weight set of edges that connects the graph has total weight $-3$, and consists of all the edges. This is clearly not a $\text{MST}$ because it is not a tree, which can be easily seen because it has one more edge than a tree on three vertices should have. Any $\text{MST}$ of this weighted graph must have weight that is at least $-2$.</p>
-<h2 id="231-8">23.1-8<a class="headerlink" href="#231-8" title="Permanent link">&para;</a></h2>
+<h2 id="231-8">23.1-8</h2>
 <blockquote>
 <p>Let $T$ be a minimum spanning tree of a graph $G$, and let $L$ be the sorted list of the edge weights of $T$. Show that for any other minimum spanning tree $T'$ of $G$, the list $L$ is also the sorted list of edge weights of $T'$.</p>
 </blockquote>
@@ -5402,7 +5402,7 @@
 <p>Let $C$ be the graph obtained by adding $(u, v)$ to $L'$. Then we must have introduced a cycle. If there exists an edge on that cycle which is of larger weight than $(u, v)$, we can remove it to obtain a tree $C'$ of weight strictly smaller than the weight of $T'$, contradicting the fact that $T'$ is a minimum spanning tree. </p>
 <p>Thus, every edge on the cycle must be of lesser or equal weight than $(u, v)$. Suppose that every edge is of strictly smaller weight. Remove $(u, v)$ from $T$ to disconnect it into two components. There must exist some edge besides $(u, v)$ on the cycle which would connect these, and since it has smaller weight we can use that edge instead to create a spanning tree with less weight than $T$, a contradiction. Thus, some edge on the cycle has the same weight as $(u, v)$. Replace that edge by $(u, v)$. The corresponding lists $L$ and $L'$ remain unchanged since we have swapped out an edge of equal weight, but the number of edges which $T$ and $T'$ have in common has increased by $1$.</p>
 <p>If we continue in this way, eventually they must have every edge in common, contradicting the fact that their edge weights differ somewhere. Therefore all minimum spanning trees have the same sorted list of edge weights.</p>
-<h2 id="231-9">23.1-9<a class="headerlink" href="#231-9" title="Permanent link">&para;</a></h2>
+<h2 id="231-9">23.1-9</h2>
 <blockquote>
 <p>Let $T$ be a minimum spanning tree of a graph $G = (V, E)$, and let $V'$ be a subset of $V$. Let $T'$ be the subgraph of $T$ induced by $V'$, and let $G'$ be the subgraph of $G$ induced by $V'$. Show that if $T'$ is connected, then $T'$ is a minimum spanning tree of $G'$.</p>
 </blockquote>
@@ -5410,7 +5410,7 @@
 <p>However, we have that</p>
 <p>$$w(S \cup T'') = w(S) + w(T'') &lt; w(S) + w(T') = w(S \cup T') = w(T).$$</p>
 <p>This means that we just found a spanning tree that has a lower total weight than a minimum spanning tree. This is a contradiction, and so our assumption that there was a spanning tree of $V'$ cheaper than $T'$ must be false.</p>
-<h2 id="231-10">23.1-10<a class="headerlink" href="#231-10" title="Permanent link">&para;</a></h2>
+<h2 id="231-10">23.1-10</h2>
 <blockquote>
 <p>Given a graph $G$ and a minimum spanning tree $T$, suppose that we decrease the weight of one of the edges in $T$. Show that $T$ is still a minimum spanning tree for $G$. More formally, let $T$ be a minimum spanning tree for $G$ with edge weights given by weight function $w$. Choose one edge $(x, y) \in T$ and a positive number $k$, and define the weight function $w'$ by</p>
 <p>$$
@@ -5426,7 +5426,7 @@ $$</p>
 <p>If $(x, y) \ne T'$, then $w'(T') = w(T') \ge w(T) &gt; w'(T)$.</p>
 <p>If $(x, y) \in T'$, then $w'(T') = w(T') - k \ge w(T) - k = w'(T)$.</p>
 <p>Either way, $w'(T) \le w'(T')$, and so $T$ is a minimum spanning tree for weight function $w'$.</p>
-<h2 id="231-11-star">23.1-11 $\star$<a class="headerlink" href="#231-11-star" title="Permanent link">&para;</a></h2>
+<h2 id="231-11-star">23.1-11 $\star$</h2>
 <blockquote>
 <p>Given a graph $G$ and a minimum spanning tree $T$, suppose that we decrease the weight of one of the edges not in $T$. Give an algorithm for finding the minimum spanning tree in the modified graph.</p>
 </blockquote>

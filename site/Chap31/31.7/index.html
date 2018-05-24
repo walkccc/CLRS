@@ -5239,7 +5239,7 @@
                 
                   <h1>31.7 The RSA public-key cryptosystem</h1>
                 
-                <h2 id="317-1">31.7-1<a class="headerlink" href="#317-1" title="Permanent link">&para;</a></h2>
+                <h2 id="317-1">31.7-1</h2>
 <blockquote>
 <p>Consider an RSA key set with $p = 11$, $q = 29$, $n = 319$, and $e = 3$. What value of $d$ should be used in the secret key? What is the encryption of the message $M = 100$?</p>
 </blockquote>
@@ -5247,7 +5247,7 @@
 <p>$d = e^{-1} \mod \phi(n) = 187$.</p>
 <p>$P(M) = M^e \mod n = 254$.</p>
 <p>$S(C) = C^d \mod n = 254^{187} \mod n =  100$.</p>
-<h2 id="317-2">31.7-2<a class="headerlink" href="#317-2" title="Permanent link">&para;</a></h2>
+<h2 id="317-2">31.7-2</h2>
 <blockquote>
 <p>Prove that if Alice's public exponent $e$ is $3$ and an adversary obtains Alice's secret exponent $d$, where $0 &lt; d &lt; \phi(n)$, then the adversary can factor Alice's modulus $n$ in time polynomial in the number of bits in $n$. (Although you are not asked to prove it, you may be interested to know that this result remains true even if the condition $e = 3$ is removed. See Miller [255].)</p>
 </blockquote>
@@ -5256,7 +5256,7 @@
 <p>If $p, q &lt; n / 4$, then</p>
 <p>$$\phi(n) = n - (p + q) + 1 &gt; n - n / 2 + 1 = n / 2 + 1 &gt; n / 2.$$</p>
 <p>$kn / 2 &lt; 3d - 1 &lt; 3d &lt; 3n$, then $k &lt; 6$, then we can solve $3d - 1 = n - p - n / p + 1$.</p>
-<h2 id="317-3-star">31.7-3 $\star$<a class="headerlink" href="#317-3-star" title="Permanent link">&para;</a></h2>
+<h2 id="317-3-star">31.7-3 $\star$</h2>
 <blockquote>
 <p>Prove that RSA is multiplicative in the sense that</p>
 <p>$P_A(M_1) P_A(M_2) \equiv P_A(M_1, M_2) (\mod n)$.</p>

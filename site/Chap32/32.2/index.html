@@ -5253,22 +5253,22 @@
                 
                   <h1>32.2 The Rabin-Karp algorithm</h1>
                 
-                <h2 id="322-1">32.2-1<a class="headerlink" href="#322-1" title="Permanent link">&para;</a></h2>
+                <h2 id="322-1">32.2-1</h2>
 <blockquote>
 <p>Working modulo $q = 11$, how many spurious hits does the Rabin-Karp matcher encounter in the text $T = 3141592653589793$ when looking for the pattern $P = 26$?</p>
 </blockquote>
 <p>$|\{15, 59, 92, 26\}| = 4$.</p>
-<h2 id="322-2">32.2-2<a class="headerlink" href="#322-2" title="Permanent link">&para;</a></h2>
+<h2 id="322-2">32.2-2</h2>
 <blockquote>
 <p>How would you extend the Rabin-Karp method to the problem of searching a text string for an occurrence of any one of a given set of $k$ patterns? Start by assuming that all $k$ patterns have the same length. Then generalize your solution to allow the patterns to have different lengths.</p>
 </blockquote>
 <p>Truncation.</p>
-<h2 id="322-3">32.2-3<a class="headerlink" href="#322-3" title="Permanent link">&para;</a></h2>
+<h2 id="322-3">32.2-3</h2>
 <blockquote>
 <p>Show how to extend the Rabin-Karp method to handle the problem of looking for a given $m \times m$ pattern in an $n \times n$ array of characters. (The pattern may be shifted vertically and horizontally, but it may not be rotated.)</p>
 </blockquote>
 <p>Calculate the hashes in each column just like the Rabin-Karp in one-dimension, then treat the hashes in each row as the characters and hashing again.</p>
-<h2 id="322-4">32.2-4<a class="headerlink" href="#322-4" title="Permanent link">&para;</a></h2>
+<h2 id="322-4">32.2-4</h2>
 <blockquote>
 <p>Alice has a copy of a long $n$-bit file $A = \langle a_{n - 1}, a_{n - 2}, \ldots, a_0 \rangle$, and Bob similarly has an $n$-bit file $B = \langle b_{n - 1}, b_{n - 2}, \ldots, b_0 \rangle$. Alice and Bob wish to know if their files are identical. To avoid transmitting all of $A$ or $B$, they use the following fast probabilistic check. Together, they select a prime $q &gt; 1000n$ and randomly select an integer $x$ from $\{ 0, 1, \ldots, q - 1 \}$. Then, Alice evaluates</p>
 <p>$$A(x) = (\sum_{i = 0}^{n - 1} a_i x^i) \mod q$$</p>

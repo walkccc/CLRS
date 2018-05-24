@@ -5253,21 +5253,21 @@
                 
                   <h1>31.9 Integer factorization</h1>
                 
-                <h2 id="319-1">31.9-1<a class="headerlink" href="#319-1" title="Permanent link">&para;</a></h2>
+                <h2 id="319-1">31.9-1</h2>
 <blockquote>
 <p>Referring to the execution history shown in Figure 31.7(a), when does \text{POLLARDRHO} print the factor $73$ of $1387$?</p>
 </blockquote>
 <p>$x = 84$, $y = 814$.</p>
-<h2 id="319-2">31.9-2<a class="headerlink" href="#319-2" title="Permanent link">&para;</a></h2>
+<h2 id="319-2">31.9-2</h2>
 <blockquote>
 <p>Suppose that we are given a function $f : \mathbb Z_n \rightarrow \mathbb Z_n$ and an initial value $x_0 \in \mathbb Z_n$. Define $x_i = f(x_{i - 1})$ for $i = 1, 2, \ldots$. Let $t$ and $u &gt; 0$ be the smallest values such that $x_{t + i} = x_{t + u + i}$ for $i = 0, 1, \ldots$. In the terminology of Pollard's rho algorithm, $t$ is the length of the tail and $u$ is the length of the cycle of the rho. Give an efficient algorithm to determine $t$ and $u$ exactly, and analyze its running time.</p>
 </blockquote>
-<h2 id="319-3">31.9-3<a class="headerlink" href="#319-3" title="Permanent link">&para;</a></h2>
+<h2 id="319-3">31.9-3</h2>
 <blockquote>
 <p>How many steps would you expect $\text{POLLARD-RHO}$ to require to discover a factor of the form $p^e$, where $p$ is prime and $e &gt; 1$?</p>
 </blockquote>
 <p>$\Theta(\sqrt p)$.</p>
-<h2 id="319-4-star">31.9-4 $\star$<a class="headerlink" href="#319-4-star" title="Permanent link">&para;</a></h2>
+<h2 id="319-4-star">31.9-4 $\star$</h2>
 <blockquote>
 <p>One disadvantage of $\text{POLLARD-RHO}$ as written is that it requires one gcd computation for each step of the recurrence. Instead, we could batch the gcd computations by accumulating the product of several $x_i$ values in a row and then using this product instead of $x_i$ in the gcd computation. Describe carefully how you would implement this idea, why it works, and what batch size you would pick as the most effective when working on a $\beta$-bit number $n$.</p>
 </blockquote>

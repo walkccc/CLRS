@@ -5281,7 +5281,7 @@
                 
                   <h1>6.2 Maintaining the heap property</h1>
                 
-                <h2 id="62-1">6.2-1<a class="headerlink" href="#62-1" title="Permanent link">&para;</a></h2>
+                <h2 id="62-1">6.2-1</h2>
 <blockquote>
 <p>Using figure 6.2 as a model, illustrate the operation of $\text{MAX-HEAPIFY}(A, 3)$ on the array $A = \langle 27, 17, 3, 16, 13, 10, 1, 5, 7, 12, 4, 8, 9, 0 \rangle$.</p>
 </blockquote>
@@ -5290,7 +5290,7 @@
 \langle 27, 17, 10, 16, 13, 3, 1, 5, 7, 12, 4, 8, 9, 0 \rangle \\
 \langle 27, 17, 10, 16, 13, 9, 1, 5, 7, 12, 4, 8, 3, 0 \rangle \\
 \end{align}</p>
-<h2 id="62-2">6.2-2<a class="headerlink" href="#62-2" title="Permanent link">&para;</a></h2>
+<h2 id="62-2">6.2-2</h2>
 <blockquote>
 <p>Starting with the procedure $\text{MAX-HEAPIFY}$, write pseudocode for the procedure $\text{MIN-HEAPIFY}(A, i)$, which performs the corresponding manipulation on a min-heap. How does the running time of $\text{MIN-HEAPIFY}$ compare to that of $\text{MAX-HEAPIFY}$?</p>
 </blockquote>
@@ -5319,17 +5319,17 @@
 </td></tr></table>
 
 <p>The running time is the same. Actually, the algorithm is the same with the exceptions of two comparisons and some names.</p>
-<h2 id="62-3">6.2-3<a class="headerlink" href="#62-3" title="Permanent link">&para;</a></h2>
+<h2 id="62-3">6.2-3</h2>
 <blockquote>
 <p>What is the effect of calling $\text{MAX-HEAPIFY}(A, i)$ when the element $A[i]$ is larger than its children?</p>
 </blockquote>
 <p>No effect. The comparisons are carried out, $A[i]$ is found to be largest and the procedure just returns.</p>
-<h2 id="62-4">6.2-4<a class="headerlink" href="#62-4" title="Permanent link">&para;</a></h2>
+<h2 id="62-4">6.2-4</h2>
 <blockquote>
 <p>What is the effect of calling $\text{MAX-HEAPIFY}(A, i)$ for $i &gt; A.heap\text-size / 2$?</p>
 </blockquote>
 <p>No effect. In that case, it is a leaf. Both $\text{LEFT}$ and $\text{RIGHT}$ return values that fail the comparison with the heap size and i is stored in largest. Afterwards the procedure just returns</p>
-<h2 id="62-5">6.2-5<a class="headerlink" href="#62-5" title="Permanent link">&para;</a></h2>
+<h2 id="62-5">6.2-5</h2>
 <blockquote>
 <p>The code for $\text{MAX-HEAPIFY}$ is quite efficient in terms of constant factors, except possibly for the recursive call in line 10, which might cause some compilers to produce inefficient code. Write an efficient $\text{MAX-HEAPIFY}$ that uses an iterative control construct (a loop) instead of recursion.</p>
 </blockquote>
@@ -5361,7 +5361,7 @@
 </pre></div>
 </td></tr></table>
 
-<h2 id="62-6">6.2-6<a class="headerlink" href="#62-6" title="Permanent link">&para;</a></h2>
+<h2 id="62-6">6.2-6</h2>
 <blockquote>
 <p>Show that the worst-case running time of $\text{MAX-HEAPIFY}$ on a heap of size $n$ is $\Omega(\lg n)$. ($\textit{Hint:}$ For a heap with $n$ nodes, give node values that cause $\text{MAX-HEAPIFY}$ to be called recursively at every node on a simple path from the root down to a leaf.)</p>
 </blockquote>

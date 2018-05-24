@@ -5267,7 +5267,7 @@
                 
                   <h1>10.3 Implementing pointers and objects</h1>
                 
-                <h2 id="103-1">10.3-1<a class="headerlink" href="#103-1" title="Permanent link">&para;</a></h2>
+                <h2 id="103-1">10.3-1</h2>
 <blockquote>
 <p>Draw a picture of the sequence $\langle 13, 4, 8, 19, 5, 11 \rangle$ stored as a doubly linked list using the multiple-array representation. Do the same for the single-array representation.</p>
 </blockquote>
@@ -5287,7 +5287,7 @@
 \end{array}</p>
 </li>
 </ul>
-<h2 id="103-2">10.3-2<a class="headerlink" href="#103-2" title="Permanent link">&para;</a></h2>
+<h2 id="103-2">10.3-2</h2>
 <blockquote>
 <p>Write the procedures $\text{ALLOCATE-OBJECT}$ and $\text{FREE-OBJECT}$ for a homogeneous collection of objects implemented by the single-array representation.</p>
 </blockquote>
@@ -5313,12 +5313,12 @@
 </pre></div>
 </td></tr></table>
 
-<h2 id="103-3">10.3-3<a class="headerlink" href="#103-3" title="Permanent link">&para;</a></h2>
+<h2 id="103-3">10.3-3</h2>
 <blockquote>
 <p>Why don't we need to set or reset the $prev$ attributes of objects in the implementation of the $\text{ALLOCATE-OBJECT}$ and $\text{FREE-OBJECT}$ procedures?</p>
 </blockquote>
 <p>We implement $\text{ALLOCATE-OBJECT}$ and $\text{FREE-OBJECT}$ in the hope of managing the storage of currently non-used object in the free list so that one can be allocated for reusing. As the free list acts like a stack, to maintain this stack-like collection, we merely remember its first pointer and set the $next$ attribute of objects. There is no need to worry the $prev$ attribute, for it hardly has any impact on the resulting free list.</p>
-<h2 id="103-4">10.3-4<a class="headerlink" href="#103-4" title="Permanent link">&para;</a></h2>
+<h2 id="103-4">10.3-4</h2>
 <blockquote>
 <p>It is often desirable to keep all elements of a doubly linked list compact in storage, using, for example, the first $m$ index locations in the multiple-array representation. (This is the case in a paged, virtual-memory computing environment.) Explain how to implement the procedures $\text{ALLOCATE-OBJECT}$ and $\text{FREE-OBJECT}$ so that the representation is compact. Assume that there are no pointers to elements of the linked list outside the list itself. ($\textit{Hint:}$ Use the array implementation of a stack.)</p>
 </blockquote>
@@ -5352,7 +5352,7 @@
 </pre></div>
 </td></tr></table>
 
-<h2 id="103-5">10.3-5<a class="headerlink" href="#103-5" title="Permanent link">&para;</a></h2>
+<h2 id="103-5">10.3-5</h2>
 <blockquote>
 <p>Let $L$ be a doubly linked list of length $n$ stored in arrays $key$, $prev$, and $next$ of length $m$. Suppose that these arrays are managed by $\text{ALLOCATE-OBJECT}$ and $\text{FREE-OBJECT}$ procedures that keep a doubly linked free list $F$. Suppose further that of the $m$ items, exactly $n$ are on list $L$ and $m - n$ are on the free list. Write a procedure $\text{COMPACTIFY-LIST}(L, F)$ that, given the list $L$ and the free list $F$, moves the items in $L$ so that they occupy array positions $1, 2, \ldots, n$ and adjusts the free list $F$ so that it remains correct, occupying array positions $n + 1, n + 2, \ldots, m$. The running time of your procedure should be $\Theta(n)$, and it should use only a constant amount of extra space. Argue that your procedure is correct.</p>
 </blockquote>

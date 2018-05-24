@@ -5253,19 +5253,19 @@
                 
                   <h1>9.2 Selection in expected linear time</h1>
                 
-                <h2 id="92-1">9.2-1<a class="headerlink" href="#92-1" title="Permanent link">&para;</a></h2>
+                <h2 id="92-1">9.2-1</h2>
 <blockquote>
 <p>Show that $\text{RANDOMIZED-SELECT}$ never makes a recursive call to a $0$-length array.</p>
 </blockquote>
 <p>Calling a $0$-length array would mean that the second and third arguments are equal. So, if the call is made on line 8, we would need that $p = q - 1$, which means that $q - p + 1 = 0$.
 However, $i$ is assumed to be a nonnegative number, and to be executing line 8, we would need that $i &lt; k = q - p + 1 = 0$, a contradiction. The other possibility is that the bad recursive call occurs on line 9. This would mean that $q + 1 = r$. To be executing line 9, we need that $i &gt; k = q - p + 1 = r - p$. This would be a nonsensical original call to the array though because we are asking for the ith element from an array of strictly less size.</p>
-<h2 id="92-2">9.2-2<a class="headerlink" href="#92-2" title="Permanent link">&para;</a></h2>
+<h2 id="92-2">9.2-2</h2>
 <blockquote>
 <p>Argue that the indicator random variable $X_k$ and the value $T(\max(k - 1, n - k))$ are independent.</p>
 </blockquote>
 <p>The probability that $X_k$ is equal to $1$ is unchanged when we know the max of $k - 1$ and $n - k$. In other words, $\Pr\{X_k = a \mid \max(k - 1, n - k) = m\} = \Pr\{X_k = a\}$ for $a = 0, 1$ and $m = k - 1, n - k$ so $X_k$ and $\max(k - 1, n - k)$ are independent.</p>
 <p>By C.3-5, so are $X_k$ and $T(\max(k - 1, n - k))$.</p>
-<h2 id="92-3">9.2-3<a class="headerlink" href="#92-3" title="Permanent link">&para;</a></h2>
+<h2 id="92-3">9.2-3</h2>
 <blockquote>
 <p>Write an iterative version of $\text{RANDOMIZED-SELECT}$.</p>
 </blockquote>
@@ -5329,7 +5329,7 @@ However, $i$ is assumed to be a nonnegative number, and to be executing line 8, 
 </pre></div>
 </td></tr></table>
 
-<h2 id="92-4">9.2-4<a class="headerlink" href="#92-4" title="Permanent link">&para;</a></h2>
+<h2 id="92-4">9.2-4</h2>
 <blockquote>
 <p>Suppose we use $\text{RANDOMIZED-SELECT}$ to select the minimum element of the array $A = \langle 3, 2, 9, 0, 7, 5, 4, 8, 6, 1 \rangle$. Describe a sequence of partitions that results in a worst-case performance of $\text{RANDOMIZED-SELECT}$.</p>
 </blockquote>
