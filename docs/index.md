@@ -32,10 +32,4 @@ I also add [overflow-x: auto](https://www.w3schools.com/cssref/css3_pr_overflow-
 
 For more informations please visit [**my github site**](https://github.com/walkccc).
 
-My blog: [**Jay's Blog**](https://walkccc.github.io)
-
-Mail to: [**walkccray@gmail.com**](mailto:walkccray@gmail.com)
-
-By Jay Chen on Jan 19, 2017.
-
 Updated to this new site on April 13, 2018 at 04:48 [(GMT+8)](https://time.is/GMT+8).
