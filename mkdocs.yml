@@ -23,7 +23,7 @@ theme:
     text: 'Roboto'
     code: 'Roboto Mono'
   logo:
-    icon: 'widgets'
+    icon: 'import_contacts'
 
 # Customization
 extra:
