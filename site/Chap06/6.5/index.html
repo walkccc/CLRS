@@ -5454,15 +5454,13 @@
 4
 5
 6
-7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">HEAP</span><span class="o">-</span><span class="n">INCREASE</span><span class="o">-</span><span class="n">KEY</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">HEAP</span><span class="o">-</span><span class="n">INCREASE</span><span class="o">-</span><span class="n">KEY</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">key</span> <span class="o">&lt;</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
         <span class="n">error</span> <span class="s">&quot;new key is smaller than current key&quot;</span>
     <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
-    <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">l</span> <span class="n">and</span> <span class="n">A</span><span class="p">[</span><span class="n">PARENT</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="o">&lt;</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-        <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">PARENT</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="n">and</span> <span class="n">A</span><span class="p">[</span><span class="n">PARENT</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="o">&lt;</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">exchange</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="n">and</span> <span class="n">A</span><span class="p">[</span><span class="n">PARENT</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span>
         <span class="n">i</span> <span class="o">=</span> <span class="n">PARENT</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-    <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
 </pre></div>
 </td></tr></table>
 
