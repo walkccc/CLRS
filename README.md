@@ -30,6 +30,6 @@ I also add [overflow-x: auto](https://www.w3schools.com/cssref/css3_pr_overflow-
 
 ## More Informations
 
-For more informations please visit [**my github site**](https://github.com/walkccc).
+For more informations please visit [**my GitHub site**](https://github.com/walkccc).
 
 Updated to this new site on April 13, 2018 at 04:48 [(GMT+8)](https://time.is/GMT+8).
