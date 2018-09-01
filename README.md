@@ -6,11 +6,11 @@ This [website](https://walkccc.github.io/CLRS/) contains nearly complete solutio
 
 Hope to *re-sort* solutions to help more people and myself study algorithms. By using [Markdown(.md)](https://en.wikipedia.org/wiki/Markdown) files, it's much more readable on portable devices now.
 
-Many a little makes a mickle.
+*"Many a little makes a mickle."*
 
 Thanks to: the Instructor's Manual by [Thomas H. Cormen](https://mitpress.mit.edu/contributors/thomas-h-cormen), [@skanev](https://github.com/skanev), [@cyberzhg](https://github.com/CyberZHG), [@yinyanghu](https://github.com/yinyanghu), @ajl213, etc.
 
-Please don't hesitate to give me your feedback if any adjustment is needed with the sorted-solutions. You can simply press the "Pencil icon" in the upper right corner to edit the contents or simply [open an issue](https://github.com/walkccc/CLRS/issues/new) in [my repository](https://github.com/walkccc/CLRS/).
+Please don't hesitate to give me your feedback if any adjustment is needed with the sorted solutions. You can simply press the "Pencil icon" in the upper right corner to edit the contents or simply [open an issue](https://github.com/walkccc/CLRS/issues/new) in [my repository](https://github.com/walkccc/CLRS/).
 
 ## Known Issues
 
