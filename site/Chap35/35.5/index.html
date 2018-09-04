@@ -1,0 +1,5214 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Solutions to Introduction to Algorithms Third Edition. CLRS Solutions. The textbook that a Computer Science(CS) student must read.">
+      
+      
+        <link rel="canonical" href="https://walkccc.github.io/CLRS/Chap35/35.5/">
+      
+      
+        <meta name="author" content="Jay Chen">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.3, mkdocs-material-3.0.4">
+    
+    
+      
+        <title>35.5 - CLRS Solutions</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.451f80e5.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#009688">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+      <link rel="stylesheet" href="../../css/style.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="teal" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://walkccc.github.io/CLRS" title="CLRS Solutions" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">import_contacts</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                CLRS Solutions
+              </span>
+              <span class="md-header-nav__topic">
+                35.5
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/walkccc/CLRS/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      walkccc/CLRS
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://walkccc.github.io/CLRS" title="CLRS Solutions" class="md-nav__button md-logo">
+      
+        <i class="md-icon">import_contacts</i>
+      
+    </a>
+    CLRS Solutions
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/walkccc/CLRS/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      walkccc/CLRS
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Preface" class="md-nav__link">
+      Preface
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../color/" title="Color" class="md-nav__link">
+      Color
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      I Foundations
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        I Foundations
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      1 The Role of Algorithms in Computing
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        1 The Role of Algorithms in Computing
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap01/1.1/" title="1.1 Algorithms" class="md-nav__link">
+      1.1 Algorithms
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap01/1.2/" title="1.2 Algorithms as a technology" class="md-nav__link">
+      1.2 Algorithms as a technology
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1-3" type="checkbox" id="nav-3-1-3">
+    
+    <label class="md-nav__link" for="nav-3-1-3">
+      Chap 1 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-1-3">
+        Chap 1 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap01/Problems/1-1/" title="Problem 1-1" class="md-nav__link">
+      Problem 1-1
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      2 Getting Started
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        2 Getting Started
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap02/2.1/" title="2.1 Insertion sort" class="md-nav__link">
+      2.1 Insertion sort
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap02/2.2/" title="2.2 Analyzing algorithms" class="md-nav__link">
+      2.2 Analyzing algorithms
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap02/2.3/" title="2.3 Designing algorithms" class="md-nav__link">
+      2.3 Designing algorithms
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-4" type="checkbox" id="nav-3-2-4">
+    
+    <label class="md-nav__link" for="nav-3-2-4">
+      Chap 2 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2-4">
+        Chap 2 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap02/Problems/2-1/" title="2-1 Insertion sort on small arrays in merge sort" class="md-nav__link">
+      2-1 Insertion sort on small arrays in merge sort
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap02/Problems/2-2/" title="2-2 Correctness of bubblesort" class="md-nav__link">
+      2-2 Correctness of bubblesort
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap02/Problems/2-3/" title="2-3 Correctness of Horner's rule" class="md-nav__link">
+      2-3 Correctness of Horner's rule
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap02/Problems/2-4/" title="2-4 Inversions" class="md-nav__link">
+      2-4 Inversions
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      3 Growth of Functions
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        3 Growth of Functions
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap03/3.1/" title="3.1 Asymptotic notation" class="md-nav__link">
+      3.1 Asymptotic notation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap03/3.2/" title="3.2 Standard notations and common functions" class="md-nav__link">
+      3.2 Standard notations and common functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3-3" type="checkbox" id="nav-3-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3-3">
+      Chap 3 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-3-3">
+        Chap 3 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap03/Problems/3-1/" title="3-1 Asymptotic behavior of polynomials" class="md-nav__link">
+      3-1 Asymptotic behavior of polynomials
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap03/Problems/3-2/" title="3-2 Relative asymptotic growths" class="md-nav__link">
+      3-2 Relative asymptotic growths
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap03/Problems/3-3/" title="3-3 Ordering by asymptotic growth rates" class="md-nav__link">
+      3-3 Ordering by asymptotic growth rates
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap03/Problems/3-4/" title="3-4 Asymptotic notation properties" class="md-nav__link">
+      3-4 Asymptotic notation properties
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap03/Problems/3-5/" title="3-5 Variations on $O$ and $\Omega$" class="md-nav__link">
+      3-5 Variations on $O$ and $\Omega$
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap03/Problems/3-6/" title="3-6 Iterated functions" class="md-nav__link">
+      3-6 Iterated functions
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+    
+    <label class="md-nav__link" for="nav-3-4">
+      4 Divide-and-Conquer
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        4 Divide-and-Conquer
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap04/4.1/" title="4.1 The maximum-subarray problem" class="md-nav__link">
+      4.1 The maximum-subarray problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap04/4.2/" title="4.2 Strassen's algorithm for matrix multiplication" class="md-nav__link">
+      4.2 Strassen's algorithm for matrix multiplication
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap04/4.3/" title="4.3 The substitution method for solving recurrences" class="md-nav__link">
+      4.3 The substitution method for solving recurrences
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap04/4.4/" title="4.4 The recursion-tree method for solving recurrences" class="md-nav__link">
+      4.4 The recursion-tree method for solving recurrences
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap04/4.5/" title="4.5 The master method for solving recurrences" class="md-nav__link">
+      4.5 The master method for solving recurrences
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap04/4.6/" title="4.6 Proof of the master theorem" class="md-nav__link">
+      4.6 Proof of the master theorem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4-7" type="checkbox" id="nav-3-4-7">
+    
+    <label class="md-nav__link" for="nav-3-4-7">
+      Chap 4 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-4-7">
+        Chap 4 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap04/Problems/4-1/" title="4-1 Recurrence examples" class="md-nav__link">
+      4-1 Recurrence examples
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap04/Problems/4-2/" title="4-2 Parameter-passing costs" class="md-nav__link">
+      4-2 Parameter-passing costs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap04/Problems/4-3/" title="4-3 More recurrence examples" class="md-nav__link">
+      4-3 More recurrence examples
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap04/Problems/4-4/" title="4-4 Fibonacci numbers" class="md-nav__link">
+      4-4 Fibonacci numbers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap04/Problems/4-5/" title="4-5 Chip testing" class="md-nav__link">
+      4-5 Chip testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap04/Problems/4-6/" title="4-6 Monge arrays" class="md-nav__link">
+      4-6 Monge arrays
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5">
+    
+    <label class="md-nav__link" for="nav-3-5">
+      5 Probabilistic Analysis and Randomized Algorithms
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-5">
+        5 Probabilistic Analysis and Randomized Algorithms
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap05/5.1/" title="5.1 The hiring problem" class="md-nav__link">
+      5.1 The hiring problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap05/5.2/" title="5.2 Indicator random variables" class="md-nav__link">
+      5.2 Indicator random variables
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap05/5.3/" title="5.3 Randomized algorithms" class="md-nav__link">
+      5.3 Randomized algorithms
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap05/5.4/" title="5.4 Probabilistic analysis and further uses of indicator random variables" class="md-nav__link">
+      5.4 Probabilistic analysis and further uses of indicator random variables
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-5" type="checkbox" id="nav-3-5-5">
+    
+    <label class="md-nav__link" for="nav-3-5-5">
+      Chap 5 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-5-5">
+        Chap 5 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap05/Problems/5-1/" title="5-1 Probabilstic counting" class="md-nav__link">
+      5-1 Probabilstic counting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap05/Problems/5-2/" title="5-2 Searching an unsorted array" class="md-nav__link">
+      5-2 Searching an unsorted array
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      II Sorting and Order Statistics
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        II Sorting and Order Statistics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+    
+    <label class="md-nav__link" for="nav-4-1">
+      6 Heapsort
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        6 Heapsort
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap06/6.1/" title="6.1 Heaps" class="md-nav__link">
+      6.1 Heaps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap06/6.2/" title="6.2 Maintaining the heap property" class="md-nav__link">
+      6.2 Maintaining the heap property
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap06/6.3/" title="6.3 Building a heap" class="md-nav__link">
+      6.3 Building a heap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap06/6.4/" title="6.4 The heapsort algorithm" class="md-nav__link">
+      6.4 The heapsort algorithm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap06/6.5/" title="6.5 Priority queues" class="md-nav__link">
+      6.5 Priority queues
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1-6" type="checkbox" id="nav-4-1-6">
+    
+    <label class="md-nav__link" for="nav-4-1-6">
+      Chap 6 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-1-6">
+        Chap 6 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap06/Problems/6-1/" title="6-1 Building a heap using insertion" class="md-nav__link">
+      6-1 Building a heap using insertion
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap06/Problems/6-2/" title="6-2 Analysis of dd-ary heaps" class="md-nav__link">
+      6-2 Analysis of dd-ary heaps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap06/Problems/6-3/" title="6-3 Young tableaus" class="md-nav__link">
+      6-3 Young tableaus
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
+    
+    <label class="md-nav__link" for="nav-4-2">
+      7 Quicksort
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-2">
+        7 Quicksort
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap07/7.1/" title="7.1 Description of quicksort" class="md-nav__link">
+      7.1 Description of quicksort
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap07/7.2/" title="7.2 Performance of quicksort" class="md-nav__link">
+      7.2 Performance of quicksort
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap07/7.3/" title="7.3 A randomized version of quicksort" class="md-nav__link">
+      7.3 A randomized version of quicksort
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap07/7.4/" title="7.4 Analysis of quicksort" class="md-nav__link">
+      7.4 Analysis of quicksort
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2-5" type="checkbox" id="nav-4-2-5">
+    
+    <label class="md-nav__link" for="nav-4-2-5">
+      Chap 7 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-2-5">
+        Chap 7 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap07/Problems/7-1/" title="7-1 Hoare partition correctness" class="md-nav__link">
+      7-1 Hoare partition correctness
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap07/Problems/7-2/" title="7-2 Quicksort with equal element values" class="md-nav__link">
+      7-2 Quicksort with equal element values
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap07/Problems/7-3/" title="7-3 Alternative quicksort analysis" class="md-nav__link">
+      7-3 Alternative quicksort analysis
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap07/Problems/7-4/" title="7-4 Stack depth for quicksort" class="md-nav__link">
+      7-4 Stack depth for quicksort
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap07/Problems/7-5/" title="7-5 Median-of-3 partition" class="md-nav__link">
+      7-5 Median-of-3 partition
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap07/Problems/7-6/" title="7-6 Fuzzy sorting of intervals" class="md-nav__link">
+      7-6 Fuzzy sorting of intervals
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3">
+    
+    <label class="md-nav__link" for="nav-4-3">
+      8 Sorting in Linear Time
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-3">
+        8 Sorting in Linear Time
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap08/8.1/" title="8.1 Lower bounds for sorting" class="md-nav__link">
+      8.1 Lower bounds for sorting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap08/8.2/" title="8.2 Counting sort" class="md-nav__link">
+      8.2 Counting sort
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap08/8.3/" title="8.3 Radix sort" class="md-nav__link">
+      8.3 Radix sort
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap08/8.4/" title="8.4 Bucket sort" class="md-nav__link">
+      8.4 Bucket sort
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-5" type="checkbox" id="nav-4-3-5">
+    
+    <label class="md-nav__link" for="nav-4-3-5">
+      Chap 8 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-3-5">
+        Chap 8 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap08/Problems/8-1/" title="8-1 Probabilistic lower bounds on comparison sorting" class="md-nav__link">
+      8-1 Probabilistic lower bounds on comparison sorting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap08/Problems/8-2/" title="8-2 Sorting in place in linear time" class="md-nav__link">
+      8-2 Sorting in place in linear time
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap08/Problems/8-3/" title="8-3 Sorting variable-length items" class="md-nav__link">
+      8-3 Sorting variable-length items
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap08/Problems/8-4/" title="8-4 Water jugs" class="md-nav__link">
+      8-4 Water jugs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap08/Problems/8-5/" title="8-5 Average sorting" class="md-nav__link">
+      8-5 Average sorting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap08/Problems/8-6/" title="8-6 Lower bound on merging sorted lists" class="md-nav__link">
+      8-6 Lower bound on merging sorted lists
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap08/Problems/8-7/" title="8-7 The $0$-$1$ sorting lemma and columnsort" class="md-nav__link">
+      8-7 The $0$-$1$ sorting lemma and columnsort
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4" type="checkbox" id="nav-4-4">
+    
+    <label class="md-nav__link" for="nav-4-4">
+      9 Medians and Order Statistics
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-4">
+        9 Medians and Order Statistics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap09/9.1/" title="9.1 Minimum and maximum" class="md-nav__link">
+      9.1 Minimum and maximum
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap09/9.2/" title="9.2 Selection in expected linear time" class="md-nav__link">
+      9.2 Selection in expected linear time
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap09/9.3/" title="9.3 Selection in worst-case linear time" class="md-nav__link">
+      9.3 Selection in worst-case linear time
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4-4" type="checkbox" id="nav-4-4-4">
+    
+    <label class="md-nav__link" for="nav-4-4-4">
+      Chap 9 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-4-4">
+        Chap 9 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap09/Problems/9-1/" title="9-1 Largest ii numbers in sorted order" class="md-nav__link">
+      9-1 Largest ii numbers in sorted order
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap09/Problems/9-2/" title="9-2 Weighted median" class="md-nav__link">
+      9-2 Weighted median
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap09/Problems/9-3/" title="9-3 Small order statistics" class="md-nav__link">
+      9-3 Small order statistics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap09/Problems/9-4/" title="9-4 Alternative analysis of randomized selection" class="md-nav__link">
+      9-4 Alternative analysis of randomized selection
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      III Data Structures
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        III Data Structures
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-1" type="checkbox" id="nav-5-1">
+    
+    <label class="md-nav__link" for="nav-5-1">
+      10 Elementary Data Structures
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-1">
+        10 Elementary Data Structures
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap10/10.1/" title="10.1 Stacks and queues" class="md-nav__link">
+      10.1 Stacks and queues
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap10/10.2/" title="10.2 Linked lists" class="md-nav__link">
+      10.2 Linked lists
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap10/10.3/" title="10.3 Implementing pointers and objects" class="md-nav__link">
+      10.3 Implementing pointers and objects
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap10/10.4/" title="10.4 Representing rooted trees" class="md-nav__link">
+      10.4 Representing rooted trees
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-1-5" type="checkbox" id="nav-5-1-5">
+    
+    <label class="md-nav__link" for="nav-5-1-5">
+      Chap 10 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-1-5">
+        Chap 10 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap10/Problems/10-1/" title="10-1 Comparisons among lists" class="md-nav__link">
+      10-1 Comparisons among lists
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap10/Problems/10-2/" title="10-2 Mergeable heaps using linked lists" class="md-nav__link">
+      10-2 Mergeable heaps using linked lists
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap10/Problems/10-3/" title="10-3 Searching a sorted compact list" class="md-nav__link">
+      10-3 Searching a sorted compact list
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2">
+    
+    <label class="md-nav__link" for="nav-5-2">
+      11 Hash Tables
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-2">
+        11 Hash Tables
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap11/11.1/" title="11.1 Direct-address tables" class="md-nav__link">
+      11.1 Direct-address tables
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap11/11.2/" title="11.2 Hash tables" class="md-nav__link">
+      11.2 Hash tables
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap11/11.3/" title="11.3 Hash functions" class="md-nav__link">
+      11.3 Hash functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap11/11.4/" title="11.4 Open addressing" class="md-nav__link">
+      11.4 Open addressing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap11/11.5/" title="11.5 Perfect hashing" class="md-nav__link">
+      11.5 Perfect hashing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-2-6" type="checkbox" id="nav-5-2-6">
+    
+    <label class="md-nav__link" for="nav-5-2-6">
+      Chap 11 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-2-6">
+        Chap 11 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap11/Problems/11-1/" title="11-1 Longest-probe bound for hashing" class="md-nav__link">
+      11-1 Longest-probe bound for hashing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap11/Problems/11-2/" title="11-2 Slot-size bound for chaining" class="md-nav__link">
+      11-2 Slot-size bound for chaining
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap11/Problems/11-3/" title="11-3 Quadratic probing" class="md-nav__link">
+      11-3 Quadratic probing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap11/Problems/11-4/" title="11-4 Hashing and authentication" class="md-nav__link">
+      11-4 Hashing and authentication
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3" type="checkbox" id="nav-5-3">
+    
+    <label class="md-nav__link" for="nav-5-3">
+      12 Binary Search Trees
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-3">
+        12 Binary Search Trees
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap12/12.1/" title="12.1 What is a binary search tree?" class="md-nav__link">
+      12.1 What is a binary search tree?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap12/12.2/" title="12.2 Querying a binary search tree" class="md-nav__link">
+      12.2 Querying a binary search tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap12/12.3/" title="12.3 Insertion and deletion" class="md-nav__link">
+      12.3 Insertion and deletion
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap12/12.4/" title="12.4 Randomly built binary search trees" class="md-nav__link">
+      12.4 Randomly built binary search trees
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3-5" type="checkbox" id="nav-5-3-5">
+    
+    <label class="md-nav__link" for="nav-5-3-5">
+      Chap 12 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-3-5">
+        Chap 12 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap12/Problems/12-1/" title="12-1 Binary search trees with equal keys" class="md-nav__link">
+      12-1 Binary search trees with equal keys
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap12/Problems/12-2/" title="12-2 Radix trees" class="md-nav__link">
+      12-2 Radix trees
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap12/Problems/12-3/" title="12-3 Average node depth in a randomly built binary search tree" class="md-nav__link">
+      12-3 Average node depth in a randomly built binary search tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap12/Problems/12-4/" title="12-4 Number of different binary trees" class="md-nav__link">
+      12-4 Number of different binary trees
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-4" type="checkbox" id="nav-5-4">
+    
+    <label class="md-nav__link" for="nav-5-4">
+      13 Red-Black Trees
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-4">
+        13 Red-Black Trees
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap13/13.1/" title="13.1 Properties of red-black trees" class="md-nav__link">
+      13.1 Properties of red-black trees
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap13/13.2/" title="13.2 Rotations" class="md-nav__link">
+      13.2 Rotations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap13/13.3/" title="13.3 Insertion" class="md-nav__link">
+      13.3 Insertion
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap13/13.4/" title="13.4 Deletion" class="md-nav__link">
+      13.4 Deletion
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-4-5" type="checkbox" id="nav-5-4-5">
+    
+    <label class="md-nav__link" for="nav-5-4-5">
+      Chap 13 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-4-5">
+        Chap 13 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap13/Problems/13-1/" title="13-1 Persistent dynamic sets" class="md-nav__link">
+      13-1 Persistent dynamic sets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap13/Problems/13-2/" title="13-2 Join operation on red-black trees" class="md-nav__link">
+      13-2 Join operation on red-black trees
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap13/Problems/13-3/" title="13-3 AVL trees" class="md-nav__link">
+      13-3 AVL trees
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap13/Problems/13-4/" title="13-4 Treaps" class="md-nav__link">
+      13-4 Treaps
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-5" type="checkbox" id="nav-5-5">
+    
+    <label class="md-nav__link" for="nav-5-5">
+      14 Augmenting Data Structures
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-5">
+        14 Augmenting Data Structures
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap14/14.1/" title="14.1 Dynamic order statistics" class="md-nav__link">
+      14.1 Dynamic order statistics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap14/14.2/" title="14.2 How to augment a data structure" class="md-nav__link">
+      14.2 How to augment a data structure
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap14/14.3/" title="14.3 Interval trees" class="md-nav__link">
+      14.3 Interval trees
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-5-4" type="checkbox" id="nav-5-5-4">
+    
+    <label class="md-nav__link" for="nav-5-5-4">
+      Chap 14 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-5-4">
+        Chap 14 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap14/Problems/14-1/" title="14-1 Point of maximum overlap" class="md-nav__link">
+      14-1 Point of maximum overlap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap14/Problems/14-2/" title="14-2 Josephus permutation" class="md-nav__link">
+      14-2 Josephus permutation
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      IV Advanced Design and Analysis Techniques
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        IV Advanced Design and Analysis Techniques
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-1" type="checkbox" id="nav-6-1">
+    
+    <label class="md-nav__link" for="nav-6-1">
+      15 Dynamic Programming
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-1">
+        15 Dynamic Programming
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap15/15.1/" title="15.1 Rod cutting" class="md-nav__link">
+      15.1 Rod cutting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap15/15.2/" title="15.2 Matrix-chain multiplication" class="md-nav__link">
+      15.2 Matrix-chain multiplication
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap15/15.3/" title="15.3 Elements of dynamic programming" class="md-nav__link">
+      15.3 Elements of dynamic programming
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap15/15.4/" title="15.4 Longest common subsequence" class="md-nav__link">
+      15.4 Longest common subsequence
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap15/15.5/" title="15.5 Optimal binary search trees" class="md-nav__link">
+      15.5 Optimal binary search trees
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-1-6" type="checkbox" id="nav-6-1-6">
+    
+    <label class="md-nav__link" for="nav-6-1-6">
+      Chap 15 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-1-6">
+        Chap 15 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap15/Problems/15-1/" title="15-1 Longest simple path in a directed acyclic graph" class="md-nav__link">
+      15-1 Longest simple path in a directed acyclic graph
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap15/Problems/15-2/" title="15-2 Longest palindrome subsequence" class="md-nav__link">
+      15-2 Longest palindrome subsequence
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap15/Problems/15-3/" title="15-3 Bitonic euclidean" class="md-nav__link">
+      15-3 Bitonic euclidean
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap15/Problems/15-4/" title="15-4 Printing neatly" class="md-nav__link">
+      15-4 Printing neatly
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap15/Problems/15-5/" title="15-5 Edit distance" class="md-nav__link">
+      15-5 Edit distance
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap15/Problems/15-6/" title="15-6 Planning a company party" class="md-nav__link">
+      15-6 Planning a company party
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap15/Problems/15-7/" title="15-7 Viterbi algorithm" class="md-nav__link">
+      15-7 Viterbi algorithm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap15/Problems/15-8/" title="15-8 Image compression by seam carving" class="md-nav__link">
+      15-8 Image compression by seam carving
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap15/Problems/15-9/" title="15-9 Breaking a string" class="md-nav__link">
+      15-9 Breaking a string
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap15/Problems/15-10/" title="15-10 Planning an investment strategy" class="md-nav__link">
+      15-10 Planning an investment strategy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap15/Problems/15-11/" title="15-11 Inventory planning" class="md-nav__link">
+      15-11 Inventory planning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap15/Problems/15-12/" title="15-12 Signing free-agent baseball players" class="md-nav__link">
+      15-12 Signing free-agent baseball players
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-2" type="checkbox" id="nav-6-2">
+    
+    <label class="md-nav__link" for="nav-6-2">
+      16 Greedy Algorithms
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-2">
+        16 Greedy Algorithms
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap16/16.1/" title="16.1 An activity-selection problem" class="md-nav__link">
+      16.1 An activity-selection problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap16/16.2/" title="16.2 Elements of the greedy strategy" class="md-nav__link">
+      16.2 Elements of the greedy strategy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap16/16.3/" title="16.3 Huffman codes" class="md-nav__link">
+      16.3 Huffman codes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap16/16.4/" title="16.4 Matroids and greedy methods" class="md-nav__link">
+      16.4 Matroids and greedy methods
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap16/16.5/" title="16.5 A task-scheduling problem as a matroid" class="md-nav__link">
+      16.5 A task-scheduling problem as a matroid
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-2-6" type="checkbox" id="nav-6-2-6">
+    
+    <label class="md-nav__link" for="nav-6-2-6">
+      Chap 16 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-2-6">
+        Chap 16 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap16/Problems/16-1/" title="16-1 Coin changing" class="md-nav__link">
+      16-1 Coin changing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap16/Problems/16-2/" title="16-2 Scheduling to minimize average completion time" class="md-nav__link">
+      16-2 Scheduling to minimize average completion time
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap16/Problems/16-3/" title="16-3 Acyclic subgraphs" class="md-nav__link">
+      16-3 Acyclic subgraphs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap16/Problems/16-4/" title="16-4 Scheduling variations" class="md-nav__link">
+      16-4 Scheduling variations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap16/Problems/16-5/" title="16-5 Off-line caching" class="md-nav__link">
+      16-5 Off-line caching
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3" type="checkbox" id="nav-6-3">
+    
+    <label class="md-nav__link" for="nav-6-3">
+      17 Amortized Analysis
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-3">
+        17 Amortized Analysis
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap17/17.1/" title="17.1 Aggregate analysis" class="md-nav__link">
+      17.1 Aggregate analysis
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap17/17.2/" title="17.2 The accounting method" class="md-nav__link">
+      17.2 The accounting method
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap17/17.3/" title="17.3 The potential method" class="md-nav__link">
+      17.3 The potential method
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap17/17.4/" title="17.4 Dynamic tables" class="md-nav__link">
+      17.4 Dynamic tables
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-5" type="checkbox" id="nav-6-3-5">
+    
+    <label class="md-nav__link" for="nav-6-3-5">
+      Chap 17 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-3-5">
+        Chap 17 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap17/Problems/17-1/" title="17-1 Bit-reversed binary counter" class="md-nav__link">
+      17-1 Bit-reversed binary counter
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap17/Problems/17-2/" title="17-2 Making binary search dynamic" class="md-nav__link">
+      17-2 Making binary search dynamic
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap17/Problems/17-3/" title="17-3 Amortized weight-balanced trees" class="md-nav__link">
+      17-3 Amortized weight-balanced trees
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap17/Problems/17-4/" title="17-4 The cost of restructuring red-black trees" class="md-nav__link">
+      17-4 The cost of restructuring red-black trees
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap17/Problems/17-5/" title="17-5 Competitive analysis of self-organizing lists with move-to-front" class="md-nav__link">
+      17-5 Competitive analysis of self-organizing lists with move-to-front
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      V Advanced Data Structures
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        V Advanced Data Structures
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-1" type="checkbox" id="nav-7-1">
+    
+    <label class="md-nav__link" for="nav-7-1">
+      18 B-Trees
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-1">
+        18 B-Trees
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap18/18.1/" title="18.1 Definition of B-trees" class="md-nav__link">
+      18.1 Definition of B-trees
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap18/18.2/" title="18.2 Basic operations on B-trees" class="md-nav__link">
+      18.2 Basic operations on B-trees
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap18/18.3/" title="18.3 Deleting a key from a B-tree" class="md-nav__link">
+      18.3 Deleting a key from a B-tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-1-4" type="checkbox" id="nav-7-1-4">
+    
+    <label class="md-nav__link" for="nav-7-1-4">
+      Chap 18 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-7-1-4">
+        Chap 18 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap18/Problems/18-1/" title="18-1 Stacks on secondary storage" class="md-nav__link">
+      18-1 Stacks on secondary storage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap18/Problems/18-2/" title="18-2 Joining and splitting 2-3-4 trees" class="md-nav__link">
+      18-2 Joining and splitting 2-3-4 trees
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
+    
+    <label class="md-nav__link" for="nav-7-2">
+      19 Fibonacci Heaps
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-2">
+        19 Fibonacci Heaps
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap19/19.1/" title="19.1 Structure of Fibonacci heaps" class="md-nav__link">
+      19.1 Structure of Fibonacci heaps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap19/19.2/" title="19.2 Mergeable-heap operations" class="md-nav__link">
+      19.2 Mergeable-heap operations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap19/19.3/" title="19.3 Decreasing a key and deleting a node" class="md-nav__link">
+      19.3 Decreasing a key and deleting a node
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap19/19.4/" title="19.4 Bounding the maximum degree" class="md-nav__link">
+      19.4 Bounding the maximum degree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2-5" type="checkbox" id="nav-7-2-5">
+    
+    <label class="md-nav__link" for="nav-7-2-5">
+      Chap 19 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-7-2-5">
+        Chap 19 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap19/Problems/19-1/" title="19-1 Alternative implementation of deletion" class="md-nav__link">
+      19-1 Alternative implementation of deletion
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap19/Problems/19-2/" title="19-2 Binomial trees and binomial heaps" class="md-nav__link">
+      19-2 Binomial trees and binomial heaps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap19/Problems/19-3/" title="19-3 More Fibonacci-heap operations" class="md-nav__link">
+      19-3 More Fibonacci-heap operations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap19/Problems/19-4/" title="19-4 2-3-4 heaps" class="md-nav__link">
+      19-4 2-3-4 heaps
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
+    
+    <label class="md-nav__link" for="nav-7-3">
+      20 van Emde Boas Trees
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-3">
+        20 van Emde Boas Trees
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap20/20.1/" title="20.1 Preliminary approaches" class="md-nav__link">
+      20.1 Preliminary approaches
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap20/20.2/" title="20.2 A recursive structure" class="md-nav__link">
+      20.2 A recursive structure
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap20/20.3/" title="20.3 The van Emde Boas tree" class="md-nav__link">
+      20.3 The van Emde Boas tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3-4" type="checkbox" id="nav-7-3-4">
+    
+    <label class="md-nav__link" for="nav-7-3-4">
+      Chap 20 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-7-3-4">
+        Chap 20 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap20/Problems/20-1/" title="20-1 Space requirements for van Emde Boas trees" class="md-nav__link">
+      20-1 Space requirements for van Emde Boas trees
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap20/Problems/20-2/" title="20-2 $y$-fast tries" class="md-nav__link">
+      20-2 $y$-fast tries
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-4" type="checkbox" id="nav-7-4">
+    
+    <label class="md-nav__link" for="nav-7-4">
+      21 Data Structures for Disjoint Sets
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-4">
+        21 Data Structures for Disjoint Sets
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap21/21.1/" title="21.1 Disjoint-set operations" class="md-nav__link">
+      21.1 Disjoint-set operations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap21/21.2/" title="21.2 Linked-list representation of disjoint sets" class="md-nav__link">
+      21.2 Linked-list representation of disjoint sets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap21/21.3/" title="21.3 Disjoint-set forests" class="md-nav__link">
+      21.3 Disjoint-set forests
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap21/21.4/" title="21.4 Analysis of union by rank with path compression" class="md-nav__link">
+      21.4 Analysis of union by rank with path compression
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-4-5" type="checkbox" id="nav-7-4-5">
+    
+    <label class="md-nav__link" for="nav-7-4-5">
+      Chap 21 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-7-4-5">
+        Chap 21 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap21/Problems/21-1/" title="21-1 Off-line minimum" class="md-nav__link">
+      21-1 Off-line minimum
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap21/Problems/21-2/" title="21-2 Depth determination" class="md-nav__link">
+      21-2 Depth determination
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap21/Problems/21-3/" title="21-3 Tarjan's off-line least-common-ancestors algorithm" class="md-nav__link">
+      21-3 Tarjan's off-line least-common-ancestors algorithm
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      VI Graph Algorithms
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        VI Graph Algorithms
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-1" type="checkbox" id="nav-8-1">
+    
+    <label class="md-nav__link" for="nav-8-1">
+      22 Elementary Graph Algorithms
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-1">
+        22 Elementary Graph Algorithms
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/22.1/" title="22.1 Representations of graphs" class="md-nav__link">
+      22.1 Representations of graphs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/22.2/" title="22.2 Breadth-first search" class="md-nav__link">
+      22.2 Breadth-first search
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/22.3/" title="22.3 Depth-first search" class="md-nav__link">
+      22.3 Depth-first search
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/22.4/" title="22.4 Topological sort" class="md-nav__link">
+      22.4 Topological sort
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/22.5/" title="22.5 Strongly connected components" class="md-nav__link">
+      22.5 Strongly connected components
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-1-6" type="checkbox" id="nav-8-1-6">
+    
+    <label class="md-nav__link" for="nav-8-1-6">
+      Chap 22 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-8-1-6">
+        Chap 22 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/Problems/22-1/" title="22-1 Classifying edges by breadth-first search" class="md-nav__link">
+      22-1 Classifying edges by breadth-first search
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/Problems/22-2/" title="22-2 Articulation points, bridges, and biconnected components" class="md-nav__link">
+      22-2 Articulation points, bridges, and biconnected components
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/Problems/22-3/" title="22-3 Euler tour" class="md-nav__link">
+      22-3 Euler tour
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap22/Problems/22-4/" title="22-4 Reachability" class="md-nav__link">
+      22-4 Reachability
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-2" type="checkbox" id="nav-8-2">
+    
+    <label class="md-nav__link" for="nav-8-2">
+      23 Minimum Spanning Trees
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-2">
+        23 Minimum Spanning Trees
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap23/23.1/" title="23.1 Growing a minimum spanning tree" class="md-nav__link">
+      23.1 Growing a minimum spanning tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap23/23.2/" title="23.2 The algorithms of Kruskal and Prim" class="md-nav__link">
+      23.2 The algorithms of Kruskal and Prim
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-2-3" type="checkbox" id="nav-8-2-3">
+    
+    <label class="md-nav__link" for="nav-8-2-3">
+      Chap 23 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-8-2-3">
+        Chap 23 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap23/Problems/23-1/" title="23-1 Second-best minimum spanning tree" class="md-nav__link">
+      23-1 Second-best minimum spanning tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap23/Problems/23-2/" title="23-2 Minimum spanning tree in sparse graphs" class="md-nav__link">
+      23-2 Minimum spanning tree in sparse graphs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap23/Problems/23-3/" title="23-3 Bottleneck spanning tree" class="md-nav__link">
+      23-3 Bottleneck spanning tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap23/Problems/23-4/" title="23-4 Alternative minimum-spanning-tree algorithms" class="md-nav__link">
+      23-4 Alternative minimum-spanning-tree algorithms
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-3" type="checkbox" id="nav-8-3">
+    
+    <label class="md-nav__link" for="nav-8-3">
+      24 Single-Source Shortest Paths
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-3">
+        24 Single-Source Shortest Paths
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap24/24.1/" title="24.1 The Bellman-Ford algorithm" class="md-nav__link">
+      24.1 The Bellman-Ford algorithm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap24/24.2/" title="24.2 Single-source shortest paths in directed acyclic graphs" class="md-nav__link">
+      24.2 Single-source shortest paths in directed acyclic graphs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap24/24.3/" title="24.3 Dijkstra's algorithm" class="md-nav__link">
+      24.3 Dijkstra's algorithm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap24/24.4/" title="24.4 Difference constraints and shortest paths" class="md-nav__link">
+      24.4 Difference constraints and shortest paths
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap24/24.5/" title="24.5 Proofs of shortest-paths properties" class="md-nav__link">
+      24.5 Proofs of shortest-paths properties
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-3-6" type="checkbox" id="nav-8-3-6">
+    
+    <label class="md-nav__link" for="nav-8-3-6">
+      Chap 24 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-8-3-6">
+        Chap 24 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap24/Problems/24-1/" title="24-1 Yen's improvement to Bellman-Ford" class="md-nav__link">
+      24-1 Yen's improvement to Bellman-Ford
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap24/Problems/24-2/" title="24-2 Nesting boxes" class="md-nav__link">
+      24-2 Nesting boxes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap24/Problems/24-3/" title="24-3 Arbitrage" class="md-nav__link">
+      24-3 Arbitrage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap24/Problems/24-4/" title="24-4 Gabow's scaling algorithm for single-source shortest paths" class="md-nav__link">
+      24-4 Gabow's scaling algorithm for single-source shortest paths
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap24/Problems/24-5/" title="24-5 Karp's minimum mean-weight cycle algorithm" class="md-nav__link">
+      24-5 Karp's minimum mean-weight cycle algorithm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap24/Problems/24-6/" title="24-6 Bitonic shortest paths" class="md-nav__link">
+      24-6 Bitonic shortest paths
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-4" type="checkbox" id="nav-8-4">
+    
+    <label class="md-nav__link" for="nav-8-4">
+      25 All-Pairs Shortest Paths
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-4">
+        25 All-Pairs Shortest Paths
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap25/25.1/" title="25.1 Shortest paths and matrix multiplication" class="md-nav__link">
+      25.1 Shortest paths and matrix multiplication
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap25/25.2/" title="25.2 The Floyd-Warshall algorithm" class="md-nav__link">
+      25.2 The Floyd-Warshall algorithm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap25/25.3/" title="25.3 Johnson's algorithm for sparse graphs" class="md-nav__link">
+      25.3 Johnson's algorithm for sparse graphs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-4-4" type="checkbox" id="nav-8-4-4">
+    
+    <label class="md-nav__link" for="nav-8-4-4">
+      Chap 25 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-8-4-4">
+        Chap 25 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap25/Problems/25-1/" title="25-1 Transitive closure of a dynamic graph" class="md-nav__link">
+      25-1 Transitive closure of a dynamic graph
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap25/Problems/25-2/" title="25-2 Shortest paths in epsilon-dense graphs" class="md-nav__link">
+      25-2 Shortest paths in epsilon-dense graphs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-5" type="checkbox" id="nav-8-5">
+    
+    <label class="md-nav__link" for="nav-8-5">
+      26 Maximum Flow
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-5">
+        26 Maximum Flow
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap26/26.1/" title="26.1 Flow networks" class="md-nav__link">
+      26.1 Flow networks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap26/26.2/" title="26.2 The Ford-Fulkerson method" class="md-nav__link">
+      26.2 The Ford-Fulkerson method
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap26/26.3/" title="26.3 Maximum bipartite matching" class="md-nav__link">
+      26.3 Maximum bipartite matching
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap26/26.4/" title="26.4 Push-relabel algorithms" class="md-nav__link">
+      26.4 Push-relabel algorithms
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap26/26.5/" title="26.5 The relabel-to-front algorithm" class="md-nav__link">
+      26.5 The relabel-to-front algorithm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-5-6" type="checkbox" id="nav-8-5-6">
+    
+    <label class="md-nav__link" for="nav-8-5-6">
+      Chap 26 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-8-5-6">
+        Chap 26 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap26/Problems/26-1/" title="26-1 Escape problem" class="md-nav__link">
+      26-1 Escape problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap26/Problems/26-2/" title="26-2 Minimum path cover" class="md-nav__link">
+      26-2 Minimum path cover
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap26/Problems/26-3/" title="26-3 Algorithmic consulting" class="md-nav__link">
+      26-3 Algorithmic consulting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap26/Problems/26-4/" title="26-4 Updating maximum flow" class="md-nav__link">
+      26-4 Updating maximum flow
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap26/Problems/26-5/" title="26-5 Maximum flow by scaling" class="md-nav__link">
+      26-5 Maximum flow by scaling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap26/Problems/26-6/" title="26-6 The Hopcroft-Karp bipartite matching algorithm" class="md-nav__link">
+      26-6 The Hopcroft-Karp bipartite matching algorithm
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      VII Selected Topics
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        VII Selected Topics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-1" type="checkbox" id="nav-9-1">
+    
+    <label class="md-nav__link" for="nav-9-1">
+      27 Multithreaded Algorithms
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-9-1">
+        27 Multithreaded Algorithms
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap27/27.1/" title="27.1 The basics of dynamic multithreading" class="md-nav__link">
+      27.1 The basics of dynamic multithreading
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap27/27.2/" title="27.2 Multithreaded matrix multiplication" class="md-nav__link">
+      27.2 Multithreaded matrix multiplication
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap27/27.3/" title="27.3 Multithreaded merge sort" class="md-nav__link">
+      27.3 Multithreaded merge sort
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-1-4" type="checkbox" id="nav-9-1-4">
+    
+    <label class="md-nav__link" for="nav-9-1-4">
+      Chap 27 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-9-1-4">
+        Chap 27 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap27/Problems/27-1/" title="27-1 Implementing parallel loops using nested parallelism" class="md-nav__link">
+      27-1 Implementing parallel loops using nested parallelism
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap27/Problems/27-2/" title="27-2 Saving temporary space in matrix multiplication" class="md-nav__link">
+      27-2 Saving temporary space in matrix multiplication
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap27/Problems/27-3/" title="27-3 Multithreaded matrix algorithms" class="md-nav__link">
+      27-3 Multithreaded matrix algorithms
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap27/Problems/27-4/" title="27-4 Multithreading reductions and prefix computations" class="md-nav__link">
+      27-4 Multithreading reductions and prefix computations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap27/Problems/27-5/" title="27-5 Multithreading a simple stencil calculation" class="md-nav__link">
+      27-5 Multithreading a simple stencil calculation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap27/Problems/27-6/" title="27-6 Randomized multithreaded algorithms" class="md-nav__link">
+      27-6 Randomized multithreaded algorithms
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-2" type="checkbox" id="nav-9-2">
+    
+    <label class="md-nav__link" for="nav-9-2">
+      28 Matrix Operations
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-9-2">
+        28 Matrix Operations
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap28/28.1/" title="28.1 Solving systems of linear equations" class="md-nav__link">
+      28.1 Solving systems of linear equations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap28/28.2/" title="28.2 Inverting matrices" class="md-nav__link">
+      28.2 Inverting matrices
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap28/28.3/" title="28.3 Symmetric positive-definite matrices and least-squares approximation" class="md-nav__link">
+      28.3 Symmetric positive-definite matrices and least-squares approximation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-2-4" type="checkbox" id="nav-9-2-4">
+    
+    <label class="md-nav__link" for="nav-9-2-4">
+      Chap 28 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-9-2-4">
+        Chap 28 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap28/Problems/28-1/" title="28-1 Tridiagonal systems of linear equations" class="md-nav__link">
+      28-1 Tridiagonal systems of linear equations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap28/Problems/28-2/" title="28-2 Splines" class="md-nav__link">
+      28-2 Splines
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-3" type="checkbox" id="nav-9-3">
+    
+    <label class="md-nav__link" for="nav-9-3">
+      29 Linear Programming
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-9-3">
+        29 Linear Programming
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap29/29.1/" title="29.1 Standard and slack forms" class="md-nav__link">
+      29.1 Standard and slack forms
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap29/29.2/" title="29.2 Formulating problems as linear programs" class="md-nav__link">
+      29.2 Formulating problems as linear programs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap29/29.3/" title="29.3 The simplex algorithm" class="md-nav__link">
+      29.3 The simplex algorithm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap29/29.4/" title="29.4 Duality" class="md-nav__link">
+      29.4 Duality
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap29/29.5/" title="29.5 The initial basic feasible solution" class="md-nav__link">
+      29.5 The initial basic feasible solution
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-3-6" type="checkbox" id="nav-9-3-6">
+    
+    <label class="md-nav__link" for="nav-9-3-6">
+      Chap 29 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-9-3-6">
+        Chap 29 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap29/Problems/29-1/" title="29-1 Linear-inequality feasibility" class="md-nav__link">
+      29-1 Linear-inequality feasibility
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap29/Problems/29-2/" title="29-2 Complementary slackness" class="md-nav__link">
+      29-2 Complementary slackness
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap29/Problems/29-3/" title="29-3 Integer linear programming" class="md-nav__link">
+      29-3 Integer linear programming
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap29/Problems/29-4/" title="29-4 Farkas'ss lemma" class="md-nav__link">
+      29-4 Farkas'ss lemma
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap29/Problems/29-5/" title="29-5 Minimum-cost circulation" class="md-nav__link">
+      29-5 Minimum-cost circulation
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-4" type="checkbox" id="nav-9-4">
+    
+    <label class="md-nav__link" for="nav-9-4">
+      30 Polynomials and the FFT
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-9-4">
+        30 Polynomials and the FFT
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap30/30.1/" title="30.1 Representing polynomials" class="md-nav__link">
+      30.1 Representing polynomials
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap30/30.2/" title="30.2 The DFT and FFT" class="md-nav__link">
+      30.2 The DFT and FFT
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap30/30.3/" title="30.3 Efficient FFT implementations" class="md-nav__link">
+      30.3 Efficient FFT implementations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-4-4" type="checkbox" id="nav-9-4-4">
+    
+    <label class="md-nav__link" for="nav-9-4-4">
+      Chap 30 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-9-4-4">
+        Chap 30 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap30/Problems/30-1/" title="30-1 Divide-and-conquer multiplication" class="md-nav__link">
+      30-1 Divide-and-conquer multiplication
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap30/Problems/30-2/" title="30-2 Toeplitz matrices" class="md-nav__link">
+      30-2 Toeplitz matrices
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap30/Problems/30-3/" title="30-3 Multidimensional fast Fourier transform" class="md-nav__link">
+      30-3 Multidimensional fast Fourier transform
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap30/Problems/30-4/" title="30-4 Evaluating all derivatives of a polynomial at a point" class="md-nav__link">
+      30-4 Evaluating all derivatives of a polynomial at a point
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap30/Problems/30-5/" title="30-5 Polynomial evaluation at multiple points" class="md-nav__link">
+      30-5 Polynomial evaluation at multiple points
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap30/Problems/30-6/" title="30-6 FFT using modular arithmetic" class="md-nav__link">
+      30-6 FFT using modular arithmetic
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-5" type="checkbox" id="nav-9-5">
+    
+    <label class="md-nav__link" for="nav-9-5">
+      31 Number-Theoretic Algorithms
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-9-5">
+        31 Number-Theoretic Algorithms
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap31/31.1/" title="31.1 Elementary number-theoretic notions" class="md-nav__link">
+      31.1 Elementary number-theoretic notions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap31/31.2/" title="31.2 Greatest common divisor" class="md-nav__link">
+      31.2 Greatest common divisor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap31/31.3/" title="31.3 Modular arithmetic" class="md-nav__link">
+      31.3 Modular arithmetic
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap31/31.4/" title="31.4 Solving modular linear equations" class="md-nav__link">
+      31.4 Solving modular linear equations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap31/31.5/" title="31.5 The Chinese remainder theorem" class="md-nav__link">
+      31.5 The Chinese remainder theorem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap31/31.6/" title="31.6 Powers of an element" class="md-nav__link">
+      31.6 Powers of an element
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap31/31.7/" title="31.7 The RSA public-key cryptosystem" class="md-nav__link">
+      31.7 The RSA public-key cryptosystem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap31/31.8/" title="31.8 Primality testing" class="md-nav__link">
+      31.8 Primality testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap31/31.9/" title="31.9 Integer factorization" class="md-nav__link">
+      31.9 Integer factorization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-5-10" type="checkbox" id="nav-9-5-10">
+    
+    <label class="md-nav__link" for="nav-9-5-10">
+      Chap 31 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-9-5-10">
+        Chap 31 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap31/Problems/31-1/" title="31-1 Binary gcd algorithm" class="md-nav__link">
+      31-1 Binary gcd algorithm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap31/Problems/31-2/" title="31-2 Analysis of bit operations in Euclid's algorithm" class="md-nav__link">
+      31-2 Analysis of bit operations in Euclid's algorithm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap31/Problems/31-3/" title="31-3 Three algorithms for Fibonacci numbers" class="md-nav__link">
+      31-3 Three algorithms for Fibonacci numbers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap31/Problems/31-4/" title="31-4 Quadratic residues" class="md-nav__link">
+      31-4 Quadratic residues
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-6" type="checkbox" id="nav-9-6">
+    
+    <label class="md-nav__link" for="nav-9-6">
+      32 String Matching
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-9-6">
+        32 String Matching
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap32/32.1/" title="32.1 The naive string-matching algorithm" class="md-nav__link">
+      32.1 The naive string-matching algorithm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap32/32.2/" title="32.2 The Rabin-Karp algorithm" class="md-nav__link">
+      32.2 The Rabin-Karp algorithm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap32/32.3/" title="32.3 String matching with finite automata" class="md-nav__link">
+      32.3 String matching with finite automata
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap32/32.4/" title="32.4 The Knuth-Morris-Pratt algorithm" class="md-nav__link">
+      32.4 The Knuth-Morris-Pratt algorithm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-6-5" type="checkbox" id="nav-9-6-5">
+    
+    <label class="md-nav__link" for="nav-9-6-5">
+      Chap 32 Problems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-9-6-5">
+        Chap 32 Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Chap32/Problems/32-1/" title="32-1 String matching based on repetition factors" class="md-nav__link">
+      32-1 String matching based on repetition factors
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/walkccc/CLRS/edit/master/docs/Chap35/35.5.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>35.5</h1>
+                
+                
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Built by <a href="http://github.com/walkccc">Jay Chen</a> &copy; 2017 - 2018
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/walkccc" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://walkccc.github.io/CS" class="md-footer-social__link fa fa-book"></a>
+    
+      <a href="https://walkccc.github.io/webapps" class="md-footer-social__link fa fa-gamepad"></a>
+    
+      <a href="https://www.linkedin.com/in/jay-chen-57852313a" class="md-footer-social__link fa fa-linkedin"></a>
+    
+      <a href="https://www.instagram.com/walkccc" class="md-footer-social__link fa fa-instagram"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.583bbe55.js"></script>
+      
+      <script>app.initialize({version:"1.0.3",url:{base:"../.."}})</script>
+      
+        <script src="../../js/mathjax.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+    
+      
+        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-117404761-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var a=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",a,e.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
+      
+    
+  </body>
+</html>
