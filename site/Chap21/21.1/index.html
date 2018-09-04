@@ -5247,17 +5247,17 @@
 \text{Edge processed} &amp; \\
 \hline
 initial &amp; \{a\}       &amp; \{b\}                   &amp; \{c\} &amp; \{d\}       &amp; \{e\} &amp; \{f\}    &amp; \{g\} &amp; \{h\} &amp; \{i\} &amp; \{j\} &amp; \{k\} \\
-(d, i)  &amp; \{a\}       &amp; \{b\}                   &amp; \{c\} &amp; \{d, i\}    &amp; \{e\} &amp; \{f\}    &amp; \{g\} &amp; \{h\} &amp;       &amp; \{j\} &amp; \{k\} \\
-(f, k)  &amp; \{a\}       &amp; \{b\}                   &amp; \{c\} &amp; \{d, i\}    &amp; \{e\} &amp; \{f, k\} &amp; \{g\} &amp; \{h\} &amp;       &amp; \{j\} &amp;       \\
-(g, i)  &amp; \{a\}       &amp; \{b\}                   &amp; \{c\} &amp; \{d, i, g\} &amp; \{e\} &amp; \{f, k\} &amp;       &amp; \{h\} &amp;       &amp; \{j\} &amp;       \\
-(b, g)  &amp; \{a\}       &amp; \{b, d, i, g\}          &amp; \{c\} &amp;             &amp; \{e\} &amp; \{f, k\} &amp;       &amp; \{h\} &amp;       &amp; \{j\} &amp;       \\
-(a, h)  &amp; \{a, h\}    &amp; \{b, d, i, g\}          &amp; \{c\} &amp;             &amp; \{e\} &amp; \{f, k\} &amp;       &amp;       &amp;       &amp; \{j\} &amp;       \\
-(i, j)  &amp; \{a, h\}    &amp; \{b, d, i, g, j\}       &amp; \{c\} &amp;             &amp; \{e\} &amp; \{f, k\} &amp;       &amp;       &amp;       &amp;       &amp;       \\
-(d, k)  &amp; \{a, h\}    &amp; \{b, g, i, g, j, f, k\} &amp; \{c\} &amp;             &amp; \{e\} &amp;          &amp;       &amp;       &amp;       &amp;       &amp;       \\
-(b, j)  &amp; \{a, h\}    &amp; \{b, g, i, g, j, f, k\} &amp; \{c\} &amp;             &amp; \{e\} &amp;          &amp;       &amp;       &amp;       &amp;       &amp;       \\
-(d, f)  &amp; \{a, h\}    &amp; \{b, g, i, g, j, f, k\} &amp; \{c\} &amp;             &amp; \{e\} &amp;          &amp;       &amp;       &amp;       &amp;       &amp;       \\
-(g, j)  &amp; \{a, h\}    &amp; \{b, g, i, g, j, f, k\} &amp; \{c\} &amp;             &amp; \{e\} &amp;          &amp;       &amp;       &amp;       &amp;       &amp;       \\
-(a, e)  &amp; \{a, e, h\} &amp; \{b, g, i, g, j, f, k\} &amp; \{c\} &amp;             &amp; \{e\} &amp;          &amp;       &amp;       &amp;       &amp;       &amp;     <br />
+(d, i)  &amp; \{a\}       &amp; \{b\}                   &amp; \{c\} &amp; \{d, i\}    &amp; \{e\} &amp; \{f\}    &amp; \{g\} &amp; \{h\} &amp;         &amp; \{j\} &amp; \{k\} \\
+(f, k)  &amp; \{a\}       &amp; \{b\}                   &amp; \{c\} &amp; \{d, i\}    &amp; \{e\} &amp; \{f, k\} &amp; \{g\} &amp; \{h\} &amp;         &amp; \{j\} &amp;         \\
+(g, i)  &amp; \{a\}       &amp; \{b\}                   &amp; \{c\} &amp; \{d, i, g\} &amp; \{e\} &amp; \{f, k\} &amp;         &amp; \{h\} &amp;         &amp; \{j\} &amp;         \\
+(b, g)  &amp; \{a\}       &amp; \{b, d, i, g\}          &amp; \{c\} &amp;               &amp; \{e\} &amp; \{f, k\} &amp;         &amp; \{h\} &amp;         &amp; \{j\} &amp;         \\
+(a, h)  &amp; \{a, h\}    &amp; \{b, d, i, g\}          &amp; \{c\} &amp;               &amp; \{e\} &amp; \{f, k\} &amp;         &amp;         &amp;         &amp; \{j\} &amp;         \\
+(i, j)  &amp; \{a, h\}    &amp; \{b, d, i, g, j\}       &amp; \{c\} &amp;               &amp; \{e\} &amp; \{f, k\} &amp;         &amp;         &amp;         &amp;         &amp;         \\
+(d, k)  &amp; \{a, h\}    &amp; \{b, g, i, g, j, f, k\} &amp; \{c\} &amp;               &amp; \{e\} &amp;            &amp;         &amp;         &amp;         &amp;         &amp;         \\
+(b, j)  &amp; \{a, h\}    &amp; \{b, g, i, g, j, f, k\} &amp; \{c\} &amp;               &amp; \{e\} &amp;            &amp;         &amp;         &amp;         &amp;         &amp;         \\
+(d, f)  &amp; \{a, h\}    &amp; \{b, g, i, g, j, f, k\} &amp; \{c\} &amp;               &amp; \{e\} &amp;            &amp;         &amp;         &amp;         &amp;         &amp;         \\
+(g, j)  &amp; \{a, h\}    &amp; \{b, g, i, g, j, f, k\} &amp; \{c\} &amp;               &amp; \{e\} &amp;            &amp;         &amp;         &amp;         &amp;         &amp;         \\
+(a, e)  &amp; \{a, e, h\} &amp; \{b, g, i, g, j, f, k\} &amp; \{c\} &amp;               &amp; \{e\} &amp;            &amp;         &amp;         &amp;         &amp;         &amp;     <br />
 \end{array}</p>
 <p>So, the connected components that we are left with are  $\{a, h, e\}$,  $\{b, d, i, g, j, f, k\}$, and $\{c\}$.</p>
 <h2 id="211-2">21.1-2</h2>
