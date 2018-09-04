@@ -9,7 +9,7 @@ repo_name: 'walkccc/CLRS'
 repo_url: 'https://github.com/walkccc/CLRS'
 
 # Copyright
-copyright: 'Built by <a href="http://github.com/walkccc">Jay Chen</a> &copy; 2017 - 2018'
+copyright: 'Built by <a href="http://github.com/walkccc">Jay Chen</a> &copy; 2017 - 2019'
 
 # Configuration
 theme:
@@ -58,7 +58,7 @@ markdown_extensions:
       permalink: false
   - pymdownx.superfences
 
-pages:
+nav:
   - Preface: index.md
   - Color: color.md
   - I Foundations:
@@ -395,3 +395,39 @@ pages:
       - 32.4 The Knuth-Morris-Pratt algorithm: Chap32/32.4.md
       - Chap 32 Problems:
         - 32-1 String matching based on repetition factors: Chap32/Problems/32-1.md
+    - 33 Computational Geometry:
+      - 33.1 Line-segment properties: Chap33/33.1.md
+      - 33.2 Determining whether any pair of segments intersects: Chap33/33.2.md
+      - 33.3 Finding the convex hull: Chap33/33.3.md
+      - 33.4 Finding the closest pair of points: Chap33/33.4.md
+      - Chap 33 Problems:
+        - 33-1 Convex layers: Chap33/Problems/33-1.md
+        - 33-2 Maximal layers: Chap33/Problems/33-2.md
+        - 33-3 Ghostbusters and ghosts: Chap33/Problems/33-3.md
+        - 33-4 Picking up sticks: Chap33/Problems/33-4.md
+        - 33-5 Sparse-hulled distributions: Chap33/Problems/33-5.md
+    - 34 NP-Completeness:
+      - 34.1 Polynomial time: Chap34/34.1.md
+      - 34.2 Polynomial-time verification: Chap34/34.2.md
+      - 34.3 NP-completeness and reducibility: Chap34/34.3.md
+      - 34.4 NP-completeness proofs: Chap34/34.4.md
+      - 34.5 NP-complete problems: Chap34/34.5.md
+      - Chap 34 Problems:
+        - 34-1 Independent set: Chap34/Problems/34-1.md
+        - 34-2 Bonnie and Clyde: Chap34/Problems/34-2.md
+        - 34-3 Graph coloring: Chap34/Problems/34-3.md
+        - 34-4 Scheduling with profits and deadlines: Chap34/Problems/34-4.md
+    - 35 Approximation Algorithms:
+      - 35.1 The vertex-cover problem: Chap35/35.1.md
+      - 35.2 The traveling-salesman problem: Chap35/35.2.md
+      - 35.3 The set-covering problem: Chap35/35.3.md
+      - 35.4 Randomization and linear programming: Chap35/35.4.md
+      - 35.5 The subset-sum problem: Chap35/35.5.md
+      - Chap 35 Problems:
+        - 35-1 Bin packing: Chap35/Problems/35-1.md
+        - 35-2 Approximating the size of a maximum clique: Chap35/Problems/35-2.md
+        - 35-3 Weighted set-covering problem: Chap35/Problems/35-3.md
+        - 35-4 Maximum matching: Chap35/Problems/35-4.md
+        - 35-5 Parallel machine scheduling: Chap35/Problems/35-5.md
+        - 35-6 Approximating a maximum spanning tree: Chap35/Problems/35-6.md
+        - 35-7 An approximation algorithm for the 0-1 knapsack problem: Chap35/Problems/35-7.md
