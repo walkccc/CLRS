@@ -5908,10 +5908,12 @@ T(n) &amp; = 2T(n / 2) + n \\
 <p>We can express insertion sort as a recursive procedure as follows. In order to sort $A[1..n]$, we recursively sort $A[1..n - 1]$ and then insert $A[n]$ into the sorted array $A[1..n - 1]$. Write a recurrence for the running time of this recursive version of insertion sort.</p>
 </blockquote>
 <p>Since it takes $\Theta(n)$ time in the worst case to insert $A[n]$ into the sorted array $A[1..n - 1]$, we get the recurrence</p>
-<p>T(n) = \begin{cases}
+<p>$$
+T(n) = \begin{cases}
     \Theta(1)            &amp; \text{if } n = 1, \\
     T(n - 1) + \Theta(n) &amp; \text{if } n &gt; 1.
-\end{cases}</p>
+\end{cases}
+$$</p>
 <p>Although the exercise does not ask you to solve this recurrence, its solution is $T(n) = \Theta(n^2)$.</p>
 <h2 id="23-5">2.3-5</h2>
 <blockquote>
