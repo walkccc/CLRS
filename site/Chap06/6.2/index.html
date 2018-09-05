@@ -1176,8 +1176,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Problems/6-2/" title="6-2 Analysis of dd-ary heaps" class="md-nav__link">
-      6-2 Analysis of dd-ary heaps
+    <a href="../Problems/6-2/" title="6-2 Analysis of d-ary heaps" class="md-nav__link">
+      6-2 Analysis of d-ary heaps
     </a>
   </li>
 
@@ -5837,7 +5837,7 @@
 <blockquote>
 <p>What is the effect of calling $\text{MAX-HEAPIFY}(A, i)$ for $i &gt; A.heap\text-size / 2$?</p>
 </blockquote>
-<p>No effect. In that case, it is a leaf. Both $\text{LEFT}$ and $\text{RIGHT}$ return values that fail the comparison with the heap size and i is stored in largest. Afterwards the procedure just returns</p>
+<p>No effect. In that case, it is a leaf. Both $\text{LEFT}$ and $\text{RIGHT}$ return values that fail the comparison with the heap size and $i$ is stored in largest. Afterwards the procedure just returns</p>
 <h2 id="62-5">6.2-5</h2>
 <blockquote>
 <p>The code for $\text{MAX-HEAPIFY}$ is quite efficient in terms of constant factors, except possibly for the recursive call in line 10, which might cause some compilers to produce inefficient code. Write an efficient $\text{MAX-HEAPIFY}$ that uses an iterative control construct (a loop) instead of recursion.</p>

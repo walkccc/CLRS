@@ -117,7 +117,7 @@ nav:
       - 6.5 Priority queues: Chap06/6.5.md
       - Chap 6 Problems:
         - 6-1 Building a heap using insertion: Chap06/Problems/6-1.md
-        - 6-2 Analysis of dd-ary heaps: Chap06/Problems/6-2.md
+        - 6-2 Analysis of d-ary heaps: Chap06/Problems/6-2.md
         - 6-3 Young tableaus: Chap06/Problems/6-3.md
     - 7 Quicksort: 
       - 7.1 Description of quicksort: Chap07/7.1.md
