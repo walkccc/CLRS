@@ -1101,8 +1101,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../Chap06/Problems/6-2/" title="6-2 Analysis of d-ary heaps" class="md-nav__link">
-      6-2 Analysis of d-ary heaps
+    <a href="../../../Chap06/Problems/6-2/" title="6-2 Analysis of $d$-ary heaps" class="md-nav__link">
+      6-2 Analysis of $d$-ary heaps
     </a>
   </li>
 
@@ -5683,8 +5683,8 @@ $$</p>
 <ol>
 <li>Divide the input as follows. If $n$ is even, divide the input into two parts: $A[p + 1..p + m]$ and $A[p + m + 1..p + n]$. If $n$ is odd, divide the input into three parts: $A[p + 1..p + m]$, $A[p + m + 1..p + n - 1]$, and $A[p + n]$ as a leftover piece.</li>
 <li>Compare $A[p + i]$ and $A[p + i + m]$ for $i = 1, 2, \ldots, m$, putting the smaller of the the two elements into $A[p + i + m]$ and the larger into $A[p + i]$.</li>
-<li>Recursively find the $i$th smallest element in $A[p + m + 1..p + n]$, but with an additional action performed by the partitioning procedure: whenever it exchanges $A[j]$  and $A[k]$ (where $p + m + 1 \le j$, $k \le p + 2m$), it also exchanges $A[j - m]$ and $A[k - m]$. The idea is that after recursively finding the $i$th smallest element in $A[p + m + 1..p + n]$, the subarray $A[p + m + 1..p + m + i]$ contains the $i$ smallest elements that had been in $A[p + m + 1..p + n]$ and the subarray $A[p + 1..p + i]$ contains their larger counterparts, as found in step 1. The ith smallest element of $A[p + 1..p + n]$ must be either one of the $i$ smallest, as placed into $A[p + m + 1..p + m + i]$, or it must be one of the larger counterparts, as placed into $A[p + 1..p + i]$.</li>
-<li>Collect the subarrays $A[p + 1..p + i]$ and $A[p + m + 1..p + m + i]$ into a single array $B[1..2i]$, call $\text{SELECT}$ to find the ith smallest element of $B$, and return the result of this call to $\text{SELECT}$.</li>
+<li>Recursively find the $i$th smallest element in $A[p + m + 1..p + n]$, but with an additional action performed by the partitioning procedure: whenever it exchanges $A[j]$  and $A[k]$ (where $p + m + 1 \le j$, $k \le p + 2m$), it also exchanges $A[j - m]$ and $A[k - m]$. The idea is that after recursively finding the $i$th smallest element in $A[p + m + 1..p + n]$, the subarray $A[p + m + 1..p + m + i]$ contains the $i$ smallest elements that had been in $A[p + m + 1..p + n]$ and the subarray $A[p + 1..p + i]$ contains their larger counterparts, as found in step 1. The $i$th smallest element of $A[p + 1..p + n]$ must be either one of the $i$ smallest, as placed into $A[p + m + 1..p + m + i]$, or it must be one of the larger counterparts, as placed into $A[p + 1..p + i]$.</li>
+<li>Collect the subarrays $A[p + 1..p + i]$ and $A[p + m + 1..p + m + i]$ into a single array $B[1..2i]$, call $\text{SELECT}$ to find the $i$th smallest element of $B$, and return the result of this call to $\text{SELECT}$.</li>
 </ol>
 <p>The number of comparisons in each step is as follows:</p>
 <ol>
