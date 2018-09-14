@@ -5850,10 +5850,41 @@ d &amp; 0 &amp; 0 &amp; 2 &amp; 7 &amp; -2 \\
 <blockquote>
 <p>Modify the Bellman-Ford algorithm so that it sets $v.d$ to $-\infty$ for all vertices $v$ for which there is a negative-weight cycle on some path from the source to $v$.</p>
 </blockquote>
-<p>In particular, replace line 7 with $v.d = -\infty$.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">BELLMAN</span><span class="o">-</span><span class="n">FORD</span><span class="err">&#39;</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+    <span class="n">INITIALIZE</span><span class="o">-</span><span class="n">SINGLE</span><span class="o">-</span><span class="n">SOURCE</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="o">|</span><span class="n">G</span><span class="p">.</span><span class="n">V</span><span class="o">|</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">each</span> <span class="n">edge</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="err">∈</span> <span class="n">G</span><span class="p">.</span><span class="n">E</span>
+            <span class="n">RELAX</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">each</span> <span class="n">edge</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="err">∈</span> <span class="n">G</span><span class="p">.</span><span class="n">E</span>
+        <span class="k">if</span> <span class="n">v</span><span class="p">.</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">u</span><span class="p">.</span><span class="n">d</span> <span class="o">+</span> <span class="n">w</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+            <span class="n">v</span><span class="p">.</span><span class="n">d</span> <span class="o">=</span> <span class="o">-</span><span class="err">∞</span>
+    <span class="k">for</span> <span class="n">each</span> <span class="n">vertex</span> <span class="n">v</span> <span class="err">∈</span> <span class="n">G</span><span class="p">.</span><span class="n">V</span>
+        <span class="k">if</span> <span class="n">v</span><span class="p">.</span><span class="n">d</span> <span class="o">=</span> <span class="o">-</span><span class="err">∞</span>
+            <span class="n">FOLLOW</span><span class="o">-</span><span class="n">AND</span><span class="o">-</span><span class="n">MARK</span><span class="o">-</span><span class="n">PRED</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>    
+</pre></div>
+</td></tr></table>
+
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">if</span> <span class="n">v</span><span class="p">.</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">u</span><span class="p">.</span><span class="n">d</span> <span class="o">+</span> <span class="n">w</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
-    <span class="n">v</span><span class="p">.</span><span class="n">d</span> <span class="o">=</span> <span class="o">-</span><span class="err">∞</span>
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">FOLLOW</span><span class="o">-</span><span class="n">AND</span><span class="o">-</span><span class="n">MARK</span><span class="o">-</span><span class="n">PRED</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">v</span><span class="p">.</span><span class="n">PI</span> <span class="o">!=</span> <span class="n">NIL</span> <span class="n">and</span> <span class="n">v</span><span class="p">.</span><span class="n">PI</span><span class="p">.</span><span class="n">d</span> <span class="o">!=</span> <span class="o">-</span><span class="err">∞</span>
+        <span class="n">v</span><span class="p">.</span><span class="n">PI</span><span class="p">.</span><span class="n">d</span> <span class="o">=</span> <span class="o">-</span><span class="err">∞</span>
+        <span class="n">FOLLOW</span><span class="o">-</span><span class="n">AND</span><span class="o">-</span><span class="n">MARK</span><span class="o">-</span><span class="n">PRED</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">PI</span><span class="p">)</span>
+    <span class="k">else</span>
+        <span class="k">return</span>
 </pre></div>
 </td></tr></table>
 
