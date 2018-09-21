@@ -5964,9 +5964,11 @@ c \mod a &amp; = (a + b) \mod a \\
 <blockquote>
 <p>For any integer $k &gt; 0$, an integer $n$ is a <strong><em>$k$th power</em></strong> if there exists an integer $a$ such that $a^k = n$. Furthermore, $n &gt; 1$ is a <strong><em>nontrivial power</em></strong> if it is a $k$th power for some integer $k &gt; 1$. Show how to determine whether a given $\beta$-bit integer $n$ is a nontrivial power in time polynomial in $\beta$.</p>
 </blockquote>
-<p>Because $2^\beta &gt; n$, we only need to test values of $k$ that satisfies $2 \le k &lt; \beta$, therefore the testing procedure remains $O(\beta)$.</p>
-<p>For any nontrivial power $k$, where $2 \le k &lt; \beta$, do binary searching that costs $O(\log \sqrt n) = O(\log \sqrt{2^\beta}) = O(\frac 1 2\log 2^\beta) = O(\beta)$.</p>
-<p>Thus, the total time complexty is $O(\beta) \times O(\beta) = O(\beta^2)$.</p>
+<p>Because $2^\beta &gt; n$, we only need to test values of $k$ that satisfy $2 \le k &lt; \beta$, therefore the testing procedure remains $O(\beta)$.</p>
+<p>For any nontrivial power $k$, where $2 \le k &lt; \beta$, do binary searching that costs</p>
+<p>$$O(\log \sqrt n) = O(\log \sqrt{2^\beta}) = O(\frac 1 2\log 2^\beta) = O(\beta).$$</p>
+<p>Thus, the total time complexty is</p>
+<p>$$O(\beta) \times O(\beta) = O(\beta^2).$$</p>
 <h2 id="311-9">31.1-9</h2>
 <blockquote>
 <p>Prove equations $\text{(31.6)}$–$\text{(31.10)}$.</p>
