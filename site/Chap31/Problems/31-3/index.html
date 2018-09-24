@@ -5675,33 +5675,117 @@
 <p>and its powers.)</p>
 <p><strong>d.</strong> Assume now that adding two $\beta$-bit numbers takes $\Theta(\beta)$ time and that multiplying two $\beta$-bit numbers takes $\Theta(\beta^2)$ time. What is the running time of these three methods under this more reasonable cost measure for the elementary arithmetic operations?</p>
 </blockquote>
-<p><strong>a.</strong> $$T(n) = T(n - 1) + T(n - 2) + \Theta(1) = \Theta(2^n).$$</p>
-<p><strong>b.</strong></p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">FIB</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="n">fibs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">FIB</span><span class="o">-</span><span class="n">SUB</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-</pre></div>
-</td></tr></table>
-
+<p><strong>a.</strong> In order to solve $\text{FIB}(n)$, we need to compute $\text{FIB}(n - 1)$ and $\text{FIB}(n - 1)$. Therefore we have the recurrence</p>
+<p>$$T(n) = T(n - 1) + T(n - 2) + \Theta(1).$$</p>
+<p>We can get the upper bound of Fibonacci as $O(2^n)$, but this is not the tight upper bound.</p>
+<p>The Fibonacci recurrence is defined as</p>
+<p>$$F(n) = F(n - 1) + F(n - 2).$$</p>
+<p>The characteristic equation for this function will be</p>
+<p>\begin{align}
+x^2 &amp; = x + 1 \\
+x^2 - x - 1 &amp; = 0.
+\end{align}</p>
+<p>We can get the roots by quadratic formula: $x = \frac{1 \pm \sqrt 5}{2}$.</p>
+<p>We know the solution of a linear recursive function is given as</p>
+<p>\begin{align}
+F(n) &amp; = \alpha_1^n + \alpha_2^n \\
+     &amp; = \bigg(\frac{1 + \sqrt 5}{2}\bigg)^n + \bigg(\frac{1 - \sqrt 5}{2}\bigg)^n,
+\end{align}</p>
+<p>where $\alpha_1$ and $\alpha_2$ are the roots of the characteristic equation.</p>
+<p>Since both $T(n)$ and $F(n)$ are representing the same thing, they are asymptotically the same.</p>
+<p>Hence,</p>
+<p>\begin{align}
+T(n) &amp; = \bigg(\frac{1 + \sqrt 5}{2}\bigg)^n + \bigg(\frac{1 - \sqrt 5}{2}\bigg)^n \\
+     &amp; = \bigg(\frac{1 + \sqrt 5}{2}\bigg)^n \\
+     &amp; \approx O(1.618)^n.
+\end{align}</p>
+<p><strong>b.</strong> This is same as <a href="/Chap15/15.1/#151-5">15.1-5</a>.</p>
+<p><strong>c.</strong> Assume that all integer multiplications and additions can be done in $O(1)$. First, we want to show that</p>
+<p>$$
+\begin{pmatrix} 
+0 &amp; 1 \\
+1 &amp; 1 
+\end{pmatrix}^k 
+=
+\begin{pmatrix}
+F_{k - 1} &amp; F_k \\
+F_k &amp; F_{k + 1}
+\end{pmatrix}.
+$$</p>
+<p>By induction,</p>
+<p>\begin{align}
+\begin{pmatrix}
+0 &amp; 1 \\
+1 &amp; 1
+\end{pmatrix}^{k + 1}
+&amp; = 
+\begin{pmatrix}
+0 &amp; 1 \\
+1 &amp; 1
+\end{pmatrix}
+\begin{pmatrix}
+0 &amp; 1 \\
+1 &amp; 1
+\end{pmatrix}^k \\
+&amp; =
+\begin{pmatrix}
+0 &amp; 1 \\
+1 &amp; 1
+\end{pmatrix}
+\begin{pmatrix}
+F_{k - 1} &amp; F_k \\
+F_k &amp; F_{k + 1}
+\end{pmatrix}^k \\
+&amp; =
+\begin{pmatrix}
+F_k &amp; F_{k + 1} \\
+F_{k - 1} + F_k &amp; F_k + F_{k + 1}
+\end{pmatrix} \\
+&amp; =
+\begin{pmatrix}
+F_k &amp; F_{k + 1} \\
+F_{k + 1} &amp; F_{k + 2}
+\end{pmatrix}.
+\end{align}</p>
+<p>We show that we can compute the given matrix to the power $n - 1$ in time $O(\lg n)$, and the bottom right entry is $F_n$.</p>
+<p>We should note that by 8 multiplications and 4 additions, we can multiply any two $2$ by $2$ matrices, that means matrix multiplications can be done in constant time. Thus we only need to bound the number of those in our algorithm.</p>
+<p>It takes $O(\lg n)$ to run the algorithm $\text{MATRIX-POW}(A, n - 1)$ becasue we half the value of $n$ in each step, and within each step, we perform a constant amount of calculation.</p>
+<p>The recurrence is</p>
+<p>$$T(n) = T(n / 2) + \Theta(1).$$</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">FIB</span><span class="o">-</span><span class="n">SUB</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">fibs</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span>
-        <span class="n">fibs</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">FIB</span><span class="o">-</span><span class="n">SUB</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">FIB</span><span class="o">-</span><span class="n">SUB</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">fibs</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">MATRIX</span><span class="o">-</span><span class="n">POW</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">A</span><span class="err">．</span><span class="n">MATRIX</span><span class="o">-</span><span class="n">POW</span><span class="p">(</span><span class="n">A</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">MATRIX</span><span class="o">-</span><span class="n">POW</span><span class="p">(</span><span class="n">A</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </td></tr></table>
 
-<p><strong>c.</strong></p>
-<p><strong>d.</strong></p>
-<ol>
-<li>$\Theta(2^{2^\beta})$.</li>
-<li>$\Theta(2^\beta)$.</li>
-<li>$T(n) = T(n / 2) + \Theta(\beta^2) = \Theta(\beta^3)$.</li>
-</ol>
+<p><strong>d.</strong> First, we should note that $\beta = O(\log n)$.</p>
+<ul>
+<li>
+<p>For part (a),</p>
+<p>We naively add a $\beta$-bit number which is growing exponentially each time, so the recurrence becomes</p>
+<p>\begin{align}
+T(n) &amp; = T(n - 1) + T(n - 2) + \Theta(\beta) \\
+     &amp; = T(n - 1) + T(n - 2) + \Theta(\log n),
+\end{align}</p>
+<p>which has the same solution $T(n) = O\Big(\frac{1 + \sqrt 5}{2}\Big)^n$ since $\Theta(\log n)$ can be absorbed by exponential time.</p>
+</li>
+<li>
+<p>For part (b),</p>
+<p>The recurrence of the memoized verstion becomes</p>
+<p>$$M(n) = M(n - 1) + \Theta(\beta).$$</p>
+<p>This has a solution of $\sum_{i = 2}^n \beta = \Theta(n\beta) = \Theta(2^\beta \cdot \beta)$ or $\Theta(n \log n)$.</p>
+</li>
+<li>
+<p>For part (c),</p>
+<p>We perform a constant number of both additions and multiplications. The recurrence becomes</p>
+<p>$$P(n) = P(n / 2) + \Theta(\beta^2),$$</p>
+<p>which has a solution of $\Theta(\log n \cdot \beta^2) = \Theta(\beta^3)$ or $\Theta(\log^3 n)$.</p>
+</li>
+</ul>
                 
                   
                 
