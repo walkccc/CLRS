@@ -5938,6 +5938,7 @@ T(n) &amp; \le 2\cdot c2^{n - 1} + (n - 1) + 1 \\
 <p>Use a reccursion tree to determine a good asymptotic upper bound on the recurrence $T(n) = T(n - 1) + T(n / 2) + n$. Use the substitution method to verify your answer.</p>
 </blockquote>
 <p>This is a curious one. The tree makes it look like it is exponential in the worst case. The tree is not full (not a complete binary tree of height $n$), but it is not polynomial either. It's easy to show $O(2^n)$ and $\Omega(n^2)$.</p>
+<p>To justify that this is a pretty tight upper bound, we'll show that we can't have any other choice. If we have that $T(n) \le cn^k$, when we substitue into the recurrence, the new coefficient for $n^k$ can be as high as $c(1 + \frac{1}{2^k})$ which is bigger than $c$ regardless of how we choose the value $c$.</p>
 <ul>
 <li>
 <p>We guess $T(n) \le c2^n - 4n$,</p>
@@ -6040,6 +6041,7 @@ T(n) &amp; \ge c(n - a)^2 + ca + cn \\
 <p>$T(n) = T(\alpha n) + T((1 - \alpha)n) + cn$</p>
 <p>We saw the solution to the recurrence $T(n) = T(n / 3) + T(2n / 3) + cn$ in the text. This recurrence can be similarly solved.</p>
 <p>Without loss of generality, let $\alpha \ge 1 - \alpha$, so that $0 &lt; 1 - \alpha \le 1 / 2$ and $1 / 2 \le \alpha &lt; 1$.</p>
+<p><img alt="" src="https://i.imgur.com/kDvYqYw.png" /></p>
 <p>The recursion tree is full for $\log_{1 / (1 - \alpha)} n$ levels, each contributing $cn$, so we guess </p>
 <p>$$\Omega(n\log_{1 / (1 - \alpha)} n) = \Omega(n\lg n).$$</p>
 <p>It has $\log_{1 / \alpha} n$ levels, each contributing $\le cn$, so we guess</p>
