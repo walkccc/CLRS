@@ -5814,7 +5814,7 @@ $ababbabbababbababbabb$ over the alphabet $\sigma = \{a, b\}$.</p>
 <blockquote>
 <p>We call a pattern $P$ <strong><em>nonoverlappable</em></strong> if $P_k \sqsupset P_q$ implies $k = 0$ or $k = q$. Describe the state-transition diagram of the string-matching automaton for a nonoverlappable pattern.</p>
 </blockquote>
-<p>$\delta(q, a) \in \{q + 1, 0\}$.</p>
+<p>$\delta(q, a) \in \{0, 1, q + 1\}$.</p>
 <h2 id="323-4-star">32.3-4 $\star$</h2>
 <blockquote>
 <p>Given two patterns $P$ and $P'$, describe how to construct a finite automaton that determines all occurrences of either pattern. Try to minimize the number of states in your automaton.</p>
