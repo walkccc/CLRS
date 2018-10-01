@@ -30,6 +30,8 @@ extra:
   social:
     - type: 'github'
       link: 'https://github.com/walkccc'
+    - type: 'quote-left'
+      link: 'https://walkccc.github.io/blog'
     - type: 'book'
       link: 'https://walkccc.github.io/CS'
     - type: 'gamepad'
