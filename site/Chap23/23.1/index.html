@@ -68,8 +68,6 @@
     
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
-      <link rel="stylesheet" href="../../css/style.css">
-    
     
   </head>
   
@@ -5895,7 +5893,7 @@
 </blockquote>
 <p>Suppose that for every cut of $G$, there is a unique light edge crossing the cut. Let us consider two distinct minimum spanning trees, $T$ and $T'$, of $G$. Because $T$ and $T'$are distinct, $T$ contains some edge $(u, v)$ that is not in $T'$. If we remove $(u, v)$ from $T$, then $T$ becomes disconnected, resulting in a cut $(S, V - S)$. The edge $(u, v)$ is a light edge crossing the cut $(S, V - S)$ (by Exercise 23.1-3) and, by our assumption, it's the only light edge crossing this cut. Because $(u, v)$ is the only light edge crossing $(S, V - S)$ and $(u, v)$ is not in $T'$, each edge in $T'$ that crosses $(S, V - S)$ must have weight strictly greater than w$(u, v)$. As in the proof of Theorem 23.1, we can identify the unique edge $(x, y)$ in $T'$ that crosses $(S, V - S)$ and lies on the cycle that results if we add $(u, v)$ to $T'$. By our assumption, we know that $w(u, v) &lt; w(x, y)$. Then, we can then remove $(x, y)$ from $T'$ and replace it by $(u, v)$, giving a spanning tree with weight strictly less than $w(T')$. Thus, $T'$ was not a minimum spanning tree, contradicting the assumption that the graph had two unique minimum spanning trees.</p>
 <p>Here's a counterexample for the converse:</p>
-<p><img alt="" src="https://i.imgur.com/FBjdNpO.png?width=10rem" /></p>
+<p><img alt="" src="https://i.imgur.com/FBjdNpO.png" /></p>
 <p>Here, the graph is its own minimum spanning tree, and so the minimum spanning tree is unique. Consider the cut $(\{x\}, \{y, z\})$. Both of the edges $(x, y)$ and $(x, z)$ are light edges crossing the cut, and they are both light edges.</p>
 <h2 id="231-7">23.1-7</h2>
 <blockquote>

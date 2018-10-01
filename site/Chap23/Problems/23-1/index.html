@@ -68,8 +68,6 @@
     
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
-      <link rel="stylesheet" href="../../../css/style.css">
-    
     
   </head>
   
@@ -5672,7 +5670,7 @@
 </blockquote>
 <p><strong>a.</strong> To see that the minimum spanning tree is unique, observe that since the graph is connected and all edge weights are distinct, then there is a unique light edge crossing every cut. By Exercise 23.1-6, the minimum spanning tree is unique.</p>
 <p>To see that the second-best minimum spanning tree need not be unique, here is a weighted, undirected graph with a unique minimum spanning tree of weight $7$ and two second-best minimum spanning trees of weight $8$:</p>
-<p><img alt="" src="https://i.imgur.com/c4RLMzf.png?width=25rem" /></p>
+<p><img alt="" src="https://i.imgur.com/c4RLMzf.png" /></p>
 <p><strong>b.</strong> Since any spanning tree has exactly $|V| - 1$ edges, any second-best minimum spanning tree must have at least one edge that is not in the (best) minimum spanning tree. If a second-best minimum spanning tree has exactly one edge, say $(x, y)$, that is not in the minimum spanning tree, then it has the same set of edges as the minimum spanning tree, except that $(x, y)$ replaces some edge, say $(u, v)$, of the minimum spanning tree. In this case, $T' = T - \{(u, v)\} \cup \{(x, y)\}$, as we wished to show.</p>
 <p>Thus, all we need to show is that by replacing two or more edges of the minimum spanning tree, we cannot obtain a second-best minimum spanning tree. Let $T$ be the minimum spanning tree of $G$, and suppose that there exists a second-best minimum spanning tree $T'$ that differs from $T$ by two or more edges. There are at least two edges in $T - T'$, and let $(u, v)$ be the edge in $T - T'$ with minimum weight. If we were to add $(u, v)$ to $T'$, we would get a cycle $c$. This cycle contains some edge $(x, y)$ in $T' - T$ (since otherwise, $T$ would contain a cycle).</p>
 <p>We claim that $w(x, y) &gt; w(u, v)$. We prove this claim by contradiction, so let us assume that $w(x, y) &lt; w(u, v)$. (Recall the assumption that edge weights are distinct, so that we do not have to concern ourselves with $w(x, y) = w(u, v)$.) If we add $(x, y)$ to $T$, we get a cycle $c'$, which contains some edge$(u', v')$ in $T - T'$ (since otherwise, $T'$ would contain a cycle). Therefore, the set of edges $T'' = T - \{(u', v')\} \cup \{(x, y)\}$ forms a spanning tree, and we must also have $w(u', v') &lt; w(x, y)$, since otherwise $T''$ would be a spanning tree with weight less than $w(T)$. Thus, $w(u', v') &lt; w(x, y) &lt; w(u, v)$, which contradicts our choice of $(u, v)$ as the edge in $T - T'$ of minimum weight.</p>

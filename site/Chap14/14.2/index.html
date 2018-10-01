@@ -68,8 +68,6 @@
     
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
-      <link rel="stylesheet" href="../../css/style.css">
-    
     
   </head>
   
@@ -5780,7 +5778,7 @@
 <p>Within the $\text{RB-INSERT-FIXUP}$ and $\text{RB-DELETE-FIXUP}$ procedures are color changes, each of which potentially cause $O(\lg n)$ black-height changes. Let us show that the color changes of the fixup procedures cause only local black-height changes and thus are constant-time operations. Assume that the black-height of each node $x$ is kept in the attribute $x.bh$.</p>
 <p>For $\text{RB-INSERT-FIXUP}$, there are 3 cases to examine.</p>
 <p><strong>Case 1:</strong> $z$'s uncle is red.</p>
-<p><img alt="" src="https://i.imgur.com/rr7tQNC.png?width=45rem" /></p>
+<p><img alt="" src="https://i.imgur.com/rr7tQNC.png" /></p>
 <ul>
 <li>Before color changes, suppose that all subtrees $\alpha$, $\beta$, $\gamma$, $\delta$, $\epsilon$ have the same black-height $k$ with a black root, so that nodes $A$, $B$, $C$, and $D$ have blackheights of $k + 1$.</li>
 <li>After color changes, the only node whose black-height changed is node $C$. To fix that, add $z.p.p.bh = z.p.p.bh + 1$ after line 7 in $\text{RB-INSERT-FIXUP}$. </li>
@@ -5788,33 +5786,33 @@
 </ul>
 <p><strong>Case 2:</strong> $z$'s uncle $y$ is black, and $z$ is a right child.<br />
 <strong>Case 3:</strong> $z$'s uncle $y$ is black, and $z$ is a left child.</p>
-<p><img alt="" src="https://i.imgur.com/UoqU0C0.png?width=45rem" /></p>
+<p><img alt="" src="https://i.imgur.com/UoqU0C0.png" /></p>
 <ul>
 <li>With subtrees $\alpha$, $\beta$, $\gamma$, $\delta$, $\epsilon$ of black-height $k$, we see that even with color changes and rotations, the black-heights of nodes $A$, $B$, and $C$ remain the same $(k + 1)$.</li>
 </ul>
 <p>Thus, $\text{RB-INSERT-FIXUP}$ maintains its original $O(\lg n)$ time.<br />
 For $\text{RB-DELETE-FIXUP}$, there are 4 cases to examine.</p>
 <p><strong>Case 1:</strong> $x$'s sibling $w$ is red.</p>
-<p><img alt="" src="https://i.imgur.com/r2aoYGf.png?width=45rem" /></p>
+<p><img alt="" src="https://i.imgur.com/r2aoYGf.png" /></p>
 <ul>
 <li>Even though case 1 changes colors of nodes and does a rotation, blackheights are not changed.</li>
 <li>Case 1 changes the structure of the tree, but waits for cases 2, 3, and 4 to deal with the "extra black" on $x$.</li>
 </ul>
 <p><strong>Case 2:</strong> $x$'s sibling $w$ is black, and both of $w$'s children are black.</p>
-<p><img alt="" src="https://i.imgur.com/3bphvRO.png?width=45rem" /></p>
+<p><img alt="" src="https://i.imgur.com/3bphvRO.png" /></p>
 <ul>
 <li>$w$ is colored red, and $x$'s "extra" black is moved up to $x.p$.</li>
 <li>Now we can add $x.p.bh = x.bh$ after line 10 in $\text{RB-DELETE-FIXUP}$.</li>
 <li>This is a constant-time update. Then, keep looping to deal with the extra black on $x.p$.</li>
 </ul>
 <p><strong>Case 3:</strong> $x$'s sibling w is black, $w$'s left child is red, and $w$'s right child is black.</p>
-<p><img alt="" src="https://i.imgur.com/4TYq4Bv.png?width=45rem" /></p>
+<p><img alt="" src="https://i.imgur.com/4TYq4Bv.png" /></p>
 <ul>
 <li>Regardless of the color changes and rotation of this case, the black-heights don't change.</li>
 <li>Case 3 just sets up the structure of the tree, so it can fall correctly into case 4.</li>
 </ul>
 <p><strong>Case 4:</strong> $x$'s sibling $w$ is black, and $w$'s right child is red.</p>
-<p><img alt="" src="https://i.imgur.com/mOILrVt.png?width=45rem" /></p>
+<p><img alt="" src="https://i.imgur.com/mOILrVt.png" /></p>
 <ul>
 <li>Nodes $A$, $C$, and $E$ keep the same subtrees, so their black-heights don't change.</li>
 <li>Add these two constant-time assignments in $\text{RB-DELETE-FIXUP}$ after line 20:</li>

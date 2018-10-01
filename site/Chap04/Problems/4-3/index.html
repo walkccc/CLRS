@@ -68,8 +68,6 @@
     
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
-      <link rel="stylesheet" href="../../../css/style.css">
-    
     
   </head>
   
@@ -5686,7 +5684,7 @@ We have $f(n) = n^2 \sqrt n = n^{5 / 2}$ and $n^{\log_b a} = n^{\log_2 4} = n^2$
 <p><strong>d.</strong> $\Theta(n\lg n)$ by the master method.</p>
 <p><strong>e.</strong> $T(n) = 2T(n / 2) + n / \lg n$<br />
 We can get a guess by means of a recursion tree:</p>
-<p><img alt="" src="https://i.imgur.com/Pn2CdhU.png?width=40rem" /></p>
+<p><img alt="" src="https://i.imgur.com/Pn2CdhU.png" /></p>
 <p>We get the sum on each level by observing that at depth $i$, we have $2^i$ nodes, each with a numerator of $n / 2^i$ and a denominator of $\lg(n / 2^i) = \lg n - i$, so that the cost at depth $i$ is</p>
 <p>$$2^i \cdot \frac{n / 2^i}{\lg n - i} = \frac{n}{\lg n - i}.$$</p>
 <p>The sum for all levels is</p>

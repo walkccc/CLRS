@@ -68,8 +68,6 @@
     
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
-      <link rel="stylesheet" href="../../../css/style.css">
-    
     
   </head>
   
@@ -5683,7 +5681,7 @@
 <p><strong>f.</strong> $T(n) = 2T(n / 4) + \sqrt n = \Theta(\sqrt n\lg n)$. This is another divide-and-conquer recurrence with $a = 2$, $b = 4$, $f(n) = \sqrt n$, and $n^{\log_b a} = n^{\log_4 2} = \sqrt n$. Since $\sqrt n = \Theta(n^{\log_4 2})$, case 2 of the master theorem applies, and $T(n) = \Theta(\sqrt n\lg n)$.</p>
 <p><strong>g.</strong> $T(n) = T(n - 1) + n$<br />
 Using the recursion tree shown below, we get a guess of $T(n) = \Theta(n^2)$.</p>
-<p><img alt="" src="https://i.imgur.com/W0FxTiC.png?width=5rem" /></p>
+<p><img alt="" src="https://i.imgur.com/W0FxTiC.png" /></p>
 <p>First, we prove the $T(n) = \Omega(n^2)$ part by induction. The inductive hypothesis is $T(n) \ge cn^2$ for some constant $c &gt; 0$.</p>
 <p>\begin{align}
 T(n) &amp; =   T(n - 1) + n \\

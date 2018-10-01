@@ -68,8 +68,6 @@
     
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
-      <link rel="stylesheet" href="../../css/style.css">
-    
     
   </head>
   
@@ -5875,7 +5873,7 @@ d &amp; 4 &amp; 3 &amp; 1 &amp; 0 &amp; 5 &amp; 2 &amp; 1 &amp; 1 \\
 <p>Give an example of a directed graph $G = (V, E)$, a source vertex $s \in V$, and a set of tree edges $E_\pi \subseteq E$ such that for each vertex $v \in V$, the unique simple path in the graph $(V, E_\pi)$ from $s$ to $v$ is a shortest path in $G$, yet the set of edges $E_\pi$ cannot be produced by running $\text{BFS}$ on $G$, no matter how the vertices are ordered in each adjacency list.</p>
 </blockquote>
 <p>The edges in $E_\pi$ are shaded in the following graph:</p>
-<p><img alt="" src="https://i.imgur.com/mIHBMbg.png?width=10rem" /></p>
+<p><img alt="" src="https://i.imgur.com/mIHBMbg.png" /></p>
 <p>To see that $E_\pi$ cannot be a breadth-first tree, let's suppose that $Adj[s]$ contains $u$ before $v$. $\text{BFS}$ adds edges $(s, u)$ and $(s, v)$ to the breadth-first tree. Since $u$ is enqueued before $v$, $\text{BFS}$ then adds edges $(u, w)$ and $(u, x)$. (The order of $w$ and $x$ in $Adj[u]$ doesn't matter.) Symmetrically, if $Adj[s]$ contains $v$ before $u$, then $\text{BFS}$ adds edges $(s, v)$ and $(s, u)$ to the breadth-first tree, $v$ is enqueued before $u$, and $\text{BFS}$ adds edges $(v, w)$ and $(v, x)$. (Again, the order of $w$ and $x$ in $Adj[v]$ doesn't matter.) $\text{BFS}$ will never put both edges $(u, w)$ and $(v, x)$ into the breadth-first tree. In fact, it will also never put both edges $(u, x)$ and $(v, w)$ into the breadth-first tree.</p>
 <h2 id="222-7">22.2-7</h2>
 <blockquote>

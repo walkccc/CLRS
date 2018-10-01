@@ -68,8 +68,6 @@
     
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
-      <link rel="stylesheet" href="../../css/style.css">
-    
     
   </head>
   
@@ -5829,7 +5827,7 @@
 <p>Since the exercise asks about binary search trees rather than the more specific redblack trees, we assume here that leaves are full-fledged nodes, and we ignore the sentinels.</p>
 <p>Taking the book's hint, we start by showing that with at most $n - 1$ right rotations, we can convert any binary search tree into one that is just a right-going chain. The idea is simple. Let us define the <strong><em>right spine</em></strong> as the root and all descendants of the root that are reachable by following only right pointers from the root. A binary search tree that is just a right-going chain has all n nodes in the right spine.</p>
 <p>As long as the tree is not just a right spine, repeatedly find some node $y$ on the right spine that has a non-leaf left child $x$ and then perform a right rotation on $y$:</p>
-<p><img alt="" src="https://i.imgur.com/qXe8WKC.png?width=40rem" /></p>
+<p><img alt="" src="https://i.imgur.com/qXe8WKC.png" /></p>
 <p>(In the above figure, note that any of $\alpha$, $\beta$, and $\gamma$ can be an empty subtree.) Observe that this right rotation adds $x$ to the right spine, and no other nodes leave the right spine. Thus, this right rotation increases the number of nodes in the right spine by $1$. Any binary search tree starts out with at least one node—the root—in the right spine. Moreover, if there are any nodes not on the right spine, then at least one such node has a parent on the right spine. Thus, at most $n - 1$ right rotations are needed to put all nodes in the right spine, so that the tree consists of a single right-going chain.</p>
 <p>If we knew the sequence of right rotations that transforms an arbitrary binary search tree $T$ to a single right-going chain $T'$, then we could perform this sequence in reverse—turning each right rotation into its inverse left rotation—to transform $T'$ back into $T$.</p>
 <p>Therefore, here is how we can transform any binary search tree $T_1$ into any other binary search tree $T_2$. Let $T'$ be the unique right-going chain consisting of the nodes of $T_1$ (which is the same as the nodes of $T_2$). Let $r = \langle r_1, r_2, \ldots, r_k \rangle$ be a sequence of right rotations that transforms $T_1$ to $T'$, and let $r' = \langle r_1', r_2', \ldots, r_{k'}' \rangle$ be a sequence of right rotations that transforms $T_2$ to $T'$. We know that there exist sequences $r$ and $r'$ with $k$, $k' \le n - 1$. For each right rotation $r_i'$, let $l_i'$ be the corresponding inverse left rotation. Then the sequence $\langle r_1, r_2, \ldots, r_k, l_{k'}', l_{k' - 1}', \ldots, l_2', l_1' \rangle$ transforms $T_1$ to $T_2$ in at most $2n - 2$ rotations.</p>
