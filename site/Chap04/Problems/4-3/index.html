@@ -5678,7 +5678,7 @@
 We have $f(n) = n\lg n$ and $n^{\log_b a} = n^{\lg 3} \approx n^{1.585}$. Since $n\lg n = O(n^{\lg 3 - \epsilon})$ for any $0 &lt; \epsilon \le 0.58$, by case 1 of the master theorem, we have $T(n) = \Theta(n^{\lg 3})$.</p>
 <p><strong>b.</strong> $\Theta(n\lg\lg n)$. Check subtask 5 for the reasoning.</p>
 <p><strong>c.</strong> $T(n) = 4T(n / 2) + n^2 \sqrt n$<br />
-We have $f(n) = n^2 \sqrt n = n^{5 / 2}$ and $n^{\log_b a} = n^{\log_2 4} = n^2$. Since $n^{5 / 2} = \Omega(n^{2 + \epsilon})$ for $\epsilon = 1 / 2$, we look at the regularity condition in case 3 of the master theorem. We have</p>
+We have $f(n) = n^2 \sqrt n = n^{5 / 2}$ and $n^{\log_b a} = n^{\lg 4} = n^2$. Since $n^{5 / 2} = \Omega(n^{2 + \epsilon})$ for $\epsilon = 1 / 2$, we look at the regularity condition in case 3 of the master theorem. We have</p>
 <p>$$af(n / b) = 4(n / 2)^2 \sqrt{n / 2} = n^{5 / 2} / \sqrt 2 \le cn^{5 / 2}$$</p>
 <p>for $1 / \sqrt 2 \le c &lt; 1$. Case 3 applies, and we have $T(n) = \Theta(n^2 \sqrt n)$.</p>
 <p><strong>d.</strong> $\Theta(n\lg n)$ by the master method.</p>
