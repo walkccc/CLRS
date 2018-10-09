@@ -5805,54 +5805,19 @@
 <blockquote>
 <p>Demonstrate what happens when we insert the keys $5, 28, 19, 15, 20, 33, 12, 17, 10$ into a hash table with collisions resolved by chaining. Let the table have $9$ slots, and let the hash function be $h(k) = k \mod 9$.</p>
 </blockquote>
-<p>Let us number our slots $0, 1 \dots 8$.
+<p>Let us number our slots $0, 1, \dots, 8$.
 Then our resulting hash table will look like following:</p>
-<table>
-<thead>
-<tr>
-<th align="center">Index</th>
-<th>Data</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">$0$</td>
-<td>$\text{NIL}$</td>
-</tr>
-<tr>
-<td align="center">$1$</td>
-<td>$28 \to 19 \to 10$</td>
-</tr>
-<tr>
-<td align="center">$2$</td>
-<td>$20$</td>
-</tr>
-<tr>
-<td align="center">$3$</td>
-<td>$12$</td>
-</tr>
-<tr>
-<td align="center">$4$</td>
-<td>$\text{NIL}$</td>
-</tr>
-<tr>
-<td align="center">$5$</td>
-<td>$5$</td>
-</tr>
-<tr>
-<td align="center">$6$</td>
-<td>$15 \to 33$</td>
-</tr>
-<tr>
-<td align="center">$7$</td>
-<td>$\text{NIL}$</td>
-</tr>
-<tr>
-<td align="center">$8$</td>
-<td>$17$</td>
-</tr>
-</tbody>
-</table>
+<p>\begin{array}{c|l}
+\mod 0 &amp;                  \\
+\mod 1 &amp; 28 \to 19 \to 10 \\
+\mod 2 &amp; 20               \\
+\mod 3 &amp; 12               \\
+\mod 4 &amp;                  \\
+\mod 5 &amp; 5                \\
+\mod 6 &amp; 15 \to 33        \\
+\mod 7 &amp;                  \\
+\mod 8 &amp; 17
+\end{array}</p>
 <h2 id="112-3">11.2-3</h2>
 <blockquote>
 <p>Professor Marley hypothesizes that he can obtain substantial performance gains by modifying the chaining scheme to keep each list in sorted order. How does the professor's modification affect the running time for successful searches, unsuccessful searches, insertions, and deletions?</p>
