@@ -5808,15 +5808,17 @@
 <p>Let us number our slots $0, 1, \dots, 8$.
 Then our resulting hash table will look like following:</p>
 <p>\begin{array}{c|l}
-\mod 0 &amp;                  \\
-\mod 1 &amp; 28 \to 19 \to 10 \\
-\mod 2 &amp; 20               \\
-\mod 3 &amp; 12               \\
-\mod 4 &amp;                  \\
-\mod 5 &amp; 5                \\
-\mod 6 &amp; 15 \to 33        \\
-\mod 7 &amp;                  \\
-\mod 8 &amp; 17
+h(k)  &amp; \text{keys}        \\
+\hline
+0 \mod 9 &amp;                  \\
+1 \mod 9 &amp; 28 \to 19 \to 10 \\
+2 \mod 9 &amp; 20               \\
+3 \mod 9 &amp; 12               \\
+4 \mod 9 &amp;                  \\
+5 \mod 9 &amp; 5                \\
+6 \mod 9 &amp; 15 \to 33        \\
+7 \mod 9 &amp;                  \\
+8 \mod 9 &amp; 17
 \end{array}</p>
 <h2 id="112-3">11.2-3</h2>
 <blockquote>

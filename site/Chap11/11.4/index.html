@@ -5778,56 +5778,63 @@
 <blockquote>
 <p>Consider inserting the keys $10, 22, 31, 4, 15, 28, 17, 88, 59$ into a hash table of length $m = 11$ using open addressing with the auxiliary hash function $h'(k) = k$. Illustrate the result of inserting these keys using linear probing, using quadratic probing with $c_1 = 1$ and $c_2 = 3$, and using double hashing with $h_1(k) = k$ and $h_2(k) = 1 + (k \mod (m - 1))$.</p>
 </blockquote>
+<p>We use $T_t$ to represent each time stamp $t$, and if encountering a collision, then we iterate $i$ from $0$ to $m - 1 = 10$.</p>
 <ul>
 <li>
-<p>Linear probing:</p>
+<p><strong>Linear probing</strong>:</p>
 <p>\begin{array}{r|ccccccccc}
-\mod 0 &amp;    &amp; 22 &amp; 22 &amp; 22 &amp; 22 &amp; 22 &amp; 22 &amp; 22 &amp; 22 \\
-\mod 1 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp; 88 &amp; 88 \\
-\mod 2 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    \\
-\mod 3 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    \\
-\mod 4 &amp;    &amp;    &amp;    &amp;  4 &amp;  4 &amp;  4 &amp;  4 &amp;  4 &amp;  4 \\
-\mod 5 &amp;    &amp;    &amp;    &amp;    &amp; 15 &amp; 15 &amp; 15 &amp; 15 &amp; 15 \\
-\mod 6 &amp;    &amp;    &amp;    &amp;    &amp;    &amp; 28 &amp; 28 &amp; 28 &amp; 28 \\
-\mod 7 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp; 17 &amp; 17 &amp; 17 \\
-\mod 8 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp; 59 \\
-\mod 9 &amp;    &amp;    &amp; 31 &amp; 31 &amp; 31 &amp; 31 &amp; 31 &amp; 31 &amp; 31 \\
-\mod10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 
+h(k, i) = (k + i) \mod 11 &amp; T_0 &amp; T_1 &amp; T_2 &amp; T_3 &amp; T_4 &amp; T_5 &amp; T_6 &amp; T_7 &amp; T_8 \\
+\hline
+ 0 \mod 11 &amp;    &amp; 22 &amp; 22 &amp; 22 &amp; 22 &amp; 22 &amp; 22 &amp; 22 &amp; 22 \\
+ 1 \mod 11 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp; 88 &amp; 88 \\
+ 2 \mod 11 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    \\
+ 3 \mod 11 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    \\
+ 4 \mod 11 &amp;    &amp;    &amp;    &amp;  4 &amp;  4 &amp;  4 &amp;  4 &amp;  4 &amp;  4 \\
+ 5 \mod 11 &amp;    &amp;    &amp;    &amp;    &amp; 15 &amp; 15 &amp; 15 &amp; 15 &amp; 15 \\
+ 6 \mod 11 &amp;    &amp;    &amp;    &amp;    &amp;    &amp; 28 &amp; 28 &amp; 28 &amp; 28 \\
+ 7 \mod 11 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp; 17 &amp; 17 &amp; 17 \\
+ 8 \mod 11 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp; 59 \\
+ 9 \mod 11 &amp;    &amp;    &amp; 31 &amp; 31 &amp; 31 &amp; 31 &amp; 31 &amp; 31 &amp; 31 \\
+10 \mod 11 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 
 \end{array}</p>
 </li>
 <li>
-<p>Quadradic probing, it will look identical until there is a collision on inserting the fifth element: </p>
+<p><strong>Quadradic probing</strong>, it will look identical until there is a collision on inserting the fifth element: </p>
 <p>\begin{array}{r|ccccccccc}
-\mod 0 &amp;    &amp; 22 &amp; 22 &amp; 22 &amp; 22 &amp; 22 &amp; 22 &amp; 22 &amp; 22 \\
-\mod 1 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    \\
-\mod 2 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp; 88 &amp; 88 \\
-\mod 3 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp; 17 &amp; 17 &amp; 17 \\
-\mod 4 &amp;    &amp;    &amp;    &amp;  4 &amp;  4 &amp;  4 &amp;  4 &amp;  4 &amp;  4 \\
-\mod 5 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    \\
-\mod 6 &amp;    &amp;    &amp;    &amp;    &amp;    &amp; 28 &amp; 28 &amp; 28 &amp; 28 \\
-\mod 7 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp; 59 \\
-\mod 8 &amp;    &amp;    &amp;    &amp;    &amp; 15 &amp; 15 &amp; 15 &amp; 15 &amp; 15 \\
-\mod 9 &amp;    &amp;    &amp; 31 &amp; 31 &amp; 31 &amp; 31 &amp; 31 &amp; 31 &amp; 31 \\
-\mod10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10
+h(k, i) = (k + i + 3i^2) \mod 11 &amp; T_0 &amp; T_1 &amp; T_2 &amp; T_3 &amp; T_4 &amp; T_5 &amp; T_6 &amp; T_7 &amp; T_8 \\
+\hline
+ 0 \mod 11 &amp;    &amp; 22 &amp; 22 &amp; 22 &amp; 22 &amp; 22 &amp; 22 &amp; 22 &amp; 22 \\
+ 1 \mod 11 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    \\
+ 2 \mod 11 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp; 88 &amp; 88 \\
+ 3 \mod 11 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp; 17 &amp; 17 &amp; 17 \\
+ 4 \mod 11 &amp;    &amp;    &amp;    &amp;  4 &amp;  4 &amp;  4 &amp;  4 &amp;  4 &amp;  4 \\
+ 5 \mod 11 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    \\
+ 6 \mod 11 &amp;    &amp;    &amp;    &amp;    &amp;    &amp; 28 &amp; 28 &amp; 28 &amp; 28 \\
+ 7 \mod 11 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp; 59 \\
+ 8 \mod 11 &amp;    &amp;    &amp;    &amp;    &amp; 15 &amp; 15 &amp; 15 &amp; 15 &amp; 15 \\
+ 9 \mod 11 &amp;    &amp;    &amp; 31 &amp; 31 &amp; 31 &amp; 31 &amp; 31 &amp; 31 &amp; 31 \\
+10 \mod 11 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10
 \end{array}</p>
 </li>
 </ul>
 <p>Note that there is no way to insert the element $59$ now, because the offsets coming from $c_1 = 1$ and $c_2 = 3$ can only be even, and an odd offset would be required to insert $59$ because $59 \mod 11 = 4$ and all the empty positions are at odd indices.</p>
 <ul>
 <li>
-<p>Double hashing:</p>
+<p><strong>Double hashing</strong>:</p>
 <p>\begin{array}{r|ccccccccc}
-\mod 0 &amp;    &amp; 22 &amp; 22 &amp; 22 &amp; 22 &amp; 22 &amp; 22 &amp; 22 &amp; 22 \\
-\mod 1 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    \\
-\mod 2 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp; 59 \\
-\mod 3 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp; 17 &amp; 17 &amp; 17 \\
-\mod 4 &amp;    &amp;    &amp;    &amp;  4 &amp;  4 &amp;  4 &amp;  4 &amp;  4 &amp;  4 \\
-\mod 5 &amp;    &amp;    &amp;    &amp;    &amp; 15 &amp; 15 &amp; 15 &amp; 15 &amp; 15 \\
-\mod 6 &amp;    &amp;    &amp;    &amp;    &amp;    &amp; 28 &amp; 28 &amp; 28 &amp; 28 \\
-\mod 7 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp; 88 &amp; 88 \\
-\mod 8 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    \\
-\mod 9 &amp;    &amp;    &amp; 31 &amp; 31 &amp; 31 &amp; 31 &amp; 31 &amp; 31 &amp; 31 \\
-\mod10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 
+h(k, i) = (k + i(1 + k \mod 10)) \mod 11 &amp; T_0 &amp; T_1 &amp; T_2 &amp; T_3 &amp; T_4 &amp; T_5 &amp; T_6 &amp; T_7 &amp; T_8 \\
+\hline
+ 0 \mod 11 &amp;    &amp; 22 &amp; 22 &amp; 22 &amp; 22 &amp; 22 &amp; 22 &amp; 22 &amp; 22 \\
+ 1 \mod 11 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    \\
+ 2 \mod 11 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp; 59 \\
+ 3 \mod 11 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp; 17 &amp; 17 &amp; 17 \\
+ 4 \mod 11 &amp;    &amp;    &amp;    &amp;  4 &amp;  4 &amp;  4 &amp;  4 &amp;  4 &amp;  4 \\
+ 5 \mod 11 &amp;    &amp;    &amp;    &amp;    &amp; 15 &amp; 15 &amp; 15 &amp; 15 &amp; 15 \\
+ 6 \mod 11 &amp;    &amp;    &amp;    &amp;    &amp;    &amp; 28 &amp; 28 &amp; 28 &amp; 28 \\
+ 7 \mod 11 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp; 88 &amp; 88 \\
+ 8 \mod 11 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    \\
+ 9 \mod 11 &amp;    &amp;    &amp; 31 &amp; 31 &amp; 31 &amp; 31 &amp; 31 &amp; 31 &amp; 31 \\
+10 \mod 11 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 
 \end{array}</p>
 </li>
 </ul>
