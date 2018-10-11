@@ -5778,7 +5778,7 @@
 <blockquote>
 <p>Consider inserting the keys $10, 22, 31, 4, 15, 28, 17, 88, 59$ into a hash table of length $m = 11$ using open addressing with the auxiliary hash function $h'(k) = k$. Illustrate the result of inserting these keys using linear probing, using quadratic probing with $c_1 = 1$ and $c_2 = 3$, and using double hashing with $h_1(k) = k$ and $h_2(k) = 1 + (k \mod (m - 1))$.</p>
 </blockquote>
-<p>We use $T_t$ to represent each time stamp $t$, and if encountering a collision, then we iterate $i$ from $0$ to $m - 1 = 10$.</p>
+<p>We use $T_t$ to represent each time stamp $t$ with $i = 0$, and if encountering a collision, then we iterate $i$ from $1$ to $m - 1 = 10$.</p>
 <ul>
 <li>
 <p><strong>Linear probing</strong>:</p>
