@@ -1,0 +1,7 @@
+<!-- Fix MathJax rendering on iOS Safari due to rendering long numbers as phone numbers. -->
+{% extends "base.html" %}
+
+{% block site_meta %}
+	{{ super() }}
+	<meta name="format-detection" content="telephone=no">
+{% endblock %}
