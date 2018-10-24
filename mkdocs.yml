@@ -15,6 +15,7 @@ copyright: 'Built by <a href="http://github.com/walkccc">Jay Chen</a> &copy; 201
 theme:
   name: 'material'
   language: 'en'
+  custom_dir: 'custom/'
   favicon: 'assets/favicon.png'
   palette:
     primary: 'Teal'
