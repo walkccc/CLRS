@@ -8,13 +8,13 @@ Hope to reorganize solutions to help more people and myself study algorithms. By
 
 *"Many a little makes a mickle."*
 
+## Contributors
+
 Thanks to: the Instructor's Manual by [Thomas H. Cormen](https://mitpress.mit.edu/contributors/thomas-h-cormen), [@skanev](https://github.com/skanev), [@cyberzhg](https://github.com/CyberZHG), [@yinyanghu](https://github.com/yinyanghu), @ajl213, etc.
 
+Special thanks to [@JeffreyCA](https://github.com/JeffreyCA), who fixed MathJax rendering on iOS Safari in [pull request #26](https://github.com/walkccc/CLRS/pull/26).
+
 Please don't hesitate to give me your feedback if any adjustment is needed with the sorted solutions. You can simply press the "Pencil icon" in the upper right corner to edit the contents or simply [open an issue](https://github.com/walkccc/CLRS/issues/new) in [my repository](https://github.com/walkccc/CLRS/).
-
-## Known Issues
-
-In the Safari on an iOS device, the math equations of [Problem 1-1](https://walkccc.github.io/CLRS/Chap01/Problems/1-1/), [16.3-3](https://walkccc.github.io/CLRS/Chap16/16.3/#163-3) and some other pages won't be rendered. I currently don't know how to fix this. If you know how to tackle this problem, please tell me, thanks.
 
 ## Working on following exercises
 
