@@ -10,15 +10,15 @@ Hope to reorganize solutions to help more people and myself study algorithms. By
 
 ## Contributors
 
-Thanks to: the Instructor's Manual by [Thomas H. Cormen](https://mitpress.mit.edu/contributors/thomas-h-cormen), [@skanev](https://github.com/skanev), [@cyberzhg](https://github.com/CyberZHG), [@yinyanghu](https://github.com/yinyanghu), @ajl213, etc.
+Thanks to: the Instructor's Manual by [Thomas H. Cormen](https://mitpress.mit.edu/contributors/thomas-h-cormen), [@skanev](https://github.com/skanev), [@CyberZHG](https://github.com/CyberZHG), [@yinyanghu](https://github.com/yinyanghu), @ajl213, etc.
 
-Special thanks to [@JeffreyCA](https://github.com/JeffreyCA), who fixed MathJax rendering on iOS Safari in [pull request #26](https://github.com/walkccc/CLRS/pull/26).
+Special thanks to [@JeffreyCA](https://github.com/JeffreyCA), who fixed MathJax rendering on iOS Safari in [#26](https://github.com/walkccc/CLRS/pull/26).
 
 Please don't hesitate to give me your feedback if any adjustment is needed with the sorted solutions. You can simply press the "Pencil icon" in the upper right corner to edit the contents or simply [open an issue](https://github.com/walkccc/CLRS/issues/new) in [my repository](https://github.com/walkccc/CLRS/).
 
 ## Working on following exercises
 
-[18.2-1](https://walkccc.github.io/CLRS/Chap18/18.2/#182-1), [19.2-1](https://walkccc.github.io/CLRS/Chap19/19.2/#192-1), [27.2-1](https://walkccc.github.io/CLRS/Chap27/27.2/#272-1), [27.3-4](https://walkccc.github.io/CLRS/Chap27/27.3/#273-4), [27-3](https://walkccc.github.io/CLRS/Chap27/Problems/27-3/).
+[18.2-1](https://walkccc.github.io/CLRS/Chap18/18.2/#182-1), [19.2-1](https://walkccc.github.io/CLRS/Chap19/19.2/#192-1), [27.2-1](https://walkccc.github.io/CLRS/Chap27/27.2/#272-1), [27.3-4](https://walkccc.github.io/CLRS/Chap27/27.3/#273-4).
 
 ## How I generate this website
 
