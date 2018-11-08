@@ -4,7 +4,7 @@
 
 This [website](https://walkccc.github.io/CLRS/) contains nearly complete solutions to the bible textbook - [**Introduction to Algorithms** *Third Edition*](https://mitpress.mit.edu/books/introduction-algorithms-third-edition) published by [Thomas H. Cormen](https://mitpress.mit.edu/contributors/thomas-h-cormen), [Charles E. Leiserson](https://mitpress.mit.edu/contributors/charles-e-leiserson), [Ronald L. Rivest](https://mitpress.mit.edu/contributors/ronald-l-rivest) and [Clifford Stein](https://mitpress.mit.edu/contributors/clifford-stein).
 
-Hope to reorganize solutions to help more people and myself study algorithms. By using [Markdown(.md)](https://en.wikipedia.org/wiki/Markdown) files, it's much more readable on portable devices now.
+Hope to reorganize solutions to help more people and myself study algorithms. By using [Markdown (.md)](https://en.wikipedia.org/wiki/Markdown) files, it's much more readable on portable devices now.
 
 *"Many a little makes a mickle."*
 
