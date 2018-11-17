@@ -18,7 +18,9 @@ Please don't hesitate to give me your feedback if any adjustment is needed with 
 
 ## Working on following exercises
 
-[18.2-1](https://walkccc.github.io/CLRS/Chap18/18.2/#182-1), [19.2-1](https://walkccc.github.io/CLRS/Chap19/19.2/#192-1), [27.2-1](https://walkccc.github.io/CLRS/Chap27/27.2/#272-1), [27.2-2](https://walkccc.github.io/CLRS/Chap27/27.2/#272-2).
+[18.2-1](https://walkccc.github.io/CLRS/Chap18/18.2/#182-1), [19.2-1](https://walkccc.github.io/CLRS/Chap19/19.2/#192-1).
+
+I will continue to complete VII Selected Topics.
 
 ## How I generate this website
 
