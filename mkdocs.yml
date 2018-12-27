@@ -35,12 +35,8 @@ extra:
       link: 'https://walkccc.github.io/blog'
     - type: 'book'
       link: 'https://walkccc.github.io/CS'
-    - type: 'gamepad'
-      link: 'https://walkccc.github.io/webapps'
     - type: 'linkedin'
       link: 'https://www.linkedin.com/in/jay-chen-57852313a'
-    - type: 'instagram'
-      link: 'https://www.instagram.com/walkccc'
 
 extra_css:
   - 'css/mathjax.css'
