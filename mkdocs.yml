@@ -39,11 +39,13 @@ extra:
       link: 'https://www.linkedin.com/in/jay-chen-57852313a'
 
 extra_css:
-  - 'css/mathjax.css'
+  - 'css/katex.css'
+  - 'https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css'
 
 extra_javascript:
-  - 'js/mathjax.js'
-  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML'
+  - 'js/katex.js'
+  - 'https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js'
+  - 'https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js'
 
 # Google Analytics
 google_analytics:

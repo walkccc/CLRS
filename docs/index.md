@@ -26,7 +26,7 @@ I will continue to complete VII Selected Topics.
 
 I use the static site generator [MkDocs](http://www.mkdocs.org/) and the beautiful theme [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) to build this website!
 
-Since there are some LaTeX equations [KaTeX](https://khan.github.io/KaTeX/) doesn't support, here I use [MathJax](https://www.mathjax.org/) to render the math equations in my website.
+Since [KaTeX](https://katex.org/) is now supporting more functions and is much faster than [MathJax](https://www.mathjax.org/), I've updated all math equations from [MathJax](https://www.mathjax.org/) to [KaTeX](https://katex.org/).
 
 I also add [overflow-x: auto](https://www.w3schools.com/cssref/css3_pr_overflow-x.asp) to prevent the overflow issue on mobile devices, so you can scroll horizontally in the math display equations.
 
