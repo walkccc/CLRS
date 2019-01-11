@@ -1,4 +1,6 @@
-.katex { font-size: 1.1em !important; }
+.katex {
+  font-size: 1.1em !important;
+}
 
 .katex-display > .katex {
   display: inline-block;
@@ -13,4 +15,8 @@
   line-height: 1.2;
   white-space: normal;
   text-indent: 0;
+}
+
+.katex-html {
+  overflow-y: hidden;
 }
