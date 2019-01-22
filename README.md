@@ -1,8 +1,20 @@
+<p align="center">
+  <a href="https://walkccc.github.io/CLRS/"><img src="./docs/assets/cover.png" height="200" title="CLRS" alt="CLRS"></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/walkccc/CLRS/graphs/contributors" alt="Contributors">
+    <img src="https://img.shields.io/badge/contributors-19-brightgreen.svg" />
+  </a>
+  <img src="https://img.shields.io/badge/coverage-87%25-blue.svg" />
+  <img src="https://img.shields.io/badge/license-MIT-yellow.svg" />
+</p>
+
 # Solutions to **Introduction to Algorithms** *Third Edition*
 
 ## Getting Started
 
-This [website](https://walkccc.github.io/CLRS/) contains nearly complete solutions to the bible textbook - [**Introduction to Algorithms** *Third Edition*](https://mitpress.mit.edu/books/introduction-algorithms-third-edition) published by [Thomas H. Cormen](https://mitpress.mit.edu/contributors/thomas-h-cormen), [Charles E. Leiserson](https://mitpress.mit.edu/contributors/charles-e-leiserson), [Ronald L. Rivest](https://mitpress.mit.edu/contributors/ronald-l-rivest) and [Clifford Stein](https://mitpress.mit.edu/contributors/clifford-stein).
+This **[website](https://walkccc.github.io/CLRS/)** contains nearly complete solutions to the bible textbook - [**Introduction to Algorithms** *Third Edition*](https://mitpress.mit.edu/books/introduction-algorithms-third-edition) published by [Thomas H. Cormen](https://mitpress.mit.edu/contributors/thomas-h-cormen), [Charles E. Leiserson](https://mitpress.mit.edu/contributors/charles-e-leiserson), [Ronald L. Rivest](https://mitpress.mit.edu/contributors/ronald-l-rivest) and [Clifford Stein](https://mitpress.mit.edu/contributors/clifford-stein).
 
 Hope to reorganize solutions to help more people and myself study algorithms. By using [Markdown (.md)](https://en.wikipedia.org/wiki/Markdown) files, it's much more readable on portable devices now.
 
@@ -12,7 +24,7 @@ Hope to reorganize solutions to help more people and myself study algorithms. By
 
 Thanks to: the Instructor's Manual by [Thomas H. Cormen](https://mitpress.mit.edu/contributors/thomas-h-cormen), [@skanev](https://github.com/skanev), [@CyberZHG](https://github.com/CyberZHG), [@yinyanghu](https://github.com/yinyanghu), @ajl213, etc.
 
-Special thanks to [@JeffreyCA](https://github.com/JeffreyCA), who fixed MathJax rendering on iOS Safari in [#26](https://github.com/walkccc/CLRS/pull/26).
+Special thanks to [@JeffreyCA](https://github.com/JeffreyCA), who fixed math rendering on iOS Safari in [#26](https://github.com/walkccc/CLRS/pull/26).
 
 Please don't hesitate to give me your feedback if any adjustment is needed with the sorted solutions. You can simply press the "Pencil icon" in the upper right corner to edit the contents or simply [open an issue](https://github.com/walkccc/CLRS/issues/new) in [my repository](https://github.com/walkccc/CLRS/).
 
@@ -26,7 +38,7 @@ I will continue to complete VII Selected Topics.
 
 I use the static site generator [MkDocs](http://www.mkdocs.org/) and the beautiful theme [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) to build this website!
 
-Since there are some LaTeX equations [KaTeX](https://khan.github.io/KaTeX/) doesn't support, here I use [MathJax](https://www.mathjax.org/) to render the math equations in my website.
+Since [KaTeX](https://katex.org/) is now supporting more functions and is much faster than [MathJax](https://www.mathjax.org/), I've updated all math equations from [MathJax](https://www.mathjax.org/) to [KaTeX](https://katex.org/).
 
 I also add [overflow-x: auto](https://www.w3schools.com/cssref/css3_pr_overflow-x.asp) to prevent the overflow issue on mobile devices, so you can scroll horizontally in the math display equations.
 
@@ -35,3 +47,7 @@ I also add [overflow-x: auto](https://www.w3schools.com/cssref/css3_pr_overflow-
 For more informations please visit [**my GitHub site**](https://github.com/walkccc).
 
 Updated to this new site on April 13, 2018 at 04:48 [(GMT+8)](https://time.is/GMT+8).
+
+## License
+
+Licensed under the MIT License.
