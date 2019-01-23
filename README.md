@@ -4,9 +4,9 @@
 
 <p align="center">
   <a href="https://github.com/walkccc/CLRS/graphs/contributors" alt="Contributors">
-    <img src="https://img.shields.io/badge/contributors-19-brightgreen.svg" />
+    <img src="https://img.shields.io/badge/contributors-19-blue.svg" />
   </a>
-  <img src="https://img.shields.io/badge/coverage-87%25-blue.svg" />
+  <img src="https://img.shields.io/badge/coverage-87%25-brightgreen.svg" />
   <img src="https://img.shields.io/badge/license-MIT-yellow.svg" />
 </p>
 
@@ -22,9 +22,11 @@ Hope to reorganize solutions to help more people and myself study algorithms. By
 
 ## Contributors
 
-Thanks to: the Instructor's Manual by [Thomas H. Cormen](https://mitpress.mit.edu/contributors/thomas-h-cormen), [@skanev](https://github.com/skanev), [@CyberZHG](https://github.com/CyberZHG), [@yinyanghu](https://github.com/yinyanghu), @ajl213, etc.
+Thanks to: the Instructor's Manual by [Thomas H. Cormen](https://mitpress.mit.edu/contributors/thomas-h-cormen), [@skanev](https://github.com/skanev), [@CyberZHG](https://github.com/CyberZHG), [@yinyanghu](https://github.com/yinyanghu), [@ajl213](https://sites.math.rutgers.edu/~ajl213/CLRS/CLRS.html), etc.
 
 Special thanks to [@JeffreyCA](https://github.com/JeffreyCA), who fixed math rendering on iOS Safari in [#26](https://github.com/walkccc/CLRS/pull/26).
+
+If I miss your name here, please tell me!
 
 Please don't hesitate to give me your feedback if any adjustment is needed with the sorted solutions. You can simply press the "Pencil icon" in the upper right corner to edit the contents or simply [open an issue](https://github.com/walkccc/CLRS/issues/new) in [my repository](https://github.com/walkccc/CLRS/).
 
@@ -44,9 +46,9 @@ I also add [overflow-x: auto](https://www.w3schools.com/cssref/css3_pr_overflow-
 
 ## More Informations
 
-For more informations please visit [**my GitHub site**](https://github.com/walkccc).
+For more informations please visit [**my GitHub**](https://github.com/walkccc).
 
-Updated to this new site on April 13, 2018 at 04:48 [(GMT+8)](https://time.is/GMT+8).
+Updated to this new page on April 13, 2018 at 04:48 [(GMT+8)](https://time.is/GMT+8).
 
 ## License
 
