@@ -1,20 +1,16 @@
 .katex {
   font-size: 1.1em !important;
+  font: normal 1.1em KaTeX_Main, Times New Roman, serif;
+  line-height: 1.2;
+  white-space: normal;
+  text-indent: 0;
 }
 
 .katex-display > .katex {
   display: inline-block;
   white-space: nowrap;
   max-width: 100%;
-  overflow-x: scroll;
   text-align: initial;
-}
-
-.katex {
-  font: normal 1.21em KaTeX_Main, Times New Roman, serif;
-  line-height: 1.2;
-  white-space: normal;
-  text-indent: 0;
 }
 
 .katex-html {
