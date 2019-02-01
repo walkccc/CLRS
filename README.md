@@ -3,10 +3,10 @@
 </p>
 
 <p align="center">
+  <img src="http://progressed.io/bar/87?title=completion" />
   <a href="https://github.com/walkccc/CLRS/graphs/contributors" alt="Contributors">
     <img src="https://img.shields.io/github/contributors/walkccc/CLRS.svg" />
   </a>
-  <img src="http://progressed.io/bar/87" />
   <img src="https://img.shields.io/badge/made%20with-Markdown-1f425f.svg" />
   <img src="https://img.shields.io/badge/made%20with-KaTeX-1f425f.svg" />
   <img src="https://img.shields.io/badge/PRs-welcome-1abc9c.svg" />
