@@ -4,13 +4,13 @@
 
 <p align="center">
   <a href="https://github.com/walkccc/CLRS/graphs/contributors" alt="Contributors">
-    <img src="https://img.shields.io/badge/Contributors-20-blue.svg" />
+    <img src="https://img.shields.io/github/contributors/walkccc/CLRS.svg" />
   </a>
-  <img src="https://img.shields.io/badge/Coverage-87%25-brightgreen.svg" />
-  <img src="https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg" />
-  <img src="https://img.shields.io/badge/Made%20with-KaTeX-1f425f.svg" />
+  <img src="https://img.shields.io/badge/coverage-87%25-blue.svg" />
+  <img src="https://img.shields.io/badge/made%20with-Markdown-1f425f.svg" />
+  <img src="https://img.shields.io/badge/made%20with-KaTeX-1f425f.svg" />
   <img src="https://img.shields.io/badge/PRs-welcome-1abc9c.svg" />
-  <img src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  <img src="https://img.shields.io/github/license/walkccc/CLRS.svg" />
 </p>
 
 # Solutions to **Introduction to Algorithms** *Third Edition*
