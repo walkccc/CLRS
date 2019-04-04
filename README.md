@@ -19,7 +19,9 @@
 
 ## Getting Started
 
-This **[website](https://walkccc.github.io/CLRS/)** contains nearly complete solutions to the bible textbook - [**Introduction to Algorithms** _Third Edition_](https://mitpress.mit.edu/books/introduction-algorithms-third-edition) published by [Thomas H. Cormen](https://mitpress.mit.edu/contributors/thomas-h-cormen), [Charles E. Leiserson](https://mitpress.mit.edu/contributors/charles-e-leiserson), [Ronald L. Rivest](https://mitpress.mit.edu/contributors/ronald-l-rivest) and [Clifford Stein](https://mitpress.mit.edu/contributors/clifford-stein).
+Since there are tons of mathematical equations in this repository and GitHub still doesn't support math rendering. For a better experience, please refer to the website - **[CLRS Solutions](https://walkccc.github.io/CLRS/)**.
+
+This repository contains nearly complete solutions to the bible textbook - [**Introduction to Algorithms** _Third Edition_](https://mitpress.mit.edu/books/introduction-algorithms-third-edition) published by [Thomas H. Cormen](https://mitpress.mit.edu/contributors/thomas-h-cormen), [Charles E. Leiserson](https://mitpress.mit.edu/contributors/charles-e-leiserson), [Ronald L. Rivest](https://mitpress.mit.edu/contributors/ronald-l-rivest) and [Clifford Stein](https://mitpress.mit.edu/contributors/clifford-stein).
 
 Hope to reorganize solutions to help more people and myself study algorithms. By using [Markdown (.md)](https://en.wikipedia.org/wiki/Markdown) files, it's much more readable on portable devices now.
 
@@ -33,25 +35,13 @@ Special thanks to [@JeffreyCA](https://github.com/JeffreyCA), who fixed math ren
 
 If I miss your name here, please tell me!
 
-Please don't hesitate to give me your feedback if any adjustment is needed with the sorted solutions. You can simply press the "Pencil icon" in the upper right corner to edit the contents or simply [open an issue](https://github.com/walkccc/CLRS/issues/new) in [my repository](https://github.com/walkccc/CLRS/).
-
-## Working on following exercises
-
-[18.2-1](https://walkccc.github.io/CLRS/Chap18/18.2/#182-1), [19.2-1](https://walkccc.github.io/CLRS/Chap19/19.2/#192-1).
-
-I will continue to complete VII Selected Topics.
-
-## How I generate this website
-
-I use the static site generator [MkDocs](http://www.mkdocs.org/) and the beautiful theme [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) to build this website!
-
-Since [KaTeX](https://katex.org/) is now supporting more functions and is much faster than [MathJax](https://www.mathjax.org/), I've updated all math equations from MathJax to KaTeX.
-
-I also add `overflow-x: auto` to prevent the overflow issue on small screen devices, so you can scroll horizontally in the math display equations.
+Feel free to give me your feedback if any adjustment is needed with the sorted solutions. You can press the "pencil icon" in the upper right corner to edit the contents or simply [open an issue](https://github.com/walkccc/CLRS/issues/new) in [my repository](https://github.com/walkccc/CLRS/).
 
 ## More Informations
 
-For more informations please visit [**my GitHub**](https://github.com/walkccc).
+I recently rebased my repository for clearer commit histories. Therefore, if you have forked the repository before, consider reforking it again.
+
+For more informations, you can visit my GitHub: [walkccc (Jay Chen)](https://github.com/walkccc/).
 
 Updated to this new page on April 13, 2018 at 04:48 [(GMT+8)](https://time.is/GMT+8).
 
