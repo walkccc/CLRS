@@ -25,6 +25,13 @@ I hope to organize solutions to help people and myself study algorithms. By usin
 
 _"Many a little makes a mickle."_
 
+##To Run 
+```
+pip install mkdocs
+pip install mkdocs-material
+python -m mkdocs serve
+```
+
 ## Contributors
 
 Thanks to the authors of [CLRS Solutions](https://sites.math.rutgers.edu/~ajl213/CLRS/CLRS.html), [Michelle Bodnar](mailto:chellebodnar@gmail.com) (who writes the even-numbered problems) and [Andrew Lohr](mailto:Andrew.Lohr@gmail.com) (who writes the odd-numbered problems), [@skanev](https://github.com/skanev), [@CyberZHG](https://github.com/CyberZHG), [@yinyanghu](https://github.com/yinyanghu), [@Gutdub](https://github.com/Gutdub), etc.
