@@ -20,7 +20,7 @@ Currently working on removed problems and [C++ code](https://github.com/walkccc/
 
 ## Motivation
 
-I build this website since I want to help everyone learn algorithms by providing something easy to read on mobile devices.
+I built this website since I want to help everyone learn algorithms by providing something easy to read on mobile devices.
 
 Therefore, if any adjustment is needed or you have the same motivation to contribute to this work, please don't hesitate to give me your feedback. You can press the "pencil icon" in the upper right corner to edit the content or [open an issue](https://github.com/walkccc/CLRS/issues/new) in [my repository](https://github.com/walkccc/CLRS/). Your solution will be rebased to this repository after I review it and make some form modifications to your pull request.
 
