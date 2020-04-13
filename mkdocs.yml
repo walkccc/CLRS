@@ -1,66 +1,68 @@
 # Project information
-site_name: 'CLRS Solutions'
-site_description: 'Solutions to Introduction to Algorithms Third Edition. CLRS Solutions. The textbook that a Computer Science (CS) student must read.'
-site_author: 'Jay Chen'
-site_url: 'https://walkccc.github.io/CLRS'
+site_name: CLRS Solutions
+site_description: Solutions to Introduction to Algorithms Third Edition. CLRS Solutions. The textbook that a Computer Science (CS) student must read.
+site_author: Jay Chen
+site_url: https://walkccc.github.io/CLRS
 
 # Repository
-repo_name: 'walkccc/CLRS'
-repo_url: 'https://github.com/walkccc/CLRS'
+repo_name: walkccc/CLRS
+repo_url: https://github.com/walkccc/CLRS
 
 # Copyright
-copyright: 'Built by <a href="http://github.com/walkccc">Jay Chen</a> &copy; 2017 - 2020'
+copyright: Built by <a href="http://github.com/walkccc">Jay Chen</a> &copy; 2017 - 2020
 
 # Configuration
 theme:
-  name: 'material'
-  language: 'en'
-  custom_dir: 'custom/'
-  favicon: 'assets/favicon.png'
+  name: material
+  language: en
+  custom_dir: custom
+  favicon: assets/favicon.png
   palette:
-    primary: 'Teal'
-    accent: 'Blue'
+    primary: teal
+    accent: blue
   font:
-    text: 'Roboto'
-    code: 'Roboto Mono'
-  logo:
-    icon: 'import_contacts'
+    text: Roboto
+    code: Roboto Mono
+  icon:
+    logo: octicons/globe
+    repo: fontawesome/brands/github
 
 # Customization
 extra:
   social:
-    - type: 'github'
-      link: 'https://github.com/walkccc'
-    - type: 'quote-left'
-      link: 'https://walkccc.github.io/blog'
-    - type: 'linkedin'
-      link: 'https://www.linkedin.com/in/peng-yu-jay-chen-57852313a/'
+    - icon: fontawesome/brands/github-square
+      link: https://github.com/walkccc
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/peng-yu-jay-chen-57852313a/
+    - icon: fontawesome/solid/code
+      link: https://walkccc.github.io/LeetCode
 
 extra_css:
-  - 'css/katex.css'
-  - 'https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css'
+  - css/katex.css
+  - css/custom.css
+  - https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css
 
 extra_javascript:
-  - 'js/katex.js'
-  - 'https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js'
-  - 'https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js'
+  - js/katex.js
+  - https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js
 
 # Google Analytics
 google_analytics:
-  - 'UA-117404761-1'
-  - 'auto'
+  - UA-117404761-1
+  - auto
 
 # Extensions
 markdown_extensions:
-  - codehilite:
+  - pymdownx.highlight:
       linenums: true
+      linenums_style: pymdownx-inline
   - toc:
       permalink: false
   - pymdownx.superfences
 
 nav:
   - Preface: index.md
-  - Color: color.md
   - I Foundations:
       - 1 The Role of Algorithms in Computing:
           - 1.1 Algorithms: Chap01/1.1.md
