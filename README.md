@@ -1,19 +1,17 @@
-<p align="center">
+<div align="center">
   <a href="https://walkccc.github.io/CLRS/"><img src="./docs/assets/cover.png" height="200" title="CLRS" alt="CLRS"></a>
-</p>
+</div>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/completion-81%25-blue.svg" />
-  <a href="https://github.com/walkccc/CLRS/graphs/contributors" alt="Contributors">
-    <img src="https://img.shields.io/github/contributors/walkccc/CLRS.svg" />
-  </a>
-  <img src="https://img.shields.io/badge/made%20with-Markdown-1f425f.svg" />
-  <img src="https://img.shields.io/badge/made%20with-KaTeX-1f425f.svg" />
-  <img src="https://img.shields.io/badge/PRs-welcome-1abc9c.svg" />
-  <a href="https://github.com/walkccc/CLRS/blob/master/LICENSE" alt="License">
-    <img src="https://img.shields.io/github/license/walkccc/CLRS.svg" />
-  </a>
-</p>
+<div align="center">
+
+![](https://img.shields.io/badge/completion-81%25-005CAF.svg?style=flat-square)
+[![Contributors](https://img.shields.io/github/contributors/walkccc/CLRS.svg?style=flat-square)](https://github.com/walkccc/CLRS/graphs/contributors)
+![](https://img.shields.io/badge/made%20with-Markdown-33A6B8.svg?style=flat-square)
+![](https://img.shields.io/badge/made%20with-KaTeX-33A6B8.svg?style=flat-square)
+![](https://img.shields.io/badge/PRs-welcome-E87A90.svg?style=flat-square)
+[![](https://img.shields.io/github/license/walkccc/CLRS.svg?style=flat-square)](./LICENSE)
+
+</div>
 
 # Solutions to **Introduction to Algorithms** _Third Edition_
 
