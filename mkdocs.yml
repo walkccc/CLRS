@@ -13,7 +13,7 @@ copyright: Built by <a href="http://github.com/walkccc">Jay Chen</a> &copy; 2017
 
 # Configuration
 theme:
-  name: material
+  name: readthedocs
   language: en
   custom_dir: custom
   favicon: assets/favicon.png
@@ -53,13 +53,13 @@ google_analytics:
   - auto
 
 # Extensions
-markdown_extensions:
-  - pymdownx.highlight:
-      linenums: true
-      linenums_style: pymdownx-inline
-  - toc:
-      permalink: false
-  - pymdownx.superfences
+#markdown_extensions:
+#  - pymdownx.highlight:
+#      linenums: true
+#      linenums_style: pymdownx-inline
+#  - toc:
+#      permalink: false
+#  - pymdownx.superfences
 
 nav:
   - Preface: index.md
@@ -433,3 +433,21 @@ nav:
               - 35-5 Parallel machine scheduling: Chap35/Problems/35-5.md
               - 35-6 Approximating a maximum spanning tree: Chap35/Problems/35-6.md
               - 35-7 An approximation algorithm for the 0-1 knapsack problem: Chap35/Problems/35-7.md
+  - VIII Appendix:
+    - A Summations:
+        - A.1 Summation formulas and properties: A/A.1.md
+        - A.2 Bounding summations: A/A.2.md
+        - Appendix A Problems:
+            - A-1 Bounding summations: A/Problems/A-1.md
+    - B Sets, Etc.:
+        - B.1 Sets: B/B.1.md
+        - B.2 Relations: B/B.2.md
+        - B.3 Functions: B/B.3.md
+        - B.4 Graphs: B/B.4.md
+        - B.5 Trees: B/B.5.md
+        - Appendix B Problems:
+            - B-1 Graph coloring: B/Problems/B-1.md
+            - B-2 Friendly graphs: B/Problems/B-2.md
+            - B-3 Bisecting trees: B/Problems/B-3.md
+        
+    
