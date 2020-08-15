@@ -24,7 +24,7 @@ theme:
     text: Roboto
     code: Roboto Mono
   icon:
-    logo: octicons/globe
+    logo: fontawesome/solid/globe-americas
     repo: fontawesome/brands/github
 
 # Customization
