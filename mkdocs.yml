@@ -2,7 +2,7 @@
 site_name: CLRS Solutions
 site_description: Solutions to Introduction to Algorithms Third Edition. CLRS Solutions. The textbook that a Computer Science (CS) student must read.
 site_author: Jay Chen
-site_url: https://walkccc.github.io/CLRS
+site_url: https://walkccc.me/CLRS
 
 # Repository
 repo_name: walkccc/CLRS
@@ -35,7 +35,7 @@ extra:
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/walkccc/
     - icon: fontawesome/solid/code
-      link: https://walkccc.github.io/LeetCode
+      link: https://walkccc.me/LeetCode
 
 extra_css:
   - css/katex.css
