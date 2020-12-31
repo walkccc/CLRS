@@ -6527,14 +6527,6 @@ $$</p>
 <blockquote>
 <p>Given an adjacency-list representation of a multigraph $G = (V, E)$, describe an $O(V + E)$-time algorithm to compute the adjacency-list representation of the "equivalent" undirected graph $G' = (V, E')$, where $E'$ consists of the edges in $E$ with all multiple edges between two vertices replaced by a single edge and with all self-loops removed.</p>
 </blockquote>
-<p>Create a new adjacency-list $Adj'$ of size $|V|$ and a zero-initialized array $A$ of size $|V|$ first.
-For each vertex $u$ in the multigraph $G$, we iterably examine each vertex $v$ of $Adj[u]$.</p>
-<ul>
-<li>If $v \ne u$ and $A[v] \ne u$, set $A[v]$ to $u$, then add $v$ to $Adj'[u]$.</li>
-<li>Else, do nothing.</li>
-</ul>
-<p>Note that $A$ does not contain any element with value $u$ before each iteration of the inner for-loop. That's why we use $A[v] = u$ to mark the existence of an edge $(u, v)$ in the inner for-loop.
-Since we lookup in the adjacency-list $Adj$ for $|V| + |E|$ times, the time complexity is $O(|V| + |E|)$.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">EQUIVALENT</span><span class="o">-</span><span class="n">UNDIRECTED</span><span class="o">-</span><span class="n">GRAPH</span>
 <span class="linenos" data-linenos="2 "></span>    <span class="n">let</span> <span class="n">Adj</span><span class="err">&#39;</span><span class="p">[</span><span class="mf">1.</span><span class="p">.</span><span class="o">|</span><span class="n">V</span><span class="o">|</span><span class="p">]</span> <span class="n">be</span> <span class="n">a</span> <span class="k">new</span> <span class="n">adjacency</span> <span class="n">list</span>
 <span class="linenos" data-linenos="3 "></span>    <span class="n">let</span> <span class="n">A</span> <span class="n">be</span> <span class="n">a</span> <span class="mi">0</span><span class="o">-</span><span class="n">initialized</span> <span class="n">array</span> <span class="n">of</span> <span class="n">size</span> <span class="o">|</span><span class="n">V</span><span class="o">|</span>
@@ -6544,6 +6536,8 @@ Since we lookup in the adjacency-list $Adj$ for $|V| + |E|$ times, the time comp
 <span class="linenos" data-linenos="7 "></span>                <span class="n">A</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">u</span>
 <span class="linenos" data-linenos="8 "></span>                <span class="n">INSERT</span><span class="p">(</span><span class="n">Adj</span><span class="err">&#39;</span><span class="p">[</span><span class="n">u</span><span class="p">],</span> <span class="n">v</span><span class="p">)</span>
 </code></pre></div>
+<p>Note that $A$ does not contain any element with value $u$ before each iteration of the inner for-loop. That's why we use $A[v] = u$ to mark the existence of an edge $(u, v)$ in the inner for-loop.
+Since we lookup in the adjacency-list $Adj$ for $|V| + |E|$ times, the time complexity is $O(|V| + |E|)$.</p>
 <h2 id="221-5">22.1-5</h2>
 <blockquote>
 <p>The <strong><em>square</em></strong> of a directed graph $G = (V, E)$ is the graph $G^2 = (V, E^2)$ such that $(u, v) \in E^2$ if and only if $G$ contains a path with at most two edges between $u$ and $v$. Describe efficient algorithms for computing $G^2$ from $G$ for both the adjacency-list and adjacency-matrix representations of $G$. Analyze the running times of your algorithms.</p>
@@ -6555,11 +6549,11 @@ Since we lookup in the adjacency-list $Adj$ for $|V| + |E|$ times, the time comp
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">for</span> <span class="n">each</span> <span class="n">v</span> <span class="err">∈</span> <span class="n">Adj</span><span class="p">[</span><span class="n">u</span><span class="p">]</span>
 <span class="linenos" data-linenos="2 "></span>    <span class="n">INSERT</span><span class="p">(</span><span class="n">Adj2</span><span class="p">[</span><span class="n">u</span><span class="p">],</span> <span class="n">v</span><span class="p">)</span>
 <span class="linenos" data-linenos="3 "></span>    <span class="k">for</span> <span class="n">each</span> <span class="n">w</span> <span class="err">∈</span> <span class="n">Adj</span><span class="p">[</span><span class="n">v</span><span class="p">]</span>
-<span class="linenos" data-linenos="4 "></span>        <span class="n">edge</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span> <span class="err">∈</span> <span class="n">E</span><span class="o">^</span><span class="mi">2</span>
+<span class="linenos" data-linenos="4 "></span>        <span class="c1">// edge(u, w) ∈ E^2</span>
 <span class="linenos" data-linenos="5 "></span>        <span class="n">INSERT</span><span class="p">(</span><span class="n">Adj2</span><span class="p">[</span><span class="n">u</span><span class="p">],</span> <span class="n">w</span><span class="p">)</span>
 </code></pre></div>
-<p>where $Adj2$ is the adjacency-list representation of $G^2$. For every edge in $Adj$ we scan at most $|V|$ vertices, we compute $Adj2$ in time $O(VE)$.</p>
-<p>After we have computed $Adj2$, we have to remove any duplicate edges from the lists (there may be more than one two-edge path in $G$ between any two vertices). Removing duplicate edges is done in $O(V + E')$ where $E' = O(VE)$ is the number of edges in $Adj2$ as shown in exercise 22.1-4. Thus the total running time is</p>
+<p>where $Adj2$ is the adjacency-list representation of $G^2$. For every edge in $Adj$ we scan at most $|V|$ vertices, we compute $Adj2$ in time $O(|V||E|)$.</p>
+<p>After we have computed $Adj2$, we have to remove duplicate edges from the lists. Removing duplicate edges is done in $O(V + E')$ where $E' = O(VE)$ is the number of edges in $Adj2$ as shown in exercise 22.1-4. Thus the total running time is</p>
 <p>$$O(VE) + O(V + VE) = O(VE).$$</p>
 <p>However, if the original graph $G$ contains self-loops, we should modify the algorithm so that self-loops are not removed.</p>
 </li>
@@ -6572,9 +6566,9 @@ Since we lookup in the adjacency-list $Adj$ for $|V| + |E|$ times, the time comp
 <blockquote>
 <p>Most graph algorithms that take an adjacency-matrix representation as input require time $\Omega(V^2)$, but there are some exceptions. Show how to determine whether a directed graph $G$ contains a <strong><em>universal sink</em></strong> $-$ a vertex with $\text{in-degree}$ $|V| - 1$ and $\text{out-degree}$ $0$ $-$ in time $O(V)$, given an adjacency matrix for $G$.</p>
 </blockquote>
-<p>Start by examining position $(1, 1)$ in the adjacency matrix. When examining position $(i, j)$, </p>
+<p>Start by examining position $(1, 1)$ in the adjacency matrix. When examining position $(i, j)$,</p>
 <ul>
-<li>if a $1$ is encountered, examine position $(i + 1, j)$, and </li>
+<li>if a $1$ is encountered, examine position $(i + 1, j)$, and</li>
 <li>if a $0$ is encountered, examine position $(i, j + 1)$.</li>
 </ul>
 <p>Once either $i$ or $j$ is equal to $|V|$, terminate.</p>
