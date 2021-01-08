@@ -6425,7 +6425,7 @@ $$</p>
 <p>Show that there is no comparison sort whose running time is linear for at least half of the $n!$ inputs of length $n$. What about a fraction of $1 / n$ of the inputs of length $n$? What about a fraction $1 / 2^n$?</p>
 </blockquote>
 <p>Consider a decision tree of height $h$ with $r$ reachable leaves corresponding to a comparison sort on $n$ elements. From <strong>Theorem 8.1</strong>, We have $n! / 2 \le n! \le r \le 2^h$. By taking logarithms, we have</p>
-<p>$$h \ge \lg (n! / 2) = \lg n! - 1 = \Theta (n\lg n) - 1 = \Theta (n\lg n).$$</p>
+<p>$$h \ge \lg (n! / 2) = \lg (n!) - 1 = \Theta (n\lg n) - 1 = \Theta (n\lg n).$$</p>
 <p>From the equation above, there is no comparison sort whose running time is linear for at least half of the $n!$ inputs of length $n$.</p>
 <p>Consider the $1/n$ of inputs of length $n$ condition. we have $(1/n)n! \le n! \le r \le 2^h$. By taking logarithms, we have</p>
 <p>$$h \ge \lg (n! / n) = \lg (n!) - \lg n = \Theta (n\lg n) - \lg n = \Theta (n\lg n).$$</p>
@@ -6494,7 +6494,7 @@ $$</p>
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            Built by <a href="http://github.com/walkccc">Jay Chen</a> &copy; 2017 - 2020
+            Built by <a href="http://github.com/walkccc">Jay Chen</a> &copy; 2017 - 2021
           </div>
         
         Made with
