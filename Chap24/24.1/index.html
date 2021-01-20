@@ -6506,7 +6506,7 @@ $$</p>
 <blockquote>
 <p>Given a weighted, directed graph $G = (V, E)$ with no negative-weight cycles, let $m$ be the maximum over all vertices $v \in V$ of the minimum number of edges in a shortest path from the source $s$ to $v$. (Here, the shortest path is by weight, not the number of edges.) Suggest a simple change to the Bellman-Ford algorithm that allows it to terminate in $m + 1$ passes, even if $m$ is not known in advance.</p>
 </blockquote>
-<p>(Removed)</p>
+<p>By the upper bound theory, we know that after $m$ iterations, no $d$ values will ever change. Therefore, no $d$ values will change in the $(m + 1)$-th iteration. However, we do not know the exact $m$ value in advance, we cannot make the algorithm iterate exactly $m$ times and then terminate. If we try to make the algorithm stop when every $d$ values do not change anymore, then it will stop after $m + 1$ iterations.</p>
 <h2 id="241-4">24.1-4</h2>
 <blockquote>
 <p>Modify the Bellman-Ford algorithm so that it sets $v.d$ to $-\infty$ for all vertices $v$ for which there is a negative-weight cycle on some path from the source to $v$.</p>
