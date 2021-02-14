@@ -6128,7 +6128,46 @@
 <blockquote>
 <p>Consider a modification to the activity-selection problem in which each activity $a_i$ has, in addition to a start and finish time, a value $v_i$. The objective is no longer to maximize the number of activities scheduled, but instead to maximize the total value of the activities scheduled. That is, we wish to choose a set $A$ of compatible activities such that $\sum_{a_k \in A} v_k$ is maximized. Give a polynomial-time algorithm for this problem.</p>
 </blockquote>
-<p>Run a dynamic programming solution based off of the equation $\text{(16.2)}$ where the second case has "1" replaced with "$v_k$". Since the subproblems are still indexed by a pair of activities, and each calculation requires taking the minimum over some set of size $\le |S_{ij}| \in O(n)$. The total runtime is bounded by $O(n^3)$.</p>
+<p>Easy and straightforward solution is to run a dynamic programming solution based on the equation $\text{(16.2)}$ where the second case has "1" replaced with "$v_k$". Since the subproblems are still indexed by a pair of activities, and each calculation requires taking the minimum over some set of size $\le |S_{ij}| \in O(n)$. The total runtime is bounded by $O(n^3)$.</p>
+<p>However, if we are cunning a little, we can be more efficient and give the algorithm which runs in $O(n\log n)$.</p>
+<p><strong>INPUT:</strong> $n$ activities with values.</p>
+<p><strong>IDEA OF ALGORITHM:</strong></p>
+<ol>
+<li>Sort input vector of activities according their finish times in ascending order. Let us denote the activities in this sorted vector by $(a_0, a_1, \dots, a_{n - 1})$.</li>
+<li>For each $0 \le i &lt; n$ construct partial solution $S_i$. By a partial solution $S_i$, we mean a solution to the problem but considering only activities with indexes lower or equal to $i$. Remember value of each partial solution.</li>
+<li>Clearly $S_0 = \{a_0\}$.</li>
+<li>We can construct $S_{i + 1}$ as follows. Possible values of $S_{i + 1}$ is either $S_i$ or the solution obtained by joining the activity $a_{i + 1}$ with partial solution $S_j$ where $j &lt; i + 1$ is the index of activity such that $a_j$ is compatible with $a_{i + 1}$ but $a_{j + 1}$ is not compatible with $a_{i + 1}$. Pick the one of these two possible solutions, which has greater value. Ties can be resolved arbitrarily.</li>
+<li>Therefore we can construct partial solutions in order $S_0, S_1, \dots, S_{n - 1}$ using (3) for $S_0$ and (4) for all the others.</li>
+<li>Give $S_{n - 1}$ as the solution for problem.</li>
+</ol>
+<p><strong>ANALYSIS OF TIME COMPLEXITY:</strong></p>
+<ul>
+<li>Sorting of activities can be done in $O(n\log n)$ time.</li>
+<li>Finding the value of $S_0$ is in $O(1)$.</li>
+<li>Any $S_{i + 1}$ can be found in $O(\log n)$. It is thanks to the fact that we have properly sorted activities. Therefore we can for each $i + 1$ find the proper $j$ in $O(\log n)$ using the binary search. If we have the proper $j$, the rest can be done in $O(1)$.</li>
+<li>Therefore, we have $O(n\log n)$ time for constructing of all $S_i$'s.</li>
+</ul>
+<p><strong>IMPLEMENTATION DETAILS:</strong></p>
+<ul>
+<li>Use the dynamic programming.</li>
+<li>It is important not to remember too much for each $S_i$. Do not construct $S_i$'s directly (you can end up in $\Omega(n^2)$ time if you do so). For each $S_i$ it is sufficient to remember:<ul>
+<li>it's value</li>
+<li>whether or not it includes the activity $a_i$</li>
+<li>the value of $j$ (from (4)).</li>
+</ul>
+</li>
+<li>Using these information obtained by the run of described algorithm you can reconstruct the solution in $O(n)$ time, which does not violate final time complexity.</li>
+</ul>
+<p><strong>PROOF OF CORRECTNESS:</strong> (sketched)</p>
+<ul>
+<li>Clearly, $S_0 = \{a_0\}.$</li>
+<li>For $S_{i + 1}$ we argue by (4). Partial solution $S_{i + 1}$ either includes the activity $a_{i + 1}$ or doesn't include it, there is no third way.<ul>
+<li>If it does not include $a_{i + 1}$, then clearly $S_{i + 1} = S_i$.</li>
+<li>If it includes $a_{i + 1}$, then $S_{i + 1}$ consists of $a_{i + 1}$ and partial solution which uses all activities compatible with $a_{i + 1}$ with indexes lower than $i + 1$. Since activities are sorted according their finish times, activities with indexes $j$ and lower are compatible and activities with index $j + 1$ and higher up to $i + 1$ are not compatible. We do not consider all the other activities for $S_{i + 1}$. Therefore setting $S_{i + 1} = \{a_{i + 1}\} \cup S_j$ gives correct answer in this case. The fact that we need $S_j$ and not some other solution for activities with indexes up to $j$ can be easily shown by the standard cut-and-paste argument.</li>
+</ul>
+</li>
+<li>Since for $S_{i + 1}$ we consider all of the activities, it is actually the solution of the problem.</li>
+</ul>
                 
               
               

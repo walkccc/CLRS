@@ -6084,17 +6084,24 @@ $$</p>
 </blockquote>
 <p>$$
 \begin{aligned}
-      af(n / b) &amp; \le cf(n) \\
-\alpha f(n / b) &amp; \le f(n), \alpha = a / c \\
-  \alpha f(n)   &amp; \le f(nb) \\
-\alpha^i f(1)   &amp; \le f(b^i) \\
+           af(n / b) &amp; \le cf(n) \\
+\Rightarrow f(n / b) &amp; \le \frac{c}{a} f(n) \\
+    \Rightarrow f(n) &amp; \le \frac{c}{a} f(bn) \\
+                     &amp; =   \frac{c}{a} \left(\frac{c}{a} f(b^2n)\right) \\
+                     &amp; =   \frac{c}{a} \left(\frac{c}{a}\left(\frac{c}{a} f(b^3n)\right)\right) \\
+                     &amp; =   \left(\frac{c}{a}\right)^i f(b^i n) \\
+\Rightarrow f(b^i n) &amp; \ge \left(\frac{a}{c}\right)^i f(n).
 \end{aligned}
 $$</p>
+<p>Let $n = 1$, then we have</p>
+<p>$$f(b^i) \ge \left(\frac{a}{c}\right)^i f(1) \quad (*).$$</p>
+<p>Let $b^i = n \Rightarrow i = \log_b n$, then substitue back to equation $(*)$,</p>
 <p>$$
 \begin{aligned}
-   n = b^i &amp; \Rightarrow i = \log_b n \Rightarrow f(n) \ge \alpha^{\log_b n}f(1) = n^{\log_b \alpha} \\
-\alpha &gt; a &amp; \Rightarrow \alpha = a + d \quad (c &lt; 1, d &gt; 0) \\
-           &amp; \Rightarrow f(n) = n^{\log_b a + \log_b d} = n^{\log_b a+\epsilon}. \quad (\epsilon = \log_b d)
+f(n) &amp; \ge \left(\frac{a}{c}\right)^{\log_b n} f(1) \\
+     &amp; \ge n^{\log_b \frac{a}{c}} f(1) \\
+     &amp; \ge n^{\log_b a + \epsilon} &amp; \text{ where $\epsilon &gt; 0$ because $\frac{a}{c} &gt; a$ (recall that $c &lt; 1$)} \\
+     &amp; =   \Omega(n^{\log_b a + \epsilon}).
 \end{aligned}
 $$</p>
                 
