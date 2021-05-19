@@ -6231,7 +6231,7 @@
 <blockquote>
 <p>When node $z$ in $\text{TREE-DELETE}$ has two children, we could choose node $y$ as its predecessor rather than its successor. What other changes to $\text{TREE-DELETE}$ would be necessary if we did so? Some have argued that a fair strategy, giving equal priority to predecessor and successor, yields better empirical performance. How might $\text{TREE-DELETE}$ be changed to implement such a fair strategy?</p>
 </blockquote>
-<p>Update line 5 so that $y$ is set equal to $\text{TREE-MAXIMUM}(z.left)$.</p>
+<p>Update line 5 so that $y$ is set equal to $\text{TREE-MAXIMUM}(z.left)$ and lines 6-12 so that every $y.left$ and $z.left$ is replaced with $y.right$ and $z.right$ and vice versa.</p>
 <p>To implement the fair strategy, we could randomly decide each time $\text{TREE-DELETE}$ is called whether or not to use the predecessor or successor.</p>
                 
               

@@ -6045,7 +6045,23 @@ $$</p>
 <blockquote>
 <p>Show how to use property 2 of Lemma 16.12 to determine in time $O(|A|)$ whether or not a given set $A$ of tasks is independent.</p>
 </blockquote>
-<p>Create an array $B$ of length $n$ containing zeros in each entry. For each element $a \in A$, add $1$ to $B[a.deadline]$. If $B[a.deadline] &gt; a.deadline$, return that the set is not independent. Otherwise, continue. If successfully examine every element of $A$, return that the set is independent.</p>
+<p>We provide a pseudocode which grasps main ideas of an algorithm.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="n">IS</span><span class="o">-</span><span class="n">INDEPENDENT</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">length</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="n">let</span> <span class="n">Nts</span><span class="p">[</span><span class="mf">0.</span><span class="p">.</span><span class="n">n</span><span class="p">]</span> <span class="n">be</span> <span class="n">an</span> <span class="n">array</span> <span class="n">filled</span> <span class="n">with</span> <span class="mi">0</span><span class="n">s</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">for</span> <span class="n">each</span> <span class="n">a</span> <span class="n">in</span> <span class="n">A</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="k">if</span> <span class="n">a</span><span class="p">.</span><span class="n">deadline</span> <span class="o">&gt;=</span> <span class="n">n</span>
+<span class="linenos" data-linenos=" 6 "></span>            <span class="n">Nts</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">Nts</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="k">else</span>
+<span class="linenos" data-linenos=" 8 "></span>            <span class="n">Nts</span><span class="p">[</span><span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="n">Nts</span><span class="p">[</span><span class="n">d</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">n</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="n">Nts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">Nts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">Nts</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="c1">// at this moment, Nts[i] holds value of N_i(A)</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">n</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="k">if</span> <span class="n">Nts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">i</span>
+<span class="linenos" data-linenos="14 "></span>            <span class="k">return</span> <span class="nb">false</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="k">return</span> <span class="nb">true</span>
+</code></pre></div>
                 
               
               
