@@ -1,7 +1,7 @@
 # Project information
 site_name: CLRS Solutions
 site_description: Solutions to Introduction to Algorithms Third Edition. CLRS Solutions. The textbook that a Computer Science (CS) student must read.
-site_author: Jay Chen
+site_author: P.-Y. Chen
 site_url: https://walkccc.me/CLRS
 
 # Repository
@@ -9,7 +9,7 @@ repo_name: walkccc/CLRS
 repo_url: https://github.com/walkccc/CLRS
 
 # Copyright
-copyright: Built by <a href="http://github.com/walkccc">Jay Chen</a> &copy; 2017 - 2021
+copyright: Built by <a href="http://github.com/walkccc">P.-Y. Chen</a> &copy; 2017 - 2021
 
 # Configuration
 theme:
@@ -40,12 +40,12 @@ extra:
 extra_css:
   - css/katex.css
   - css/custom.css
-  - https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css
+  - https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css
 
 extra_javascript:
   - js/katex.js
-  - https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js
-  - https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js
 
 # Google Analytics
 google_analytics:
