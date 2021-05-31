@@ -5974,9 +5974,8 @@
 </blockquote>
 <p><strong>a.</strong> It can take actual time proportional to the number of children that $x$ had because for each child, when placing it in the root list, their parent pointer needs to be updated to be $\text{NIL}$ instead of $x$.</p>
 <p><strong>b.</strong> Line 7 takes actual time bounded by $x.degree$ since updating each of the children of $x$ only takes constant time. So, if $c$ is the number of cascading cuts that are done, the actual cost is $O(c + x.degree)$.</p>
-<p><strong>c.</strong> From the cascading cut, we marked at most one more node, so, $m(H') \le 1 + m(H)$ regardless of the number of calls to cascading cut, because only the highest thing in the chain of calls actually goes from unmarked to marked.</p>
-<p>Also, the number of children increases by the number of children that $x$ had, that is $t(H') = x.degree + t(H)$. Putting these together, we get that</p>
-<p>$$\Phi(H') \le t(H) + x.degree + 2(1 + m(H)).$$</p>
+<p><strong>c.</strong> We examine the number of trees in the root list $t(H)$ and the number of marked nodes $m(H)$ of the resulting Fibonacci heap $H'$ to upper-bound its potential. The number of trees $t(H)$ increases by the number of children $x$ had ($=x.degree$), due to line 7 of $\text{PISANO-DELETE}(H, x)$. The number of marked nodes in $H'$ is calculated as follows. The first $c - 1$ recursive calls out of the $c$ calls to $\text{CASCADING-CUT}$ unmarks a marked node (line 4 of $\text{CUT}$ invoked by line 5 of $\text{CASCADING-CUT}$). The final $c$th call to $\text{CASCADING-CUT}$ marks an unmarked node (line 4 of $\text{CASCADING-CUT}$), and therefore, the total change in marked nodes is $-(c - 1) + 1 = -c + 2$. Therefore, the potential of H' is</p>
+<p>$$\Phi(H') \le t(H) + x.degree + 2(m(H) - c + 2).$$</p>
 <p><strong>d.</strong> The asymptotic time is</p>
 <p>$$\Theta(x.degree) = \Theta(\lg(n)),$$</p>
 <p>which is the same asyptotic time that was required for the original deletion method.</p>
