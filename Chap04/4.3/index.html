@@ -6144,17 +6144,17 @@ $$</p>
 <blockquote>
 <p>Show that the solution of $T(n) = T(\lceil n / 2 \rceil) + 1$ is $O(\lg n)$.</p>
 </blockquote>
-<p>We guess $T(n) \le c\lg(n - 2)$,</p>
+<p>We guess $T(n) \le c\lg(n - a)$,</p>
 <p>$$
 \begin{aligned}
-T(n) &amp; \le c\lg(\lceil n / 2 \rceil - 2) + 1 \\
-     &amp; \le c\lg(n / 2 + 1 - 2) + 1 \\
-     &amp; =   c\lg((n - 2) / 2) + 1 \\
-     &amp; =   c\lg(n - 2) - c\lg2 + 1 \\
-     &amp; \le c\lg(n - 2),
+T(n) &amp; \le c\lg(\lceil n / 2 \rceil - a) + 1 \\
+     &amp; \le c\lg((n + 1) / 2 - a) + 1 \\
+     &amp; =   c\lg((n + 1 - 2a) / 2) + 1 \\
+     &amp; =   c\lg(n + 1 - 2a) - c\lg 2 + 1 &amp; (c \ge 1) \\
+     &amp; \le c\lg(n + 1 - 2a) &amp; (a \ge 1) \\
+     &amp; \le c\lg(n - a),
 \end{aligned}
 $$</p>
-<p>where the last step holds for $c \ge 1$.</p>
 <h2 id="43-3">4.3-3</h2>
 <blockquote>
 <p>We saw that the solution of $T(n) = 2T(\lfloor n / 2 \rfloor) + n$ is $O(n\lg n)$. Show that the solution of this recurrence is also $\Omega(n\lg n)$. Conclude that the solution is $\Theta(n\lg n)$.</p>
@@ -6170,18 +6170,18 @@ T(n) &amp; \le 2c\lfloor n / 2 \rfloor\lg{\lfloor n / 2 \rfloor} + n \\
 \end{aligned}
 $$</p>
 <p>where the last step holds for $c \ge 1$.</p>
-<p>Next, we guess $T(n) \ge c(n + 2)\lg(n + 2)$,</p>
+<p>Next, we guess $T(n) \ge c(n + a)\lg(n + a)$,</p>
 <p>$$
 \begin{aligned}
-T(n) &amp; \ge 2c(\lfloor n / 2 \rfloor + 2)(\lg(\lfloor n / 2 \rfloor + 2) + n \\
-     &amp; \ge 2c(n / 2 - 1 + 2)(\lg(n / 2 - 1 + 2) + n \\
-     &amp; =   2c\frac{n + 2}{2}\lg\frac{n + 2}{2} + n \\
-     &amp; =   c(n + 2)\lg(n + 2) - c(n + 2)\lg 2 + n \\
-     &amp; =   c(n + 2)\lg(n + 2) + (1 - c)n - 2c \\
-     &amp; \ge c(n + 2)\lg(n + 2),
+T(n) &amp; \ge 2c(\lfloor n / 2 \rfloor + a)(\lg(\lfloor n / 2 \rfloor + a) + n \\
+     &amp; \ge 2c((n - 1) / 2 + a)(\lg((n - 1) / 2 + a)) + n \\
+     &amp; =   2c\frac{n - 1 + 2a}{2}\lg\frac{n - 1 + 2a}{2} + n \\
+     &amp; =   c(n - 1 + 2a)\lg(n - 1 + 2a) - c(n - 1 + 2a)\lg 2 + n \\
+     &amp; =   c(n - 1 + 2a)\lg(n - 1 + 2a) + (1 - c)n - (2a - 1)c &amp; (0 \le c &lt; 1, n \ge \frac{(2a - 1)c}{1 - c}) \\
+     &amp; \ge c(n - 1 + 2a)\lg(n - 1 + 2a) &amp; (a \ge 1) \\
+     &amp; \ge c(n + a)\lg(n + a),
 \end{aligned}
 $$</p>
-<p>where the last step holds for $n \ge \frac{2c}{1 - c}$, $0 \le c &lt; 1$.</p>
 <h2 id="43-4">4.3-4</h2>
 <blockquote>
 <p>Show that by making a different inductive hyptohesis, we can overcome the difficulty with the boundary condition $T(1) = 1$ for recurrence $\text{(4.19)}$ without adjusting the boundary conditions for the inductive proof.</p>
@@ -6249,10 +6249,10 @@ $$</p>
 <p>$$
 \begin{aligned}
 T(n) &amp; \le 2c(\lfloor n / 2 \rfloor + 17 - a)\lg(\lfloor n / 2 \rfloor + 17 - a) + n \\
-     &amp; \le 2c(n / 2 + 1 + 17 - a)\lg(n / 2 + 1 + 17 - a) + n \\
-     &amp; =   c(n + 36 - 2a)\lg\frac{n + 36 - 2a}{2} + n \\
-     &amp; =   c(n + 36 - 2a)\lg(n + 36 - 2a) - c(n + 36 - 2a) + n &amp; (c &gt; 1, n &gt; n_0 = f(a))\\
-     &amp; \le c(n + 36 - 2a)\lg(n + 36 - 2a) &amp; (a \ge 36) \\
+     &amp; \le 2c(n / 2 + 17 - a)\lg(n / 2 + 17 - a) + n \\
+     &amp; =   c(n + 34 - 2a)\lg\frac{n + 34 - 2a}{2} + n \\
+     &amp; =   c(n + 34 - 2a)\lg(n + 34 - 2a) - c(n + 34 - 2a) + n &amp; (c &gt; 1, n &gt; n_0 = f(a)) \\
+     &amp; \le c(n + 34 - 2a)\lg(n + 34 - 2a) &amp; (a \ge 34) \\
      &amp; \le c(n - a)\lg(n - a).
 \end{aligned}
 $$</p>
