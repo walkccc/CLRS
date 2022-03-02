@@ -36,6 +36,9 @@ extra:
       link: https://www.linkedin.com/in/walkccc/
     - icon: fontawesome/solid/code
       link: https://walkccc.me/LeetCode
+  analytics:
+    provider: google
+    property: G-117404761-1
 
 extra_css:
   - css/katex.css
@@ -46,11 +49,6 @@ extra_javascript:
   - js/katex.js
   - https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js
   - https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js
-
-# Google Analytics
-google_analytics:
-  - UA-117404761-1
-  - auto
 
 # Extensions
 markdown_extensions:
