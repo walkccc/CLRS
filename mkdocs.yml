@@ -24,7 +24,7 @@ theme:
     text: Roboto
     code: Roboto Mono
   icon:
-    logo: fontawesome/solid/globe-americas
+    logo: fontawesome/solid/earth-americas
     repo: fontawesome/brands/github
 
 # Customization
