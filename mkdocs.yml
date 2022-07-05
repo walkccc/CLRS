@@ -53,11 +53,12 @@ extra_javascript:
 # Extensions
 markdown_extensions:
   - pymdownx.highlight:
-      linenums: true
-      linenums_style: pymdownx-inline
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
   - toc:
       permalink: false
-  - pymdownx.superfences
 
 nav:
   - Preface: index.md
