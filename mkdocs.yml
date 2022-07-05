@@ -43,12 +43,12 @@ extra:
 extra_css:
   - css/katex.css
   - css/custom.css
-  - https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css
+  - https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css
 
 extra_javascript:
   - js/katex.js
-  - https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js
-  - https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js
 
 # Extensions
 markdown_extensions:
