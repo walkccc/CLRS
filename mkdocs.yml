@@ -44,7 +44,7 @@ theme:
 # Customization
 extra:
   social:
-    - icon: fontawesome/brands/github-square
+    - icon: fontawesome/brands/github
       link: https://github.com/walkccc
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/walkccc/
