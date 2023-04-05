@@ -6967,7 +6967,7 @@
 <p><strong>d.</strong> How should we choose $k$ in practice?</p>
 </blockquote>
 <p><strong>a.</strong> The worst-case time to sort a list of length $k$ by insertion sort is $\Theta(k^2)$. Therefore, sorting $n / k$ sublists, each of length $k$ takes $\Theta(k^2 \cdot n / k) = \Theta(nk)$ worst-case time.</p>
-<p><strong>b.</strong> We have $n / k$ sorted sublists each of length $k$. To merge these $n / k$ sorted sublists to a single sorted list of length $n$, we have to take $2$ sublists at a time and continue to merge them. This will result in $\lg(n / k)$ steps and we compare $n$ elements in each step. Therefore, the worst-case time to merge the sublists is $\Theta(n\lg(n / k))$.</p>
+<p><strong>b.</strong> We have $n / k$ sorted sublists each of length $k$. To merge these $n / k$ sorted sublists to a single sorted list of length $n$, we have to take $2$ sublists at a time and continue to merge them. The process can be visualized as a tree with $\lg(n / k)$ levels and we compare $n$ elements in each level. Therefore, the worst-case time to merge the sublists is $\Theta(n\lg(n / k))$.</p>
 <p><strong>c.</strong> The modified algorithm has time complexity as standard merge sort when $\Theta(nk + n\lg(n / k)) = \Theta(n\lg n)$. Assume $k = \Theta(\lg n)$,</p>
 <p>$$
 \begin{aligned}
