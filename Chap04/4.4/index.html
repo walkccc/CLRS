@@ -7320,7 +7320,7 @@ $$</p>
 <p>Thus, the tree has $n + 1$ levels ($i = 0, 1, 2, \dots, n$) and $2^n$ leaves.</p>
 <p>The total cost over all nodes at depth $i$, for $i = 0, 1, 2, \ldots, n - 1$, is $2^i$.</p>
 <p>The $n$-th level has $2^n$ leaves each with cost $\Theta(1)$, so the total cost of the $n$-th level is $\Theta(2^n)$.</p>
-<p>Adding the costs of all the levels of the recursion tree we get the following:  </p>
+<p>Adding the costs of all the levels of the recursion tree we get the following:</p>
 <p>$$
 \begin{aligned}
 T(n) &amp; = \sum_{i = 0}^{n - 1} 2^i + \Theta(2^n)\\
@@ -7339,7 +7339,7 @@ T(n) &amp; \le 2(c2^{n - 1} - d) + 1 \\
      &amp; \le c2^n - d
 \end{aligned}
 $$</p>
-<p>Where the last step holds for $d \ge 1$. Thus $T(n) = O(n^2)$.</p>
+<p>Where the last step holds for $d \ge 1$. Thus $T(n) = O(2^n)$.</p>
 </li>
 </ul>
 <h2 id="44-5">4.4-5</h2>
