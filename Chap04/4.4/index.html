@@ -7381,7 +7381,7 @@ $$</p>
 </blockquote>
 <p>We know that the cost at each level of the tree is $cn$ by examining the tree in figure 4.6. To find a lower bound on the cost of the algorithm, we need a lower bound on the height of the tree.</p>
 <p>The shortest simple path from root to leaf is found by following the leftest child at each node. Since we divide by $3$ at each step, we see that this path has length $\log_3 n$. Therefore, the cost of the algorithm is</p>
-<p>$$cn(\log_3 n + 1) \ge cn\log_3 n = \frac{c}{\log_3} n\log n = \Omega(n\log n).$$</p>
+<p>$$cn(\log_3 n + 1) \ge cn\log_3 n = \frac{c}{\lg 3} n\lg n = \Omega(n\lg n).$$</p>
 <h2 id="44-7">4.4-7</h2>
 <blockquote>
 <p>Draw the recursion tree for $T(n) = 4T(\lfloor n / 2 \rfloor) + cn$, where $c$ is a constant, and provide a tight asymptotic bound on its solution. Verify your answer with the substitution method.</p>

@@ -7122,21 +7122,30 @@
 <blockquote>
 <p>Suppose we generalize the cascading-cut rule to cut a node $x$ from its parent as soon as it loses its $k$th child, for some integer constant $k$. (The rule in Section 19.3 uses $k = 2$.) For what values of $k$ is $D(n) = O(\lg n)$?</p>
 </blockquote>
-<p>Following the proof of lemma 19.1, if $x$ is any node if a Fibonacci heap, $x.degree = m$, and $x$ has children $y_1, y_2, \ldots, y_m$, then $y_1.degree \ge 0$ and $y_i.degree \ge i - k$. Thus, if $s_m$ denotes the fewest nodes possible in a node of degree $m$, then we have $s_0 = 1, s_1 = 2, \ldots, s_{k - 1} = k$ and in general, $s_m = k + \sum_{i = 0}^{m - k} s_i$. Thus, the difference between $s_m$ and $s_{m - 1}$ is $s_{m - k}$.</p>
-<p>Let $\{f_m\}$ be the sequence such that $f_m = m + 1$ for $0 \le m &lt; k$ and $f_m = f_{m - 1} + f_{m - k}$ for $m \ge k$.</p>
-<p>If $F(x)$ is the generating function for $f_m$ then we have $F(x) = \frac{1 - x^k}{(1 - x)(1 - x - x^k)}$. Let $\alpha$ be a root of $x^k = x^{k - 1} + 1$. We'll show by induction that $f_{m + k} \ge \alpha^m$. For the base cases:</p>
+<p>Following the proof of lemma 19.1, if $x$ is any node if a Fibonacci heap, $x.degree = m$, and $x$ has children $y_1, y_2, \ldots, y_m$, then $y_1.degree \ge 0$ and $y_i.degree \ge i - k$. Thus, if $s_m$ denotes the fewest nodes possible in a node of degree $m$, then we have $s_0 = 1, s_1 = 2, \ldots, s_{k - 1} = k$ and in general, $s_m = k + \sum_{i = 0}^{m - k} s_i$.</p>
+<p>Let</p>
+<p>$$
+f_m =
+\begin{cases}
+0                     &amp; m = 0, \\
+1                     &amp; 0 &lt; m &lt; k, \\
+f_{m - 1} + f_{m - k} &amp; m \ge k.
+\end{cases}
+$$</p>
+<p>Let $\alpha$ be a root of $x^k - x^{k - 1} = 1$, i.e. $x^{k - 1}(x - 1)=1$. We'll show by induction that $f_{m + k} \ge \alpha^m$.</p>
+<p>For the base cases:</p>
 <p>$$
 \begin{aligned}
-      f_k &amp; = k + 1 \ge 1 = \alpha^0 \\
-f_{k + 1} &amp; = k + 3 \ge \alpha^1 \\
+      f_k &amp; = f_{k - 1} + f_0 = 1 + 0 = 1 = \alpha^0 \\
+f_{k + 1} &amp; = f_k + f_1 = 1 + 1 \ge \alpha^1 \\
           &amp; \vdots \\
-f_{k + k} &amp; = k + \frac{(k + 1)(k + 2)}{2} = k + k + 1 + \frac{k(k + 1)}{2} \ge 2k + 1+\alpha^{k - 1} \ge \alpha^k.
+f_{k + k} &amp; = f_{2k - 1} + f_k = f_{2k - 1} + 1 \ge 1 + \alpha^{k - 1} = \alpha^k.
 \end{aligned}
 $$</p>
 <p>In general, we have</p>
 <p>$$f_{m + k} = f_{m + k - 1} + f_m \ge \alpha^{m - 1} + \alpha^{m - k}  = \alpha^{m - k}(\alpha^{k - 1} + 1) = \alpha^m.$$</p>
-<p>Next we show that $f_{m + k} = k + \sum_{i = 0}^m f_i$. The base case is clear, since $f_k = f_0 + k = k + 1$. For the induction step, we have</p>
-<p>$$f_{m + k} = f_{m - 1 - k} + f_m = k \sum_{i = 0}^{m - 1} f_i + f_m = k + \sum_{i = 0}^m f_i.$$</p>
+<p>Next we show that $f_{m + k} = 1 + \sum_{i = 0}^m f_i$. The base case is clear, since $f_k = f_0 + 1 = 0 + 1$. For the induction step, we have</p>
+<p>$$f_{m + k} = f_{m - 1 + k} + f_m = 1 + \sum_{i  0}^{m - 1} f_i + f_m = 1 + \sum_{i = 0}^m f_i.$$</p>
 <p>Observe that $s_i \ge f_{i + k}$ for $0 \le i &lt; k$. Again, by induction, for $m \ge k$ we have</p>
 <p>$$s_m = k + \sum_{i = 0}^{m - k} s_i \ge k + \sum_{i = 0}^{m - k} f_{i + k} \ge k + \sum_{i = 0}^m f_i = f_{m + k}.$$</p>
 <p>So in general, $s_m \ge f_{m + k}$. Putting it all together, we have</p>
@@ -7145,13 +7154,17 @@ $$</p>
 size(x) &amp; \ge s_m \\
         &amp; \ge k + \sum_{i = k}^m s_{i - k} \\
         &amp; \ge k + \sum_{i = k}^m f_i \\
-        &amp; \ge f_{m + k} \\
+        &amp; \ge k + \sum_{i = 0}^m f_i - \sum_{i = 0}^{k - 1} f_i \\
+        &amp; = k + \sum_{i = 0}^m f_i - (k - 1) \\
+        &amp; = 1 + \sum_{i = 0}^m f_i \\
+        &amp; = f_{m + k} \\
         &amp; \ge \alpha^m.
 \end{aligned}
 $$</p>
 <p>Taking logs on both sides, we have</p>
 <p>$$\log_\alpha n \ge m.$$</p>
 <p>In other words, provided that $\alpha$ is a constant, we have a logarithmic bound on the maximum degree.</p>
+<p>And I think $k$ should only satisfy $\alpha &gt; 1$ in $\alpha^{k - 1}(\alpha - 1) = 1$.</p>
 
 
   
