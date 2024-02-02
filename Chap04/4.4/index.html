@@ -7237,7 +7237,8 @@ $$</p>
 T(n) &amp; =   3T(\lfloor n / 2 \rfloor) + n \\
      &amp; \le 3 \cdot (c(n / 2)^{\lg 3} - d(n / 2)) + n \\
      &amp; =   (3 / 2^{\lg 3})cn^{\lg 3} - (3d / 2)n + n \\
-     &amp; =   cn^{\lg 3} + (1 - 3d / 2)n,
+     &amp; =   cn^{\lg 3} + (1 - 3d / 2)n \\
+     &amp; \le cn^{\lg 3} - dn,
 \end{aligned}
 $$</p>
 <p>where the last step holds for $d \ge 2$.</p>
