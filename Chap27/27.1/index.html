@@ -60,7 +60,7 @@
     
       <link rel="stylesheet" href="../../css/custom.css">
     
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -71,7 +71,7 @@
   
   
 
-<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-117404761-1"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-117404761-1",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-117404761-1",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-NE8FKX91SB"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-NE8FKX91SB",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-NE8FKX91SB",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -9993,12 +9993,12 @@
 
   <h1>27.1 The basics of dynamic multithreading</h1>
 
-<h2 id="271-1">27.1-1</h2>
+<h2 id="271-1">27.1-1<a class="headerlink" href="#271-1" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Suppose that we spawn $\text{P-FIB}(n - 2)$ in line 4 of $\text{P-FIB}$, rather than calling it as is done in the code. What is the impact on the asymptotic work, span, and parallelism?</p>
 </blockquote>
 <p>(Removed)</p>
-<h2 id="271-2">27.1-2</h2>
+<h2 id="271-2">27.1-2<a class="headerlink" href="#271-2" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Draw the computation dag that results from executing $\text{P-FIB}(5)$. Assuming that each strand in the computation takes unit time, what are the work, span, and parallelism of the computation? Show how to schedule the dag on 3 processors using greedy scheduling by labeling each strand with the time step in which it is executed.</p>
 </blockquote>
@@ -10007,7 +10007,7 @@
 <li>Span: $T_\infty = 10$.</li>
 <li>Parallelism: $T_1 / T_\infty \approx 2.9$.</li>
 </ul>
-<h2 id="271-3">27.1-3</h2>
+<h2 id="271-3">27.1-3<a class="headerlink" href="#271-3" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Prove that a greedy scheduler achieves the following time bound, which is slightly stronger than the bound proven in Theorem 27.1:</p>
 <p>$$T_P \le \frac{T_1 - T_\infty}{P} + T_\infty. \tag{27.5}$$</p>
@@ -10017,22 +10017,22 @@
 <p>This is a contradiction because there are only $(T_1 - x)$ units of work done during complete steps, which is less than the amount we would be doing. Notice that since $T_\infty$ is abound on the total number of both kinds of steps, it is a bound on the number of incomplete steps, $x$, so,</p>
 <p>$$T_P \le \lfloor (T_1 - x) / P \rfloor + x \le \lfloor (T_1 - T_\infty) / P \rfloor + T_\infty.$$</p>
 <p>Where the second inequality comes by noting that the middle expression, as a function of $x$ is monotonically increasing, and so is bounded by the largest value of $x$ that is possible, namely $T_\infty$.</p>
-<h2 id="271-4">27.1-4</h2>
+<h2 id="271-4">27.1-4<a class="headerlink" href="#271-4" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Construct a computation dag for which one execution of a greedy scheduler can take nearly twice the time of another execution of a greedy scheduler on the same number of processors. Describe how the two executions would proceed.</p>
 </blockquote>
 <p>The computation is given in the image below. Let vertex $u$ have degree $k$, and assume that there are $m$ vertices in each vertical chain. Assume that this is executed on $k$ processors. In one execution, each strand from among the $k$ on the left is executed concurrently, and then the $m$ strands on the right are executed one at a time. If each strand takes unit time to execute, then the total computation takes $2m$ time. On the other hand, suppose that on each time step of the computation, $k - 1$ strands from the left (descendants of $u$) are executed, and one from the right (a descendant of $v$), is executed. If each strand take unit time to executed, the total computation takes $m + m / k$. Thus, the ratio of times is $2m / (m + m / k) = 2 / (1 + 1 / k)$. As $k$ gets large, this approaches $2$ as desired.</p>
-<h2 id="271-5">27.1-5</h2>
+<h2 id="271-5">27.1-5<a class="headerlink" href="#271-5" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Professor Karan measures her deterministic multithreaded algorithm on $4$, $10$, and $64$ processors of an ideal parallel computer using a greedy scheduler. She claims that the three runs yielded $T_4 = 80$ seconds, $T_{10} = 42$ seconds, and $T_{64} = 10$ seconds. Argue that the professor is either lying or incompetent. ($\textit{Hint:}$ Use the work law $\text{(27.2)}$, the span law $\text{(27.3)}$, and inequality $\text{(27.5)}$ from Exercise 27.1-3.)</p>
 </blockquote>
 <p>(Removed)</p>
-<h2 id="271-6">27.1-6</h2>
+<h2 id="271-6">27.1-6<a class="headerlink" href="#271-6" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Give a multithreaded algorithm to multiply an $n \times n$ matrix by an $n$-vector that achieves $\Theta(n^2 / \lg n)$ parallelism while maintaining $\Theta(n^2)$ work.</p>
 </blockquote>
 <p>(Removed)</p>
-<h2 id="271-7">27.1-7</h2>
+<h2 id="271-7">27.1-7<a class="headerlink" href="#271-7" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Consider the following multithreaded pseudocode for transposing an $n \times n$ matrix $A$ in place:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">P</span><span class="o">-</span><span class="n">TRANSPOSE</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
@@ -10044,12 +10044,12 @@
 <p>Analyze the work, span, and parallelism of this algorithm.</p>
 </blockquote>
 <p>(Removed)</p>
-<h2 id="271-8">27.1-8</h2>
+<h2 id="271-8">27.1-8<a class="headerlink" href="#271-8" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Suppose that we replace the <strong>parallel for</strong> loop in line 3 of $\text{P-TRANSPOSE}$ (see Exercise 27.1-7) with an ordinary <strong>for</strong> loop. Analyze the work, span, and parallelism of the resulting algorithm.</p>
 </blockquote>
 <p>(Removed)</p>
-<h2 id="271-9">27.1-9</h2>
+<h2 id="271-9">27.1-9<a class="headerlink" href="#271-9" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>For how many processors do the two versions of the chess programs run equally fast, assuming that $T_P = T_1 / P + T_\infty$?</p>
 </blockquote>
@@ -10079,6 +10079,46 @@
       </main>
       
         <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../Chap26/Problems/26-6/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 26-6 The Hopcroft-Karp bipartite matching algorithm">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                26-6 The Hopcroft-Karp bipartite matching algorithm
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../27.2/" class="md-footer__link md-footer__link--next" aria-label="Next: 27.2 Multithreaded matrix multiplication">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                27.2 Multithreaded matrix multiplication
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -10116,7 +10156,18 @@
       
       
     
-    <a href="https://www.linkedin.com/in/walkccc/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+    <a href="https://twitter.com/pengyuc_" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9L389.2 48zm-24.8 373.8h39.1L151.1 88h-42l255.3 333.8z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/pengyuc" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
     </a>
   
@@ -10143,16 +10194,16 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
       
         <script src="../../js/katex.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

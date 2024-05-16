@@ -60,7 +60,7 @@
     
       <link rel="stylesheet" href="../../css/custom.css">
     
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -71,7 +71,7 @@
   
   
 
-<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-117404761-1"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-117404761-1",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-117404761-1",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-NE8FKX91SB"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-NE8FKX91SB",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-NE8FKX91SB",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -9975,7 +9975,7 @@
 
   <h1>29.3 The simplex algorithm</h1>
 
-<h2 id="293-1">29.3-1</h2>
+<h2 id="293-1">29.3-1<a class="headerlink" href="#293-1" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Complete the proof of Lemma 29.4 by showing that it must be the case that $c = c'$ and $v = v'$.</p>
 </blockquote>
@@ -9992,13 +9992,13 @@
 \end{aligned}
 $$</p>
 <p>By Lemma 29.3, we have $c_j = c_j'$ for every $j$ and $v = v'$ since $v - v' = 0$.</p>
-<h2 id="293-2">29.3-2</h2>
+<h2 id="293-2">29.3-2<a class="headerlink" href="#293-2" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Show that the call to $\text{PIVOT}$ in line 12 of $\text{SIMPLEX}$ never decreases the value of $v$.</p>
 </blockquote>
 <p>The only time $v$ is updated in $\text{PIVOT}$ is line 14, so it will suffice to show that $c_e \hat b_e \ge 0$. Prior to making the call to $\text{PIVOT}$, we choose an index $e$ such that $c_e &gt; 0$, and this is unchanged in $\text{PIVOT}$. We set $\hat b_e$ in line 3 to be $b_l / a_{le}$.</p>
 <p>The loop invariant proved in Lemma 29.2 tells us that $b_l \ge 0$. The if-condition of line 6 of $\text{SIMPLEX}$ tells us that only the noninfinite $\delta_i$ must have $a_{ie} &gt; 0$, and we choose $l$ to minimize $\delta_l$, so we must have $a_{le} &gt; 0$. Thus, $c_e \hat b_e \ge 0$, which implies $v$ can never decrease.</p>
-<h2 id="293-3">29.3-3</h2>
+<h2 id="293-3">29.3-3<a class="headerlink" href="#293-3" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Prove that the slack form given to the $\text{PIVOT}$ procedure and the slack form that the procedure returns are equivalent.</p>
 </blockquote>
@@ -10006,13 +10006,13 @@ $$</p>
 <p>First, we'll check that their sets of feasible solutions are equal. Basically all we do to the constraints when we pivot is take the non-basic variable, $e$, and solve the equation corresponding to the basic variable $l$ for $e$. We are then taking that expression and replacing $e$ in all the constraints with this expression we got by solving the equation corresponding to $l$. Since each of these algebraic operations are valid, the result of the sequence of them is also algebraically equivalent to the original.</p>
 <p>Next, we'll see that the objective functions are equal. We decrease each $c_j$ by $c_e \hat a_{ej}$, which is to say that we replace the non-basic variable we are making basic with the expression we got it was equal to once we made it basic.</p>
 <p>Since the slack form returned by $\text{PIVOT}$, has the same feasible region and an equal objective function, it is equivalent to the original slack form passed in.</p>
-<h2 id="293-4">29.3-4</h2>
+<h2 id="293-4">29.3-4<a class="headerlink" href="#293-4" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Suppose we convert a linear program $(A, b, c)$ in standard form to slack form. Show that the basic solution is feasible if and only if $b_i \ge 0$ for $i = 1, 2, \ldots, m$.</p>
 </blockquote>
 <p>First suppose that the basic solution is feasible. We set each $x_i = 0$ for $1 \le i \le n$, so we have $x_{n + i} = b_i - \sum_{j = 1}^n a_{ij}x_j = b_i$ as a satisfied constraint. Since we also require $x_{n + i} \ge 0$ for all $1 \le i \le m$, this implies $b_i \ge 0$.</p>
 <p>Now suppose $b_i \ge 0$ for all $i$. In the basic solution we set $x_i = 0$ for $1 \le i \le n$ which satisfies the nonnegativity constraints. We set $x_{n + i} = b_i$ for $1 \le i \le m$ which satisfies the other constraint equations, and also the nonnegativity constraints on the basic variables since $b_i \ge 0$. Thus, every constraint is satisfied, so the basic solution is feasible.</p>
-<h2 id="293-5">29.3-5</h2>
+<h2 id="293-5">29.3-5<a class="headerlink" href="#293-5" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Solve the following linear program using $\text{SIMPLEX}$:</p>
 <p>$$
@@ -10038,7 +10038,7 @@ $$</p>
 \end{array}
 $$</p>
 <p>We now stop since no more non-basic variables appear in the objective with a positive coefficient. Our solution is $(12, 8, 0, 0, 8)$ and has a value of $316$. Going back to the standard form we started with, we just disregard the values of $x_3$ through $x_5$ and have the solution that $x_1 = 12$ and $x_2 = 8$. We can check that this is both feasible and has the objective achieve $316$.</p>
-<h2 id="293-6">29.3-6</h2>
+<h2 id="293-6">29.3-6<a class="headerlink" href="#293-6" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Solve the following linear program using $\text{SIMPLEX}$:</p>
 <p>$$
@@ -10076,7 +10076,7 @@ x_2 &amp; = &amp;   &amp;   &amp; \frac{2}{3}  x_3 &amp; - &amp; \frac{1}{3} x_4
 \end{array}
 $$</p>
 <p>Every nonbasic variable now has negative coefficient in the objective function, so we take the basic solution $(x_1, x_2, x_3, x_4) = (1, 0, 0, 0)$. The objective value this achieves is $5$.</p>
-<h2 id="293-7">29.3-7</h2>
+<h2 id="293-7">29.3-7<a class="headerlink" href="#293-7" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Solve the following linear program using $\text{SIMPLEX}$:</p>
 <p>$$
@@ -10144,7 +10144,7 @@ x_1, x_2, x_3, x_4, x_5 &amp; \ge &amp; 0 &amp; .
 \end{array}
 $$</p>
 <p>At this point, all coefficients in the objective function are negative, so the basic solution is an optimal solution. This solution is $(x_1, x_2, x_3) = (1250, 1000, 0)$.</p>
-<h2 id="293-8">29.3-8</h2>
+<h2 id="293-8">29.3-8<a class="headerlink" href="#293-8" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>In the proof of Lemma 29.5, we argued that there are at most $\binom{m + n}{n}$ ways to choose a set $B$ of basic variables. Give an example of a linear program in which there are strictly fewer than $\binom{m + n}{n}$ ways to choose the set $B$.</p>
 </blockquote>
@@ -10182,6 +10182,46 @@ $$</p>
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../29.2/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 29.2 Formulating problems as linear programs">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                29.2 Formulating problems as linear programs
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../29.4/" class="md-footer__link md-footer__link--next" aria-label="Next: 29.4 Duality">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                29.4 Duality
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
@@ -10218,7 +10258,18 @@ $$</p>
       
       
     
-    <a href="https://www.linkedin.com/in/walkccc/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+    <a href="https://twitter.com/pengyuc_" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9L389.2 48zm-24.8 373.8h39.1L151.1 88h-42l255.3 333.8z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/pengyuc" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
     </a>
   
@@ -10245,16 +10296,16 @@ $$</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
       
         <script src="../../js/katex.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

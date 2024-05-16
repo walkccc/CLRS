@@ -60,7 +60,7 @@
     
       <link rel="stylesheet" href="../../css/custom.css">
     
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -71,7 +71,7 @@
   
   
 
-<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-117404761-1"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-117404761-1",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-117404761-1",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-NE8FKX91SB"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-NE8FKX91SB",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-NE8FKX91SB",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -10011,7 +10011,7 @@
 
   <h1>24.3 Dijkstra's algorithm</h1>
 
-<h2 id="243-1">24.3-1</h2>
+<h2 id="243-1">24.3-1<a class="headerlink" href="#243-1" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Run Dijkstra's algorithm on the directed graph of Figure 24.2, first using vertex $s$ as the source and then using vertex $z$ as the source. In the style of Figure 24.6, show the $d$ and $\pi$ values and the vertices in set $S$ after each iteration of the <strong>while</strong> loop.</p>
 </blockquote>
@@ -10083,13 +10083,13 @@ $$</p>
 </ul>
 </li>
 </ul>
-<h2 id="243-2">24.3-2</h2>
+<h2 id="243-2">24.3-2<a class="headerlink" href="#243-2" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Give a simple example of a directed graph with negative-weight edges for which Dijkstra's algorithm produces incorrect answers. Why doesn't the proof of Theorem 24.6 go through when negative-weight edges are allowed?</p>
 </blockquote>
 <p>Consider any graph with a negative cycle. $\text{RELAX}$ is called a finite number of times but the distance to any vertex on the cycle is $-\infty$, so Dijkstra's algorithm cannot possibly be correct here. The proof of theorem 24.6 doesn't go through because we can no longer guarantee that</p>
 <p>$$\delta(s, y) \le \delta(s, u).$$</p>
-<h2 id="243-3">24.3-3</h2>
+<h2 id="243-3">24.3-3<a class="headerlink" href="#243-3" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Suppose we change line 4 of Dijkstra's algorithm to the following.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w"> </span><span class="mi">4</span><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="o">|</span><span class="n">Q</span><span class="o">|</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span>
@@ -10104,37 +10104,37 @@ $$</p>
 <p>$$x.d = \delta(s, x)$$</p>
 <p>and then the edge $(x, u)$ was relaxed; thus,</p>
 <p>$$u.d = \delta(s, u).$$</p>
-<h2 id="243-4">24.3-4</h2>
+<h2 id="243-4">24.3-4<a class="headerlink" href="#243-4" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Professor Gaedel has written a program that he claims implements Dijkstra's algorithm. The program produces $v.d$ and $v.\pi$ for each vertex $v \in V$. Give an $O(V + E)$-time algorithm to check the output of the professor's program. It should determine whether the $d$ and $\pi$ attributes match those of some shortest-paths tree. You may assume that all edge weights are nonnegative.</p>
 </blockquote>
 <p>(Removed)</p>
-<h2 id="243-5">24.3-5</h2>
+<h2 id="243-5">24.3-5<a class="headerlink" href="#243-5" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Professor Newman thinks that he has worked out a simpler proof of correctness for Dijkstra's algorithm. He claims that Dijkstra's algorithm relaxes the edges of every shortest path in the graph in the order in which they appear on the path, and therefore the path-relaxation property applies to every vertex reachable from the source. Show that the professor is mistaken by constructing a directed graph for which Dijkstra's algorithm could relax the edges of a shortest path out of order.</p>
 </blockquote>
 <p>(Removed)</p>
-<h2 id="243-6">24.3-6</h2>
+<h2 id="243-6">24.3-6<a class="headerlink" href="#243-6" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>We are given a directed graph $G = (V, E)$ on which each edge $(u, v) \in E$ has an associated value $r(u, v)$, which is a real number in the range $0 \le r(u, v) \le 1$ that represents the reliability of a communication channel from vertex $u$ to vertex $v$. We interpret $r(u, v)$ as the probability that the channel from $u$ to $v$ will not fail, and we assume that these probabilities are independent. Give an efficient algorithm to find the most reliable path between two given vertices.</p>
 </blockquote>
 <p>(Removed)</p>
-<h2 id="243-7">24.3-7</h2>
+<h2 id="243-7">24.3-7<a class="headerlink" href="#243-7" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Let $G = (V, E)$ be a weighted, directed graph with positive weight function $w: E \rightarrow \{1, 2, \ldots, W\}$ for some positive integer $W$, and assume that no two vertices have the same shortest-path weights from source vertex $s$. Now suppose that we define an unweighted, directed graph $G' = (V \cup V', E')$ by replacing each edge $(u, v) \in E$ with $w(u, v)$ unit-weight edges in series. How many vertices does $G'$ have? Now suppose that we run a breadth-first search on $G'$. Show that the order in which the breadth-first search of $G'$ colors vertices in $V$ black is the same as the order in which Dijkstra's algorithm extracts the vertices of $V$ from the priority queue when it runs on $G$.</p>
 </blockquote>
 <p>$V + \sum_{(u, v) \in E} w(u, v) - E$.</p>
-<h2 id="243-8">24.3-8</h2>
+<h2 id="243-8">24.3-8<a class="headerlink" href="#243-8" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Let $G = (V, E)$ be a weighted, directed graph with nonnegative weight function $w: E \rightarrow \{0, 1, \ldots, W\}$ for some nonnegative integer $W$. Modify Dijkstra's algorithm to compute the shortest paths from a given source vertex s in $O(WV + E)$ time.</p>
 </blockquote>
 <p>(Removed)</p>
-<h2 id="243-9">24.3-9</h2>
+<h2 id="243-9">24.3-9<a class="headerlink" href="#243-9" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Modify your algorithm from Exercise 24.3-8 to run in $O((V + E) \lg W)$ time. ($\textit{Hint:}$ How many distinct shortest-path estimates can there be in $V - S$ at any point in time?)</p>
 </blockquote>
 <p>(Removed)</p>
-<h2 id="243-10">24.3-10</h2>
+<h2 id="243-10">24.3-10<a class="headerlink" href="#243-10" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Suppose that we are given a weighted, directed graph $G = (V, E)$ in which edges that leave the source vertex $s$ may have negative weights, all other edge weights are nonnegative, and there are no negative-weight cycles. Argue that Dijkstra's algorithm correctly finds shortest paths from $s$ in this graph.</p>
 </blockquote>
@@ -10164,6 +10164,46 @@ $$</p>
       </main>
       
         <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../24.2/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 24.2 Single-source shortest paths in directed acyclic graphs">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                24.2 Single-source shortest paths in directed acyclic graphs
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../24.4/" class="md-footer__link md-footer__link--next" aria-label="Next: 24.4 Difference constraints and shortest paths">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                24.4 Difference constraints and shortest paths
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -10201,7 +10241,18 @@ $$</p>
       
       
     
-    <a href="https://www.linkedin.com/in/walkccc/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+    <a href="https://twitter.com/pengyuc_" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9L389.2 48zm-24.8 373.8h39.1L151.1 88h-42l255.3 333.8z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/pengyuc" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
     </a>
   
@@ -10228,16 +10279,16 @@ $$</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
       
         <script src="../../js/katex.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

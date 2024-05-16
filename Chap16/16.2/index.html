@@ -60,7 +60,7 @@
     
       <link rel="stylesheet" href="../../css/custom.css">
     
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -71,7 +71,7 @@
   
   
 
-<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-117404761-1"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-117404761-1",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-117404761-1",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-NE8FKX91SB"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-NE8FKX91SB",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-NE8FKX91SB",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -9957,7 +9957,7 @@
 
   <h1>16.2 Elements of the greedy strategy</h1>
 
-<h2 id="162-1">16.2-1</h2>
+<h2 id="162-1">16.2-1<a class="headerlink" href="#162-1" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Prove that the fractional knapsack problem has the greedy-choice property.</p>
 </blockquote>
@@ -9966,7 +9966,7 @@
 <p>$$I' = (n - 1, \{v_1, v_2, \ldots, v_{n - 1}\}, \{w_1, w_2, \ldots, w_{n - 1}\}, W - w_n)$$</p>
 <p>until it either reaches the state $W = 0$ or $n = 0$.</p>
 <p>We need to show that this strategy always gives an optimal solution. We prove this by contradiction. Suppose the optimal solution to $I$ is $s_1, s_2, \ldots, s_n$, where $s_n &lt; \min(w_n, W)$. Let $i$ be the smallest number such that $s_i &gt; 0$. By decreasing $s_i$ to $\max(0, W - w_n)$ and increasing $s_n$ by the same amount, we get a better solution. Since this a contradiction the assumption must be false. Hence the problem has the greedy-choice property.</p>
-<h2 id="162-2">16.2-2</h2>
+<h2 id="162-2">16.2-2<a class="headerlink" href="#162-2" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Give a dynamic-programming solution to the $0$-$1$ knapsack problem that runs in $O(nW)$ time, where $n$ is the number of items and $W$ is the maximum weight of items that the thief can put in his knapsack.</p>
 </blockquote>
@@ -9985,29 +9985,29 @@
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">            </span><span class="k">else</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">                </span><span class="n">K</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">K</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">],</span><span class="w"> </span><span class="n">K</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">weight</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">value</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="162-3">16.2-3</h2>
+<h2 id="162-3">16.2-3<a class="headerlink" href="#162-3" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Suppose that in a $0$-$1$ knapsack problem, the order of the items when sorted by increasing weight is the same as their order when sorted by decreasing value. Give an efficient algorithm to find an optimal solution to this variant of the knapsack problem, and argue that your algorithm is correct.</p>
 </blockquote>
 <p>Suppose in an optimal solution we take an item with $v_1$, $w_1$, and drop an item with $v_2$, $w_2$, and $w_1 &gt; w_2$, $v_1 &lt; v_2$, we can substitute $1$ with $2$ and get a better solution. Therefore we should always choose the items with the greatest values.</p>
-<h2 id="162-4">16.2-4</h2>
+<h2 id="162-4">16.2-4<a class="headerlink" href="#162-4" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Professor Gekko has always dreamed of inline skating across North Dakota. He plans to cross the state on highway U.S. 2, which runs from Grand Forks, on the eastern border with Minnesota, to Williston, near the western border with Montana. The professor can carry two liters of water, and he can skate $m$ miles before running out of water. (Because North Dakota is relatively flat, the professor does not have to worry about drinking water at a greater rate on uphill sections than on flat or downhill sections.) The professor will start in Grand Forks with two full liters of water. His official North Dakota state map shows all the places along U.S. 2 at which he can refill his water and the distances between these locations.</p>
 <p>The professor's goal is to minimize the number of water stops along his route across the state. Give an efficient method by which he can determine which water stops he should make. Prove that your strategy yields an optimal solution, and give its running time.</p>
 </blockquote>
 <p>The greedy solution solves this problem optimally, where we maximize distance we can cover from a particular point such that there still exists a place to get water before we run out. The first stop is at the furthest point from the starting position which is less than or equal to $m$ miles away. The problem exhibits optimal substructure, since once we have chosen a first stopping point $p$, we solve the subproblem assuming we are starting at $p$. Combining these two plans yields an optimal solution for the usual cut-and-paste reasons. Now we must show that this greedy approach in fact yields a first stopping point which is contained in some optimal solution. Let $O$ be any optimal solution which has the professor stop at positions $o_1, o_2, \dots, o_k$. Let $g_1$ denote the furthest stopping point we can reach from the starting point. Then we may replace $o_1$ by $g_2$ to create a modified solution $G$, since $o_2 - o_1 &lt; o_2 - g_1$. In other words, we can actually make it to the positions in $G$ without running out of water. Since $G$ has the same number of stops, we conclude that $g_1$ is contained in some optimal solution. Therefore the greedy strategy works.</p>
-<h2 id="162-5">16.2-5</h2>
+<h2 id="162-5">16.2-5<a class="headerlink" href="#162-5" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Describe an efficient algorithm that, given a set $\{x_1, x_2, \ldots, x_n\}$ of points on the real line, determines the smallest set of unit-length closed intervals that contains all of the given points. Argue that your algorithm is correct.</p>
 </blockquote>
 <p>Consider the leftmost interval. It will do no good if it extends any further left than the leftmost point, however, we know that it must contain the leftmost point. So, we know that it's left hand side is exactly the leftmost point.</p>
 <p>So, we just remove any point that is within a unit distance of the left most point since they are contained in this single interval. Then, we just repeat until all points are covered. Since at each step there is a clearly optimal choice for where to put the leftmost interval, this final solution is optimal.</p>
-<h2 id="162-6-star">16.2-6 $\star$</h2>
+<h2 id="162-6-star">16.2-6 $\star$<a class="headerlink" href="#162-6-star" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Show how to solve the fractional knapsack problem in $O(n)$ time.</p>
 </blockquote>
 <p>First compute the value of each item, defined to be it's worth divided by its weight. We use a recursive approach as follows, find the item of median value, which can be done in linear time as shown in chapter 9. Then sum the weights of all items whose value exceeds the median and call it $M$. If $M$ exceeds $W$ then we know that the solution to the fractional knapsack problem lies in taking items from among this collection. In other words, we're now solving the fractional knapsack problem on input of size $n / 2$. On the other hand, if the weight doesn't exceed $W$, then we must solve the fractional knapsack problem on the input of $n / 2$ low-value items, with maximum weight $W − M$. Let $T(n)$ denote the runtime of the algorithm. Since we can solve the problem when there is only one item in constant time, the recursion for the runtime is $T(n) = T(n / 2) + cn$ and $T(1) = d$, which gives runtime of $O(n)$.</p>
-<h2 id="162-7">16.2-7</h2>
+<h2 id="162-7">16.2-7<a class="headerlink" href="#162-7" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Suppose you are given two sets $A$ and $B$, each containing $n$ positive integers. You can choose to reorder each set however you like. After reordering, let $a_i$ be the $i$th element of set $A$, and let $b_i$ be the $i$th element of set $B$. You then receive a payoff of $\prod_{i = 1}^n a_i^{b_i}$. Give an algorithm that will maximize your payoff. Prove that your algorithm maximizes the payoff, and state its running time.</p>
 </blockquote>
@@ -10037,6 +10037,46 @@
       </main>
       
         <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../16.1/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 16.1 An activity-selection problem">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                16.1 An activity-selection problem
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../16.3/" class="md-footer__link md-footer__link--next" aria-label="Next: 16.3 Huffman codes">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                16.3 Huffman codes
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -10074,7 +10114,18 @@
       
       
     
-    <a href="https://www.linkedin.com/in/walkccc/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+    <a href="https://twitter.com/pengyuc_" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9L389.2 48zm-24.8 373.8h39.1L151.1 88h-42l255.3 333.8z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/pengyuc" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
     </a>
   
@@ -10101,16 +10152,16 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
       
         <script src="../../js/katex.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

@@ -60,7 +60,7 @@
     
       <link rel="stylesheet" href="../../css/custom.css">
     
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -71,7 +71,7 @@
   
   
 
-<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-117404761-1"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-117404761-1",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-117404761-1",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-NE8FKX91SB"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-NE8FKX91SB",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-NE8FKX91SB",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -9993,19 +9993,19 @@
 
   <h1>16.3 Huffman codes</h1>
 
-<h2 id="163-1">16.3-1</h2>
+<h2 id="163-1">16.3-1<a class="headerlink" href="#163-1" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Explain why, in the proof of Lemma 16.2, if $x.freq = b.freq$, then we must have $a.freq = b.freq = x.freq = y.freq$.</p>
 </blockquote>
 <p>If we have that $x.freq = b.freq$, then we know that $b$ is tied for lowest frequency. In particular, it means that there are at least two things with lowest frequency, so $y.freq = x.freq$. Also, since $x.freq \le a.freq \le b.freq = x.freq$, we must have $a.freq = x.freq$.</p>
-<h2 id="163-2">16.3-2</h2>
+<h2 id="163-2">16.3-2<a class="headerlink" href="#163-2" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Prove that a binary tree that is not full cannot correspond to an optimal prefix code.</p>
 </blockquote>
 <p>Let $T$ be a binary tree that is not full. $T$ represents a binary prefix code for a file composed of characters from alphabet $C$, where $c \in C$, $f(c)$ is th number of occurrences of $c$ in the file. The cost of tree $T$, or the number of bits in the encoding, is $\sum_{c \in C} d_T(c) \cdot f(c)$, where $d_T(c)$ is the depth of character $c$ in tree $T$.</p>
 <p>Let $N$ be a node of greatest depth that has exactly one child. If $N$ is the root of $T$, $N$ can be removed and the deepth of each node reduced by one, yielding a tree representing the same alphabet with a lower cost. This mean the original code was not optimal.</p>
 <p>Otherwise, let $M$ be the parent of $N$, let $T_1$ be the (possibly non-existent) sibling of $N$, and let $T_2$ be the subtree rooted at the child of $N$. Replace $M$ by $N$, making $T_1$ be the children of $N$. If $T_1$ is empty, repeat the process. We have a new prefix code of lower cost, so the original was not optimal.</p>
-<h2 id="163-3">16.3-3</h2>
+<h2 id="163-3">16.3-3<a class="headerlink" href="#163-3" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>What is an optimal Huffman code for the following set of frequencies, based on<br />
 the first $8$ Fibonacci numbers?</p>
@@ -10051,7 +10051,7 @@ $$</p>
 <li>for $2 \le i &lt; n$ we suppose that our claim is true for all $j &lt; i$ and prove the claim for $i$. Since the claim is true for $i - 1$, we know that just before $i-th$ execution of the for-cycle we have the following content of the priority queue $Q=(a_{i + 1}, T_i, a_{i + 2}, \dots, a_n)$. Thus line 5 of HUFFMAN extracts $a_{i + 1}$ and sets $z.left = a_{i + 1}$ and line 6 of HUFFMAN extracts $T_i$ and sets $z.right = T_i$. Now we can see that indeed $z$ is exactly $T_{i + 1}$. Using (CLAIM 2) and observing the way $T_{i + 1}$ is defined we get that $z.freq = T_{i + 1}.freq = \sum\limits_{i=1}^{i + 1} a_i$. Thus using (CLAIM 1) one can see that $a_{i + 2} &lt; T_{i + 1}.freq &lt; a_{i + 3}$. Therefore for the content of the priority queue $Q$ just after the $i$-th execution of the for-cycle we have $Q=(a_{i + 2}, T_{i + 2}, a_{i + 3}, \dots, a_n)$.</li>
 </ul>
 <p><strong>KEY CLAIM</strong> tells us that just after the last execution of the for-cycle we have $Q = (T_n)$ and therefore the line 9 of HUFFMAN returns $T_n$ as the result. One can easily see that the code given in the beginning is exactly the code which corresponds to the code-tree $T_n$.</p>
-<h2 id="163-4">16.3-4</h2>
+<h2 id="163-4">16.3-4<a class="headerlink" href="#163-4" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Prove that we can also express the total cost of a tree for a code as the sum, over all internal nodes, of the combined frequencies of the two children of the node.</p>
 </blockquote>
@@ -10081,7 +10081,7 @@ B(T) &amp; = \sum_{\text{leaves }l \in T} f(l)d_T(l) \\
 \end{aligned}
 $$</p>
 <p>Thus the statement is true.</p>
-<h2 id="163-5">16.3-5</h2>
+<h2 id="163-5">16.3-5<a class="headerlink" href="#163-5" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Prove that if we order the characters in an alphabet so that their frequencies are monotonically decreasing, then there exists an optimal code whose codeword lengths are monotonically increasing.</p>
 </blockquote>
@@ -10102,24 +10102,24 @@ $$</p>
 <p>Since $|cw_B(a_i)| &gt; |cw_B(a_{i + 1})| $, we get $|cw_B(a_i)| - |cw_B(a_{i + 1})| &gt; 0$. Thus $\phi(|cw_B(a_i)| - |cw_B(a_{i + 1})|) &gt; 0$ which imply $cost(B') &lt; cost(B)$. Therefore the code $B$ is not optimal, a contradiction.</p>
 <p>Therefore, we conclude that codeword lengths of $B$ are monotonically increasing and the proof is complete.</p>
 <p><strong>Note:</strong> For those not familiar with mathematical parlance, w.l.o.g means without loss of generality.</p>
-<h2 id="163-6">16.3-6</h2>
+<h2 id="163-6">16.3-6<a class="headerlink" href="#163-6" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Suppose we have an optimal prefix code on a set $C = \{0, 1, \ldots, n - 1 \}$ of characters and we wish to transmit this code using as few bits as possible. Show how to represent any optimal prefix code on $C$ using only $2n - 1 + n \lceil \lg n \rceil$ bits. ($\textit{Hint:}$ Use $2n - 1$ bits to specify the structure of the tree, as discovered by a walk of the tree.)</p>
 </blockquote>
 <p>First observe that any full binary tree has exactly $2n - 1$ nodes. We can encode the structure of our full binary tree by performing a preorder traversal of $T$.
 For each node that we record in the traversal, write a $0$ if it is an internal node and a $1$ if it is a leaf node. Since we know the tree to be full, this uniquely determines its structure.</p>
 <p>Next, note that we can encode any character of $C$ in $\lceil \lg n \rceil$ bits. Since there are $n$ characters, we can encode them in order of appearance in our preorder traversal using $n\left\lceil \lg n \right\rceil$ bits.</p>
-<h2 id="163-7">16.3-7</h2>
+<h2 id="163-7">16.3-7<a class="headerlink" href="#163-7" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Generalize Huffman's algorithm to ternary codewords (i.e., codewords using the symbols $0$, $1$, and $2$), and prove that it yields optimal ternary codes.</p>
 </blockquote>
 <p>Instead of grouping together the two with lowest frequency into pairs that have the smallest total frequency, we will group together the three with lowest frequency in order to have a final result that is a ternary tree. The analysis of optimality is almost identical to the binary case. We are placing the symbols of lowest frequency lower down in the final tree and so they will have longer codewords than the more frequently occurring symbols.</p>
-<h2 id="163-8">16.3-8</h2>
+<h2 id="163-8">16.3-8<a class="headerlink" href="#163-8" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Suppose that a data file contains a sequence of $8$-bit characters such that all $256$ characters are about equally common: the maximum character frequency is less than twice the minimum character frequency. Prove that Huffman coding in this case is no more efficient than using an ordinary $8$-bit fixed-length code.</p>
 </blockquote>
 <p>For any $2$ characters, the sum of their frequencies exceeds the frequency of any other character, so initially Huffman coding makes $128$ small trees with $2$ leaves each. At the next stage, no internal node has a label which is more than twice that of any other, so we are in the same setup as before. Continuing in this fashion, Huffman coding builds a complete binary tree of height $\lg 256 = 8$, which is no more efficient than ordinary $8$-bit length codes.</p>
-<h2 id="163-9">16.3-9</h2>
+<h2 id="163-9">16.3-9<a class="headerlink" href="#163-9" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Show that no compression scheme can expect to compress a file of randomly chosen $8$-bit characters by even a single bit. ($\textit{Hint:}$ Compare the number of possible files with the number of possible encoded files.)</p>
 </blockquote>
@@ -10151,6 +10151,46 @@ so the total length of the file will not decrease at all.</p>
       </main>
       
         <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../16.2/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 16.2 Elements of the greedy strategy">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                16.2 Elements of the greedy strategy
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../16.4/" class="md-footer__link md-footer__link--next" aria-label="Next: 16.4 Matroids and greedy methods">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                16.4 Matroids and greedy methods
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -10188,7 +10228,18 @@ so the total length of the file will not decrease at all.</p>
       
       
     
-    <a href="https://www.linkedin.com/in/walkccc/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+    <a href="https://twitter.com/pengyuc_" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9L389.2 48zm-24.8 373.8h39.1L151.1 88h-42l255.3 333.8z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/pengyuc" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
     </a>
   
@@ -10215,16 +10266,16 @@ so the total length of the file will not decrease at all.</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
       
         <script src="../../js/katex.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

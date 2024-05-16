@@ -60,7 +60,7 @@
     
       <link rel="stylesheet" href="../../css/custom.css">
     
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -71,7 +71,7 @@
   
   
 
-<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-117404761-1"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-117404761-1",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-117404761-1",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-NE8FKX91SB"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-NE8FKX91SB",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-NE8FKX91SB",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -9993,7 +9993,7 @@
 
   <h1>22.2 Breadth-first search</h1>
 
-<h2 id="222-1">22.2-1</h2>
+<h2 id="222-1">22.2-1<a class="headerlink" href="#222-1" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Show the $d$ and $\pi$ values that result from running breadth-first search on the directed graph of Figure 22.2(a), using vertex $3$ as the source.</p>
 </blockquote>
@@ -10005,7 +10005,7 @@ d &amp; \infty &amp; 3 &amp; 0 &amp; 2 &amp; 1 &amp; 1 \\
 \pi &amp; \text{NIL} &amp; 4 &amp; \text{NIL} &amp; 5 &amp; 3 &amp; 3
 \end{array}
 $$</p>
-<h2 id="222-2">22.2-2</h2>
+<h2 id="222-2">22.2-2<a class="headerlink" href="#222-2" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Show the $d$ and $\pi$ values that result from running breadth-first search on the undirected graph of Figure 22.3, using vertex $u$ as the source.</p>
 </blockquote>
@@ -10017,18 +10017,18 @@ d &amp; 4 &amp; 3 &amp; 1 &amp; 0 &amp; 5 &amp; 2 &amp; 1 &amp; 1 \\
 \pi &amp; s &amp; w &amp; u &amp; \text{NIL} &amp; r &amp; t &amp; u &amp; u
 \end{array}
 $$</p>
-<h2 id="222-3">22.2-3</h2>
+<h2 id="222-3">22.2-3<a class="headerlink" href="#222-3" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Show that using a single bit to store each vertex color suffices by arguing that the $\text{BFS}$ procedure would produce the same result if lines 5 and 14 were removed.</p>
 </blockquote>
 <p>The textbook introduces the $\text{GRAY}$ color for the pedagogical purpose to distinguish between the $\text{GRAY}$ nodes (which are enqueued) and the $\text{BLACK}$ nodes (which are dequeued).</p>
 <p>Therefore, it suffices to use a single bit to store each vertex color. </p>
-<h2 id="222-4">22.2-4</h2>
+<h2 id="222-4">22.2-4<a class="headerlink" href="#222-4" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>What is the running time of $\text{BFS}$ if we represent its input graph by an adjacency matrix and modify the algorithm to handle this form of input?</p>
 </blockquote>
 <p>The time of iterating all edges becomes $O(V^2)$ from $O(E)$. Therefore, the running time is $O(V + V^2) = O(V^2)$.</p>
-<h2 id="222-5">22.2-5</h2>
+<h2 id="222-5">22.2-5<a class="headerlink" href="#222-5" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Argue that in a breadth-first search, the value $u.d$ assigned to a vertex $u$ is independent of the order in which the vertices appear in each adjacency list. Using Figure 22.3 as an example, show that the breadth-first tree computed by $\text{BFS}$ can depend on the ordering within adjacency lists.</p>
 </blockquote>
@@ -10036,7 +10036,7 @@ $$</p>
 <p>Now, to show that $\pi$ does depend on the ordering of the adjacency lists, we will be using Figure 22.3 as a guide.</p>
 <p>First, we note that in the given worked out procedure, we have that in the adjacency list for $w$, $t$ precedes $x$. Also, in the worked out procedure, we have that $u.\pi = t$.</p>
 <p>Now, suppose instead that we had $x$ preceding $t$ in the adjacency list of $w$. Then, it would get added to the queue before $t$, which means that it would $u$ as it's child before we have a chance to process the children of $t$. This will mean that $u.\pi = x$ in this different ordering of the adjacency list for $w$.</p>
-<h2 id="222-6">22.2-6</h2>
+<h2 id="222-6">22.2-6<a class="headerlink" href="#222-6" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Give an example of a directed graph $G = (V, E)$, a source vertex $s \in V$, and a set of tree edges $E_\pi \subseteq E$ such that for each vertex $v \in V$, the unique simple path in the graph $(V, E_\pi)$ from $s$ to $v$ is a shortest path in $G$, yet the set of edges $E_\pi$ cannot be produced by running $\text{BFS}$ on $G$, no matter how the vertices are ordered in each adjacency list.</p>
 </blockquote>
@@ -10051,12 +10051,12 @@ $$</p>
 <li>If $v$ preceded $y$ in the $Adj[s]$. We'll dequeue $v$ before $y$, so $u.\pi$ and $x.\pi$ are both $v$, which again isn't true.</li>
 </ul>
 <p>Nonetheless, the unique simple path in $G_\pi$ from $s$ to any vertex is a shortest path in $G$.</p>
-<h2 id="222-7">22.2-7</h2>
+<h2 id="222-7">22.2-7<a class="headerlink" href="#222-7" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>There are two types of professional wrestlers: "babyfaces" ("good guys") and "heels" ("bad guys"). Between any pair of professional wrestlers, there may or may not be a rivalry. Suppose we have $n$ professional wrestlers and we have a list of $r$ pairs of wrestlers for which there are rivalries. Give an $O(n + r)$-time algorithm that determines whether it is possible to designate some of the wrestlers as babyfaces and the remainder as heels such that each rivalry is between a babyface and a heel. If it is possible to perform such a designation, your algorithm should produce it.</p>
 </blockquote>
 <p>This problem is basically just a obfuscated version of two coloring. We will try to color the vertices of this graph of rivalries by two colors, "babyface" and "heel". To have that no two babyfaces and no two heels have a rivalry is the same as saying that the coloring is proper. To two color, we perform a breadth first search of each connected component to get the $d$ values for each vertex. Then, we give all the odd ones one color say "heel", and all the even d values a different color. We know that no other coloring will succeed where this one fails since if we gave any other coloring, we would have that a vertex $v$ has the same color as $v.\pi$ since $v$ and $v.\pi$ must have different parities for their $d$ values. Since we know that there is no better coloring, we just need to check each edge to see if this coloring is valid. If each edge works, it is possible to find a designation, if a single edge fails, then it is not possible. Since the BFS took time $O(n + r)$ and the checking took time $O(r)$, the total runtime is $O(n + r)$.</p>
-<h2 id="222-8-star">22.2-8 $\star$</h2>
+<h2 id="222-8-star">22.2-8 $\star$<a class="headerlink" href="#222-8-star" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>The <strong><em>diameter</em></strong> of a tree $T = (V, E)$ is defined as $\max_{u,v \in V} \delta(u, v)$, that is, the largest of all shortest-path distances in the tree. Give an efficient algorithm to compute the diameter of a tree, and analyze the running time of your algorithm.</p>
 </blockquote>
@@ -10079,7 +10079,7 @@ $$</p>
 <p>I claim that $d(x, b) = d(s, x) + d(s, b)$. If not, then by the triangle inequality we must have a strict less-than. In other words, there is some path from $x$ to $b$ which does not go through $c$. This gives the contradiction, because it implies there is a cycle formed by concatenating these paths. Then we have</p>
 <p>$$d(a, b) &lt; d(a, b) + 2d(s, c) &lt; d(x, b).$$</p>
 <p>Since it is assumed that $d(a, b)$ is maximal among all pairs, we have a contradiction. Therefore, since trees have $|V| - 1$ edges, we can run $\text{BFS}$ a single time in $O(V)$ to obtain one of the vertices which is the endpoint of the longest simple path contained in the graph. Running $\text{BFS}$ again will show us where the other one is, so we can solve the diameter problem for trees in $O(V)$.</p>
-<h2 id="222-9">22.2-9</h2>
+<h2 id="222-9">22.2-9<a class="headerlink" href="#222-9" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Let $G = (V, E)$ be a connected, undirected graph. Give an $O(V + E)$-time algorithm to compute a path in $G$ that traverses each edge in $E$ exactly once in each direction. Describe how you can find your way out of a maze if you are given a large supply of pennies.</p>
 </blockquote>
@@ -10118,6 +10118,46 @@ $$</p>
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../22.1/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 22.1 Representations of graphs">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                22.1 Representations of graphs
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../22.3/" class="md-footer__link md-footer__link--next" aria-label="Next: 22.3 Depth-first search">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                22.3 Depth-first search
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
@@ -10154,7 +10194,18 @@ $$</p>
       
       
     
-    <a href="https://www.linkedin.com/in/walkccc/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+    <a href="https://twitter.com/pengyuc_" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9L389.2 48zm-24.8 373.8h39.1L151.1 88h-42l255.3 333.8z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/pengyuc" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
     </a>
   
@@ -10181,16 +10232,16 @@ $$</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
       
         <script src="../../js/katex.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

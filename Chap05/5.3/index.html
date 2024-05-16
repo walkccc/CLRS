@@ -60,7 +60,7 @@
     
       <link rel="stylesheet" href="../../css/custom.css">
     
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -71,7 +71,7 @@
   
   
 
-<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-117404761-1"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-117404761-1",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-117404761-1",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-NE8FKX91SB"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-NE8FKX91SB",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-NE8FKX91SB",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -9957,7 +9957,7 @@
 
   <h1>5.3 Randomized algorithms</h1>
 
-<h2 id="53-1">5.3-1</h2>
+<h2 id="53-1">5.3-1<a class="headerlink" href="#53-1" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Professor Marceau objects to the loop invariant used in the proof of Lemma 5.5. He questions whether it is true prior to the first iteration. He reasons that we could just as easily declare that an empty subarray contains no $0$-permutations. Therefore, the probability that an empty subarray contains a $0$-permutation should be $0$, thus invalidating the loop invariant prior to the first iteration. Rewrite the procedure $\text{RANDOMIZE-IN-PLACE}$ so that its associated loop invariant applies to a nonempty subarray prior to the first iteration, and modify the proof of Lemma 5.5 for your procedure.</p>
 </blockquote>
@@ -9967,7 +9967,7 @@
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">swap</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">RANDOM</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">)])</span>
 </code></pre></div>
 <p>Modify the proof of Lemma 5.5 by starting with $i = 2$ instead of $i = 1$. This resolves the issue of $0$-permutations.</p>
-<h2 id="53-2">5.3-2</h2>
+<h2 id="53-2">5.3-2<a class="headerlink" href="#53-2" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Professor Kelp decides to write a procedure that produces at random any permutation besides the identity permutation. He proposes the following procedure:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">PERMUTE</span><span class="o">-</span><span class="n">WITHOUT</span><span class="o">-</span><span class="n">IDENTITY</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
@@ -9978,7 +9978,7 @@
 <p>Does this code do what Professor Kelp intends?</p>
 </blockquote>
 <p>The code does not do what he intends. Suppose $A = [1, 2, 3]$. If the algorithm worked as proposed, then with nonzero probability the algorithm should output $[3, 2, 1]$. On the first iteration we swap $A[1]$ with either $A[2]$ or $A[3]$. Since we want $[3, 2, 1]$ and will never again alter $A[1]$, we must necessarily swap with $A[3]$. Now the current array is $[3, 2, 1]$. On the second (and final) iteration, we have no choice but to swap $A[2]$ with $A[3]$, so the resulting array is $[3, 1, 2]$. Thus, the procedure cannot possibly be producing random non-identity permutations.</p>
-<h2 id="53-3">5.3-3</h2>
+<h2 id="53-3">5.3-3<a class="headerlink" href="#53-3" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Suppose that instead of swapping element $A[i]$ with a random element from the subarray $A[i..n]$, we swapped it with a random element from anywhere in the array:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">PERMUTE</span><span class="o">-</span><span class="n">WITH</span><span class="o">-</span><span class="n">ALL</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
@@ -9989,7 +9989,7 @@
 <p>Does this code produce a uniform random permutation? Why or why not?</p>
 </blockquote>
 <p>Consider the case of $n = 3$ in running the algorithm, three IID choices will be made, and so you'll end up having $27$ possible end states each with equal probability. There are $3! = 6$ possible orderings, these should appear equally often, but this can't happen because $6$ does not divide $27$.</p>
-<h2 id="53-4">5.3-4</h2>
+<h2 id="53-4">5.3-4<a class="headerlink" href="#53-4" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Professor Armstrong suggests the following procedure for generating a uniform random permutation:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">PERMUTE</span><span class="o">-</span><span class="n">BY</span><span class="o">-</span><span class="n">CYCLIC</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
@@ -10014,7 +10014,7 @@
 <li>if $v = 3$, $B = [1, 2, 3]$.</li>
 </ul>
 <p>Thus, the algorithm will never produce $B = [1, 3, 2]$, so the resulting permutation cannot be uniformly random.</p>
-<h2 id="53-5-star">5.3-5 $\star$</h2>
+<h2 id="53-5-star">5.3-5 $\star$<a class="headerlink" href="#53-5-star" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Prove that in the array $P$ in procedure $\text{PERMUTE-BY-SORTING}$, the probability that all elements are unique is at least $1 - 1 / n$.</p>
 </blockquote>
@@ -10030,7 +10030,7 @@
 \end{aligned}
 $$</p>
 <p>where the last step holds for $(1 - x)^n \ge 1 - nx$.</p>
-<h2 id="53-6">5.3-6</h2>
+<h2 id="53-6">5.3-6<a class="headerlink" href="#53-6" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Explain how to implement the algorithm $\text{PERMUTE-BY-SORTING}$ to handle the case in which two or more priorities are identical. That is, your algorithm should produce a uniform random permutation, even if two or more priorities are identical.</p>
 </blockquote>
@@ -10041,7 +10041,7 @@ $$</p>
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">n</span>
 <a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">        </span><span class="n">swap</span><span class="w"> </span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">P</span><span class="p">[</span><span class="n">RANDOM</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">)]</span>
 </code></pre></div>
-<h2 id="53-7">5.3-7</h2>
+<h2 id="53-7">5.3-7<a class="headerlink" href="#53-7" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Suppose we want to create a <strong><em>random sample</em></strong> of the set $\{1, 2, 3, \ldots, n\}$, that is, an $m$-element subset $S$, where $0 \le m \le n$, such that each $m$-subset is equally likely to be created. One way would be to set $A[i] = i$ for $i = 1, 2, 3, \ldots, n$, call $\text{RANDOMIZE-IN-PLACE}(A)$, and then take just the first $m$ array elements. This method would make $n$ calls to the $\text{RANDOM}$ procedure. If $n$ is much larger than $m$, we can create a random sample with fewer calls to $\text{RANDOM}$. Show that the following recursive procedure returns a random $m$-subset $S$ of $\{1, 2, 3, \ldots, n\}$, in which each $m$-subset is equally likely, while making only $m$ calls to $\text{RANDOM}$:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">RANDOM</span><span class="o">-</span><span class="n">SAMPLE</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
@@ -10094,6 +10094,46 @@ $$</p>
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../5.2/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 5.2 Indicator random variables">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                5.2 Indicator random variables
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../5.4/" class="md-footer__link md-footer__link--next" aria-label="Next: 5.4 Probabilistic analysis and further uses of indicator random variables">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                5.4 Probabilistic analysis and further uses of indicator random variables
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
@@ -10130,7 +10170,18 @@ $$</p>
       
       
     
-    <a href="https://www.linkedin.com/in/walkccc/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+    <a href="https://twitter.com/pengyuc_" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9L389.2 48zm-24.8 373.8h39.1L151.1 88h-42l255.3 333.8z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/pengyuc" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
     </a>
   
@@ -10157,16 +10208,16 @@ $$</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
       
         <script src="../../js/katex.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

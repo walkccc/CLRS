@@ -60,7 +60,7 @@
     
       <link rel="stylesheet" href="../../css/custom.css">
     
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -71,7 +71,7 @@
   
   
 
-<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-117404761-1"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-117404761-1",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-117404761-1",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-NE8FKX91SB"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-NE8FKX91SB",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-NE8FKX91SB",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -9993,7 +9993,7 @@
 
   <h1>9.3 Selection in worst-case linear time</h1>
 
-<h2 id="93-1">9.3-1</h2>
+<h2 id="93-1">9.3-1<a class="headerlink" href="#93-1" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>In the algorithm $\text{SELECT}$, the input elements are divided into groups of $5$. Will the algorithm work in linear time if they are divided into groups of $7$? Argue that $\text{SELECT}$ does not run in linear time if groups of $3$ are used.</p>
 </blockquote>
@@ -10015,7 +10015,7 @@ T(m) &amp; \ge c(m / 3)\lg (m / 3) + c(2m / 3) \lg (2m / 3) + O(m) \\
 \end{aligned}
 $$</p>
 <p>therefore, we have that it grows more quickly than linear.</p>
-<h2 id="93-2">9.3-2</h2>
+<h2 id="93-2">9.3-2<a class="headerlink" href="#93-2" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Analyze $\text{SELECT}$ to show that if $n \ge 140$, then at least $\lceil n / 4 \rceil$ elements are greater than the median-of-medians $x$ and at least $\lceil n / 4 \rceil$ elements are less than $x$.</p>
 </blockquote>
@@ -10027,17 +10027,17 @@ $$</p>
                 n &amp; \ge 140.
 \end{aligned}
 $$</p>
-<h2 id="93-3">9.3-3</h2>
+<h2 id="93-3">9.3-3<a class="headerlink" href="#93-3" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Show how quicksort can be made to run in $O(n\lg n)$ time in the worst case, assuming that all elements are distinct.</p>
 </blockquote>
 <p>We can modify quicksort to run in worst case $n\lg n$ time by choosing our pivot element to be the exact median by using quick select. Then, we are guaranteed that our pivot will be good, and the time taken to find the median is on the same order of the rest of the partitioning.</p>
-<h2 id="93-4-star">9.3-4 $\star$</h2>
+<h2 id="93-4-star">9.3-4 $\star$<a class="headerlink" href="#93-4-star" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Suppose that an algorithm uses only comparisons to find the $i$th smallest element in a set of $n$ elements. Show that it can also find the $i - 1$ smaller elements and $n - i$ larger elements without performing additional comparisons.</p>
 </blockquote>
 <p>Create a graph with $n$ vertices and draw a directed edge from vertex $i$ to vertex $j$ if the $i$th and $j$th elements of the array are compared in the algorithm and we discover that $A[i] \ge A[j]$. Observe that $A[i]$ is one of the $i - 1$ smaller elements if there exists a path from $x$ to $i$ in the graph, and $A[i]$ is one of the $n - i$ larger elements if there exists a path from $i$ to $x$ in the graph. Every vertex $i$ must either lie on a path to or from $x$ because otherwise the algorithm can't distinguish between $i \le x$ and $i \ge x$. Moreover, if a vertex $i$ lies on both a path to $x$ and a path from $x$, then it must be such that $x \le A[i] \le x$,so $x = A[i]$. In this case, we can break ties arbitrarily.</p>
-<h2 id="93-5">9.3-5</h2>
+<h2 id="93-5">9.3-5<a class="headerlink" href="#93-5" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Suppose that you have a "black-box" worst-case linear-time median subroutine. Give a simple, linear-time algorithm that solves the selection problem for an arbitrary order statistic.</p>
 </blockquote>
@@ -10047,7 +10047,7 @@ $$</p>
 <li>If $i$ is half the length of the array, return the element coming from the median finding black box.</li>
 <li>If $i$ is more than half the length of the array, subtract half the length of the array, and then recurse on the second half of the array.</li>
 </ul>
-<h2 id="93-6">9.3-6</h2>
+<h2 id="93-6">9.3-6<a class="headerlink" href="#93-6" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>The $k$th <strong><em>quantiles</em></strong> of an $n$-element set are the $k - 1$ order statistics that divide the sorted set into $k$ equal-sized sets (to within $1$). Give an $O(n\lg k)$-time algorithm to list the $k$th quantiles of a set.</p>
 </blockquote>
@@ -10105,12 +10105,12 @@ $$</p>
 <a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="n">k</span><span class="o">-</span><span class="n">QUANTITLES</span><span class="o">-</span><span class="n">SUB</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="n">length</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span><span class="w"> </span><span class="n">quantiles</span><span class="p">)</span>
 <a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">quantiles</span>
 </code></pre></div>
-<h2 id="93-7">9.3-7</h2>
+<h2 id="93-7">9.3-7<a class="headerlink" href="#93-7" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Describe an $O(n)$-time algorithm that, given a set $S$ of $n$ distinct numbers and a positive integer $k \le n$, determines the $k$ numbers in $S$ that are closest to the median of $S$.</p>
 </blockquote>
 <p>Find the median in $O(n)$; create a new array, each element is the absolute value of the original value subtract the median; find the $k$th smallest number in $O(n)$, then the desired values are the elements whose absolute difference with the median is less than or equal to the $k$th smallest number in the new array.</p>
-<h2 id="93-8">9.3-8</h2>
+<h2 id="93-8">9.3-8<a class="headerlink" href="#93-8" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Let $X[1..n]$ and $Y[1..n]$ be two arrays, each containing $n$ numbers already in sorted order. Give an $O(\lg n)$-time algorithm to find the median of all $2n$ elements in arrays $X$ and $Y$.</p>
 </blockquote>
@@ -10122,7 +10122,7 @@ $$</p>
 <a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">MEDIAN</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1.</span><span class="p">.</span><span class="n">n</span><span class="p">],</span><span class="w"> </span><span class="n">Y</span><span class="p">[</span><span class="mf">1.</span><span class="p">.</span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
 <a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">MEDIAN</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mf">1.</span><span class="p">.</span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="n">Y</span><span class="p">[</span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1.</span><span class="p">.</span><span class="n">n</span><span class="p">],</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="93-9">9.3-9</h2>
+<h2 id="93-9">9.3-9<a class="headerlink" href="#93-9" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Professor Olay is consulting for an oil company, which is planning a large pipeline running east to west through an oil field of $n$ wells. The company wants to connect a spur pipeline from each well directly to the main pipeline along a shortest route (either north or south), as shown in Figure 9.2. Given the $x$- and $y$-coordinates of the wells, how should the professor pick the optimal location of the main pipeline, which would be the one that minimizes the total length of the spurs? Show how to determine the optimal location in linear time.</p>
 </blockquote>
@@ -10160,6 +10160,46 @@ $$</p>
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../9.2/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 9.2 Selection in expected linear time">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                9.2 Selection in expected linear time
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Problems/9-1/" class="md-footer__link md-footer__link--next" aria-label="Next: 9-1 Largest $i$ numbers in sorted order">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                9-1 Largest $i$ numbers in sorted order
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
@@ -10196,7 +10236,18 @@ $$</p>
       
       
     
-    <a href="https://www.linkedin.com/in/walkccc/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+    <a href="https://twitter.com/pengyuc_" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9L389.2 48zm-24.8 373.8h39.1L151.1 88h-42l255.3 333.8z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/pengyuc" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
     </a>
   
@@ -10223,16 +10274,16 @@ $$</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
       
         <script src="../../js/katex.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

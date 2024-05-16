@@ -60,7 +60,7 @@
     
       <link rel="stylesheet" href="../../css/custom.css">
     
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -71,7 +71,7 @@
   
   
 
-<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-117404761-1"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-117404761-1",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-117404761-1",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-NE8FKX91SB"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-NE8FKX91SB",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-NE8FKX91SB",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -9975,45 +9975,45 @@
 
   <h1>33.1 Line-segment properties</h1>
 
-<h2 id="331-1">33.1-1</h2>
+<h2 id="331-1">33.1-1<a class="headerlink" href="#331-1" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Prove that if $p_1 \times p_2$ is positive, then vector $p_1$ is clockwise from vector $p_2$ with respect to the origin $(0, 0)$ and that if this cross product is negative, then $p_1$ is counterclockwise from $p_2$.</p>
 </blockquote>
 <p>(Omit!)</p>
-<h2 id="331-2">33.1-2</h2>
+<h2 id="331-2">33.1-2<a class="headerlink" href="#331-2" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Professor van Pelt proposes that only the $x$-dimension needs to be tested in line 1 of ON-SEGMENT. Show why the professor is wrong.</p>
 </blockquote>
 <p>$(0, 0), (5, 5), (10, 0)$.</p>
-<h2 id="331-3">33.1-3</h2>
+<h2 id="331-3">33.1-3<a class="headerlink" href="#331-3" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>The <strong><em>polar angle</em></strong> of a point $p_1$ with respect to an origin point $p_0$ is the angle of the vector $p_1 - p_0$ in the usual polar coordinate system. For example, the polar angle of $(3, 5)$ with respect to $(2, 4)$ is the angle of the vector $(1, 1)$, which is $45$ degrees or $\pi / 4$ radians. The polar angle of $(3, 3)$ with respect to $(2, 4)$ is the angle of the vector $(1, 1)$, which is $315$ degrees or $7\pi / 4$ radians. Write pseudocode to sort a sequence $\langle p_1, p_2, \ldots, p_n \rangle$ of $n$ points according to their polar angles with respect to a given origin point $p_0$. Your procedure should take $O(n\lg n)$ time and use cross products to compare angles.</p>
 </blockquote>
 <p>(Omit!)</p>
-<h2 id="331-4">33.1-4</h2>
+<h2 id="331-4">33.1-4<a class="headerlink" href="#331-4" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Show how to determine in $O(n^2 \lg n)$ time whether any three points in a set of $n$ points are colinear.</p>
 </blockquote>
 <p>Based on exercise 33.1-3, for each point $p_i$, let $p_i$ be $p_0$ and sort other points according to their polar angles mod $\pi$. Then scan linearly to see whether two points have the same polar angle. $O(n \cdot n\lg n) = O(n^2 \lg n)$.</p>
-<h2 id="331-5">33.1-5</h2>
+<h2 id="331-5">33.1-5<a class="headerlink" href="#331-5" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>A <strong><em>polygon</em></strong> is a piecewise-linear, closed curve in the plane. That is, it is a curve ending on itself that is formed by a sequence of straight-line segments, called the <strong><em>sides</em></strong> of the polygon. A point joining two consecutive sides is a <strong><em>vertex</em></strong> of the polygon. If the polygon is <strong><em>simple</em></strong>, as we shall generally assume, it does not cross itself. The set of points in the plane enclosed by a simple polygon forms the <strong><em>interior</em></strong> of the polygon, the set of points on the polygon itself forms its <strong><em>boundary</em></strong>, and the set of points surrounding the polygon forms its <strong><em>exterior</em></strong>. A simple polygon is convex if, given any two points on its boundary or in its interior, all points on the line segment drawn between them are contained in the polygon's boundary or interior. A vertex of a convex polygon cannot be expressed as a convex combination of any two distinct points on the boundary or in the interior of the polygon.</p>
 <p>Professor Amundsen proposes the following method to determine whether a sequence $\langle p_1, p_2, \ldots, p_{n - 1} \rangle$ of $n$ points forms the consecutive vertices of a convex polygon. Output "yes" if the set ${ \angle p_i p_{i + 1} p_{i + 2}: i = 0, 1, \ldots, n - 1 }$, where subscript addition is performed modulo $n$, does not contain both left turns and right turns; otherwise, output "no." Show that although this method runs in linear time, it does not always produce the correct answer. Modify the professor's method so that it always produces the correct answer in linear time.</p>
 </blockquote>
 <p>A line.</p>
-<h2 id="331-6">33.1-6</h2>
+<h2 id="331-6">33.1-6<a class="headerlink" href="#331-6" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Given a point $p_0 = (x_0, y_0)$, the <strong><em>right horizontal ray</em></strong> from $p_0$ is the set of points ${ p_i = (x_i, y_i) : x_i \ge x_0 ~\text{and}~ y_i = y_0 }$, that is, it is the set of points due right of $p_0$ along with $p_0$ itself. Show how to determine whether a given right horizontal ray from $p_0$ intersects a line segment $\overline{p_1 p_2}$ in $O(1)$ time by reducing the problem to that of determining whether two line segments intersect.</p>
 </blockquote>
 <p>$p_1.y = p_2.y = 0$ and $\max(p_1.x, p_2.x) \ge 0$.</p>
 <p>or</p>
 <p>$\text{sign}(p_1.y) \ne \text{sign}(p_2.y)$ and \$\displaystyle p_1.y \cdot \frac{p_1.x - p_2.x}{p_1.y - p_2.y} \ge 0{equation}</p>
-<h2 id="331-7">33.1-7</h2>
+<h2 id="331-7">33.1-7<a class="headerlink" href="#331-7" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>One way to determine whether a point $p_0$ is in the interior of a simple, but not necessarily convex, polygon $P$ is to look at any ray from $p_0$ and check that the ray intersects the boundary of $P$ an odd number of times but that $p_0$ itself is not on the boundary of $P$. Show how to compute in $\Theta(n)$ time whether a point $p_0$ is in the interior of an $n$-vertex polygon $P$. (Hint: Use Exercise 33.1-6. Make sure your algorithm is correct when the ray intersects the polygon boundary at a vertex and when the ray overlaps a side of the polygon.)</p>
 </blockquote>
 <p>Based on exercise 33.1-6, use $p_i - p_0$ as $p_i$.</p>
-<h2 id="331-8">33.1-8</h2>
+<h2 id="331-8">33.1-8<a class="headerlink" href="#331-8" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Show how to compute the area of an $n$-vertex simple, but not necessarily convex, polygon in $\Theta(n)$ time. (See Exercise 33.1-5 for definitions pertaining to polygons.)</p>
 </blockquote>
@@ -10043,6 +10043,46 @@
       </main>
       
         <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../Chap32/Problems/32-1/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 32-1 String matching based on repetition factors">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                32-1 String matching based on repetition factors
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../33.2/" class="md-footer__link md-footer__link--next" aria-label="Next: 33.2 Determining whether any pair of segments intersects">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                33.2 Determining whether any pair of segments intersects
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -10080,7 +10120,18 @@
       
       
     
-    <a href="https://www.linkedin.com/in/walkccc/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+    <a href="https://twitter.com/pengyuc_" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9L389.2 48zm-24.8 373.8h39.1L151.1 88h-42l255.3 333.8z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/pengyuc" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
     </a>
   
@@ -10107,16 +10158,16 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
       
         <script src="../../js/katex.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

@@ -60,7 +60,7 @@
     
       <link rel="stylesheet" href="../../css/custom.css">
     
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -71,7 +71,7 @@
   
   
 
-<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-117404761-1"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-117404761-1",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-117404761-1",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-NE8FKX91SB"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-NE8FKX91SB",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-NE8FKX91SB",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -10065,7 +10065,7 @@
 
   <h1>22.3 Depth-first search</h1>
 
-<h2 id="223-1">22.3-1</h2>
+<h2 id="223-1">22.3-1<a class="headerlink" href="#223-1" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Make a $3$-by-$3$ chart with row and column labels $\text{WHITE}$, $\text{GRAY}$, and $\text{BLACK}$. In each cell $(i, j)$, indicate whether, at any point during a depth-first search of a directed graph, there can be an edge from a vertex of color $i$ to a vertex of color $j$. For each possible edge, indicate what edge types it can be. Make a second such chart for depth-first search of an undirected graph.</p>
 </blockquote>
@@ -10111,7 +10111,7 @@ from \diagdown to &amp; \text{WHITE}      &amp; \text{GRAY}       &amp; \text{BL
 $$</p>
 </li>
 </ul>
-<h2 id="223-2">22.3-2</h2>
+<h2 id="223-2">22.3-2<a class="headerlink" href="#223-2" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Show how depth-first search works on the graph of Figure 22.6. Assume that the <strong>for</strong> loop of lines 5–7 of the $\text{DFS}$ procedure considers the vertices in alphabetical order, and assume that each adjacency list is ordered alphabetically. Show the discovery and finishing times for each vertex, and show the classification of each edge.</p>
 </blockquote>
@@ -10139,17 +10139,17 @@ $$</p>
 <li><strong>Forward edges:</strong> $(q, w)$.</li>
 <li><strong>Cross edges:</strong> $(r, y)$, $(u, y)$.</li>
 </ul>
-<h2 id="223-3">22.3-3</h2>
+<h2 id="223-3">22.3-3<a class="headerlink" href="#223-3" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Show the parenthesis structure of the depth-first search of Figure 22.4.</p>
 </blockquote>
 <p>The parentheses structure of the depth-first search of Figure 22.4 is $(u(v(y(xx)y)v)u)(w(zz)w)$.</p>
-<h2 id="223-4">22.3-4</h2>
+<h2 id="223-4">22.3-4<a class="headerlink" href="#223-4" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Show that using a single bit to store each vertex color suffices by arguing that the $\text{DFS}$ procedure would produce the same result if line 3 of $\text{DFS-VISIT}$ was removed.</p>
 </blockquote>
 <p>Change line 3 to <code>color = BLACK</code> and remove line 8. Then, the algorithm would produce the same result.</p>
-<h2 id="223-5">22.3-5</h2>
+<h2 id="223-5">22.3-5<a class="headerlink" href="#223-5" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Show that edge $(u, v)$ is</p>
 <p><strong>a.</strong> a tree edge or forward edge if and only if $u.d &lt; v.d &lt; v.f &lt; u.f$,</p>
@@ -10159,12 +10159,12 @@ $$</p>
 <p><strong>a.</strong> $u$ is an ancestor of $v$.</p>
 <p><strong>b.</strong> $u$ is a descendant of $v$.</p>
 <p><strong>c.</strong> $v$ is visited before $u$.</p>
-<h2 id="223-6">22.3-6</h2>
+<h2 id="223-6">22.3-6<a class="headerlink" href="#223-6" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Show that in an undirected graph, classifying an edge $(u, v)$ as a tree edge or a back edge according to whether $(u, v)$ or $(v, u)$ is encountered first during the depth-first search is equivalent to classifying it according to the ordering of the four types in the classification scheme.</p>
 </blockquote>
 <p>By Theorem 22.10, every edge of an undirected graph is either a tree edge or a back edge. First suppose that $v$ is first discovered by exploring edge $(u, v)$. Then by definition, $(u, v)$ is a tree edge. Moreover, $(u, v)$ must have been discovered before $(v, u)$ because once $(v, u)$ is explored, $v$ is necessarily discovered. Now suppose that $v$ isn't first discovered by $(u, v)$. Then it must be discovered by $(r, v)$ for some $r\ne u$. If $u$ hasn't yet been discovered then if $(u, v)$ is explored first, it must be a back edge since $v$ is an ancestor of $u$. If $u$ has been discovered then $u$ is an ancestor of $v$, so $(v, u)$ is a back edge.</p>
-<h2 id="223-7">22.3-7</h2>
+<h2 id="223-7">22.3-7<a class="headerlink" href="#223-7" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Rewrite the procedure $\text{DFS}$, using a stack to eliminate recursion.</p>
 </blockquote>
@@ -10208,17 +10208,17 @@ $$</p>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">v</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">NIL</span>
 </code></pre></div>
-<h2 id="223-8">22.3-8</h2>
+<h2 id="223-8">22.3-8<a class="headerlink" href="#223-8" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Give a counterexample to the conjecture that if a directed graph $G$ contains a path from $u$ to $v$, and if $u.d &lt; v.d$ in a depth-first search of $G$, then $v$ is a descendant of $u$ in the depth-first forest produced.</p>
 </blockquote>
 <p>Consider a graph with $3$ vertices $u$, $v$, and $w$, and with edges $(w, u)$, $(u, w)$, and $(w, v)$. Suppose that $\text{DFS}$ first explores $w$, and that $w$'s adjacency list has $u$ before $v$. We next discover $u$. The only adjacent vertex is $w$, but $w$ is already grey, so $u$ finishes. Since $v$ is not yet a descendant of $u$ and $u$ is finished, $v$ can never be a descendant of $u$.</p>
-<h2 id="223-9">22.3-9</h2>
+<h2 id="223-9">22.3-9<a class="headerlink" href="#223-9" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Give a counterexample to the conjecture that if a directed graph $G$ contains a path from $u$ to $v$, then any depth-first search must result in $v.d \le u.f$.</p>
 </blockquote>
 <p>Consider the directed graph on the vertices $\{1, 2, 3\}$, and having the edges $(1, 2)$, $(1, 3)$, $(2, 1)$ then there is a path from $2$ to $3$. However, if we start a $\text{DFS}$ at $1$ and process $2$ before $3$, we will have $2.f = 3 &lt; 4 = 3.d$ which provides a counterexample to the given conjecture.</p>
-<h2 id="223-10">22.3-10</h2>
+<h2 id="223-10">22.3-10<a class="headerlink" href="#223-10" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Modify the pseudocode for depth-first search so that it prints out every edge in the directed graph $G$, together with its type. Show what modifications, if any, you need to make if $G$ is undirected.</p>
 </blockquote>
@@ -10243,13 +10243,13 @@ $$</p>
 <a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="n">time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
 <a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">    </span><span class="n">u</span><span class="p">.</span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">time</span>
 </code></pre></div>
-<h2 id="223-11">22.3-11</h2>
+<h2 id="223-11">22.3-11<a class="headerlink" href="#223-11" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Explain how a vertex $u$ of a directed graph can end up in a depth-first tree containing only $u$, even though $u$ has both incoming and outgoing edges in $G$.</p>
 </blockquote>
 <p>Suppose that we have a directed graph on the vertices $\{1, 2, 3\}$ and having edges $(1, 2)$ and $(2, 3)$. Then, $2$ has both incoming and outgoing edges.</p>
 <p>If we pick our first root to be $3$, that will be in its own $\text{DFS}$ tree. Then, we pick our second root to be $2$, since the only thing it points to has already been marked $\text{BLACK}$, we won't be exploring it. Then, picking the last root to be $1$, we don't screw up the fact that $2$ is along in a $\text{DFS}$ tree even though it has both an incoming and outgoing edge in $G$.</p>
-<h2 id="223-12">22.3-12</h2>
+<h2 id="223-12">22.3-12<a class="headerlink" href="#223-12" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Show that we can use a depth-first search of an undirected graph $G$ to identify the connected components of $G$, and that the depth-first forest contains as many trees as $G$ has connected components. More precisely, show how to modify depth-first search so that it assigns to each vertex $v$ an integer label $v.cc$ between $1$ and $k$, where $k$ is the number of connected components of $G$, such that $u.cc = v.cc$ if and only if $u$ and $v$ are in the same connected component.</p>
 </blockquote>
@@ -10280,7 +10280,7 @@ $$</p>
 <a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="n">time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
 <a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="n">u</span><span class="p">.</span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">time</span>
 </code></pre></div>
-<h2 id="223-13-star">22.3-13 $\star$</h2>
+<h2 id="223-13-star">22.3-13 $\star$<a class="headerlink" href="#223-13-star" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>A directed graph $G = (V, E)$ is <strong><em>singly connected</em></strong> if $u \leadsto v$ implies that $G$ contains at most one simple path from $u$ to $v$ for all vertices $u, v \in V$. Give an efficient algorithm to determine whether or not a directed graph is singly connected.</p>
 </blockquote>
@@ -10311,6 +10311,46 @@ $$</p>
       </main>
       
         <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../22.2/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 22.2 Breadth-first search">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                22.2 Breadth-first search
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../22.4/" class="md-footer__link md-footer__link--next" aria-label="Next: 22.4 Topological sort">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                22.4 Topological sort
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -10348,7 +10388,18 @@ $$</p>
       
       
     
-    <a href="https://www.linkedin.com/in/walkccc/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+    <a href="https://twitter.com/pengyuc_" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9L389.2 48zm-24.8 373.8h39.1L151.1 88h-42l255.3 333.8z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/pengyuc" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
     </a>
   
@@ -10375,16 +10426,16 @@ $$</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
       
         <script src="../../js/katex.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

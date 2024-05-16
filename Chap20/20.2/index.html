@@ -60,7 +60,7 @@
     
       <link rel="stylesheet" href="../../css/custom.css">
     
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -71,7 +71,7 @@
   
   
 
-<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-117404761-1"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-117404761-1",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-117404761-1",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-NE8FKX91SB"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-NE8FKX91SB",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-NE8FKX91SB",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -9975,12 +9975,12 @@
 
   <h1>20.2 A recursive structure</h1>
 
-<h2 id="202-1">20.2-1</h2>
+<h2 id="202-1">20.2-1<a class="headerlink" href="#202-1" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Write pseudocode for the procedures $\text{PROTO-vEB-MAXIMUM}$ and $\text{PROTO-vEB-PREDECESSOR}$.</p>
 </blockquote>
 <p>See the two algorithms, $\text{PROTO-vEB-MAXIMUM}$ and $\text{PROTO-vEB-PREDECESSOR}$.</p>
-<h2 id="202-2">20.2-2</h2>
+<h2 id="202-2">20.2-2<a class="headerlink" href="#202-2" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Write pseudocode for $\text{PROTO-vEB-DELETE}$. It should update the appropriate summary bit by scanning the related bits within the cluster. What is the worst-case running time of your procedure?</p>
 </blockquote>
@@ -10000,22 +10000,22 @@
 <p>When we delete a key, we need to check membership of all keys of that cluster to know how to update the summary structure. There are $\sqrt u$ of these, and each membership takes $O(\lg\lg u)$ time to check. With the recursive calls, recurrence for running time is</p>
 <p>$$T(u) = T(\sqrt u) + O(\sqrt u\lg\lg u).$$</p>
 <p>We make the substitution $m = \lg u$ and $S(m) = T(2^m)$. Then we apply the Master Theorem, using case 3, to solve the recurrence. Substituting back, we find that the runtime is $T(u) = O(\sqrt u\lg\lg u)$.</p>
-<h2 id="202-3">20.2-3</h2>
+<h2 id="202-3">20.2-3<a class="headerlink" href="#202-3" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Add the attribute $n$ to each $\text{proto-vEB}$ structure, giving the number of elements currently in the set it represents, and write pseudocode for $\text{PROTO-vEB-DELETE}$ that uses the attribute $n$ to decide when to reset summary bits to $0$. What is the worst-case running time of your procedure? What other procedures need to change because of the new attribute? Do these changes affect their running times?</p>
 </blockquote>
 <p>We would keep the same as before, but insert immediately after the else, a check of whether $n = 1$. If it doesn't continue as usual, but if it does, then we can just immediately set the summary bit to $0$, null out the pointer in the table, and be done immediately. This has the upside that it can sometimes save up to $\lg\lg u$. The procedure has the big downside that the number of elements that are in the set could be as high as $\lg(\lg u)$, in which case $\lg u$ many bits are needed to store $n$.</p>
-<h2 id="202-4">20.2-4</h2>
+<h2 id="202-4">20.2-4<a class="headerlink" href="#202-4" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Modify the $\text{proto-vEB}$ structure to support duplicate keys.</p>
 </blockquote>
 <p>The array $A$ found in a proto van Emde Boas structure of size $2$ should now support integers, instead of just bits. All other pats of the structure will remain the same. The integer will store the number of duplicates at that position. The modifications to insert, delete, minimum, successor, etc will be minor. Only the base cases will need to be updated.</p>
-<h2 id="202-5">20.2-5</h2>
+<h2 id="202-5">20.2-5<a class="headerlink" href="#202-5" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Modify the $\text{proto-vEB}$ structure to support keys that have associated satellite data.</p>
 </blockquote>
 <p>The only modification necessary would be for the $u = 2$ trees. They would need to also include a length two array that had pointers to the corresponding satellite data which would be populated in case the corresponding entry in $A$ were $1$.</p>
-<h2 id="202-6">20.2-6</h2>
+<h2 id="202-6">20.2-6<a class="headerlink" href="#202-6" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Write pseudocode for a procedure that creates a $\text{proto-vEB}(u)$ structure.</p>
 </blockquote>
@@ -10031,12 +10031,12 @@
 <a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">sqrt</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
 <a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">            </span><span class="n">V</span><span class="p">.</span><span class="n">cluster</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MAKE</span><span class="o">-</span><span class="n">PROTO</span><span class="o">-</span><span class="n">vEB</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">u</span><span class="p">))</span>
 </code></pre></div>
-<h2 id="202-7">20.2-7</h2>
+<h2 id="202-7">20.2-7<a class="headerlink" href="#202-7" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Argue that if line 9 of $\text{PROTO-vEB-MINIMUM}$ is executed, then the $\text{proto-vEB}$ structure is empty.</p>
 </blockquote>
 <p>For line 9 to be executed, we would need that in the summary data, we also had a $\text{NIL}$ returned. This could of either happened through line 9, or 6. Eventually though, it would need to happen in line 6, so, there must be some number of summarizations that happened of $V$ that caused us to get an empty $u = 2$ $\text{vEB}$. However, a summarization has an entry of one if any of the corresponding entries in the data structure are one. This means that there are no entries in $V$, and so, we have that $V$ is empty.</p>
-<h2 id="202-8">20.2-8</h2>
+<h2 id="202-8">20.2-8<a class="headerlink" href="#202-8" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Suppose that we designed a $\text{proto-vEB}$ structure in which each <em>cluster</em> array had only $u^{1 / 4}$ elements. What would the running times of each operation be?</p>
 </blockquote>
@@ -10081,6 +10081,46 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../20.1/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 20.1 Preliminary approaches">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                20.1 Preliminary approaches
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../20.3/" class="md-footer__link md-footer__link--next" aria-label="Next: 20.3 The van Emde Boas tree">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                20.3 The van Emde Boas tree
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
@@ -10117,7 +10157,18 @@
       
       
     
-    <a href="https://www.linkedin.com/in/walkccc/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+    <a href="https://twitter.com/pengyuc_" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9L389.2 48zm-24.8 373.8h39.1L151.1 88h-42l255.3 333.8z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/pengyuc" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
     </a>
   
@@ -10144,16 +10195,16 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
       
         <script src="../../js/katex.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

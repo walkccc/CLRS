@@ -60,7 +60,7 @@
     
       <link rel="stylesheet" href="../../css/custom.css">
     
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -71,7 +71,7 @@
   
   
 
-<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-117404761-1"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-117404761-1",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-117404761-1",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-NE8FKX91SB"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-NE8FKX91SB",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-NE8FKX91SB",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -9957,7 +9957,7 @@
 
   <h1>14.3 Interval trees</h1>
 
-<h2 id="143-1">14.3-1</h2>
+<h2 id="143-1">14.3-1<a class="headerlink" href="#143-1" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Write pseudocode for $\text{LEFT-ROTATE}$ that operates on nodes in an interval tree and updates the $max$ attributes in $O(1)$ time.</p>
 </blockquote>
@@ -9965,7 +9965,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="n">y</span><span class="p">.</span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">max</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="n">x</span><span class="p">.</span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">high</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">left</span><span class="p">.</span><span class="n">max</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">right</span><span class="p">.</span><span class="n">max</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="143-2">14.3-2</h2>
+<h2 id="143-2">14.3-2<a class="headerlink" href="#143-2" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Rewrite the code for $\text{INTERVAL-SEARCH}$ so that it works properly when all intervals are open.</p>
 </blockquote>
@@ -9977,12 +9977,12 @@
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">right</span>
 <a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span>
 </code></pre></div>
-<h2 id="143-3">14.3-3</h2>
+<h2 id="143-3">14.3-3<a class="headerlink" href="#143-3" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Describe an efficient algorithm that, given an interval $i$ , returns an interval overlapping $i$ that has the minimum low endpoint, or $T.nil$ if no such interval exists.</p>
 </blockquote>
 <p>Consider the usual interval search given, but, instead of breaking out of the loop as soon as we have an overlap, we just keep track of the overlap that has the minimum low endpoint, and continue the loop. After the loop terminates, we return the overlap stored.</p>
-<h2 id="143-4">14.3-4</h2>
+<h2 id="143-4">14.3-4<a class="headerlink" href="#143-4" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Given an interval tree $T$ and an interval $i$, describe how to list all intervals in $T$ that overlap $i$ in $O(\min(n, k \lg n))$ time, where $k$ is the number of intervals in the output list. ($\textit{Hint:}$ One simple method makes several queries, modifying the tree between queries. A slightly more complicated method does not modify the tree.)</p>
 </blockquote>
@@ -9996,7 +9996,7 @@
 <a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">        </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="n">APPEND</span><span class="p">(</span><span class="n">INTERVALS</span><span class="o">-</span><span class="n">SEARCH</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">))</span>
 <a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">list</span>
 </code></pre></div>
-<h2 id="143-5">14.3-5</h2>
+<h2 id="143-5">14.3-5<a class="headerlink" href="#143-5" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Suggest modifications to the interval-tree procedures to support the new operation $\text{INTERVAL-SEARCH-EXACTLY}(T, i)$, where $T$ is an interval tree and $i$ is an interval. The operation should return a pointer to a node $x$ in $T$ such that $x.int.low = i.low$ and $x.int.high = i.high$, or $T.nil$ if $T$ contains no such node. All operations, including $\text{INTERVAL-SEARCH-EXACTLY}$, should run in $O(\lg n)$ time on an $n$-node interval tree.</p>
 </blockquote>
@@ -10013,12 +10013,12 @@
 <a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="p">.</span><span class="n">nil</span>
 <a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span>
 </code></pre></div>
-<h2 id="143-6">14.3-6</h2>
+<h2 id="143-6">14.3-6<a class="headerlink" href="#143-6" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Show how to maintain a dynamic set $Q$ of numbers that supports the operation $\text{MIN-GAP}$, which gives the magnitude of the difference of the two closest numbers in $Q$. For example, if $Q = \{1, 5, 9, 15, 18, 22 \}$, then $\text{MIN-GAP}(Q)$ returns $18 - 15 = 3$, since $15$ and $18$ are the two closest numbers in $Q$. Make the operations $\text{INSERT}$, $\text{DELETE}$, $\text{SEARCH}$, and $\text{MIN-GAP}$ as efficient as possible, and analyze their running times.</p>
 </blockquote>
 <p>Store the elements in a red-black tree, where the key value is the value of each number itself. The auxiliary attribute stored at a node $x$ will be the min gap between elements in the subtree rooted at $x$, the maximum value contained in subtree rooted at $x$, and the minimum value contained in the subtree rooted at $x$. The min gap at a leaf will be $\infty$. Since we can determine the attributes of a node $x$ using only the information about the key at $x$, and the attributes in $x.left$ and $x.right$, Theorem 14.1 implies that we can maintain the values in all nodes of the tree during insertion and deletion without asymptotically affecting their $O(\lg n)$ performance. For $\text{MIN-GAP}$, just check the min gap at the root, in constant time.</p>
-<h2 id="143-7-star">14.3-7 $\star$</h2>
+<h2 id="143-7-star">14.3-7 $\star$<a class="headerlink" href="#143-7-star" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>VLSI databases commonly represent an integrated circuit as a list of rectangles. Assume that each rectangle is rectilinearly oriented (sides parallel to the $x$- and $y$-axes), so that we represent a rectangle by its minimum and maximum $x$ and $y$-coordinates. Give an $O(n\lg n)$-time algorithm to decide whether or not a set of $n$ rectangles so represented contains two rectangles that overlap. Your algorithm need not report all intersecting pairs, but it must report that an overlap exists if one rectangle entirely covers another, even if the boundary lines do not intersect. ($\textit{Hint:}$ Move a "sweep" line across the set of rectangles.)</p>
 </blockquote>
@@ -10049,6 +10049,46 @@
       </main>
       
         <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../14.2/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 14.2 How to augment a data structure">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                14.2 How to augment a data structure
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Problems/14-1/" class="md-footer__link md-footer__link--next" aria-label="Next: 14-1 Point of maximum overlap">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                14-1 Point of maximum overlap
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -10086,7 +10126,18 @@
       
       
     
-    <a href="https://www.linkedin.com/in/walkccc/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+    <a href="https://twitter.com/pengyuc_" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9L389.2 48zm-24.8 373.8h39.1L151.1 88h-42l255.3 333.8z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/pengyuc" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
     </a>
   
@@ -10113,16 +10164,16 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
       
         <script src="../../js/katex.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

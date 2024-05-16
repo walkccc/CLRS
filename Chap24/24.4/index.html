@@ -60,7 +60,7 @@
     
       <link rel="stylesheet" href="../../css/custom.css">
     
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -71,7 +71,7 @@
   
   
 
-<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-117404761-1"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-117404761-1",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-117404761-1",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-NE8FKX91SB"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-NE8FKX91SB",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-NE8FKX91SB",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -10047,7 +10047,7 @@
 
   <h1>24.4 Difference constraints and shortest paths</h1>
 
-<h2 id="244-1">24.4-1</h2>
+<h2 id="244-1">24.4-1<a class="headerlink" href="#244-1" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Find a feasible solution or determine that no feasible solution exists for the following system of difference constraints:</p>
 <p>$$
@@ -10076,7 +10076,7 @@ $$</p>
 <p>we get</p>
 <p>$$(-5, -3, 0, -1, -6, -8),$$</p>
 <p>which is a feasible solution by Theorem 24.9.</p>
-<h2 id="244-2">24.4-2</h2>
+<h2 id="244-2">24.4-2<a class="headerlink" href="#244-2" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Find a feasible solution or determine that no feasible solution exists for the following system of difference constraints:</p>
 <p>$$
@@ -10094,55 +10094,55 @@ x_5 - x_4 &amp; \le &amp;-8.
 $$</p>
 </blockquote>
 <p>There is no feasible solution because the constraint graph contains a negative-weight cycle: $(v_1, v_4, v_2, v_3, v_5, v_1)$ has weight $-1$.</p>
-<h2 id="244-3">24.4-3</h2>
+<h2 id="244-3">24.4-3<a class="headerlink" href="#244-3" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Can any shortest-path weight from the new vertex $v_0$ in a constraint graph be positive? Explain.</p>
 </blockquote>
 <p>No, it cannot be positive. This is because for every vertex $v \ne v_0$, there is an edge $(v_0, v)$ with weight zero. So, there is some path from the new vertex to every other of weight zero. Since $\delta(v_0, v)$ is a minimum weight of all paths, it cannot be greater than the weight of this weight zero path that consists of a single edge.</p>
-<h2 id="244-4">24.4-4</h2>
+<h2 id="244-4">24.4-4<a class="headerlink" href="#244-4" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Express the single-pair shortest-path problem as a linear program.</p>
 </blockquote>
 <p>(Removed)</p>
-<h2 id="244-5">24.4-5</h2>
+<h2 id="244-5">24.4-5<a class="headerlink" href="#244-5" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Show how to modify the Bellman-Ford algorithm slightly so that when we use it to solve a system of difference constraints with $m$ inequalities on $n$ unknowns, the running time is $O(nm)$.</p>
 </blockquote>
-<p>We can follow the advice of problem 14.4-7 and solve the system of constraints on a modified constraint graph in which there is no new vertex $v_0$. This is simply done by initializing all of the vertices to have a $d$ value of $0$ before running the iterated relaxations of Bellman Ford. Since we don't add a new vertex and the $n$ edges going from it to to vertex corresponding to each variable, we are just running Bellman Ford on a graph with $n$ vertices and $m$ edges, and so it will have a runtime of $O(mn)$.</p>
-<h2 id="244-6">24.4-6</h2>
+<p>We can follow the advice of problem 24.4-7 and solve the system of constraints on a modified constraint graph in which there is no new vertex $v_0$. This is simply done by initializing all of the vertices to have a $d$ value of $0$ before running the iterated relaxations of Bellman Ford. Since we don't add a new vertex and the $n$ edges going from it to to vertex corresponding to each variable, we are just running Bellman Ford on a graph with $n$ vertices and $m$ edges, and so it will have a runtime of $O(mn)$.</p>
+<h2 id="244-6">24.4-6<a class="headerlink" href="#244-6" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Suppose that in addition to a system of difference constraints, we want to handle <strong><em>equality constraints</em></strong> of the form $x_i = x_j + b_k$. Show how to adapt the Bellman-Ford algorithm to solve this variety of constraint system.</p>
 </blockquote>
 <p>To obtain the equality constraint $x_i = x_j + b_k$ we simply use the inequalities $x_i - x_j \le b_k$ and $x_j - x_i \le -bk$, then solve the problem as usual.</p>
-<h2 id="244-7">24.4-7</h2>
+<h2 id="244-7">24.4-7<a class="headerlink" href="#244-7" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Show how to solve a system of difference constraints by a Bellman-Ford-like algorithm that runs on a constraint graph without the extra vertex $v_0$.</p>
 </blockquote>
 <p>(Removed)</p>
-<h2 id="244-8-star">24.4-8 $\star$</h2>
+<h2 id="244-8-star">24.4-8 $\star$<a class="headerlink" href="#244-8-star" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Let $Ax \le b$ be a system of $m$ difference constraints in $n$ unknowns. Show that the Bellman-Ford algorithm, when run on the corresponding constraint graph, maximizes $\sum_{i = 1}^n x_i$ subject to $Ax \le b$ and $x_i \le 0$ for all $x_i$.</p>
 </blockquote>
 <p>Bellman-Ford correctly solves the system of difference constraints so $Ax \le b$ is always satisfied. We also have that $x_i = \delta(v_0, v_i) \le w(v_0, v_i) = 0$ so $x_i \le 0$ for all $i$. To show that $\sum x_i$ is maximized, we'll show that for any feasible solution $(y_1, y_2, \ldots, y_n)$ which satisfies the constraints we have $yi \le \delta(v_0, v_i) = x_i$. Let $v_0, v_{i_1}, \ldots, v_{i_k}$ be a shortest path from $v_0$ to $v_i$ in the constraint graph. Then we must have the constraints $y_{i_2} - y_{i_1} \le w(v_{i_1}, v_{i_2}), \ldots, y_{i_k} - y_{i_{k - 1}} \le w(v_{i_{k - 1}},v_{i_k})$. Summing these up we have</p>
 <p>$$y_i \le y_i - y_1 \le \sum_{m = 2}^k w(v_{i_m}, v_{i_{m - 1}}) = \delta(v_0, v_i) = x_i.$$</p>
-<h2 id="244-9-star">24.4-9 $\star$</h2>
+<h2 id="244-9-star">24.4-9 $\star$<a class="headerlink" href="#244-9-star" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Show that the Bellman-Ford algorithm, when run on the constraint graph for a system $Ax \le b$ of difference constraints, minimizes the quantity $(\max\{x_i\} - \min\{x_i\})$ subject to $Ax \le b$. Explain how this fact might come in handy if the algorithm is used to schedule construction jobs.</p>
 </blockquote>
 <p>We can see that the Bellman-Ford algorithm run on the graph whose construction is described in this section causes the quantity $\max\{x_i\} - \min\{x_i\}$ to be minimized. We know that the largest value assigned to any of the vertices in the constraint graph is a $0$. It is clear that it won't be greater than zero, since just the single edge path to each of the vertices has cost zero. We also know that we cannot have every vertex having a shortest path with negative weight. To see this, notice that this would mean that the pointer for each vertex has it's $p$ value going to some other vertex that is not the source. This means that if we follow the procedure for reconstructing the shortest path for any of the vertices, we have that it can never get back to the source, a contradiction to the fact that it is a shortest path from the source to that vertex.</p>
 <p>Next, we note that when we run Bellman-Ford, we are maximizing $\min\{x_i\}$. The shortest distance in the constraint graphs is the bare minimum of what is required in order to have all the constraints satisfied, if we were to increase any of the values we would be violating a constraint.</p>
 <p>This could be in handy when scheduling construction jobs because the quantity $\max\{x_i\} - \min\{x_i\}$ is equal to the difference in time between the last task and the first task. Therefore, it means that minimizing it would mean that the total time that all the jobs takes is also minimized. And, most people want the entire process of construction to take as short of a time as possible.</p>
-<h2 id="244-10">24.4-10</h2>
+<h2 id="244-10">24.4-10<a class="headerlink" href="#244-10" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Suppose that every row in the matrix $A$ of a linear program $Ax \le b$ corresponds to a difference constraint, a single-variable constraint of the form $x_i \le b_k$, or a singlevariable constraint of the form $-x_i \le b_k$. Show how to adapt the Bellman-Ford algorithm to solve this variety of constraint system.</p>
 </blockquote>
 <p>(Removed)</p>
-<h2 id="244-11">24.4-11</h2>
+<h2 id="244-11">24.4-11<a class="headerlink" href="#244-11" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Give an efficient algorithm to solve a system $Ax \le b$ of difference constraints when all of the elements of $b$ are real-valued and all of the unknowns $x_i$ must be integers.</p>
 </blockquote>
 <p>To do this, just take the floor of (largest integer that is less than or equal to) each of the $b$ values and solve the resulting integer difference problem. These modified constraints will be admitting exactly the same set of assignments since we required that the solution have integer values assigned to the variables. This is because since the variables are integers, all of their differences will also be integers. For an integer to be less than or equal to a real number, it is necessary and sufficient for it to be less than or equal to the floor of that real number.</p>
-<h2 id="244-12-star">24.4-12 $\star$</h2>
+<h2 id="244-12-star">24.4-12 $\star$<a class="headerlink" href="#244-12-star" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Give an efficient algorithm to solve a system $Ax \le b$ of difference constraints when all of the elements of $b$ are real-valued and a specified subset of some, but not necessarily all, of the unknowns $x_i$ must be integers.</p>
 </blockquote>
@@ -10172,6 +10172,46 @@ $$</p>
       </main>
       
         <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../24.3/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 24.3 Dijkstra&#39;s algorithm">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                24.3 Dijkstra's algorithm
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../24.5/" class="md-footer__link md-footer__link--next" aria-label="Next: 24.5 Proofs of shortest-paths properties">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                24.5 Proofs of shortest-paths properties
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -10209,7 +10249,18 @@ $$</p>
       
       
     
-    <a href="https://www.linkedin.com/in/walkccc/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+    <a href="https://twitter.com/pengyuc_" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9L389.2 48zm-24.8 373.8h39.1L151.1 88h-42l255.3 333.8z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/pengyuc" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
     </a>
   
@@ -10236,16 +10287,16 @@ $$</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
       
         <script src="../../js/katex.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

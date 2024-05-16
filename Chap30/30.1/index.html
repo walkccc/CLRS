@@ -60,7 +60,7 @@
     
       <link rel="stylesheet" href="../../css/custom.css">
     
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -71,7 +71,7 @@
   
   
 
-<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-117404761-1"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-117404761-1",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-117404761-1",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-NE8FKX91SB"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-NE8FKX91SB",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-NE8FKX91SB",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -9957,7 +9957,7 @@
 
   <h1>30.1 Representing polynomials</h1>
 
-<h2 id="301-1">30.1-1</h2>
+<h2 id="301-1">30.1-1<a class="headerlink" href="#301-1" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Multiply the polynomials $A(x) = 7x^3 - x^2 + x - 10$ and $B(x) = 8x^3 - 6x + 3$ using equations $\text{(30.1)}$ and $\text{(30.2)}$.</p>
 </blockquote>
@@ -9967,14 +9967,14 @@
 = &amp; 56x^6 - 8x^5 - 34x^4 - 53x^3 - 9x^2 + 63x - 30.
 \end{array}
 $$</p>
-<h2 id="301-2">30.1-2</h2>
+<h2 id="301-2">30.1-2<a class="headerlink" href="#301-2" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Another way to evaluate a polynomial $A(x)$ of degree-bound $n$ at a given point $x_0$ is to divide $A(x)$ by the polynomial $(x - x_0)$, obtaining a quotient polynomial $q(x)$ of degree-bound $n - 1$ and a remainder $r$, such that</p>
 <p>$$A(x) = q(x)(x - x_0) + r.$$</p>
 <p>Clearly, $A(x_0) = r$. Show how to compute the remainder $r$ and the coefficients of $q(x)$ in time $\Theta(n)$ from $x_0$ and the coefficients of $A$.</p>
 </blockquote>
 <p>Let $A$ be the matrix with $1$'s on the diagonal, $−x_0$'s on the super diagonal, and $0$'s everywhere else. Let $q$ be the vector $(r, q_0, q_1, \dots, x_{n − 2})$. If $a = (a_0, a_1, \dots, a_{n − 1})$ then we need to solve the matrix equation $Aq = a$ to compute the remainder and coefficients. Since $A$ is tridiagonal, Problem 28-1 (e) tells us how to solve this equation in linear time.</p>
-<h2 id="301-3">30.1-3</h2>
+<h2 id="301-3">30.1-3<a class="headerlink" href="#301-3" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Derive a point-value representation for $A^\text{rev}(x) = \sum_{j = 0}^{n - 1} a_{n - 1 - j}x^j$ from a point-value representation for $A(x) = \sum_{j = 0}^{n - 1} a_jx^j$, assuming that none of the points is $0$.</p>
 </blockquote>
@@ -9989,23 +9989,23 @@ A^{rev}(\frac{1}{p})
 \end{aligned}
 $$</p>
 <p>since we know what $A(p)$ is, we can compute $A^{rev}(\frac{1}{p})$ of course, we are using the fact that $p \ne 0$ because we are dividing by it. Also, we know that each of these points are distinct, because $\frac{1}{p} = \frac{1}{p'}$ implies that $p = p'$ by cross multiplication. So, since all the $x$ values were distinct in the point value representation of $A$, they will be distinct in this point value representation of $A^{rev}$ that we have made.</p>
-<h2 id="301-4">30.1-4</h2>
+<h2 id="301-4">30.1-4<a class="headerlink" href="#301-4" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Prove that $n$ distinct point-value pairs are necessary to uniquely specify a polynomial of degree-bound $n$, that is, if fewer than $n$ distinct point-value pairs are given, they fail to specify a unique polynomial of degree-bound $n$. ($\textit{Hint:}$ Using Theorem 30.1, what can you say about a set of $n - 1$ point-value pairs to which you add one more arbitrarily chosen point-value pair?)</p>
 </blockquote>
 <p>Suppose that just $n − 1$ point-value pairs uniquely determine a polynomial $P$ which satisfies them. Append the point value pair $(x_{n - 1}, y_{n − 1})$ to them, and let $P'$ be the unique polynomial which agrees with the $n$ pairs, given by Theorem 30.1. Now append instead $(x_{n - 1}, y'_{n − 1})$ where $y_{n − 1} \ne y'_{n - 1}$, and let $P''$ be the polynomial obtained from these points via Theorem 30.1. Since polynomials coming from $n$ pairs are unique, $P' \ne P''$. However, $P'$ and $P''$ agree on the original $n − 1$ point-value pairs, contradicting the fact that $P$ was determined uniquely.</p>
-<h2 id="301-5">30.1-5</h2>
+<h2 id="301-5">30.1-5<a class="headerlink" href="#301-5" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Show how to use equation $\text{(30.5)}$ to interpolate in time $\Theta(n^2)$. ($\textit{Hint:}$ First compute the coefficient representation of the polynomial $\prod_j (x - x_j)$ and then divide by $(x - x_k)$ as necessary for the numerator of each term; see Exercise 30.1-2. You can compute each of the $n$ denominators in time $O(n)$.)</p>
 </blockquote>
 <p>First, we show that we can compute the coefficient representation of $\prod_j (x - x_j)$ in time $\Theta(n^2)$. We will do it by recursion, showing that multiplying $\prod_{j &lt; k} (x − x_j)$ by $(x − x_k)$ only takes time $O(n)$, since this only needs to be done $n$ times, this gets is total runtime of $O(n)$. Suppose that $\sum_{i = 0}^{k - 1} k_ix^i$ is a coefficient representation of $\prod_{j &lt; k} (x − x_j)$. To multiply this by $(x − x_k)$, we just set $(k + 1)_i = k_{i − 1} - x_kk_i$ for $i = 1, \dots, k$ and $(k + 1)_0 = −x_k \cdot k_0$. Each of these coefficients can be computed in constant time, since there are only linearly many coefficients, then, the time to compute the next partial product is just $O(n)$.</p>
 <p>Now that we have a coefficient representation of $\prod_j (x − x_j)$, we need to compute, for each $k \prod_{j − k} (x − x_j)$, each of which can be computed in time $\Theta(n)$ by problem 30.1-2. Since the polynomial is defined as a product of things containing the thing we are dividing by, we have that the remainder in each case is equal to $0$. Lets call these polynomials $f_k$. Then, we need only compute the sum $\sum_k y_k \frac{f_k(x)}{f_k(x_k)}$. That is, we compute $f(x_k)$ each in time $\Theta(n)$, so all told, only $\Theta(n^2)$ time is spent computing all the $f(x_k)$ values. For each of the terms in the sum, dividing the polynomial $f_k(x)$ by the number $f_k(x_k)$ and multiplying by $y_k$ only takes time $\Theta(n)$, so total it takes time $\Theta(n^2)$. Lastly, we are adding up $n$ polynomials, each of degree bound $n − 1$, so the total time taken there is $\Theta(n^2)$.</p>
-<h2 id="301-6">30.1-6</h2>
+<h2 id="301-6">30.1-6<a class="headerlink" href="#301-6" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Explain what is wrong with the "obvious" approach to polynomial division using a point-value representation, i.e., dividing the corresponding $y$ values. Discuss separately the case in which the division comes out exactly and the case in which it doesn't.</p>
 </blockquote>
 <p>If we wish to compute $P / Q$ but $Q$ takes on the value zero at some of these points, then we can't carry out the "obvious" method. However, as long as all point value pairs $(x_i, y_i)$ we choose for $Q$ are such that $y_i \ne 0$, then the approach comes out exactly as we would like.</p>
-<h2 id="301-7">30.1-7</h2>
+<h2 id="301-7">30.1-7<a class="headerlink" href="#301-7" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Consider two sets $A$ and $B$, each having $n$ integers in the range from $0$ to $10n$. We wish to compute the <strong><em>Cartesian sum</em></strong> of $A$ and $B$, defined by</p>
 <p>$$C = \{x + y: x \in A \text{ and } y \in B\}.$$</p>
@@ -10037,6 +10037,46 @@ $$</p>
       </main>
       
         <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../Chap29/Problems/29-5/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 29-5 Minimum-cost circulation">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                29-5 Minimum-cost circulation
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../30.2/" class="md-footer__link md-footer__link--next" aria-label="Next: 30.2 The DFT and FFT">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                30.2 The DFT and FFT
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -10074,7 +10114,18 @@ $$</p>
       
       
     
-    <a href="https://www.linkedin.com/in/walkccc/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+    <a href="https://twitter.com/pengyuc_" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9L389.2 48zm-24.8 373.8h39.1L151.1 88h-42l255.3 333.8z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/pengyuc" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
     </a>
   
@@ -10101,16 +10152,16 @@ $$</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
       
         <script src="../../js/katex.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

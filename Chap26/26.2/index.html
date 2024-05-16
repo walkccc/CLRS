@@ -60,7 +60,7 @@
     
       <link rel="stylesheet" href="../../css/custom.css">
     
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -71,7 +71,7 @@
   
   
 
-<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-117404761-1"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-117404761-1",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-117404761-1",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-NE8FKX91SB"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-NE8FKX91SB",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-NE8FKX91SB",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -10065,12 +10065,12 @@
 
   <h1>26.2 The Ford-Fulkerson method</h1>
 
-<h2 id="262-1">26.2-1</h2>
+<h2 id="262-1">26.2-1<a class="headerlink" href="#262-1" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Prove that the summations in equation $\text{(26.6)}$ equal the summations in equation $\text{(26.7)}$.</p>
 </blockquote>
 <p>(Removed)</p>
-<h2 id="262-2">26.2-2</h2>
+<h2 id="262-2">26.2-2<a class="headerlink" href="#262-2" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>In Figure $\text{26.1}$(b), what is the flow across the cut $(\{s, v_2, v_4\}, \{v_1, v_3, t\})$? What is the capacity of this cut?</p>
 </blockquote>
@@ -10080,57 +10080,57 @@ f(S, T) &amp; = f(s, v_1) + f(v_2, v_1) + f(v_4, v_3) + f(v_4, t) - f(v_3, v_2) 
 c(S, T) &amp; = c(s, v_1) + c(v_2, v_1) + c(v_4, v_3) + c(v_4, t) = 16 + 4 + 7 + 4 = 31.
 \end{aligned}
 $$</p>
-<h2 id="262-3">26.2-3</h2>
+<h2 id="262-3">26.2-3<a class="headerlink" href="#262-3" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Show the execution of the Edmonds-Karp algorithm on the flow network of Figure 26.1(a).</p>
 </blockquote>
 <p>If we perform a breadth first search where we consider the neighbors of a vertex as they appear in the ordering $\{s, v_1, v_2, v_3, v_4, t\}$, the first path that we will find is $s, v_1, v_3, t$. The min capacity of this augmenting path is $12$, so we send $12$ units along it. We perform a $\text{BFS}$ on the resulting residual network. This gets us the path $s, v_2, v_4, t$. The min capacity along this path is $4$, so we send $4$ units along it. Then, the only path remaining in the residual network is $\{s, v_2, v_4, v_3, t\}$ which has a min capacity of $7$, since that's all that's left, we find it in our $\text{BFS}$. Putting it all together, the total flow that we have found has a value of $23$.</p>
-<h2 id="262-4">26.2-4</h2>
+<h2 id="262-4">26.2-4<a class="headerlink" href="#262-4" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>In the example of Figure 26.6, what is the minimum cut corresponding to the maximum flow shown? Of the augmenting paths appearing in the example, which one cancels flow?</p>
 </blockquote>
 <p>A minimum cut corresponding to the maximum flow is $S = \{s, v_1, v_2, v_4\}$ and $T = \{v_3, t\}$. The augmenting path in part (c) cancels flow on edge $(v_3, v_2)$.</p>
-<h2 id="262-5">26.2-5</h2>
+<h2 id="262-5">26.2-5<a class="headerlink" href="#262-5" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Recall that the construction in Section 26.1 that converts a flow network with multiple sources and sinks into a single-source, single-sink network adds edges with infinite capacity. Prove that any flow in the resulting network has a finite value if the edges of the original network with multiple sources and sinks have finite capacity.</p>
 </blockquote>
 <p>Since the only edges that have infinite value are those going from the supersource or to the supersink, as long as we pick a cut that has the supersource and all the original sources on one side, and the other side has the supersink as well as all the original sinks, then it will only cut through edges of finite capacity. Then, by Corollary 26.5, we have that the value of the flow is bounded above by the value of any of these types of cuts, which is finite.</p>
-<h2 id="262-6">26.2-6</h2>
+<h2 id="262-6">26.2-6<a class="headerlink" href="#262-6" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Suppose that each source $s_i$ in a flow network with multiple sources and sinks produces exactly $p_i$ units of flow, so that $\sum_{v \in V} f(s_i, v) = p_i$. Suppose also that each sink $t_j$ consumes exactly $q_j$ units, so that $\sum_{v \in V} f(v, t_j) = q_j$, where $\sum_i p_i = \sum_j q_j$. Show how to convert the problem of finding a flow $f$ that obeys these additional constraints into the problem of finding a maximum flow in a single-source, single-sink flow network.</p>
 </blockquote>
 <p>$c(s, s_i) = p_i$, $c(t_j, t) = q_j$.</p>
-<h2 id="262-7">26.2-7</h2>
+<h2 id="262-7">26.2-7<a class="headerlink" href="#262-7" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Prove Lemma 26.2.</p>
 </blockquote>
 <p>To check that $f_p$ is a flow, we make sure that it satisfies both the capacity constraints and the flow constraints. First, the capacity constraints. To see this, we recall our definition of $c_f(p)$, that is, it is the smallest residual capacity of any of the edges along the path $p$. Since we have that the residual capacity is always less than or equal to the initial capacity, we have that each value of the flow is less than the capacity. Second, we check the flow constraints, Since the only edges that are given any flow are along a path, we have that at each vertex interior to the path, the flow in from one edge is immediately canceled by the flow out to the next vertex in the path. Lastly, we can check that its value is equal to $c_f(p)$ because, while $s$ may show up at spots later on in the path, it will be canceled out as it leaves to go to the next vertex. So, the only net flow from s is the initial edge along the path, since it (along with all the other edges) is given flow $c_f(p)$, that is the value of the flow $f_p$.</p>
-<h2 id="262-8">26.2-8</h2>
+<h2 id="262-8">26.2-8<a class="headerlink" href="#262-8" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Suppose that we redefine the residual network to disallow edges into $s$. Argue that the procedure $\text{FORD-FULKERSON}$ still correctly computes a maximum flow.</p>
 </blockquote>
 <p>(Removed)</p>
-<h2 id="262-9">26.2-9</h2>
+<h2 id="262-9">26.2-9<a class="headerlink" href="#262-9" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Suppose that both $f$ and $f'$ are flows in a network $G$ and we compute flow $f \uparrow f'$. Does the augmented flow satisfy the flow conservation property? Does it satisfy the capacity constraint?</p>
 </blockquote>
 <p>(Removed)</p>
-<h2 id="262-10">26.2-10</h2>
+<h2 id="262-10">26.2-10<a class="headerlink" href="#262-10" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Show how to find a maximum flow in a network $G = (V, E)$ by a sequence of at most $|E|$ augmenting paths. ($\textit{Hint:}$ Determine the paths after finding the maximum flow.)</p>
 </blockquote>
 <p>Suppose we already have a maximum flow $f$. Consider a new graph $G$ where we set the capacity of edge $(u, v)$ to $f(u, v)$. Run Ford-Fulkerson, with the modification that we remove an edge if its flow reaches its capacity. In other words, if $f(u, v) = c(u, v)$ then there should be no reverse edge appearing in residual network. This will still produce correct output in our case because we never exceed the actual maximum flow through an edge, so it is never advantageous to cancel flow. The augmenting paths chosen in this modified version of Ford-Fulkerson are precisely the ones we want. There are at most $|E|$ because every augmenting path produces at least one edge whose flow is equal to its capacity, which we set to be the actual flow for the edge in a maximum flow, and our modification prevents us from ever destroying this progress.</p>
-<h2 id="262-11">26.2-11</h2>
+<h2 id="262-11">26.2-11<a class="headerlink" href="#262-11" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>The <strong><em>edge connectivity</em></strong> of an undirected graph is the minimum number $k$ of edges that must be removed to disconnect the graph. For example, the edge connectivity of a tree is $1$, and the edge connectivity of a cyclic chain of vertices is $2$. Show how to determine the edge connectivity of an undirected graph $G = (V, E)$ by running a maximum-flow algorithm on at most $|V|$ flow networks, each having $O(V)$ vertices and $O(E)$ edges.</p>
 </blockquote>
 <p>Create an directed version of the graph. Then create a flow network out of it, resolving all antiparallel edges. All edges' capacities are set to $1$. Pick any vertex that wasn't created for antiparallel workaround as the sink and run maximum-flow algorithm with all vertexes that aren't for antipararrel workaround (except the sink) as sources. Find the minimum value out of all $|V| - 1$ maximum flow values.</p>
-<h2 id="262-12">26.2-12</h2>
+<h2 id="262-12">26.2-12<a class="headerlink" href="#262-12" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Suppose that you are given a flow network $G$, and $G$ has edges entering the source $s$. Let $f$ be a flow in $G$ in which one of the edges $(v, s)$ entering the source has $f(v, s) = 1$. Prove that there must exist another flow $f'$ with $f'(v, s) = 0$ such that $|f| = |f'|$. Give an $O(E)$-time algorithm to compute $f'$, given $f$, and assuming that all edge capacities are integers.</p>
 </blockquote>
 <p>(Removed)</p>
-<h2 id="262-13">26.2-13</h2>
+<h2 id="262-13">26.2-13<a class="headerlink" href="#262-13" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Suppose that you wish to find, among all minimum cuts in a flow network $G$ with integral capacities, one that contains the smallest number of edges. Show how to modify the capacities of $G$ to create a new flow network $G'$ in which any minimum cut in $G'$ is a minimum cut with the smallest number of edges in $G$.</p>
 </blockquote>
@@ -10160,6 +10160,46 @@ $$</p>
       </main>
       
         <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../26.1/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 26.1 Flow networks">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                26.1 Flow networks
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../26.3/" class="md-footer__link md-footer__link--next" aria-label="Next: 26.3 Maximum bipartite matching">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                26.3 Maximum bipartite matching
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -10197,7 +10237,18 @@ $$</p>
       
       
     
-    <a href="https://www.linkedin.com/in/walkccc/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+    <a href="https://twitter.com/pengyuc_" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9L389.2 48zm-24.8 373.8h39.1L151.1 88h-42l255.3 333.8z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/pengyuc" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
     </a>
   
@@ -10224,16 +10275,16 @@ $$</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
       
         <script src="../../js/katex.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

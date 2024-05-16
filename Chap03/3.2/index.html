@@ -60,7 +60,7 @@
     
       <link rel="stylesheet" href="../../css/custom.css">
     
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -71,7 +71,7 @@
   
   
 
-<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-117404761-1"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-117404761-1",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-117404761-1",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-NE8FKX91SB"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-NE8FKX91SB",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-NE8FKX91SB",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -9975,7 +9975,7 @@
 
   <h1>3.2 Standard notations and common functions</h1>
 
-<h2 id="32-1">3.2-1</h2>
+<h2 id="32-1">3.2-1<a class="headerlink" href="#32-1" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Show that if $f(n)$ and $g(n)$ are monotonically increasing functions, then so are the functions $f(n) + g(n)$ and $f(g(n))$, and if $f(n)$ and $g(n)$ are in addition nonnegative, then $f(n) \cdot g(n)$ is monotonically increasing.</p>
 </blockquote>
@@ -9992,7 +9992,7 @@ $$</p>
 <p>This is true, since $g(m) \le g(n)$ and $f(n)$ is monotonically increasing.</p>
 <p>If both functions are nonnegative, then we can multiply the two equalities and we get</p>
 <p>$$f(m) \cdot g(m) \le f(n) \cdot g(n).$$</p>
-<h2 id="32-2">3.2-2</h2>
+<h2 id="32-2">3.2-2<a class="headerlink" href="#32-2" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Prove equation $\text{(3.16)}$.</p>
 </blockquote>
@@ -10001,9 +10001,9 @@ $$</p>
 a^{\log_b c} = a^\frac{\log_a c}{\log_a b} = (a^{\log_a c})^{\frac{1}{\log_a b}} = c^{\log_b a}
 \end{aligned}
 $$</p>
-<h2 id="32-3">3.2-3</h2>
+<h2 id="32-3">3.2-3<a class="headerlink" href="#32-3" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>Prove equation $\text{(3.19)}$. Also prove that $n! \ne \omega(2^n)$ and $n! \ne o(n^n)$.</p>
+<p>Prove equation $\text{(3.19)}$. Also prove that $n! = \omega(2^n)$ and $n! = o(n^n)$.</p>
 <p>$$\lg(n!) = \Theta(n\lg n) \tag{3.19}$$</p>
 </blockquote>
 <p>We can use <strong>Stirling's approximation</strong> to prove these three equations.</p>
@@ -10018,7 +10018,7 @@ $$</p>
   &amp; = \Theta(n\lg n).
 \end{aligned}
 $$</p>
-<p>For $n! \ne \omega(2^n)$,</p>
+<p>For $n! = \omega(2^n)$,</p>
 <p>$$
 \begin{aligned}
 \lim_{n \to \infty} \frac{2^n}{n!}
@@ -10029,7 +10029,7 @@ $$</p>
 \end{aligned}
 $$</p>
 <p>where the last step holds for $n &gt; 4e$.</p>
-<p>For $n! \ne o(n^n)$,</p>
+<p>For $n! = o(n^n)$,</p>
 <p>$$
 \begin{aligned}
 \lim_{n \to \infty} \frac{n^n}{n!}
@@ -10041,7 +10041,7 @@ $$</p>
   &amp; =   \lim_{n \to \infty} \frac{e^n}{c} = \infty.
 \end{aligned}
 $$</p>
-<h2 id="32-4-star">3.2-4 $\star$</h2>
+<h2 id="32-4-star">3.2-4 $\star$<a class="headerlink" href="#32-4-star" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Is the function $\lceil \lg n \rceil!$ polynomially bounded? Is the function $\lceil \lg\lg n \rceil!$ polynomially bounded?</p>
 </blockquote>
@@ -10079,7 +10079,7 @@ $$</p>
 $$</p>
 <p>The last step above follows from the property that any polylogarithmic function grows more slowly than any positive polynomial function, i.e., that for constants $a, b &gt; 0$, we have $\lg^b n = o(n^a)$. Substitute $\lg n$ for $n$, $2$ for $b$, and $1$ for $a$, giving $\lg^2(\lg n) = o(\lg n)$.</p>
 <p>Therefore, $\lg(\lceil \lg\lg n \rceil!) = O(\lg n)$, and so $\lceil \lg\lg n \rceil!$ is polynomially bounded.</p>
-<h2 id="32-5-star">3.2-5 $\star$</h2>
+<h2 id="32-5-star">3.2-5 $\star$<a class="headerlink" href="#32-5-star" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Which is asymptotically larger: $\lg(\lg^*n)$ or $\lg^*(\lg n)$?</p>
 </blockquote>
@@ -10095,7 +10095,7 @@ $$</p>
 \end{aligned}
 $$</p>
 <p>Therefore, we have that $\lg^*(\lg n)$ is asymptotically larger.</p>
-<h2 id="32-6">3.2-6</h2>
+<h2 id="32-6">3.2-6<a class="headerlink" href="#32-6" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Show that the golden ratio $\phi$ and its conjugate $\hat \phi$ both satisfy the equation $x^2 = x + 1$.</p>
 </blockquote>
@@ -10105,7 +10105,7 @@ $$</p>
 \hat\phi^2 &amp; = \Bigg(\frac{1 - \sqrt 5}{2}\Bigg)^2 = \frac{6 - 2\sqrt 5}{4} = 1 + \frac{1 - \sqrt 5}{2} = 1 + \hat\phi.
 \end{aligned}
 $$</p>
-<h2 id="32-7">3.2-7</h2>
+<h2 id="32-7">3.2-7<a class="headerlink" href="#32-7" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Prove by induction that the $i$th Fibonacci number satisfies the equality</p>
 <p>$$F_i = \frac{\phi^i - \hat\phi^i}{\sqrt 5},$$</p>
@@ -10150,7 +10150,7 @@ F_i &amp; = F_{i - 1} + F_{i - 2} \\
 $$</p>
 </li>
 </ul>
-<h2 id="32-8">3.2-8</h2>
+<h2 id="32-8">3.2-8<a class="headerlink" href="#32-8" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Show that $k\ln k = \Theta(n)$ implies $k = \Theta(n / \lg n)$.</p>
 </blockquote>
@@ -10185,6 +10185,46 @@ $$</p>
       </main>
       
         <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../3.1/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 3.1 Asymptotic notation">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                3.1 Asymptotic notation
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Problems/3-1/" class="md-footer__link md-footer__link--next" aria-label="Next: 3-1 Asymptotic behavior of polynomials">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                3-1 Asymptotic behavior of polynomials
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -10222,7 +10262,18 @@ $$</p>
       
       
     
-    <a href="https://www.linkedin.com/in/walkccc/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+    <a href="https://twitter.com/pengyuc_" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9L389.2 48zm-24.8 373.8h39.1L151.1 88h-42l255.3 333.8z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/pengyuc" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
     </a>
   
@@ -10249,16 +10300,16 @@ $$</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
       
         <script src="../../js/katex.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
       
     
   </body>
