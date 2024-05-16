@@ -1,70 +1,67 @@
-# Project information
 site_name: CLRS Solutions
 site_description: Solutions to Introduction to Algorithms Third Edition. CLRS Solutions. The textbook that a Computer Science (CS) student must read.
 site_author: P.-Y. Chen
 site_url: https://walkccc.me/CLRS
 
-# Repository
 repo_name: walkccc/CLRS
 repo_url: https://github.com/walkccc/CLRS
 
-# Copyright
-copyright: Built by <a href="http://github.com/walkccc">P.-Y. Chen</a> &copy; 2017 - 2024
-
-# Configuration
 theme:
   name: material
-  language: en
   custom_dir: custom
+  language: en
   favicon: assets/favicon.png
-  palette:
-    # Light mode
-    - media: '(prefers-color-scheme: light)'
-      scheme: default
-      primary: teal
-      accent: blue
-      toggle:
-        icon: material/weather-night
-        name: Switch to dark mode
-    # Dark mode
-    - media: '(prefers-color-scheme: dark)'
-      scheme: slate
-      primary: cyan
-      accent: amber
-      toggle:
-        icon: material/weather-sunny
-        name: Switch to light mode
   font:
     text: Roboto
     code: Roboto Mono
   icon:
     logo: fontawesome/solid/earth-americas
     repo: fontawesome/brands/github
+  features:
+    - content.code.copy
+    - navigation.footer
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: blue
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: cyan
+      accent: amber
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
 
 # Customization
+copyright: Built by <a href="http://github.com/walkccc">P.-Y. Chen</a> &copy; 2017 - 2024
 extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/walkccc
+    - icon: fontawesome/brands/x-twitter
+      link: https://twitter.com/pengyuc_
     - icon: fontawesome/brands/linkedin
-      link: https://www.linkedin.com/in/walkccc/
+      link: https://www.linkedin.com/in/pengyuc
     - icon: fontawesome/solid/code
       link: https://walkccc.me/LeetCode
   analytics:
     provider: google
-    property: G-117404761-1
+    property: G-NE8FKX91SB
 
 extra_css:
   - css/katex.css
   - css/custom.css
-  - https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css
+  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css
 
 extra_javascript:
   - js/katex.js
-  - https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js
-  - https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js
 
-# Extensions
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
@@ -72,7 +69,7 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.superfences
   - toc:
-      permalink: false
+      permalink: true
 
 nav:
   - Preface: index.md
