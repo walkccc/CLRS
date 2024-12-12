@@ -10009,7 +10009,7 @@ $$</p>
 <blockquote>
 <p>Suppose that we run Johnson's algorithm on a directed graph $G$ with weight function $w$. Show that if $G$ contains a $0$-weight cycle $c$, then $\hat w(u, v) = 0$ for every edge $(u, v)$ in $c$.</p>
 </blockquote>
-<p>If $\delta(s, v) - \delta(s, u) \le w(u, v)$, we have</p>
+<p>If $\delta(s, v) - \delta(s, u) &lt; w(u, v)$, we have</p>
 <p>$$\delta(s, u) \le \delta(s, v) + (0 - w(u, v)) &lt; \delta(s, u) + w(u, v) - w(u, v) = \delta(s, u),$$</p>
 <p>which is impossible, thus $\delta(s, v) - \delta(s, u) = w(u, v)$, $\hat w(u, v) = w(u, v) + \delta(s, u) - \delta(s, v) = 0$.</p>
 <h2 id="253-6">25.3-6<a class="headerlink" href="#253-6" title="Permanent link">&para;</a></h2>

@@ -9808,7 +9808,7 @@
 <li>$\text{BUILD-MAX-HEAP}(A)$: $A = \langle 3, 2, 1 \rangle$.</li>
 <li>$\text{BUILD-MAX-HEAP}'(A)$: $A = \langle 3, 1, 2 \rangle$.</li>
 </ul>
-<p><strong>b.</strong> Each insert step takes at most $O(\lg n)$, since we are doing it $n$ times, we get a bound on the runtime of $O(n\lg n)$.</p>
+<p><strong>b.</strong> It is very easy to find out that the $\text{MAX-HEAP-INSERT}$ operation for each iteration takes $\Theta(\log i)$ time,  therefore the total time complexity is the sum of the individual complexities for $i$ from $2$ to $n$, which is : $\Theta(\log 2) + \Theta(\log 3) + \dots + \Theta(\log n) = \Theta(\log n!) $. By using Stirling's approximation, $\Theta (\log n!) \approx \Theta(n\log n)$, so the overall complexity is $\Theta(n\log⁡ n)$.</p>
 
 
 

@@ -10038,12 +10038,35 @@
 <blockquote>
 <p>Prove that if $G$ is an undirected bipartite graph with an odd number of vertices, then $G$ is nonhamiltonian.</p>
 </blockquote>
-<p>(Omit!)</p>
+<p>Let $G = (V, E)$ be a bipartite graph with bipartition $V = X \cup Y$, where $X \cap Y = \emptyset$. Assume for contradiction that:</p>
+<ol>
+<li>The total number of vertices $n = |X| + |Y|$ is <strong>odd</strong>.</li>
+<li>$G$ contains a <strong>Hamiltonian cycle</strong> $C$.</li>
+</ol>
+<p>Since $G$ is bipartite, the cycle $C$ must alternate between vertices in $X$ and $Y$. Starting at a vertex in $X$, the cycle proceeds to $Y$, then back to $X$, and so on. To return to the starting vertex in $X$, the cycle must consist of an <strong>even</strong> number of steps. However, $n$ is odd, making it impossible to alternate perfectly and return to the starting point.</p>
+<p>This contradiction implies that $G$ cannot have a Hamiltonian cycle when $n$ is odd.</p>
 <h2 id="342-3">34.2-3<a class="headerlink" href="#342-3" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Show that if $\text{HAM-CYCLE} \in P$, then the problem of listing the vertices of a hamiltonian cycle, in order, is polynomial-time solvable.</p>
 </blockquote>
-<p>(Omit!)</p>
+<p>We can use the following Lemma:</p>
+<p><strong>Lemma:</strong> Let $G$ be a Hamiltonian graph. If every edge in $G$ is <strong>essential</strong>, meaning it must appear in <strong>every</strong> Hamiltonian cycle of $G$, then $G$ itself must be a Hamiltonian cycle.</p>
+<p><strong>Proof of Lemma (by Contradiction):</strong> Let $C$ be a Hamiltonian cycle in $G$. Assume $G \neq C$, meaning there exists at least one edge $e \in G$ that does not belong to $C$. Thus, $e$ is <strong>non-essential</strong>. This contradicts the assumption that every edge in $G$ is <strong>essential</strong>.</p>
+<p><strong>Proof:</strong> Assume $\text{HAM-CYCLE} \in P$, meaning there exists a polynomial-time algorithm $A$ that decides whether a given graph contains a Hamiltonian cycle.</p>
+<p>Let $G = (V, E)$ be a graph with a Hamiltonian cycle. We begin by setting $G^\ast = G$.</p>
+<p>For each edge $e \in E$, we perform the following steps:</p>
+<ol>
+<li>Remove $e$ from $G^\ast$, resulting in a subgraph $G'$.</li>
+<li>Use algorithm $A$ to check if $G'$ still contains a Hamiltonian cycle:<ul>
+<li><strong>Case 1: $e$ is essential.</strong> If removing $e$ from $G^\ast$ causes $G'$ to lose its Hamiltonian cycle, then $e$ must be part of every Hamiltonian cycle in $G^\ast$. In this case, $G^\ast$ remains unchanged.</li>
+<li><strong>Case 2: $e$ is non-essential.</strong> If $G'$ still contains a Hamiltonian cycle, then there exist Hamiltonian cycles in $G^\ast$ that do not include $e$. In this case, we safely remove $e$ from $G^\ast$, so we update $G^\ast = G'$.</li>
+</ul>
+</li>
+</ol>
+<p>The iterations ensure that $G^\ast$ remains a subgraph of $G$ that still contains a Hamiltonian cycle. Every edge that remains in the final graph must be essential for the last $G^\ast$. Thus, by the lemma above, $G^\ast$ must be a Hamiltonian cycle. Since $G^\ast$ is a subgraph of $G$, it is also a Hamiltonian cycle of $G$.</p>
+<p>Algorithm $A$ runs in polynomial time, and since there are at most $O(n^2)$ edges in $G$, the total number of calls to $A$ is at most $O(n^2)$. Thus, the running time of the iterations is polynomial.</p>
+<p>Finally, listing the vertices of the Hamiltonian cycle in order can be done in polynomial time. This involves starting from an arbitrary vertex in $G^\ast$ and following the Hamiltonian cycle in $G^\ast$. Regardless of whether the graph is stored with an adjacency list or adjacency matrix, this will take polynomial time.</p>
+<p>Thus, the problem of listing the vertices of a Hamiltonian cycle in order can be solved in polynomial time.</p>
 <h2 id="342-4">34.2-4<a class="headerlink" href="#342-4" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Prove that the class $\text{NP}$ of languages is closed under union, intersection, concatenation, and Kleene star. Discuss the closure of $\text{NP}$ under complement.</p>

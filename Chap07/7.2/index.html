@@ -9943,15 +9943,48 @@
 <blockquote>
 <p>Use the substitution method to prove that the recurrence $T(n) = T(n - 1) + \Theta(n)$ has the solution $T(n) = \Theta(n^2)$, as claimed at the beginning of section 7.2.</p>
 </blockquote>
-<p>We represent $\Theta(n)$ as $c_2n$ and we guess that $T(n) \le c_1n^2$,</p>
+<p><strong>Proof</strong></p>
+<p>We are given the recurrence</p>
 <p>$$
-\begin{aligned}
-T(n) &amp; =   T(n - 1) + c_2n \\
-     &amp; \le c_1(n - 1)^2 + c_2n \\
-     &amp; =   c_1n^2 - 2c_1n + c_1 + c_2n &amp; (2c_1 &gt; c_2, n \ge c_1 / (2c_1 - c_2)) \\
-     &amp; \le c_1n^2.
-\end{aligned}
+T(n) = T(n - 1) + \Theta(n),
 $$</p>
+<p>and we aim to prove $T(n) = \Theta(n^2)$.</p>
+<p>By the definition of $\Theta(n)$, there exist constants $c_1$, $c_2$, and $n_0$ such that for all $n \ge n_0$,</p>
+<p>$$
+c_1 n \le f(n) \le c_2 n,
+$$</p>
+<p>where $f(n) = \Theta(n)$. Thus, the recurrence becomes</p>
+<p>$$
+T(n) = T(n - 1) + f(n), \quad \text{with} \quad c_1 n \le f(n) \le c_2 n.
+$$</p>
+<p><strong>Upper Bound</strong></p>
+<p>We conjecture $T(n) \le c_3 n^2$ for some constant $c_3$. Assume this holds for $T(k)$, i.e., $T(k) \le c_3 k^2$. Then,</p>
+<p>$$
+T(k+1) = T(k) + f(k+1) \le c_3 k^2 + c_2 (k+1).
+$$</p>
+<p>We want to show</p>
+<p>$$
+c_3 k^2 + c_2 (k+1) \le c_3 (k+1)^2.
+$$</p>
+<p>Expanding both sides:</p>
+<p>$$
+c_3 (k+1)^2 = c_3 k^2 + 2c_3 k + c_3,
+$$</p>
+<p>and</p>
+<p>$$
+c_3 k^2 + c_2 (k+1) = c_3 k^2 + c_2 k + c_2.
+$$</p>
+<p>Thus, we need</p>
+<p>$$
+c_2 k + c_2 \le 2c_3 k + c_3.
+$$</p>
+<p>This holds for $c_2 \le 2c_3$ and $c_2 \le c_3$, which is possible by choosing appropriate constants.</p>
+<p><strong>Lower Bound</strong></p>
+<p>The lower bound follows similarly by applying the lower bound $c_1 n$ for $f(n)$. Thus, we can conclude that</p>
+<p>$$
+T(n) = \Theta(n^2).
+$$</p>
+<p>This completes the proof.</p>
 <h2 id="72-2">7.2-2<a class="headerlink" href="#72-2" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>What is the running time of $\text{QUICKSORT}$ when all elements of the array $A$ have the same value?</p>

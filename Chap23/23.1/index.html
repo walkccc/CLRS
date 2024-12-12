@@ -10061,7 +10061,154 @@
 <blockquote>
 <p>Show that a graph has a unique minimum spanning tree if, for every cut of the graph, there is a unique light edge crossing the cut. Show that the converse is not true by giving a counterexample.</p>
 </blockquote>
-<p>(Removed)</p>
+<p><strong>Remark:</strong> Do not assume that all edge weights are distinct.</p>
+<p><strong>Part 1: Proving the Forward Direction</strong></p>
+<p><strong>Goal:</strong> Show that if every cut in the graph has a unique light edge crossing it, then the graph has exactly one MST.</p>
+<p><strong>Proof:</strong></p>
+<p>Assume, for contradiction, that the graph has <strong>two distinct MSTs</strong>, $T$ and $T'$.</p>
+<ol>
+<li>
+<p><strong>Identifying an Edge in $T$ but not in $T'$:</strong></p>
+<ul>
+<li>Since $T$ and $T'$ are distinct, there exists at least one edge that is in $T$ but not in $T'$.</li>
+<li>Let $(u, v)$ be such an edge.</li>
+</ul>
+</li>
+<li>
+<p><strong>Creating a Cut by Removing $(u, v)$:</strong></p>
+<ul>
+<li>Removing $(u, v)$ from $T$ divides it into two connected components (since trees are acyclic and connected).</li>
+<li>Let $T_u$ be the set of vertices reachable from $u$ without using $(u, v)$.</li>
+<li>Let $T_v$ be the set of vertices reachable from $v$ without using $(u, v)$.</li>
+<li>The sets $T_u$ and $T_v$ form a <strong>cut</strong> $(T_u, T_v)$ in the graph.</li>
+</ul>
+</li>
+<li>
+<p><strong>Unique Light Edge Crossing the Cut:</strong></p>
+<ul>
+<li>By assumption, the cut $(T_u, T_v)$ has a <strong>unique light edge</strong> crossing it.</li>
+<li>Let $(x, y)$ be this unique light edge.</li>
+<li>Note that $(u, v)$ crosses this cut because $u \in T_u$ and $v \in T_v$.</li>
+</ul>
+</li>
+<li>
+<p><strong>Analyzing the Unique Light Edge:</strong></p>
+<ul>
+<li>
+<p><strong>Case 1:</strong> If $(x, y) \ne (u, v)$, then:</p>
+<ul>
+<li>Since $(x, y)$ is the unique light edge and not $(u, v)$, it must have a weight <strong>less than</strong> $w(u, v)$.</li>
+<li><strong>Constructing a New Spanning Tree:</strong><ul>
+<li>Replace $(u, v)$ in $T$ with $(x, y)$ to get $T'' = T - { (u, v) } \cup {(x, y)}$.</li>
+<li>$T''$ is connected (since $(x, y)$ connects $T_u$ and $T_v$) and spans all vertices.</li>
+<li>The total weight of $T''$ is less than that of $T$ because $w(x, y) &lt; w(u, v)$.</li>
+</ul>
+</li>
+<li><strong>Contradiction:</strong><ul>
+<li>$T$ was assumed to be an MST, but $T''$ has a lower total weight.</li>
+<li>This contradicts the minimality of $T$.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Case 2:</strong> If $(x, y) = (u, v)$, then:</p>
+<ul>
+<li>The unique light edge crossing the cut is $(u, v)$.</li>
+<li><strong>Observing $T'$:</strong><ul>
+<li>Since $(u, v) \notin T'$, there must be a path from $u$ to $v$ in $T'$ (since $T'$ is connected).</li>
+<li>This path must cross the cut $(T_u, T_v)$ at least once.</li>
+<li>Let $e$ be an edge on this path that crosses the cut.</li>
+</ul>
+</li>
+<li><strong>Comparing Edge Weights:</strong><ul>
+<li>Since $(u, v)$ is the unique light edge crossing the cut, and $e \ne (u, v)$, it follows that $w(u, v) &lt; w(e)$.</li>
+</ul>
+</li>
+<li><strong>Constructing a New Spanning Tree:</strong><ul>
+<li>Add $(u, v)$ to $T'$, creating a cycle.</li>
+<li>Remove $e$ from this cycle to get $T'' = T' + {(u, v)} - {e}$.</li>
+<li>$T''$ is connected and spans all vertices.</li>
+<li>The total weight of $T''$ is less than that of $T'$ because $w(u, v) &lt; w(e)$.</li>
+</ul>
+</li>
+<li><strong>Contradiction:</strong><ul>
+<li>$T'$ was assumed to be an MST, but $T''$ has a lower total weight.</li>
+<li>This contradicts the minimality of $T'$.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Conclusion:</strong></p>
+<ul>
+<li>In both cases, assuming the existence of two distinct MSTs leads to a contradiction.</li>
+<li>Therefore, the initial assumption that there are two distinct MSTs is false.</li>
+<li><strong>Hence, the graph must have a unique MST.</strong></li>
+</ul>
+</li>
+</ol>
+<hr />
+<p><strong>Part 2: Showing the Converse is Not True</strong></p>
+<p><strong>Goal:</strong> Provide a counterexample to show that a graph can have a unique MST even if not every cut has a unique light edge crossing it.</p>
+<p><strong>Counterexample:</strong></p>
+<p><strong>Graph Description:</strong></p>
+<ul>
+<li><strong>Vertices:</strong> $a$, $b$, $c$.</li>
+<li><strong>Edges and Weights:</strong><ul>
+<li>Edge $(a, b)$ with weight $1$.</li>
+<li>Edge $(a, c)$ with weight $1$.</li>
+<li>Edge $(b, c)$ with weight $2$.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Visualization:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>    (1)
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>a ------- b
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a> \       /
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  \     /
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>   \   /
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>(1) \ / (2)
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>     c
+</code></pre></div>
+<p><strong>Analysis:</strong></p>
+<ol>
+<li>
+<p><strong>Possible Spanning Trees:</strong></p>
+<ul>
+<li><strong>Tree 1:</strong> Edges $(a, b)$ and $(a, c)$; total weight $1 + 1 = 2$.</li>
+<li><strong>Tree 2:</strong> Edges $(a, b)$ and $(b, c)$; total weight $1 + 2 = 3$.</li>
+<li><strong>Tree 3:</strong> Edges $(a, c)$ and $(b, c)$; total weight $1 + 2 = 3$.</li>
+</ul>
+</li>
+<li>
+<p><strong>Identifying the Unique MST:</strong></p>
+<ul>
+<li>The minimum total weight is $2$, achieved by Tree 1.</li>
+<li><strong>Therefore, the graph has a unique MST</strong> comprising edges $(a, b)$ and $(a, c)$.</li>
+</ul>
+</li>
+<li>
+<p><strong>Examining the Cuts:</strong></p>
+<ul>
+<li><strong>Cut between ${a}$ and ${b, c}$:</strong><ul>
+<li>Edges crossing this cut are $(a, b)$ and $(a, c)$.</li>
+<li>Both edges have the same weight $1$.</li>
+<li><strong>Therefore, this cut does not have a unique light edge</strong>; it has two edges with the minimum weight.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Conclusion:</strong></p>
+<ul>
+<li>The graph has a unique MST even though at least one cut does not have a unique light edge crossing it.</li>
+<li><strong>This demonstrates that the converse is not true.</strong></li>
+</ul>
+</li>
+</ol>
 <h2 id="231-7">23.1-7<a class="headerlink" href="#231-7" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Argue that if all edge weights of a graph are positive, then any subset of edges that connects all vertices and has minimum total weight must be a tree. Give an example to show that the same conclusion does not follow if we allow some weights to be nonpositive.</p>

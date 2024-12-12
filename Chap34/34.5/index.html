@@ -9982,9 +9982,44 @@
 <p>(Omit!)</p>
 <h2 id="345-2">34.5-2<a class="headerlink" href="#345-2" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>Given an integer $m \times n$ matrix $A$ and an integer $m$-vector $b$, the <strong><em>0-1 integerprogramming problem</em></strong> asks whether there exists an integer $n$-vector $x$ with elements in the set $\{0, 1\}$ such that $Ax \le b$. Prove that 0-1 integer programming is $\text{NP-complete}$. ($\textit{Hint:}$ Reduce from $\text{3-CNF-SAT}$.)</p>
+<p>Given an integer $m \times n$ matrix $A$ and an integer $m$-vector $b$, the <strong><em>0-1 integerprogramming problem</em></strong> asks whether there exists an integer $n$-vector $x$ with elements in the set $\{0, 1\}$ such that $Ax \le b$. Prove that 0-1 integer programming is $\text{NP-complete}$. ($\textit{Hint:}$ Reduce from $\text{3-CNF-SAT}$}$.)</p>
 </blockquote>
-<p>(Omit!)</p>
+<p>We begin by showing that 0-1 Integer Programming (0-1 IP) is in $\text{NP}$ and then prove that it is $\text{NP-hard}$ by reducing the $\text{3-CNF-SAT}$ problem to it.</p>
+<p>Given an assignment to the variables of a 0-1 Integer Programming problem, it is straightforward to check if the constraints are satisfied in polynomial time. We simply plug the values into the inequalities and verify that each constraint holds. Therefore, 0-1 Integer Programming is in $\text{NP}$.</p>
+<p>Next, we prove that 0-1 Integer Programming is $\text{NP-hard}$ by reducing $\text{3-CNF-SAT}$ to it. Let $S$ be a 3-CNF formula with $m$ clauses $C_1, \dots, C_m$ and $n$ variables $v_1, \dots, v_n$. The $\text{3-CNF-SAT}$ problem asks whether there exists a truth assignment to the variables such that every clause is satisfied.</p>
+<p>For each clause in $S$, we can represent the clause as an inequality. A clause $C_i$ in the formula is a disjunction of three literals, each being either a variable $v_i$ or its negation $\ne v_i$. For example, a clause $v_i \vee \ne v_j \vee v_k$ is satisfied if at least one of the literals evaluates to true. We can convert each such clause into an inequality for an integer program.</p>
+<p>Let $x_i$ represent the boolean variable $v_i$, and for negated variables, let $1 - x_j$ represent the boolean variable $\ne v_j$.  Thus, $x_i$ is 1 if $v_i$ is true, and 0 otherwise.  The clause $v_i \vee \ne v_j \vee v_k$ can be written as:</p>
+<p>$$
+x_i + (1 - x_j) + x_k \ge 1.
+$$</p>
+<p>This inequality guarantees that at least one of $x_i$, $1 - x_j$, or $x_k$ is 1, which corresponds to the clause being satisfied. Rewriting this, we get:</p>
+<p>$$
+x_i - x_j + x_k \ge 2.
+$$</p>
+<p>This is the inequality we need for the integer programming formulation.</p>
+<p>Now, to express the system of inequalities as a matrix inequality, we let $x = (x_1, x_2, \dots, x_n)$ be the vector of variables representing the boolean values of the original variables $v_1, v_2, \dots, v_n$. For each clause, we can write an inequality like the one above. In the case of $C_i = v_i \vee \ne v_j \vee v_k$, the corresponding inequality $x_i - x_j + x_k \ge 2$ can be represented in matrix form as:</p>
+<p>$$
+\begin{pmatrix}
+0 &amp; \dots &amp; 1 &amp; \dots &amp; -1 &amp; \dots &amp; 1 &amp; \dots &amp; 0
+\end{pmatrix}
+\begin{pmatrix}
+   x_1 \\
+   x_2 \\
+\vdots \\
+   x_n
+\end{pmatrix}
+\ge 2.
+$$</p>
+<p>In this vector, the positions corresponding to $x_i$, $x_j$, and $x_k$ are assigned the coefficients $1$, $-1$, and $1$, respectively, while all other positions are assigned 0. The inequality for each clause can then be written as:</p>
+<p>$$
+A x \ge b,
+$$</p>
+<p>where $A$ is a matrix whose rows represent the coefficients of each inequality, $x$ is the vector of variables, and $b$ is the corresponding vector of bounds for each inequality. The system of inequalities for the entire 3-CNF formula $S$ can then be represented as:</p>
+<p>$$
+A x \leq b.
+$$</p>
+<p>Thus, we have reduced the $\text{3-CNF-SAT}$ problem to a 0-1 Integer Programming problem, and since $\text{3-CNF-SAT}$ is $\text{NP-complete}$, it follows that 0-1 Integer Programming is $\text{NP-hard}$.</p>
+<p>Since 0-1 Integer Programming is both in $\text{NP}$ and $\text{NP-hard}$, it is $\text{NP-complete}$.</p>
 <h2 id="345-3">34.5-3<a class="headerlink" href="#345-3" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>The integer <strong><em>linear-programming problem</em></strong> is like the 0-1 integer-programming problem given in Exercise 34.5-2, except that the values of the vector $x$ may be any integers rather than just $0$ or $1$. Assuming that the 0-1 integer-programming problem is $\text{NP-hard}$, show that the integer linear-programming problem is $\text{NP-complete}$.</p>
