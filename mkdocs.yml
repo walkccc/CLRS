@@ -37,7 +37,7 @@ theme:
         name: Switch to light mode
 
 # Customization
-copyright: Built by <a href="http://github.com/walkccc">P.-Y. Chen</a> &copy; 2017 - 2024
+copyright: Built by <a href="http://github.com/walkccc">P.-Y. Chen</a> &copy; 2017 - 2025
 extra:
   social:
     - icon: fontawesome/brands/github
@@ -55,12 +55,12 @@ extra:
 extra_css:
   - css/katex.css
   - css/custom.css
-  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css
+  - https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css
 
 extra_javascript:
   - js/katex.js
-  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js
-  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js
 
 markdown_extensions:
   - pymdownx.highlight:
