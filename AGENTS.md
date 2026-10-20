@@ -18,15 +18,18 @@ Solutions to _Introduction to Algorithms_, Third Edition, published at https://w
   - Literal braces are `\\{` and `\\}`.
   - `_` and `*` inside `$...$` sometimes need `\_` and `\*` when Markdown turns them into emphasis.
 - GitHub's preview applies the same Markdown escaping inside math, so this source renders there too, apart from occasional quirks in `$$` blocks.
+- List items use `- `, and anything continuing an item is indented 4 spaces; MkDocs drops 2-space continuations out of the list. `npm run format` (Prettier with math masked out) enforces this.
 - Inside a list item, GitHub ignores `$$`. Use a ` ```math ` fence there instead, with plain LaTeX (`\\`, `\{`), since fenced content skips Markdown.
 
 ## Verify
 
 ```sh
 pip install -r requirements.txt
+npm ci
+npm run format
 python3 scripts/check_math.py
 mkdocs build --strict
 mkdocs serve
 ```
 
-CI runs `scripts/check_math.py` and `mkdocs build --strict` on every pull request and deploys `main` to the `gh-pages` branch.
+CI runs `npm run format:check`, `scripts/check_math.py`, and `mkdocs build --strict` on every pull request and deploys `main` to the `gh-pages` branch.
