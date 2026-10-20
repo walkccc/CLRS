@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "format": "node scripts/format.mjs",
+    "format:check": "node scripts/format.mjs --check"
+  },
+  "devDependencies": {
+    "prettier": "3.9.10"
+  }
+}

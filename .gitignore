@@ -1,3 +1,4 @@
 .DS_Store
 site/
 venv/
+node_modules/
