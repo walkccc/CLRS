@@ -1,0 +1,14 @@
+.md-header {
+  background-color: #2b5f75 !important;
+}
+
+@media only screen and (max-width: 76.1875em) {
+  .md-nav__source {
+    background-color: #2b5f75 !important;
+  }
+
+  html .md-nav--primary .md-nav__title {
+    background-color: #35708a !important;
+    color: #ffffff;
+  }
+}
