@@ -23,6 +23,8 @@ jobs:
 
       - run: python3 -m pip install -r requirements.txt
 
+      - run: python3 scripts/check_math.py
+
       - run: mkdocs build --strict
 
       - name: Upload the built site for PR preview

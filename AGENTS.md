@@ -17,14 +17,16 @@ Solutions to _Introduction to Algorithms_, Third Edition, published at https://w
   - Line breaks inside `cases`/`aligned` are `\\\\`, not `\\`.
   - Literal braces are `\\{` and `\\}`.
   - `_` and `*` inside `$...$` sometimes need `\_` and `\*` when Markdown turns them into emphasis.
-- Because of this escaping, GitHub's own Markdown preview renders some math wrongly. Only the built site matters.
+- GitHub's preview applies the same Markdown escaping inside math, so this source renders there too, apart from occasional quirks in `$$` blocks.
+- Inside a list item, GitHub ignores `$$`. Use a ` ```math ` fence there instead, with plain LaTeX (`\\`, `\{`), since fenced content skips Markdown.
 
 ## Verify
 
 ```sh
 pip install -r requirements.txt
+python3 scripts/check_math.py
 mkdocs build --strict
 mkdocs serve
 ```
 
-CI runs `mkdocs build --strict` on every pull request and deploys `main` to the `gh-pages` branch.
+CI runs `scripts/check_math.py` and `mkdocs build --strict` on every pull request and deploys `main` to the `gh-pages` branch.
