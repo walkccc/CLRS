@@ -24,13 +24,22 @@ jobs:
           python-version: '3.12'
           cache: 'pip'
 
-      - name: Check commit messages and PR title
+      - name: Check commit messages, timestamps, and PR title
         if: github.event_name == 'pull_request'
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
           PR_TITLE: ${{ github.event.pull_request.title }}
         run: python3 scripts/check_commit_messages.py "$BASE_SHA" "$HEAD_SHA" --title "$PR_TITLE"
+
+      - name: Check commit messages and timestamps on main
+        if: github.event_name == 'push' && github.event.before != '0000000000000000000000000000000000000000'
+        env:
+          BASE_SHA: ${{ github.event.before }}
+          HEAD_SHA: ${{ github.sha }}
+        run: |
+          git fetch --no-tags origin "$BASE_SHA"
+          python3 scripts/check_commit_messages.py "$BASE_SHA" "$HEAD_SHA"
 
       - run: python3 -m pip install -r requirements.txt
 

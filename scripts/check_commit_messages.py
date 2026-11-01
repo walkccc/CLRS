@@ -1,4 +1,4 @@
-"""Check the repository's single-line Update <files> convention."""
+"""Check single-line Update <files> messages and original-author timestamps."""
 
 import argparse
 from pathlib import PurePosixPath
@@ -36,6 +36,11 @@ def main():
             print(f'{sha}: expected a single-parent commit for linear history')
             failed = True
             continue
+        author = next(line for line in headers.splitlines() if line.startswith('author '))
+        committer = next(line for line in headers.splitlines() if line.startswith('committer '))
+        if author.rsplit('> ', 1)[1] != committer.rsplit('> ', 1)[1]:
+            print(f'{sha}: committer timestamp must equal the original author timestamp, including timezone')
+            failed = True
         files = names(git('diff-tree', '--no-commit-id', '--name-only', '-r', sha).splitlines())
         if not valid(message.rstrip('\n'), files):
             print(f'{sha}: expected only "Update {", ".join(files)}"')
@@ -46,7 +51,7 @@ def main():
             print(f'PR title: expected "Update {", ".join(files)}"')
             failed = True
     if not failed:
-        print(f'Checked {len(commits)} commit messages' + (' and PR title' if args.title is not None else ''))
+        print(f'Checked {len(commits)} commit messages and timestamps' + (' and PR title' if args.title is not None else ''))
     return failed
 
 

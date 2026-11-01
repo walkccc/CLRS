@@ -27,7 +27,7 @@ For each item read the body, comments, and diff (`gh pr diff N`). Check the clai
 
 - Branch from `origin/main`; one branch per item.
 - Commit subject and PR title are always `Update <files>`, exactly like the history: `Update 33.1.md`, `Update 5-1.md, 5-2.md`. The complete commit message is that single subject line, with no body or trailers. This applies to every contributor commit, including fixup commits; editing the PR title alone is insufficient.
-- Before rewording, save the original branch tip in a backup ref. Preserve each commit's tree, author identity/date, and committer identity/date exactly, including timezone offsets. Change only its message and, for descendants, parent references. Verify those fields byte-for-byte and verify an empty tree diff for every old/new pair. Preserve separate commits and contributor credit.
+- Before rewording, save the original branch tip in a backup ref. Preserve each commit's tree, author identity/date, and committer identity exactly. Set the committer timestamp to the original author timestamp, including its timezone offset. Never substitute the rewording or merge time. Verify the preserved fields byte-for-byte, verify exact author/committer timestamp equality, and verify an empty tree diff for every old/new pair. Preserve separate commits and contributor credit.
 - If updating a published branch, use `--force-with-lease` with the expected old SHA. Rewriting `main` requires a user request to do so; ordinary triage normalizes the PR branch before merging.
 - PR body: `Closes #N` when it resolves an issue, then what changed and why in a few sentences.
 - Follow the conventions in `AGENTS.md`.
@@ -46,12 +46,17 @@ Before landing, run `python3 scripts/check_commit_messages.py <base-sha> <head-s
 
 ## 5. Land
 
+When merging is authorized, land the verified PR head with a normal fast-forward push to `main`. Do not use `gh pr merge --rebase` or squash merge: GitHub assigns new committer timestamps. Keep the original author timestamps and set committer timestamps to those same values.
+
+If the PR needs rebasing, use `git rebase --committer-date-is-author-date origin/main`, normalize its messages and timestamps, update the PR branch with an explicit lease, and wait for checks on that exact head again. Recheck the changed content after any conflict resolution.
+
 ```sh
 gh pr checks N --watch
-gh pr merge N --rebase
+python3 scripts/check_commit_messages.py <base-sha> <verified-head-sha> --title "<PR title>"
+git push origin <verified-head-sha>:refs/heads/main
 ```
 
-Merge with `--rebase` to keep history linear. Merging to `main` deploys the site through Actions; confirm the run passes with `gh run list --branch main --limit 1`.
+The push must be a fast-forward; if `main` advances, fetch and rebase rather than forcing it. Verify that the PR is marked merged after the push. Merging to `main` deploys the site through Actions; confirm the run for the landed SHA passes with `gh run list --branch main --limit 1`.
 
 ## 6. Reply
 
