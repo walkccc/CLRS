@@ -21,6 +21,13 @@ Solutions to _Introduction to Algorithms_, Third Edition, published at https://w
 - List items use `- `, and anything continuing an item is indented 4 spaces; MkDocs drops 2-space continuations out of the list. `npm run format` (Prettier with math masked out) enforces this.
 - Inside a list item, GitHub ignores `$$`. Use a ` ```math ` fence there instead, with plain LaTeX (`\\`, `\{`), since fenced content skips Markdown.
 
+## Commit history
+
+- Commit messages and PR titles use `Update <files>` with file basenames, for example `Update 33.3.md` or `Update 5-1.md, 5-2.md`.
+- Commit messages contain only that subject line: no body or trailers. Check every contributor commit before merging; changing the PR title does not change its commit messages.
+- When rewording existing commits, preserve the tree, author and committer identities, and both timestamps exactly, including timezone offsets. Keep a backup ref and verify those fields for every rewritten commit. Do not squash contributors' commits to normalize their messages.
+- Shared skills live in `.agents/skills/`. When asked to handle issues or pull requests, or given GitHub notification emails, read `.agents/skills/triage/SKILL.md` and follow its workflow.
+
 ## Verify
 
 ```sh
@@ -32,4 +39,4 @@ mkdocs build --strict
 mkdocs serve
 ```
 
-CI runs `npm run format:check`, `scripts/check_math.py`, and `mkdocs build --strict` on every pull request and deploys `main` to the `gh-pages` branch.
+CI checks commit messages and PR titles on pull requests, runs `npm run format:check`, `scripts/check_math.py`, and `mkdocs build --strict` on every pull request and deploys `main` to the `gh-pages` branch.
